@@ -1,0 +1,956 @@
+{
+  "formId": "rt_6222",
+  "title": "RT-6222",
+  "sourceFile": "rt_6222.html",
+  "sections": [
+    {
+      "id": "basic_information",
+      "title": "RT-6222",
+      "sectionType": "form",
+      "fields": [],
+      "tables": [],
+      "sectionTitle": "Basic Information",
+      "sectionGroup": {
+        "fields_1": [
+          {
+            "type":"label",
+            "value" : "Basic Information",
+            "colSpan": 12
+          },
+          {
+            "_id": "ship",
+            "key": "ship",
+            "name": "ship",
+            "label": "Ship",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
+            "_id": "rt_6222_department",
+            "key": "rt_6222_department",
+            "name": "rt_6222_department",
+            "label": "DEPT:",
+            "type": "input",
+            "value": "ELE",
+            "required": false,
+            "disabled": true,
+            "placeholder": "",
+            "inputType": "text"
+          },
+          {
+            "_id": "rt_6222_equipment",
+            "key": "rt_6222_equipment",
+            "name": "rt_6222_equipment",
+            "label": "Equipment:",
+            "type": "input",
+            "value": "RT 6222 VHF 1&2",
+            "required": false,
+            "disabled": true,
+            "placeholder": "",
+            "inputType": "text",
+            "colSpan": 4
+          },
+          {
+            "_id": "rt_6222_date",
+            "key": "rt_6222_date",
+            "name": "rt_6222_date",
+            "label": "Date",
+            "type": "date",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "date",
+            "colSpan": 4
+          },
+          {
+            "_id": "rt_6222_nature_of_trials",
+            "key": "rt_6222_nature_of_trials",
+            "name": "rt_6222_nature_of_trials",
+            "label": "Nature of Trial",
+            "type": "input",
+            "value": "HATs/CH-HATs",
+            "required": false,
+            "disabled": true,
+            "placeholder": "",
+            "inputType": "text",
+            "colSpan": 4
+          }
+        ],
+        "tables_1": [
+          {
+            "id": "checks_table_1",
+            "sectionType": "simpleTable",
+            "title": "Checks",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Trial SER",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Check Description as per schedule",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Result (SAT / UNSAT)",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Presenting Authority Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [
+              {
+                "key": "ser",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "trial_ser",
+                "label": "Trial SER",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "check_description_as_per_schedule",
+                "label": "Check Description as per schedule",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "result_sat_unsat",
+                "label": "Result (SAT / UNSAT)",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "presenting_authority_remarks",
+                "label": "Presenting Authority Remarks",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "checks_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "4.1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "Initial Checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_1_cell_4_rt_6222_remarks_1",
+                    "key": "rt_6222_remarks_1",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_1_cell_5_rt_6222_remarks_1_unsat",
+                    "key": "rt_6222_remarks_1_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_1_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "checks_table_1_row_2",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "4.2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "VHF Control checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_2_cell_4_rt_6222_remarks_2",
+                    "key": "rt_6222_remarks_2",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_2_cell_5_rt_6222_remarks_2_unsat",
+                    "key": "rt_6222_remarks_2_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_2_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "checks_table_1_row_3",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "4.3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "Functional Checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_3_cell_4_rt_6222_remarks_3",
+                    "key": "rt_6222_remarks_3",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_3_cell_5_rt_6222_remarks_3_unsat",
+                    "key": "rt_6222_remarks_3_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_3_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "checks_table_1_row_4",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "4.4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_4_cell_3_static",
+                    "type": "label",
+                    "value": "SAT-C",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_4_cell_4_rt_6222_remarks_4",
+                    "key": "rt_6222_remarks_4",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_4_cell_5_rt_6222_remarks_4_unsat",
+                    "key": "rt_6222_remarks_4_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_4_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "checks_table_1_row_5",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "4.4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_5_cell_3_static",
+                    "type": "label",
+                    "value": "Initial checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_5_cell_4_rt_6222_remarks_5",
+                    "key": "rt_6222_remarks_5",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_5_cell_5_rt_6222_remarks_5_unsat",
+                    "key": "rt_6222_remarks_5_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_5_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "checks_table_1_row_6",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_table_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "4.5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_6_cell_3_static",
+                    "type": "label",
+                    "value": "Functional Checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_table_1_row_6_cell_4_rt_6222_remarks_6",
+                    "key": "rt_6222_remarks_6",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_6_cell_5_rt_6222_remarks_6_unsat",
+                    "key": "rt_6222_remarks_6_unsat",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_row_6_cell_5_field_5",
+                    "key": "field_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "remarks_table_1",
+            "sectionType": "simpleTable",
+            "title": "REMARKS",
+            "topHeaders": [
+              [
+                {
+                  "label": "Sr No",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Observations",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "SS Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [
+              {
+                "key": "sr_no",
+                "label": "Sr No",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "observations",
+                "label": "Observations",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "ss_remarks",
+                "label": "SS Remarks",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "remarks_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "remarks_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "remarks_table_1_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "remarks_table_1_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+        ],
+        "fields_2": [
+          {
+            "type":"label",
+            "value" : "Presenting Authority",
+            "colSpan": 12
+          },
+          {
+            "_id": "rt_6222_presenting_authority",
+            "key": "rt_6222_presenting_authority",
+            "name": "rt_6222_presenting_authority",
+            "label": "Presenting Authority",
+            "type": "select",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "options": [
+              {
+                "label": "--Select--",
+                "value": ""
+              },
+              {
+                "label": "Dockyard",
+                "value": "dockyard"
+              },
+              {
+                "label": "Shipstaff",
+                "value": "shipstaff"
+              },
+              {
+                "label": "OEM",
+                "value": "oem"
+              }
+            ],
+            "isDynamic": false
+          },
+          {
+            "_id": "rt_6222_watt",
+            "key": "rt_6222_watt",
+            "name": "rt_6222_watt",
+            "label": "WATT",
+            "type": "input",
+            "value": "VZG",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "text"
+          }
+        ],
+        "tables_2": []
+      }
+    }
+  ]
+}

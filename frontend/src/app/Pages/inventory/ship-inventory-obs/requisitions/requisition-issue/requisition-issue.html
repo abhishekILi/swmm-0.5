@@ -1,0 +1,50 @@
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Issue Spare</h3>
+    <button type="button" class="btn-secondary" (click)="goBack()">Back</button>
+  </div>
+
+  <form [formGroup]="form" class="obs-issue-form">
+    <div class="obs-issue-form__grid">
+      <app-input-field label="Issued To *" formControlName="username" />
+    </div>
+    <app-textarea-input label="Remarks *" [rows]="2" formControlName="remarks" />
+  </form>
+
+  <table class="obs-multi-table">
+    <thead>
+      <tr>
+        <th>Pattern No</th>
+        <th>Spare Description</th>
+        <th>Qty Auth</th>
+        <th>Qty Held</th>
+        <th>Quantity Issued</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (entry of entries(); track entry.id) {
+        <tr>
+          <td>{{ entry.patternNumber }}</td>
+          <td>{{ entry.description }}</td>
+          <td>{{ entry.quantityAuthorised }}</td>
+          <td>{{ entry.quantityAvailable }}</td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              class="obs-multi-table__qty"
+              [value]="quantityFor(entry.id)"
+              (input)="updateQuantity(entry.id, $any($event.target).value)"
+            />
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="obs-issue-form__actions">
+    <button type="button" class="btn-primary" [disabled]="saving()" (click)="submit()">
+      {{ saving() ? "Submitting..." : "Submit" }}
+    </button>
+  </div>
+</div>

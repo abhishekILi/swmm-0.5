@@ -1,0 +1,188 @@
+<div class="form-card-shell flex min-h-0 flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#0d2438]"
+  [class.form-card--preview]="previewMode" [class.form-card-shell--page-scroll]="pageScroll"
+  [class.flex-1]="!pageScroll" [style.height]="previewMode && !pageScroll ? '100%' : null"
+  [style.max-height]="!pageScroll ? '100%' : null">
+  <!-- ================= TOP BAR ================= -->
+  <div *ngIf="showTopBar && (previewMode || showPreviousReport)"
+    class="form-card-header z-40 shrink-0 border-b border-white/15 bg-white/[0.04] px-6 py-2 max-xl:px-4 header-poppins">
+    <div class="relative z-[1] mx-auto grid max-w-[1680px] items-center gap-4" [ngClass]="
+        previewMode
+          ? 'grid-cols-[minmax(180px,1fr)_minmax(520px,2.4fr)_minmax(220px,1fr)] max-xl:grid-cols-1'
+          : 'grid-cols-[auto_1fr] max-xl:grid-cols-1'
+      ">
+      <!-- LEFT -->
+      <div class="flex items-center justify-start gap-2 max-xl:justify-center">
+        <button *ngIf="showPreviousReport" type="button" (click)="onPreviousReport()"
+          class="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 text-[11px] font-semibold uppercase tracking-wide text-white/80 transition hover:border-[#61C2FF] hover:bg-white/15">
+          <i class="fa fa-clock-rotate-left text-white/70" aria-hidden="true"></i>
+          <span>{{ previousReportLabel }}</span>
+        </button>
+      </div>
+
+
+      <!-- CENTER ONLY FOR PREVIEW MODE -->
+      <div *ngIf="previewMode" class="min-w-0">
+        <div
+          class="mx-auto flex w-fit max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/15 bg-white/5 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <ng-content select="[previewHeader]"></ng-content>
+        </div>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="flex items-center justify-end gap-2 max-xl:flex-wrap max-xl:justify-center"
+        [class.col-start-2]="!previewMode">
+        <button type="button" (click)="onAction()"
+          class="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 text-[11px] font-semibold uppercase tracking-wide text-white/80 transition hover:border-[#61C2FF] hover:bg-white/15">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>User Action</span>
+        </button>
+
+        <button *ngIf="canShowAddTrialPass" type="button" (click)="onTrialPassDialogChange(true)"
+          class="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300 transition hover:bg-emerald-500/25">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span> Trial Pass</span>
+        </button>
+
+        <button *ngIf="showSecondaryAction" type="button" (click)="onSecondaryAction()"
+          class="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300 transition hover:bg-emerald-500/25">
+          <span>{{ secondaryActionLabel }}</span>
+        </button>
+
+        <button *ngIf="canShowTrialTypes" type="button" (click)="onTrialTypes()"
+          class="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300 transition hover:bg-emerald-500/25">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <span>Accept/Reject</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NORMAL HEADER ================= -->
+  <div *ngIf="!previewMode" class="form-card-header shrink-0 border-b border-white/15 bg-white/[0.04] px-6 py-3">
+    <div class="text-[16px] font-semibold uppercase tracking-[1.4px] text-white">
+      {{ title }}
+    </div>
+    <div class="mt-0.5 text-[11px] font-medium uppercase tracking-[1.2px] text-white/60">
+      {{ smallTitle }}
+    </div>
+  </div>
+
+  <!-- ================= MAIN CONTENT - ONLY ONE NG-CONTENT ================= -->
+  <div class="form-card-content" [ngClass]="
+      previewMode
+        ? (pageScroll
+            ? 'max-md:px-3'
+            : 'min-h-0 flex-1 overflow-y-auto max-md:px-3')
+        : 'p-3'
+    " [class.min-h-0]="!pageScroll" [class.flex-1]="!pageScroll" [class.overflow-y-auto]="!pageScroll">
+    <div [ngClass]="
+        previewMode
+          ? 'mx-auto w-full py-3'
+          : ''
+      ">
+      <div [ngClass]="
+          previewMode
+            ? 'min-h-full px-5'
+            : ''
+        ">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER - ONLY ONE FORM FOOTER SLOT ================= -->
+  <div *ngIf="showFormFooter" class="form-card-footer z-40 w-full shrink-0 border-t border-white/15 bg-white/[0.04]"
+    [ngClass]="
+      previewMode
+        ? 'header-poppins px-6 py-2 max-md:px-3'
+        : 'px-4 py-2'
+    ">
+    <div class="mx-auto items-center gap-4" [ngClass]="
+        previewMode
+          ? 'relative z-[1] grid max-w-[1680px] grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] max-xl:grid-cols-1'
+          : 'flex max-w-8xl flex-wrap justify-between'
+      ">
+      <!-- LEFT BACK -->
+      <div [ngClass]="
+          previewMode
+            ? 'flex items-center justify-start gap-2 max-xl:flex-wrap max-xl:justify-center'
+            : 'w-24'
+        ">
+        <button *ngIf="showBackButton" type="button" (click)="onBack()" [ngClass]="
+            previewMode
+              ? 'inline-flex h-9 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 text-[11px] font-semibold uppercase tracking-wide text-white/80 transition hover:border-[#61C2FF] hover:bg-white/15 max-md:w-full'
+              : 'w-full rounded-full border border-white/20 bg-white/10 py-1.5 text-xs font-semibold text-white/80 transition hover:border-[#61C2FF] hover:bg-white/15 disabled:opacity-50'
+          ">
+          <ng-container *ngIf="previewMode; else normalBackIcon">
+            <span>←</span>
+            <span>{{ backLabel }}</span>
+          </ng-container>
+
+          <ng-template #normalBackIcon>
+            <i class="fa fa-arrow-left mr-2"></i>
+            {{ backLabel }}
+          </ng-template>
+        </button>
+      </div>
+
+      <!-- CENTER PAGINATION -->
+      <div *ngIf="showPaginator" [ngClass]="
+          previewMode
+            ? 'mx-auto flex items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1 max-md:w-full max-md:flex-wrap max-md:justify-center'
+            : 'flex items-center gap-1'
+        ">
+        <button type="button" (click)="onFirstPage()" [disabled]="currentPage <= 1" [ngClass]="
+            previewMode
+              ? 'flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-base font-semibold text-white/80 transition hover:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-40'
+              : 'p-1 text-white/60 transition hover:text-white disabled:cursor-not-allowed disabled:opacity-40'
+          ">
+          «
+        </button>
+
+        <div [ngClass]="
+            previewMode
+              ? 'flex items-center gap-1 max-[480px]:max-w-[180px] max-[480px]:overflow-x-auto max-[480px]:[scrollbar-width:none] max-[480px]:[&::-webkit-scrollbar]:hidden'
+              : 'flex items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1'
+          ">
+          <button *ngFor="let page of pageNumbers" type="button" (click)="onPageClick(page)" [ngClass]="[
+              previewMode
+                ? 'flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-[11px] font-semibold text-white/80 transition hover:border-[#61C2FF]'
+                : 'flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold text-white/80 transition-all',
+              page === currentPage ? 'border-[#61C2FF] bg-[#1069AB] text-white' : ''
+            ]">
+            {{ page }}
+          </button>
+        </div>
+
+        <button type="button" (click)="onLastPage()" [disabled]="currentPage >= totalPages" [ngClass]="
+            previewMode
+              ? 'flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-base font-semibold text-white/80 transition hover:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-40'
+              : 'p-1 text-white/60 transition hover:text-white disabled:cursor-not-allowed disabled:opacity-40'
+          ">
+          »
+        </button>
+
+        <ng-content select="[formPaginator]"></ng-content>
+      </div>
+
+      <!-- RIGHT FOOTER ACTIONS -->
+      <div [ngClass]="
+          previewMode
+            ? 'col-start-3 flex items-center justify-end gap-2 max-xl:col-start-auto max-xl:flex-wrap max-xl:justify-center header-poppins'
+            : 'flex items-center justify-end gap-2'
+        ">
+        <ng-content select="[formFooter]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-approval-work-flow *ngIf="shouldShowUserPopup" [showUserPopuphead]="shouldShowUserPopup" [context]="context"
+  [isSubmitTime]="isSubmitTimes"
+  (showUserPopupChange)="shouldShowUserPopup = $event; isSubmitTimes = $event"></app-approval-work-flow>
+
+<!-- <app-add-trial-pass *ngIf="showTrialPassLayout" [context]="context" [showTrialPassLayout]="showTrialPassLayout"
+  (showTrialPassLayoutChange)="onTrialPassDialogChange($event)"></app-add-trial-pass> -->
+<!--
+<app-trial-types *ngIf="istrialTypesOpen" [open]="istrialTypesOpen"
+  (closed)="istrialTypesOpen = false"></app-trial-types> -->

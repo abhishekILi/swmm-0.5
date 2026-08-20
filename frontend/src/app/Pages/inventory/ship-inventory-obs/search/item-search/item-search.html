@@ -1,0 +1,83 @@
+<app-obs-help-guidance [bodyHtml]="helpHtml" />
+
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Search Spare</h3>
+    <button type="button" class="btn-primary" (click)="addSpare()">+ Add Spare</button>
+  </div>
+
+  <form [formGroup]="filtersForm" class="obs-filters" (ngSubmit)="search()">
+    <app-select-input
+      label="Spare Class"
+      placeholder="All"
+      formControlName="spareClass"
+      [options]="spareClasses()"
+    />
+    <app-select-input
+      label="Equipment Class"
+      placeholder="All"
+      formControlName="equipmentClass"
+      [options]="equipmentClasses()"
+    />
+    <div class="obs-filters__actions">
+      <button type="submit" class="btn-primary">Search</button>
+      <button type="button" class="btn-secondary" (click)="clearFilters()">Clear</button>
+    </div>
+  </form>
+
+  <div class="grid-toolbar">
+    <app-toolbar-search
+      [value]="filtersForm.controls.q.value"
+      (valueChange)="onGlobalSearchChange($event)"
+    />
+    <div class="grid-toolbar__end">
+      <button
+        type="button"
+        class="btn-primary"
+        [disabled]="!selectedRows().length"
+        (click)="issueMultiple()"
+      >
+        Issue Multiple Spares ({{ selectedRows().length }})
+      </button>
+      <button type="button" class="icon-btn" title="Copy to clipboard" (click)="copyRows()">
+        <app-icon name="clipboard" [size]="16" variant="inherit" />
+      </button>
+      <button type="button" class="btn-icon" title="Print" (click)="printGrid()">
+        <app-icon name="printer" [size]="18" variant="inherit" />
+      </button>
+      <button type="button" class="btn-icon" title="Export to Excel" (click)="exportExcel()">
+        <app-icon name="sheet" [size]="18" variant="inherit" />
+      </button>
+    </div>
+  </div>
+
+  <app-data-grid
+    [rowData]="spares()"
+    [columnDefs]="columnDefs"
+    [showCheckboxes]="true"
+    height="480px"
+    (selectionChanged)="onSelectionChanged($event)"
+    (rowClicked)="onRowClicked($event)"
+  />
+</div>
+
+<app-detail-drawer
+  [open]="!!drawerSpare()"
+  [titleMode]="true"
+  [label]="drawerSpare()?.patternNumber ?? ''"
+  [subtitle]="drawerSpare()?.description ?? ''"
+  iconName="wrench"
+  (closed)="closeDrawer()"
+>
+  @if (drawerSpare(); as spare) {
+    <div class="obs-drawer-body">
+      <div class="obs-drawer-row"><span>Compartment</span><strong>{{ spare.compartment }}</strong></div>
+      <div class="obs-drawer-row"><span>Rack Position</span><strong>{{ spare.rackPosition }}</strong></div>
+      <div class="obs-drawer-row"><span>Rack Number</span><strong>{{ spare.rackNumber }}</strong></div>
+      <div class="obs-drawer-row"><span>Box No.</span><strong>{{ spare.location }}</strong></div>
+      <div class="obs-drawer-row"><span>Authorized Qty</span><strong>{{ spare.quantityAuthorised }}</strong></div>
+      <div class="obs-drawer-row"><span>Held Qty</span><strong>{{ spare.quantityAvailable }}</strong></div>
+      <div class="obs-drawer-row"><span>Authority</span><strong>{{ spare.authority }}</strong></div>
+    </div>
+  }
+</app-detail-drawer>

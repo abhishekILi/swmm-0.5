@@ -1,0 +1,39 @@
+@if (spare(); as s) {
+  <div class="glass-card obs-panel">
+    <div class="obs-panel__header">
+      <h3>Spare Specific Details</h3>
+      <div class="obs-panel__actions">
+        <button type="button" class="btn-secondary" (click)="goBack()">Back</button>
+        <button type="button" class="btn-secondary" (click)="print()">
+          <app-icon name="printer" [size]="14" variant="inherit" /> Print
+        </button>
+        <button type="button" class="btn-secondary" (click)="edit()">Update</button>
+        <button type="button" class="btn-primary" (click)="issue()">Issue</button>
+      </div>
+    </div>
+
+    <div class="obs-detail-grid">
+      <div class="obs-detail-field"><span>Class of Spares</span><strong>{{ s.spareClass }}</strong></div>
+      <div class="obs-detail-field"><span>Equipment Class</span><strong>{{ s.equipmentClass }}</strong></div>
+      <div class="obs-detail-field"><span>Pattern Number</span><strong>{{ s.patternNumber }}</strong></div>
+      <div class="obs-detail-field"><span>Description</span><strong>{{ s.description }}</strong></div>
+      <div class="obs-detail-field"><span>Compartment Name</span><strong>{{ s.compartment }}</strong></div>
+      <div class="obs-detail-field"><span>Rack Position</span><strong>{{ s.rackPosition }}</strong></div>
+      <div class="obs-detail-field"><span>Rack Number</span><strong>{{ s.rackNumber }}</strong></div>
+      <div class="obs-detail-field"><span>Box No.</span><strong>{{ s.location }}</strong></div>
+      <div class="obs-detail-field"><span>Denomination</span><strong>{{ s.denomination }}</strong></div>
+      <div class="obs-detail-field"><span>Qty Authorised</span><strong>{{ s.quantityAuthorised }}</strong></div>
+      <div class="obs-detail-field"><span>Qty Held</span><strong>{{ s.quantityAvailable }}</strong></div>
+      <div class="obs-detail-field"><span>Category</span><strong>{{ categoryLabel[s.category] }}</strong></div>
+      <div class="obs-detail-field"><span>Critical</span><strong>{{ s.critical ? "YES" : "NO" }}</strong></div>
+      <div class="obs-detail-field"><span>Authority</span><strong>{{ s.authority }}</strong></div>
+      <div class="obs-detail-field"><span>Page</span><strong>{{ s.page }}</strong></div>
+      <div class="obs-detail-field"><span>Line</span><strong>{{ s.line }}</strong></div>
+      <div class="obs-detail-field obs-detail-field--wide"><span>Remarks</span><strong>{{ s.remarks || "-" }}</strong></div>
+    </div>
+
+    @if (s.imageUrl) {
+      <img [src]="s.imageUrl" alt="Spare" class="obs-detail-image" />
+    }
+  </div>
+}

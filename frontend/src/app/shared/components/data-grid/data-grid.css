@@ -1,0 +1,314 @@
+.grid-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Allow parent to control height; ensure child can shrink for proper scrolling */
+  min-height: 0;
+}
+
+ag-grid-angular {
+  display: block;
+  width: 100%;
+  /* Fill available space from .grid-wrapper */
+  height: 100%;
+  flex: 1 1 auto;
+  padding: 6px;
+  --ag-background-color: transparent !important;
+  --ag-data-background-color: transparent !important;
+  --ag-foreground-color: var(--text-primary) !important;
+  --ag-data-color: var(--text-primary) !important;
+  --ag-header-background-color: var(--ag-header-bg) !important;
+  --ag-header-foreground-color: var(--text-primary) !important;
+  --ag-row-hover-color: rgba(52, 152, 219, 0.12) !important;
+  --ag-border-color: var(--border-primary) !important;
+  --ag-secondary-border-color: var(--border-primary) !important;
+  --ag-border-radius: 12px;
+  --ag-row-border-color: var(--border-primary) !important;
+  /* No vertical column separators — matches the clean SFD table design. */
+  --ag-cell-horizontal-border: none;
+  --ag-font-size: 12px;
+  --ag-font-family: Inter, sans-serif;
+  --ag-odd-row-background-color: transparent !important;
+  --ag-even-row-background-color: transparent !important;
+  --ag-modal-overlay-background-color: transparent !important;
+  --ag-control-panel-background-color: transparent !important;
+
+
+  --ag-selected-row-background-color: rgba(52, 152, 219, 0.15) !important;
+  --ag-checkbox-checked-color: #4da3ff;
+  --ag-checkbox-unchecked-color: var(--text-muted);
+  --ag-pagination-panel-height: 48px;
+  overflow: hidden;
+}
+
+
+
+::ng-deep .ag-theme-custom .ag-root-wrapper,
+::ng-deep .ag-theme-custom .ag-root-wrapper-body,
+::ng-deep .ag-theme-custom .ag-body-viewport,
+::ng-deep .ag-theme-custom .ag-center-cols-viewport,
+::ng-deep .ag-theme-custom .ag-center-cols-clipper,
+::ng-deep .ag-theme-custom .ag-body-horizontal-scroll,
+::ng-deep .ag-theme-custom .ag-overlay-wrapper,
+::ng-deep .ag-theme-custom .ag-overlay-no-rows-wrapper,
+::ng-deep .ag-theme-custom .ag-overlay-panel {
+  background-color: transparent !important;
+}
+
+::ng-deep .ag-theme-custom .ag-root-wrapper {
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  background: transparent;
+  /* Without this, the header's solid background rectangle pokes past the
+     rounded corners above instead of being clipped to them. */
+  overflow: hidden;
+}
+
+/* Ensure AG Grid's internal root fills the host so scrolling works correctly */
+::ng-deep .ag-theme-custom .ag-root-wrapper,
+::ng-deep .ag-theme-custom .ag-root,
+::ng-deep .ag-theme-custom .ag-body-viewport,
+::ng-deep .ag-theme-custom .ag-center-cols-clipper {
+  height: 100% !important;
+  min-height: 0;
+}
+
+::ng-deep .ag-theme-custom .ag-header {
+  border-bottom: 1px solid var(--border-primary);
+  background-color: var(--ag-header-bg) !important;
+}
+
+::ng-deep .ag-theme-custom .ag-overlay-loading-wrapper,
+::ng-deep .ag-theme-custom .ag-overlay-no-rows-center,
+::ng-deep .ag-theme-custom .ag-overlay-loading-center {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+}
+
+
+::ng-deep .ag-theme-custom .ag-header-cell {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: var(--text-primary);
+  font-weight: 700;
+  display: flex;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+::ng-deep .ag-theme-custom .ag-header-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+::ng-deep .ag-theme-custom .ag-row {
+  border-bottom: 1px solid var(--border-primary);
+  background-color: transparent;
+}
+
+::ng-deep .ag-theme-custom .ag-cell {
+  display: flex;
+  align-items: center !important;
+  padding-left: 16px;
+  padding-right: 16px;
+  overflow: hidden;
+}
+
+::ng-deep .ag-theme-custom .ag-cell-value,
+::ng-deep .ag-theme-custom .ag-cell-wrapper {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+::ng-deep .ag-theme-custom .ag-paging-panel {
+  border-top: 1px solid var(--border-primary);
+  color: var(--text-primary);
+}
+
+/* Thin, rounded scrollbar (matches the one used on select-input's dropdown list) instead of the
+   browser's default bar — applies to every grid using this shared component (SFD Actions grid,
+   Approval Status grid, etc). */
+::ng-deep .ag-theme-custom .ag-body-viewport::-webkit-scrollbar,
+::ng-deep .ag-theme-custom .ag-center-cols-viewport::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::ng-deep .ag-theme-custom .ag-body-viewport::-webkit-scrollbar-thumb,
+::ng-deep .ag-theme-custom .ag-center-cols-viewport::-webkit-scrollbar-thumb {
+  background: var(--bg-scrollbar-thumb);
+  border-radius: 20px;
+}
+
+::ng-deep .ag-theme-custom .ag-body-viewport::-webkit-scrollbar-track,
+::ng-deep .ag-theme-custom .ag-center-cols-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Search + Save bar */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar textarea,
+.toolbar input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 10px 14px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+.toolbar textarea::placeholder,
+.toolbar input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-save {
+  background: #1a6b3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-save:hover {
+  background: #1f8048;
+}
+
+::ng-deep .ag-theme-custom .ag-selection-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The checkbox-selection column is only 48px wide — the shared 16px/16px cell and header
+   padding above would leave almost no room for the checkbox itself and clip it. Give this
+   column its own tighter, centered padding instead of widening every cell. */
+::ng-deep .ag-theme-custom .ag-cell.grid-select-cell,
+::ng-deep .ag-theme-custom .ag-header-cell.grid-select-cell {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+}
+
+
+::ng-deep .ag-theme-custom .ag-row-selected,
+::ng-deep .ag-theme-custom .ag-row-selected:hover {
+  background-color: rgba(52, 152, 219, 0.18) !important;
+}
+
+::ng-deep .ag-theme-custom .ag-row-selected .ag-cell,
+::ng-deep .ag-theme-custom .ag-row-selected:hover .ag-cell {
+  background-color: transparent !important;
+}
+
+
+::ng-deep .ag-theme-custom .ag-header-cell-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+::ng-deep .ag-header-cell-label {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+/* styling for pagination  */
+
+
+.pagination-container {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.page-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-size select {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.pagination-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-info {
+  min-width: 80px;
+  text-align: center;
+}
+
+.pagination-center button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.pagination-center button:hover {
+  background: var(--bg-input-disabled);
+  border-radius: 4px;
+}
+
+.pagination-center button:hover:not(:disabled) {
+  background: var(--bg-icon-btn);
+}
+
+.pagination-center button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-center lucide-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.first-page-icon {
+  transform: rotate(180deg);
+}

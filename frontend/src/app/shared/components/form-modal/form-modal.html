@@ -1,0 +1,72 @@
+<div class="open-modal"  tabindex="0" role="button" (keyup.enter)="onCancel()" >
+  <div class="modal-card glass-card"  tabindex="0" role="button" (keyup.enter)="$event.stopPropagation()" >
+
+    <div class="form-modal">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h2>{{ title }}</h2>
+
+        <button type="button" class="close-btn" (click)="onCancel()">
+          ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      @if (form) {
+      <form [formGroup]="form" class="modal-body">
+
+        @for(field of fields; track field.key) {
+        @if (shouldShowField(field)) {
+
+        <div class="field">
+
+          @switch(field.type) {
+
+          @case('text') {
+          <app-input-field [label]="field.label" [placeholder]="field.placeholder || ''" [formControlName]="field.key">
+          </app-input-field>
+          }
+
+          @case('select') {
+          <app-select-input [label]="field.label" [options]="field.options || []" [formControlName]="field.key">
+          </app-select-input>
+          }
+
+          @case('date') {
+          <app-input-field type="date" [label]="field.label" [formControlName]="field.key">
+          </app-input-field>
+          }
+
+
+
+          }
+
+        </div>
+        }
+        }
+
+      </form>
+      } @else {
+      <div class="modal-body">
+        <span style="color: white;">Loading…</span>
+      </div>
+      }
+
+      <!-- Footer -->
+      <div class="footer">
+
+        <button type="button" class="btn-cancel" (click)="onCancel()">
+          Cancel
+        </button>
+
+        <button type="button" class="btn-save" (click)="onSave()">
+          Save
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

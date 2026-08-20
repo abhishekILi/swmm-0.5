@@ -1,0 +1,11 @@
+<span
+  class="status-chip"
+  [style.color]="style.color"
+  [style.background]="style.bg"
+  [style.borderColor]="style.border"
+>
+  @if (dot) {
+    <span class="status-chip__dot" [style.background]="style.color"></span>
+  }
+  {{ text }}
+</span>

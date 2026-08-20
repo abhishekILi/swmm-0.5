@@ -1,0 +1,452 @@
+.wsb-tabs-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 0.5rem;
+}
+
+.wsb-tabs-row--sub {
+  margin-bottom: 1.25rem;
+}
+
+.wsb-tab-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.wsb-tab-btn--active {
+  color: var(--accent-blue, #1d96e9);
+  background: var(--bg-card);
+  font-weight: 600;
+}
+
+.wsb-panel {
+  padding: 1.25rem;
+}
+
+.wsb-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.wsb-panel__header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.wsb-subheading {
+  margin: 0.75rem 0 0.6rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.wsb-dept-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.wsb-dept-row__label {
+  width: 140px;
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+}
+
+.wsb-dept-row__track {
+  flex: 1;
+  background: var(--bg-input);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.wsb-dept-row__fill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 6px;
+  transition: width 0.25s ease;
+}
+
+.wsb-dept-row__fill--high {
+  background: #28a745;
+}
+
+.wsb-dept-row__fill--medium {
+  background: #ffc107;
+}
+
+.wsb-dept-row__fill--low {
+  background: #dc3545;
+}
+
+.wsb-dept-row__badge {
+  flex-shrink: 0;
+  min-width: 3.4rem;
+  text-align: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Opaque, near-black tinted backgrounds below (not translucent rgba tints) — SonarQube
+   (css:S7924) can't resolve the real dark backdrop behind a translucent background, so it
+   flags the text/background pair even though it renders with plenty of contrast. A solid
+   dark background pins the actual ratio well above 4.5:1 regardless (same fix pattern as
+   `.mgmt__filter-badge` in sfd-management.component.css). */
+.wsb-dept-row__badge--high {
+  background: #0a2b16;
+  color: #28a745;
+}
+
+.wsb-dept-row__badge--medium {
+  background: #332600;
+  color: #ffc107;
+}
+
+.wsb-dept-row__badge--low {
+  background: #330a0d;
+  color: #ff6b72;
+}
+
+.wsb-sailing-title {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.wsb-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-input);
+  border-radius: 8px;
+}
+
+.wsb-detail-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.wsb-detail-meta span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.wsb-detail-meta strong {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+/* ag-grid's cellRenderer injects this button as a raw HTML string directly into the DOM,
+   bypassing Angular's template renderer entirely — it never receives this component's
+   view-encapsulation attribute, so a plain scoped selector would never match it. ::ng-deep
+   penetrates that boundary while staying defined only in this component's own stylesheet. */
+:host ::ng-deep .wsb-history-view-btn {
+  border: 1px solid #16a34a;
+  /* Opaque, not a translucent rgba tint — SonarQube (css:S7924) can't resolve the real dark
+     backdrop behind a translucent background, so it flags the pair even though it renders with
+     plenty of contrast. A solid dark-green background pins the actual ratio well above 4.5:1. */
+  background: #0f2a18;
+  color: #16a34a;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wsb-history-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wsb-history-stat {
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-input);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.wsb-history-stat span {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.wsb-history-stat strong {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.wsb-history-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  /* Opaque, not a translucent rgba tint — SonarQube (css:S7924) can't resolve the real dark
+     backdrop behind a translucent background, so it flags the pair even though it renders with
+     plenty of contrast. A solid dark-amber background pins the actual ratio well above 4.5:1. */
+  background: #332600;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+  font-size: 0.82rem;
+}
+
+.wsb-history-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.wsb-history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.wsb-subtabs-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.wsb-subtab-btn {
+  border: 1px solid var(--border-primary);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.wsb-subtab-btn--active {
+  background: var(--accent-blue, #1d96e9);
+  color: #fff;
+  border-color: var(--accent-blue, #1d96e9);
+}
+
+.wsb-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.wsb-add-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  max-width: 420px;
+}
+
+.wsb-table-scroll {
+  overflow-x: auto;
+}
+
+.wsb-plain-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.wsb-plain-table th {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.wsb-plain-table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.wsb-assign-table th,
+.wsb-assign-table td {
+  white-space: nowrap;
+}
+
+.wsb-assign-input {
+  width: 100px;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.78rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.wsb-assign-input:disabled {
+  background: transparent;
+  border-color: transparent;
+}
+
+.wsb-empty-text {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+.wsb-modal__title {
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.wsb-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.wsb-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* `app-select-input`'s own label (smaller, muted, auto-lowercased) reads inconsistently next to
+   this form's plain `.form-field-label` fields (bold white) — `app-select-input`'s label belongs
+   to its own component template, so a plain scoped selector can't reach it; ::ng-deep is needed
+   to match the sibling labels' size/weight/color within this form specifically. */
+:host ::ng-deep .wsb-form-grid .input-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.wsb-form-grid__full {
+  grid-column: 1 / -1;
+}
+
+.wsb-type-select-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.wsb-type-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.wsb-type-pill {
+  border: 1px solid var(--border-primary);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wsb-type-pill--active {
+  color: #fff;
+  background: var(--accent-blue, #1d96e9);
+  border-color: var(--accent-blue, #1d96e9);
+}
+
+.wsb-sailing-hint {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  background: var(--accent-glow, rgba(29, 150, 233, 0.15));
+  color: var(--text-primary);
+  font-size: 0.82rem;
+}
+
+.btn-primary {
+  background: var(--accent-blue, #1d96e9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-link {
+  border: none;
+  background: transparent;
+  color: var(--accent-blue, #1d96e9);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-icon-danger {
+  border: 1px solid #f5c2c7;
+  background: #fff0f0;
+  color: #dc3545;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}

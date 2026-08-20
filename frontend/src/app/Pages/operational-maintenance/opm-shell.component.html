@@ -1,0 +1,20 @@
+@switch (activeTab()) {
+  @case ("overview") {
+    <app-opm-overview />
+  }
+  @case ("configuration") {
+    <app-opm-configuration />
+  }
+  @case ("actions") {
+    <app-opm-actions />
+  }
+  @case ("reports") {
+    <app-opm-reports />
+  }
+  @case ("insights") {
+    <app-opm-insights />
+  }
+  @default {
+    <app-opm-overview />
+  }
+}

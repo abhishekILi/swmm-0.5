@@ -1,0 +1,257 @@
+.header-container{
+  margin: 11px 11px 11px 0px;
+  position: relative;
+  z-index: 40;
+}
+.pt-4 {
+  padding-top: 0.8rem;
+}
+.pb-2 {
+  padding-bottom: 0.7rem;
+}
+.subheading{
+  margin-left: 8px;
+  margin-top: 6px;
+  color: var(--subheading-color);
+  transition: color 0.35s ease;
+}
+.Indicator{
+  background: var(--indicator-bg);
+  transition: background 0.35s ease;
+}
+.icon-btn{
+  color: var(--toggle-icon-color);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.35s ease;
+}
+
+.icon-btn-active{
+  background: rgba(29,150,233,0.12);
+
+  border: 1px solid rgba(29,150,233,0.35);
+
+  box-shadow:
+    0 0 12px rgba(29,150,233,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-nav-tab);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-tab-active {
+  color: #61c2ff;
+  font-weight: 600;
+  background: var(--bg-icon-btn);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Light theme override for .nav-tab-active lives in src/styles.css (global) —
+   component-scoped [data-theme="light"] ancestor selectors don't match under
+   Angular's emulated view encapsulation (the _ngcontent attribute gets
+   appended to [data-theme="light"] too, which never matches since <html>
+   isn't part of this component's rendered content). */
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.references-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 210px;
+  padding: 6px;
+  z-index: 99999;
+  background: var(--bg-dropdown);
+  border: 1px solid var(--border-dropdown);
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  transform-origin: top left;
+  animation: dropdownIn 0.16s ease-out;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.references-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.references-dropdown::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background: var(--bg-dropdown);
+  border-left: 1px solid var(--border-dropdown);
+  border-top: 1px solid var(--border-dropdown);
+  transform: rotate(45deg);
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.tab-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.dropdown-item {
+  position: relative;
+  width: 100%;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-nav-child-hover);
+  color: #1D96E9;
+}
+
+.dropdown-item:active {
+  background: rgba(29, 150, 233, 0.2);
+}
+
+.dropdown-item--active {
+  color: #1D96E9;
+  background: var(--bg-nav-child-hover);
+  font-weight: 600;
+}
+
+.header-container,
+.tabs-container,
+.tab-wrapper,
+.references-dropdown {
+  overflow: visible;
+}
+
+/* ── Theme Toggle Button ── */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--bg-icon-btn);
+  color: var(--toggle-icon-color);
+  transition: background 0.2s ease, color 0.35s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(97, 194, 255, 0.18);
+  transform: scale(1.08);
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .tabs-container {
+    margin-bottom: 8px;
+    padding: 6px;
+  }
+
+  .tab-wrapper {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-tab {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 8px;
+  }
+
+  .references-dropdown {
+    position: static;
+    min-width: 0;
+    margin: 2px 0 4px;
+    padding: 0 0 0 10px;
+    gap: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .references-dropdown::before,
+  .references-dropdown::after {
+    display: none;
+  }
+}
+
+.menu-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.dropdown-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.sub{
+        font-weight: 600;
+        font-size: 15px;
+        color: rgb(74, 168, 255)
+}

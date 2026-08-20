@@ -1,0 +1,42 @@
+.modal-card-sm {
+  transform: translateY(34px);
+}
+
+.modal-card {
+  width: auto;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+}
+
+.modal-card--sm {
+  max-width: min(420px, calc(100vw - 2rem));
+}
+
+.modal-card--md {
+  max-width: min(560px, calc(100vw - 2rem));
+}
+
+.modal-card--lg {
+  max-width: min(760px, calc(100vw - 2rem));
+}
+
+.modal-card--xl {
+  max-width: min(960px, calc(100vw - 2rem));
+}
+
+.modal-card__body {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* `allowOverflow` (e.g. the login card's logo, deliberately positioned above its own bounds via
+   negative top + position:absolute) means the content manages its own size/overflow — the
+   responsive width cap and body scroll clipping added above are for content-driven modals and
+   must not fight a caller that already opted out of clipping. */
+.modal-card.overflow-visible {
+  max-width: none;
+}
+
+.modal-card__body.overflow-visible {
+  overflow: visible;
+}

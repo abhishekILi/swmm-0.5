@@ -1,0 +1,70 @@
+<div class="master-container glass-card">
+  <!-- Header -->
+  <div class="master-header">
+    <h2>Initiate Defect</h2>
+  </div>
+
+  <!-- DART Occasion -->
+  <div class="occasion-container">
+    <span class="occasion-label">DART Occasion :</span>
+
+    <label class="occasion-option">
+      <input type="radio" name="dartOccasion" [checked]="activeTab === 'defect'" (change)="changeTab('defect')" />
+      <span>Defect</span>
+    </label>
+
+    <label class="occasion-option">
+      <input type="radio" name="dartOccasion" [checked]="activeTab === 'guarantee-defect'" (change)="changeTab('guarantee-defect')" />
+      <span>Guarantee Defect</span>
+    </label>
+
+    <label class="occasion-option">
+      <input type="radio" name="dartOccasion" [checked]="activeTab === 'A&A/ABES'" (change)="changeTab('A&A/ABES')" />
+      <span>A's & A's / ABER</span>
+    </label>
+  </div>
+
+  <!-- Content -->
+  <div class="tab-content">
+    @switch (activeTab) {
+    @case ("defect") {
+    <div class="form-container">
+      <!-- <app-defact-form></app-defact-form> -->
+
+      <app-defact-form [selectedSpares]="selectedSpares()" (openSpare)="openSpareModal('defect')"
+        (removeSpare)="removeSpare($event)" (openConfirm)="openFormConfirmModal('defect')"
+        (previewRequested)="openPreview($event)">
+      </app-defact-form>
+    </div>
+    }
+    @case ("A&A/ABES") {
+    <div class="form-container">
+      <!-- <app-aa-aber-form></app-aa-aber-form> -->
+      <app-aa-aber-form [selectedSpares]="selectedSpares()" (openSpare)="openSpareModal('aber')"
+        (removeSpare)="removeSpare($event)" (openConfirm)="openFormConfirmModal('aber')">
+      </app-aa-aber-form>
+    </div>
+    }
+
+    @case ("guarantee-defect") {
+    <div class="form-container">
+      <app-guarantee-defect-form (openConfirm)="openFormConfirmModal('guarantee')"></app-guarantee-defect-form>
+    </div>
+    }
+    }
+  </div>
+</div>
+
+@if (showSpareModal()) {
+<app-spare-selection-modal [selectedSpares]="selectedSpares()" [source]="currentSpareSource()"
+  (closeModal)="closeSpareModal()" (save)="onSparesSelected($event)">
+</app-spare-selection-modal>
+}
+
+@if (showFormConfirmModal()) {
+<app-form-modal [title]="'Confirm Save'" (save)="onModalSave($event)" (cancel_btn)="closeFormConfirmModal()">
+</app-form-modal>
+}
+
+<app-image-preview [visible]="showPreview()" [images]="previewImages()" (closed)="closePreview()">
+</app-image-preview>

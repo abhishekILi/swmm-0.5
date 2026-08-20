@@ -1,0 +1,160 @@
+<div class="page-container glass-card">
+
+  <!-- Grid Card -->
+  <div class="grid-card">
+
+    <!-- Filters Row -->
+    <div class="filter-row">
+
+      <app-select-input
+        label="Sub Dept"
+        [options]="subDeptOptions"
+        [(ngModel)]="selectedSubDept"
+        (ngModelChange)="onFilterChange()">
+      </app-select-input>
+
+      <app-select-input
+        label="Equipment Nomenclature"
+        [options]="equipmentOptions"
+        [(ngModel)]="selectedEquipment"
+        (ngModelChange)="onFilterChange()">
+      </app-select-input>
+
+      <app-select-input
+        label="Routine Name"
+        [options]="routineNameOptions"
+        [(ngModel)]="selectedRoutineName"
+        (ngModelChange)="onFilterChange()">
+      </app-select-input>
+
+      <button
+        type="button"
+        class="clear-filter-btn mr-2.5"
+        (click)="clearFilters()">
+        Clear Filter
+      </button>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+
+      <div class="search-box">
+        <i class="ti ti-search search-icon" aria-hidden="true"></i>
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          (ngModelChange)="onSearchChange()"
+          placeholder="Search" />
+      </div>
+
+     <!-- Export Buttons -->
+        <div class="flex gap-2 pl-2 mr-2.5">
+          <button
+            class="
+              flex items-center
+              px-4 h-10
+              rounded-lg
+              bg-white/10
+              border border-white/10
+              text-white">
+
+            <span class="mr-3">Export</span>
+
+            <div class="flex items-center gap-3">
+              <app-icon name="file-text" [size]="16" />
+              <app-icon name="sheet" [size]="16" />
+              <app-icon name="printer" [size]="16" />
+            </div>
+
+          </button>
+        </div>
+
+    </div>
+
+    <!-- Data Grid -->
+    <app-data-grid
+      [rowData]="filteredRows()"
+      [columnDefs]="columnDefs"
+      [pagination]="true"
+      [height]="'440px'"
+      (rowClicked)="onRowClicked($event)">
+    </app-data-grid>
+
+  </div>
+
+</div>
+
+<!-- Timeline detail overlay + slide-in panel -->
+@if (timelinePanelOpen()) {
+  <div
+    class="timeline-overlay"
+    role="button"
+    tabindex="0"
+    aria-label="Close routine history detail"
+    (click)="closeTimeline()"
+    (keyup.enter)="closeTimeline()"
+    (keyup.space)="closeTimeline()">
+  </div>
+
+  <div class="timeline-sidebar">
+    <div class="sidebar-header">
+      <h3>Routine History Detail: {{ timelineTitle() }}</h3>
+      <button
+        type="button"
+        class="close-sidebar"
+        aria-label="Close"
+        (click)="closeTimeline()">
+        <app-icon name="x" [size]="20" />
+      </button>
+    </div>
+
+    <div class="sidebar-filter">
+      <app-select-input
+        label="Filter by Routine Number"
+        [options]="timelineRoutineNoOptions()"
+        [(ngModel)]="timelineSelectedRoutineNo"
+        (ngModelChange)="onTimelineRoutineNoChange()">
+      </app-select-input>
+    </div>
+
+    <div class="sidebar-table-wrapper">
+      @if (timelineLoading()) {
+        <div class="timeline-loading">Loading...</div>
+      } @else if (!timelineRows().length) {
+        <div class="timeline-empty">No completion history found.</div>
+      } @else {
+        <table class="timeline-table">
+          <thead>
+            <tr>
+              <th>DART No</th>
+              <th>Routine No</th>
+              <th>Routine Description</th>
+              <th>Next Due Date</th>
+              <th>Prev Completion Date</th>
+              <th>RHSI</th>
+              <th>RHSI Updated Upto</th>
+              <th>Completed @RH</th>
+              <th>Due @RH</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of timelineRows(); track row.id) {
+              <tr>
+                <td>{{ row.dart_no }}</td>
+                <td>{{ row.routine_no }}</td>
+                <td>{{ row.routine_description }}</td>
+                <td>{{ row.next_due_date }}</td>
+                <td>{{ row.prev_completion_date }}</td>
+                <td>{{ row.rhsi }}</td>
+                <td>{{ row.rhsi_updated_upto }}</td>
+                <td>{{ row.routine_completed_at_rh }}</td>
+                <td>{{ row.routine_due_at_rh }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+}

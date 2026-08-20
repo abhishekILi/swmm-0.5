@@ -1,0 +1,37 @@
+<div 
+  *ngIf="show" 
+  class="sfd-toast fixed left-1/2 -translate-x-1/2 top-20 z-[100009] flex min-w-[340px] max-w-lg select-none items-center gap-4 overflow-hidden rounded-full border p-1 backdrop-blur-xl transition-all duration-500 animate-in fade-in slide-in-from-top-15 zoom-in-95"
+  [ngClass]="{
+    'sfd-toast--success': type === 'success',
+    'sfd-toast--error': type === 'error',
+    'sfd-toast--warning': type === 'warning'
+  }"
+  (mouseenter)="pauseAutoDismiss()"
+  (mouseleave)="resumeAutoDismiss()"
+>
+  <div class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full shadow-inner border m-2"
+       [ngClass]="{
+         'border-emerald-500/40 bg-emerald-500/90': type === 'success',
+         'border-rose-500/40 bg-rose-500/90': type === 'error',
+         'border-amber-500/40 bg-amber-500/90': type === 'warning'
+       }">
+    <svg *ngIf="type === 'success'" class="relative h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+    <svg *ngIf="type === 'error'" class="relative h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    <svg *ngIf="type === 'warning'" class="relative h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.736-3L13.736 16c-.766-1.333-2.684-1.333-3.45 0L3.34 20c-.768 1.333 .192 3 1.736 3z" />
+    </svg>
+  </div>
+
+  <div class="flex flex-col pr-4 min-w-0">
+    <span class="sfd-toast__label text-[11px] font-semibold uppercase tracking-[2px]">
+      {{ type === 'success' ? 'System Success' : type === 'error' ? 'System Error' : 'System Warning' }}
+    </span>
+    <span class="sfd-toast__message text-[15px] font-semibold tracking-tight leading-tight">
+      {{ message }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<app-master-card cardTitle="Ship Maintenance Periods (Last 1 Year)" cardHeight="auto">
+  <div class="flex justify-end mb-4">
+    <button
+      type="button"
+      (click)="clearFilters()"
+      class="flex items-center gap-2 px-3 h-9 rounded-lg bg-white/10 border border-white/10 text-white text-sm"
+    >
+      <app-icon name="filter" [size]="14" />
+      Clear Filters
+    </button>
+  </div>
+
+  <div class="grid grid-cols-4 gap-4 p-4 rounded-xl border border-[#1D96E9]/40 bg-white/[0.02] mb-4">
+    <div>
+      <label for="period-filter" class="text-white/60 text-xs mb-1 block">Maintenance Period</label>
+      <select id="period-filter" [(ngModel)]="periodFilter" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="All">All</option>
+        <option value="Operational">Operational</option>
+        <option value="Refit">Refit</option>
+      </select>
+    </div>
+    <div>
+      <label for="occasion-filter" class="text-white/60 text-xs mb-1 block">Occasion</label>
+      <select id="occasion-filter" [(ngModel)]="occasionFilter" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="All">All</option>
+        @for (occasion of occasions; track occasion) {
+          <option [value]="occasion">{{ occasion }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label for="mp-from-date" class="text-white/60 text-xs mb-1 block">From Date</label>
+      <input id="mp-from-date" type="date" [(ngModel)]="fromDate" placeholder="Select Date" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+    <div>
+      <label for="mp-to-date" class="text-white/60 text-xs mb-1 block">To Date</label>
+      <input id="mp-to-date" type="date" [(ngModel)]="toDate" placeholder="Select Date" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center gap-2 text-white/60 text-sm">
+      <select [(ngModel)]="pageSize" class="h-9 rounded-lg bg-white/5 border border-white/10 px-2 text-white text-sm">
+        <option [value]="10">10</option>
+        <option [value]="25">25</option>
+        <option [value]="50">50</option>
+      </select>
+      entries per page
+    </div>
+
+    <div class="flex items-center gap-4">
+      <button type="button" (click)="print()" title="Print">
+        <app-icon name="printer" [size]="18" variant="accent" />
+      </button>
+      <button type="button" (click)="exportPlaceholder('PDF')" title="Export PDF">
+        <app-icon name="file-text" [size]="18" variant="danger" />
+      </button>
+      <button type="button" (click)="exportPlaceholder('Excel')" title="Export Excel">
+        <app-icon name="sheet" [size]="18" variant="success" />
+      </button>
+      <button type="button" (click)="exportPlaceholder('Copy')" title="Copy">
+        <app-icon name="copy" [size]="18" variant="inherit" />
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span class="text-white/60 text-sm">Search:</span>
+        <input
+          type="text"
+          [(ngModel)]="search"
+          class="h-9 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm w-48"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-white border-b border-white/10">
+        <tr>
+          <th class="py-2 pr-3">Maintenance Period</th>
+          <th class="py-2 pr-3">Occasion</th>
+          <th class="py-2 pr-3">Start Date</th>
+          <th class="py-2 pr-3">Stop Date</th>
+        </tr>
+        <tr>
+          <th class="pb-2 pr-3">
+            <input type="text" [(ngModel)]="columnSearch.period" placeholder="Search" class="w-full h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white/80 text-xs" />
+          </th>
+          <th class="pb-2 pr-3">
+            <input type="text" [(ngModel)]="columnSearch.occasion" placeholder="Search" class="w-full h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white/80 text-xs" />
+          </th>
+          <th class="pb-2 pr-3">
+            <input type="text" [(ngModel)]="columnSearch.start_date" placeholder="Search" class="w-full h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white/80 text-xs" />
+          </th>
+          <th class="pb-2 pr-3">
+            <input type="text" [(ngModel)]="columnSearch.stop_date" placeholder="Search" class="w-full h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white/80 text-xs" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of filteredRows.slice(0, pageSize); track row.occasion) {
+          <tr class="period-row border-b border-white/5" [class.current]="row.current">
+            <td class="py-2 pr-3">{{ row.period }}</td>
+            <td class="py-2 pr-3">{{ row.occasion }}</td>
+            <td class="py-2 pr-3">{{ row.start_date }}</td>
+            <td class="py-2 pr-3">{{ row.stop_date || '—' }}</td>
+          </tr>
+        }
+        @if (!filteredRows.length) {
+          <tr>
+            <td colspan="4" class="py-6 text-center text-white/40">No maintenance periods found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</app-master-card>

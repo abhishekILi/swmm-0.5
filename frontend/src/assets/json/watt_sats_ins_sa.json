@@ -1,0 +1,1625 @@
+{
+  "formId": "ins_sa",
+  "title": "INS-SA",
+  "sourceFile": "ins_sa.html",
+  "sections": [
+    {
+      "id": "basic_information",
+      "title": "INS-SA",
+      "sectionType": "form",
+      "fields": [],
+      "tables": [],
+      "sectionTitle": "Basic Information",
+      "sectionGroup": {
+        "fields_1": [
+          {
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
+          },
+          {
+            "_id": "ship",
+            "key": "ship",
+            "name": "ship",
+            "label": "Ship",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
+            "_id": "department",
+            "key": "department",
+            "name": "department",
+            "label": "Department",
+            "type": "select",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "options": [
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "ND",
+                "value": "ND"
+              },
+              {
+                "label": "ASW",
+                "value": "ASW"
+              },
+              {
+                "label": "Gunnery",
+                "value": "Gunnery"
+              },
+              {
+                "label": "Communication",
+                "value": "Communication"
+              }
+            ],
+            "isDynamic": false
+          },
+          {
+            "_id": "equipment",
+            "key": "equipment",
+            "name": "equipment",
+            "label": "Equipment",
+            "type": "select",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "colSpan": 4,
+            "options": [
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "INS-SA",
+                "value": "INS-SA"
+              }
+            ],
+            "isDynamic": false
+          },
+          {
+            "_id": "trial_date",
+            "key": "trial_date",
+            "name": "trial_date",
+            "label": "Date *",
+            "type": "date",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "date",
+            "colSpan": 4
+          },
+          {
+            "_id": "nature_of_trials",
+            "key": "nature_of_trials",
+            "name": "nature_of_trials",
+            "label": "Nature of Trial",
+            "type": "select",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "colSpan": 4,
+            "options": [
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "HATs",
+                "value": "HATs"
+              },
+              {
+                "label": "SATs",
+                "value": "SATs"
+              },
+              {
+                "label": "OP Checks",
+                "value": "OP Checks"
+              },
+              {
+                "label": "IIs",
+                "value": "IIs"
+              }
+            ],
+            "isDynamic": false
+          }
+        ],
+        "tables_1": [
+          {
+            "id": "observations_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "Observations",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Observations",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "SAT/UNSAT",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+               "_id": "checks_matrix_1_row_1_combined",
+              "cells": [
+                    {
+                    "_id": "embarked_time",
+                    "key": "embarked_time",
+                    "name": "embarked_time",
+                    "type": "time",
+                    "value": "",
+                    "lb" : "Trials team embarked onboard at hrs on",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "schedule",
+                    "key": "schedule",
+                    "name": "schedule",
+                    "type": "date",
+                    "inputType": "date",
+                      "lb" : "for SATs of GYRO",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "schedule",
+                    "key": "schedule",
+                    "name": "schedule",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "lb" : "for SATs of INS SA as per IHQ MoD (N) approved schedule. Following observed:-",
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "Check 9.1 Global Performance check",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_2_cell_3_check_1",
+                    "key": "check_1",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "Power supply 230V, 20A, 50 HZ to UPS and UPS 28V 12A supply to INS SA",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_3_cell_3_check_2",
+                    "key": "check_2",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "INS-SA UPS and CDU connectivity",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_4_cell_3_check_3",
+                    "key": "check_3",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "UPS Switched On",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_5_cell_3_check_4",
+                    "key": "check_4",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_6",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "Both INS-SA Switched On",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_6_cell_3_check_5",
+                    "key": "check_5",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_7",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_7_cell_2_static",
+                    "type": "label",
+                    "value": "Self Test result verified",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_7_cell_3_check_6",
+                    "key": "check_6",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_8",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_8_cell_2_static",
+                    "type": "label",
+                    "value": "Pass into Sea Situation by use of CDU",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_8_cell_3_check_7",
+                    "key": "check_7",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_9",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_9_cell_1_static",
+                    "type": "serial",
+                    "value": "8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_9_cell_2_static",
+                    "type": "label",
+                    "value": "Verify GPS, LOG available",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_9_cell_3_check_8",
+                    "key": "check_8",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_10",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_10_cell_1_static",
+                    "type": "serial",
+                    "value": "9",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_10_cell_2_static",
+                    "type": "label",
+                    "value": "After 30 min in Sea Situation, INS SA is in Navigation Mode on the CDU",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_10_cell_3_check_9",
+                    "key": "check_9",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_11",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_11_cell_1_static",
+                    "type": "serial",
+                    "value": "10",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_11_cell_2_static",
+                    "type": "label",
+                    "value": "Verify that the attitude and heading data are close to the mean Ship's attitude and heading.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_11_cell_3_check_10",
+                    "key": "check_10",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_12",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_12_cell_1_static",
+                    "type": "serial",
+                    "value": "11",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_12_cell_2_check_11_ins_lat",
+                    "key": "check_11_ins_lat",
+                    "type": "label",
+                    "value": "Note the Lat, Long values after 02 hours in both GPS & LOG ON condition",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+
+                  {
+                    "_id": "observations_matrix_1_row_12_cell_3_check_11",
+                    "key": "check_11",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_13",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_13_cell_1_static",
+                    "type": "serial",
+                    "value": "12",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_13_cell_2_check_12_ins_lat",
+                    "key": "check_12_ins_lat",
+                    "type": "label",
+                    "value": "Now Switch OFF GPS and LOG ON.(Note the Lat, Long values after 04 hrs in GPS OFF and LOG ON position)",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_13_cell_3_check_12",
+                    "key": "check_12",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_14",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_1_row_14_cell_1_static",
+                    "type": "serial",
+                    "value": "13",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "observations_matrix_1_row_14_cell_2_check_13_ins_lat",
+                    "key": "check_13_ins_lat",
+                    "type": "label",
+                    "value": "Now Switch Off Both GPS and LOG and Note the Lat, Long values after 06 hours.",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+
+                  {
+                    "_id": "observations_matrix_1_row_14_cell_3_check_13",
+                    "key": "check_13",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "observations_matrix_2",
+            "sectionType": "matrixTable",
+            "title": "Observations 11",
+            "topHeaders": [
+              [
+                {
+                  "label": "INS-SA",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "GPS",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "ERROR SPECIFIED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "OBTAINED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ],
+              [
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "observations_matrix_2_row_1",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_1_check_11_ins_lat",
+                    "key": "check_11_ins_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_2_check_11_ins_long",
+                    "key": "check_11_ins_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_3_check_11_gps_lat",
+                    "key": "check_11_gps_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_4_check_11_gps_long",
+                    "key": "check_11_gps_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_5_check_11_err_spec",
+                    "key": "check_11_err_spec",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_2_row_1_cell_6_check_11_obtained",
+                    "key": "check_11_obtained",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "observations_matrix_3",
+            "sectionType": "matrixTable",
+            "title": "Observation 12",
+            "topHeaders": [
+              [
+                {
+                  "label": "INS-SA",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "GPS",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "ERROR SPECIFIED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "OBTAINED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ],
+              [
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "observations_matrix_3_row_1",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_1_check_12_ins_lat",
+                    "key": "check_12_ins_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_2_check_12_ins_long",
+                    "key": "check_12_ins_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_3_check_12_gps_lat",
+                    "key": "check_12_gps_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_4_check_12_gps_long",
+                    "key": "check_12_gps_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_5_check_12_err_spec",
+                    "key": "check_12_err_spec",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_3_row_1_cell_6_check_12_obtained",
+                    "key": "check_12_obtained",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "observations_matrix_4",
+            "sectionType": "matrixTable",
+            "title": "Observation  13 ",
+            "topHeaders": [
+              [
+                {
+                  "label": "INS-SA",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "GPS",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "ERROR SPECIFIED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "OBTAINED",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ],
+              [
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Latitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Longitude",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "observations_matrix_4_row_1",
+                "cells": [
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_1_check_13_ins_lat",
+                    "key": "check_13_ins_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_2_check_13_ins_long",
+                    "key": "check_13_ins_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_3_check_13_gps_lat",
+                    "key": "check_13_gps_lat",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_4_check_13_gps_long",
+                    "key": "check_13_gps_long",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_5_check_13_err_spec",
+                    "key": "check_13_err_spec",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "observations_matrix_4_row_1_cell_6_check_13_obtained",
+                    "key": "check_13_obtained",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          }
+        ],
+        "fields_2": [
+          {
+            "_id": "presenting_authority",
+            "key": "presenting_authority",
+            "name": "presenting_authority",
+            "label": "Presenting Authority: Ship's Staff",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          },
+          {
+            "_id": "inspecting_authority",
+            "key": "inspecting_authority",
+            "name": "inspecting_authority",
+            "label": "Inspecting Authority: WATT(V/MI)",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          },
+          {
+            "_id": "presenting_nd",
+            "key": "presenting_nd",
+            "name": "presenting_nd",
+            "label": "ND:",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          },
+          {
+            "_id": "presenting_c",
+            "key": "presenting_c",
+            "name": "presenting_c",
+            "label": "C:",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          },
+          {
+            "_id": "inspecting_sti_ti",
+            "key": "inspecting_sti_ti",
+            "name": "inspecting_sti_ti",
+            "label": "STI / TI:",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          },
+          {
+            "_id": "inspecting_sto",
+            "key": "inspecting_sto",
+            "name": "inspecting_sto",
+            "label": "STO:",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1
+          }
+        ],
+        "tables_2": []
+      }
+    }
+  ]
+}

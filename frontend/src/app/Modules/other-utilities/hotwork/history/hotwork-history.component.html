@@ -1,0 +1,130 @@
+<div class="hotwork-history-container p-4 sm:p-6 space-y-6">
+  <!-- TRACK HOTWORK Filter Card using PanelCard -->
+  <app-panel-card
+    title="TRACK HOTWORK"
+    icon="search"
+    class="block"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+      <!-- Hotwork Code Filter -->
+      <div class="space-y-1">
+        <label for="history-hotwork-code" class="text-xs font-bold hh-label"
+          >Hotwork Code</label
+        >
+        <select
+          id="history-hotwork-code"
+          [ngModel]="historyHotworkCode()"
+          (ngModelChange)="historyHotworkCode.set($event)"
+          class="w-full hh-input text-xs px-3.5 py-2.5 rounded-xl border focus:outline-none focus:border-blue-500 transition-colors"
+        >
+          <option value="ALL">ALL</option>
+          @for (rec of hotworkRecords(); track rec.sNo) {
+            <option [value]="rec.hotworkCode">{{ rec.hotworkCode }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Date Range Filter using Shared DatePickerComponent -->
+      <div class="space-y-1">
+        <span class="block text-xs font-bold hh-label">Date Range</span>
+        <app-date-picker
+          [singleDate]="false"
+          placeholder="Select Date Range..."
+          [ngModel]="historyDateRange()"
+          (ngModelChange)="historyDateRange.set($event)"
+        >
+        </app-date-picker>
+      </div>
+    </div>
+  </app-panel-card>
+
+  <!-- History Data Table Panel using PanelCard and DataGrid -->
+  <app-panel-card
+    title="Hotwork History Records"
+    icon="history"
+    class="block"
+  >
+    <!-- Shared Component Export Toolbar & Global Search inside panelActions slot -->
+    <div
+      panelActions
+      class="flex items-center gap-3 w-full sm:w-auto justify-end flex-wrap"
+    >
+      <app-export-toolbar
+        (exportRequested)="onExport($event)"
+      ></app-export-toolbar>
+
+      <div class="flex items-center gap-2 text-xs font-medium hh-label">
+        <label for="global-history-search">Search:</label>
+        <input
+          id="global-history-search"
+          type="text"
+          [ngModel]="historyGlobalSearch()"
+          (ngModelChange)="historyGlobalSearch.set($event)"
+          class="hh-input text-xs px-3 py-1.5 rounded-lg border focus:outline-none focus:border-blue-500 w-36 sm:w-44"
+        />
+      </div>
+    </div>
+
+    <!-- Shared Component AG-Grid DataGrid Component for History Table -->
+    <app-data-grid
+      [rowData]="filteredHistoryRecords()"
+      [columnDefs]="historyColumnDefs"
+      [pageSize]="historyPageSize()"
+      [autoHeight]="true"
+      (rowClicked)="onRowClicked($event)"
+    >
+    </app-data-grid>
+  </app-panel-card>
+</div>
+
+<app-detail-drawer
+  [open]="!!selectedRecord()"
+  [titleMode]="true"
+  [label]="selectedRecord()?.hotworkCode ?? 'History Details'"
+  [subtitle]="selectedRecord()?.descriptionOfHotwork ?? ''"
+  iconName="history"
+  iconColor="#3b82f6"
+  (closed)="closeDrawer()"
+>
+  @if (selectedRecord(); as item) {
+    <div class="space-y-4 p-2 text-sm text-[var(--text-primary)]">
+      <div class="grid grid-cols-2 gap-3 p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)]">
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Hotwork Code</span>
+          <span class="font-medium text-white">{{ item.hotworkCode }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Date of Hotwork</span>
+          <span class="font-medium text-white">{{ item.dateOfHotwork }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Parent Code</span>
+          <span class="font-medium text-white">{{ item.parentCode }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Current Status</span>
+          <span class="font-medium text-white">{{ item.currentStatus }}</span>
+        </div>
+      </div>
+
+      <div class="p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)] space-y-2">
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Department / Incharge</span>
+          <span class="text-white">{{ item.departmentSection }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Location / Compartment</span>
+          <span class="text-white">{{ item.locationAdjacent }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Hotwork Type</span>
+          <span class="text-white">{{ item.hotworkType }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Safe to Weld Certificate</span>
+          <span class="text-white">{{ item.safeToWeldCert }}</span>
+        </div>
+      </div>
+    </div>
+  }
+</app-detail-drawer>

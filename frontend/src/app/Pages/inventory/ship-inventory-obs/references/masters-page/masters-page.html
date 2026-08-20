@@ -1,0 +1,52 @@
+<app-obs-help-guidance [bodyHtml]="helpHtml" />
+
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Masters</h3>
+  </div>
+
+  <div class="obs-tabs-row">
+    <button type="button" class="obs-tab-btn" [class.obs-tab-btn--active]="activeTab() === 'import'" (click)="selectTab('import')">
+      Import Data
+    </button>
+    <button type="button" class="obs-tab-btn" [class.obs-tab-btn--active]="activeTab() === 'spare-data-map'" (click)="selectTab('spare-data-map')">
+      Spare Data Map
+    </button>
+    <button type="button" class="obs-tab-btn" [class.obs-tab-btn--active]="activeTab() === 'vendor-pil'" (click)="selectTab('vendor-pil')">
+      Upload PIL
+    </button>
+  </div>
+
+  @if (activeTab() === "import") {
+    <form [formGroup]="importForm" class="obs-form-grid" (ngSubmit)="submitImport()">
+      <app-select-input label="Import Type" formControlName="importType" [options]="importTypeOptions" />
+      <app-file-input label="Select Excel File (*.xlsx)" accept=".xlsx" formControlName="file" />
+      <div class="obs-form-grid__actions">
+        <button type="submit" class="btn-primary" [disabled]="importBusy()">
+          {{ importBusy() ? "Importing…" : "Import" }}
+        </button>
+      </div>
+    </form>
+  }
+
+  @if (activeTab() === "spare-data-map") {
+    <form [formGroup]="mapForm" class="obs-form-grid" (ngSubmit)="submitMap()">
+      <app-select-input label="INSMA Equipment Name" formControlName="equipmentName" [options]="[]" />
+      <app-select-input label="Ship Inventory Equipment Class" formControlName="equipmentClass" [options]="[]" />
+      <div class="obs-form-grid__actions">
+        <button type="submit" class="btn-primary">Submit</button>
+      </div>
+    </form>
+  }
+
+  @if (activeTab() === "vendor-pil") {
+    <form [formGroup]="pilForm" class="obs-form-grid" (ngSubmit)="submitPil()">
+      <app-file-input label="Select PIL File (*.xlsx)" accept=".xlsx" formControlName="file" />
+      <div class="obs-form-grid__actions">
+        <button type="submit" class="btn-primary" [disabled]="pilBusy()">
+          {{ pilBusy() ? "Uploading…" : "Upload" }}
+        </button>
+      </div>
+    </form>
+  }
+</div>

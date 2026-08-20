@@ -1,0 +1,12 @@
+<div class="pills">
+  @for (option of options; track option) {
+    <button
+      type="button"
+      class="pill"
+      [class.pill--active]="value === option"
+      (click)="select(option)"
+    >
+      {{ option }}
+    </button>
+  }
+</div>

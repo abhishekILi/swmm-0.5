@@ -1,0 +1,183 @@
+<aside class="sidebar glass-card" [class.collapsed]="collapsed">
+  <div class="sidebar-logo relative">
+    @if (collapsed) {
+    <button type="button" class="absolute inset-0 w-full h-full bg-transparent border-none cursor-pointer z-10"
+      (click)="toggleSidebar()" aria-label="Expand sidebar"></button>
+    }
+    <img [src]="getLogoPath()" alt="SWMM Logo" class="sidebar-logo__img" />
+
+    @if (!collapsed) {
+    <div class="sidebar-logo__text">
+      <span class="logo_heading_sidebar" title="SWMM">SWMM</span>
+      <span class="subHeading_of_kpis" title="Powered by MAT-CDF">Powered by MAT-CDF</span>
+      @if (getShipName(); as shipName) {
+      <span class="sidebar-ship-badge" [title]="shipName">
+        <app-icon name="anchor" [size]="10" variant="inherit" />
+        {{ shipName }}
+      </span>
+      }
+    </div>
+    }
+
+    @if (!collapsed) {
+    <button class="sidebar-logo__toggle" title="Collapse sidebar" (click)="$event.stopPropagation(); toggleSidebar()">
+      <app-icon name="panel-right" [size]="18" variant="inherit" />
+    </button>
+    }
+  </div>
+
+  @if (homeItem(); as home) {
+  <div class="sidebar-section sidebar-section--pinned">
+    <button class="nav-item" [title]="home.tooltip ?? home.label" [class.nav-item--active]="isModuleActive(home)"
+      [class.nav-item--collapsed]="collapsed" (click)="navigate(home.route)">
+      <span class="nav-item__icon">
+        @if (home.icon) {
+        <app-icon [name]="home.icon" [size]="16" variant="inherit" />
+        }
+      </span>
+
+      @if (!collapsed) {
+      <span class="nav-item__label">
+        {{ home.label }}
+      </span>
+      }
+    </button>
+  </div>
+  }
+
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">
+      @if (!collapsed) {
+      <div class="comm-txt" title="Communication">Communication</div>
+      }
+
+      <button class="nav-item" title="Inbox" [class.nav-item--collapsed]="collapsed" (click)="navigate('/afterAuth/inbox/dashboard')">
+        <span class="nav-item__icon">
+          <app-icon name="inbox" [size]="16" variant="inherit" />
+        </span>
+
+        @if (!collapsed) {
+        <span class="nav-item__label">Inbox</span>
+        }
+      </button>
+
+      <button class="nav-item" title="Outbox" [class.nav-item--collapsed]="collapsed" (click)="navigate('/afterAuth/outbox/dashboard')">
+        <span class="nav-item__icon">
+          <app-icon name="send" [size]="16" variant="inherit" />
+        </span>
+
+        @if (!collapsed) {
+        <span class="nav-item__label">Outbox</span>
+        }
+      </button>
+    </div>
+
+    @for (section of scrollableSections(); track section.sectionLabel) {
+    @if (!collapsed) {
+    <div class="sidebar-divider sidebar-divider--full"></div>
+    }
+
+    <div class="sidebar-section">
+      @if (!collapsed && section.sectionLabel) {
+      <button type="button" class="sidebar-section__header" [title]="section.sectionLabel" (click)="toggleSection(section.sectionLabel)">
+        <span class="sidebar-section__label">{{ section.sectionLabel }}</span>
+        <app-icon name="chevron-down" class="sidebar-section__chevron" [size]="12" [strokeWidth]="1.5" variant="inherit"
+          [style.transform]="isSectionExpanded(section.sectionLabel) ? 'rotate(180deg)' : 'rotate(0deg)'" />
+      </button>
+      }
+
+      @if (collapsed && section.sectionLabel) {
+      <div class="sidebar-divider" [title]="section.sectionLabel"></div>
+      }
+
+      @if (collapsed || !section.sectionLabel || isSectionExpanded(section.sectionLabel)) {
+      @for (item of section.items; track item.label) {
+      @if (!item.children) {
+      <button class="nav-item" [title]="item.tooltip ?? item.label" [class.nav-item--active]="isModuleActive(item)"
+        [class.nav-item--collapsed]="collapsed" (click)=" item.children ? toggle(item) :  navigate(item.route)">
+        <span class="nav-item__icon">
+          @if (item.icon) {
+          <app-icon [name]="item.icon" [size]="16" variant="inherit" />
+          }
+        </span>
+
+        @if (!collapsed) {
+        <span class="nav-item__label">
+          {{ item.label }}
+        </span>
+        }
+      </button>
+      }
+
+      @if (item.children) {
+      <button class="nav-item" [title]="item.tooltip ?? item.label" [class.nav-item--active]="isModuleActive(item)"
+        [class.nav-item--collapsed]="collapsed" (click)="toggle(item)">
+        <span class="nav-item__icon">
+          @if (item.icon) {
+          <app-icon [name]="item.icon" [size]="16" variant="inherit" />
+          }
+        </span>
+
+        @if (!collapsed) {
+        <span class="nav-item__label nav-item__label--flex">
+          {{ item.label }}
+        </span>
+
+        <app-icon name="chevron-down" class="nav-chevron" [size]="12" [strokeWidth]="1.167" variant="inherit"
+          [style.transform]="
+                    isExpanded(item) ? 'rotate(180deg)' : 'rotate(0deg)'
+                  " />
+        }
+      </button>
+
+      @if (isExpanded(item)) {
+      <div class="nav-children" [class.nav-children--collapsed]="collapsed">
+        @for (child of item.children; track child.label) {
+        <button class="nav-child" [title]="child.tooltip ?? child.label" [class.nav-child--active]="isActive(child.route)"
+          [class.nav-child--collapsed]="collapsed" (click)="navigate(child.route)">
+          <span class="nav-child__icon">
+            @if (child.icon) {
+            <app-icon [name]="child.icon" [size]="12" variant="inherit" />
+            }
+          </span>
+
+          @if (!collapsed) {
+          <span class="nav-child__label">
+            {{ child.label }}
+          </span>
+          }
+        </button>
+        }
+      </div>
+      }
+      }
+      }
+      }
+    </div>
+    }
+  </nav>
+
+  <div class="sidebar-footer" [routerLink]="['/afterAuth/profile']">
+    <div class="sidebar-profile">
+      <div class="sidebar-profile__avatar" [title]="getUserFirstName()">
+        <span class="sidebar-profile__initial">
+          {{ getUserInitial() }}
+        </span>
+      </div>
+
+      @if (!collapsed) {
+      <div class="sidebar-profile__info">
+        <span class="sidebar-profile__name" [title]="getUserFullName()">
+          {{ getUserFullName() }}
+        </span>
+
+        <span class="sidebar-profile__role" [title]="getUserDesignation()">
+          {{ getUserDesignation() }}
+        </span>
+      </div>
+
+      <app-icon name="chevron-right" class="sidebar-profile__arrow" [size]="16" variant="inherit" />
+      }
+    </div>
+  </div>
+</aside>

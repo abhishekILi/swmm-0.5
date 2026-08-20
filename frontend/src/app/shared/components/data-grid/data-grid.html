@@ -1,0 +1,98 @@
+<div class="grid-wrapper" [style.height]="height">
+  <ag-grid-angular
+    class="ag-theme-quartz ag-theme-custom"
+    [theme]="'legacy'"
+    style="width: 100%; height: 100%"
+    [domLayout]="autoHeight ? 'autoHeight' : 'normal'"
+    [rowData]="rowData"
+    [columnDefs]="finalColumnDefs"
+    [icons]="icons"
+    [defaultColDef]="defaultColDef"
+    [pagination]="pagination"
+    [paginationPageSize]="pageSize"
+    [suppressPaginationPanel]="true"
+    [suppressMovableColumns]="!enableColumnReorder"
+    [suppressDragLeaveHidesColumns]="true"
+    rowSelection="multiple"
+    [isRowSelectable]="rowSelectableFn"
+    [suppressRowClickSelection]="suppressRowClickSelection"
+    [rowHeight]="40"
+    [headerHeight]="50"
+    (gridReady)="onGridReady($event)"
+    (selectionChanged)="onSelectionChanged()"
+    (cellClicked)="onCellClicked($event)"
+    (rowClicked)="onRowClicked($event)"
+    (columnMoved)="onColumnMoved($event)"
+  >
+  </ag-grid-angular>
+
+  <!-- @if (pagination && totalRows > pageSize) { -->
+  <div class="pagination-container">
+    <div class="page-size">
+      <span>Entries per page</span>
+
+      <select id="" [value]="pageSize" (change)="onPageSizeChange($event)">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+
+  <div class="pagination-center">
+  <span class="page-info">
+{{ startRow() }}-{{ endRow() }} of {{ totalRows() }}  </span>
+
+ <!-- First Page (|<) -->
+    <button
+      type="button"
+      (click)="firstPage()"
+      [disabled]="currentPage() === 1"
+    >
+      <app-icon
+        class="first-page-icon"
+        name="chevron-last"
+        [size]="18"
+        style="transform: rotate(180deg);">
+      </app-icon>
+    </button>
+
+    <!-- Previous (<) -->
+    <button
+      type="button"
+      (click)="prevPage()"
+      [disabled]="currentPage() === 1"
+    >
+      <app-icon
+        name="chevron-left"
+        [size]="18">
+      </app-icon>
+    </button>
+
+    <!-- Next (>) -->
+    <button
+      type="button"
+      (click)="nextPage()"
+       [disabled]="currentPage() === totalPages()"
+
+    >
+      <app-icon
+        name="chevron-right"
+        [size]="18">
+      </app-icon>
+    </button>
+
+    <!-- Last Page (>|) -->
+    <button
+      type="button"
+      (click)="lastPage()"
+      [disabled]="currentPage() === totalPages()"
+    >
+      <app-icon
+        name="chevron-last"
+        [size]="18">
+      </app-icon>
+    </button>
+  </div>
+  <!-- } -->
+</div>

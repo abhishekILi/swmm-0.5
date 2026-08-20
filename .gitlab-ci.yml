@@ -1,0 +1,32 @@
+workflow:
+  rules:
+    # Merge Request pipeline
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "swmm_dev"'
+    # Dev pipeline
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "swmm_dev"'
+    # UAT pipeline
+    # - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "swmm_uat"'
+    # Prod pipeline
+    # - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "swmm_prod"'
+    # Do not create any other pipeline
+    - when: never
+
+stages:
+  - precheck
+  - gitleaks
+  - lint
+  - sonar
+  - trivy_fs
+  - build
+  - trivy_image
+  - push
+  - deploy
+  - deploy_offline
+
+include:
+  - local: 'ci/templates.yml'
+  - local: 'ci/precheck.yml'
+  - local: 'ci/security.yml'
+  - local: 'ci/quality.yml'
+  - local: 'ci/build.yml'
+  - local: 'ci/deploy.yml'

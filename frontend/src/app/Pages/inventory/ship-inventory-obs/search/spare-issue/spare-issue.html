@@ -1,0 +1,37 @@
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Issue Spare</h3>
+    <button type="button" class="btn-secondary" (click)="goBack()">Back</button>
+  </div>
+
+  <form [formGroup]="form" class="obs-issue-form" (ngSubmit)="submit()">
+    <div class="obs-issue-form__grid">
+      <app-select-input label="Reason of Issue *" formControlName="reason" [options]="reasonOptions" />
+      <app-input-field label="Quantity Issued *" type="number" formControlName="quantityIssued" />
+    </div>
+
+    @if (isDefect()) {
+      <div class="obs-issue-form__grid">
+        <app-input-field label="Issued To *" formControlName="username" />
+        <app-input-field label="Sub-Department" formControlName="section" />
+        <app-input-field label="Defect on Equipment Nomenclature" formControlName="equipmentName" />
+      </div>
+    } @else {
+      <div class="obs-issue-form__grid">
+        <app-input-field label="Command" formControlName="command" />
+        <app-input-field label="Issued to Ship" formControlName="shipId" />
+        <app-input-field label="Enter Ship Name (if not listed)" formControlName="customShip" />
+        <app-input-field label="Issued To" formControlName="issuedTo" />
+        <app-input-field label="DART No." formControlName="dartNo" />
+      </div>
+    }
+
+    <app-textarea-input label="Remarks *" [rows]="3" formControlName="remarks" />
+
+    <div class="obs-issue-form__actions">
+      <button type="submit" class="btn-primary" [disabled]="saving()">
+        {{ saving() ? "Submitting..." : "Submit" }}
+      </button>
+    </div>
+  </form>
+</div>

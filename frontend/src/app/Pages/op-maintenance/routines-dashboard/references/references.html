@@ -1,0 +1,34 @@
+<div class="master-container glass-card">
+
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <button class="tab-btn" [class.active]="activeTab === 'import-data'" (click)="activeTab = 'import-data'">
+            Import Data
+        </button>
+
+        <button class="tab-btn" [class.active]="activeTab === 'one-time-routine'"
+            (click)="activeTab = 'one-time-routine'">
+            One time Routine Initialization
+        </button>
+
+    </div>
+
+    <!-- Content -->
+    <div class="tab-content">
+        @switch (activeTab) {
+        @case ("import-data") {
+        <div class="form-container">
+
+            <app-import-data></app-import-data>
+
+        </div>
+        }
+        @case ("one-time-routine") {
+        <div class="form-container">
+            <app-one-time-routine></app-one-time-routine>
+        </div>
+        }
+
+        }
+    </div>
+</div>

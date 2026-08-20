@@ -1,0 +1,178 @@
+<div class="calendar">
+      @switch (store.view()) {
+        @case ('Month') {
+          <div class="cal-month">
+            <div class="dow-row">
+              @for (d of DOW_SHORT; track d) {<div>{{ d }}</div>}
+            </div>
+            <div class="grid">
+              @for (c of monthCells(); track c.d.getTime()) {
+                <div class="mday"
+                     [class.dim]="!c.inMonth"
+                     [class.today]="c.isToday"
+                     [class.selected]="store.selectedDate() === dateKey(c.d)"
+                      tabindex="0" role="button" (click)="onMonthDayPick($event, c.d)" (keyup.enter)="onMonthDayPick($event, c.d)" >
+                  <div class="dom">
+                    {{ c.d.getDate() }}
+                    @if (c.isToday) {
+                      <button type="button" class="overdue-darts-pin" title="Overdue pending DARTs" (click)="openOverdueDarts($event)">!</button>
+                    }
+                  </div>
+                  <div class="mday-events">
+                    @for (a of c.acts.slice(0, 3); track a.id) {
+                      <div
+                        class="mevent"
+                        [style.background]="catColor(a.cat)"
+                        [title]="a.title"
+                         tabindex="0" role="button" (click)="onPick($event, a.id)" (keyup.enter)="onPick($event, a.id)"
+                      >{{ a.title }}</div>
+                    }
+                    @if (c.acts.length > 3) {
+                      <div class="mevent-more">+{{ c.acts.length - 3 }} more</div>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @case ('Year') {
+          <div class="cal-year">
+            @if (store.yearLoading()) {
+              <div class="cal-empty" style="position: relative; inset: auto; height: 320px">
+                <div>
+                  <div class="glyph"><app-icon name="calendar" [size]="26" /></div>
+                  <h3>Loading year…</h3>
+                </div>
+              </div>
+            } @else {
+              @for (month of yearMonths(); track month.label) {
+                <div class="year-month">
+                  <div class="year-month__title">{{ month.label }}</div>
+                  <div class="year-month__dow-row">
+                    @for (d of WEEKDAY_SHORT; track d) {<div>{{ d }}</div>}
+                  </div>
+                  <div class="year-month__grid">
+                    @for (c of month.cells; track c.d.getTime()) {
+                      <div
+                        class="year-mday"
+                        [class.dim]="!c.inMonth"
+                        [class.today]="c.isToday"
+                         tabindex="0" role="button" (click)="onYearDayPick(c.d)" (keyup.enter)="onYearDayPick(c.d)"
+                      >
+                        <div class="dom">
+                          {{ c.d.getDate() }}
+                          @if (c.isToday) {
+                            <button type="button" class="overdue-darts-pin" title="Overdue pending DARTs" (click)="openOverdueDarts($event)">!</button>
+                          }
+                        </div>
+                        @if (c.acts.length > 0) {
+                          <div class="year-mevent" [style.background]="catColor(c.acts[0].cat)" [title]="c.acts[0].title">{{ c.acts[0].title }}</div>
+                        }
+                        @if (c.acts.length > 1) {
+                          <div class="year-mevent-more">+{{ c.acts.length - 1 }} more</div>
+                        }
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        }
+        @default {
+          <!-- Week (default) and Day share the same swimlane layout, with
+               Day showing a single day column instead of 7. -->
+          @let isDay = store.view() === 'Day';
+          <div class="cal-head" [class.day-mode]="isDay">
+            <div class="col">Lane</div>
+            <div class="col" style="text-align: center">Time</div>
+            @if (isDay) {
+              <div class="col day today">
+                <span class="dow">{{ dayHead().dow }}</span>
+                <span class="dom">{{ dayHead().dom }} {{ dayHead().month }}</span>
+                @if (dayHead().isToday) {
+                  <button type="button" class="overdue-darts-pin" title="Overdue pending DARTs" (click)="openOverdueDarts($event)">!</button>
+                }
+              </div>
+            } @else {
+              @for (d of weekDays(); track d.dom) {
+                <div class="col day" [class.today]="d.today">
+                  <span class="dow">{{ d.dow }}</span>
+                  <span class="dom">{{ d.dom }} {{ d.month }}</span>
+                  @if (d.today) {
+                    <button type="button" class="overdue-darts-pin" title="Overdue pending DARTs" (click)="openOverdueDarts($event)">!</button>
+                  }
+                </div>
+              }
+            }
+          </div>
+          <div class="cal-body" [class.day-mode]="isDay" style="position: relative">
+            @for (lane of lanes; let laneIdx = $index; track lane.id) {
+              <div [class]="'lane-label ' + lane.cls">
+                <div class="swatch"></div>
+                <span class="ico"><app-icon [name]="lane.icon" [size]="14" /></span>
+                <div class="meta">
+                  <div>{{ lane.label }}</div>
+                  <div class="lane-sub">{{ lane.sub }}</div>
+                </div>
+              </div>
+              <div class="time-cell">{{ laneTimes[laneIdx] }}</div>
+              @if (isDay) {
+                <div class="cell today-col"  tabindex="0" role="button"  (click)="store.selectActivity(null)" (keyup.enter)="store.selectActivity(null)" >
+                  @let dayActivities = activitiesForCell(lane.id, 0);
+                  @let dayHasConflict = hasConflict(dayActivities);
+                  @let dayVisibleActivities = visibleActivities(dayActivities);
+                  <div class="stack-shell" [class.conflict-stack]="dayHasConflict" [class.rows-2]="dayVisibleActivities.length === 2" [class.rows-3]="dayVisibleActivities.length >= 3">
+                    @for (a of dayVisibleActivities; track a.id) {
+                      <app-activity-card
+                        [a]="a"
+                        [selected]="store.selectedId() === a.id"
+                        [stacked]="dayHasConflict"
+                         tabindex="0" role="button" (click)="onPick($event, a.id)" (keyup.enter)="onPick($event, a.id)"  />
+                    }
+                    @if (dayHasConflict && dayActivities.length > 3) {
+                      <div class="stack-more">+{{ dayActivities.length - 3 }} more</div>
+                    }
+                  </div>
+                  <!-- @if (laneIdx === 0 && isCurrent()) {
+                    <div class="now-line" style="left: 40%">
+                      <span class="now-pill">09:30</span>
+                      <span class="now-dot"></span>
+                    </div>
+                  } -->
+                </div>
+              } @else {
+                @for (d of weekDays(); let dayIdx = $index; track d.dom) {
+                <div class="cell"
+                       [class.today-col]="d.today"
+                        tabindex="0" role="button" (click)="store.selectActivity(null)" (keyup.enter)="store.selectActivity(null)" >
+                    @let cellActivities = activitiesForCell(lane.id, dayIdx);
+                    @let cellHasConflict = hasConflict(cellActivities);
+                    @let cellVisibleActivities = visibleActivities(cellActivities);
+                    <div class="stack-shell" [class.conflict-stack]="cellHasConflict" [class.rows-2]="cellVisibleActivities.length === 2" [class.rows-3]="cellVisibleActivities.length >= 3">
+                      @for (a of cellVisibleActivities; track a.id) {
+                        <app-activity-card
+                          [a]="a"
+                          [selected]="store.selectedId() === a.id"
+                          [stacked]="cellHasConflict"
+                           tabindex="0" role="button"   (click)="onPick($event, a.id)"(keyup.enter)="onPick($event, a.id)"  />
+                      }
+                      @if (cellHasConflict && cellActivities.length > 3) {
+                        <div class="stack-more">+{{ cellActivities.length - 3 }} more</div>
+                      }
+                    </div>
+                    <!-- @if (d.today && laneIdx === 0) {
+                      <div class="now-line" style="left: 40%">
+                        <span class="now-pill">09:30</span>
+                        <span class="now-dot"></span>
+                      </div>
+                    } -->
+                  </div>
+                }
+              }
+            }
+          </div>
+        }
+      }
+    </div>

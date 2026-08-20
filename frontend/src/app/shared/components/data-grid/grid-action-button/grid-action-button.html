@@ -1,0 +1,8 @@
+<div class="button" [style.backgroundColor]="backgroundColor">
+  @if (params?.onEdit) {
+    <button [disabled]="disabled" (click)="$event.stopPropagation(); onEdit()">{{ label }}</button>
+  }
+  @if (params?.onDelete && !params?.onEdit) {
+    <button [disabled]="disabled" (click)="$event.stopPropagation(); onDelete()">{{ label }}</button>
+  }
+</div>

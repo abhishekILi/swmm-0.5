@@ -1,0 +1,179 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4,8,18,.65);
+  backdrop-filter: blur(6px);
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  animation: fade .15s ease;
+}
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  width: 560px;
+  max-width: calc(100vw - 32px);
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 0 1px var(--border-card);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(39.2px) saturate(170%);
+}
+
+.modal-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: visible;
+}
+
+.modal-head {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-card);
+  flex-shrink: 0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.modal-head h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal-head .close { margin-left: auto; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field label {
+  font-size: 10px;
+  color: var(--text-muted-2);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 9px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: inherit;
+  min-width: 0;
+  width: 100%;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-muted-2); }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(96,165,250,.5);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+.field select option { background: var(--bg-dropdown); color: var(--text-primary); }
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.modal-foot {
+  padding: 14px 20px 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  border: 1px solid var(--border-card);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: var(--bg-icon-btn);
+  color: var(--text-primary);
+}
+
+.icon-btn.close:hover {
+  background: var(--bg-icon-btn);
+  color: var(--text-primary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  background: var(--bg-input);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .12s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--bg-icon-btn);
+}
+
+.btn.primary {
+  background: var(--accent-blue, #1d96e9);
+  color: #fff;
+  border-color: var(--accent-blue, #1d96e9);
+  box-shadow: 0 8px 20px rgba(29,150,233,.35);
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.three-cols {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: flex-end;
+}
+
+app-date-picker {
+  display: block;
+  width: 100%;
+
+  ::ng-deep .dp-calander-wrapper {
+    top: auto !important;
+    bottom: calc(100% + 8px) !important;
+  }
+}

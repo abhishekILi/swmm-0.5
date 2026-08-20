@@ -1,0 +1,384 @@
+<div *ngIf="showUserPopuphead && !autoOpenHistory"
+  [ngClass]="
+    embedded
+      ? 'w-full'
+      : 'fixed inset-0 z-50 flex items-start justify-center bg-black/60 p-3 backdrop-blur-md sm:p-4'
+  "
+  (click)="embedded ? $event.stopPropagation() : closePopup()">
+  <div
+    class="flex w-full flex-col overflow-hidden font-inter text-white"
+    [ngClass]="
+      embedded
+        ? 'rounded-xl border border-white/15 bg-white/[0.05]'
+        : 'glass-card max-h-[92vh] max-w-4xl rounded-2xl border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.4)]'
+    "
+    (click)="$event.stopPropagation()">
+
+    <div class="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-6">
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60">Workflow Routing</p>
+        <h2 class="mt-1 text-lg font-black leading-tight text-white">Approval Workflow</h2>
+      </div>
+      <div class="flex items-center gap-2">
+
+  <!-- History -->
+  <button
+    type="button"
+    (click)="getWorkflowHistory()"
+    class="group flex items-center gap-2 rounded-xl border border-[#4f8fd5] bg-[#1069AB] px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white shadow-lg transition hover:bg-[#195d95] active:scale-95"
+  >
+    <i class="fas fa-clock-rotate-left text-[11px] transition-transform group-hover:-rotate-12"></i>
+
+    <span>History</span>
+  </button>
+
+  <!-- Close (modal mode only, svg version) -->
+  <button
+    *ngIf="!embedded"
+    type="button"
+    (click)="closePopup()"
+    class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] text-red-400 transition hover:border-red-400/50 hover:text-red-300 active:scale-95"
+    aria-label="Close"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+      <line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+</div>
+    </div>
+
+    <div
+      class="space-y-4 overflow-y-auto p-4 sm:p-5"
+      [ngClass]="embedded ? 'max-h-[50vh]' : 'max-h-[72vh]'">
+      <!-- STEPPER -->
+      <div class="flex gap-3 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+        <ng-container *ngFor="let step of workflowData; let last = last">
+          <div (click)="openUserList(step)"
+            class="relative min-w-[150px] cursor-pointer rounded-xl border border-white/15 bg-white/[0.05] p-3 transition-all hover:border-[#61C2FF]/60"
+            [ngClass]="{'border-[#61C2FF] bg-[#1069AB]/20 scale-105 z-10 shadow-lg': step.is_active === 1, 'border-amber-400/70 text-amber-200 ring-1 ring-amber-400/40': step.is_active === 2, 'opacity-60 grayscale-[0.35]': step.is_active !== 1 && step.is_active !== 2}">
+            <div class="mb-2 flex justify-between items-center">
+              <div class="h-2 w-2 rounded-full"
+                [ngClass]="{'bg-[#61C2FF]': step.is_active === 1, 'bg-amber-400 animate-pulse': step.is_active === 2, 'bg-white/30': step.is_active === 0}">
+              </div>
+              <span class="rounded-full border border-white/15 bg-white/[0.05] px-2 py-0.5 text-[9px] font-black uppercase tracking-wide"
+                [ngClass]="{'border-[#61C2FF] text-[#61C2FF]': step.is_active === 1, 'border-amber-400/40 text-amber-300': step.is_active === 2, 'text-white/60': step.is_active === 0}">
+                {{ step.is_active === 1 ? 'Done' : (step.is_active === 2 ? 'In Progress' : 'Pending') }}
+              </span>
+            </div>
+            <h4 class="truncate text-xs font-extrabold uppercase text-white" [ngClass]="step.is_active === 0 ? 'text-white/40' : ''">{{
+              step.editors[0]?.unit_name }}</h4>
+            <p class="mt-1 text-[10px] text-white/60">{{ step?.editors?.length -1 || 0 }} Units</p>
+          </div>
+          <div *ngIf="!last" class="flex items-center text-white/30" [ngClass]="{'text-[#61C2FF]': step.is_active === 1}">»
+          </div>
+        </ng-container>
+      </div>
+      <ng-container *ngIf="this.context?.workflow_rights?.can_edit" >
+
+      <!-- TABS & SELECT -->
+      <div class="space-y-3">
+        <div class="flex rounded-xl border border-white/15 bg-white/[0.06] p-1">
+          <button *ngFor="let t of ['internal','external']"
+            [disabled]="!context?.workflow_rights?.can_edit || !context?.workflow_rights?.can_route" (click)="setTab(t)"
+            class="flex-1 rounded-lg py-2 text-sm font-bold capitalize transition-all disabled:cursor-not-allowed disabled:opacity-50"
+            [ngClass]="activeTab === t ? 'bg-[#1069AB] text-white shadow' : 'text-white/60 hover:text-white'">{{t}}</button>
+        </div>
+
+        <div class="flex gap-3 rounded-xl border border-white/15 bg-white/[0.05] p-3 text-[#61C2FF]">
+          <i class="fas fa-info-circle mt-0.5 text-xs"></i>
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-widest opacity-80">Information</p>
+            <p class="text-xs text-white/80">Send for {{activeTab}} review within {{activeTab === 'internal' ? 'your' : 'external'}}
+              UNIT.</p>
+          </div>
+        </div>
+
+        <app-select [disabled]="!context?.workflow_rights?.can_edit || !context?.workflow_rights?.can_route"
+          [label]="activeTab === 'internal' ? 'User' : 'Unit'"
+          [options]="activeTab === 'internal' ? userList : unitList" [searchable]="true" [(ngModel)]="payload.selected"
+          (valueChange)="onPayloadSelectedChange($event)"
+          class="block rounded-xl p-1"></app-select>
+
+        <div *ngIf="payload.selected" class="space-y-2">
+          <label class="mb-2 block text-xs font-semibold uppercase tracking-widest text-white/60">Remarks</label>
+          <editor
+            [(ngModel)]="remarks"
+            [init]="editorConfig"
+            (ngModelChange)="onRemarksChange($event)">
+          </editor>
+        </div>
+
+      </div>
+
+      <!-- SIGNATURE SECTION -->
+      <div class="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+
+        <!-- SIGNED STATE -->
+        <div *ngIf="isSigned; else emptySign"
+          class="flex max-w-md grow items-center gap-4 rounded-2xl border border-emerald-500/30 bg-white/[0.04] p-3 transition-all animate-in fade-in duration-500">
+
+          <!-- QR Code Section -->
+          <div class="rounded-xl border border-emerald-500/30 bg-white/[0.05] p-1.5 shadow-sm">
+            <qrcode [qrdata]="qrSignatureData" [width]="64" [colorDark]="'#064e3b'" [errorCorrectionLevel]="'M'">
+            </qrcode>
+          </div>
+
+          <!-- User Details Section -->
+          <div class="min-w-0 flex-1">
+            <div class="mb-1 flex items-center gap-2">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <p class="text-[9px] font-black uppercase tracking-[1.5px] text-emerald-400">
+                Verified Digital Signature
+              </p>
+            </div>
+
+            <!-- Dynamic Name from API -->
+            <h4 class="truncate text-sm font-black uppercase leading-tight text-white">
+              {{ userDetailseData?.first_name }} {{ userDetailseData?.last_name }}
+            </h4>
+
+            <!-- Dynamic Info from API -->
+            <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-bold text-white/60">
+              <span class="text-white/80">{{ userDetailseData?.process_name }}</span>
+              <span class="h-1 w-1 rounded-full bg-white/30"></span>
+              <span class="text-[#61C2FF]">{{ userDetailseData?.unit_name }}</span>
+            </div>
+
+            <!-- Timestamp -->
+            <p class="mt-1 text-[8px] font-medium italic text-white/40">
+              TS: {{ userDetailseData?.timestamp | date:'medium' }}
+            </p>
+          </div>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <ng-template #emptySign>
+          <div
+            class="flex h-[88px] grow items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.03] px-6 text-xs font-medium italic text-white/60 transition-all">
+            <i class="fas fa-pen-nib mr-2 opacity-50"></i> No signature attached. Click "Sign" to verify.
+          </div>
+        </ng-template>
+
+        <!-- ACTION BUTTON -->
+        <button (click)="toggleSignature()"
+          [ngClass]="isSigned ? 'border-red-400/40 bg-white/[0.05] text-red-400 hover:bg-red-500/10' : 'border-[#4f8fd5] bg-[#1069AB] text-white shadow-lg hover:bg-[#195d95]'"
+          class="flex h-fit items-center gap-2 rounded-xl border px-6 py-2.5 text-[11px] font-black uppercase tracking-wider transition-all active:scale-95">
+          <i class="fas" [ngClass]="isSigned ? 'fa-trash-alt' : 'fa-file-signature'"></i>
+          {{ isSigned ? 'Remove' : 'Add Signature' }}
+        </button>
+
+      </div>
+       </ng-container>
+    </div>
+
+    <!-- FOOTER -->
+    <div *ngIf="this.context?.workflow_rights?.can_edit"
+      class="flex justify-end gap-3 border-t border-white/10 px-4 py-4 sm:px-6">
+      <button *ngIf="!embedded" type="button" (click)="closePopup()"
+        class="rounded-xl border border-white/20 bg-white/10 px-6 py-2 text-sm font-bold text-white transition hover:bg-white/15">Cancel</button>
+      <button *ngIf="activeTab === 'internal'" type="button" (click)="submitData()"
+        class="rounded-xl border border-[#4f8fd5] bg-[#1069AB] px-8 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:bg-[#195d95]">Submit</button>
+     <button
+          *ngIf="activeTab === 'external'"
+          [disabled]="!isSigned"
+          (mouseenter)="!isSigned && showSignatureToast()"
+          (click)="submitData()"
+          class="rounded-xl border border-[#4f8fd5] bg-[#1069AB] px-8 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-all duration-200 hover:bg-[#195d95]
+                disabled:border-white/15 disabled:bg-white/5 disabled:text-white/30
+                disabled:shadow-none disabled:cursor-not-allowed"
+        >
+          SUBMIT
+        </button>
+        <button
+          *ngIf="context?.workflow_rights?.can_approve_reject && settlementLiteId"
+          (click)="finalApproval()"
+          class="rounded-xl px-8 py-2 text-sm font-bold uppercase tracking-wide shadow-lg transition-all duration-200
+                bg-green-600 text-white hover:bg-green-700 focus:bg-green-700 border-green-600
+                disabled:border-white/15 disabled:bg-white/5 disabled:text-white/30
+                disabled:shadow-none disabled:cursor-not-allowed"
+        >
+          Final Approval
+        </button>
+
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="showSecondaryPopup"
+  class="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4 backdrop-blur-md"
+  (click)="showSecondaryPopup = false; selectUnit = []">
+  <div
+    class="glass-card flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-white/10 font-inter text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)]"
+    (click)="$event.stopPropagation()">
+
+    <!-- HEADER -->
+    <div class="border-b border-white/10 px-5 py-4 sm:px-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.05] text-[#61C2FF] shadow-lg">
+            <i class="fas fa-user-shield text-lg"></i>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-[1.5px] text-white/60">Primary Unit Admin</p>
+            <h2 class="text-lg font-black leading-tight text-white">{{ selectUnit[0]?.loginname }}</h2>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span class="text-xs font-semibold text-white/80">{{ selectUnit[0]?.unit_name }}</span>
+              <span *ngIf="selectUnit[0]?.is_dadmin" class="flex h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+              <span *ngIf="selectUnit[0]?.is_dadmin"
+                class="text-[9px] font-bold text-amber-300 uppercase">D-Admin</span>
+            </div>
+          </div>
+        </div>
+        <button (click)="showSecondaryPopup = false; selectUnit = []"
+          class="group flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] text-red-400 transition-all hover:border-red-400/50 hover:text-red-300">
+          <span class="text-xl leading-none">&times;</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-4 sm:p-6">
+      <div class="flex items-center justify-between px-1">
+        <h3 class="text-[11px] font-black uppercase tracking-wider text-white/60">Team Members ({{ selectUnit.length -
+          1 }})</h3>
+        <div class="ml-4 h-px flex-1 bg-white/10"></div>
+      </div>
+
+      <!-- User Card Loop -->
+      <div *ngFor="let user of selectUnit.slice(1); let i = index; trackBy: trackByUserId"
+        class="group flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] p-3 transition-all hover:border-[#61C2FF]/50">
+
+        <div class="flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/[0.05] text-xs font-black text-[#61C2FF] transition-colors">
+            {{ user.loginname.substring(0, 2).toUpperCase() }}
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="text-xs font-bold text-white">{{ user.loginname }}</h4>
+
+              <span *ngIf="user.is_working"
+                class="flex items-center gap-1 rounded border border-emerald-500/30 bg-white/[0.05] px-1.5 py-0.5">
+                <span class="h-1 w-1 rounded-full bg-emerald-500"></span>
+                <span class="text-[8px] font-black text-emerald-400 uppercase">Pending with</span>
+              </span>
+            </div>
+
+            <p class="mt-1 inline-flex rounded-full border border-amber-400/30 bg-white/[0.05] px-2 py-0.5 text-[9px] font-medium text-amber-300">
+              {{ timedDifferenceOfTwoDates(selectUnit[i]?.created_on, user.created_on) }}
+            </p>
+          </div>
+        </div>
+
+        <div class="pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <svg class="h-4 w-4 text-[#61C2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="flex justify-end items-center gap-4 border-t border-white/10 px-5 py-4 sm:px-6">
+      <p class="mr-auto text-[10px] font-medium text-white/60">Total associated records: {{ selectUnit.length }}</p>
+      <button (click)="showSecondaryPopup = false; selectUnit = []"
+        class="rounded-xl border border-white/20 bg-white/10 px-8 py-2.5 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-white/15">
+        Dismiss
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showHistoryPopup"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-md">
+  <div
+    class="glass-card flex max-h-[80vh] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-white/10 font-inter text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)]">
+
+    <!-- HEADER -->
+    <div class="flex justify-between items-center border-b border-white/10 px-5 py-3">
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60">History</p>
+        <h2 class="mt-1 text-lg font-black leading-tight text-white">Trial Audit Trail</h2>
+      </div>
+      <button (click)="closeHistoryPopup()" class="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] text-red-400 transition-colors hover:border-red-400/50 hover:text-red-300">
+        <i class="fas fa-xmark text-sm"></i>
+      </button>
+    </div>
+
+    <!-- BODY -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-4">
+
+      <div *ngFor="let item of workflowHistoryItems" class="relative ml-2 border-l border-white/10 pl-5">
+        <div class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-[#61C2FF] ring-4 ring-black/40"></div>
+
+        <div class="overflow-hidden rounded-xl border border-white/10 bg-white/[0.04]">
+
+          <!-- 1. REMARK -->
+          <div class="p-3">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[9px] font-black text-[#61C2FF] uppercase tracking-tighter">{{ item.entry_type |
+                titlecase }}</span>
+              <span class="text-[10px] font-bold italic text-white/40">{{ item.created_on | date:'medium' }}</span>
+            </div>
+            <div class="prose prose-invert prose-sm max-w-none text-xs font-medium leading-relaxed text-white/80"
+              [innerHTML]="item.remarks || 'No remarks provided.'">
+            </div>
+          </div>
+
+          <!-- 2. USER INFO & QR -->
+          <div class="flex items-center justify-between gap-3 border-t border-white/10 px-3 py-2">
+            <div *ngIf="item?.digital_signature" class="flex items-center gap-3 min-w-0">
+              <div class="shrink-0 rounded border border-white/15 bg-white/[0.05] p-0.5 shadow-xs">
+                <qrcode [qrdata]="getQRData(item.digital_signature)" [width]="45" [margin]="1"></qrcode>
+              </div>
+              <div class="truncate">
+                <h4 class="truncate text-[11px] font-black uppercase text-white">
+                  {{ item.digital_signature?.full_name }}
+                </h4>
+                <p class="truncate text-[9px] font-bold uppercase tracking-tight text-white/60">
+                  {{ item.digital_signature?.user_role_name }} • {{ item.digital_signature?.unit_name }}
+                </p>
+              </div>
+            </div>
+            <div *ngIf="!item?.digital_signature"
+              class="mt-2 flex items-center justify-between gap-3 rounded-lg border border-dashed border-white/15 bg-white/[0.03] px-3 py-1.5">
+
+              <div class="flex items-center gap-2 min-w-0">
+                <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/[0.05]">
+                  <i class="pi pi-user text-[10px] text-white/60"></i>
+                </div>
+                <div class="truncate">
+                  <span class="text-[10px] font-bold uppercase tracking-tight text-white">
+                    {{ item.user_name }}
+                  </span>
+                  <span class="mx-1.5 text-white/40">|</span>
+                  <span class="text-[9px] font-medium uppercase text-white/60">
+                    {{ item.unit_name }}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="flex justify-between items-center border-t border-white/10 px-5 py-3">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-white/60">Records: {{ workflowHistoryItems.length
+        }}</p>
+      <button (click)="closeHistoryPopup()"
+        class="rounded-lg border border-[#4f8fd5] bg-[#1069AB] px-5 py-1.5 text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#195d95]">
+        Close
+      </button>
+    </div>
+  </div>
+</div>

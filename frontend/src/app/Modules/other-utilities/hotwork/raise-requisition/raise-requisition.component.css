@@ -1,0 +1,39 @@
+.glass-card {
+  background-color: var(--bg-card, #111827);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.tag-label {
+  color: var(--text-muted, #94a3b8);
+}
+
+.tag-input {
+  color: var(--text-primary, #f8fafc);
+  border-color: #1e3a8a;
+  background-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+.tag-input:focus {
+  border-color: #38bdf8;
+  outline: none;
+}
+
+.tag-input option,
+select option {
+  background-color: #1e2028;
+  color: #f8fafc;
+}
+
+/* Darkened read-only input/textarea for DART fields as seen in screenshot */
+.dart-dark-input {
+  background-color: #272833;
+  border-bottom: 1px solid #3b82f6;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}

@@ -1,0 +1,46 @@
+<div class="exported-files-container">
+
+  <div class="exported-card">
+
+    <!-- Header -->
+    <div class="card-header">
+
+      <h2 class="title">
+        Generated DL-II ACCDB Reports
+      </h2>
+
+      <button
+        type="button"
+        class="submit-btn"
+        (click)="backToDarts()">
+
+        Back to Open DARTs
+
+      </button>
+
+    </div>
+
+    <!-- Grid Section -->
+    <div class="grid-section">
+
+      @if(errorMessage){
+
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+
+      }
+
+      <app-data-grid
+        [rowData]="rowData()"
+        [columnDefs]="columnDefs"
+        [pageSize]="10"
+        [pagination]="true"
+        height="440px">
+      </app-data-grid>
+
+    </div>
+
+  </div>
+
+</div>

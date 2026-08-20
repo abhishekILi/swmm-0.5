@@ -1,0 +1,37 @@
+<app-obs-help-guidance />
+
+<div class="glass-card wed-panel">
+  <div class="wed-panel__header">
+    <h3>{{ title }}</h3>
+    <div class="wed-panel__actions">
+      @if (showApprovalButton) {
+        <button
+          type="button"
+          class="btn-secondary"
+          [disabled]="!selectedRows().length || sending()"
+          (click)="sendForHodApproval()"
+        >
+          {{ sending() ? "Sending..." : "Send for HOD Approval" }}
+        </button>
+      }
+      @if (showSyncButton) {
+        <button type="button" class="btn-primary" [disabled]="syncing()" (click)="sync()">
+          {{ syncing() ? "Syncing..." : syncButtonLabel }}
+        </button>
+      }
+      @if (showRaiseButton) {
+        <button type="button" class="btn-raise" [disabled]="raising()" (click)="raise()">
+          {{ raising() ? "Raising..." : raiseButtonLabel }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <app-data-grid
+    [rowData]="entries()"
+    [columnDefs]="columnDefs"
+    [showCheckboxes]="showCheckboxes"
+    height="440px"
+    (selectionChanged)="onSelectionChanged($event)"
+  />
+</div>

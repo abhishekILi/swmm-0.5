@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+  <div [formArrayName]="controlName" class="flex flex-col gap-3">
+    <div *ngFor="let ctrl of items.controls; let i = index" class="flex items-start gap-2">
+      <textarea
+        [formControlName]="i"
+        rows="2"
+        class="custom-input flex-1 resize-none py-2 text-sm"
+        [placeholder]="placeholder"
+      ></textarea>
+
+      <button
+        type="button"
+        (click)="removeItem(i)"
+        class="pt-glass-table__control flex h-8 w-8 items-center justify-center rounded-lg text-red-400 transition hover:border-red-400/50"
+      >
+        −
+      </button>
+    </div>
+
+    <div class="mt-1 flex justify-end">
+      <button
+        type="button"
+        (click)="addItem()"
+        class="pt-glass-table__control flex h-8 w-8 items-center justify-center rounded-lg transition"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>

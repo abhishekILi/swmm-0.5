@@ -1,0 +1,123 @@
+<div class="kms-page">
+  <app-page-header-bar icon="mail" iconVariant="accent" title="In Mail" badgeText="Correspondence Received">
+    <button type="button" class="kms-btn-primary" (click)="openAddModal()">
+      <app-icon name="plus" [size]="15" color="#ffffff" />
+      Add In-mail Correspondence
+    </button>
+  </app-page-header-bar>
+
+  <div class="kms-layout">
+    <!-- Year / Month / Day drill-down -->
+    <div class="glass-card kms-panel">
+      <div class="kms-panel__heading">Filter by Date</div>
+
+      @if (activeYear() === null) {
+        <div class="kms-list">
+          @for (year of years(); track year) {
+            <button type="button" class="kms-list-item" (click)="selectYear(year)">{{ year }}</button>
+          } @empty {
+            <p class="kms-empty-hint">
+              Add In-mail Correspondences to access date's filter here.
+            </p>
+          }
+        </div>
+      } @else {
+        <div class="kms-breadcrumb">
+          <button type="button" class="kms-breadcrumb__crumb" (click)="resetToYears()">Years</button>
+          <span class="kms-breadcrumb__sep">/</span>
+          <button
+            type="button"
+            class="kms-breadcrumb__crumb"
+            [class.kms-breadcrumb__crumb--active]="activeMonth() === null"
+            (click)="resetToYear()"
+          >
+            {{ activeYear() }}
+          </button>
+          @if (activeMonth() !== null) {
+            <span class="kms-breadcrumb__sep">/</span>
+            <span class="kms-breadcrumb__crumb kms-breadcrumb__crumb--active">{{ monthLabel(activeMonth()!) }}</span>
+          }
+        </div>
+
+        @if (activeMonth() === null) {
+          <div class="kms-list kms-list--scroll">
+            @for (month of monthsForYear(activeYear()!); track month) {
+              <button type="button" [class]="monthClass(month)" (click)="selectMonth(month)">
+                {{ monthLabel(month) }}
+              </button>
+            }
+          </div>
+        } @else {
+          <div class="kms-list kms-list--scroll">
+            @for (day of daysForYearMonth(activeYear()!, activeMonth()!); track day) {
+              <button type="button" [class]="dayClass(day)" (click)="selectDay(day)">
+                {{ day }}
+              </button>
+            }
+          </div>
+        }
+      }
+    </div>
+
+    <!-- Table -->
+    <div class="glass-card kms-panel">
+      @if (filteredCertificates().length > 0) {
+        <app-data-grid [rowData]="filteredCertificates()" [columnDefs]="columnDefs" height="500px" />
+      } @else {
+        <p class="kms-empty-hint kms-empty-hint--table">No in-mail correspondence found.</p>
+      }
+    </div>
+  </div>
+</div>
+
+@if (showAddModal()) {
+  <app-modal size="lg" title="Add In-mail Correspondence" (closeModal)="closeAddModal()">
+    <form [formGroup]="form" (ngSubmit)="save()" class="kms-modal-form kms-modal-form--2col">
+      <app-input-field label="Correspondence Ref No" placeholder="Enter reference number" formControlName="letterRefNo" [required]="true" />
+      <app-input-field label="Correspondence File Number" placeholder="Enter file number" formControlName="fileNumber" [required]="true" />
+      <app-select-input label="Correspondence Reply Required" [options]="replyOptions" formControlName="repliedRequired" [required]="true" />
+      <app-select-input label="Correspondence Received From Unit" [options]="unitOptions" formControlName="receivedFromUnit" [required]="true" />
+      <app-select-input label="Correspondence Ship" [options]="shipOptions" formControlName="ship" [required]="true" />
+      <app-select-input label="Correspondence Command" [options]="commandOptions" formControlName="command" [required]="true" />
+      <app-input-field label="Correspondence Description" placeholder="Enter description" formControlName="letterDescription" [required]="true" />
+      <app-input-field label="Correspondence Date" type="date" formControlName="letterDate" [required]="true" />
+      <div class="col-span-2">
+        <app-textarea-input label="Remarks" placeholder="Enter remarks" [rows]="2" formControlName="remarks" />
+      </div>
+      <div class="col-span-2">
+        <app-file-input label="Upload Doc" formControlName="attachment" [required]="true"
+          accept=".pdf,.doc,.docx,.xls,.xlsx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+      </div>
+      <div class="kms-modal-actions col-span-2">
+        <button type="button" class="kms-btn-secondary" (click)="closeAddModal()">
+          Cancel
+        </button>
+        <button type="submit" class="kms-btn-primary">
+          Save
+        </button>
+      </div>
+    </form>
+  </app-modal>
+}
+
+@if (showDetailModal() && activeCertificate(); as cert) {
+  <app-modal size="md" [title]="cert.letterRefNo ?? ''" (closeModal)="closeDetailModal()">
+    <div class="kms-modal-form kms-modal-form--sm">
+      <div class="flex flex-col gap-2">
+        <div class="kms-detail-row"><span>File Number</span><span>{{ cert.fileNumber }}</span></div>
+        <div class="kms-detail-row"><span>Reply Required</span><span>{{ cert.repliedRequired }}</span></div>
+        <div class="kms-detail-row"><span>Received From</span><span>{{ cert.receivedFromUnit }}</span></div>
+        <div class="kms-detail-row"><span>Ship</span><span>{{ cert.ship }}</span></div>
+        <div class="kms-detail-row"><span>Command</span><span>{{ cert.command }}</span></div>
+        <div class="kms-detail-row"><span>Description</span><span>{{ cert.letterDescription }}</span></div>
+        <div class="kms-detail-row"><span>Date</span><span>{{ cert.letterDate }}</span></div>
+        <div class="kms-detail-row"><span>Remarks</span><span>{{ cert.remarks || '—' }}</span></div>
+      </div>
+      <div class="kms-modal-actions">
+        <button type="button" class="kms-btn-secondary" (click)="closeDetailModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </app-modal>
+}

@@ -1,0 +1,95 @@
+<div class="kms-page">
+  <app-page-header-bar icon="share-2" iconVariant="accent" title="Share Point" badgeText="Shared Documents">
+    <div class="kms-radio-group">
+      <label class="kms-radio-label">
+        <input type="radio" name="statusFilter" [checked]="statusFilter() === 'all'" (change)="setStatusFilter('all')" /> All
+      </label>
+      <label class="kms-radio-label">
+        <input type="radio" name="statusFilter" [checked]="statusFilter() === 'uploaded'" (change)="setStatusFilter('uploaded')" /> Uploaded By You
+      </label>
+      <label class="kms-radio-label">
+        <input type="radio" name="statusFilter" [checked]="statusFilter() === 'shared'" (change)="setStatusFilter('shared')" /> Shared With You
+      </label>
+    </div>
+    <button type="button" class="kms-btn-primary" (click)="openAddModal()">
+      <app-icon name="plus" [size]="15" color="#ffffff" />
+      Add Documents
+    </button>
+  </app-page-header-bar>
+
+  <div class="glass-card kms-panel">
+    @if (filteredCertificates().length > 0) {
+      <app-data-grid [rowData]="filteredCertificates()" [columnDefs]="columnDefs" height="500px" />
+    } @else {
+      <p class="kms-empty-hint kms-empty-hint--table">No documents found.</p>
+    }
+  </div>
+</div>
+
+@if (showAddModal()) {
+  <app-modal size="md" title="Add Documents" (closeModal)="closeAddModal()">
+    <form [formGroup]="form" (ngSubmit)="save()" class="kms-modal-form kms-modal-form--sm">
+      <app-input-field label="Document Name" placeholder="Enter document name" formControlName="name" [required]="true" />
+      <app-file-input label="Upload Document File" formControlName="attachment"
+        accept=".pdf,.doc,.docx,.xls,.xlsx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+      <div class="kms-modal-actions">
+        <button type="button" class="kms-btn-secondary" (click)="closeAddModal()">
+          Cancel
+        </button>
+        <button type="submit" class="kms-btn-primary">
+          Save
+        </button>
+      </div>
+    </form>
+  </app-modal>
+}
+
+@if (showDetailModal() && activeCertificate(); as cert) {
+  <app-modal size="md" [title]="cert.name" (closeModal)="closeDetailModal()">
+    <div class="kms-modal-form kms-modal-form--sm">
+      <div class="flex flex-col gap-2">
+        <div class="kms-detail-row"><span>Uploaded/Shared On</span><span>{{ isOwned(cert) ? cert.issueDate : cert.sharedOn }}</span></div>
+        <div class="kms-detail-row"><span>Status</span><span>{{ isOwned(cert) ? 'Uploaded By You' : 'Shared With You' }}</span></div>
+        <div class="kms-detail-row"><span>Uploaded/Shared By</span><span>{{ cert.uploadedByName }}</span></div>
+      </div>
+      <div class="kms-modal-actions">
+        <button type="button" class="kms-btn-secondary" (click)="closeDetailModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </app-modal>
+}
+
+@if (showShareModal() && activeCertificate(); as cert) {
+  <app-modal size="md" title="Share Document" (closeModal)="closeShareModal()">
+    <div class="kms-modal-form kms-modal-form--sm">
+      <input
+        type="text"
+        placeholder="Search by name, rank, or number..."
+        class="form-field-input"
+        [value]="shareSearch()"
+        (input)="shareSearch.set($any($event.target).value)"
+      />
+      <button type="button" class="self-end text-[12px] kms-link" (click)="toggleSelectAll()">
+        {{ allVisibleSelected() ? 'Deselect All' : 'Select All' }}
+      </button>
+      <div class="flex flex-col gap-1 max-h-[240px] overflow-y-auto">
+        @for (person of filteredPersonnel(); track person.id) {
+          <label class="flex items-center gap-2 text-[13px] px-2 py-1.5 rounded-lg hover:bg-[var(--bg-hover)]">
+            <input type="checkbox" [checked]="shareSelection().has(person.id)" (change)="toggleShareUser(person.id)" />
+            {{ person.rank }} | {{ person.firstName }} {{ person.lastName }} | {{ person.personalNumber }}
+          </label>
+        }
+      </div>
+      <div class="kms-modal-actions">
+        <button type="button" class="kms-btn-secondary" (click)="closeShareModal()">
+          Cancel
+        </button>
+        <button type="button" class="kms-btn-primary" (click)="confirmShare()">
+          Share
+        </button>
+      </div>
+    </div>
+  </app-modal>
+}

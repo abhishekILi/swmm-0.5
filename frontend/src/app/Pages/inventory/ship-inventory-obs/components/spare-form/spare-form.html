@@ -1,0 +1,35 @@
+<form [formGroup]="form" class="spare-form" (ngSubmit)="submit()">
+  <div class="spare-form__grid">
+    <app-select-input label="Class of Spares *" formControlName="spareClass" [options]="spareClasses" />
+    <app-select-input label="Equipment Class *" formControlName="equipmentClass" [options]="equipmentClasses" />
+    <app-input-field label="Pattern Number *" formControlName="patternNumber" />
+    <app-input-field label="Spare Description *" formControlName="description" />
+    <app-input-field label="Compartment Name" formControlName="compartment" />
+    <app-input-field label="Rack Position" formControlName="rackPosition" />
+    <app-input-field label="Rack Number" formControlName="rackNumber" />
+    <app-input-field label="Box No." formControlName="location" />
+  </div>
+
+  <div class="spare-form__grid">
+    <app-select-input label="Category *" formControlName="category" [options]="categoryOptions" />
+    <app-select-input label="Critical *" formControlName="critical" [options]="criticalOptions" />
+    <app-select-input label="Denomination *" formControlName="denomination" [options]="denominations" />
+    <app-select-input label="Authority *" formControlName="authority" [options]="authorities" />
+    <app-input-field label="Qty Authorised *" type="number" formControlName="quantityAuthorised" />
+    <app-input-field label="Qty Held *" type="number" formControlName="quantityAvailable" />
+    <app-input-field label="PLL Page No." formControlName="page" />
+    <app-input-field label="PLL Line No." formControlName="line" />
+  </div>
+
+  <div class="spare-form__row">
+    <app-textarea-input label="Remarks" formControlName="remarks" [rows]="3" />
+    <app-file-input label="Spare Image" formControlName="image" />
+  </div>
+
+  <div class="spare-form__actions">
+    <button type="button" class="btn-secondary" (click)="cancel()">Cancel</button>
+    <button type="submit" class="btn-primary" [disabled]="saving()">
+      {{ saving() ? "Saving..." : "Save" }}
+    </button>
+  </div>
+</form>

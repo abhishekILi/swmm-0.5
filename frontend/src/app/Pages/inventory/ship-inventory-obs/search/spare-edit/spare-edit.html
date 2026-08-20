@@ -1,0 +1,13 @@
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Update Spare Details</h3>
+  </div>
+  @if (spare(); as s) {
+    <app-obs-spare-form
+      [initialValue]="s"
+      [saving]="saving()"
+      (submitted)="onSubmit($event)"
+      (cancelled)="goBack()"
+    />
+  }
+</div>

@@ -1,0 +1,65 @@
+<div class="modal-backdrop" tabindex="0" role="button" (keyup.enter)="close()">
+  <div class="modal" tabindex="0" role="button" (keyup.enter)="$event.stopPropagation()">
+    <div class="modal-head">
+      <h3>{{ editorMode() === 'edit' ? 'Edit Event' : 'New Event' }}</h3>
+
+      <button type="button" class="icon-btn close" (click)="close()">
+        <app-icon name="x" [size]="14"></app-icon>
+      </button>
+    </div>
+
+    <form [formGroup]="activityForm" (ngSubmit)="create()">
+      <div class="modal-body">
+
+        <!-- Title -->
+        <app-input-field label="Title" type="text" placeholder="e.g. Fire Pump Overhaul" formControlName="title">
+        </app-input-field>
+
+        <!-- Department + Category -->
+        <div class="field-row">
+          <app-select-input label="Department" [options]="departmentOptions" formControlName="department">
+          </app-select-input>
+
+          <app-select-input label="Category" [options]="categoryOptions()" formControlName="category">
+          </app-select-input>
+        </div>
+
+        <!-- Date + Time -->
+        <div class="field-row three-cols">
+          <app-date-picker label="Date" [singleDate]="true" formControlName="date">
+          </app-date-picker>
+
+          <app-input-field label="From" type="text" placeholder="08:00" [autoTimeFormat]="true"
+            formControlName="fromTime" (focusin)="closeAllDropdowns()">
+          </app-input-field>
+
+          <app-input-field label="To" type="text" placeholder="10:00" [autoTimeFormat]="true" formControlName="toTime"
+            (focusin)="closeAllDropdowns()">
+          </app-input-field>
+        </div>
+
+        @if (timeErrorMessage()) {
+        <div class="text-rose-500 text-xs font-semibold mt-1 flex items-center gap-1">
+          <app-icon name="alert-circle" [size]="14" color="#f43f5e"></app-icon>
+          <span>{{ timeErrorMessage() }}</span>
+        </div>
+        }
+
+        <!-- Description -->
+        <app-textarea-input label="Description" formControlName="description">
+        </app-textarea-input>
+
+      </div>
+
+      <div class="modal-foot">
+        <button type="button" class="btn" (click)="close()">
+          Cancel
+        </button>
+
+        <button type="submit" class="btn primary" [disabled]="activityForm.invalid">
+          {{ editorMode() === 'edit' ? 'Save Changes' : 'Create Event' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

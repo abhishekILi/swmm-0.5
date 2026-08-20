@@ -1,0 +1,197 @@
+<div class="pending-requisitions-container p-4 sm:p-6 space-y-6">
+
+  <!-- Main Section Container using Shared PanelCard Component -->
+  <app-panel-card title="REQUISITIONS - APPROVAL PENDING" icon="search">
+
+    <!-- Toolbar Header Slot (ExportToolbar & Search Input) -->
+    <div
+      panelActions
+      class="flex items-center gap-3 w-full sm:w-auto justify-end flex-wrap"
+    >
+      <app-export-toolbar
+        (exportRequested)="onExport($event)"
+      ></app-export-toolbar>
+
+      <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+        <label for="req-search-input">Search:</label>
+        <input
+          id="req-search-input"
+          type="text"
+          [ngModel]="globalSearch()"
+          (ngModelChange)="globalSearch.set($event)"
+          placeholder="Search..."
+          class="bg-[var(--bg-input,#0f172a)] text-[var(--text-primary,#f8fafc)] border border-[var(--border-input,#334155)] text-xs px-3 py-1.5 rounded-lg focus:outline-none focus:border-sky-500 w-36 sm:w-44 placeholder:text-slate-500"
+        />
+      </div>
+    </div>
+
+    <!-- Top Filter Section (Department, Type, Location, Apply & Clear) -->
+    <div class="mb-4 p-4 bg-[#091122]/60 rounded-xl border border-sky-900/40 space-y-3">
+      <span class="text-xs font-bold text-slate-400 tracking-wider block uppercase">
+        FILTER:
+      </span>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+
+        <!-- Department -->
+        <div class="flex flex-col gap-1.5">
+          <label for="filter-dept" class="text-[11px] font-bold text-slate-300 uppercase tracking-wide">
+            DEPARTMENT
+          </label>
+          <div class="relative">
+            <select
+              id="filter-dept"
+              [ngModel]="selectedDepartmentFilter()"
+              (ngModelChange)="selectedDepartmentFilter.set($event)"
+              class="w-full bg-[#0f172a] border-b border-sky-500/40 py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none focus:border-sky-400 rounded cursor-pointer appearance-none pr-7"
+            >
+              @for (dept of departmentOptions; track dept) {
+                <option [value]="dept" class="bg-slate-900 text-slate-200">
+                  {{ dept === 'ALL' ? 'ALL DEPARTMENT' : dept }}
+                </option>
+              }
+            </select>
+            <div class="absolute right-2 top-2 pointer-events-none text-slate-400">
+              <app-icon name="chevron-down" [size]="12"></app-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Type of Hotwork -->
+        <div class="flex flex-col gap-1.5">
+          <label for="filter-type" class="text-[11px] font-bold text-slate-300 uppercase tracking-wide">
+            TYPE OF HOTWORK
+          </label>
+          <div class="relative">
+            <select
+              id="filter-type"
+              [ngModel]="selectedTypeFilter()"
+              (ngModelChange)="selectedTypeFilter.set($event)"
+              class="w-full bg-[#0f172a] border-b border-sky-500/40 py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none focus:border-sky-400 rounded cursor-pointer appearance-none pr-7"
+            >
+              @for (type of typeOfHotworkOptions; track type) {
+                <option [value]="type" class="bg-slate-900 text-slate-200">
+                  {{ type === 'ALL' ? 'ALL TYPE OF HOTWORK' : type }}
+                </option>
+              }
+            </select>
+            <div class="absolute right-2 top-2 pointer-events-none text-slate-400">
+              <app-icon name="chevron-down" [size]="12"></app-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotwork Location -->
+        <div class="flex flex-col gap-1.5">
+          <label for="filter-location" class="text-[11px] font-bold text-slate-300 uppercase tracking-wide">
+            HOTWORK LOCATION
+          </label>
+          <input
+            id="filter-location"
+            type="text"
+            [ngModel]="locationSearchInput()"
+            (ngModelChange)="locationSearchInput.set($event)"
+            placeholder="Enter location..."
+            class="w-full bg-[#0f172a] border-b border-sky-500/40 py-1.5 px-2.5 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-sky-400 rounded"
+          />
+        </div>
+
+        <!-- Filter Action Buttons -->
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            (click)="applyTopFilters()"
+            class="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-2 px-5 rounded-lg text-xs tracking-wide shadow-md shadow-sky-500/20 transition-colors cursor-pointer"
+          >
+            Apply Filters
+          </button>
+
+          <button
+            type="button"
+            (click)="clearAllFilters()"
+            class="border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 px-3 py-2 rounded-lg text-xs flex items-center gap-1.5 font-medium transition-colors cursor-pointer"
+          >
+            <app-icon name="filter" [size]="13" class="text-amber-400"></app-icon>
+            <span>Clear Filters</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Shared AG-Grid Component -->
+    <app-data-grid
+      [rowData]="filteredRows()"
+      [columnDefs]="columnDefs"
+      [pageSize]="pageSize()"
+      [autoHeight]="true"
+      (rowClicked)="onRowClicked($event)"
+    >
+    </app-data-grid>
+
+  </app-panel-card>
+</div>
+
+<!-- Shared Detail Drawer -->
+<app-detail-drawer
+  [open]="!!selectedRecord()"
+  [wide]="true"
+  [titleMode]="true"
+  [label]="selectedRecord()?.hotworkCode ?? 'Requisition Details'"
+  subtitle="Pending Requisition Details & Approval Actions"
+  iconName="flame"
+  iconColor="#0ea5e9"
+  (closed)="closeDrawer()"
+>
+  @if (selectedRecord(); as item) {
+    <div class="space-y-5 p-2 text-sm text-[var(--text-primary,#f8fafc)]">
+
+      <!-- Status Alert Message -->
+      @if (actionSuccessMessage()) {
+        <div class="bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 p-3 rounded-lg text-xs font-semibold flex items-center gap-2">
+          <app-icon name="check" [size]="16" class="text-emerald-400"></app-icon>
+          <span>{{ actionSuccessMessage() }}</span>
+        </div>
+      }
+
+      <!-- Details Summary Card -->
+      <div class="p-4 rounded-xl bg-[#0f172a] border border-slate-700/60 space-y-3">
+        <div class="flex items-center gap-2 text-sky-400 font-bold text-xs uppercase tracking-wider pb-2 border-b border-slate-700/60">
+          <app-icon name="info" [size]="16" class="text-sky-400" />
+          <span>Requisition Information</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-xs">
+          <div class="flex justify-between items-center"><span class="text-slate-400">Hotwork Code:</span><span class="text-sky-400 font-bold">{{ item.hotworkCode }}</span></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">Date of Hotwork:</span><span class="text-white font-semibold">{{ item.dateOfHotwork }}</span></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">Type of Hotwork:</span><span class="text-white font-semibold">{{ item.typeOfHotwork }}</span></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">Department:</span><span class="text-white font-semibold">{{ item.departmentSubDept }}</span></div>
+          <div class="flex justify-between items-start"><span class="text-slate-400 shrink-0">Location:</span><span class="text-white font-medium text-right">{{ item.hotworkLocation }}</span></div>
+          <div class="flex justify-between items-start"><span class="text-slate-400 shrink-0">Adjacent Compartment:</span><span class="text-white font-medium text-right">{{ item.adjacentCompartment }}</span></div>
+          <div class="flex justify-between items-center"><span class="text-slate-400">Current Status:</span><span class="text-amber-300 font-bold">{{ item.approvalStatus }}</span></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-3 pt-2">
+        <button
+          type="button"
+          [disabled]="isActionInProgress()"
+          (click)="rejectRequisition()"
+          class="px-4 py-2 rounded-lg bg-red-600/30 hover:bg-red-600/50 text-red-300 border border-red-500/40 text-xs font-bold transition-all cursor-pointer disabled:opacity-50"
+        >
+          Reject Requisition
+        </button>
+        <button
+          type="button"
+          [disabled]="isActionInProgress()"
+          (click)="approveRequisition()"
+          class="px-6 py-2 rounded-lg bg-[#0ea5e9] hover:bg-sky-400 text-white text-xs font-bold transition-all shadow-md shadow-sky-500/20 cursor-pointer disabled:opacity-50"
+        >
+          Approve Requisition
+        </button>
+      </div>
+
+    </div>
+  }
+</app-detail-drawer>

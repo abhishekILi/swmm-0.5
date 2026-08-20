@@ -1,0 +1,82 @@
+<app-obs-help-guidance />
+
+<div class="kpi-row">
+  @for (tile of tiles(); track tile.title) {
+    <app-kpi-card
+      cardHeight="auto"
+      [title]="tile.title"
+      [description]="today"
+      [count]="tile.count"
+      [iconName]="tile.icon"
+      [iconColor]="tile.iconColor"
+      [iconBg]="tile.iconBg"
+      [accentColor]="tile.iconColor"
+      iconPosition="right"
+      [showTimelineTab]="false"
+      [showTrends]="false"
+      [showViewMore]="true"
+      viewMoreLabel="View more →"
+      (detailClick)="viewMore(tile.statusTab)"
+    />
+  }
+</div>
+
+<div class="glass-card crew-panel">
+  <div class="crew-panel__header">
+    <h3>Personnel borne as on {{ today }}</h3>
+    <div class="crew-panel__actions">
+      <button type="button" class="btn-secondary" [disabled]="!filteredRows().length" (click)="downloadCsv()">
+        <app-icon name="download" [size]="14" variant="inherit" /> Download CSV
+      </button>
+      <button type="button" class="btn-secondary" [disabled]="!filteredRows().length" (click)="downloadPdf()">
+        <app-icon name="printer" [size]="14" variant="inherit" /> Download PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="crew-filters">
+    <div class="crew-filters__group">
+      <span class="crew-filters__label">Category</span>
+      <div class="crew-pill-group">
+        <button type="button" class="crew-pill" [class.crew-pill--active]="category() === 'all'" (click)="setCategory('all')">All</button>
+        <button type="button" class="crew-pill" [class.crew-pill--active]="category() === 'officer'" (click)="setCategory('officer')">Officer</button>
+        <button type="button" class="crew-pill" [class.crew-pill--active]="category() === 'sailor'" (click)="setCategory('sailor')">Sailor</button>
+      </div>
+    </div>
+
+    <div class="crew-filters__group crew-filters__group--dept">
+      <app-select-input
+        label="Department"
+        placeholder="All departments"
+        [options]="departmentOptions()"
+        [ngModel]="deptFilter()"
+        (ngModelChange)="onDeptChange($event)"
+      />
+    </div>
+
+    <fieldset class="crew-filters__group crew-filters__group--radio">
+      <legend class="crew-filters__label">Status</legend>
+      <label class="crew-radio">
+        <input type="radio" name="crewStatusFilter" [checked]="statusFilter() === ''" (change)="setStatusFilter('')" />
+        All
+      </label>
+      @for (option of statusFilterOptions; track option.value) {
+        <label class="crew-radio">
+          <input
+            type="radio"
+            name="crewStatusFilter"
+            [checked]="statusFilter() === option.value"
+            (change)="setStatusFilter(option.value)"
+          />
+          {{ option.label }}
+        </label>
+      }
+    </fieldset>
+
+    <button type="button" class="btn-secondary" (click)="clearFilters()">
+      <app-icon name="x" [size]="14" variant="inherit" /> Clear filters
+    </button>
+  </div>
+
+  <app-data-grid [rowData]="filteredRows()" [columnDefs]="columnDefs" height="380px" />
+</div>

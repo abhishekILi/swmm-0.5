@@ -1,0 +1,75 @@
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+}
+
+.kpi-stat-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.kpi-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.col-search-input {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.col-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.col-search-input::placeholder {
+  color: #64748b;
+  font-size: 0.7rem;
+}
+
+/* Force equal height and bottom alignment for app-kpi-card inside hotwork component */
+:host ::ng-deep app-kpi-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  flex: 1 !important;
+}
+
+:host ::ng-deep app-kpi-card .kpi-card {
+  height: 100% !important;
+  min-height: 130px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+
+:host ::ng-deep app-kpi-card .kpi-card > div:first-child {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+:host ::ng-deep app-kpi-card .kpi-bottom-row {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+}

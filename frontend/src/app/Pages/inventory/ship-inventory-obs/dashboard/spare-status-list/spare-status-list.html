@@ -1,0 +1,55 @@
+<app-obs-help-guidance [bodyHtml]="helpHtml" />
+
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>{{ title }}</h3>
+  </div>
+
+  @if (kind === "critical") {
+    <div class="obs-filter-row">
+      <div class="obs-filter-row__categories">
+        <div class="form-field">
+          <label class="form-field-label" for="spareStatusSpareClass">Spare Class</label>
+          <select
+            id="spareStatusSpareClass"
+            class="form-field-select"
+            [value]="spareClassFilter()"
+            (change)="spareClassFilter.set($any($event.target).value)"
+          >
+            <option value="">ALL</option>
+            @for (option of spareClassOptions(); track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-field-label" for="spareStatusEquipmentClass">Equipment Class</label>
+          <select
+            id="spareStatusEquipmentClass"
+            class="form-field-select"
+            [value]="equipmentClassFilter()"
+            (change)="equipmentClassFilter.set($any($event.target).value)"
+          >
+            <option value="">ALL</option>
+            @for (option of equipmentClassOptions(); track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+        </div>
+        <button type="button" class="btn-secondary" (click)="clearFilters()">Reset filters</button>
+      </div>
+    </div>
+  }
+
+  <div class="grid-toolbar">
+    <app-toolbar-search [value]="searchText()" (valueChange)="searchText.set($event)" />
+    <div class="grid-toolbar__end">
+      <button type="button" class="icon-btn" title="Copy to clipboard" (click)="copyRows()">
+        <app-icon name="clipboard" [size]="16" variant="inherit" />
+      </button>
+      <app-export-toolbar [busy]="exportBusy()" (exportRequested)="onExport($event)" />
+    </div>
+  </div>
+
+  <app-data-grid [rowData]="filteredSpares()" [columnDefs]="columnDefs" height="480px" />
+</div>

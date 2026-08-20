@@ -1,0 +1,217 @@
+<div class="flex items-center justify-between mb-3 px-1">
+  <div class="flex items-center gap-4">
+    <div>
+      <h2 class="text-lg font-semibold text-white">Fuel Management System</h2>
+      <span class="text-white/50 text-xs">INS Kolkata · Tank Monitoring Dashboard</span>
+    </div>
+    <button
+      type="button"
+      (click)="openSoundingModal()"
+      class="flex items-center gap-2 h-9 px-3 rounded-lg bg-[#1D96E9] text-white text-sm"
+    >
+      <app-icon name="plus" [size]="14" />
+      Add current sounding
+    </button>
+  </div>
+  <span class="text-white/50 text-sm">{{ now | date: 'dd MMM yyyy · HHmm' }}</span>
+</div>
+
+<div class="grid grid-cols-5 gap-3">
+  @for (group of groups; track group.tank_type) {
+    <app-master-card [cardTitle]="group.tank_type" cardHeight="14rem">
+      <div class="flex flex-col gap-2 mt-2">
+        <span class="text-white/40 text-xs -mt-1">{{ group.subtext }}</span>
+        <div class="flex justify-between text-sm text-white/70">
+          <span>Tanks</span>
+          <span class="text-white">{{ group.count }}</span>
+        </div>
+        <div class="flex justify-between text-sm text-white/70">
+          <span>Held T</span>
+          <span class="text-white">{{ group.held }}</span>
+        </div>
+        <div class="flex justify-between text-sm text-white/70">
+          <span>Fill</span>
+          <span class="text-white">{{ group.fillPercent }}%</span>
+        </div>
+
+        <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden mt-1">
+          <div
+            class="h-full rounded-full fill-bar"
+            [class.fill-bar--high]="group.fillPercent >= 90"
+            [style.--fill-pct.%]="group.fillPercent"
+          ></div>
+        </div>
+
+        <button
+          type="button"
+          (click)="openDetails(group)"
+          class="mt-2 h-9 rounded-lg bg-white/10 border border-white/10 text-white text-xs"
+        >
+          VIEW DETAILS →
+        </button>
+      </div>
+    </app-master-card>
+  }
+</div>
+
+<div class="grid grid-cols-2 gap-3 mt-3">
+  @for (group of chartGroups; track group.tank_type) {
+    <app-master-card [cardTitle]="group.tank_type + ' Tanks'" cardHeight="auto">
+      <div class="flex flex-col gap-3 mt-2">
+        <div class="flex items-center gap-4 text-xs text-white/60">
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-[#1D96E9] inline-block"></span> Held</span>
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-white/20 inline-block"></span> Cap</span>
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full border border-dashed border-amber-400 inline-block"></span> 95% limit</span>
+        </div>
+
+        @for (tank of group.tanks; track tank.name) {
+          <div class="flex items-center gap-3">
+            <span class="w-40 text-white/70 text-xs truncate">{{ tank.name }}</span>
+            <div class="relative flex-1 h-4 rounded bg-white/10 overflow-hidden">
+              <div
+                class="h-full rounded bg-[#1D96E9] held-bar"
+                [style.--held-pct.%]="(tank.held / tank.capacity100) * 100"
+              ></div>
+              <div
+                class="absolute top-0 h-full border-r border-dashed border-amber-400 limit-marker"
+                [style.--limit-pct.%]="(tank.capacity95 / tank.capacity100) * 100"
+              ></div>
+            </div>
+            <span class="w-20 text-right text-white/50 text-xs">{{ tank.held }} / {{ tank.capacity100 }} T</span>
+          </div>
+        }
+      </div>
+    </app-master-card>
+  }
+</div>
+
+@if (selectedGroup) {
+  <app-modal size="lg" (closeModal)="closeDetails()">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold">{{ selectedGroup.tank_type }}</h3>
+      <button type="button" (click)="closeDetails()" class="text-white/60">
+        <app-icon name="x" [size]="20" />
+      </button>
+    </div>
+
+    <div class="flex gap-4 mb-4 text-sm">
+      <span class="px-3 py-1 rounded-full bg-white/10">Tanks: {{ selectedGroup.count }}</span>
+      <span class="px-3 py-1 rounded-full bg-white/10">Held: {{ selectedGroup.held }} T</span>
+      <span class="px-3 py-1 rounded-full bg-white/10">Fill: {{ selectedGroup.fillPercent }}%</span>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="text-white/50 border-b border-white/10">
+          <tr>
+            <th class="py-2 pr-3">S/N</th>
+            <th class="py-2 pr-3">Tank Nomenclature</th>
+            <th class="py-2 pr-3">100% Cap (T)</th>
+            <th class="py-2 pr-3">95% Cap (T)</th>
+            <th class="py-2 pr-3">Sounding (mm)</th>
+            <th class="py-2 pr-3">Held (T)</th>
+            <th class="py-2 pr-3">Fill %</th>
+            <th class="py-2 pr-3">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tank of selectedGroup.tanks; track tank.name; let i = $index) {
+            <tr class="border-b border-white/5">
+              <td class="py-2 pr-3">{{ i + 1 }}</td>
+              <td class="py-2 pr-3">{{ tank.name }}</td>
+              <td class="py-2 pr-3">{{ tank.capacity100 }}</td>
+              <td class="py-2 pr-3">{{ tank.capacity95 }}</td>
+              <td class="py-2 pr-3">{{ tank.sounding }}</td>
+              <td class="py-2 pr-3">{{ tank.held }}</td>
+              <td class="py-2 pr-3">{{ tank.fillPercent }}%</td>
+              <td class="py-2 pr-3">
+                <span
+                  class="px-2 py-0.5 rounded-full text-xs status-badge"
+                  [class.status-badge--good]="tank.status === 'GOOD'"
+                  [class.status-badge--warn]="tank.status !== 'GOOD'"
+                >
+                  {{ tank.status }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </app-modal>
+}
+
+@if (showSoundingModal) {
+  <app-modal size="lg" (closeModal)="closeSoundingModal()">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold">Add Current Sounding</h3>
+      <button type="button" (click)="closeSoundingModal()" class="text-white/60">
+        <app-icon name="x" [size]="20" />
+      </button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <div>
+        <label for="sounding-date" class="text-white/60 text-xs mb-1 block">Select Date</label>
+        <input id="sounding-date" type="date" [(ngModel)]="soundingDate" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+      <div>
+        <label for="sounding-time" class="text-white/60 text-xs mb-1 block">Select Time</label>
+        <input id="sounding-time" type="time" [(ngModel)]="soundingTime" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+      <div>
+        <label for="sounding-tank-type" class="text-white/60 text-xs mb-1 block">Tank Type</label>
+        <select id="sounding-tank-type" [(ngModel)]="soundingTankType" (ngModelChange)="onTankTypeChange()" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+          <option value="">-- All Tanks --</option>
+          @for (type of tankTypeOptions; track type) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    @if (soundingRows.length) {
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+          <thead class="text-white/50 border-b border-white/10">
+            <tr>
+              <th class="py-2 pr-3">Tank Name</th>
+              <th class="py-2 pr-3">Type</th>
+              <th class="py-2 pr-3">Limit (mm)</th>
+              <th class="py-2 pr-3">Start RAS (T)</th>
+              <th class="py-2 pr-3">Sounding (mm)</th>
+              <th class="py-2 pr-3">During RAS (Tone)</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of soundingRows; track row.tank_name) {
+              <tr class="border-b border-white/5">
+                <td class="py-2 pr-3">{{ row.tank_name }}</td>
+                <td class="py-2 pr-3">{{ row.type }}</td>
+                <td class="py-2 pr-3">{{ row.limit_mm }}</td>
+                <td class="py-2 pr-3">{{ row.start_ras }}</td>
+                <td class="py-2 pr-3">
+                  <input
+                    type="number"
+                    [(ngModel)]="row.sounding_mm"
+                    (ngModelChange)="calculateDuringRas(row)"
+                    class="w-24 h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white text-xs"
+                  />
+                </td>
+                <td class="py-2 pr-3">{{ row.during_ras ?? '—' }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <p class="text-white/40 text-sm py-6 text-center">Please select a Tank Type above to load tanks.</p>
+    }
+
+    <div class="flex justify-end mt-4">
+      <button type="button" (click)="saveSoundingData()" class="px-4 h-10 rounded-lg bg-[#1D96E9] text-white text-sm">
+        Save Sounding Data
+      </button>
+    </div>
+  </app-modal>
+}

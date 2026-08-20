@@ -1,0 +1,45 @@
+@if (a()) {
+  <div class="details-backdrop" tabindex="0" role="button" (click)="close()" (keyup.enter)="close()">
+    <div class="details-modal" tabindex="0" role="dialog" (click)="$event.stopPropagation()" (keyup.enter)="$event.stopPropagation()">
+      <div class="details-head">
+        <h3>Details</h3>
+        <button type="button" class="icon-btn close" (click)="close()">
+          <app-icon name="x" [size]="16" />
+        </button>
+      </div>
+
+      <div class="details-body">
+        <div class="row"><span class="k">Equipment:</span> <span class="v">{{ equipment() }}</span></div>
+        <div class="row"><span class="k">Due Date:</span> <span class="v">{{ dueDate() }}</span></div>
+        <div class="row"><span class="k">Routine:</span> <span class="v">{{ routineName() }}</span></div>
+        <div class="row"><span class="k">Section:</span> <span class="v">{{ section() }}</span></div>
+        <div class="row"><span class="k">Category:</span> <span class="v">{{ categoryLabel() }}</span></div>
+        <div class="row"><span class="k">Created By:</span> <span class="v">N/A</span></div>
+        <div class="row row--tight">
+          <span class="k">Frequency:</span> <span class="v">N/A</span>
+        </div>
+        <div class="row row--tight">
+          <span class="k">Last Completion:</span> <span class="v">N/A</span>
+        </div>
+        <div class="row row--tight">
+          <span class="k">Maintop No:</span> <span class="v">{{ maintopNo() }}</span>
+        </div>
+      </div>
+
+      <div class="details-foot">
+        <div class="details-foot-actions">
+          @if (isManual()) {
+            <button type="button" class="btn" (click)="reschedule()">Reschedule</button>
+            <button type="button" class="btn danger" (click)="remove()">Delete</button>
+          } @else {
+            <span class="readonly-note">Read-only — sourced from {{ categoryLabel() }} records.</span>
+          }
+        </div>
+
+        <button type="button" class="icon-btn expand" title="Open full details" (click)="expand()">
+          <app-icon name="extlink" [size]="14" />
+        </button>
+      </div>
+    </div>
+  </div>
+}

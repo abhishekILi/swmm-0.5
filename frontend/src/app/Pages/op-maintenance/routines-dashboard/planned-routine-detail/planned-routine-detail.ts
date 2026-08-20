@@ -1,0 +1,152 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { ColDef, RowData } from 'ag-grid-community';
+import { firstValueFrom } from 'rxjs';
+
+import { MasterCard } from '../../../refit-maintenance/master-card/master-card';
+import { DataGrid } from '../../../../shared/components/data-grid/data-grid';
+import { GridActionButton } from '../../../../shared/components/data-grid/grid-action-button/grid-action-button';
+import { IconComponent } from '../../../../shared/components/icon/icon.component';
+
+import { Call } from '../../../../services/network/call';
+import { NotificationService } from '../../../../Core/services/notification/notification.service';
+import { PlannedRoutineDetail } from '../search-routines/search-routines.model';
+
+@Component({
+  selector: 'app-planned-routine-detail',
+  standalone: true,
+  imports: [CommonModule, MasterCard, DataGrid, IconComponent],
+  templateUrl: './planned-routine-detail.html',
+  styleUrl: './planned-routine-detail.css',
+})
+export class PlannedRoutineDetailComponent implements OnInit {
+  private readonly api = inject(Call);
+  private readonly router = inject(Router);
+  private readonly toastr = inject(NotificationService);
+
+  readonly addRoutineId = (history.state?.addRoutineId as number | undefined) ?? null;
+
+  readonly rows = signal<PlannedRoutineDetail[]>([]);
+  readonly selectedIds = signal<number[]>([]);
+
+  readonly maintopNo = signal('NA');
+  readonly routineName = signal('NA');
+  readonly equipmentName = signal('NA');
+
+  columnDefs: ColDef[] = [
+    {
+      headerName: 'DART No',
+      field: 'dart_number',
+      flex: 1,
+      valueGetter: (params) => (params.data as PlannedRoutineDetail | undefined)?.dart_number || 'NA',
+    },
+    {
+      headerName: 'Routine No',
+      field: 'routine_no',
+      flex: 1,
+    },
+    {
+      headerName: 'Routine Description',
+      field: 'routine_description',
+      flex: 4,
+      wrapText: true,
+      autoHeight: true,
+    },
+    {
+      headerName: 'Close Routine',
+      field: 'closeRoutine',
+      flex: 1.2,
+      sortable: false,
+      cellRenderer: GridActionButton,
+      cellRendererParams: {
+        label: 'Close Routine',
+        onEdit: (row: RowData) => this.navigateToCloseRoutine((row as unknown as PlannedRoutineDetail).pk),
+      },
+    },
+    {
+      headerName: 'Delete',
+      field: 'delete',
+      flex: 0.8,
+      sortable: false,
+      cellRenderer: GridActionButton,
+      cellRendererParams: {
+        label: 'Delete',
+        backgroundColor: '#B42318',
+        onDelete: (row: RowData) => this.deleteRoutine((row as unknown as PlannedRoutineDetail).pk),
+      },
+    },
+  ];
+
+  ngOnInit(): void {
+    if (!this.addRoutineId) {
+      this.toastr.warning('No planned routine selected.');
+      this.goBack();
+      return;
+    }
+
+    this.loadDetail();
+  }
+
+  loadDetail(): void {
+    if (!this.addRoutineId) return;
+
+    this.api.getSearchDetailPlan(this.addRoutineId).subscribe({
+      next: (res) => {
+        const rows = res?.result ?? [];
+        this.rows.set(rows);
+
+        const first = rows[0];
+        this.maintopNo.set(first?.maintop_no || 'NA');
+        this.routineName.set(first?.routine_name || 'NA');
+        this.equipmentName.set(first?.equipment_name || 'NA');
+      },
+      error: (err: unknown) => {
+        console.error('Unable to fetch planned routine detail.', err);
+        this.toastr.error('Unable to fetch planned routine detail.');
+      },
+    });
+  }
+
+  onSelectionChanged(selectedRows: RowData[]): void {
+    this.selectedIds.set(
+      (selectedRows as unknown as PlannedRoutineDetail[]).map((row) => row.pk),
+    );
+  }
+
+  navigateToCloseRoutine(id: number): void {
+    this.router.navigate(
+      ['/afterAuth/op-maintenance/routine/close-routine'],
+      { state: { routineId: id } },
+    );
+  }
+
+  raiseFuss(): void {
+    if (!this.selectedIds().length) {
+      this.toastr.warning('Select at least one routine to raise FUSS.');
+      return;
+    }
+
+    this.router.navigate(
+      ['/afterAuth/op-maintenance/routine/fuss-triger-raise-fuss'],
+      { state: { selectedIds: this.selectedIds() } },
+    );
+  }
+
+  async deleteRoutine(pk: number): Promise<void> {
+    if (!confirm('Delete this planned routine?')) return;
+
+    try {
+      const res = await firstValueFrom(this.api.deletePlannedRoutine(pk));
+      this.toastr.success(res?.message ?? 'Planned routine deleted successfully.');
+      this.loadDetail();
+    } catch (err: unknown) {
+      console.error('Unable to delete planned routine.', err);
+      this.toastr.error('Unable to delete planned routine.');
+    }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/afterAuth/op-maintenance/routine/planned-routines']);
+  }
+}

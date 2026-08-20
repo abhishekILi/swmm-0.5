@@ -1,0 +1,387 @@
+:host {
+  display: block;
+  min-height: 100%;
+  padding: 0 22px 28px;
+  background: #1d2838;
+  color: #e8edf5
+}
+
+.topbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0 -22px 18px;
+  padding: 0 22px;
+  border-bottom: 1px solid #294461;
+  background: #0c1728
+}
+
+.brand {
+  margin-right: 18px;
+  color: #329bf0;
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap
+}
+
+.brand::after {
+  content: ' - Powered by MATCDF';
+  color: #d58a32
+}
+
+nav {
+  display: flex;
+  align-items: stretch;
+  gap: 2px
+}
+
+nav>a,
+.nav-dropdown>summary {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  padding: 0 14px;
+  color: #eef3fa;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  list-style: none
+}
+
+.nav-dropdown>summary::-webkit-details-marker {
+  display: none
+}
+
+.nav-dropdown>summary span {
+  margin-left: 9px;
+  font-size: 10px
+}
+
+.nav-dropdown {
+  position: relative
+}
+
+.nav-dropdown[open]>summary,
+.nav-dropdown.active-group>summary,
+nav>a:hover,
+nav>a.active {
+  background: #dff3ff;
+  color: #142033
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  padding: 4px 0;
+  border: 1px solid #25364c;
+  background: #101b2c;
+  box-shadow: 0 12px 25px #050b14aa
+}
+
+.dropdown-menu.compact {
+  width: 190px
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: #f1f5f9;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+  background: #1d3048;
+  color: #45a7ef
+}
+
+.page {
+  padding: 0
+}
+
+@media(max-width:900px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0
+  }
+
+  .brand {
+    padding-top: 14px
+  }
+
+  nav {
+    overflow: visible;
+    width: 100%
+  }
+
+  .dropdown-menu {
+    position: fixed;
+    top: auto
+  }
+}
+
+@media(max-width:620px) {
+  nav {
+    overflow-x: auto
+  }
+
+  .brand::after {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px
+  }
+
+  nav>a,
+  .nav-dropdown>summary {
+    padding: 0 10px;
+    font-size: 12px
+  }
+
+  .dropdown-menu {
+    position: absolute
+  }
+}
+
+.menu-icon {
+  color: #3b9fe9
+}
+
+.nav-dropdown>summary app-icon {
+  margin-left: 8px;
+  transition: transform .15s
+}
+
+.nav-dropdown[open]>summary app-icon {
+  transform: rotate(180deg)
+}
+
+.dl-breadcrumb {
+  display: flex;
+  align-items: stretch;
+  margin: 0 -22px 14px;
+  padding: 0 22px;
+  overflow: hidden;
+  background: #1d2838
+}
+
+.dl-breadcrumb span {
+  position: relative;
+  min-width: 210px;
+  padding: 14px 38px 14px 26px;
+  background: #101d30;
+  color: #69adfa;
+  font-size: 16px;
+  font-weight: 600
+}
+
+.dl-breadcrumb span::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: -28px;
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 28px solid #101d30;
+  content: ''
+}
+
+.dl-breadcrumb span::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -31px;
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 29px solid #1d2838;
+  content: ''
+}
+
+.dl-breadcrumb span+span {
+  padding-left: 58px
+}
+
+.dl-breadcrumb span.current {
+  background: #e7e7e7;
+  color: #0b0b0b
+}
+
+.dl-breadcrumb span.current::after {
+  border-left-color: #e7e7e7
+}
+
+@media(max-width:620px) {
+  .dl-breadcrumb span {
+    min-width: auto;
+    font-size: 13px
+  }
+
+  .dl-breadcrumb span+span {
+    padding-left: 42px
+  }
+}
+
+:host-context([data-theme="light"]) {
+  background: transparent;
+  color: var(--text-primary)
+}
+
+:host-context([data-theme="light"]) .topbar {
+  border-color: var(--border-primary);
+  background: var(--bg-header)
+}
+
+:host-context([data-theme="light"]) nav>a,
+:host-context([data-theme="light"]) .nav-dropdown>summary {
+  color: var(--text-primary)
+}
+
+:host-context([data-theme="light"]) .dropdown-menu {
+  border-color: var(--border-dropdown);
+  background: var(--bg-dropdown);
+  box-shadow: var(--shadow-card)
+}
+
+:host-context([data-theme="light"]) .dropdown-menu a {
+  color: var(--text-primary)
+}
+
+:host-context([data-theme="light"]) .dropdown-menu a:hover,
+:host-context([data-theme="light"]) .dropdown-menu a.active {
+  background: var(--bg-nav-child-hover)
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb {
+  background: transparent
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb span {
+  background: #e8f2fc;
+  color: #1069ab
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb span::after {
+  border-left-color: #e8f2fc
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb span::before {
+  border-left-color: transparent
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb span.current {
+  background: #fff;
+  color: var(--text-primary)
+}
+
+:host-context([data-theme="light"]) .dl-breadcrumb span.current::after {
+  border-left-color: #fff
+}
+
+:host {
+  background: var(--dl-page-bg);
+  color: var(--dl-text);
+  --bg-card: var(--dl-surface);
+  --bg-input: var(--dl-input-bg);
+  --bg-dropdown: var(--dl-surface);
+  --bg-comm-btn: var(--dl-input-bg);
+  --border-card: var(--dl-border);
+  --border-primary: var(--dl-border);
+  --border-input: var(--dl-border);
+  --text-primary: var(--dl-text);
+  --text-muted: var(--dl-muted);
+  --ag-header-bg: var(--dl-input-bg);
+  --ag-foreground: var(--dl-text);
+  --ag-border: var(--dl-border)
+}
+
+.topbar {
+  border-color: var(--dl-border);
+  background: var(--dl-header-bg)
+}
+
+nav>a,
+.nav-dropdown>summary {
+  color: var(--dl-text)
+}
+
+.dropdown-menu {
+  border-color: var(--border-dropdown);
+  background: var(--bg-dropdown);
+  box-shadow: var(--shadow-card)
+}
+
+.dropdown-menu a {
+  color: var(--text-primary)
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+  background: var(--bg-nav-child-hover)
+}
+
+.dl-breadcrumb {
+  background: transparent
+}
+
+.dl-breadcrumb span {
+  background: var(--dl-input-bg);
+  color: var(--icon-accent)
+}
+
+.dl-breadcrumb span::after {
+  border-left-color: var(--dl-input-bg)
+}
+
+.dl-breadcrumb span::before {
+  border-left-color: transparent
+}
+
+.dl-breadcrumb span.current {
+  background: var(--dl-surface);
+  color: var(--dl-text)
+}
+
+.dl-breadcrumb span.current::after {
+  border-left-color: var(--dl-surface)
+}
+
+/* Compact visual scale scoped to DL Monitoring content only. */
+.page {
+  font-size: 13px;
+  --ag-font-size: 12px;
+}
+
+:host ::ng-deep button,
+:host ::ng-deep input,
+:host ::ng-deep select,
+:host ::ng-deep textarea {
+  font-size: 12px;
+}
+
+:host ::ng-deep h1,
+:host ::ng-deep h2,
+:host ::ng-deep .pc-title {
+  font-size: 15px;
+}
+
+:host ::ng-deep app-icon svg {
+  max-width: 18px;
+  max-height: 18px;
+}
+
+:host ::ng-deep .summary-card__icon app-icon svg {
+  max-width: 22px;
+  max-height: 22px;
+}

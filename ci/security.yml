@@ -1,0 +1,100 @@
+gitleaks:
+  extends:
+    - .dev_job
+    - .default_mr_rules
+
+  stage: gitleaks
+
+  allow_failure: true
+
+  script:
+    - |
+      docker run --rm \
+      --network none \
+      -v "$CI_PROJECT_DIR:/path:ro" \
+      172.16.50.13/platform/gitleaks:latest \
+      git \
+      /path \
+      --verbose
+
+trivy_backend_fs:
+  extends:
+    - .dev_job
+    - .default_mr_rules
+    - .trivy_fs_template
+
+  stage: trivy_fs
+
+  allow_failure: true
+
+  script:
+    - |
+      trivy fs \
+      --scanners vuln,misconfig,secret \
+      --severity HIGH,CRITICAL \
+      --exit-code 1 \
+      --no-progress \
+      backend
+
+trivy_frontend_fs:
+  extends:
+    - .dev_job
+    - .default_mr_rules
+    - .trivy_fs_template
+
+  stage: trivy_fs
+
+  allow_failure: true
+
+  script:
+    - |
+      trivy fs \
+      --scanners vuln,misconfig,secret \
+      --severity HIGH,CRITICAL \
+      --exit-code 1 \
+      --no-progress \
+      frontend
+
+trivy_backend_image:
+  extends:
+    - .dev_job
+    - .default_dev_rules
+    - .trivy_image_template
+
+  stage: trivy_image
+
+  allow_failure: true
+
+  needs:
+    - build_backend
+
+  script:
+    - |
+      trivy image \
+      --scanners vuln \
+      --severity HIGH,CRITICAL \
+      --ignore-unfixed \
+      --exit-code 1 \
+      swmm-backend:${CI_COMMIT_SHORT_SHA}
+
+trivy_frontend_image:
+  extends:
+    - .dev_job
+    - .default_dev_rules
+    - .trivy_image_template
+
+  stage: trivy_image
+
+  allow_failure: true
+
+  needs:
+    - build_frontend
+
+  script:
+    - |
+      trivy image \
+      --scanners vuln \
+      --severity HIGH,CRITICAL \
+      --ignore-unfixed \
+      --exit-code 1 \
+      swmm-frontend:${CI_COMMIT_SHORT_SHA}

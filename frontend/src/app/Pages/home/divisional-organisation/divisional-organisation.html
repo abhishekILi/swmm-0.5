@@ -1,0 +1,275 @@
+<app-master-card cardTitle="Divisional Organisation">
+  <div card-header-actions class="do-header-actions">
+    <button class="do-zoom-btn" type="button" (click)="zoomOut()" title="Zoom out">
+      <app-icon name="minus" [size]="16" variant="inherit" />
+    </button>
+    <span class="do-zoom-label">{{ (zoomLevel() * 100) | number: '1.0-0' }}%</span>
+    <button class="do-zoom-btn" type="button" (click)="zoomIn()" title="Zoom in">
+      <app-icon name="plus" [size]="16" variant="inherit" />
+    </button>
+    <button class="do-zoom-btn" type="button" (click)="resetZoom()" title="Reset zoom">
+      <app-icon name="refresh-cw" [size]="16" variant="inherit" />
+    </button>
+
+    <button class="do-mode-btn" type="button" [class.do-mode-btn-active]="isEditMode()" (click)="toggleMode()">
+      {{ isEditMode() ? 'View Mode' : 'Edit Mode' }}
+    </button>
+  </div>
+
+  <!-- Canvas -->
+  <div
+    class="do-canvas"
+    [class.do-canvas-panning]="isPanning()"
+    (wheel)="onWheelZoom($event)"
+    (mousedown)="onCanvasMouseDown($event)"
+    (mousemove)="onCanvasMouseMove($event)"
+    (mouseup)="onCanvasMouseUp()"
+    (mouseleave)="onCanvasMouseUp()"
+  >
+    @if (loading()) {
+      <div class="do-empty-state">Loading divisional organisation...</div>
+    } @else if (!hierarchy()) {
+      <div class="do-empty-state">
+        <p>No hierarchy has been set up yet.</p>
+        @if (isEditMode()) {
+          <button class="do-add-btn" type="button" (click)="addCO()">+ Add Commanding Officer</button>
+        }
+      </div>
+    } @else {
+      <div
+        class="do-tree-wrapper"
+        [style.transform]="'translate(' + panX() + 'px, ' + panY() + 'px) scale(' + zoomLevel() + ')'"
+      >
+        <ul class="do-tree">
+          <ng-container *ngTemplateOutlet="nodeTpl; context: { node: hierarchy() }"></ng-container>
+        </ul>
+      </div>
+    }
+  </div>
+</app-master-card>
+
+<!-- Recursive node template -->
+<ng-template #nodeTpl let-node="node">
+  <li class="do-tree-item">
+    <div class="do-node-wrapper">
+      <div class="do-node-card" [style.background]="colorFor(node.type)">
+        @if (isEditMode()) {
+          <div class="do-node-actions">
+            <button type="button" class="do-node-action" (click)="editNode(node)">
+              <app-icon name="pencil" [size]="14" variant="inherit" />
+            </button>
+            <button type="button" class="do-node-action" (click)="deleteNode(node, $event)">
+              <app-icon name="trash-2" [size]="14" variant="inherit" />
+            </button>
+          </div>
+        }
+
+        <button
+          type="button"
+          class="do-node-main"
+          [class.do-node-clickable]="node.type === 'division'"
+          (click)="node.type === 'division' ? openSailorModal(node, $event) : null"
+        >
+          @if (node.type === 'division') {
+            <div class="do-node-details">
+              <div class="do-node-name">{{ node.name }}</div>
+              <div class="do-node-sub">Division: {{ node.divisionName }}</div>
+              <div class="do-node-hint">
+                <app-icon name="users" [size]="12" variant="inherit" /> Click to view sailors
+              </div>
+            </div>
+          } @else {
+            @if (node.photoUrl) {
+              <img [src]="node.photoUrl" class="do-node-photo" alt="" (error)="onPhotoError(node)" />
+            } @else {
+              <div class="do-node-photo-placeholder">
+                <app-icon name="user" [size]="18" variant="inherit" />
+              </div>
+            }
+            <div class="do-node-details">
+              <div class="do-node-name">
+                <span class="do-node-name-text">{{ [node.rank, node.name].filter(v => v).join(' ') }}</span>
+                @if (node.personalNumber) {
+                  <span class="do-node-pno">{{ node.personalNumber }}</span>
+                }
+              </div>
+              @if (node.designation) {
+                <div class="do-node-sub">{{ node.designation }}</div>
+              }
+            </div>
+          }
+        </button>
+
+        @if (childType(node.type)) {
+          <button
+            type="button"
+            class="do-node-collapse-toggle"
+            [title]="node.collapsed ? 'Expand' : 'Collapse'"
+            (click)="toggleCollapse(node)"
+          >
+            <app-icon [name]="node.collapsed ? 'chevron-down' : 'chevron-up'" [size]="14" variant="inherit" />
+          </button>
+        }
+      </div>
+
+      @if (!node.collapsed && childType(node.type)) {
+        <ul>
+          @for (child of node.children; track child.id) {
+            <ng-container *ngTemplateOutlet="nodeTpl; context: { node: child }"></ng-container>
+          }
+          @if (isEditMode()) {
+            <li class="do-tree-item">
+              <button class="do-add-child-btn" type="button" (click)="addChild(node)">
+                + Add {{ labelFor(childType(node.type)) }}
+              </button>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </li>
+</ng-template>
+
+<!-- Add / Edit node modal -->
+@if (showNodeModal()) {
+  <app-modal size="md" (closeModal)="closeNodeModal()">
+    <h3 class="do-modal-title">{{ modalTitle() }}</h3>
+
+    <div class="do-modal-body">
+      @if (modalNodeType() === 'division') {
+        <label class="do-form-label" for="doDivisionName">Division Name *</label>
+        <input
+          id="doDivisionName"
+          type="text"
+          class="do-form-input"
+          [ngModel]="modalDivisionName()"
+          (ngModelChange)="modalDivisionName.set($event)"
+          placeholder="Enter division name"
+        />
+      } @else {
+        <label class="do-form-label" for="doNodeName">Name *</label>
+        <select
+          id="doNodeName"
+          class="do-form-input"
+          [ngModel]="modalSelectedUserId()"
+          (ngModelChange)="modalSelectedUserId.set($event)"
+        >
+          <option [ngValue]="null">-- Select Name --</option>
+          @for (user of modalUsers(); track user.id) {
+            <option [ngValue]="user.id">{{ user.name }}</option>
+          }
+        </select>
+
+        @if (selectedUserDetails(); as user) {
+          <div class="do-form-row">
+            <div>
+              <label class="do-form-label" for="doNodeRank">Rank</label>
+              <input id="doNodeRank" type="text" class="do-form-input" [value]="user.rank" readonly />
+            </div>
+            <div>
+              <label class="do-form-label" for="doNodeDesignation">Designation</label>
+              <input id="doNodeDesignation" type="text" class="do-form-input" [value]="user.designation" readonly />
+            </div>
+          </div>
+          <label class="do-form-label" for="doNodePersonalNumber">Personal Number</label>
+          <input id="doNodePersonalNumber" type="text" class="do-form-input" [value]="user.personal_number" readonly />
+        }
+
+        <label class="do-form-label" for="doNodePhoto">Photo</label>
+        <input id="doNodePhoto" type="file" class="do-form-input" accept="image/*" (change)="onPhotoSelected($event)" />
+        @if (modalPhotoPreview()) {
+          <img [src]="modalPhotoPreview()" class="do-photo-preview" alt="Selected preview" />
+        }
+      }
+
+      @if (modalError()) {
+        <div class="do-form-error">{{ modalError() }}</div>
+      }
+    </div>
+
+    <div class="do-modal-actions">
+      <button class="do-btn-secondary" type="button" (click)="closeNodeModal()">Cancel</button>
+      <button class="do-btn-primary" type="button" [disabled]="saving()" (click)="saveNode()">
+        {{ saving() ? 'Saving…' : 'Save' }}
+      </button>
+    </div>
+  </app-modal>
+}
+
+<!-- Sailor list modal -->
+@if (showSailorModal() && sailorModalDivision(); as division) {
+  <app-modal size="lg" (closeModal)="closeSailorModal()">
+    <h3 class="do-modal-title">Sailors — {{ division.divisionName }}</h3>
+
+    <div class="do-modal-body">
+      @if (isEditMode()) {
+        <div class="do-modal-body-actions">
+          <button class="do-btn-primary" type="button" (click)="openAddSailorModal(division)">
+            <app-icon name="plus" [size]="14" variant="inherit" /> Add Sailor
+          </button>
+        </div>
+      }
+
+      @if (division.children.length) {
+        <app-data-grid
+          [rowData]="division.children"
+          [columnDefs]="sailorColumnDefs()"
+          [pagination]="true"
+          [pageSize]="10"
+          height="320px"
+        />
+      } @else {
+        <div class="do-empty-state">No sailors assigned to this division yet.</div>
+      }
+    </div>
+
+    <div class="do-modal-actions">
+      <button class="do-btn-secondary" type="button" (click)="closeSailorModal()">Close</button>
+    </div>
+  </app-modal>
+}
+
+<!-- Add sailor modal -->
+@if (showAddSailorModal()) {
+  <app-modal size="lg" (closeModal)="closeAddSailorModal()">
+    <h3 class="do-modal-title">Add Sailors</h3>
+
+    <div class="do-modal-body">
+      <label class="do-sr-only" for="doAddSailorSearch">Search personnel</label>
+      <input
+        id="doAddSailorSearch"
+        type="text"
+        class="do-form-input"
+        placeholder="Search personnel..."
+        [ngModel]="addSailorSearch()"
+        (ngModelChange)="addSailorSearch.set($event)"
+      />
+
+      @if (addSailorUsers().length) {
+        <app-data-grid
+          [rowData]="addSailorFilteredUsers()"
+          [columnDefs]="addSailorColumnDefs"
+          [showCheckboxes]="true"
+          [pagination]="true"
+          [pageSize]="8"
+          height="320px"
+          (selectionChanged)="onAddSailorSelectionChanged($event)"
+        />
+      } @else {
+        <div class="do-empty-state">No available personnel to add.</div>
+      }
+    </div>
+
+    <div class="do-modal-actions">
+      <button class="do-btn-secondary" type="button" (click)="closeAddSailorModal()">Cancel</button>
+      <button
+        class="do-btn-primary"
+        type="button"
+        [disabled]="saving() || addSailorSelectedRows().length === 0"
+        (click)="confirmAddSailors()"
+      >
+        {{ saving() ? 'Saving…' : 'Add Selected (' + addSailorSelectedRows().length + ')' }}
+      </button>
+    </div>
+  </app-modal>
+}

@@ -1,0 +1,3003 @@
+{
+  "formId": "ibs",
+  "title": "WEAPON ACCEPTANCE TRIALS TEAM VISAKHAPATNAM DAILY SUMMARY OF PROGRESS",
+  "sourceFile": "ibs.html",
+  "sections": [
+    {
+      "id": "basic_information",
+      "title": "WEAPON ACCEPTANCE TRIALS TEAM VISAKHAPATNAM DAILY SUMMARY OF PROGRESS",
+      "sectionType": "form",
+      "fields": [],
+      "tables": [],
+      "sectionTitle": "Basic Information",
+      "sectionGroup": {
+        "fields_1": [
+            {
+              "type":"label",
+              "value": "Basic Information",
+              "colSpan": 12
+            },
+          {
+            "_id": "ship",
+            "key": "ship",
+            "name": "ship",
+            "label": "Ship",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
+            "_id": "department",
+            "key": "department",
+            "name": "department",
+            "label": "Department",
+            "type": "select",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "options": [
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "ND",
+                "value": "P15A"
+              },
+              {
+                "label": "ASW",
+                "value": "P17"
+              },
+              {
+                "label": "COMM",
+                "value": "P17A"
+              },
+              {
+                "label": "GUNNERY",
+                "value": "P28"
+              }
+            ],
+            "isDynamic": false
+          },
+          {
+            "_id": "equipment",
+            "key": "equipment",
+            "name": "equipment",
+            "label": "Equipment",
+            "type": "select",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "equipment",
+            "prefill": true,
+            "prefillSource": "context.equipment",
+            "colSpan": 4
+          },
+          {
+            "_id": "date",
+            "key": "date_",
+            "name": "date_",
+            "label": "Date",
+            "type": "date",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "date",
+             "colSpan": 4
+          },
+          {
+            "_id": "nature_of_trials",
+            "key": "nature_of_trials",
+            "name": "nature_of_trials",
+            "label": "Nature of Trial",
+            "type": "select",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+             "colSpan": 4,
+            "options": [
+              {
+                "label": "--Select--",
+                "value": ""
+              },
+              {
+                "label": "SATs",
+                "value": "SATs"
+              },
+              {
+                "label": "HATs",
+                "value": "HATS"
+              },
+              {
+                "label": "OP CHECKS",
+                "value": "OP_CHECKS"
+              },
+              {
+                "label": "IIs",
+                "value": "IIS"
+              }
+            ],
+            "isDynamic": false
+          }
+        ],
+        "tables_1": [
+          {
+            "id": "ibs_checks_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "IBS - Checks",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser No.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Observation",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+               "_id": "checks_matrix_1_row_1_combined",
+              "cells": [
+                    {
+                    "_id": "embarked_time",
+                    "key": "embarked_time",
+                    "name": "embarked_time",
+                    "type": "time",
+                    "value": "",
+                    "lb" : "Trials team embarked onboard at hrs on",
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "HH:MM",
+                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+
+                  {
+                    "_id": "schedule",
+                    "key": "schedule",
+                    "name": "schedule",
+                    "type": "textarea",
+                    "inputType": "text",
+                    "value": "",
+                    "lb" : "for SATs of IBS as per NHQ approved schedule. Following observations :-",
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for Navigational Radar, MFC & IBS Network",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "Test 01: Test Setup Verification \u2013 Installation Checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_3_cell_3_test_1",
+                    "key": "test_1",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "Test 02: MEC - Start up Screen",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_4_cell_3_test_2",
+                    "key": "test_2",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "Test 03: MFC - Multifunction capability",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_5_cell_3_test_3",
+                    "key": "test_3",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_6",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "Test 04: Radar - IBS interface checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_6_cell_3_test_4",
+                    "key": "test_4",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_7",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_7_cell_2_static",
+                    "type": "label",
+                    "value": "Test 05: Radar Test",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_7_cell_3_test_5",
+                    "key": "test_5",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_8",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_8_cell_2_static",
+                    "type": "label",
+                    "value": "Test 06: ECDIS - Screen Presentation Option",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_8_cell_3_test_6",
+                    "key": "test_6",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_9",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_9_cell_1_static",
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_9_cell_2_static",
+                    "type": "label",
+                    "value": "Test 07: ECDIS / Radar - Route creation",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_9_cell_3_test_7",
+                    "key": "test_7",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_10",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_10_cell_1_static",
+                    "type": "serial",
+                    "value": "8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_10_cell_2_static",
+                    "type": "label",
+                    "value": "Test 08: ECDIS - Radar Overlay",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_10_cell_3_test_8",
+                    "key": "test_8",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_11",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_11_cell_1_static",
+                    "type": "serial",
+                    "value": "9",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_11_cell_2_static",
+                    "type": "label",
+                    "value": "Test 09: MFC Conning Information display Mode",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_11_cell_3_test_9",
+                    "key": "test_9",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_12",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_12_cell_1_static",
+                    "type": "serial",
+                    "value": "10",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_12_cell_2_static",
+                    "type": "label",
+                    "value": "Test 10: Checking Sensor Failure at RSIU/ Hardwiring checks of MFC",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_12_cell_3_test_10",
+                    "key": "test_10",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_13",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_13_cell_1_static",
+                    "type": "serial",
+                    "value": "11",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_13_cell_2_static",
+                    "type": "label",
+                    "value": "Test 11: Network Architecture",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_13_cell_3_test_11",
+                    "key": "test_11",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_14",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_14_cell_1_static",
+                    "type": "serial",
+                    "value": "12",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_14_cell_2_static",
+                    "type": "label",
+                    "value": "Test 12: Redundancy of Network failure at MFC level",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_14_cell_3_test_12",
+                    "key": "test_12",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_15",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_15_cell_1_static",
+                    "type": "serial",
+                    "value": "13",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_15_cell_2_static",
+                    "type": "label",
+                    "value": "Test 13: Redundancy of Network failure at RSIU level",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_15_cell_3_test_13",
+                    "key": "test_13",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_16",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_16_cell_1_static",
+                    "type": "serial",
+                    "value": "14",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_16_cell_2_static",
+                    "type": "label",
+                    "value": "Test 14: Redundancy of Network Failure at Switch Level",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_16_cell_3_test_14",
+                    "key": "test_14",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_17",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_17_cell_1_static",
+                    "type": "serial",
+                    "value": "15",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_17_cell_2_static",
+                    "type": "label",
+                    "value": "Test 15: Power Failure of IBS Network",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_17_cell_3_test_15",
+                    "key": "test_15",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_18",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_18_cell_1_static",
+                    "type": "serial",
+                    "value": "16",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_18_cell_2_static",
+                    "type": "label",
+                    "value": "Test 16: Checking failure of Sensor integrator (PCIO) at RSIU",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_18_cell_3_test_16",
+                    "key": "test_16",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_19",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_19_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for Multifunctional Display",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_20",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_20_cell_1_static",
+                    "type": "serial",
+                    "value": "17",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_20_cell_2_static",
+                    "type": "label",
+                    "value": "Test 17: MFD - Display of MET & ASTRO page",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_20_cell_3_test_17",
+                    "key": "test_17",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_21",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_21_cell_1_static",
+                    "type": "serial",
+                    "value": "18",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_21_cell_2_static",
+                    "type": "label",
+                    "value": "Test 18: Display of Navigational DATA page",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_21_cell_3_test_18",
+                    "key": "test_18",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_22",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_22_cell_1_static",
+                    "type": "serial",
+                    "value": "19",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_22_cell_2_static",
+                    "type": "label",
+                    "value": "Test 19: Display of Machinery Status page",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_22_cell_3_test_19",
+                    "key": "test_19",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_23",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_23_cell_1_static",
+                    "type": "serial",
+                    "value": "20",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_23_cell_2_static",
+                    "type": "label",
+                    "value": "Test 20: Verify the display of Magnetic Heading data on Repeaters",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_23_cell_3_test_20",
+                    "key": "test_20",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_24",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_24_cell_1_static",
+                    "type": "serial",
+                    "value": "21",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_24_cell_2_static",
+                    "type": "label",
+                    "value": "Test 21: Validation of TMC output",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_24_cell_3_test_21",
+                    "key": "test_21",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_25",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_25_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for DGPS",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_26",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_26_cell_1_static",
+                    "type": "serial",
+                    "value": "22",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_26_cell_2_static",
+                    "type": "label",
+                    "value": "Test 22: DGPS - Basic Start up",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_26_cell_3_test_22",
+                    "key": "test_22",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_27",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_27_cell_1_static",
+                    "type": "serial",
+                    "value": "23",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_27_cell_2_static",
+                    "type": "label",
+                    "value": "Test 23: DGPS Display Mode",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_27_cell_3_test_23",
+                    "key": "test_23",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_28",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_28_cell_1_static",
+                    "type": "serial",
+                    "value": "24",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_28_cell_2_static",
+                    "type": "label",
+                    "value": "Test 24: Checking of DGPS failure on WC",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_28_cell_3_test_24",
+                    "key": "test_24",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_29",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_29_cell_1_static",
+                    "type": "serial",
+                    "value": "25",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_29_cell_2_static",
+                    "type": "label",
+                    "value": "Test 25: NMEA Splitter Redundancy check for DGPS data",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_29_cell_3_test_25",
+                    "key": "test_25",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_30",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_30_cell_1_static",
+                    "type": "serial",
+                    "value": "26",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_30_cell_2_static",
+                    "type": "label",
+                    "value": "Test 26: Validation of DGPS Output to ship\u2019s system",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_30_cell_3_test_26",
+                    "key": "test_26",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_31",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_31_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for AIS",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_32",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_32_cell_1_static",
+                    "type": "serial",
+                    "value": "27",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_32_cell_2_static",
+                    "type": "label",
+                    "value": "Test 27: Verification or Main Operating Screens",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_32_cell_3_test_27",
+                    "key": "test_27",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_33",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_33_cell_1_static",
+                    "type": "serial",
+                    "value": "28",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_33_cell_2_static",
+                    "type": "label",
+                    "value": "Test 28: Verification of functionality of Target List screen",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_33_cell_3_test_28",
+                    "key": "test_28",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_34",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_34_cell_1_static",
+                    "type": "serial",
+                    "value": "29",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_34_cell_2_static",
+                    "type": "label",
+                    "value": "Test 29: Verification of Alarm status Of External interface",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_34_cell_3_test_29",
+                    "key": "test_29",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_35",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_35_cell_1_static",
+                    "type": "serial",
+                    "value": "30",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_35_cell_2_static",
+                    "type": "label",
+                    "value": "Test 30: Validation of AIS Output to ship's system",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_35_cell_3_test_30",
+                    "key": "test_30",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_36",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_36_cell_1_static",
+                    "type": "serial",
+                    "value": "31",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_36_cell_2_static",
+                    "type": "label",
+                    "value": "Test 31: Checking of AIS failure on MFC",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_36_cell_3_test_31",
+                    "key": "test_31",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_37",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_37_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for OBD",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_38",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_38_cell_1_static",
+                    "type": "serial",
+                    "value": "32",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_38_cell_2_static",
+                    "type": "label",
+                    "value": "Test 32: Verify the availability of sensor information",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_38_cell_3_test_32",
+                    "key": "test_32",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_39",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_39_cell_1_static",
+                    "type": "serial",
+                    "value": "33",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_39_cell_2_static",
+                    "type": "label",
+                    "value": "Test 33: Verify the display of LOP (Line of Position)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_39_cell_3_test_33",
+                    "key": "test_33",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_40",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_40_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for VDR",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_41",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_41_cell_1_static",
+                    "type": "serial",
+                    "value": "34",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_41_cell_2_static",
+                    "type": "label",
+                    "value": "Test 34: Verify the recording of data",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_41_cell_3_test_34",
+                    "key": "test_34",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_42",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_42_cell_1_static",
+                    "type": "serial",
+                    "value": "35",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_42_cell_2_static",
+                    "type": "label",
+                    "value": "Test 35: Verify the Generation of Error Status - BITE",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_42_cell_3_test_35",
+                    "key": "test_35",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_43",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_43_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for ICC",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_44",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_44_cell_1_static",
+                    "type": "serial",
+                    "value": "36",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_44_cell_2_static",
+                    "type": "label",
+                    "value": "Test 36: Testing ICC for Chair Functionality",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_44_cell_3_test_36",
+                    "key": "test_36",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_45",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_45_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for Automatic Weather Observation System",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_46",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_46_cell_1_static",
+                    "type": "serial",
+                    "value": "37",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_46_cell_2_static",
+                    "type": "label",
+                    "value": "Test 37: Display of Weather data on & MFCR and IBS units",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_46_cell_3_test_37",
+                    "key": "test_37",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_47",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_47_cell_1_static",
+                    "type": "serial",
+                    "value": "38",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_47_cell_2_static",
+                    "type": "label",
+                    "value": "Test 38: AWOS: BITE",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_47_cell_3_test_38",
+                    "key": "test_38",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_48",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_48_cell_1_static",
+                    "type": "serial",
+                    "value": "39",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_48_cell_2_static",
+                    "type": "label",
+                    "value": "Test 39: Display of cloud information on Data Logger from Ceilometer",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_48_cell_3_test_39",
+                    "key": "test_39",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_49",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_49_cell_1_static",
+                    "type": "serial",
+                    "value": "Tests for UPS",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_50",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_50_cell_1_static",
+                    "type": "serial",
+                    "value": "40",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_50_cell_2_static",
+                    "type": "label",
+                    "value": "Test40: UPS Checks for 30 minutes",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_50_cell_3_test_40",
+                    "key": "test_40",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_51",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_51_cell_1_static",
+                    "type": "serial",
+                    "value": "Additional SAT Test",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_52",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_52_cell_1_static",
+                    "type": "serial",
+                    "value": "41",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_52_cell_2_static",
+                    "type": "label",
+                    "value": "Test 41: To Check Trial Manoeuvre Functionality",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_52_cell_3_test_41",
+                    "key": "test_41",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_53",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_53_cell_1_static",
+                    "type": "serial",
+                    "value": "42",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_53_cell_2_static",
+                    "type": "label",
+                    "value": "Test 42: POU Test",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_53_cell_3_test_42",
+                    "key": "test_42",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_54",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_54_cell_1_static",
+                    "type": "serial",
+                    "value": "43",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_54_cell_2_static",
+                    "type": "label",
+                    "value": "Test 43: PDU Test",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_54_cell_3_test_43",
+                    "key": "test_43",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_55",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_55_cell_1_static",
+                    "type": "serial",
+                    "value": "44",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_55_cell_2_static",
+                    "type": "label",
+                    "value": "Test 44: ECDIS on Portable Laptop",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_55_cell_3_test_44",
+                    "key": "test_44",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_56",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_56_cell_1_static",
+                    "type": "serial",
+                    "value": "45",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_56_cell_2_static",
+                    "type": "label",
+                    "value": "Test 45: Combiner Functionality Check",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_56_cell_3_test_45",
+                    "key": "test_45",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_57",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_57_cell_1_static",
+                    "type": "serial",
+                    "value": "46",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_57_cell_2_static",
+                    "type": "label",
+                    "value": "Test 46: Testing of Printer Functionality",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_57_cell_3_test_46",
+                    "key": "test_46",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_58",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_58_cell_1_static",
+                    "type": "serial",
+                    "value": "47",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_58_cell_2_static",
+                    "type": "label",
+                    "value": "Test 47: MFC - Time Synchronisation With external Time server",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_58_cell_3_test_47",
+                    "key": "test_47",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_59",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_59_cell_1_static",
+                    "type": "serial",
+                    "value": "48",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_59_cell_2_static",
+                    "type": "label",
+                    "value": "Test 48: MFC & MFD - CCTV display on Conning page",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_59_cell_3_test_48",
+                    "key": "test_48",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_60",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_60_cell_1_static",
+                    "type": "serial",
+                    "value": "49",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_60_cell_2_static",
+                    "type": "label",
+                    "value": "Test 49: Radar Interface Checks with CMS",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_60_cell_3_test_49",
+                    "key": "test_49",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_61",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_61_cell_1_static",
+                    "type": "serial",
+                    "value": "50",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_61_cell_2_static",
+                    "type": "label",
+                    "value": "Test 50: To Check Loading of MFC processors",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_61_cell_3_test_50",
+                    "key": "test_50",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_62",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_62_cell_1_static",
+                    "type": "serial",
+                    "value": "51",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_62_cell_2_static",
+                    "type": "label",
+                    "value": "Test 51: Verification of availability of ECDIS And Radar checks on MFD\u2019s at Locations \u2013 Bridge Top, MCR and ICC",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ibs_checks_matrix_1_row_62_cell_3_test_51",
+                    "key": "test_51",
+                    "type": "radio",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "ibs_checks_matrix_1_row_63",
+                "cells": [
+                  {
+                    "_id": "ibs_checks_matrix_1_row_63_cell_1_static",
+                    "type": "serial",
+                    "value": "General Observations: Presenting Authority: Ship\u2019s Staff / OEM Inspecting Authority: WATT (V)",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          }
+        ]
+      }
+    }
+  ]
+}

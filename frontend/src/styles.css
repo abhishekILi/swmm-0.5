@@ -1,0 +1,1721 @@
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-quartz.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* ============================================================
+   THEME TOKENS — dark (default) and light
+   Applied via [data-theme] attribute on <html>
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary:          radial-gradient(130% 110% at 12% -5%, #1d4d78 0%, rgba(29,77,120,0) 45%), radial-gradient(120% 120% at 100% 100%, #10344f 0%, rgba(16,52,79,0) 50%), #131C23;
+  --bg-card:             rgba(255, 255, 255, 0.05);
+  --bg-sidebar:          transparent;
+  --bg-sidebar-profile:  rgba(255, 255, 255, 0.06);
+  --bg-comm-btn:         rgba(255, 255, 255, 0.08);
+  --bg-comm-btn-hover:   rgba(255, 255, 255, 0.13);
+  --bg-header:           rgba(255, 255, 255, 0.05);
+  --bg-input:            rgba(255, 255, 255, 0.05);
+  --bg-input-disabled:   rgba(255, 255, 255, 0.08);
+  --bg-icon-btn:         rgba(255, 255, 255, 0.10);
+  --bg-nav-child-hover:  rgba(255, 255, 255, 0.06);
+  --bg-dropdown:         #1b2431;
+  --bg-scrollbar-track:  #000;
+  --bg-scrollbar-thumb:  rgba(59, 59, 61, 0.4);
+  --bg-select-option:    #0a1929;
+  --bg-sfd-modal:        #18222C;
+  --error-color: #de1f1f;
+  --model-border: #ffffff36;
+
+  /* Text */
+  --text-primary:        #ffffff;
+  --text-orange:        orange;
+  --text-muted:          rgba(255, 255, 255, 0.50);
+  --text-muted-2:        rgba(255, 255, 255, 0.40);
+  --text-nav-label:      rgba(255, 255, 255, 0.70);
+  --text-nav-child:      rgba(255, 255, 255, 0.80);
+  --text-nav-tab:        #94a3b8;
+  --text-nav-tab-hover:  #e2e8f0;
+  --text-profile-role:   rgba(255, 255, 255, 0.65);
+  --text-profile-arrow:  rgba(255, 255, 255, 0.60);
+  --text-section-label:  rgba(255, 255, 255, 0.40);
+  --text-form-label:     rgba(255, 255, 255, 0.563);
+  --bg-ship-data:        rgba(0, 0, 0, 0.597);
+
+  /* Borders */
+  --border-primary:      rgba(255, 255, 255, 0.12);
+  --border-logo:         rgba(255, 255, 255, 0.50);
+  --border-profile:      rgba(255, 255, 255, 0.20);
+  --border-comm-hover:   rgba(255, 255, 255, 0.20);
+  --border-input:        rgba(255, 255, 255, 0.14);
+  --border-card:         rgba(255, 255, 255, 0.20);
+  --border-dropdown:     rgba(255, 255, 255, 0.10);
+  --border-nav-child:    rgba(29, 150, 233, 0.50);
+
+  /* Nav active gradient */
+  --nav-active-bg:       linear-gradient(90deg, rgba(0, 0, 0, 0.01) 0.09%, rgba(26, 163, 242, 0.24) 99.92%);
+  --nav-active-border:   rgba(255, 255, 255, 0.00);
+
+  /* Nav hover — deliberately more muted than active so the two are never
+     confused (plain surface tint, no accent border). */
+  --nav-hover-bg:        rgba(255, 255, 255, 0.06);
+  --nav-hover-border:    rgba(255, 255, 255, 0.00);
+
+  /* Misc */
+  --shadow-card:         0 8px 32px rgba(0, 0, 0, 0.1);
+  --indicator-bg:        rgba(255, 255, 255, 0.10);
+  --subheading-color:    #61c2ff;
+  --toggle-icon-color:   #ffffff;
+  --ag-foreground:       white;
+  --ag-header-bg:        rgba(255, 255, 255, 0.12);
+  --ag-border:           rgba(255, 255, 255, 0.15);
+  --ag-cell-color:       white;
+  --ag-header-cell-color:white;
+  --header-cell-border:  rgba(255, 255, 255, 0.15);
+
+  --icon-size:     20px;
+  --icon-stroke:   2;
+  --icon-color:    var(--text-primary);
+  --icon-muted:    var(--text-muted);
+  --icon-accent:   #4AA8FF;
+  --icon-success:  #22C55E;
+
+  /* Native form controls */
+  --native-color-scheme: dark;
+  /* `color-scheme: dark` (below) already makes Chrome/Edge render the native calendar-picker
+   * icon in a light colour suited for a dark UI — stacking `invert(1)` on top of that flips it
+   * back to dark, making it nearly invisible against a dark panel. No filter needed here. */
+  --calendar-icon-filter: none;
+  --icon-warning:  #F59E0B;
+  --icon-danger:   #F82C36;
+}
+
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary:          linear-gradient(135deg, #E7ECF3 0%, #F0F3F7 50%, #E3E8EF 100%);
+  --bg-card:             #FFFFFF;
+  --bg-sidebar:          #FFFFFF;
+  --bg-sidebar-profile:  rgba(26, 163, 242, 0.08);
+  --bg-comm-btn:         rgba(26, 163, 242, 0.07);
+  --bg-comm-btn-hover:   rgba(26, 163, 242, 0.14);
+  --bg-header:           rgba(255, 255, 255, 0.92);
+  --bg-input:            rgba(15, 28, 46, 0.04);
+  --bg-input-disabled:   rgba(15, 28, 46, 0.06);
+  --bg-icon-btn:         rgba(15, 28, 46, 0.08);
+  --bg-nav-child-hover:  rgba(217, 242, 26, 0.08);
+  --bg-dropdown:         #ffffff;
+  --bg-scrollbar-track:  #ddeeff;
+  --bg-scrollbar-thumb:  rgba(26, 163, 242, 0.25);
+  --bg-select-option:    #f0f7ff;
+  --bg-sfd-modal:        #f0f7ff;
+  --bg-ship-data: rgb(255, 255, 255);
+  --error-color: #de1f1f;
+  --model-border: #d1d8e7d9;
+
+  /* Text */
+  --text-primary:        #0f1c2e;
+  --text-muted:          #3d5166;
+  --text-muted-2:        #5a7289;
+  --text-nav-label:      #2c445a;
+  --text-nav-child:      #2c445a;
+  --text-nav-tab:        #3d5166;
+  --text-nav-tab-hover:  #0f1c2e;
+  --text-profile-role:   #5a7289;
+  --text-profile-arrow:  #5a7289;
+  --text-section-label:  #5a7289;
+  --text-form-label:     #3d5166;
+
+  /* Borders */
+  --border-primary:      rgba(15, 28, 46, 0.10);
+  --border-logo:         rgba(15, 28, 46, 0.20);
+  --border-profile:      rgba(15, 28, 46, 0.15);
+  --border-comm-hover:   rgba(26, 163, 242, 0.30);
+  --border-input:        rgba(15, 28, 46, 0.15);
+  --border-card:         rgba(15, 28, 46, 0.12);
+  --border-dropdown:     rgba(15, 28, 46, 0.10);
+  --border-nav-child:    rgba(26, 163, 242, 0.40);
+
+  /* Native form controls */
+  --native-color-scheme: light;
+  --calendar-icon-filter: none;
+
+  /* Nav active state — flat tint + thin border (no gradient) */
+  --nav-active-bg:       rgba(26, 163, 242, 0.10);
+  --nav-active-border:   rgba(26, 163, 242, 0.35);
+
+  /* Nav hover — deliberately more muted than active so the two are never
+     confused (plain surface tint, no accent border). */
+  --nav-hover-bg:        rgba(15, 28, 46, 0.05);
+  --nav-hover-border:    rgba(15, 28, 46, 0.00);
+
+  /* Misc */
+  --shadow-card:         0 1px 2px rgba(15, 28, 46, 0.04), 0 4px 16px rgba(15, 28, 46, 0.06);
+  --indicator-bg:        rgba(26, 163, 242, 0.10);
+  --subheading-color:    #61c2ff;
+  --toggle-icon-color:   #0f1c2e;
+  --ag-foreground:       #0f1c2e;
+  --ag-header-bg:        rgba(26, 163, 242, 0.10);
+  --ag-border:           rgba(15, 28, 46, 0.12);
+  --ag-cell-color:       #0f1c2e;
+  --ag-header-cell-color:#0f1c2e;
+  --header-cell-border:  rgba(15, 28, 46, 0.12);
+
+  --icon-accent:   #1069AB;
+  --icon-success:  #16A34A;
+  --icon-warning:  #D97706;
+  --icon-danger:   #DC2626;
+
+  /* Global inherit for any remaining element */
+  color: var(--text-primary);
+}
+
+:where(svg[lucideIcon]) {
+  color: var(--icon-color);
+  flex-shrink: 0;
+}
+
+.icon { color: var(--icon-color); flex-shrink: 0; }
+
+.icon--inherit { color: inherit; }
+.icon--muted   { color: var(--icon-muted); }
+.icon--accent  { color: var(--icon-accent); }
+.icon--success { color: var(--icon-success); }
+.icon--warning { color: var(--icon-warning); }
+.icon--danger  { color: var(--icon-danger); }
+
+.icon--xs { width: 14px; height: 14px; }
+.icon--sm { width: 16px; height: 16px; }
+.icon--md { width: 20px; height: 20px; }
+.icon--lg { width: 24px; height: 24px; }
+.icon--xl { width: 32px; height: 32px; }
+
+.icon--spin { animation: icon-spin 1s linear infinite; }
+@keyframes icon-spin { to { transform: rotate(360deg); } }
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family:
+      "Poppins",
+      -apple-system,
+      BlinkMacSystemFont,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assests/fonts/Inter.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assests/fonts/Poppins.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@layer components {
+  .form-field-label {
+    @apply text-white text-sm font-semibold leading-6 py-2.5;
+  }
+
+  .form-field-input {
+    @apply w-full h-12 px-3 flex items-center rounded-[10px] border border-white bg-transparent text-white/50 text-xs font-semibold outline-none focus:border-[#61C2FF] focus:text-white transition-colors;
+  }
+
+  .form-field-select {
+    @apply w-full h-12 px-3 rounded-[10px] border border-white bg-transparent text-white/50 text-xs font-semibold outline-none appearance-none focus:border-[#61C2FF] focus:text-white cursor-pointer transition-colors;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-xl text-white text-sm font-normal leading-5 hover:bg-white/10 transition-colors cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply rounded-xl border border-white/0;
+    background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.01) 0.09%,
+        rgba(26, 163, 242, 0.24) 99.92%);
+  }
+
+  .nav-sub-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-2xl text-sm cursor-pointer transition-colors;
+  }
+
+  .glass-card {
+    border-radius: 1rem;
+    padding: .062rem;
+    border-radius: 15px;
+    background-color: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-card), inset 0 1px #ffffff4d, inset 0 -1px #ffffff0d, inset 0 0 #fff0;
+    outline: 1px solid rgba(255, 255, 255, .03);
+    box-sizing: border-box;
+    transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+  }
+
+  /* icon styling */
+  .icon-btn {
+    @apply flex items-center justify-center w-8 h-8 rounded-full;
+    background: var(--bg-icon-btn);
+    transition: background 0.35s ease;
+  }
+
+  /* Reusable grid toolbar row: global search box + copy/print/excel actions. Shared across every
+     list page that wires up <app-export-toolbar> + ReportExportService (Inventory OBS/MO/WED and
+     beyond) so the row doesn't need to be redefined per component's (view-encapsulated) CSS. */
+  .grid-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .grid-toolbar__end {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .grid-toolbar__search {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .grid-toolbar__search .form-field-input {
+    width: 220px;
+    height: 36px;
+    padding-left: 2rem;
+  }
+
+  .grid-toolbar__search-icon {
+    position: absolute;
+    left: 0.65rem;
+    pointer-events: none;
+  }
+
+  /* Reusable "KPI row" — keeps every dashboard's KPI/stat cards in a single row regardless of
+     count (4, 5, 6…): each card takes an equal share of the row and shrinks together with the
+     others, so the row never wraps and never needs a horizontal scrollbar. Shared across Ship
+     Crew, Watch & Station Bill, and Inventory OBS/MO/WED dashboards so the layout only needs to
+     be defined once. */
+  .kpi-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Reusable "Critical / Category" checkbox filter row shown above several Inventory OBS grids
+     (Return Spares, Survey, Demand, IIF). */
+  .obs-filter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .obs-filter-row__categories {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .obs-filter-row__label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .obs-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .obs-checkbox input[type="checkbox"] {
+    accent-color: var(--accent-blue, #1d96e9);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+}
+
+/* Custom scrollbar — one consistent style app-wide (matches the sidebar nav).
+   Any element-specific override should mirror these values rather than
+   inventing a new scrollbar look. */
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) transparent;
+} */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar{
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(64, 64, 79);
+  border-radius: 99px;
+}
+
+/* Select options styling */
+select option {
+  background: var(--bg-select-option);
+  color: var(--text-primary);
+}
+
+
+app-header {
+  position: relative;
+  z-index: 3;
+}
+
+/* heading-of-swmm */
+.head1 {
+  font-size: 1.875rem;
+  font-family: Poppins;
+  color: var(--text-primary);
+}
+
+/* heading-of-page */
+.head2 {
+  font-size: 1.625rem;
+  font-family: Poppins;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* heading-of-boxcontainercompo */
+.head3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: Poppins;
+  color: var(--text-primary);
+}
+
+/* heading-of-kpi */
+.head4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: Poppins;
+  color: var(--text-primary);
+}
+
+/* heading-of-side */
+.head5 {
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: Poppins;
+  color: var(--text-primary);
+}
+
+/* sub-heading-of-boxcontainercompo */
+.sub1 {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Poppins;
+  color: var(--text-primary);
+}
+
+/* Sub-heading-of-side */
+.sub2 {
+  font-size: 0.625rem;
+  font-family: Inter;
+  color: var(--text-primary);
+}
+
+
+.glass-card {
+  @apply rounded-2xl;
+  border-radius: 15px;
+  background-color: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-card);
+  box-shadow:
+    var(--shadow-card),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0px 0px rgba(255, 255, 255, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.03);
+  box-sizing: border-box;
+  color: var(--text-primary);
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.button {
+  border-radius: 10px;
+  background: var(--bg-card);
+  width: auto;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.937rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-family: Poppins;
+  align-self: stretch;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 500;
+  border: 1px solid var(--border-card);
+  box-shadow:
+    var(--shadow-card),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0px 0px rgba(255, 255, 255, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* style for no of kpis  */
+/* Number of KPI */
+.no_kpi {
+  color: var(--text-primary);
+  font-family: Poppins;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Heading of KPI */
+.kpi_heading {
+  color: var(--text-primary);
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.9375rem;
+}
+
+.subHeading_of_kpis {
+  color: var(--text-muted);
+  /* Sub-Heading of KPI */
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+
+/* Heading of box/Container/Component */
+
+.box-container-heading {
+  color: var(--text-primary);
+  font-family: Poppins;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+/* Sub-Heading of box/Container/Component */
+.subHeading_box {
+  color: var(--text-primary);
+
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+.logo_heading_sidebar {
+  color: var(--text-primary);
+  /* Heading of SWMM side bar */
+  font-family: Poppins;
+  font-size: 1.875rem;
+  font-style: normal;
+  line-height: 2.125rem;
+  /* 113.333% */
+  text-transform: capitalize;
+}
+
+/* Content of box/Container/Component */
+.content {
+  color: var(--text-primary);
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* view all button  style in cards  */
+.viewall-text {
+  color: #51A2FF;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+
+}
+
+body.modal-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.ag-theme-quartz-dark {
+
+  --ag-background-color: transparent;
+
+  --ag-foreground-color: var(--ag-foreground);
+
+  --ag-border-color: var(--ag-border);
+
+  --ag-header-background-color: var(--ag-header-bg);
+
+  --ag-header-height: 34px;
+
+  --ag-row-height: 38px;
+
+  --ag-font-family: Poppins;
+
+  --ag-font-size: 11px;
+}
+
+.ag-theme-quartz-dark .ag-root-wrapper {
+
+  border: none !important;
+
+  background: transparent !important;
+}
+
+.ag-checkbox-input {
+  transform: scale(3) !important;
+  outline: 3px solid red !important;
+}
+
+.ag-theme-quartz-dark .ag-header {
+
+  background: var(--ag-header-bg) !important;
+}
+
+.ag-theme-quartz-dark .ag-header-cell {
+
+  padding-left: 10px !important;
+}
+
+.ag-theme-quartz-dark .ag-header-cell-text {
+
+  color: var(--ag-header-cell-color) !important;
+
+  font-size: 11px !important;
+
+  font-weight: 500 !important;
+}
+
+.ag-theme-quartz-dark .ag-cell {
+
+  color: var(--ag-cell-color) !important;
+
+  padding-left: 10px !important;
+}
+
+.ag-theme-quartz-dark .ag-row {
+
+  background: transparent !important;
+}
+
+.ag-theme-quartz-dark .ag-icon {
+
+  color: var(--ag-cell-color) !important;
+}
+
+
+::ng-deep .ag-theme-custom .ag-checkbox-input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, .6);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+::ng-deep .ag-theme-custom .ag-checkbox-input:checked {
+  background: #3498db;
+  border-color: #3498db;
+}
+
+
+.node {
+  width: 160px !important;
+  height: max-content !important;
+}
+
+.node foreignObject {
+  overflow: visible !important;
+}
+
+.node .label {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.org-card {
+  width: 160px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+
+.org-img {
+  width: 100% !important;
+  height: 160px !important;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.org-content {
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+  padding: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.org-info {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.org-info svg {
+  width: 16px !important;
+  height: 16px !important;
+  stroke: rgba(255, 255, 255, 0.7) !important;
+  fill: none !important;
+  display: block;
+}
+
+.org-info svg circle,
+.org-info svg path {
+  stroke: rgba(255, 255, 255, 0.7) !important;
+  fill: none !important;
+  stroke-width: 2 !important;
+}
+
+.org-name {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.org-rank {
+  color: #94a3b8;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.basic,
+.label-container {
+  fill: transparent !important;
+  stroke-width: 0 !important;
+  stroke: none !important;
+  background: transparent !important;
+  width: 160px !important;
+  height: max-content !important;
+}
+
+.marker {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+
+/*
+for border right to datagrid header */
+
+.ag-header-cell {
+  border-right: 1px solid var(--header-cell-border);
+}
+
+
+.grid-inline-select,
+.grid-inline-input {
+  width: 100%;
+  height: 30px;
+  padding: 2px 6px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  font-size: 13px;
+  background: #fff;
+}
+
+
+.ag-center-cell {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+
+/* For smaller viewport caused by browser zoom */
+@media screen and (max-width: 1440px) {
+
+  .head1,
+  .logo_heading_sidebar {
+    font-size: 1.7rem;
+  }
+
+  .head2 {
+    font-size: 1.35rem;
+  }
+
+  .head3,
+  .head4,
+  .box-container-heading {
+    font-size: 1rem;
+  }
+
+  .head5,
+  .kpi_heading,
+  .content {
+    font-size: 0.8rem;
+  }
+
+  .sub1,
+  .subHeading_box {
+    font-size: 0.9rem;
+  }
+
+  .sub2,
+  .subHeading_of_kpis {
+    font-size: 0.58rem;
+  }
+
+  .no_kpi {
+    font-size: 1.75rem;
+  }
+
+  .button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .viewall-text {
+    font-size: 13px;
+  }
+}
+
+.mermaidTooltip {
+  padding: 0 !important;
+}
+
+.box-container-heading-duplicate {
+  color: var(--text-primary);
+  font-family: Poppins;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+
+
+/* ===========================
+   Global Form Theme
+=========================== */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.form-label .required {
+  color: #ff5b5b;
+}
+
+.form-control {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 16px;
+
+  border-radius: 8px;
+  border: 1px solid var(--border-input);
+
+  background: var(--bg-input);
+
+  color: var(--text-primary);
+  font-size: 14px;
+
+  outline: none;
+
+  transition: all .2s ease;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-control:hover {
+  border-color: var(--border-profile);
+}
+
+.form-control:focus {
+  border-color: #5f9cff;
+  box-shadow: 0 0 0 3px rgba(95, 156, 255, .15);
+}
+
+.form-control:disabled,
+.form-control.readonly {
+  background: var(--bg-input-disabled);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+
+.checkobox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checkobox-container input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+
+  background: transparent;
+  border: 2px solid #64748b;
+  /* slate-500 */
+  border-radius: 4px;
+
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkobox-container input[type="checkbox"]:hover {
+  border-color: #94a3b8;
+  /* slate-400 */
+}
+
+.checkobox-container input[type="checkbox"]:checked {
+  background: #2563eb;
+  /* blue */
+  border-color: #2563eb;
+}
+
+.checkobox-container input[type="checkbox"]::before {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.checkobox-container input[type="checkbox"]:checked::before {
+  transform: rotate(45deg) scale(1);
+}
+
+.checkobox-container input[type="checkbox"]:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* sfd config modal bg  */
+
+.sfd-modal-bg {
+  background: var(--bg-sfd-modal);
+  color: var(--text-primary);
+}
+
+.filter__btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border-input);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s;
+}
+
+
+.submit-btn {
+  border-color: transparent;
+  background: linear-gradient(180deg, #1aa3f2, #0b6bb5);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.delete-btn {
+
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: linear-gradient(rgb(245, 85, 94), rgb(194, 31, 39));
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+
+.filter__btn:hover {
+  background: var(--bg-comm-btn-hover);
+}
+
+.filter__btn--primary {
+  border-color: transparent;
+  background: linear-gradient(180deg, #1aa3f2, #0b6bb5);
+  color: #fff;
+}
+
+.filter__btn--primary:hover {
+  filter: brightness(1.05);
+}
+.form-error {
+  margin-top: 4px;
+  color: var(--error-color) !important;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+[data-sonner-toaster] {
+  --ngx-sonner-toast-success-background: #2e9e5b;
+  --ngx-sonner-toast-success-border: #2e9e5b;
+  --ngx-sonner-toast-success-color: #ffffff;
+  --ngx-sonner-toast-dark-success-background: #2e9e5b;
+  --ngx-sonner-toast-dark-success-border: #2e9e5b;
+  --ngx-sonner-toast-dark-success-color: #ffffff;
+
+  --ngx-sonner-toast-error-background: #c0392b;
+  --ngx-sonner-toast-error-border: #c0392b;
+  --ngx-sonner-toast-error-color: #ffffff;
+  --ngx-sonner-toast-dark-error-background: #c0392b;
+  --ngx-sonner-toast-dark-error-border: #c0392b;
+  --ngx-sonner-toast-dark-error-color: #ffffff;
+
+  --ngx-sonner-toast-warning-background: #ef8f1c;
+  --ngx-sonner-toast-warning-border: #ef8f1c;
+  --ngx-sonner-toast-warning-color: #ffffff;
+  --ngx-sonner-toast-dark-warning-background: #ef8f1c;
+  --ngx-sonner-toast-dark-warning-border: #ef8f1c;
+  --ngx-sonner-toast-dark-warning-color: #ffffff;
+
+  --ngx-sonner-toast-info-background: #2f8fb3;
+  --ngx-sonner-toast-info-border: #2f8fb3;
+  --ngx-sonner-toast-info-color: #ffffff;
+  --ngx-sonner-toast-dark-info-background: #2f8fb3;
+  --ngx-sonner-toast-dark-info-border: #2f8fb3;
+  --ngx-sonner-toast-dark-info-color: #ffffff;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-styled="true"] {
+  padding: 14px 16px;
+  gap: 12px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  font-family: "Poppins", sans-serif;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-title] {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-description] {
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon] {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon] > *,
+[data-sonner-toaster] [data-sonner-toast] [data-icon] svg {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] [data-icon] {
+  color: #2e9e5b;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] [data-icon] {
+  color: #c0392b;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] [data-icon] {
+  color: #ef8f1c;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="info"] [data-icon] {
+  color: #2f8fb3;
+}
+
+/* ============================================================
+   LIGHT THEME — global overrides (FLAT selectors, no nesting)
+   ============================================================ */
+
+/* ── Tailwind text-white override ── */
+[data-theme="light"] .text-white {
+  color: var(--text-primary) !important;
+}
+
+/* ── Tailwind text-white opacity variants override ── */
+[data-theme="light"] [class*="text-white"] {
+  color: var(--text-primary) !important;
+}
+
+/* ── Breadcrumb SVG icon ── */
+[data-theme="light"] .breadcrumb-icon svg path {
+  stroke: var(--text-primary) !important;
+}
+
+/* ── .form-field-label/.form-field-input/.form-field-select (styles.css `@layer components`
+   above) hardcode white text/border via `@apply text-white…`, which the generic
+   `[class*="text-white"]` override above can never catch — `@apply` inlines the resulting
+   `color:` property directly into these classes' own rules rather than leaving a literal
+   `text-white` class on the element. Left unfixed, every plain form input/select/label built on
+   these (the app's most common form primitives — Ship Crew's modals, Inventory OBS/MO/WED
+   filters) renders illegibly light-on-light in light theme, including text the user actually
+   types, not just placeholders. */
+[data-theme="light"] .form-field-label {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .form-field-input,
+[data-theme="light"] .form-field-select {
+  color: var(--text-primary) !important;
+  border-color: var(--border-input) !important;
+  background: var(--bg-input) !important;
+}
+
+[data-theme="light"] .form-field-input:focus,
+[data-theme="light"] .form-field-select:focus {
+  color: var(--text-primary) !important;
+  border-color: var(--accent-blue, #1d96e9) !important;
+}
+
+[data-theme="light"] .form-field-input::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 1 !important;
+}
+
+/* ── SVG attributes that are hardcoded white ── */
+[data-theme="light"] svg path[stroke="white"],
+[data-theme="light"] svg line[stroke="white"],
+[data-theme="light"] svg circle[stroke="white"],
+[data-theme="light"] svg polyline[stroke="white"] {
+  stroke: var(--text-primary) !important;
+}
+
+[data-theme="light"] svg path[fill="white"] {
+  fill: var(--text-primary) !important;
+}
+
+/* ── Header icon buttons SVG strokes ── */
+[data-theme="light"] .icon-btn svg path,
+[data-theme="light"] .icon-btn svg line,
+[data-theme="light"] .icon-btn svg polyline,
+[data-theme="light"] .icon-btn svg circle {
+  stroke: var(--text-primary) !important;
+}
+
+[data-theme="light"] .icon-btn svg path[fill="white"] {
+  fill: var(--text-primary) !important;
+}
+
+/* ── Org chart card name ── */
+[data-theme="light"] .org-name {
+  color: var(--text-primary);
+}
+
+/* ── AG Grid light background ── */
+[data-theme="light"] .ag-theme-quartz-dark {
+  --ag-background-color: rgba(255, 255, 255, 0.6);
+  --ag-odd-row-background-color: rgba(26, 163, 242, 0.04);
+}
+
+/* ── Mermaid marker ── */
+[data-theme="light"] .marker {
+  fill: var(--text-primary) !important;
+  stroke: var(--text-primary) !important;
+}
+
+/* ── Tailwind bg-white/border-white opacity utilities ──
+   Op. Maintenance (and other newer feature) pages build cards/inputs directly
+   with `bg-white/5`, `bg-white/10`, `border-white/10` etc. assuming a dark
+   backdrop. On a light background these near-transparent whites read as
+   washed-out/invisible, so redirect them through the theme's surface tokens. */
+[data-theme="light"] [class*="bg-white/"] {
+  background-color: var(--bg-input) !important;
+}
+[data-theme="light"] [class*="border-white/"] {
+  border-color: var(--border-input) !important;
+}
+[data-theme="light"] [class*="hover:bg-white/"]:hover {
+  background-color: var(--bg-nav-child-hover) !important;
+}
+[data-theme="light"] [class*="placeholder:text-white/"]::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ── .form-field-input / .form-field-select are compiled via @apply with
+   hardcoded white border/text, so the generic [class*="border-white"] /
+   [class*="text-white"] overrides above never match their DOM class
+   attribute ("form-field-input" only). Override them explicitly per theme
+   so they follow the theme tokens instead of staying stuck white-on-white. ── */
+[data-theme="light"] .form-field-input,
+[data-theme="light"] .form-field-select {
+  border-color: var(--border-input) !important;
+  color: var(--text-primary) !important;
+  color-scheme: light;
+}
+[data-theme="light"] .form-field-input:focus,
+[data-theme="light"] .form-field-select:focus {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-field-input,
+[data-theme="dark"] .form-field-select {
+  color-scheme: dark;
+}
+
+/* ============================================================
+   LIGHT THEME — Additional text visibility fixes
+   ============================================================ */
+
+/* Tailwind opacity variants on text — keep readable in light */
+[data-theme="light"] .opacity-90,
+[data-theme="light"] .opacity-80,
+[data-theme="light"] .opacity-70,
+[data-theme="light"] .opacity-60,
+[data-theme="light"] .opacity-50 {
+  opacity: 1 !important;
+}
+
+/* Sub-heading classes — force readable color */
+[data-theme="light"] .sub1,
+[data-theme="light"] .sub2,
+[data-theme="light"] .subHeading_of_kpis,
+[data-theme="light"] .subHeading_box,
+[data-theme="light"] .box-container-heading-duplicate {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="light"] .sidebar-logo__img {
+  filter: brightness(0.55) saturate(1.5);
+}
+
+/* All text inside glass cards must be readable */
+[data-theme="light"] .glass-card {
+  color: var(--text-primary);
+}
+
+/* ── Component light-theme overrides relocated from component-scoped CSS ──
+   These must live here, not in the owning component's .css file: Angular's
+   emulated view encapsulation appends the component's _ngcontent attribute
+   to every simple selector, including [data-theme="light"] — which targets
+   <html>, an element no component's content attribute can ever match. Global
+   styles.css isn't view-encapsulated, so the selectors work correctly here. */
+
+/* header.css: .nav-tab-active (active module tab) — pale-blue bordered chip,
+   matching the requested reference look, instead of a solid fill. */
+[data-theme="light"] .nav-tab-active {
+  color: #1069AB;
+  background: rgba(16, 105, 171, 0.08);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(16, 105, 171, 0.25), inset 0 -2px 0 0 #1069AB;
+}
+
+/* header.css: .nav-tab (inactive tabs) — blue underline on hover, drawn via
+   inset box-shadow so it doesn't add to the element's box height/layout. */
+[data-theme="light"] .nav-tab {
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="light"] .nav-tab:not(.nav-tab-active):hover {
+  color: #1069AB;
+  box-shadow: inset 0 -2px 0 0 #1069AB;
+}
+
+/* sidebar.css: .nav-item--active (active sidebar item text/icon) */
+[data-theme="light"] .nav-item--active {
+  color: #1069AB;
+}
+
+[data-theme="light"] .nav-item--active .nav-item__icon,
+[data-theme="light"] .nav-item--active .nav-item__label {
+  color: #1069AB !important;
+}
+
+/* sfd-overview.component.css: .qa-btn--primary (Add / Update SFD CTA) */
+[data-theme="light"] .qa-btn--primary {
+  border-color: #1069AB;
+  background: #1069AB;
+  color: #ffffff;
+}
+
+[data-theme="light"] .qa-btn--primary:hover {
+  background: #0D5A8F;
+}
+
+[data-theme="light"] .qa-btn--primary .icon--accent {
+  color: #ffffff;
+}
+
+/* kpi-card.css: .kpi-arrow-detail / .kpi-label / .kpi-time-tab* */
+[data-theme="light"] .kpi-arrow-detail {
+  border-color: var(--border-primary);
+  background: var(--bg-input);
+}
+
+[data-theme="light"] .kpi-arrow-detail:hover {
+  background: var(--bg-icon-btn);
+}
+
+[data-theme="light"] .kpi-label {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .kpi-time-tab:hover {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .kpi-time-tab-active {
+  background: var(--bg-icon-btn);
+  border-color: var(--border-primary);
+}
+
+[data-theme="light"] .accent-pills .kpi-time-tab-active {
+  background: #1069AB;
+  border-color: #1069AB;
+  color: #ffffff;
+}
+
+/* Specific overrides that might use opacity-based visibility */
+[data-theme="light"] [class*="text-slate"],
+[data-theme="light"] [class*="text-gray"] {
+  color: var(--text-muted) !important;
+}
+
+/* ── KPI number and heading visibility ── */
+[data-theme="light"] .no_kpi,
+[data-theme="light"] .kpi_heading {
+  color: var(--text-primary) !important;
+}
+
+/* ── Tailwind/utility span text that may use white/opacity ── */
+[data-theme="light"] span.opacity-90 {
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
+/* ── All p, span, div inside main content area ── */
+[data-theme="light"] main p,
+[data-theme="light"] main span:not(.badge):not(.status) {
+  color: inherit;
+}
+
+/* ============================================================
+   GLOBAL TOOLTIP — styled replacement for the native `title`.
+   Driven by TooltipService (event delegation, see
+   shared/directives/tooltip.service.ts). The bubble is appended
+   to <body>, so these rules must be global. Shaped like the
+   landing sidebar `.nav-tooltip`, but coloured from the app's
+   theme tokens so it matches light + dark automatically.
+   ============================================================ */
+.app-tooltip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  padding: 6px 12px;
+  border-radius: 8px;
+  /* Theme tokens → matches the app's dropdowns/menus in both light and dark. */
+  background: var(--bg-dropdown);
+  border: 1px solid var(--border-dropdown);
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 1.25;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.app-tooltip--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.app-tooltip__label {
+  display: block;
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Arrow — a rotated square (same surface + border) that points at the element. */
+.app-tooltip__arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--bg-dropdown);
+  border: 1px solid var(--border-dropdown);
+  transform: rotate(45deg);
+}
+.app-tooltip[data-side="top"] .app-tooltip__arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -4px;
+  border-top: 0;
+  border-left: 0;
+}
+.app-tooltip[data-side="bottom"] .app-tooltip__arrow {
+  top: -5px;
+  left: 50%;
+  margin-left: -4px;
+  border-bottom: 0;
+  border-right: 0;
+}
+.app-tooltip[data-side="right"] .app-tooltip__arrow {
+  left: -5px;
+  top: 50%;
+  margin-top: -4px;
+  border-top: 0;
+  border-right: 0;
+}
+.app-tooltip[data-side="left"] .app-tooltip__arrow {
+  right: -5px;
+  top: 50%;
+  margin-top: -4px;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+
+.dropdown-trigger {
+  border: 1px solid var(--border-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dropdown-trigger.error {
+  border-color: #ef4444 !important;
+}
+
+.dropdown-trigger.error:focus-within,
+.dropdown-trigger.error.active {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444;
+}
+.form-control.error {
+  border-color: #ef4444;
+}
+
+.form-control.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px #ef4444;
+}
+
+/* model header bg  */
+
+.model-border-header {
+  border-bottom: 1px solid var(--model-border);;
+}
+.model-border {
+  border: 0.5px solid var(--model-border);
+}
+
+
+.readonly-checkbox {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.readonly-checkbox+span {
+  cursor: not-allowed;
+}
+
+
+.required-placeholder::placeholder {
+      color: #e5877f;
+      opacity: 1
+}
+
+
+.submit-btn button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 20px rgba(47, 140, 255, 0.25);
+}
+
+/* Disabled State */
+.submit-btn button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.location-dot.port {
+  background-color: #ff4d4f;
+}
+
+.location-dot.starboard {
+  background-color: #22c55e;
+}
+
+.location-text {
+  color: inherit;
+}
+
+
+.compartment-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: rgb(74, 168, 255);
+}
+
+/* ================= LIGHT MODE GLOBAL BADGES & GRID ACTIONS ================= */
+[data-theme="light"] .status-pill,
+[data-theme="light"] .table-pill,
+[data-theme="light"] .badge-secondary,
+[data-theme="light"] .badge-status-draft,
+[data-theme="light"] .badge-success,
+[data-theme="light"] .badge-status-closed,
+[data-theme="light"] .badge-warning,
+[data-theme="light"] .badge-status-in-progress,
+[data-theme="light"] .badge-info,
+[data-theme="light"] .badge-status-open {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 3px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  height: 24px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+[data-theme="light"] .status-pill.badge-secondary,
+[data-theme="light"] .table-pill.badge-secondary,
+[data-theme="light"] .status-pill.badge-status-draft,
+[data-theme="light"] .table-pill.badge-status-draft,
+[data-theme="light"] .badge-secondary,
+[data-theme="light"] .badge-status-draft {
+  background: #F3F4F6 !important;
+  border: 1px solid #D1D5DB !important;
+  color: #374151 !important;
+}
+
+[data-theme="light"] .status-pill.badge-success,
+[data-theme="light"] .table-pill.badge-success,
+[data-theme="light"] .status-pill.badge-status-closed,
+[data-theme="light"] .table-pill.badge-status-closed,
+[data-theme="light"] .badge-success,
+[data-theme="light"] .badge-status-closed {
+  background: #DCFCE7 !important;
+  border: 1px solid #86EFAC !important;
+  color: #166534 !important;
+}
+
+[data-theme="light"] .status-pill.badge-warning,
+[data-theme="light"] .table-pill.badge-warning,
+[data-theme="light"] .status-pill.badge-status-in-progress,
+[data-theme="light"] .table-pill.badge-status-in-progress,
+[data-theme="light"] .badge-warning,
+[data-theme="light"] .badge-status-in-progress {
+  background: #FEF3C7 !important;
+  border: 1px solid #FDE68A !important;
+  color: #92400E !important;
+}
+
+[data-theme="light"] .status-pill.badge-info,
+[data-theme="light"] .table-pill.badge-info,
+[data-theme="light"] .status-pill.badge-status-open,
+[data-theme="light"] .table-pill.badge-status-open,
+[data-theme="light"] .badge-info,
+[data-theme="light"] .badge-status-open {
+  background: #E0F2FE !important;
+  border: 1px solid #7DD3FC !important;
+  color: #075985 !important;
+}
+
+[data-theme="light"] .grid-action-pill,
+[data-theme="light"] .grid-action-btn {
+  background: #F0F2F5 !important;
+  border: 1px solid #D1D5DB !important;
+  color: #0F1C2E !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .grid-action-pill:hover,
+[data-theme="light"] .grid-action-btn:hover {
+  background: #E2E4E6 !important;
+  border-color: #9CA3AF !important;
+  color: #0F1C2E !important;
+}
+
+[data-theme="light"] .grid-action-pill svg,
+[data-theme="light"] .grid-action-btn svg {
+  color: #374151 !important;
+}
+
+[data-theme="light"] .grid-action-pill:hover svg,
+[data-theme="light"] .grid-action-btn:hover svg {
+  color: #0F1C2E !important;
+}
+
+[data-theme="light"] .dart-no-code {
+  color: #0284C7 !important;
+}
+
+[data-theme="light"] .dart-no-code:hover {
+  color: #0369A1 !important;
+}

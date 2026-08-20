@@ -1,0 +1,19 @@
+<div class="export-toolbar">
+  <span class="export-toolbar__label">Export</span>
+  <button type="button" class="export-toolbar__btn export-toolbar__btn--pdf"
+    title="Export as PDF" [disabled]="!!busy() || disabled()" (click)="onClick('pdf')">
+    <app-icon name="file-text" [size]="16" [strokeWidth]="1.9" variant="danger"
+      [spin]="busy() === 'pdf'" />
+  </button>
+  <button type="button" class="export-toolbar__btn export-toolbar__btn--xls"
+    title="Export as Excel" [disabled]="!!busy() || disabled()" (click)="onClick('excel')">
+    <app-icon name="sheet" [size]="16" [strokeWidth]="1.9" variant="success"
+      [spin]="busy() === 'excel'" />
+  </button>
+  @if (showPrint()) {
+    <button type="button" class="export-toolbar__btn" title="Print"
+      [disabled]="!!busy() || disabled()" (click)="onClick('print')">
+      <app-icon name="printer" [size]="16" [strokeWidth]="1.9" variant="muted" />
+    </button>
+  }
+</div>

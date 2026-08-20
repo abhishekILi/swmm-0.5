@@ -1,0 +1,280 @@
+<div class="tag-container p-4 sm:p-6 space-y-6">
+  <!-- Header Bar -->
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button type="button" (click)="goBack()"
+        class="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+        title="Back to TagIn List">
+        <app-icon name="arrow-left" [size]="20"></app-icon>
+      </button>
+      <div class="flex items-center gap-2">
+        <app-icon name="plus" [size]="20" class="text-sky-400"></app-icon>
+        <h1 class="text-lg font-bold tracking-wide uppercase text-slate-100">
+          ADD TAG IN
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  @if (errorMessage()) {
+  <div class="bg-red-500/20 border border-red-500/50 text-red-300 p-3 rounded-lg text-xs font-semibold">
+    {{ errorMessage() }}
+  </div>
+  }
+  @if (successMessage()) {
+  <div class="bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 p-3 rounded-lg text-xs font-semibold">
+    {{ successMessage() }}
+  </div>
+  }
+
+  <!-- Main Form Card -->
+  <form (ngSubmit)="onSubmit()" class="glass-card p-6 rounded-[12px] space-y-8">
+
+    <!-- 1. TAG IN INFORMATION -->
+    <div class="space-y-4">
+      <div class="border-b border-[var(--border-card)] pb-2">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-sky-400">
+          TAG IN INFORMATION
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Date -->
+        <div class="flex flex-col gap-1.5">
+          <label for="tagin-date" class="text-xs font-semibold tag-label">Date *</label>
+          <input id="tagin-date" type="date" [ngModel]="date()" (ngModelChange)="date.set($event)" name="date"
+            class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm font-medium"
+            required />
+        </div>
+
+        <!-- Tag Out Equipment Name Dropdown -->
+        <div class="flex flex-col gap-1.5">
+          <label for="tagout-equipment-name" class="text-xs font-semibold tag-label">
+            Tag Out Equipment Name *
+          </label>
+          <div class="relative flex items-center">
+            <select id="tagout-equipment-name" [ngModel]="selectedTagoutId()" (ngModelChange)="onTagoutSelect($event)"
+              name="selectedTagoutId"
+              class="w-full bg-transparent border-b tag-input py-1.5 pr-8 focus:outline-none focus:border-sky-400 text-sm font-medium appearance-none cursor-pointer"
+              required>
+              <option [ngValue]="null" disabled selected class="bg-[#1e2028] text-slate-400">Select Tag Out Equipment
+              </option>
+              @for (opt of tagoutOptions(); track opt.id) {
+              <option [ngValue]="opt.id" class="bg-[#1e2028] text-slate-100">{{ opt.label }}</option>
+              }
+            </select>
+            @if (selectedTagoutId()) {
+            <button type="button" (click)="clearTagoutSelection()"
+              class="absolute right-6 top-2 text-slate-400 hover:text-red-400 cursor-pointer" title="Clear selection">
+              <app-icon name="x" [size]="14"></app-icon>
+            </button>
+            }
+            <div class="absolute right-0 top-2 pointer-events-none">
+              <app-icon name="chevron-down" [size]="14" class="tag-label"></app-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tag In Description -->
+        <div class="flex flex-col gap-1.5">
+          <label for="tagin-description" class="text-xs font-semibold tag-label">
+            Tag In Description *
+          </label>
+          <input id="tagin-description" type="text" [ngModel]="taginDescription()"
+            (ngModelChange)="taginDescription.set($event)" name="taginDescription" placeholder="Tag In Description"
+            class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm font-medium"
+            required />
+        </div>
+
+        <!-- Maintainer -->
+        <div class="flex flex-col gap-1.5">
+          <label for="tagin-maintainer" class="text-xs font-semibold tag-label">
+            Maintainer *
+          </label>
+          <input id="tagin-maintainer" type="text" [ngModel]="maintainer()" (ngModelChange)="maintainer.set($event)"
+            name="maintainer" placeholder="Maintainer Name / Rank"
+            class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm font-medium"
+            required readonly />
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. TAGOUT DETAILS - SAFETY ISOLATION RECORD (DYNAMIC PANEL) -->
+    @if (selectedTagout(); as item) {
+    <div class="glass-card p-5 rounded-lg space-y-6 border border-sky-500/30 bg-slate-900/60">
+      <div class="border-b border-sky-500/20 pb-2 flex items-center justify-between">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-2">
+          <app-icon name="shield-check" [size]="16"></app-icon>
+          TAGOUT DETAILS - SAFETY ISOLATION RECORD ({{ item.tagout_number || 'TAG-' + item.id }})
+        </h2>
+      </div>
+
+      <!-- BASIC INFO -->
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-slate-400 tracking-wider">BASIC INFORMATION</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">DATE ISSUED</strong> {{ item.date || '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">SHIP</strong> {{ item.department_name || item.dept ||
+            'INS TABAR' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">DEPARTMENT</strong> {{ item.department || 'ENGINEERING'
+            }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">AFFECTED DEPARTMENTS</strong> {{
+            item.departments_affected?.join(', ') || 'ENGINEERING' }}</div>
+        </div>
+      </div>
+
+      <!-- EQUIPMENT DETAILS -->
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-slate-400 tracking-wider">EQUIPMENT DETAILS</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">EQUIPMENT NO</strong> {{ item.tagout_equipment_name ||
+            item.id }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">EQUIPMENT NAME</strong> {{ getEquipmentDisplayName(item)
+            }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">NAME OF SUB SYSTEM</strong> {{ item.name_of_subsystem ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">NAME OF COMPONENT</strong> {{ item.name_of_component ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">SERIAL NO</strong> {{ item.serial_number_of_component ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">PATTERN NO</strong> {{ item.pattern_number_of_component
+            || '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">WEIGHT (KG)</strong> {{ item.weight_of_component || '-'
+            }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">CONDITION</strong> {{ item.condition || 'Ops' }}</div>
+        </div>
+      </div>
+
+      <!-- SPECIAL INSTRUCTION & DESCRIPTION -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-3 bg-slate-800/40 rounded">
+          <strong class="text-slate-400 block text-[10px] uppercase">SPECIAL INSTRUCTION</strong>
+          <p class="mt-1 text-slate-200">{{ item.special_instructions || 'None' }}</p>
+        </div>
+        <div class="p-3 bg-slate-800/40 rounded">
+          <strong class="text-slate-400 block text-[10px] uppercase">DESCRIPTION</strong>
+          <p class="mt-1 text-slate-200">{{ item.tagout_description || '-' }}</p>
+        </div>
+      </div>
+
+      <!-- PERSONNEL & TIMELINE -->
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-slate-400 tracking-wider">PERSONNEL & TIMELINE</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">EXPECTED TAG IN</strong> {{ item.expected_date_of_tagin
+            || '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">MAINTAINER</strong> {{ item.tagout_maintainer_name_rank
+            || '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">TAG OUT REASON</strong> {{ item.tagout_reason || '-' }}
+          </div>
+        </div>
+      </div>
+
+      <!-- CONDITIONAL REASON DETAILS -->
+      @if (item.tagout_reason === 'ty_loan_rtlapp') {
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">TY LOAN / RTLAPP DETAILS</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">TY LOAN SHIP</strong> {{ item.ty_loan_ship || '-' }}
+          </div>
+          <div><strong class="text-slate-400 block text-[10px]">AUTHORITY</strong> {{ item.ty_authority || '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">ITEM TAKEN BY</strong> {{ item.ty_item_taken_by || '-'
+            }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">ADDITIONAL ITEMS</strong> {{ item.ty_additional_items ||
+            '-' }}</div>
+        </div>
+      </div>
+      }
+      @if (item.tagout_reason === 'survey_and_demand') {
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">SURVEY & DEMAND DETAILS</span>
+        <div class="p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">AUTHORITY</strong> {{ item.survery_demand_authority ||
+            '-' }}</div>
+        </div>
+      </div>
+      }
+      @if (item.tagout_reason === 'repair_or_overhauling') {
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">REPAIR / OVERHAULING DETAILS</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">RA NUMBER</strong> {{ item.repair_ra_number || '-' }}
+          </div>
+          <div><strong class="text-slate-400 block text-[10px]">ITEM TAKEN BY</strong> {{ item.repair_item_taken_by ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">OEM DETAILS</strong> {{ item.repair_landed_details ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">ADDITIONAL ITEMS</strong> {{
+            item.repair_additional_items || '-' }}</div>
+        </div>
+      </div>
+      }
+      @if (item.tagout_reason === 'aber_replacement') {
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">ABER REPLACEMENT DETAILS</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-slate-800/40 rounded text-xs">
+          <div><strong class="text-slate-400 block text-[10px]">AUTHORITY</strong> {{ item.aber_authority || '-' }}
+          </div>
+          <div><strong class="text-slate-400 block text-[10px]">REPLACEMENT ITEM</strong> {{ item.replacement_item ||
+            '-' }}</div>
+          <div><strong class="text-slate-400 block text-[10px]">ESTIMATED BOM ARRIVAL</strong> {{
+            item.estimated_bom_arrival_date || '-' }}</div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+
+    <!-- 3. ITEMS RETURN STATUS SECTION -->
+    <div class="space-y-4">
+      <div class="border-b border-[var(--border-card)] pb-2">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-sky-400">
+          ITEMS RETURN STATUS
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- All Items Returned Checkbox -->
+        <div class="flex items-center gap-3">
+          <input id="all-items-returned" type="checkbox" [ngModel]="allItemsReturned()"
+            (ngModelChange)="allItemsReturned.set($event)" name="allItemsReturned"
+            class="w-4 h-4 accent-sky-500 rounded cursor-pointer" />
+          <label for="all-items-returned" class="text-sm font-semibold text-slate-100 cursor-pointer">
+            All items returned back
+          </label>
+        </div>
+
+        <!-- Items Pending Container (when checkbox is unchecked) -->
+        @if (!allItemsReturned()) {
+        <div class="flex flex-col gap-1.5">
+          <label for="items-pending" class="text-xs font-semibold tag-label text-amber-400">
+            Items Pending *
+          </label>
+          <textarea id="items-pending" [ngModel]="itemsPending()" (ngModelChange)="itemsPending.set($event)"
+            name="itemsPending" rows="3" placeholder="Enter details of pending items..."
+            class="w-full bg-transparent border border-amber-500/40 rounded p-2 focus:outline-none focus:border-amber-400 text-sm placeholder:text-slate-500 resize-y"
+            required></textarea>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Submit Button Action -->
+    <div class="flex items-center justify-center gap-4 pt-4 border-t border-[var(--border-card)]">
+      <button type="submit" [disabled]="isSubmitting()"
+        class="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-2.5 px-6 rounded text-xs uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-sky-500/20">
+        @if (isSubmitting()) {
+        <app-icon name="loader" [size]="16" class="animate-spin"></app-icon>
+        Submitting...
+        } @else {
+        SUBMIT TAG IN
+        }
+      </button>
+      <button type="button" (click)="goBack()"
+        class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold py-2.5 px-5 rounded text-xs uppercase tracking-wider transition-colors cursor-pointer">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

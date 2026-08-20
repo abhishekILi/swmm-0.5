@@ -1,0 +1,50 @@
+<div class="ref-layout">
+  <div class="glass-card sync-card">
+    <div class="sync-title">Nomenclature Synchronization</div>
+
+    <div class="step-row">
+      @for (card of syncCards; track card.key) {
+        <button
+          type="button"
+          class="step-btn"
+          [style.background]="card.endpoint ? card.color : '#5a6472'"
+          [disabled]="isRunning() || !card.endpoint"
+          [title]="card.endpoint ? '' : 'Backend endpoint not available yet'"
+          (click)="runSync(card)"
+        >
+          @if (isCardCompleted(card.key) && !isCardRunning(card.key)) {
+            <span class="step-label">Restart Sync</span>
+          } @else {
+            <span class="step-num">{{ isCardRunning(card.key) ? '…' : card.step }}</span>
+            <span class="step-label">{{ isCardRunning(card.key) ? 'Syncing...' : 'STEP ' + card.step + ' - ' + card.title }}</span>
+          }
+        </button>
+      }
+    </div>
+
+    <div class="progress-block">
+      <div class="progress-row">
+        <span class="progress-label">{{ currentAction() }}</span>
+        <span class="progress-value">{{ progress() }}%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" [style.width.%]="progress()"></div>
+      </div>
+    </div>
+
+    <div class="log-block">
+      <div class="log-head">
+        <span>PROCESS LOG</span>
+        <span class="log-badge">{{ itemCount() }} ITEMS PROCESSED</span>
+      </div>
+      <div class="log-console">
+        @for (line of logLines(); track $index) {
+          <div class="log-line" [class]="'tone-' + line.tone">{{ line.text }}</div>
+        }
+        @if (!logLines().length) {
+          <div class="log-empty">Waiting for sync to start...</div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

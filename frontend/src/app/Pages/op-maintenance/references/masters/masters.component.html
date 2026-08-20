@@ -1,0 +1,93 @@
+<div class="masters-container">
+
+  <!-- Tabs -->
+  <div class="tabs-container">
+
+    <button
+      class="tab"
+      [class.active]="activeTab === 'refit'"
+      (click)="setTab('refit')">
+      Create Refit Nomenclature
+    </button>
+
+    <button
+      class="tab"
+      [class.active]="activeTab === 'smp'"
+      (click)="setTab('smp')">
+      Create SMP/AMP/EAMP Nomenclature
+    </button>
+
+  </div>
+
+  @if (activeTab === 'refit') {
+
+    <div class="masters-card">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+
+        <!-- Search -->
+        <div class="search-box">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Search" />
+        </div>
+
+        <!-- Export Buttons -->
+        <div class="flex gap-2 pl-2 mr-3">
+          <button
+            class="
+              flex items-center
+              px-4 h-10
+              rounded-lg
+              bg-white/10
+              border border-white/10
+              text-white">
+
+            <span class="mr-3">Export</span>
+
+            <div class="flex items-center gap-3">
+              <app-icon name="file-text" [size]="16" />
+              <app-icon name="sheet" [size]="16" />
+              <app-icon name="printer" [size]="16" />
+            </div>
+
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Grid — stays mounted across reloads; ag-grid just gets fresh
+           rowData pushed in, instead of being torn down/rebuilt each time. -->
+      <div class="grid-area">
+
+        <app-data-grid
+          [rowData]="rowData()"
+          [columnDefs]="columnDefs"
+          [pageSize]="10"
+          height="440px">
+        </app-data-grid>
+      </div>
+
+    </div>
+
+  }
+
+  @if (activeTab === 'smp') {
+
+    <app-smp-amp-eamp></app-smp-amp-eamp>
+
+  }
+
+</div>
+
+@if (showAmendModal) {
+
+  <app-amend-nomenclature-modal
+    [row]="selectedRow"
+  (modalClosed)="closeAmendModal()"
+    (save)="saveChanges()">
+  </app-amend-nomenclature-modal>
+
+}

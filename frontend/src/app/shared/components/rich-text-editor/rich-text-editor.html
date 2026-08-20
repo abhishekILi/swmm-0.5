@@ -1,0 +1,31 @@
+<div class="rte" [class.rte--focused]="focused()" [class.rte--readonly]="readonly || disabled()">
+  <div class="rte-toolbar" role="toolbar" aria-label="Text formatting">
+    @for (btn of toolbar; track btn.command) {
+      <button
+        type="button"
+        class="rte-toolbar-btn"
+        [title]="btn.label"
+        [attr.aria-label]="btn.label"
+        [disabled]="readonly || disabled()"
+        (mousedown)="$event.preventDefault()"
+        (click)="runCommand(btn.command)"
+      >
+        <app-icon [name]="btn.icon" [size]="14" variant="inherit" />
+      </button>
+    }
+  </div>
+  <div
+    #surface
+    class="rte-surface"
+    [style.min-height]="minHeight"
+    contenteditable="true"
+    [attr.aria-label]="placeholder || 'Rich text field'"
+    [attr.aria-readonly]="readonly || disabled()"
+    (input)="onInput()"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  ></div>
+  @if (!hasValue() && !focused() && placeholder) {
+    <span class="rte-placeholder">{{ placeholder }}</span>
+  }
+</div>

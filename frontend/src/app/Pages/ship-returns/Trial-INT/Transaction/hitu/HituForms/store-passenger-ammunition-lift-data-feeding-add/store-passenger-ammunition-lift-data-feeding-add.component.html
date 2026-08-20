@@ -1,0 +1,1011 @@
+<app-form-card
+  title="STORE/ PASSENGER/ AMMUNITION LIFT–PORT/ STBD"
+  [showPreviousReport]="true"
+  [showBackButton]="true"
+  [showPaginator]="true"
+  [previewMode]="true"
+>
+  <form [formGroup]="form" class="p-0">
+    <div class="grid grid-cols-2 gap-3">
+      <!-- <div class="flex flex-col gap-1">
+                <label class="form-label" for="classOfShip">Class of Ship*</label>
+                <app-select formControlName="classOfShip" [options]="classOfShipOptions" [disabled]="true">
+                </app-select>
+            </div> -->
+
+      <!-- SHIP STATUS -->
+      <div class="flex flex-col gap-1">
+        <app-input
+          [label]="'Ship*'"
+          formControlName="ship"
+          placeholder="ship name"
+          class="w-full"
+        >
+        </app-input>
+      </div>
+
+      <!-- <app-input label="ship" formControlName="Ship">
+            </app-input> -->
+
+      <!-- Date of conduct of trials  -->
+      <app-calendar
+        label="Date of conduct of trials*"
+        formControlName="date_of_conduct_trail"
+      ></app-calendar>
+      <!--Place of conduct of trials  -->
+      <div class="flex flex-col gap-1">
+        <app-select
+          [label]="'Place of conduct of trials*'"
+          formControlName="place_of_conduct_trail"
+          [options]="placesOptions"
+          placeholder="--Select--"
+          class="w-full"
+        >
+        </app-select>
+      </div>
+
+      <!-- Occasion for conduct of Trials -->
+      <div class="flex flex-col gap-1">
+        <app-select
+          [label]="'Occasion for conduct of Trials*'"
+          formControlName="occasion_of_conduct_trail"
+          [searchable]="false"
+          [options]="occasionOptions"
+          placeholder="--Select--"
+          class="w-full"
+        >
+        </app-select>
+      </div>
+
+      <!-- stbdOptions -->
+      <div class="flex flex-col gap-1">
+        <app-select
+          [label]="'PORT/STBD*'"
+          formControlName="port"
+          [searchable]="false"
+          [options]="stbdOptions"
+          placeholder="--Select--"
+          class="w-full"
+        >
+        </app-select>
+      </div>
+    </div>
+    <!-- ---------------------------------- AUTHORITY OF CONDUCT TRAILS -------------------- -->
+    <app-parameter-card serial="" title="Authority for conduct of Trials">
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <app-input
+          label="Corespondence(fax/letter,etc)*"
+          formControlName="authority"
+        >
+        </app-input>
+        <app-calendar
+          label="Date*"
+          formControlName="authority_date"
+          [max]="form.get('date_of_conduct_trail')?.value"
+        >
+        </app-calendar>
+        <div class="file-upload-field gap-1">
+          <app-file-upload
+            [label]="'Upload doc*'"
+            (filesUploaded)="handleFilesUploaded($event)"
+            formControlName="authority_doc"
+          >
+          </app-file-upload>
+        </div>
+      </div>
+    </app-parameter-card>
+
+    <div class="mt-6 overflow-x-auto">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="hitu-table-header">
+            <th class="hitu-table-rows-border w-10">Ser</th>
+            <th class="hitu-table-rows-border">Parameter (a)</th>
+            <th class="hitu-table-rows-border">Checks (b)</th>
+            <th class="hitu-table-rows-border">Observation (c)</th>
+            <th class="hitu-table-rows-border">Remarks (d)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hitu-table-rows-border text-center font-bold">1</td>
+            <td class="hitu-table-rows-border">Type of Lift</td>
+            <td class="hitu-table-rows-border" colspan="4">
+              <app-select
+                formControlName="type"
+                [options]="commandOptions"
+                [disabled]="true"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">2</td>
+            <td class="hitu-table-rows-border">Make</td>
+            <td class="hitu-table-rows-border" colspan="4">
+              <app-select
+                formControlName="make"
+                [options]="commandOptions"
+                [disabled]="true"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">3</td>
+            <td class="hitu-table-rows-border">Year of Manufacture</td>
+            <td class="hitu-table-rows-border" colspan="4">
+              <app-year-calendar
+                formControlName="year_of_manufacture"
+              ></app-year-calendar>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">4</td>
+            <td class="hitu-table-rows-border">Load Testing</td>
+            <td class="hitu-table-rows-border">
+              Date of last load test (Not to exceed 27 months)
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-calendar
+                label="Date, Month and Year"
+                formControlName="last_load_test"
+              ></app-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="load_test_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">5</td>
+            <td class="hitu-table-rows-border">
+              Serviceability Checks/ Visual Survey of Rope
+            </td>
+            <td class="hitu-table-rows-border">
+              Date of Last visual survey. To be examined by refitting agencies
+              at intermediate intervals not exceeding 2 years. Check wire rope
+              for signs of excessive wear, corrosion or other defects. Length
+              and Dia of rope.
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-calendar
+                label="Date, Month and Year"
+                formControlName="last_visual_rope_survey"
+              ></app-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="visual_rope_survey_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">6</td>
+            <td class="hitu-table-rows-border">Destruction test certificate</td>
+            <td class="hitu-table-rows-border">
+              Check date of destruction test
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-calendar
+                label="Date, Month and Year"
+                formControlName="destruction_test_date"
+              ></app-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="destruction_test_date_remark"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">7</td>
+            <td class="hitu-table-rows-border">Wire Rope</td>
+            <td class="hitu-table-rows-border">
+              Date of fitment. To be maintained NHQ/DNA Policy letter
+              NC/Policy/H-104/Equipment dated 09 May 16
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-calendar
+                label="Date, Month and Year"
+                formControlName="wire_rope_fitment_date"
+              ></app-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="wire_rope_fitment_date_remark"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border" rowspan="3">8</td>
+            <td class="hitu-table-rows-border" rowspan="3">
+              Condition of JB/ Control
+            </td>
+            <td class="hitu-table-rows-border">
+              Electrical hygiene, condition of connector lugs. Check tightness
+              of electrical cable connections and fasteners
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="condition_of_jb_control"
+                [searchable]="false"
+                [options]="ObservationsNilOptions"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showJBControlInputFeild"
+                formControlName="condition_of_jb_control_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showJBControlInputFeild"
+                label="Enter Remarks"
+                formControlName="condition_of_jb_control_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Status of Switches</td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="switches_status"
+                [searchable]="false"
+                [options]="ObservationsNilOptions"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showSwitchesInputField"
+                formControlName="switches_status_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showSwitchesInputField"
+                label="Enter Remarks"
+                formControlName="switches_status_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Status of Indicators</td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="indicator_status"
+                [searchable]="false"
+                [options]="ObservationsNilOptions"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showIndicatorInputField"
+                formControlName="indicator_status_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showIndicatorInputField"
+                label="Enter Remarks"
+                formControlName="indicator_status_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">9</td>
+            <td class="hitu-table-rows-border">
+              Condition of Foundations/ Lift well
+            </td>
+            <td class="hitu-table-rows-border">
+              Corrosion/ Pitting/ Unpainted/ Condition of Bond Strap
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="condition_of_foundation"
+                [searchable]="false"
+                [options]="ObservationsOptions"
+              ></app-select>
+              <div
+                *ngIf="showConditionFoundationInputFeilds"
+                class="mt-2 grid grid-cols-1 gap-3 text-sm"
+              >
+                <div class="min-h-[38px] flex items-center">Corrosion</div>
+                <div class="min-h-[38px] flex items-center">Pitting</div>
+                <div class="min-h-[38px] flex items-center">Unpainted</div>
+                <div class="min-h-[38px] flex items-center">Others</div>
+              </div>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showConditionFoundationInputFeilds"
+                formControlName="condition_of_foundation_remark"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+              <div
+                *ngIf="showConditionFoundationInputFeilds"
+                class="grid grid-cols-1 gap-2"
+              >
+                <app-input
+                  label=""
+                  placeholder="Enter Corrosion remarks"
+                  formControlName="Corrosion"
+                ></app-input
+                ><app-input
+                  label=""
+                  placeholder="Enter Pitting remarks"
+                  formControlName="Pitting"
+                ></app-input
+                ><app-input
+                  label=""
+                  placeholder="Enter Unpainted remarks"
+                  formControlName="Preserved"
+                ></app-input
+                ><app-input
+                  label=""
+                  placeholder="Enter Others"
+                  formControlName="Others"
+                ></app-input>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">10</td>
+            <td class="hitu-table-rows-border">
+              Lubrication of Mechanical Part
+            </td>
+            <td class="hitu-table-rows-border">
+              Check application of grease on mechanical/ moving parts
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="lubrication_mechanical_part"
+                [searchable]="false"
+                [options]="fillingDrainPlugs"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showlubricationMechanicalRemarkInput"
+                formControlName="lubrication_mechanical_part_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showlubricationMechanicalRemarkInput"
+                label="Enter Remarks"
+                formControlName="lubrication_mechanical_part_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">11</td>
+            <td class="hitu-table-rows-border">Lubrication Points</td>
+            <td class="hitu-table-rows-border">
+              Condition of greasing points, nipples - clean / painted/ choked
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="lubrication_point"
+                [searchable]="false"
+                [options]="fillingDrainPlugs"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showLubricationPointsRemarkInput"
+                formControlName="lubrication_point_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showLubricationPointsRemarkInput"
+                label="Enter Remarks"
+                formControlName="lubrication_point_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">12</td>
+            <td class="hitu-table-rows-border">Drive</td>
+            <td class="hitu-table-rows-border">
+              Check for excessive noise during operation
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="drive_check"
+                [searchable]="false"
+                [options]="noiseObserved"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showDriveRemarkInput"
+                formControlName="drive_check_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showDriveRemarkInput"
+                label="Enter Remarks"
+                formControlName="drive_check_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">13</td>
+            <td class="hitu-table-rows-border">Limit Switch/ sensor</td>
+            <td class="hitu-table-rows-border">
+              Functioning of limit switches sensor
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="limit_switch_sensor"
+                [searchable]="false"
+                [options]="ObservationsNilOptions"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showLimitSwitchRemarkInput"
+                formControlName="limit_switch_sensor_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showLimitSwitchRemarkInput"
+                label="Enter Remarks"
+                formControlName="limit_switch_sensor_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">14</td>
+            <td class="hitu-table-rows-border">Insulation Motor</td>
+            <td class="hitu-table-rows-border">&gt; 2 M Ohms</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                label="Numeric value in M Ohms"
+                formControlName="insulation_motor"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="insulation_motor_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">15</td>
+            <td class="hitu-table-rows-border">Operational Trials at SWL</td>
+            <td class="hitu-table-rows-border">
+              Lifting/ lowering - Electrical/ Hydraulic mode
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="operational_trails_swl"
+                [searchable]="false"
+                [options]="ObservationsNilOptions"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                *ngIf="!showOperationalTrailsRemarkInput"
+                formControlName="operational_trails_swl_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showOperationalTrailsRemarkInput"
+                label="Enter Remarks"
+                formControlName="operational_trails_swl_remark"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td
+              colspan="5"
+              class="hitu-table-rows-border text-white font-semibold text-center"
+            >
+              CBPM PARAMETERS
+            </td>
+          </tr>
+          <tr>
+            <td
+              colspan="5"
+              class="hitu-table-rows-border text-slate-100 font-medium"
+            >
+              Lubrication Oil Status
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">16</td>
+            <td class="hitu-table-rows-border">Oil Level in Gear Box</td>
+            <td class="hitu-table-rows-border">
+              Oil level should be maintained between max and min marking
+              indicated on oil level glass
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="oil_level_gear_box"
+                [searchable]="false"
+                [options]="OilLevelGauge"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="oil_level_gear_box_remarks"
+                [options]="overallRemarksOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">17</td>
+            <td class="hitu-table-rows-border">Oil being used in Gear Box</td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="gear_box"
+                [searchable]="false"
+                [options]="gearBoxOptions"
+                placeholder="--Select--"
+              ></app-select
+              ><app-input
+                *ngIf="showGearBoxOtherInput"
+                label="Enter oil type"
+                formControlName="gear_box_other"
+                class="mt-2"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="gear_box_observation"
+                [searchable]="false"
+                [options]="yesNoOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="gear_box_remark"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">18</td>
+            <td class="hitu-table-rows-border">
+              Change of Oil (in Drum and Gear Box)
+            </td>
+            <td>
+              <app-calendar
+                label="Last date of oil change"
+                formControlName="lastDateOfOilChange"
+              ></app-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-month-year-calendar
+                label="Month and Year"
+                formControlName="lastOilChangeDate"
+              ></app-month-year-calendar>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="lastOilChangeDate_remarks"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">19</td>
+            <td class="hitu-table-rows-border" rowspan="6">
+              Lub oil analysis parameter
+            </td>
+            <td class="hitu-table-rows-border" rowspan="6">
+              Lab Test (report to be enclosed)
+            </td>
+            <td
+              colspan="2"
+              class="hitu-table-rows-border text-center font-medium"
+            >
+              Parameters
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">20</td>
+            <td class="hitu-table-rows-border">Water content</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="water_content_value"
+                placeholder="Enter remarks"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">21</td>
+            <td class="hitu-table-rows-border">Viscosity</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="Viscosity_value"
+                placeholder="Enter remarks"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">22</td>
+            <td class="hitu-table-rows-border">Base Number</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="base_number_value"
+                placeholder="Enter remarks"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">23</td>
+            <td class="hitu-table-rows-border">Acid Number</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="acid_number_value"
+                placeholder="Enter remarks"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">24</td>
+            <td class="hitu-table-rows-border">Metal traces</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="metal_traces_value"
+                placeholder="Enter remarks"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td
+              colspan="5"
+              class="hitu-table-rows-border text-slate-100 font-medium"
+            >
+              Current/ Load Checks
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border"></td>
+            <td class="hitu-table-rows-border"></td>
+            <td class="hitu-table-rows-border font-medium">Reference</td>
+            <td class="hitu-table-rows-border font-medium">Measured</td>
+            <td class="hitu-table-rows-border font-medium">SAT / UNSAT</td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border" rowspan="4">25</td>
+            <td class="hitu-table-rows-border">Starting current</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="starting_current_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="starting_current_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="starting_current_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Slide In/Out</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="slide_in_out_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="slide_in_out_reference_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="slide_in_out_reference_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Tilt In/Out</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="tilt_in_out_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="tilt_in_out_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="tilt_in_out_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Lowering/Hoisting</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="lowering_hoisting_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="lowering_hoisting_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="lowering_hoisting_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border" rowspan="4">26</td>
+            <td class="hitu-table-rows-border">Running Current</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_current_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_current_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="running_current_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Slide In/Out</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_slide_in_out_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_slide_in_out_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="running_slide_in_out_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Tilt In/Out</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_tilt_in_out_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_tilt_in_out_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="running_tilt_in_out_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">Lowering/Hoisting</td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_lowering_hoisting_reference"
+                placeholder="As per masters"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-input
+                formControlName="running_lowering_hoisting_measured"
+                placeholder="Dialogue box"
+              ></app-input>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="running_lowering_hoisting_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">27</td>
+            <td class="hitu-table-rows-border">Log book exist</td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="log_book_reference"
+                [searchable]="false"
+                [options]="yesNoOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="log_book_measured"
+                [searchable]="false"
+                [options]="yesNoOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="log_book_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">28</td>
+            <td class="hitu-table-rows-border">Periodicity of measurement</td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="periodicity_reference"
+                [searchable]="false"
+                [options]="montlyQuarterlyOption"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="periodicity_measured"
+                [searchable]="false"
+                [options]="montlyQuarterlyNilOption"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="periodicity_remarks"
+                [searchable]="false"
+                [options]="SatUnsatOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">29</td>
+            <td class="hitu-table-rows-border">
+              SPM Check of Motor (For Motor Vibration)
+            </td>
+            <td class="hitu-table-rows-border">
+              0-20 dbm Green/ Yellow/ Red (0-20/ 20-35/ &gt;35)
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="spm_measured"
+                [searchable]="false"
+                [options]="spmCheckOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+            <td class="hitu-table-rows-border">
+              <app-select
+                formControlName="spm_remarks"
+                [searchable]="false"
+                [options]="overallRemarksNaOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">30</td>
+            <td class="hitu-table-rows-border">Any other observations</td>
+            <td class="hitu-table-rows-border" colspan="3">
+              <app-input
+                formControlName="other_observation"
+                placeholder="Enter observations"
+              ></app-input>
+            </td>
+          </tr>
+          <tr>
+            <td class="hitu-table-rows-border">31</td>
+            <td class="hitu-table-rows-border">Overall Remarks</td>
+            <td class="hitu-table-rows-border" colspan="3">
+              <app-select
+                formControlName="overall_remark"
+                [searchable]="false"
+                [options]="overallRemarksOptions"
+                placeholder="--Select--"
+              ></app-select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+
+  <!-- FOOTER -->
+  <div formFooter class="flex gap-5 justify-end py-2">
+    <!-- <app-loading-button label="Clear" [color]="'red'" [icon]="restartIcon"
+            (clicked)="handleSave('draft')"></app-loading-button> -->
+    <app-loading-button
+      label="Save draft"
+      [color]="'blue'"
+      [icon]="draftIcon"
+      [loading]="loading"
+      [disabled]="!formApiService?.context?.workflow_rights?.can_edit"
+      (clicked)="handleSave('draft')"
+    ></app-loading-button>
+    <app-loading-button
+      label="Save"
+      [color]="'green'"
+      [icon]="saveIcon"
+      [loading]="loading"
+      [disabled]="!formApiService?.context?.workflow_rights?.can_edit"
+      (clicked)="handleSave('save')"
+    ></app-loading-button>
+  </div>
+</app-form-card>

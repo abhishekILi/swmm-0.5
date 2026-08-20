@@ -1,0 +1,76 @@
+<app-master-card cardTitle ="R/H Based Routines due in 1K Hours" >
+<div class="flex justify-evenly items-center mt-4 mb-4">
+
+    <div class="relative w-[83%] shrink-0">
+
+        <!-- Search Icon -->
+        <div class="
+            absolute
+            left-3
+            top-1/2
+            -translate-y-1/2
+            text-white/40
+            pointer-events-none
+            z-10
+            ">
+            <app-icon name="search" [size]="16" [strokeWidth]="2" color="currentColor" />
+        </div>
+
+        <!-- Input -->
+        <input type="text" placeholder="Search" (input)="onSearch($event)" class="
+            w-full
+            h-10
+            rounded-[10px]
+            bg-white/[0.04]
+            border
+            border-white/10
+            pl-10
+            pr-3
+            content
+            text-white
+            placeholder:text-white/40
+            outline-none
+            focus:border-white/20
+            " />
+
+    </div>
+
+    <div class="flex gap-2 pl-2">
+
+        <button class="
+            flex items-center
+            px-4 h-10
+            rounded-lg
+            bg-white/10
+            border border-white/10
+            text-white
+        ">
+
+            <span class="mr-3">Export</span>
+
+            <div class="flex items-center gap-3">
+
+                <app-icon name="file-text" [size]="16" />
+
+                <app-icon name="sheet" [size]="16" />
+
+                <app-icon name="printer" [size]="16" />
+
+            </div>
+
+        </button>
+
+
+    </div>
+
+</div>
+<div class="fuss-grid-wrapper w-full mt-4">
+    <app-data-grid
+      [columnDefs]="defectColumnDefs"
+      [rowData]="filteredMaintopRoutines()"
+      [pageSize]="10"
+      height="440px"
+    >
+    </app-data-grid>
+  </div>
+</app-master-card>

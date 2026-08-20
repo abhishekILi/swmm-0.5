@@ -1,0 +1,15 @@
+<div [formGroup]="form" class="flex flex-col gap-2">
+  <select [formControlName]="selectControl" class="custom-input text-sm">
+    <option value="">Select</option>
+    <option *ngFor="let opt of options" [value]="opt.value">{{ opt.label }}</option>
+  </select>
+
+  <div *ngIf="form.get(selectControl)?.value === triggerValue" class="pt-glass-table__control rounded-lg p-2">
+    <textarea
+      [formControlName]="textareaControl"
+      rows="3"
+      placeholder="Enter observations..."
+      class="custom-input resize-none py-2 text-sm"
+    ></textarea>
+  </div>
+</div>

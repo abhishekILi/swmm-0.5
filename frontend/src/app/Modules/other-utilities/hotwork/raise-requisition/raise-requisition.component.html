@@ -1,0 +1,558 @@
+<div class="hotwork-container p-4 sm:p-6 space-y-5">
+  <!-- Header Bar -->
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button
+        type="button"
+        (click)="goBack()"
+        class="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+        title="Go Back"
+      >
+        <app-icon name="arrow-left" [size]="20"></app-icon>
+      </button>
+      <div class="flex items-center gap-2">
+        <app-icon name="search" [size]="20" class="text-sky-400"></app-icon>
+        <h1 class="text-base sm:text-lg font-bold tracking-wide uppercase text-slate-100">
+          RAISE HOTWORK REQUISITION
+        </h1>
+      </div>
+    </div>
+
+    <!-- Create Draft / DART Action Link Top Right -->
+    <a
+      routerLink="/afterAuth/op-maintenance/defect/actions"
+      (click)="openCreateDraft()"
+      class="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 transition-colors font-medium cursor-pointer"
+      title="Create Draft"
+    >
+      <app-icon name="plus" [size]="14"></app-icon>
+      <span>Create Draft</span>
+    </a>
+  </div>
+
+  <!-- Error Alert -->
+  @if (errorMessage()) {
+    <div class="bg-red-500/20 border border-red-500/50 text-red-300 p-3 rounded-lg text-xs font-semibold flex items-center gap-2">
+      <app-icon name="alert-triangle" [size]="16" class="text-red-400"></app-icon>
+      <span>{{ errorMessage() }}</span>
+    </div>
+  }
+
+  <!-- Success Alert -->
+  @if (successMessage()) {
+    <div class="bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 p-3 rounded-lg text-xs font-semibold flex items-center gap-2">
+      <app-icon name="check-circle" [size]="16" class="text-emerald-400"></app-icon>
+      <span>{{ successMessage() }}</span>
+    </div>
+  }
+
+  <!-- Main Form Card (3-Column Layout Matching Screenshot) -->
+  <form (ngSubmit)="onSubmit()" class="glass-card p-6 rounded-[12px] space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-5 items-start">
+
+      <!-- ==================== ROW 1 ==================== -->
+      <!-- Col 1: Requisition Type * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="req-type" class="text-xs font-semibold tag-label">
+          Requisition Type <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="req-type"
+            [ngModel]="requisitionType()"
+            (ngModelChange)="requisitionType.set($event)"
+            name="requisitionType"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            @for (opt of requisitionTypeOptions(); track opt) {
+              <option [value]="opt">{{ opt }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Occasion Nomenclature * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="occasion" class="text-xs font-semibold tag-label">
+          Occasion Nomenclature <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="occasion"
+            [ngModel]="occasionNomenclature()"
+            (ngModelChange)="occasionNomenclature.set($event)"
+            name="occasionNomenclature"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Occasion</option>
+            @for (opt of occasionOptions(); track opt) {
+              <option [value]="opt">{{ opt }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Empty Cell for Row 1 alignment -->
+      <div class="hidden md:block"></div>
+
+      <!-- ==================== ROW 2 ==================== -->
+      <!-- Col 1: DART No * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="dart-no" class="text-xs font-semibold tag-label">
+          DART No <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="dart-no"
+            [ngModel]="dartNo()"
+            (ngModelChange)="onDartChange($event)"
+            name="dartNo"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select DART No</option>
+            @for (opt of dartOptions(); track opt.id) {
+              <option [value]="opt.id">{{ opt.id }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Maintenance Period * (Darkened read-only field) -->
+      <div class="flex flex-col gap-1.5">
+        <label for="maint-period" class="text-xs font-semibold tag-label">
+          Maintenance Period <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="maint-period"
+          type="text"
+          [ngModel]="maintenancePeriod()"
+          (ngModelChange)="maintenancePeriod.set($event)"
+          name="maintenancePeriod"
+          placeholder="Auto-filled from DART"
+          class="w-full dart-dark-input py-1.5 px-2.5 rounded text-xs focus:outline-none focus:border-sky-400"
+          readonly
+        />
+      </div>
+
+      <!-- Col 3: Description (from DART) (Darkened read-only textarea) -->
+      <div class="flex flex-col gap-1.5">
+        <label for="dart-desc" class="text-xs font-semibold tag-label">
+          Description (from DART)
+        </label>
+        <textarea
+          id="dart-desc"
+          [ngModel]="dartDescription()"
+          (ngModelChange)="dartDescription.set($event)"
+          name="dartDescription"
+          rows="2"
+          placeholder="Auto-filled from DART"
+          class="w-full dart-dark-input p-2 rounded text-xs focus:outline-none focus:border-sky-400 resize-none"
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- ==================== ROW 3 ==================== -->
+      <!-- Col 1: Requisition received from * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="req-from" class="text-xs font-semibold tag-label">
+          Requisition received from <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="req-from"
+            [ngModel]="requisitionReceivedFrom()"
+            (ngModelChange)="requisitionReceivedFrom.set($event)"
+            name="requisitionReceivedFrom"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Received From</option>
+            @for (opt of receivedFromOptions(); track opt) {
+              <option [value]="opt">{{ opt }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Source Details (Dynamic Label matching Requisition Received From selection) -->
+      <div class="flex flex-col gap-1.5">
+        <label for="source-details" class="text-xs font-semibold tag-label">
+          {{ sourceDetailsLabel() }}
+        </label>
+        <input
+          id="source-details"
+          type="text"
+          [ngModel]="sourceDetails()"
+          (ngModelChange)="sourceDetails.set($event)"
+          name="sourceDetails"
+          [placeholder]="sourceDetailsPlaceholder()"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm placeholder:text-slate-500"
+        />
+      </div>
+
+      <!-- Col 3: Hotwork Date * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="hw-date" class="text-xs font-semibold tag-label">
+          Hotwork Date <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="hw-date"
+          type="date"
+          [ngModel]="hotworkDate()"
+          (ngModelChange)="hotworkDate.set($event)"
+          name="hotworkDate"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm font-medium"
+          required
+        />
+      </div>
+
+      <!-- ==================== ROW 4 ==================== -->
+      <!-- Col 1: Type of Hotwork * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="hw-type" class="text-xs font-semibold tag-label">
+          Type of Hotwork <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="hw-type"
+            [ngModel]="typeOfHotwork()"
+            (ngModelChange)="typeOfHotwork.set($event)"
+            name="typeOfHotwork"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Type of Hotwork</option>
+            @for (opt of typeOfHotworkChoices(); track opt.value) {
+              <option [value]="opt.label">{{ opt.label }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Hotwork Location * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="hw-location" class="text-xs font-semibold tag-label">
+          Hotwork Location <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="hw-location"
+          type="text"
+          [ngModel]="hotworkLocation()"
+          (ngModelChange)="hotworkLocation.set($event)"
+          name="hotworkLocation"
+          placeholder="Enter Hotwork Location"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm placeholder:text-slate-500"
+          required
+        />
+      </div>
+
+      <!-- Col 3: Sub Department * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="sub-dept" class="text-xs font-semibold tag-label">
+          Sub Department <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="sub-dept"
+            [ngModel]="subDepartment()"
+            (ngModelChange)="subDepartment.set($event)"
+            name="subDepartment"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Sub Department</option>
+            @for (opt of subDepartmentOptions(); track opt.id) {
+              <option [value]="opt.id">{{ opt.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ROW 5 ==================== -->
+      <!-- Col 1: Number of Sentries * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="sentry-count" class="text-xs font-semibold tag-label">
+          Number of Sentries <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="sentry-count"
+          type="number"
+          min="1"
+          [ngModel]="numberOfSentries()"
+          (ngModelChange)="numberOfSentries.set($event)"
+          name="numberOfSentries"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm font-medium"
+          required
+        />
+      </div>
+
+      <!-- Col 2: Hotwork Sentry Names * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="sentry-names" class="text-xs font-semibold tag-label">
+          Hotwork Sentry Names <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="sentry-names"
+          type="text"
+          [ngModel]="sentryNames()"
+          (ngModelChange)="sentryNames.set($event)"
+          name="sentryNames"
+          placeholder="Enter Hotwork Sentry Names"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm placeholder:text-slate-500"
+          required
+        />
+      </div>
+
+      <!-- Col 3: Day of Hotwork * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="hw-day" class="text-xs font-semibold tag-label">
+          Day of Hotwork <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="hw-day"
+            [ngModel]="dayOfHotwork()"
+            (ngModelChange)="dayOfHotwork.set($event)"
+            name="dayOfHotwork"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            @for (opt of dayOfHotworkChoices(); track opt.value) {
+              <option [value]="opt.label">{{ opt.label }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ROW 6 ==================== -->
+      <!-- Col 1: Time of Hotwork * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="hw-time" class="text-xs font-semibold tag-label">
+          Time of Hotwork <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="hw-time"
+            [ngModel]="timeOfHotwork()"
+            (ngModelChange)="timeOfHotwork.set($event)"
+            name="timeOfHotwork"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            @for (opt of timeOfHotworkOptions(); track opt) {
+              <option [value]="opt">{{ opt }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Name of Welding Supervisor * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="welding-sup" class="text-xs font-semibold tag-label">
+          Name of Welding Supervisor <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="welding-sup"
+          type="text"
+          [ngModel]="weldingSupervisorName()"
+          (ngModelChange)="weldingSupervisorName.set($event)"
+          name="weldingSupervisorName"
+          placeholder="Enter Welding Supervisor Name"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm placeholder:text-slate-500"
+          required
+        />
+      </div>
+
+      <!-- Col 3: Adjacent Compartment Name * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="adj-comp" class="text-xs font-semibold tag-label">
+          Adjacent Compartment Name <span class="text-red-400">*</span>
+        </label>
+        <input
+          id="adj-comp"
+          type="text"
+          [ngModel]="adjacentCompartmentName()"
+          (ngModelChange)="adjacentCompartmentName.set($event)"
+          name="adjacentCompartmentName"
+          placeholder="Enter Adjacent Compartment Name"
+          class="w-full bg-transparent border-b tag-input py-1.5 focus:outline-none focus:border-sky-400 text-sm placeholder:text-slate-500"
+          required
+        />
+      </div>
+
+      <!-- ==================== ROW 7 ==================== -->
+      <!-- Col 1: OOD Name on Hotwork Date * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="ood-name" class="text-xs font-semibold tag-label">
+          OOD Name on Hotwork Date <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="ood-name"
+            [ngModel]="oodName()"
+            (ngModelChange)="oodName.set($event)"
+            name="oodName"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select OOD Officer</option>
+            @for (off of officerOptions(); track off.id) {
+              <option [value]="off.id">{{ off.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Select NBCDO Name * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="nbcdo-name" class="text-xs font-semibold tag-label">
+          Select NBCDO Name <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="nbcdo-name"
+            [ngModel]="nbcdoName()"
+            (ngModelChange)="nbcdoName.set($event)"
+            name="nbcdoName"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select NBCDO Officer</option>
+            @for (off of officerOptions(); track off.id) {
+              <option [value]="off.name">{{ off.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Select Engineering Officer Name * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="eng-officer" class="text-xs font-semibold tag-label">
+          Select Engineering Officer Name <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="eng-officer"
+            [ngModel]="engineeringOfficerName()"
+            (ngModelChange)="engineeringOfficerName.set($event)"
+            name="engineeringOfficerName"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Engineering Officer</option>
+            @for (off of officerOptions(); track off.id) {
+              <option [value]="off.name">{{ off.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ROW 8 ==================== -->
+      <!-- Col 1: Select Electrical Officer Name * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="elec-officer" class="text-xs font-semibold tag-label">
+          Select Electrical Officer Name <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="elec-officer"
+            [ngModel]="electricalOfficerName()"
+            (ngModelChange)="electricalOfficerName.set($event)"
+            name="electricalOfficerName"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Electrical Officer</option>
+            @for (off of officerOptions(); track off.id) {
+              <option [value]="off.name">{{ off.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Department Officer / Dy. HOD Name * -->
+      <div class="flex flex-col gap-1.5">
+        <label for="dept-officer" class="text-xs font-semibold tag-label">
+          Department Officer / Dy. HOD Name <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="dept-officer"
+            [ngModel]="departmentOfficerName()"
+            (ngModelChange)="departmentOfficerName.set($event)"
+            name="departmentOfficerName"
+            class="w-full bg-transparent border-b tag-input py-1.5 pr-6 focus:outline-none focus:border-sky-400 text-sm appearance-none cursor-pointer"
+            required
+          >
+            <option value="" disabled class="text-slate-500">Select Department Officer</option>
+            @for (off of officerOptions(); track off.id) {
+              <option [value]="off.name">{{ off.name }}</option>
+            }
+          </select>
+          <div class="absolute right-0 top-2 pointer-events-none text-slate-400">
+            <app-icon name="chevron-down" [size]="14"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Empty Cell for Row 8 alignment -->
+      <div class="hidden md:block"></div>
+
+    </div>
+
+    <!-- Submit Action Button Centered at Bottom -->
+    <div class="pt-6 flex justify-center">
+      <button
+        type="submit"
+        [disabled]="isSubmitting()"
+        class="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-2.5 px-10 rounded text-sm tracking-wider shadow-lg shadow-sky-500/20 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+      >
+        @if (isSubmitting()) {
+          <app-icon name="loader" [size]="16" class="animate-spin"></app-icon>
+          <span>Sending...</span>
+        } @else {
+          <span>Send</span>
+        }
+      </button>
+    </div>
+  </form>
+</div>

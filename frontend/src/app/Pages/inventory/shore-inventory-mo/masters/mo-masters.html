@@ -1,0 +1,35 @@
+<app-obs-help-guidance />
+
+<div class="glass-card mo-panel">
+  <div class="mo-panel__header">
+    <h3>Masters</h3>
+  </div>
+
+  <div class="mo-tabs-row">
+    <button type="button" class="mo-tab-btn" [class.mo-tab-btn--active]="activeTab() === 'mapping'" (click)="selectTab('mapping')">
+      Ship Inventory to MO Inventory Mapping
+    </button>
+    <button type="button" class="mo-tab-btn" [class.mo-tab-btn--active]="activeTab() === 'get-data'" (click)="selectTab('get-data')">
+      Get Data From MO
+    </button>
+  </div>
+
+  @if (activeTab() === "mapping") {
+    <form [formGroup]="mapForm" class="mo-form-grid">
+      <app-select-input label="Vendor Code" formControlName="vendorCode" [options]="[]" />
+      <app-select-input label="INSMA Equipment Name" formControlName="equipmentName" [options]="[]" />
+      <div class="mo-form-grid__actions">
+        <button type="button" class="btn-primary" (click)="submitMap()">Map</button>
+      </div>
+    </form>
+
+    <h4 class="mo-subheading">Mapped List</h4>
+    <app-data-grid [rowData]="mappedRows()" [columnDefs]="columnDefs" height="320px" />
+  }
+
+  @if (activeTab() === "get-data") {
+    <button type="button" class="btn-primary" [disabled]="syncing()" (click)="getDataFromMo()">
+      {{ syncing() ? "Fetching..." : "Get Data from MO" }}
+    </button>
+  }
+</div>

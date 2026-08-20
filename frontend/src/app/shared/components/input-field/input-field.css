@@ -1,0 +1,139 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Label */
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.required {
+  color: #ff5b5b;
+}
+
+/* Input Box */
+.input-container {
+  height: 42px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--border-input);
+  border-radius: 12px;
+
+  background: var(--bg-input);
+
+  transition: all .2s ease;
+}
+
+.input-container.active {
+  border-color: #5f9cff;
+  box-shadow: 0 0 0 2px rgba(95, 156, 255, .15);
+}
+
+.input-container:hover {
+  border-color: var(--text-muted);
+}
+
+.input-container.readonly-field {
+  background: var(--bg-input-disabled);
+  border: 1.5px dashed var(--text-muted);
+  /* Matches app-select-input's `.dropdown-trigger.disabled` dimming so every locked field in a form
+     — dropdown or text — reads as equally non-editable, not just the dropdowns. */
+  opacity: 0.6;
+}
+
+.input-container.input-container--invalid {
+  border-color: #f82c36;
+  outline: 1px solid #f82c36;
+  outline-offset: -1px;
+}
+
+.input-container.input-container--invalid input::placeholder {
+  color: #f82c36;
+}
+
+/* Live "required & blank" hint (pre-submit) — a light/muted red, distinct from the full-strength
+   red that only appears after a failed Submit. Opaque (not the previous 0.65-alpha) — the
+   translucent version measured well under 4.5:1 once composited over the real dark background
+   (SonarQube css:S7924); matches app-select-input's `.dropdown-trigger.placeholder-error
+   .placeholder-text`, which got this same fix already — this rule had been missed. */
+.input-container.input-container--placeholder-invalid input::placeholder {
+  color: #e5877f;
+}
+
+/* Input */
+input {
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Matches the reference design's date-field placeholder shade (SFD Module standalone mock) — a
+   muted slate-blue distinct from the generic --text-muted grey used by every other field. Darkened
+   from the reference's literal #7d90a4 to clear WCAG AA text contrast (4.5:1). Applies to every
+   `type="date"` app-input-field usage. */
+input.date-placeholder::placeholder {
+  color: #5a6b7d;
+}
+
+/* Native `type="date"` inputs don't support `::placeholder` for their empty dd-mm-yyyy segments
+ * (that's a real limitation, not covered by the rule above) — without this, the empty format hint
+ * renders in the same bright `--text-primary` as an actual chosen date, reading as if a value were
+ * already entered. `.date-empty` (set in input-field.html when the control has no value) recolors
+ * the whole field to the same muted shade while empty; picking a date removes the class. */
+input[type="date"].date-empty {
+  color: #5a6b7d;
+}
+
+/* Remove number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Date input */
+input[type="date"] {
+  color: var(--text-primary);
+  color-scheme: var(--native-color-scheme, dark);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: var(--calendar-icon-filter, invert(1));
+  cursor: pointer;
+}

@@ -1,0 +1,150 @@
+<app-master-card cardTitle="FUSS Triger List - Close FUSS Routine" cardHeight="auto">
+
+  <form
+    [formGroup]="closeRoutineFuss"
+    class="p-4 text-white space-y-6"
+  >
+
+    <!-- Top Section -->
+
+    <div class="grid grid-cols-4 gap-4">
+
+      <div>
+        <label for="routine-dart-no" class="text-white/60 text-xs mb-1 block">Routine DART No.</label>
+        <input id="routine-dart-no" type="text" readonly formControlName="routineDartNo" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <div>
+        <label for="equipment-class" class="text-white/60 text-xs mb-1 block">Equipment Class</label>
+        <input id="equipment-class" type="text" readonly formControlName="equipmentClass" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <div>
+        <label for="equipment-serial-no" class="text-white/60 text-xs mb-1 block">Equipment Serial No</label>
+        <input id="equipment-serial-no" type="text" readonly formControlName="equipmentSerialNo" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <div>
+        <label for="nomenclature" class="text-white/60 text-xs mb-1 block">Nomenclature</label>
+        <input id="nomenclature" type="text" readonly formControlName="nomenclature" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <app-input-field
+        label="Due Date"
+        type="date"
+        formControlName="dueDate">
+      </app-input-field>
+
+      <div>
+        <label for="maintenance-remarks" class="text-white/60 text-xs mb-1 block">Maintenance Remarks</label>
+        <input id="maintenance-remarks" type="text" readonly formControlName="maintenanceRemarks" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <div>
+        <label for="location-on-board" class="text-white/60 text-xs mb-1 block">Location On Board</label>
+        <input id="location-on-board" type="text" readonly formControlName="locationOnBoard" class="w-full h-10 rounded-lg bg-white/[0.03] border border-dashed border-white/20 px-3 text-white/60 text-sm" />
+      </div>
+
+      <div>
+        <label for="maintop-routine-no" class="text-white/60 text-xs mb-1 block">Maintop / Routine No.</label>
+        <input id="maintop-routine-no" type="text" formControlName="maintopRoutineNo" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+
+    </div>
+
+    <!-- Routine Description -->
+
+    <label for="routine-description" class="text-white/60 text-xs mb-1 block">Routine Description</label>
+    <textarea id="routine-description" rows="3" formControlName="routineDescription"
+      class="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-white text-sm"></textarea>
+
+    <h3 class="text-lg font-semibold">
+      Completion Details
+    </h3>
+
+    <!-- Completion Details -->
+
+    <div class="grid grid-cols-4 gap-4">
+
+      <app-input-field
+        label="Routine Completion Date"
+        type="date"
+        formControlName="routineCompletionDate">
+      </app-input-field>
+
+      <div>
+        <label for="running-hours" class="text-white/60 text-xs mb-1 block">Running Hours</label>
+        <input id="running-hours" type="text" formControlName="runningHours" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+
+      <app-select-input
+        label="Time Consumed (Hours)"
+        [options]="hoursOptions"
+        formControlName="timeConsumedHours">
+      </app-select-input>
+
+      <app-select-input
+        label="Time Consumed (Minutes)"
+        [options]="minutesOptions"
+        formControlName="timeConsumedMinutes">
+      </app-select-input>
+
+      <div>
+        <label for="completed-by-pno" class="text-white/60 text-xs mb-1 block">Routine Completed By (PNO)</label>
+        <input id="completed-by-pno" type="text" formControlName="completedByPno" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+
+      <div>
+        <label for="fuss-name" class="text-white/60 text-xs mb-1 block">Name</label>
+        <input id="fuss-name" type="text" formControlName="name" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+      </div>
+
+      <app-select-input
+        label="Rank"
+        [options]="rankOptions"
+        formControlName="rank">
+      </app-select-input>
+
+      <app-select-input
+        label="Total Manpower Used"
+        [options]="manpowerOptions"
+        formControlName="totalManpower">
+      </app-select-input>
+
+      <app-select-input
+        label="Trial By Trial Team Needed?"
+        [options]="trialOptions"
+        formControlName="trialTeamNeeded">
+      </app-select-input>
+
+      <div class="col-span-3">
+        <label for="fuss-remarks" class="text-white/60 text-xs mb-1 block">Remarks</label>
+        <textarea id="fuss-remarks" rows="3" formControlName="remarks"
+          class="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-white text-sm"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="flex justify-end gap-3">
+
+      <button
+        type="button"
+        (click)="backToList()"
+        class="h-9 px-5 rounded-lg bg-white/15 border border-white/15">
+        Back to List
+      </button>
+
+      <button
+        type="button"
+        (click)="closeRoutine()"
+        class="h-9 px-5 rounded-lg bg-[#5E748A] border border-[#6E8398]">
+        Close Routine
+      </button>
+
+    </div>
+
+  </form>
+
+</app-master-card>

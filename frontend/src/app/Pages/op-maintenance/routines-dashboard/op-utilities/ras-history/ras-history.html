@@ -1,0 +1,61 @@
+<app-master-card cardTitle="Fuelling Details (History)" cardHeight="auto">
+  <div class="flex items-end gap-3 mb-4">
+    <div>
+      <label for="fuelling-start-date-from" class="text-white/60 text-xs mb-1 block">Fuelling Start Date From</label>
+      <input id="fuelling-start-date-from" type="date" [(ngModel)]="startDateFrom" class="w-40 h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+    <div>
+      <label for="fuelling-start-date-to" class="text-white/60 text-xs mb-1 block">Fuelling Start Date To</label>
+      <input id="fuelling-start-date-to" type="date" [(ngModel)]="startDateTo" class="w-40 h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+    <div>
+      <label for="fuelling-at" class="text-white/60 text-xs mb-1 block">Fuelling At</label>
+      <select id="fuelling-at" [(ngModel)]="locationFilter" class="w-40 h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="">-- All --</option>
+        <option value="AT_SEA">At Sea</option>
+        <option value="AT_HARBOUR">At Harbour</option>
+      </select>
+    </div>
+    <button type="button" (click)="clearFilters()" class="h-10 px-4 rounded-lg bg-white/10 border border-white/10 text-white text-sm">
+      Clear
+    </button>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-white/50 border-b border-white/10">
+        <tr>
+          <th class="py-2 pr-3">Ser No.</th>
+          <th class="py-2 pr-3">Fuelling Start Details</th>
+          <th class="py-2 pr-3">Fuelling Stop Details</th>
+          <th class="py-2 pr-3">Fuelling Location</th>
+          <th class="py-2 pr-3">Fuel Received From/At</th>
+          <th class="py-2 pr-3">Fuel Received (in tons)</th>
+          <th class="py-2 pr-3">Fuelling Rate (TPH)</th>
+          <th class="py-2 pr-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of filteredRows(); track row.id) {
+          <tr class="border-b border-white/5">
+            <td class="py-2 pr-3">{{ row.ser }}</td>
+            <td class="py-2 pr-3">{{ row.fuellingStart }}</td>
+            <td class="py-2 pr-3">{{ row.fuellingStop }}</td>
+            <td class="py-2 pr-3">{{ row.location === 'AT_SEA' ? 'At Sea' : 'At Harbour' }}</td>
+            <td class="py-2 pr-3">{{ row.receivedFromAt }}</td>
+            <td class="py-2 pr-3">{{ row.receivedFuel }}</td>
+            <td class="py-2 pr-3">{{ row.fuellingRateTph }}</td>
+            <td class="py-2 pr-3">
+              <button type="button" class="text-[#1D96E9] underline text-xs">View</button>
+            </td>
+          </tr>
+        }
+        @if (!filteredRows().length) {
+          <tr>
+            <td colspan="8" class="py-6 text-center text-white/40">No fuelling history found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</app-master-card>

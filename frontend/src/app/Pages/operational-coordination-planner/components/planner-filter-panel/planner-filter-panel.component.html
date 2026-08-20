@@ -1,0 +1,26 @@
+<div class="filter-panel glass-card">
+  <div class="filter-panel__heading">Filter</div>
+
+  <label class="filter-row filter-row--all">
+    <input type="checkbox" [checked]="allChecked()" (change)="toggleAll()" />
+    <span class="filter-row__label">All Events</span>
+    <span class="filter-row__count">{{ totalCount() }}</span>
+  </label>
+
+  <div class="filter-list">
+    @for (cat of categories(); track cat.id) {
+      <label class="filter-row">
+        <input type="checkbox" [checked]="isChecked(cat.id)" (change)="toggle(cat.id)" />
+        <app-icon [name]="cat.icon" [size]="14" [style.color]="cat.swatch" />
+        <span class="filter-row__label">{{ cat.label }}</span>
+      </label>
+    }
+  </div>
+
+  <div class="filter-panel__legend-heading">Legend</div>
+
+  <button type="button" class="filter-row filter-row--legend" (click)="openOverdueDarts()">
+    <span class="overdue-dot">!</span>
+    <span class="filter-row__label">Overdue pending DARTs</span>
+  </button>
+</div>

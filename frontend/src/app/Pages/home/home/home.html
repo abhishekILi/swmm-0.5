@@ -1,0 +1,304 @@
+<div class="home-page">
+  <div class="home-quote-bar glass-card" [class.home-quote-bar--paused]="quotePaused()"
+    (mouseenter)="quotePaused.set(true)" (mouseleave)="quotePaused.set(false)">
+    <div class="home-quote-bar__icon">
+      <app-icon name="message-circle-more" [size]="20" />
+    </div>
+    <div class="home-quote-bar__content">
+      <span class="home-quote-bar__label">Quote of the Day :</span>
+      <span class="home-quote-bar__marquee">
+        <span class="home-quote-bar__track">{{ quoteOfTheDay() }}</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="home-top-grid cursor-pointer">
+    <div class="glass-card home-hero-card">
+      <div class="home-hero-tabs">
+        <button type="button" class="home-hero-tab" [class.home-hero-tab--active]="activeHeroTab() === 'role'"
+          (click)="$event.stopPropagation(); selectHeroTab('role')">
+          <app-icon name="anchor" [size]="16" variant="inherit"></app-icon>
+          {{ activeShipRole()?.title || "Ship's Role" }}
+        </button>
+        <button type="button" class="home-hero-tab" [class.home-hero-tab--active]="activeHeroTab() === 'message'"
+          (click)="$event.stopPropagation(); selectHeroTab('message')">
+          <app-icon name="message-square-more" [size]="16" variant="inherit"></app-icon>
+          Message from Command
+          @if(this.commandMessages().length){
+          <span class="home-hero-tab__badge badgeText">{{ this.commandMessages().length }}</span>
+          }
+        </button>
+        @if(activeHeroTab() === 'message'){
+        <button type="button"
+          class="home-hero-tabs__cta inline-flex items-center gap-2 rounded-md border border-slate-600 px-3 py-2 text-[11px] font-semibold text-slate-100 shadow-sm"
+          (click)="$event.stopPropagation(); openEventMessageModal()">
+          <app-icon name="plus" [size]="16" variant="inherit" />
+          Add Command Message
+        </button>
+        }
+      </div>
+
+      <div class="home-hero-body">
+        <div class="home-message-scroll mb-1">
+          @if(activeHeroTab() === 'role'){
+          @if(activeShipRole()){
+          <p class="home-hero-text">
+            {{ activeShipRole()?.description }}
+          </p>
+          } @else {
+          <p class="home-hero-text">
+            Ship's Description To be modified by Ship staff
+          </p>
+          }
+          }
+          @if(activeHeroTab() === 'message'){
+          <div class="home-latest-message mb-2">
+            <app-icon name="inbox" [size]="19" variant="inherit"></app-icon>
+            <span>Latest Message</span>
+          </div>
+          @if(this.commandMessages().length){
+          @for (commandMessage of this.commandMessages(); track commandMessage.id) {
+          <div class="home-latest-message-card">
+            <div class="home-latest-message-top">
+              <span class="home-latest-message-icon">
+                <app-icon name="message-circle-more" [size]="18" color="#ffffff"></app-icon>
+              </span>
+              <p class="home-latest-message-text">{{ commandMessage.message }}</p>
+            </div>
+            <span class="home-latest-message-date">Message Date: {{ commandMessage.uploaded_date | date:'dd MMM yyyy'
+              }}</span>
+          </div>
+          }
+          } @else {
+          <p class="home-hero-text">
+            No active message from command.
+          </p>
+          }
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="home-image-card glass-card">
+      <div class="home-image-wrapper">
+        <img [src]="currentImage" alt="Ship overview" />
+        <button type="button" class="home-image-nav home-image-nav--left" aria-label="Previous image"
+          (click)="moveLeft()">
+          <app-icon name="chevron-left" [size]="16" variant="inherit" />
+        </button>
+        <button type="button" class="home-image-nav home-image-nav--right" aria-label="Next image"
+          (click)="moveRight()">
+          <app-icon name="chevron-right" [size]="16" variant="inherit" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-card-grid">
+    <app-panel-card class="home-card" title="Daily Orders" icon="file">
+      <div panelActions class="flex items-center gap-1.5">
+        <button type="button"
+          class="home-card-header-btn inline-flex items-center gap-1 rounded-md border border-slate-600 px-2 py-1.5 text-[11px] font-semibold text-slate-100 shadow-sm"
+          (click)="openDailyOrderModal()">
+          <app-icon name="upload" [size]="14" variant="inherit" />
+          <span>Upload</span>
+        </button>
+        <button type="button"
+          class="home-card-header-btn inline-flex items-center gap-1 rounded-md border border-slate-600 px-1.5 py-1.5 text-[11px] font-semibold text-slate-100 shadow-sm"
+          (click)="goToDailyOrdersHistory()">
+          <span>View</span>
+          <app-icon name="arrow-right" [size]="12" variant="inherit" class="underline" />
+        </button>
+      </div>
+
+      <div class="home-card-table home-card-table--scroll">
+        <div class="home-card-table__row home-card-table__header">
+          <span>D/O Date</span>
+          <span>View</span>
+        </div>
+        @if(this.dailyOrders().length){
+        @for (order of this.dailyOrders(); track order.id) {
+        <div class="home-card-table__row">
+          <span>
+            <strong>{{ order.date | date:'dd MMM yyyy' }}</strong>
+            @if(order.description){
+            <span class="home-card-subtext">{{ order.description }}</span>
+            }
+            @if(order.officer_details){
+            <span class="home-card-subtext">{{ order.officer_details }}</span>
+            }
+            @if(order.routine_details){
+            <span class="home-card-subtext">{{ order.routine_details }}</span>
+            }
+          </span>
+          <span>
+            <span class="home-card-actions">
+              @if(order.pdf_path){
+              <button type="button" class="home-card-action home-card-action--pdf" aria-label="Open PDF"
+                title="Open PDF" (click)="openPdf(order.pdf_path)">
+                <app-icon name="file-text" [size]="14" [strokeWidth]="2" variant="inherit"></app-icon>
+              </button>
+              } @else {
+              <span class="home-card-action home-card-action--disabled" aria-label="No PDF" title="No PDF available">
+                <app-icon name="file-text" [size]="14" [strokeWidth]="2" variant="inherit"></app-icon>
+              </span>
+              }
+
+              <span class="home-card-action home-card-action--info" aria-label="Order details"
+                (mouseenter)="showTooltip($event, order)" (mouseleave)="hideTooltip()">
+                <app-icon name="info" [size]="14" [strokeWidth]="2" variant="inherit"></app-icon>
+              </span>
+            </span>
+          </span>
+        </div>
+        }
+        } @else {
+        <div class="home-card-empty">No daily orders found.</div>
+        }
+      </div>
+    </app-panel-card>
+
+    <app-panel-card class="home-card home-card--birthday-wrap" title="Birthday/Anniversary" icon="cake">
+      <button panelActions type="button"
+        class="home-card-header-btn inline-flex items-center gap-1 rounded-md border border-slate-600 px-2 py-1.5 text-[11px] font-semibold text-slate-100 shadow-sm"
+        (click)="openAnniversaryModal()">
+        <app-icon name="plus" [size]="14" variant="inherit" />
+        <span>Add Anniversary</span>
+      </button>
+
+      <div class="home-card-table home-card-table--scroll">
+        <div class="home-card-table__row home-card-table__header">
+          <span>Personnel Details</span>
+          <span>Birthday/Anniversary</span>
+        </div>
+        @if(this.personnelEvents().length){
+        @for (event of this.personnelEvents(); track event.name + event.event_date + event.event_label) {
+        <div class="home-card-table__row">
+          <span>
+            <strong>{{ event.name }}</strong>
+            @if(event.personal_number){
+            <span class="home-card-meta"> | {{ event.personal_number }}</span>
+            }
+            @if(event.designation){
+            <span class="home-card-subtext">{{ event.designation }}</span>
+            }
+          </span>
+          <span>
+            <!-- {{ event.event_label }} -->
+            <span class="home-card-subtext">{{ event.event_date | date:'dd MMM yyyy' }}</span>
+          </span>
+        </div>
+        }
+        } @else {
+        <div class="home-card-empty">No birthdays/anniversaries in the next 7 days.</div>
+        }
+      </div>
+    </app-panel-card>
+
+    <app-panel-card class="home-card home-card--blue" title="Upcoming Event Updates" icon="bell">
+      <button panelActions type="button"
+        class="home-card-header-btn inline-flex items-center gap-1 rounded-md border border-slate-600 px-2 py-1.5 text-[11px] font-semibold text-slate-100 shadow-sm"
+        (click)="openEventModal()">
+        <app-icon name="plus" [size]="14" variant="inherit" />
+        <span>Add Event</span>
+      </button>
+
+      <div class="home-card-table home-card-table--scroll">
+        <div class="home-card-table__row home-card-table__row--three home-card-table__header">
+          <span>Event Name</span>
+          <span>Event Date</span>
+          <span>View</span>
+        </div>
+        @if(this.upcomingEvents().length){
+        @for (event of this.upcomingEvents(); track event.id) {
+        <div class="home-card-table__row home-card-table__row--three">
+          <span>{{ event.title }}</span>
+          <span>{{ event.date | date:'dd MMM yyyy' }}</span>
+          <span>
+            __
+          </span>
+        </div>
+        }
+        } @else {
+        <div class="home-card-empty">No upcoming event updates.</div>
+        }
+      </div>
+    </app-panel-card>
+  </div>
+
+  <section class="home-officer-carousel" aria-labelledby="officer-spotlight-title">
+
+
+    <div class="home-officer-carousel__viewport">
+      <div class="home-officer-carousel__track">
+        @for (officer of scrollingOfficerSpotlights(); track $index) {
+        <article class="home-officer-card" [attr.aria-hidden]="$index >= officerSpotlights().length ? 'true' : null">
+          <img class="home-officer-card__image" [src]="officer.image"
+            [alt]="$index < officerSpotlights().length ? officer.name : ''" />
+          <div class="home-officer-card__details">
+            <h3>{{ officer.name }}</h3>
+            <p>{{ officer.rank }}</p>
+            <span>{{ officer.role }}</span>
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  @if (uploadModalOpen) {
+  <app-modal (closeModal)="closeDailyOrderModal()" size="lg">
+    <app-add-daily-order-modal (closeModal)="closeDailyOrderModal()" (orderSaved)="onDailyOrderSaved()"></app-add-daily-order-modal>
+  </app-modal>
+  }
+
+  @if (eventModalOpen) {
+  <app-modal (closeModal)="closeEventModal()" size="lg">
+    <app-upcoming-event-modal (closeModal)="closeEventModal()" (saveUpdate)="onUpcomingEventSave($event)">
+    </app-upcoming-event-modal>
+  </app-modal>
+  }
+
+  @if (anniversaryModalOpen) {
+  <app-modal (closeModal)="closeAnniversaryModal()" size="lg">
+    <app-anniversary-modal (closeModal)="closeAnniversaryModal()" (saveAnniversary)="onAnniversarySave($event)">
+    </app-anniversary-modal>
+  </app-modal>
+  }
+
+  @if (eventMessageModalOpen) {
+  <app-modal (closeModal)="closeEventMessageModal()" size="lg">
+    <app-command-message-modal [saving]="commandFormSaving()" [errorMessage]="commandFormError()"
+      (closeModal)="closeEventMessageModal()" (saveMessage)="submitCommandMessage($event)">
+    </app-command-message-modal>
+  </app-modal>
+  }
+
+  @if(activeDailyOrderTooltip()){
+  <div class="fixed z-[9999] w-[330px] max-w-[calc(100vw-24px)] !p-4 glass-card shadow-2xl text-left pointer-events-none"
+      [style.left.px]="dailyOrderTooltipX()" [style.top.px]="dailyOrderTooltipY()"
+      [style.transform]="dailyOrderTooltipPlacement() === 'bottom' ? 'translate(-50%, 0)' : 'translate(-50%, -100%)'">
+      <div class="home-popover-content">
+        @if (activeDailyOrderTooltip()?.description) {
+          <div class="mb-2">
+            <span class="text-[#0ea5e9] font-medium text-[13px]">Description :</span>
+            <p class="text-white text-[13px] mt-0.5 leading-tight">{{ activeDailyOrderTooltip()?.description }}</p>
+          </div>
+        }
+        @if (activeDailyOrderTooltip()?.officer_details) {
+          <div class="mb-2">
+            <span class="text-[#0ea5e9] font-medium text-[13px]">Officer of the day :</span>
+            <p class="text-white text-[13px] mt-0.5 leading-tight">{{ activeDailyOrderTooltip()?.officer_details }}</p>
+          </div>
+        }
+        @if (activeDailyOrderTooltip()?.routine_details) {
+          <div>
+            <span class="text-[#0ea5e9] font-medium text-[13px]">Routine of the day :</span>
+            <p class="text-white text-[13px] mt-0.5 leading-tight">{{ activeDailyOrderTooltip()?.routine_details }}</p>
+          </div>
+        }
+      </div>
+  </div>
+  }
+
+</div>

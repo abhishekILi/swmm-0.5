@@ -1,0 +1,51 @@
+<app-master-card cardTitle="Search Refit Routines">
+  <form [formGroup]="searchForm" class="grid grid-cols-5 gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.02] mb-4">
+    <app-select-input
+      label="Sub Department"
+      formControlName="section"
+      [options]="sectionOptions()">
+    </app-select-input>
+
+    <div>
+      <label for="equipment" class="text-white/60 text-xs mb-1 block">Equipment</label>
+      <input
+        id="equipment"
+        type="text"
+        formControlName="equipment"
+        placeholder="Equipment name"
+        class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+
+    <div>
+      <label for="routineName" class="text-white/60 text-xs mb-1 block">Routine Name</label>
+      <input
+        id="routineName"
+        type="text"
+        formControlName="routineName"
+        placeholder="Routine name"
+        class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+    </div>
+
+    <app-select-input
+      label="Converted"
+      formControlName="converted"
+      [options]="convertedOptions">
+    </app-select-input>
+
+    <div class="flex items-end">
+      <button type="button" (click)="clearFilters()" class="h-10 px-4 w-full rounded-lg bg-white/10 border border-white/10 text-white text-sm">
+        Clear Filter
+      </button>
+    </div>
+  </form>
+
+  <div class="fuss-grid-wrapper w-full">
+    <app-data-grid
+      [columnDefs]="columnDefs"
+      [rowData]="rows()"
+      [pageSize]="10"
+      [height]="'440px'"
+      (rowClicked)="onRowClicked($event)">
+    </app-data-grid>
+  </div>
+</app-master-card>

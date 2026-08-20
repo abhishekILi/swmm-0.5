@@ -1,0 +1,166 @@
+<div class="page-container glass-card">
+
+  <!-- Tabs -->
+  <div class="tab-nav">
+    <button
+      class="tab-btn"
+      [class.active]="activeTab === 'gt'"
+      (click)="setTab('gt')">
+      GT Slip History
+    </button>
+
+    <button
+      class="tab-btn"
+      [class.active]="activeTab === 'gtg'"
+      (click)="setTab('gtg')">
+      GTG Slip History
+    </button>
+  </div>
+
+  <div class="tab-divider"></div>
+
+  <!-- Content -->
+  <div class="tab-content">
+
+    <!-- Header -->
+    <div class="section-header">
+
+      <span class="section-label">
+        {{ activeTab === 'gt' ? 'SLIP-GT' : 'SLIP-GTG' }}
+      </span>
+
+      <!-- Date Range Dropdown -->
+      <div class="date-range-picker">
+
+        <button
+          type="button"
+          class="date-range-trigger mr-2.5"
+          (click)="showDatePicker = !showDatePicker">
+
+          <span>{{ selectedRangeLabel }}</span>
+
+          <i
+            class="ti"
+            [ngClass]="showDatePicker ? 'ti-chevron-up' : 'ti-chevron-down'">
+          </i>
+
+        </button>
+
+        <!-- Dropdown -->
+        @if (showDatePicker) { <div
+          class="date-popup">
+
+          <div class="preset-panel">
+
+            @for(option of presets; track $index){
+
+              <button
+
+                type="button"
+                [class.active]="activePreset === option"
+                (click)="selectPreset(option)">
+
+                {{ option }}
+
+              </button>
+            }
+
+          </div>
+
+          <!-- Custom Date Range -->
+          @if (activePreset === 'Custom') { <div
+            class="custom-range">
+
+            <input
+              type="date"
+              [(ngModel)]="startDate">
+
+            <input
+              type="date"
+              [(ngModel)]="endDate">
+
+            <div class="custom-actions">
+
+              <button
+                type="button"
+                class="apply-btn"
+                (click)="applyRange()">
+                Apply
+              </button>
+
+              <button
+                type="button"
+                class="cancel-btn"
+                (click)="showDatePicker = false">
+                Cancel
+              </button>
+
+            </div>
+
+          </div> }
+
+        </div> }
+
+      </div>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+
+      <div class="search-box">
+        <i class="ti ti-search search-icon"></i>
+
+       <input
+          type="text"
+          [(ngModel)]="searchText"
+          (ngModelChange)="onSearchChange()"
+          placeholder="Search">
+      </div>
+
+       <!-- Export Buttons -->
+        <div class="flex gap-2 pl-2 mr-2.5">
+          <button
+            class="
+              flex items-center
+              px-4 h-10
+              rounded-lg
+              bg-white/10
+              border border-white/10
+              text-white">
+
+            <span class="mr-3">Export</span>
+
+            <div class="flex items-center gap-3">
+              <app-icon name="file-text" [size]="16" />
+              <app-icon name="sheet" [size]="16" />
+              <app-icon name="printer" [size]="16" />
+            </div>
+
+          </button>
+        </div>
+
+
+    </div>
+
+    <!-- GT Grid -->
+    @if (activeTab === 'gt') { <app-data-grid
+
+      [rowData]="filteredGtRows()"
+      [columnDefs]="gtColumnDefs"
+      [pagination]="true"
+      [height]="'440px'">
+    </app-data-grid> }
+
+    <!-- GTG Grid -->
+    @if (activeTab === 'gtg') { <app-data-grid
+
+      [rowData]="filteredGtgRows()"
+      [columnDefs]="gtgColumnDefs"
+      [pagination]="true"
+      [height]="'440px'">
+    </app-data-grid> }
+
+  </div>
+
+</div>

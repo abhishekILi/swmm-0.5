@@ -1,0 +1,50 @@
+<html>
+<head>
+<script>
+    function subst() {
+        var vars = {};
+        var query_strings_from_url = document.location.search.substring(1).split('&');
+        for (var query_string in query_strings_from_url) {
+            if (query_strings_from_url.hasOwnProperty(query_string)) {
+                var temp_var = query_strings_from_url[query_string].split('=', 2);
+                vars[temp_var[0]] = decodeURI(temp_var[1]);
+            }
+        }
+        var css_selector_classes = ['page', 'frompage', 'topage', 'webpage', 'section', 'subsection', 'date', 'isodate', 'time', 'title', 'doctitle', 'sitepage', 'sitepages'];
+        for (var css_class in css_selector_classes) {
+            if (css_selector_classes.hasOwnProperty(css_class)) {
+                var element = document.getElementsByClassName(css_selector_classes[css_class]);
+                for (var j = 0; j < element.length; ++j) {
+                    element[j].textContent = vars[css_selector_classes[css_class]];
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body {
+        font-family: "Helvetica", "Arial", sans-serif;
+        font-size: 9pt;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+    }
+    .red {
+        color: #C00000;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body onload="subst()">
+
+<div class="container">
+    <div style="font-size: 20px;">PAGE NUMBER <span class="page"></span> of <span class="topage"></span></div>
+    <div class="red" style="font-size: 20px;">INDIAN NAVAL SHIP MAINTENANCE AUTHORITY</div>
+    <div style="font-size: 20px;"><b>RESTRICTED</b></div>
+</div>
+
+</body>
+</html>

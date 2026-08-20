@@ -1,0 +1,90 @@
+<app-master-card cardTitle="Exported Files DL 1" cardHeight="auto">
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-white/50 border-b border-white/10">
+        <tr>
+          <th class="py-2 pr-3">RA/DL Name</th>
+          <th class="py-2 pr-3">Dockyard</th>
+          <th class="py-2 pr-3">Refit</th>
+          <th class="py-2 pr-3">Rows</th>
+          <th class="py-2 pr-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows; track row.id) {
+          <tr class="border-b border-white/5">
+            <td class="py-2 pr-3">
+              <button type="button" (click)="viewDetails(row)" class="text-[#1D96E9] underline">{{ row.ra_dl_name }}</button>
+            </td>
+            <td class="py-2 pr-3">{{ row.dockyard_name }}</td>
+            <td class="py-2 pr-3">{{ row.refit_type_name }}</td>
+            <td class="py-2 pr-3">{{ row.total_dl_rows }}</td>
+            <td class="py-2 pr-3">
+              <div class="flex flex-wrap gap-1">
+                @for (dockyard of dockyards; track dockyard) {
+                  <button
+                    type="button"
+                    (click)="exportToDockyard(row, dockyard)"
+                    class="px-2 py-0.5 rounded-full text-xs bg-white/10 border border-white/10 text-white"
+                    [title]="'Export .accdb for ' + dockyard"
+                  >
+                    {{ dockyard }}
+                  </button>
+                }
+              </div>
+            </td>
+          </tr>
+        }
+        @if (!rows.length) {
+          <tr>
+            <td colspan="5" class="py-6 text-center text-white/40">No exported DL 1 files found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</app-master-card>
+
+@if (selectedRow()) {
+  <app-modal size="lg" (closeModal)="closeDetails()">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold">{{ selectedRow()!.ra_dl_name }} — Routine Details</h3>
+      <button type="button" (click)="closeDetails()" class="text-white/60">
+        <app-icon name="x" [size]="20" />
+      </button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="text-white/50 border-b border-white/10">
+          <tr>
+            <th class="py-2 pr-3">DL No</th>
+            <th class="py-2 pr-3">Equipment Nomenclature</th>
+            <th class="py-2 pr-3">Routine Name</th>
+            <th class="py-2 pr-3">Description</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div class="max-h-[60vh] overflow-y-auto">
+        <table class="w-full text-sm text-left">
+          <tbody>
+            @for (detail of selectedRowDetails(); track detail.id) {
+              <tr class="border-b border-white/5">
+                <td class="py-2 pr-3">{{ detail.dl_no }}</td>
+                <td class="py-2 pr-3">{{ detail.eq_name }}</td>
+                <td class="py-2 pr-3">{{ detail.routine_name }}</td>
+                <td class="py-2 pr-3">{{ detail.description }}</td>
+              </tr>
+            }
+            @if (!selectedRowDetails().length) {
+              <tr>
+                <td colspan="4" class="py-6 text-center text-white/40">No detail rows found.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </app-modal>
+}

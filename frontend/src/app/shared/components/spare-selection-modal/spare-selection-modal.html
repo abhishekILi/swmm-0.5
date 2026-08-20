@@ -1,0 +1,47 @@
+<div class="open-modal" tabindex="0" (click)="closeModal.emit()" (keydown.enter)="closeModal.emit()"
+  (keydown.space)="closeModal.emit()">
+  <div class="modal-card glass-card" tabindex="0" (click)="closeModal.emit()" (keydown.enter)="closeModal.emit()"
+    (keydown.space)="closeModal.emit()">
+    <div class="spare-modal" tabindex="0" (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()"
+      (keydown.space)="$event.stopPropagation()">
+      <!-- Header -->
+      <div class="modal-header">
+        <h2>{{ title }}</h2>
+
+        <button type="button" class="close-btn" (click)="closeModal.emit()">
+          ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="tabs-container">
+          @for (tab of tabs(); track tab) {
+          <button type="button" class="tab-btn" [class.active]="selectedTab() === tab" (click)="selectTab(tab)">
+            {{ tab }}
+          </button>
+          }
+        </div>
+
+        <div class="search-section">
+          <input type="text" placeholder="Search..." [formControl]="searchControl" />
+        </div>
+
+        <app-data-grid [rowData]="filteredRows()" [columnDefs]="columnDefs()" [pagination]="true"
+          [showCheckboxes]="true" (selectionChanged)="onSelectionChanged($event)">
+        </app-data-grid>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <button type="button" class="btn-cancel button" (click)="closeModal.emit()">
+          Cancel
+        </button>
+
+        <button type="button" class="btn-save button" (click)="saveSelection()">
+          Add Selected
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

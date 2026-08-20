@@ -1,0 +1,225 @@
+<app-obs-help-guidance />
+
+<div class="glass-card lf-panel">
+  <div class="lf-panel__header">
+    <div>
+      <h3>Leave Forecast</h3>
+      <p class="lf-panel__sub">Dashboard</p>
+    </div>
+    <div class="lf-filters">
+      <span class="lf-filters__label"><app-icon name="filter" [size]="14" variant="inherit" /> Filters:</span>
+      <div class="lf-filters__dept">
+        <app-select-input placeholder="All departments" [options]="departmentOptions()" [ngModel]="deptFilter()" (ngModelChange)="onDeptChange($event)" />
+      </div>
+      <div class="lf-filters__category">
+        <app-select-input placeholder="Officer &amp; Sailor" [options]="categoryOptions" [ngModel]="categoryFilter()" (ngModelChange)="onCategoryChange($event)" />
+      </div>
+      <button type="button" class="btn-secondary lf-filters__reset" (click)="resetFilters()">
+        <span aria-hidden="true">×</span> Reset
+      </button>
+    </div>
+  </div>
+
+  <div class="lf-tabs-row">
+    <button type="button" class="lf-tab-btn" [class.lf-tab-btn--active]="activeTab() === 'dashboard'" (click)="selectTab('dashboard')">
+      Dashboard
+    </button>
+    <button type="button" class="lf-tab-btn" [class.lf-tab-btn--active]="activeTab() === 'forecast'" (click)="selectTab('forecast')">
+      Forecast
+    </button>
+    <button type="button" class="lf-tab-btn" [class.lf-tab-btn--active]="activeTab() === 'history'" (click)="selectTab('history')">
+      History
+    </button>
+  </div>
+
+  @if (activeTab() === "dashboard") {
+    <div class="kpi-row">
+      <app-kpi-card
+        cardHeight="auto"
+        title="Total Personnel Borne"
+        [count]="totalPersonnel()"
+        iconName="users"
+        iconColor="#3b7ddd"
+        iconBg="rgba(59,125,221,0.12)"
+        accentColor="#3b7ddd"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Jan–Jun Forecast"
+        [count]="janJunCount()"
+        iconName="calendar"
+        iconColor="#28a745"
+        iconBg="rgba(40,167,69,0.12)"
+        accentColor="#28a745"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Jul–Dec Forecast"
+        [count]="julDecCount()"
+        iconName="calendar"
+        iconColor="#ffc107"
+        iconBg="rgba(255,193,7,0.12)"
+        accentColor="#ffc107"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="% Personnel on Leave"
+        [count]="percentOnLeave()"
+        [displayValue]="percentOnLeave() + '%'"
+        iconName="circle-x"
+        iconColor="#dc3545"
+        iconBg="rgba(220,53,69,0.12)"
+        accentColor="#dc3545"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Applications"
+        [count]="scopedForecast().length"
+        iconName="file-text"
+        iconColor="#6f42c1"
+        iconBg="rgba(111,66,193,0.12)"
+        accentColor="#6f42c1"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Pending Approval"
+        [count]="pendingCount()"
+        iconName="clock"
+        iconColor="#d97706"
+        iconBg="rgba(217,119,6,0.12)"
+        accentColor="#d97706"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="false"
+      />
+    </div>
+
+    <div class="lf-trend glass-card">
+      <h4 class="lf-trend__heading">
+        <app-icon name="chart-bar" [size]="16" variant="accent" /> Monthly Trend &amp; Distribution
+      </h4>
+      <div class="lf-trend__grid">
+        <div class="lf-trend__cell">
+          <h5 class="lf-trend__title">Leave &amp; Ty Duty — month by month</h5>
+          <app-bar-chart [categories]="monthLabels" [stackedSeries]="monthlyTrendSeries()" [heightPx]="220" />
+        </div>
+        <div class="lf-trend__cell lf-trend__cell--center">
+          <h5 class="lf-trend__title">Type breakdown</h5>
+          <app-donut-chart [segments]="typeBreakdownSegments()" [showLegend]="true" [width]="150" [height]="150" />
+        </div>
+        <div class="lf-trend__cell">
+          <h5 class="lf-trend__title">Department-wise absence</h5>
+          <app-bar-chart [data]="deptWiseAbsence()" orientation="horizontal" [heightPx]="220" />
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (activeTab() === "forecast") {
+    <div class="lf-toolbar">
+      <div class="lf-toolbar__type">
+        <app-select-input
+          placeholder="Leave &amp; TY Duty"
+          [options]="forecastTypeOptions"
+          [ngModel]="forecastTypeFilter()"
+          (ngModelChange)="onForecastTypeChange($event)"
+        />
+      </div>
+    </div>
+
+    <table class="lf-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Rank</th><th>Type</th><th>Start</th><th>End</th>
+          <th>Days</th><th>Station</th><th>Status</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of filteredForecast(); track a.id) {
+          <tr>
+            <td>{{ a.name }}</td>
+            <td>{{ a.rank }}</td>
+            <td><span class="lf-pill">{{ a.leaveType }}</span></td>
+            <td>{{ a.startDate }}</td>
+            <td>{{ a.endDate }}</td>
+            <td>{{ a.noOfDays }}</td>
+            <td>{{ a.station || "—" }}</td>
+            <td><span class="lf-status" [class]="'lf-status--' + a.applicationStatus.toLowerCase()">{{ a.applicationStatus }}</span></td>
+            <td class="lf-actions">
+              @if (a.applicationStatus === "Pending") {
+                <button type="button" class="btn-approve" (click)="approve(a.id)">Approve</button>
+                <button type="button" class="btn-reject" (click)="reject(a.id)">Reject</button>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="9" class="lf-empty">No forecast entries found.</td></tr>
+        }
+      </tbody>
+    </table>
+
+    <p class="lf-note">
+      Simplified list view — the interactive day-by-day forecast calendar is not yet replicated (see project notes).
+    </p>
+  }
+
+  @if (activeTab() === "history") {
+    <div class="lf-toolbar">
+      <label class="sr-only" for="lfHistorySearch">Search history</label>
+      <input
+        id="lfHistorySearch"
+        class="form-field-input"
+        placeholder="Search name / personnel no…"
+        (input)="historySearch.set($any($event.target).value)"
+      />
+      <button type="button" class="btn-secondary" (click)="exportHistoryCsv()">Export CSV</button>
+    </div>
+
+    <table class="lf-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Rank</th><th>Department</th><th>Type</th><th>Start</th>
+          <th>End</th><th>Days</th><th>Status</th><th>Station</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of filteredHistory(); track a.id) {
+          <tr>
+            <td>{{ a.name }}</td>
+            <td>{{ a.rank }}</td>
+            <td>{{ a.department || "—" }}</td>
+            <td><span class="lf-pill">{{ a.leaveType }}</span></td>
+            <td>{{ a.startDate }}</td>
+            <td>{{ a.endDate }}</td>
+            <td>{{ a.noOfDays }}</td>
+            <td><span class="lf-status" [class]="'lf-status--' + a.applicationStatus.toLowerCase()">{{ a.applicationStatus }}</span></td>
+            <td>{{ a.station || "—" }}</td>
+          </tr>
+        } @empty {
+          <tr><td colspan="9" class="lf-empty">No records match.</td></tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

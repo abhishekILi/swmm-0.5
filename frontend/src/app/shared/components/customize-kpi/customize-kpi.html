@@ -1,0 +1,107 @@
+@if (isOpen) {
+  <!-- Full-screen click-catcher: clicking outside the card closes the panel -->
+  <button
+    class="kpi-overlay"
+    tabindex="0"
+    (click)="closePopup()"
+    (keydown.enter)="closePopup()"
+    (keydown.space)="closePopup(); $event.preventDefault()"
+  >
+    <div
+      class="popup-card glass-card"
+      role="dialog"
+      aria-labelledby="customizeKpiTitle"
+      [style.top.px]="top"
+      [style.left.px]="left"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+      (keydown.enter)="$event.stopPropagation()"
+    >
+      <!-- Header -->
+      <div class="popup-header">
+        <div class="popup-heading">
+          <div class="popup-title" id="customizeKpiTitle">Customize KPI Display</div>
+          <div class="popup-subtitle">
+            Select exactly {{ maxSelection }} KPIs to display in the overview.
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="popup-close"
+          (click)="closePopup()"
+          aria-label="Close"
+        >
+          <app-icon name="x" [size]="16" [strokeWidth]="2" variant="inherit" />
+        </button>
+      </div>
+
+      <!-- Limit warning -->
+      @if (showLimitWarning) {
+        <div class="popup-warning">
+          <app-icon name="circle-alert" [size]="16" [strokeWidth]="2" variant="inherit" />
+          <span
+            >Maximum {{ maxSelection }} KPIs selected — deselect one to choose
+            another.</span
+          >
+        </div>
+      }
+
+      <!-- KPI List -->
+      <div class="popup-body">
+        @for (kpi of kpis; track kpi.title) {
+          <label
+            class="kpi-item"
+            [class.kpi-item--selected]="isChecked(kpi.title)"
+            [class.kpi-item--disabled]="isDisabled(kpi.title)"
+          >
+            <div class="kpi-left">
+              <input
+                type="checkbox"
+                class="kpi-checkbox"
+                [checked]="isChecked(kpi.title)"
+                (change)="toggleKpi(kpi.title)"
+              />
+
+              <div class="kpi-info">
+                <span class="kpi-title">{{ kpi.title }}</span>
+                <span class="kpi-count">{{ kpi.count }}</span>
+              </div>
+            </div>
+
+            @if (trendFor(kpi)) {
+              <span
+                class="kpi-trend"
+                [class.kpi-trend--down]="isNegativeTrend(kpi)"
+                [class.kpi-trend--up]="!isNegativeTrend(kpi)"
+              >
+                {{ trendFor(kpi) }}
+              </span>
+            }
+          </label>
+        }
+      </div>
+
+      <!-- Footer -->
+      <div class="popup-footer">
+        <span class="popup-count">
+          Selected <b>{{ selectedTitles.length }}</b> of {{ kpis.length }} KPIs
+        </span>
+
+        <div class="popup-actions">
+          <button type="button" class="btn btn-cancel" (click)="closePopup()">
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-apply"
+            (click)="applySelection()"
+          >
+            Apply
+          </button>
+        </div>
+      </div>
+    </div>
+  </button>
+}

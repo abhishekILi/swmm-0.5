@@ -1,0 +1,220 @@
+<div class="tag-container p-4 sm:p-6 space-y-6">
+  <div class="flex flex-col gap-6">
+    <!-- TagOut Details Filter Card -->
+    <div class="glass-card flex flex-col w-full rounded-[12px]">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--border-card)]">
+        <div class="flex items-center gap-2">
+          <app-icon [name]="isApprovalMode() ? 'check-square' : 'plus'" [size]="18" class="tag-title"></app-icon>
+          <h2 class="tag-title font-bold text-sm tracking-wide uppercase">
+            {{ isApprovalMode() ? 'TAG OUT APPROVAL' : 'TagOut Details' }}
+          </h2>
+        </div>
+        <button type="button" (click)="createTagout()"
+          class="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-1.5 px-4 rounded text-xs uppercase transition-colors cursor-pointer">
+          + CREATE TAGOUT
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-col sm:flex-row items-end gap-8 px-6 py-5">
+        <!-- From Date -->
+        <div class="flex flex-col gap-2 flex-1 max-w-[200px]">
+          <label for="tag-out-from-date" class="block text-[12px] font-semibold tag-label">From Date</label>
+          <div class="relative">
+            <input id="tag-out-from-date" type="date"
+              class="w-full bg-transparent border-b tag-input pb-1 focus:outline-none focus:border-[#0ea5e9] text-sm" />
+          </div>
+        </div>
+
+        <!-- To Date -->
+        <div class="flex flex-col gap-2 flex-1 max-w-[200px]">
+          <label for="tag-out-to-date" class="block text-[12px] font-semibold tag-label">To Date</label>
+          <div class="relative">
+            <input id="tag-out-to-date" type="date"
+              class="w-full bg-transparent border-b tag-input pb-1 focus:outline-none focus:border-[#0ea5e9] text-sm" />
+          </div>
+        </div>
+
+        <!-- Department -->
+        <div class="flex flex-col gap-2 flex-1 max-w-[200px]">
+          <label for="tag-out-department" class="block text-[12px] font-semibold tag-label">Department</label>
+          <div class="relative">
+            <select id="tag-out-department" [ngModel]="selectedDepartment()"
+              (ngModelChange)="selectedDepartment.set($event)"
+              class="w-full bg-transparent border-b tag-input pb-1 focus:outline-none appearance-none text-sm cursor-pointer">
+              <option value="ALL" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                ALL
+              </option>
+              <option value="ADMIN" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                ADMIN
+              </option>
+              <option value="ELECTRICAL" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                ELECTRICAL
+              </option>
+              <option value="ENGINEERING" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                ENGINEERING
+              </option>
+              <option value="EXECUTIVE" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                EXECUTIVE
+              </option>
+              <option value="HULL" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                HULL
+              </option>
+              <option value="LOGISTICS" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                LOGISTICS
+              </option>
+              <option value="NBCD" class="bg-[#1e2028] text-slate-100 dark:bg-slate-900 dark:text-slate-100">
+                NBCD
+              </option>
+            </select>
+            <div class="absolute right-0 top-1 pointer-events-none">
+              <app-icon name="chevron-down" [size]="14" class="tag-label"></app-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Button -->
+        <div class="flex-none pb-1">
+          <button type="button"
+            class="bg-slate-500 hover:bg-slate-400 text-white font-semibold py-1 px-5 rounded text-xs transition-colors cursor-pointer">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Grid Area -->
+    <div class="glass-card flex flex-col w-full rounded-[12px] p-4 min-h-[300px]">
+      @if (filteredRecords().length > 0) {
+      <app-data-grid [rowData]="filteredRecords()" [columnDefs]="tagColumnDefs()" [pageSize]="10" [autoHeight]="true"
+        (rowClicked)="onRowClicked($event)"></app-data-grid>
+      } @else {
+      <!-- Empty State matching image exactly -->
+      <div class="flex flex-col items-center justify-center h-full tag-empty-box py-16 rounded">
+        <app-icon name="info" [size]="32" color="var(--text-muted, #94a3b8)" class="mb-2"></app-icon>
+        <span class="text-sm text-slate-400">No records found</span>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- HOD Approval & Remark Modal -->
+@if (approvalModalOpen()) {
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+  <div
+    class="glass-card w-full max-w-lg rounded-xl border border-slate-700 bg-[#1e2230] p-6 shadow-2xl space-y-5 text-slate-100">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+      <div class="flex items-center gap-2 text-sky-400 font-bold text-base">
+        <app-icon name="check-square" [size]="20" />
+        <h3>Tag-Out HOD Approval & Remarks</h3>
+      </div>
+      <button type="button" (click)="closeApprovalModal()"
+        class="text-slate-400 hover:text-white transition-colors cursor-pointer p-1">
+        <app-icon name="x" [size]="18" />
+      </button>
+    </div>
+
+    <!-- Record Details Summary -->
+    @if (activeApprovalRecord(); as rec) {
+    <div class="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800 space-y-2 text-xs">
+      <div class="flex justify-between">
+        <span class="text-slate-400 font-medium">Tag No & Equipment:</span>
+        <span class="font-bold text-slate-200">{{ rec.tagNo }} - {{ rec.equipmentName }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-400 font-medium">Isolation Boundary / Details:</span>
+        <span class="text-slate-300">{{ rec.isolationBoundary }}</span>
+      </div>
+    </div>
+    }
+
+    <!-- Status Selection -->
+    <div class="space-y-2">
+      <span class="block text-xs font-semibold text-slate-300">Approval Decision</span>
+      <div class="grid grid-cols-2 gap-3">
+        <button type="button" (click)="approvalStatusInput.set('Approved')"
+          class="py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer border"
+          [ngClass]="approvalStatusInput() === 'Approved' ? 'bg-emerald-500/30 text-emerald-300 border-emerald-500' : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'">
+          <app-icon name="check-circle" [size]="16" />
+          Approve
+        </button>
+        <button type="button" (click)="approvalStatusInput.set('Rejected')"
+          class="py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer border"
+          [ngClass]="approvalStatusInput() === 'Rejected' ? 'bg-rose-500/30 text-rose-300 border-rose-500' : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'">
+          <app-icon name="x" [size]="16" />
+          Reject
+        </button>
+      </div>
+    </div>
+
+    <!-- Remark Input -->
+    <div class="space-y-2">
+      <label for="tag-out-hod-remark" class="block text-xs font-semibold text-slate-300">HOD Remarks</label>
+      <textarea id="tag-out-hod-remark" rows="3" [ngModel]="approvalRemarkInput()"
+        (ngModelChange)="approvalRemarkInput.set($event)"
+        placeholder="Enter HOD remarks, safety instructions, or notes..."
+        class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 resize-none"></textarea>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end gap-3 pt-2 border-t border-slate-700/80">
+      <button type="button" (click)="closeApprovalModal()"
+        class="px-4 py-1.5 rounded text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors cursor-pointer">
+        Cancel
+      </button>
+      <button type="button" (click)="saveApproval()"
+        class="px-5 py-1.5 rounded text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white transition-colors cursor-pointer shadow-md">
+        Save & Submit
+      </button>
+    </div>
+  </div>
+</div>
+}
+
+<app-detail-drawer [open]="!!selectedRecord()" [titleMode]="true" [label]="selectedRecord()?.tagNo ?? 'Tag-Out Record'"
+  [subtitle]="selectedRecord()?.equipmentName ?? ''" iconName="file-text" iconColor="#ef4444" (closed)="closeDrawer()">
+  @if (selectedRecord(); as item) {
+  <div class="space-y-4 p-2 text-sm text-[var(--text-primary)]">
+    <div class="grid grid-cols-2 gap-3 p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)]">
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">Tag No</span>
+        <span class="font-medium text-white">{{ item.tagNo }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">Date Tagged</span>
+        <span class="font-medium text-white">{{ item.dateTagged }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">Tagged By</span>
+        <span class="font-medium text-white">{{ item.taggedBy }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">Status</span>
+        <span class="font-medium text-white">{{ item.status }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">HOD Approval</span>
+        <span class="font-medium text-white">{{ item.hodApprovalStatus || 'Pending' }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block">HOD Remark</span>
+        <span class="font-medium text-white">{{ item.remark || '-' }}</span>
+      </div>
+    </div>
+
+    <div class="p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)] space-y-2">
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Equipment Name</span>
+        <span class="text-white">{{ item.equipmentName }}</span>
+      </div>
+      <div>
+        <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Isolation Boundary</span>
+        <span class="text-white">{{ item.isolationBoundary }}</span>
+      </div>
+    </div>
+  </div>
+  }
+</app-detail-drawer>

@@ -1,0 +1,154 @@
+<app-master-card cardTitle="Department-Regulator Hierarchy">
+  @if(departments().length){
+  <div card-header-actions>
+    <button class="kyr-mode-btn" type="button" [class.kyr-mode-btn-active]="isEditMode()" (click)="toggleMode()">
+      {{ isEditMode() ? 'View Mode' : 'Edit Mode' }}
+    </button>
+  </div>
+  }
+
+  <div class="kyr-body">
+    @if (loading()) {
+    <div class="kyr-empty-state">Loading regulators...</div>
+    } @else if (!departments().length) {
+    <div class="kyr-empty-state">
+      No departments found.
+    </div>
+    } @else {
+    <div class="hierarchy-tree">
+      <div class="root-node">
+        <div class="node-card root-card">
+          <div class="node-content">
+            <span class="node-label">Departments</span>
+          </div>
+          <button class="node-toggle" (click)="toggleRootDepartments()"
+            [title]="rootExpanded() ? 'Collapse' : 'Expand'">
+            COLLAPSE
+          </button>
+        </div>
+
+        @if (rootExpanded()) {
+        <div class="root-connector"></div>
+
+        <div class="departments-wrapper">
+          @for (department of departments(); track department.id) {
+          <div class="department-wrapper">
+            <div class="node-card department-card" #deptCard [attr.data-department-id]="department.id">
+              <div class="node-content">
+                <span class="node-label">{{ getDepartmentName(department) }}</span>
+                <span class="regulator-count">{{ department.regulators.length }} {{ department.regulators.length === 1 ?
+                  'Regulator' : 'Regulators' }}</span>
+              </div>
+              <button class="node-toggle" (click)="toggleDepartment(department)"
+                [title]="department.expanded ? 'Collapse' : 'Expand'">
+                {{ department.expanded ? 'COLLAPSE' : 'EXPAND' }}
+              </button>
+            </div>
+
+            @if (department.expanded && department.regulators.length > 0) {
+            <div class="dept-connector"></div>
+
+            <div class="regulators-wrapper">
+              @if (department.regulators.length > 1) {
+              <div class="regs-horizontal-connector" [attr.data-reg-horizontal-connector]="true"></div>
+              }
+
+              @for (regulator of department.regulators; track regulator.id) {
+              <div class="regulator-wrapper">
+                @if (department.regulators.length > 1) {
+                <div class="reg-connector"></div>
+                }
+
+                <button class="node-card regulator-card" type="button" (click)="openRegulator(regulator)"
+                  [attr.data-regulator-card]="true" #regCard>
+                  <div class="node-content">
+                    <span class="node-label">{{ regulator.name }}</span>
+                    @if (regulator.designation) {
+                    <span class="regulator-designation">{{ regulator.designation }}</span>
+                    }
+                    <span class="assigned-count">{{ regulator.assignedCount }} {{ regulator.assignedCount === 1 ?
+                      'Sailor' : 'Sailors' }}</span>
+                  </div>
+                </button>
+              </div>
+              }
+            </div>
+            }
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</app-master-card>
+
+@if (showSailorModal() && activeRegulator(); as regulator) {
+<app-modal size="lg" (closeModal)="closeSailorModal()">
+  <h3 class="kyr-modal-title">{{ isEditMode() ? 'Assign Sailors' : 'Sailors' }} — {{ regulator.name }}</h3>
+
+  <div class="kyr-modal-body">
+    @if (modalLoading()) {
+    <div class="kyr-empty-state">Loading...</div>
+    } @else if (isEditMode()) {
+    <p class="kyr-modal-hint">Select sailors from the same department to assign to this regulator.</p>
+    @if (allEligibleSailors().length) {
+    <div class="kyr-sailor-checklist">
+      @for (sailor of allEligibleSailors(); track sailor.id) {
+      <label class="kyr-sailor-checkitem">
+                <input
+                  type="checkbox"
+                  [checked]="selectedSailorIds().has(sailor.id)"
+                  (change)="toggleSailorSelection(sailor.id)"
+                />
+        <span>
+          {{ sailor.name }}
+          <span class="kyr-sub-text">({{ sailor.rank }} {{ sailor.designation }} | {{ sailor.personalNumber }})</span>
+        </span>
+      </label>
+      }
+    </div>
+    } @else {
+    <div class="kyr-empty-state">No sailors available in this department.</div>
+    }
+    } @else {
+    @if (assignedSailors().length) {
+    <table class="kyr-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Rank</th>
+          <th>Personal No.</th>
+          <th>Designation</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sailor of assignedSailors(); track sailor.id) {
+        <tr>
+          <td>{{ sailor.name || '-' }}</td>
+          <td>{{ sailor.rank || '-' }}</td>
+          <td>{{ sailor.personalNumber || '-' }}</td>
+          <td>{{ sailor.designation || '-' }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    } @else {
+    <div class="kyr-empty-state">No sailors assigned yet.</div>
+    }
+    }
+  </div>
+
+  <div class="kyr-modal-actions">
+    <button class="kyr-btn-secondary" type="button" (click)="closeSailorModal()">
+      {{ isEditMode() ? 'Cancel' : 'Close' }}
+    </button>
+    @if (isEditMode()) {
+    <button class="kyr-btn-primary" type="button" [disabled]="saving()" (click)="saveAssignments()">
+      {{ saving() ? 'Saving…' : 'Save Assignments' }}
+    </button>
+    }
+  </div>
+</app-modal>
+}

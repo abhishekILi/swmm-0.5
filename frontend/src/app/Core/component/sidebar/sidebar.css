@@ -1,0 +1,457 @@
+/* ── Shell ── */
+aside.sidebar {
+  height: calc(100vh - 22px);
+  margin: 11px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease, background 0.35s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 15.5625rem;
+  /* 249px expanded */
+  background: var(--bg-sidebar);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+aside.sidebar.collapsed {
+  width: 4rem;
+  /* 64px collapsed */
+}
+
+
+/* ══════════════════════════════════════
+   LOGO HEADER
+   ══════════════════════════════════════ */
+.sidebar-logo {
+  flex-shrink: 0;
+  min-height: 4.3125rem;
+  /* ~69px, grows to fit the ship badge instead of clipping it */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-logo);
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.35s ease;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  padding: 0;
+}
+
+.sidebar-logo__img {
+  width: 3.83244rem;
+  /* ~61px */
+  height: 3.25906rem;
+  /* ~52px */
+  flex-shrink: 0;
+}
+
+.sidebar-logo__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+
+}
+
+.sidebar-ship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+  background: rgba(26, 163, 242, 0.14);
+  border: 1px solid rgba(26, 163, 242, 0.30);
+  color: var(--accent-blue, #1d96e9);
+  font-family: Poppins, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+.comm-txt {
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.9375rem;
+  /* 150% */
+  text-transform: capitalize;
+  padding: 0.5rem;
+  transition: color 0.35s ease;
+
+}
+
+.sidebar-logo__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.15s ease, color 0.35s ease;
+  padding: 0;
+}
+
+.sidebar-logo__toggle:hover {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   NAV (scrollable)
+   ══════════════════════════════════════ */
+.sidebar-nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 99px;
+}
+
+/* ══════════════════════════════════════
+   SECTION WRAPPER + LABEL
+   ══════════════════════════════════════ */
+.sidebar-section {
+  padding: 0 0.5rem;
+}
+
+/* Home, pinned above the scrollable nav (.sidebar-nav) so it never scrolls out of view. */
+.sidebar-section--pinned {
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.sidebar-section__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0;
+  text-align: left;
+}
+
+.sidebar-section__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue, #1d96e9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+.sidebar-section__chevron {
+  flex-shrink: 0;
+  color: var(--accent-blue, #1d96e9);
+  transition: transform 0.2s ease, color 0.35s ease;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border-primary);
+  margin: 6px 8px 4px;
+  transition: background 0.35s ease;
+}
+
+/* full-width horizontal rule between sections (expanded) */
+.sidebar-divider--full {
+  margin: 2px 12px;
+}
+
+/* ══════════════════════════════════════
+   NAV ITEMS
+   ══════════════════════════════════════ */
+.nav-item {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.nav-item--collapsed {
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--nav-hover-border);
+  background: var(--nav-hover-bg);
+}
+
+.nav-item--active {
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--nav-active-border);
+  background: var(--nav-active-bg);
+}
+
+/* Active wins over hover when both apply (e.g. hovering the current page). */
+.nav-item--active:hover {
+  border-color: var(--nav-active-border);
+  background: var(--nav-active-bg);
+}
+
+
+.nav-item--active .nav-item__icon,
+.nav-item--active .nav-item__label {
+  color: var(--text-primary) !important;
+}
+
+/* Light theme override for .nav-item--active text/icon lives in src/styles.css
+   (global) — component-scoped [data-theme="light"] ancestor selectors don't
+   match under Angular's emulated view encapsulation. */
+
+.nav-item__icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: color 0.35s ease;
+}
+
+.nav-item__label {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125rem;
+  /* 128.571% */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+/* stretch label to push chevron right */
+.nav-item__label--flex {
+  flex: 1;
+}
+
+.nav-chevron {
+  flex-shrink: 0;
+  color: var(--text-primary);
+  margin-left: auto;
+  transition: transform 0.2s ease, color 0.35s ease;
+}
+
+/* ══════════════════════════════════════
+   CHILD ITEMS
+   ══════════════════════════════════════ */
+.nav-children {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 1px solid var(--border-nav-child);
+  transition: border-color 0.35s ease, margin 0.2s ease, padding 0.2s ease;
+}
+
+/* Collapsed rail: the wide-sidebar indent (20px margin + 10px padding) squeezed the
+ * child icons into a narrow, off-centre sliver. Shrink it to a thin accent bar instead
+ * of dropping it entirely — some indent is what reads as "these belong to the parent
+ * item above," not just a flat continuation of the icon list. */
+.nav-children--collapsed {
+  margin-left: 6px;
+  padding-left: 4px;
+  border-left: 2px solid var(--border-nav-child);
+  border-radius: 0 6px 6px 0;
+}
+
+.nav-child {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.nav-child--collapsed {
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-child:hover {
+  background: var(--bg-nav-child-hover);
+}
+
+.nav-child__icon {
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-nav-child);
+  flex-shrink: 0;
+  transition: color 0.35s ease;
+}
+
+.nav-child--active .nav-child__icon {
+  color: #1069AB;
+}
+
+.nav-child__label {
+  font-size: 12px;
+  color: var(--text-nav-child);
+  font-family: Inter, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.nav-child--active .nav-child__label {
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--nav-active-border);
+  background: var(--nav-active-bg);
+}
+
+/* ══════════════════════════════════════
+   PROFILE FOOTER
+   ══════════════════════════════════════ */
+.sidebar-footer {
+  flex-shrink: 0;
+  padding: 0 8px 8px;
+  border-top: 1px solid var(--border-primary);
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.35s ease;
+}
+
+.sidebar-profile {
+  margin-top: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 0.5px solid var(--border-profile);
+  background: var(--bg-sidebar-profile);
+  box-sizing: border-box;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.sidebar-profile__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  background: linear-gradient(0deg, #1589E1 0%, #0B4B7B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-profile__initial {
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sidebar-profile__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sidebar-profile__name {
+  color: var(--text-primary);
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+.sidebar-profile__role {
+  color: var(--text-profile-role);
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.sidebar-profile__arrow {
+  color: var(--text-profile-arrow);
+  flex-shrink: 0;
+  transition: color 0.35s ease;
+}

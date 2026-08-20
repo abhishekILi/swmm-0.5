@@ -1,0 +1,19 @@
+<app-obs-help-guidance [bodyHtml]="helpHtml" />
+
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Spares Returned</h3>
+  </div>
+
+  <div class="grid-toolbar">
+    <app-toolbar-search [value]="searchText()" (valueChange)="searchText.set($event)" />
+    <div class="grid-toolbar__end">
+      <button type="button" class="icon-btn" title="Copy to clipboard" (click)="copyRows()">
+        <app-icon name="clipboard" [size]="16" variant="inherit" />
+      </button>
+      <app-export-toolbar [busy]="exportBusy()" (exportRequested)="onExport($event)" />
+    </div>
+  </div>
+
+  <app-data-grid [rowData]="filteredEntries()" [columnDefs]="columnDefs" height="480px" />
+</div>

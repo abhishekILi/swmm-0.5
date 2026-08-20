@@ -1,0 +1,159 @@
+@if (!a()) {
+  <div class="detail glass">
+    <div class="detail-empty">
+      <div class="glyph"><app-icon name="eye" [size]="22" /></div>
+      <div>
+        <div class="title">Select an event</div>
+        <div>
+          Click any card on the planner to view its details, linked records,
+          isolation requirements and approval status.
+        </div>
+      </div>
+      <button class="close" (click)="closePanel()">
+        <app-icon name="x" [size]="16" />
+      </button>
+    </div>
+  </div>
+} @else {
+  <div class="detail glass">
+    <div class="detail-head" [class]="'detail-head cat-' + a()!.cat">
+      <div class="cat-bar"></div>
+      <div style="flex: 1; min-width: 0">
+        <div class="title">{{ a()!.title }}</div>
+        <div class="sub">{{ catLabel() }} · {{ deptLabel() }}</div>
+        <span class="tag" [class]="tagCls()">{{ statusLabel() }}</span>
+      </div>
+      <button class="close" (click)="closePanel()">
+        <app-icon name="x" [size]="16" />
+      </button>
+    </div>
+
+    @if (hasMultipleDayActivities()) {
+      <div class="day-switcher">
+        <button class="icon-btn" type="button" (click)="showPreviousActivity()">
+          <app-icon name="chev-l" [size]="14" />
+        </button>
+        <div class="day-switcher-label">
+          {{ selectedDayLabel() }}
+          <span class="day-switcher-count">
+            {{ selectedActivityIndex() + 1 }} / {{ selectedDayActivities().length }}
+          </span>
+        </div>
+        <button class="icon-btn" type="button" (click)="showNextActivity()">
+          <app-icon name="chev-r" [size]="14" />
+        </button>
+      </div>
+    }
+
+    <div class="detail-body">
+      <div class="section">
+        <h4>Basic Details</h4>
+        <div class="kv">
+          <div class="k">Date</div>
+          <div class="v">{{ dayLabel() }}</div>
+          <div class="k">Time</div>
+          <div class="v mono">{{ a()!.t }}</div>
+          <div class="k">Category</div>
+          <div class="v dim">{{ catLabel() }}</div>
+          <div class="k">Department</div>
+          <div class="v dim">{{ deptLabel() }}</div>
+          <div class="k">Location</div>
+          <div class="v dim">{{ a()!.loc || "ER — Compartment B" }}</div>
+          <div class="k">Ref. No.</div>
+          <div class="v mono dim">
+            {{ a()!.ref || "WO-" + a()!.id.toUpperCase() + "-2025" }}
+          </div>
+          <div class="k">Priority</div>
+          <div class="v">
+            <span
+              class="dot-impact"
+              [style.background]="priorityColor()"
+              [style.color]="priorityColor()"
+            ></span>
+            {{ a()!.priority || "Medium" }}
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Linked Information</h4>
+        <div class="linked-row">
+          <div class="icon-box"><app-icon name="wrench" [size]="14" /></div>
+          <div class="grow">
+            <div class="ttl">{{ a()!.equipment || "Main Air Compressor" }}</div>
+            <div class="ttl-sub">Equipment · CMMS</div>
+          </div>
+          <span class="ext"><app-icon name="extlink" [size]="12" /></span>
+        </div>
+        <div class="linked-row">
+          <div class="icon-box"><app-icon name="alert" [size]="14" /></div>
+          <div class="grow">
+            <div class="ttl">DEF-2025-0123</div>
+            <div class="ttl-sub">Related defect</div>
+          </div>
+          <span class="ext"><app-icon name="extlink" [size]="12" /></span>
+        </div>
+        <div class="linked-row">
+          <div class="icon-box"><app-icon name="paperclip" [size]="14" /></div>
+          <div class="grow">
+            <div class="ttl">2 Attached Documents</div>
+            <div class="ttl-sub">SOP · Risk Assessment</div>
+          </div>
+          <span class="ext"><app-icon name="extlink" [size]="12" /></span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Coordination</h4>
+        <div class="kv">
+          <div class="k">Isolation Req.</div>
+          <div class="v">
+            {{ a()!.cat === "routine" || a()!.cat === "defect" ? "Yes — Permit issued" : "No" }}
+          </div>
+          <div class="k">Manpower</div>
+          <div class="v dim">4 allocated · 1 pending</div>
+          <div class="k">Spares</div>
+          <div class="v dim">3 / 3 staged · ILMS</div>
+          <div class="k">Conflicts</div>
+          <div class="v dim">{{ a()!.conflict ? "1 detected" : "None" }}</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Status & Approval</h4>
+        <div class="kv">
+          <div class="k">Approval</div>
+          <div class="v" [style.color]="a()!.conflict ? '#fca5a5' : '#86efac'">
+            {{ a()!.conflict ? "Pending CME" : "Approved" }}
+          </div>
+          <div class="k">Last update</div>
+          <div class="v dim">06 May · 0900 hrs</div>
+        </div>
+        <div class="progress-row">
+          <span>Progress</span>
+          <div class="progress-bar">
+            <div
+              class="fill"
+              [style.width.%]="a()!.prog || 0"
+              [style.background]="progressColor()"
+            ></div>
+          </div>
+          <span class="mono" style="color: #fff; font-weight: 500"
+            >{{ a()!.prog || 0 }}%</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-foot">
+      @if (isManual()) {
+        <button class="btn btn-block" (click)="editSelected()">Reschedule</button>
+        <button class="btn primary btn-block" (click)="deleteSelected()">Delete Event</button>
+      } @else {
+        <div class="v dim" style="text-align: center; width: 100%;">
+          Read-only — sourced from {{ catLabel() }} records, not editable here.
+        </div>
+      }
+    </div>
+  </div>
+}

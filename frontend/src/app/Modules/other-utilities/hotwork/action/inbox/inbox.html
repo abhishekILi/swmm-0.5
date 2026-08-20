@@ -1,0 +1,97 @@
+<div class="flex flex-col gap-6 p-4 sm:p-6 h-full w-full">
+  <!-- Search/Filter Header Card -->
+  <div class="glass-card flex flex-col w-full rounded-2xl">
+    <!-- Title -->
+    <div class="flex items-center gap-2 px-6 py-4 border-b hw-border">
+      <app-icon name="search" [size]="18" class="hw-title"></app-icon>
+      <h2 class="hw-title font-bold text-sm tracking-wide">APPROVE HOTWORK</h2>
+    </div>
+
+    <!-- Filters -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 py-5">
+      <div class="space-y-1">
+        <label for="hotwork-code" class="text-xs font-bold hw-label block">Hotwork Code</label>
+        <select id="hotwork-code" [ngModel]="selectedHotworkCode()" (ngModelChange)="selectedHotworkCode.set($event)"
+          class="w-full text-xs px-3.5 py-2.5 rounded-xl border focus:outline-none focus:border-blue-500 transition-colors bg-[var(--bg-input)] text-[var(--text-primary)] border-[var(--border-input)] cursor-pointer">
+          <option value="ALL">ALL</option>
+          @for (code of hotworkCodes(); track code) {
+          <option [value]="code">{{ code }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="space-y-1">
+        <span class="block text-xs font-bold hw-label">Date Range</span>
+        <app-date-picker [singleDate]="false" placeholder="Select Date Range..." [ngModel]="selectedDateRange()"
+          (ngModelChange)="selectedDateRange.set($event)">
+        </app-date-picker>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Grid Section -->
+  <div class="glass-card flex flex-col flex-1 min-h-[400px] w-full p-4 rounded-2xl">
+    <!-- Top Bar with Export -->
+    <div class="flex justify-end mb-4">
+      <app-export-toolbar (exportRequested)="handleExport($event)"></app-export-toolbar>
+    </div>
+
+    <!-- The actual Data Grid -->
+    <div class="flex-1 w-full">
+      <app-data-grid [columnDefs]="colDefs" [rowData]="filteredRowData()" (rowClicked)="onRowClicked($event)">
+      </app-data-grid>
+    </div>
+  </div>
+</div>
+
+<app-detail-drawer
+  [open]="!!selectedRecord()"
+  [titleMode]="true"
+  [label]="selectedRecord()?.hotworkCode ?? 'Inbox Request'"
+  [subtitle]="selectedRecord()?.descriptionOfHotwork ?? ''"
+  iconName="inbox"
+  iconColor="#a855f7"
+  (closed)="closeDrawer()"
+>
+  @if (selectedRecord(); as item) {
+    <div class="space-y-4 p-2 text-sm text-[var(--text-primary)]">
+      <div class="grid grid-cols-2 gap-3 p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)]">
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Hotwork Code</span>
+          <span class="font-medium text-white">{{ item.hotworkCode }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Date of Hotwork</span>
+          <span class="font-medium text-white">{{ item.dateOfHotwork }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Parent Code</span>
+          <span class="font-medium text-white">{{ item.parentCode }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block">Current Status</span>
+          <span class="font-medium text-white">{{ item.currentStatus }}</span>
+        </div>
+      </div>
+
+      <div class="p-3 rounded-lg bg-[var(--bg-input)] border border-[var(--border-card)] space-y-2">
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Department / Incharge</span>
+          <span class="text-white">{{ item.departmentSection }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Location / Compartment</span>
+          <span class="text-white">{{ item.locationAdjacent }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Hotwork Type</span>
+          <span class="text-white">{{ item.hotworkType }}</span>
+        </div>
+        <div>
+          <span class="text-xs text-[var(--text-muted)] block font-medium mb-1">Safe to Weld Certificate</span>
+          <span class="text-white">{{ item.safeToWeldCert }}</span>
+        </div>
+      </div>
+    </div>
+  }
+</app-detail-drawer>

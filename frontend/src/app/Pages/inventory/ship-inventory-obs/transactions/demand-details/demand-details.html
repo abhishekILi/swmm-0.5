@@ -1,0 +1,29 @@
+<div class="glass-card obs-panel">
+  <div class="obs-panel__header">
+    <h3>Demand Details</h3>
+    <button type="button" class="btn-secondary" (click)="goBack()">Back</button>
+  </div>
+
+  @if (entry(); as e) {
+    <div class="obs-detail-summary">
+      <span>{{ e.patternNumber }}</span>
+      <span>{{ e.description }}</span>
+      <span>Qty due for demand: <strong>{{ e.quantity }}</strong></span>
+    </div>
+  }
+
+  <form [formGroup]="form" class="obs-issue-form" (ngSubmit)="submit()">
+    <div class="obs-issue-form__grid">
+      <app-input-field label="Quantity Demanded *" type="number" formControlName="quantityDemanded" />
+      <app-input-field label="Demand Number *" formControlName="demandNumber" />
+      <app-input-field label="Demand Voucher Date *" type="date" formControlName="demandDate" />
+    </div>
+    <app-textarea-input label="Remarks *" [rows]="3" formControlName="remarks" />
+
+    <div class="obs-issue-form__actions">
+      <button type="submit" class="btn-primary" [disabled]="saving()">
+        {{ saving() ? "Saving..." : "Save" }}
+      </button>
+    </div>
+  </form>
+</div>

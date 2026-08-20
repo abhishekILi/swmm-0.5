@@ -1,0 +1,34 @@
+<div class="kms-page">
+  <app-page-header-bar icon="tags" iconVariant="accent" title="Category Master" badgeText="Certificate Categories">
+    <button type="button" class="kms-btn-primary" (click)="openAddModal()">
+      <app-icon name="plus" [size]="15" color="#ffffff" />
+      Add Category
+    </button>
+  </app-page-header-bar>
+
+  <div class="glass-card kms-panel">
+    @if (categories().length > 0) {
+      <app-data-grid [rowData]="categories()" [columnDefs]="columnDefs" height="420px" />
+    } @else {
+      <p class="kms-empty-hint kms-empty-hint--table">
+        No categories added yet. Click "+ Add Category" to create one.
+      </p>
+    }
+  </div>
+</div>
+
+@if (showModal()) {
+  <app-modal size="md" [title]="modalTitle" (closeModal)="closeModal()">
+    <form [formGroup]="form" (ngSubmit)="save()" class="kms-modal-form kms-modal-form--sm">
+      <app-input-field label="Category Name" placeholder="Enter category name" formControlName="categoryName" [required]="true" />
+      <div class="kms-modal-actions">
+        <button type="button" class="kms-btn-secondary" (click)="closeModal()">
+          Cancel
+        </button>
+        <button type="submit" class="kms-btn-primary">
+          Save
+        </button>
+      </div>
+    </form>
+  </app-modal>
+}

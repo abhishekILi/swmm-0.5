@@ -1,0 +1,647 @@
+<app-obs-help-guidance />
+
+<div class="wsb-tabs-row">
+  <button type="button" class="wsb-tab-btn" [class.wsb-tab-btn--active]="activeTab() === 'dashboard'" (click)="selectTab('dashboard')">
+    Dashboard
+  </button>
+  <button type="button" class="wsb-tab-btn" [class.wsb-tab-btn--active]="activeTab() === 'sailings'" (click)="selectTab('sailings')">
+    Sailings
+  </button>
+  <button type="button" class="wsb-tab-btn" [class.wsb-tab-btn--active]="activeTab() === 'history'" (click)="selectTab('history')">
+    History
+  </button>
+  <button type="button" class="wsb-tab-btn" [class.wsb-tab-btn--active]="activeTab() === 'references'" (click)="selectTab('references')">
+    References
+  </button>
+</div>
+
+<!-- ═══════════════════ DASHBOARD ═══════════════════ -->
+@if (activeTab() === "dashboard") {
+  <div class="glass-card wsb-panel">
+    <div class="kpi-row">
+      <app-kpi-card
+        cardHeight="auto"
+        title="Total Personnel"
+        description="Active as of today"
+        [count]="dashboardCounts().total"
+        iconName="users"
+        iconColor="#0095ff"
+        iconBg="rgba(0,149,255,0.12)"
+        accentColor="#0095ff"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="true"
+        viewMoreLabel="View more →"
+        (detailClick)="viewMorePersonnel('all')"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Present"
+        description="Available for duty"
+        [count]="dashboardCounts().present"
+        iconName="circle-check-big"
+        iconColor="#28a745"
+        iconBg="rgba(40,167,69,0.12)"
+        accentColor="#28a745"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="true"
+        viewMoreLabel="View more →"
+        (detailClick)="viewMorePersonnel('present')"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="On Leave / TY Duty"
+        description="Not available"
+        [count]="dashboardCounts().absent"
+        iconName="flag"
+        iconColor="#dc3545"
+        iconBg="rgba(220,53,69,0.12)"
+        accentColor="#dc3545"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="true"
+        viewMoreLabel="View more →"
+        (detailClick)="viewMorePersonnel('leave')"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Active Sailings"
+        description="Ongoing operations"
+        [count]="activeSailingsCount()"
+        iconName="anchor"
+        iconColor="#d97706"
+        iconBg="rgba(217,119,6,0.12)"
+        accentColor="#d97706"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="true"
+        viewMoreLabel="View more →"
+        (detailClick)="viewMoreSailings()"
+      />
+      <app-kpi-card
+        cardHeight="auto"
+        title="Completed"
+        description="Archived sailings"
+        [count]="completedSailingsCount()"
+        iconName="folder-open"
+        iconColor="#6f42c1"
+        iconBg="rgba(111,66,193,0.12)"
+        accentColor="#6f42c1"
+        iconPosition="right"
+        [showTimelineTab]="false"
+        [showTrends]="false"
+        [showViewMore]="true"
+        viewMoreLabel="View more →"
+        (detailClick)="viewMoreHistory()"
+      />
+    </div>
+
+    <h4 class="wsb-subheading">Department Strength</h4>
+    @for (dept of deptStrength(); track dept.department) {
+      <div class="wsb-dept-row">
+        <span class="wsb-dept-row__label">{{ dept.department }}</span>
+        <div class="wsb-dept-row__track">
+          <div
+            class="wsb-dept-row__fill"
+            [class.wsb-dept-row__fill--high]="deptStrengthLevel(dept) === 'high'"
+            [class.wsb-dept-row__fill--medium]="deptStrengthLevel(dept) === 'medium'"
+            [class.wsb-dept-row__fill--low]="deptStrengthLevel(dept) === 'low'"
+            [style.width.%]="deptStrengthPercent(dept)"
+          ></div>
+        </div>
+        <span
+          class="wsb-dept-row__badge"
+          [class.wsb-dept-row__badge--high]="deptStrengthLevel(dept) === 'high'"
+          [class.wsb-dept-row__badge--medium]="deptStrengthLevel(dept) === 'medium'"
+          [class.wsb-dept-row__badge--low]="deptStrengthLevel(dept) === 'low'"
+        >
+          {{ dept.present }}/{{ dept.total }}
+        </span>
+      </div>
+    } @empty {
+      <p class="wsb-empty-text">No department data available.</p>
+    }
+  </div>
+}
+
+<!-- ═══════════════════ SAILINGS ═══════════════════ -->
+@if (activeTab() === "sailings") {
+  @if (sailingView() === "list") {
+    <div class="glass-card wsb-panel">
+      <div class="wsb-panel__header">
+        <h3>Active Sailings</h3>
+        <button type="button" class="btn-primary" (click)="openNewSailingModal()">+ Create New Sailing</button>
+      </div>
+
+      <app-data-grid
+        [rowData]="sailings()"
+        [columnDefs]="sailingColumnDefs"
+        height="360px"
+        (rowClicked)="openSailingDetail($any($event).id)"
+      />
+    </div>
+  } @else if (currentSailing(); as sailing) {
+    <div class="glass-card wsb-panel">
+      <div class="wsb-panel__header">
+        <button type="button" class="btn-link" (click)="backToSailingsList()">&larr; Back to Sailings List</button>
+      </div>
+
+      <h3 class="wsb-sailing-title">{{ sailing.name }} — Watch Station Bill</h3>
+      <div class="wsb-detail-meta">
+        <div><span>Sailing</span><strong>{{ sailing.name }}</strong></div>
+        <div><span>Area</span><strong>{{ sailing.area || "—" }}</strong></div>
+        <div><span>Departed</span><strong>{{ sailing.start }}</strong></div>
+        <div><span>CO</span><strong>{{ sailing.co || "—" }}</strong></div>
+        <div><span>Embarked</span><strong>{{ sailing.personnelCount }}</strong></div>
+        <div><span>Civilians</span><strong>{{ sailing.civilianCount }}</strong></div>
+      </div>
+
+      <div class="wsb-subtabs-row">
+        <button
+          type="button"
+          class="wsb-subtab-btn"
+          [class.wsb-subtab-btn--active]="sailingDetailTab() === 'personnel'"
+          (click)="selectSailingDetailTab('personnel')"
+        >
+          Add Personnel available for sailing
+        </button>
+        <button
+          type="button"
+          class="wsb-subtab-btn"
+          [class.wsb-subtab-btn--active]="sailingDetailTab() === 'assignments'"
+          (click)="selectSailingDetailTab('assignments')"
+        >
+          Create Watch and Station Bill
+        </button>
+      </div>
+
+      @if (sailingDetailTab() === "personnel") {
+        <div class="wsb-toolbar">
+          <button type="button" class="btn-primary" (click)="openAddPersonnelModal()">Add Personnel</button>
+          <button type="button" class="btn-secondary" (click)="openAddCivilianModal()">Add Civilian</button>
+          <button type="button" class="btn-secondary" (click)="openAddEmbarkingOfficerModal()">Add Embarking Officers</button>
+          <button type="button" class="btn-secondary" (click)="printDeptList()">Full Dept list</button>
+          <button type="button" class="btn-secondary" (click)="printBillPdf()">Full Bill PDF</button>
+        </div>
+
+        <table class="wsb-plain-table">
+          <thead>
+            <tr>
+              <th>Dept</th><th>Rank</th><th>Name</th><th>Personal No.</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of sailingPersonnelRows; track row.pno) {
+              <tr>
+                <td>{{ row.dept }}</td>
+                <td>{{ row.rank }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.pno }}</td>
+                <td>
+                  <button type="button" class="btn-icon-danger" (click)="removePersonnel(row.id)">Remove</button>
+                </td>
+              </tr>
+            } @empty {
+              <tr><td colspan="5" class="wsb-empty-text">No personnel added to this sailing yet.</td></tr>
+            }
+          </tbody>
+        </table>
+      }
+
+      @if (sailingDetailTab() === "assignments") {
+        <div class="wsb-toolbar">
+          <button type="button" class="btn-secondary" (click)="toggleAssignEdit()">
+            {{ assignEditMode() ? "Save & Lock" : "Edit Assignments" }}
+          </button>
+        </div>
+
+        <div class="wsb-table-scroll">
+          <table class="wsb-plain-table wsb-assign-table">
+            <thead>
+              <tr>
+                <th>Dept</th><th>Name</th><th>Rank</th><th>Personal No</th>
+                @for (col of assignmentFields; track col.key) {
+                  <th>{{ col.label }}</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of assignmentRows(); track row.pno) {
+                <tr>
+                  <td>{{ row.dept }}</td>
+                  <td>{{ row.name }}</td>
+                  <td>{{ row.rank }}</td>
+                  <td>{{ row.pno }}</td>
+                  @for (col of assignmentFields; track col.key) {
+                    <td>
+                      <input
+                        class="wsb-assign-input"
+                        [value]="row[col.key] || ''"
+                        [disabled]="!assignEditMode()"
+                        (input)="updateAssignmentField(row.pno, col.key, $any($event.target).value)"
+                      />
+                    </td>
+                  }
+                </tr>
+              } @empty {
+                <tr><td [attr.colspan]="4 + assignmentFields.length" class="wsb-empty-text">No personnel to assign yet.</td></tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  }
+}
+
+<!-- ═══════════════════ HISTORY ═══════════════════ -->
+@if (activeTab() === "history") {
+  <div class="glass-card wsb-panel">
+    <div class="wsb-panel__header">
+      <h3>Completed Sailings Archive</h3>
+    </div>
+
+    <app-data-grid
+      [rowData]="historySailings()"
+      [columnDefs]="historyColumnDefs"
+      height="360px"
+      (rowClicked)="viewHistoryDetail($any($event).id)"
+    />
+  </div>
+}
+
+<!-- ═══════════════════ REFERENCES ═══════════════════ -->
+@if (activeTab() === "references") {
+  <div class="glass-card wsb-panel">
+    <div class="wsb-tabs-row wsb-tabs-row--sub">
+      @for (type of masterTypes; track type) {
+        <button
+          type="button"
+          class="wsb-tab-btn"
+          [class.wsb-tab-btn--active]="referenceTab() === type"
+          (click)="selectReferenceTab(type)"
+        >
+          {{ masterLabels[type] }}
+        </button>
+      }
+      <button
+        type="button"
+        class="wsb-tab-btn"
+        [class.wsb-tab-btn--active]="referenceTab() === 'classification'"
+        (click)="selectReferenceTab('classification')"
+      >
+        Classification
+      </button>
+      <button
+        type="button"
+        class="wsb-tab-btn"
+        [class.wsb-tab-btn--active]="referenceTab() === 'civilians'"
+        (click)="selectReferenceTab('civilians')"
+      >
+        Civilian / Officer Pool
+      </button>
+    </div>
+
+    @if (referenceTab() === "classification") {
+      <div class="wsb-panel__header">
+        <h3>Junior/Senior Sailor Classification</h3>
+        <button type="button" class="btn-primary" (click)="openAddClassificationModal()">+ Add Classification</button>
+      </div>
+
+      <table class="wsb-plain-table">
+        <thead><tr><th>Rank</th><th>Classification</th><th></th></tr></thead>
+        <tbody>
+          @for (entry of rankClassifications(); track entry.id) {
+            <tr>
+              <td>{{ entry.rankName }}</td>
+              <td>{{ entry.classification }}</td>
+              <td><button type="button" class="btn-icon-danger" (click)="deleteClassification(entry.id)">Delete</button></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="3" class="wsb-empty-text">No entries yet. Click "+ Add Classification" to add one.</td></tr>
+          }
+        </tbody>
+      </table>
+    } @else if (referenceTab() === "civilians") {
+      <div class="wsb-panel__header">
+        <h3>Civilian / Officer Pool</h3>
+        <button type="button" class="btn-primary" (click)="openAddCivilianModal()">+ Add Civilian / Officer</button>
+      </div>
+
+      <table class="wsb-plain-table">
+        <thead><tr><th>Name</th><th>Type</th><th>Appointment / Role</th><th>Rank</th><th>Service No.</th><th>Contact</th><th></th></tr></thead>
+        <tbody>
+          @for (c of civilians(); track c.id) {
+            <tr>
+              <td>{{ c.name }}</td>
+              <td>{{ personTypeLabels[c.personType] }}</td>
+              <td>{{ c.personType === "civilian" ? c.role : c.desig || "—" }}</td>
+              <td>{{ c.rank || "—" }}</td>
+              <td>{{ c.serviceNo || "—" }}</td>
+              <td>{{ c.contact || "—" }}</td>
+              <td><button type="button" class="btn-icon-danger" (click)="removeCivilian(c.id)">Remove</button></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="7" class="wsb-empty-text">No civilians or officers added yet.</td></tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="wsb-panel__header">
+        <h3>{{ activeMasterLabel() }} Master</h3>
+        <button type="button" class="btn-primary" (click)="openAddMasterModal()">+ Add {{ activeMasterLabel() }}</button>
+      </div>
+
+      <table class="wsb-plain-table">
+        <thead><tr><th>Value</th><th></th></tr></thead>
+        <tbody>
+          @for (entry of masterEntries(); track entry.id) {
+            <tr>
+              <td>{{ entry.name }}</td>
+              <td><button type="button" class="btn-icon-danger" (click)="deleteMasterEntry(entry.id)">Delete</button></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="2" class="wsb-empty-text">No entries yet.</td></tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+}
+
+<!-- ═══════════════════ MODALS ═══════════════════ -->
+@if (showNewSailingModal()) {
+  <app-modal size="md" (closeModal)="showNewSailingModal.set(false)">
+    <h3 class="wsb-modal__title">Start New Sailing</h3>
+
+    <div class="wsb-form-grid">
+      <div class="form-field">
+        <label class="form-field-label" for="sailName">Sailing / Operation Name *</label>
+        <input id="sailName" class="form-field-input" placeholder="e.g. OP SINDHU 2026" [(ngModel)]="newSailingName" />
+      </div>
+      <div class="form-field">
+        <label class="form-field-label" for="sailArea">Area of Operation</label>
+        <input id="sailArea" class="form-field-input" placeholder="e.g. Arabian Sea" [(ngModel)]="newSailingArea" />
+      </div>
+      <div class="form-field">
+        <label class="form-field-label" for="sailStart">Departure Date *</label>
+        <input id="sailStart" type="date" class="form-field-input" [(ngModel)]="newSailingStart" />
+      </div>
+      <div class="form-field">
+        <label class="form-field-label" for="sailTime">Departure Time *</label>
+        <input id="sailTime" type="time" class="form-field-input" [(ngModel)]="newSailingTime" />
+      </div>
+      <app-select-input
+        label="Commanding Officer"
+        placeholder="Search and select CO..."
+        [options]="coOptions()"
+        [(ngModel)]="newSailingCo"
+      />
+      <app-select-input
+        label="Fill Same Strength As (optional)"
+        placeholder="— Start empty —"
+        [options]="templateSailingOptions()"
+        [(ngModel)]="copyFromSailingId"
+      />
+    </div>
+
+    @if (!copyFromSailingId) {
+      <p class="wsb-sailing-hint">
+        The sailing will start with no crew. <strong>Edit Sailing</strong> after creating it to add ship's company.
+      </p>
+    } @else {
+      <p class="wsb-sailing-hint">
+        This sailing will start with the same personnel and station assignments as the selected sailing.
+      </p>
+    }
+
+    <div class="wsb-modal__actions">
+      <button type="button" class="btn-secondary" (click)="showNewSailingModal.set(false)">Cancel</button>
+      <button type="button" class="btn-primary" (click)="createSailing()">Start Sailing</button>
+    </div>
+  </app-modal>
+}
+
+@if (showAddPersonnelModal()) {
+  <app-modal size="lg" (closeModal)="showAddPersonnelModal.set(false)">
+    <h3 class="wsb-modal__title">Add Personnel — Ship's Company</h3>
+
+    <table class="wsb-plain-table">
+      <thead><tr><th></th><th>Rank</th><th>Name</th><th>Personal No.</th><th>Department</th><th>Status</th></tr></thead>
+      <tbody>
+        @for (p of availablePersonnel(); track p.id) {
+          @if (!isPersonnelAlreadyAdded(p.pno)) {
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  [checked]="selectedPersonnelIds().has(p.id)"
+                  (change)="togglePersonnelSelection(p.id)"
+                />
+              </td>
+              <td>{{ p.rank }}</td>
+              <td>{{ p.firstName }} {{ p.lastName }}</td>
+              <td>{{ p.pno }}</td>
+              <td>{{ p.department }}</td>
+              <td>{{ p.status }}</td>
+            </tr>
+          }
+        } @empty {
+          <tr><td colspan="6" class="wsb-empty-text">No personnel available.</td></tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="wsb-modal__actions">
+      <button type="button" class="btn-secondary" (click)="showAddPersonnelModal.set(false)">Close</button>
+      <button type="button" class="btn-primary" [disabled]="!selectedPersonnelIds().size" (click)="addSelectedPersonnel()">
+        Add Selected
+      </button>
+    </div>
+  </app-modal>
+}
+
+@if (showAddCivilianModal()) {
+  <app-modal size="lg" (closeModal)="showAddCivilianModal.set(false)">
+    <h3 class="wsb-modal__title">Add Civilian / Officer</h3>
+
+    <p class="wsb-type-select-label">Select Type</p>
+    <div class="wsb-type-pill-row">
+      @for (type of personTypes; track type) {
+        <button
+          type="button"
+          class="wsb-type-pill"
+          [class.wsb-type-pill--active]="newCivilian.personType === type"
+          (click)="selectCivilianType(type)"
+        >
+          {{ personTypeLabels[type] }}
+        </button>
+      }
+    </div>
+
+    <p class="wsb-sailing-hint">{{ newCivilian.personType === "civilian" ? civilianBanner : selectedTypeUi?.banner }}</p>
+
+    @if (newCivilian.personType === "civilian") {
+      <div class="wsb-form-grid">
+        <div class="form-field">
+          <label class="form-field-label" for="civName">Full Name *</label>
+          <input id="civName" class="form-field-input" placeholder="e.g. Rajesh Kumar" [(ngModel)]="newCivilian.name" />
+        </div>
+        <app-select-input
+          label="Role / Designation *"
+          placeholder="Select Role"
+          [options]="civilianRoleOptions"
+          [(ngModel)]="newCivilian.role"
+        />
+        <div class="form-field">
+          <label class="form-field-label" for="civRefId">ID / Aadhar / Emp No.</label>
+          <input id="civRefId" class="form-field-input" [(ngModel)]="newCivilian.refId" />
+        </div>
+        <div class="form-field">
+          <label class="form-field-label" for="civContact">Contact Number</label>
+          <input id="civContact" class="form-field-input" [(ngModel)]="newCivilian.contact" />
+        </div>
+        <div class="form-field wsb-form-grid__full">
+          <label class="form-field-label" for="civRemarks">Remarks</label>
+          <textarea id="civRemarks" class="form-field-input" rows="2" [(ngModel)]="newCivilian.remarks"></textarea>
+        </div>
+      </div>
+    } @else if (selectedTypeUi; as ui) {
+      <div class="wsb-form-grid">
+        <div class="form-field">
+          <label class="form-field-label" for="civName2">Full Name *</label>
+          <input id="civName2" class="form-field-input" placeholder="e.g. Rajesh Kumar" [(ngModel)]="newCivilian.name" />
+        </div>
+        <div class="form-field">
+          <label class="form-field-label" for="civDesig">{{ ui.appointmentLabel }} *</label>
+          <input id="civDesig" class="form-field-input" [(ngModel)]="newCivilian.desig" />
+        </div>
+        <app-select-input [label]="ui.rankLabel + ' *'" placeholder="Select rank..." [options]="rankOptions()" [(ngModel)]="newCivilian.rank" />
+        <div class="form-field">
+          <label class="form-field-label" for="civServiceNo">{{ ui.serviceNoLabel }} *</label>
+          <input id="civServiceNo" class="form-field-input" placeholder="e.g. IN-12345" [(ngModel)]="newCivilian.serviceNo" />
+        </div>
+        @if (ui.showFleetShip) {
+          <div class="form-field">
+            <label class="form-field-label" for="civFleet">Fleet / Command Name</label>
+            <input id="civFleet" class="form-field-input" placeholder="e.g. Western Naval Command" [(ngModel)]="newCivilian.fleet" />
+          </div>
+          <div class="form-field">
+            <label class="form-field-label" for="civShip">Ship / Unit</label>
+            <input id="civShip" class="form-field-input" placeholder="e.g. INS Vikramaditya" [(ngModel)]="newCivilian.ship" />
+          </div>
+        }
+        <div class="form-field">
+          <label class="form-field-label" for="civContact2">Contact Number</label>
+          <input id="civContact2" class="form-field-input" [(ngModel)]="newCivilian.contact" />
+        </div>
+        <div class="form-field wsb-form-grid__full">
+          <label class="form-field-label" for="civRemarks2">Remarks</label>
+          <textarea id="civRemarks2" class="form-field-input" rows="2" [(ngModel)]="newCivilian.remarks"></textarea>
+        </div>
+      </div>
+    }
+
+    <p class="wsb-sailing-hint">{{ sharedPoolBanner }}</p>
+
+    <div class="wsb-modal__actions">
+      <button type="button" class="btn-secondary" (click)="showAddCivilianModal.set(false)">Cancel</button>
+      <button type="button" class="btn-primary" (click)="addCivilian()">
+        Add {{ newCivilian.personType === "civilian" ? "Civilian" : personTypeLabels[newCivilian.personType] }}
+      </button>
+    </div>
+  </app-modal>
+}
+
+@if (showAddMasterModal()) {
+  <app-modal size="sm" (closeModal)="showAddMasterModal.set(false)">
+    <h3 class="wsb-modal__title">Add — {{ activeMasterLabel() }} Master</h3>
+
+    <div class="wsb-form-grid">
+      <div class="form-field">
+        <label class="form-field-label" for="wsbMasterValue">Value *</label>
+        <input id="wsbMasterValue" class="form-field-input" placeholder="Enter value…" [(ngModel)]="newMasterName" />
+      </div>
+    </div>
+
+    <div class="wsb-modal__actions">
+      <button type="button" class="btn-secondary" (click)="showAddMasterModal.set(false)">Cancel</button>
+      <button type="button" class="btn-primary" (click)="addMasterEntry()">+ Add</button>
+    </div>
+  </app-modal>
+}
+
+@if (showAddClassificationModal()) {
+  <app-modal size="sm" (closeModal)="showAddClassificationModal.set(false)">
+    <h3 class="wsb-modal__title">Add — Junior/Senior Sailor Classification</h3>
+
+    <div class="wsb-form-grid">
+      <app-select-input
+        label="Rank *"
+        placeholder="Select rank..."
+        [options]="rankOptions()"
+        [(ngModel)]="newClassificationRank"
+      />
+      <app-select-input
+        label="Classification *"
+        placeholder="Select classification..."
+        [options]="sailorClassOptions"
+        [(ngModel)]="newClassificationValue"
+      />
+    </div>
+
+    <div class="wsb-modal__actions">
+      <button type="button" class="btn-secondary" (click)="showAddClassificationModal.set(false)">Cancel</button>
+      <button type="button" class="btn-primary" (click)="addClassification()">+ Add</button>
+    </div>
+  </app-modal>
+}
+
+@if (historyDetail(); as detail) {
+  <app-modal size="lg" [title]="detail.name + ' (Archived)'" titleBg="#4b5563" (closeModal)="closeHistoryDetail()">
+    <div class="wsb-history-stats">
+      <div class="wsb-history-stat"><span>Sailing Name</span><strong>{{ detail.name }}</strong></div>
+      <div class="wsb-history-stat"><span>Area</span><strong>{{ detail.area || "—" }}</strong></div>
+      <div class="wsb-history-stat"><span>Departure</span><strong>{{ detail.start }}</strong></div>
+      <div class="wsb-history-stat"><span>Commanding Officer</span><strong>{{ detail.co || "—" }}</strong></div>
+      <div class="wsb-history-stat"><span>Total Embarked</span><strong>{{ detail.personnelCount }}</strong></div>
+      <div class="wsb-history-stat"><span>Civilians</span><strong>{{ detail.civilianCount }}</strong></div>
+    </div>
+
+    <div class="wsb-history-banner">
+      <app-icon name="triangle-alert" [size]="15" [strokeWidth]="2" variant="inherit" />
+      This sailing is completed and archived. No edits are permitted.
+    </div>
+
+    <div class="wsb-history-actions">
+      <button type="button" class="btn-secondary" (click)="printHistoryDeptList()">Dept-wise PDF</button>
+      <button type="button" class="btn-primary" (click)="printHistoryBillPdf()">Full Bill PDF</button>
+    </div>
+
+    @for (dept of detail.departments | keyvalue; track dept.key) {
+      <h4 class="wsb-subheading">{{ dept.key }} Department</h4>
+      <table class="wsb-plain-table">
+        <thead><tr><th>Rank</th><th>Name</th><th>Personal No.</th></tr></thead>
+        <tbody>
+          @for (row of dept.value; track row.pno) {
+            <tr>
+              <td>{{ row.rank }}</td>
+              <td>{{ row.name }}</td>
+              <td>{{ row.pno }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @empty {
+      <div class="wsb-history-empty">
+        <app-icon name="users" [size]="32" variant="muted" />
+        <p>No personnel on this sailing</p>
+      </div>
+    }
+  </app-modal>
+}

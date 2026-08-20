@@ -1,0 +1,3548 @@
+{
+  "formId": "parameter_checks_revathi",
+  "title": "PARAMETER CHECKS REVATHI",
+  "sourceFile": "parameter_checks_revathi.html",
+  "sections": [
+    {
+      "id": "section_basic_information",
+      "sectionTitle": "BASIC INFORMATION",
+      "title": "Revathi Parameter Checks P28",
+      "sectionType": "form",
+      "sectionGroup": {
+      "fields_1": [
+        {
+          "type":"label",
+          "value": "BASIC INFORMATION",
+          "colSpan": 12
+        },
+        {
+          "_id": "system_subsystem",
+          "key": "systemSubsystem",
+          "label": "1. System/ Sub system",
+          "type": "input",
+          "value": "REVATHI",
+          "inputType": "text",
+          "placeholder": "Enter System/Sub System",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "job_undertaken",
+          "key": "jobUndertaken",
+          "label": "2. Job Undertaken",
+          "type": "input",
+          "value": "Tilt Checks",
+          "inputType": "text",
+          "placeholder": "Enter Job Undertaken",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "reference_document",
+          "key": "referenceDocument",
+          "label": "3. Reference Documents",
+          "type": "file",
+          "value": "",
+          "placeholder": "Upload Reference Document",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "authority",
+          "key": "authority",
+          "label": "4. Authority",
+          "type": "input",
+          "value": "",
+          "inputType": "text",
+          "placeholder": "Enter Authority",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "agencies_involved",
+          "key": "agenciesInvolved",
+          "label": "5. Agencies involved",
+          "type": "input",
+          "value": "FTTT(Vzg)",
+          "inputType": "text",
+          "placeholder": "Enter Agencies",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "date_commenced",
+          "key": "dateCommenced",
+          "label": "6. Date Commenced",
+          "type": "input",
+          "value": "",
+          "inputType": "date",
+          "placeholder": "Select Date",
+          "required": false,
+          "disabled": false,
+          "colSpan": 4
+        },
+        {
+          "_id": "date_completed",
+          "key": "dateCompleted",
+          "label": "7. Date Completed",
+          "type": "input",
+          "value": "",
+          "inputType": "date",
+          "placeholder": "Select Date",
+          "required": false,
+          "disabled": false,
+          "colSpan": 6
+        },
+        {
+          "_id": "prepared_by",
+          "key": "preparedBy",
+          "label": "8. Prepared by",
+          "type": "input",
+          "value": "",
+          "inputType": "text",
+          "placeholder": "Enter Name",
+          "required": false,
+          "disabled": false,
+          "colSpan": 6
+        },
+        {
+          "_id": "vetted_by",
+          "key": "vettedBy",
+          "label": "9. Vetted by",
+          "type": "input",
+          "value": "",
+          "inputType": "text",
+          "placeholder": "Enter Name",
+          "required": false,
+          "disabled": false,
+          "colSpan": 6
+        },
+        {
+          "_id": "reference_no",
+          "key": "referenceNo",
+          "label": "10. Reference No.",
+          "type": "input",
+          "value": "",
+          "inputType": "text",
+          "placeholder": "Enter Reference Number",
+          "required": false,
+          "disabled": false,
+          "colSpan": 6
+        },
+        {
+          "_id": "summary_observations",
+          "key": "summaryObservations",
+          "label": "11. Summary of observations",
+          "type": "textarea",
+          "value": "",
+          "rows": 3,
+          "placeholder": "Enter Summary",
+          "required": false,
+          "disabled": false,
+          "colSpan": 12
+        },
+        {
+          "_id": "operational_limitations",
+          "key": "operationalLimitations",
+          "label": "12. Operational limitations (if any)",
+          "type": "textarea",
+          "value": "",
+          "rows": 3,
+          "placeholder": "Enter Operational Limitations",
+          "required": false,
+          "disabled": false,
+          "colSpan": 12
+        }
+      ],
+       "tables_1": [
+          {
+            "id": "13_transmitter_checks_table_1",
+            "sectionType": "matrixTable",
+            "title": "13. Transmitter Checks",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser No.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Mode of OperatioN a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Specified Value b.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_4",
+                "label": "Last Observed Value c.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_5",
+                "label": "Observed Value d.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_6",
+                "label": "Remarks e.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "13_transmitter_checks_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "Mode 1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "≥ 120 KW",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_4_tx_last_1",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_5_tx_obs_1",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_1_cell_6_tx_rem_1",
+                    "key": "tx_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "13_transmitter_checks_table_1_row_2",
+                "cells": [
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "Mode 2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "≥ 12 KW",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_4_tx_last_2",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_5_tx_obs_2",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_2_cell_6_tx_rem_2",
+                    "key": "tx_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "13_transmitter_checks_table_1_row_3",
+                "cells": [
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "Mode 3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "≥ 1.2 KW",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_4_tx_last_3",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_5_tx_obs_3",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "13_transmitter_checks_table_1_row_3_cell_6_tx_rem_3",
+                    "key": "tx_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1,
+            "multipleGraphs": [
+              {
+                "title": "13. Transmitter Checks — Power by Mode",
+                "type": "line",
+                "rowIndices": [
+                  1,
+                  2,
+                  3
+                ],
+                "labelKey": "parameter",
+                "datasets": [
+                  {
+                    "key": "specified_value",
+                    "label": "Specified Value",
+                    "color": "#ef4444"
+                  },
+                  {
+                    "key": "last_measured",
+                    "label": "Last Observed Value",
+                    "color": "#f59e0b"
+                  },
+                  {
+                    "key": "present_value",
+                    "label": "Observed Value",
+                    "color": "#3b82f6"
+                  }
+                ],
+                "description": "Mode 1–3: Specified vs Last Observed vs Observed Value"
+              }
+            ]
+          }
+      ],
+      "tables_2": [
+
+          {
+            "id": "14_lna_checks_sat_table_2",
+            "sectionType": "simpleTable",
+            "title": "14. LNA Checks. SAT",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "14_lna_checks_sat_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "14_lna_checks_sat_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "14_lna_checks_sat_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "14_lna_checks_sat_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+      "tables_3": [
+          {
+            "id": "15_receiver_checks_table_2",
+            "sectionType": "simpleTable",
+            "title": "15. Receiver Checks.",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "15_receiver_checks_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "15_receiver_checks_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "15_receiver_checks_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "15_receiver_checks_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+      "tables_4": [
+          {
+            "id": "16_vswr_checks_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "16. The obtained values are mentioned below: –",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser No.",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center"
+                },
+                {
+                  "label": "Frequency a.",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center"
+                },
+                {
+                  "label": "VSWR",
+                  "colspan": 3,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks e.",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center"
+                }
+              ],
+              [
+                {
+                  "label": "Specified Value b.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Last Measured Value c.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Measured Value d.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "16_vswr_checks_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "RF1 (Lower frequency in the band)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "≤ 1.80",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_4_vswr_last_1",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_5_vswr_obs_1",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_1_cell_6_vswr_rem_1",
+                    "key": "vswr_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "16_vswr_checks_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "RF2 (Middle frequency in the band)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "≤ 1.80",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_4_vswr_last_2",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_5_vswr_obs_2",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_2_cell_6_vswr_rem_2",
+                    "key": "vswr_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "16_vswr_checks_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "RF3 (Upper frequency in the band)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "parameter"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "≤ 1.80",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center",
+                    "key": "specified_value"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_4_vswr_last_3",
+                    "key": "last_measured",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_5_vswr_obs_3",
+                    "key": "present_value",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_matrix_1_row_3_cell_6_vswr_rem_3",
+                    "key": "vswr_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1,
+            "multipleGraphs": [
+            ]
+          },
+          {
+            "id": "16_vswr_checks_table_2",
+            "sectionType": "simpleTable",
+            "title": "16. VSWR Checks.",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "16_vswr_checks_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "16_vswr_checks_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "16_vswr_checks_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "16_vswr_checks_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+      "tables_5": [
+          {
+            "id": "17_minimum_detectable_signal_mds_checks_table_1",
+            "sectionType": "simpleTable",
+            "title": "17. Minimum Detectable Signal (MDS Checks).",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Freq. a.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Y Path Loss b.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "X Attenuator Value c.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_4",
+                "label": "A Bite Power d.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_5",
+                "label": "PD≥80% e.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_6",
+                "label": "Specified Limit (dBm) f.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_7",
+                "label": "Observed Value A-(X+Y)-14 (dBm) g.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "Set-4, Page-1, Spt-11",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_2_mds_y_1",
+                    "key": "mds_y_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_3_mds_x_1",
+                    "key": "mds_x_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_4_mds_a_1",
+                    "key": "mds_a_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_5_mds_pd_1",
+                    "key": "mds_pd_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_6_static",
+                    "type": "label",
+                    "value": "≤-109",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_1_row_1_cell_7_mds_obs_1",
+                    "key": "mds_obs_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "17_minimum_detectable_signal_mds_checks_table_2",
+            "sectionType": "simpleTable",
+            "title": "17. Minimum Detectable Signal (MDS Checks).",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "17_minimum_detectable_signal_mds_checks_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "17_minimum_detectable_signal_mds_checks_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+       "tables_6": [
+          {
+            "id": "18_pulse_length_measurement_table_1",
+            "sectionType": "simpleTable",
+            "title": "18. The obtained values are mentioned below: –",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser No.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "RPM a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Specified Value (µs) b.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_4",
+                "label": "Last Observed Value (µs)c.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_5",
+                "label": "Observed Value (µs) d.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_6",
+                "label": "Remarks e.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "18_pulse_length_measurement_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "64",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_4_pl_last_1",
+                    "key": "pl_last_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_5_pl_obs_1",
+                    "key": "pl_obs_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_1_cell_6_pl_rem_1",
+                    "key": "pl_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "18_pulse_length_measurement_table_1_row_2",
+                "cells": [
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "12",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "32",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_4_pl_last_2",
+                    "key": "pl_last_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_5_pl_obs_2",
+                    "key": "pl_obs_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_2_cell_6_pl_rem_2",
+                    "key": "pl_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "18_pulse_length_measurement_table_1_row_3",
+                "cells": [
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "24",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_4_pl_last_3",
+                    "key": "pl_last_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_5_pl_obs_3",
+                    "key": "pl_obs_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_1_row_3_cell_6_pl_rem_3",
+                    "key": "pl_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "18_pulse_length_measurement_table_2",
+            "sectionType": "simpleTable",
+            "title": "18. Pulse Length Measurement.",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "18_pulse_length_measurement_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "18_pulse_length_measurement_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "18_pulse_length_measurement_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+      "tables_7": [
+          {
+            "id": "19_prf_measurement_table_1",
+            "sectionType": "simpleTable",
+            "title": "19. The obtained values are mentioned below: –",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser No.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "RPM a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Specified Value (Hz) b.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_4",
+                "label": "Last Observed Value (Hz) c.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_5",
+                "label": "Observed Value (Hz) d.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_6",
+                "label": "Remarks e.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "19_prf_measurement_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "515",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_4_prf_last_1",
+                    "key": "prf_last_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_5_prf_obs_1",
+                    "key": "prf_obs_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_1_cell_6_prf_rem_1",
+                    "key": "prf_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "19_prf_measurement_table_1_row_2",
+                "cells": [
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "12",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "816",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_4_prf_last_2",
+                    "key": "prf_last_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_5_prf_obs_2",
+                    "key": "prf_obs_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_2_cell_6_prf_rem_2",
+                    "key": "prf_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "19_prf_measurement_table_1_row_3",
+                "cells": [
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "24",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "3058",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_4_prf_last_3",
+                    "key": "prf_last_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_5_prf_obs_3",
+                    "key": "prf_obs_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_1_row_3_cell_6_prf_rem_3",
+                    "key": "prf_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "19_prf_measurement_table_2",
+            "sectionType": "simpleTable",
+            "title": "19. PRF Measurement.",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "19_prf_measurement_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "19_prf_measurement_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "19_prf_measurement_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+        "tables_8": [
+          {
+            "id": "20_intermediate_frequency_if_table_1",
+            "sectionType": "simpleTable",
+            "title": "20. Intermediate Frequency (IF).",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser No.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Receiver a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Specified Frequency b.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_4",
+                "label": "Measured Frequency c.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_5",
+                "label": "Specified Level d.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_6",
+                "label": "Last Measured Value e.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_7",
+                "label": "Present Value f.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_1",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_4_if_mfreq_1",
+                    "key": "if_mfreq_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_6_if_last_1",
+                    "key": "if_last_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_1_cell_7_if_pres_1",
+                    "key": "if_pres_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_2",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_4_if_mfreq_2",
+                    "key": "if_mfreq_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_6_if_last_2",
+                    "key": "if_last_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_2_cell_7_if_pres_2",
+                    "key": "if_pres_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_3",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_4_if_mfreq_3",
+                    "key": "if_mfreq_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_6_if_last_3",
+                    "key": "if_last_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_3_cell_7_if_pres_3",
+                    "key": "if_pres_3",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_4",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_4_if_mfreq_4",
+                    "key": "if_mfreq_4",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25 dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_6_if_last_4",
+                    "key": "if_last_4",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_4_cell_7_if_pres_4",
+                    "key": "if_pres_4",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_5",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 5/6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_4_if_mfreq_5",
+                    "key": "if_mfreq_5",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25 dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_6_if_last_5",
+                    "key": "if_last_5",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_5_cell_7_if_pres_5",
+                    "key": "if_pres_5",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_6",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "RCV 7/8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_4_if_mfreq_6",
+                    "key": "if_mfreq_6",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25 dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_6_if_last_6",
+                    "key": "if_last_6",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_6_cell_7_if_pres_6",
+                    "key": "if_pres_6",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_7",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_2_static",
+                    "type": "label",
+                    "value": "Short Pulse",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_3_static",
+                    "type": "label",
+                    "value": "80 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_4_if_mfreq_7",
+                    "key": "if_mfreq_7",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25 dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_6_if_last_7",
+                    "key": "if_last_7",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_7_cell_7_if_pres_7",
+                    "key": "if_pres_7",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "20_intermediate_frequency_if_table_1_row_8",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_2_static",
+                    "type": "label",
+                    "value": "SLB",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_3_static",
+                    "type": "label",
+                    "value": "60 MHz",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_4_if_mfreq_8",
+                    "key": "if_mfreq_8",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_5_static",
+                    "type": "label",
+                    "value": "≥ -25 dBm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_6_if_last_8",
+                    "key": "if_last_8",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_1_row_8_cell_7_if_pres_8",
+                    "key": "if_pres_8",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          },
+          {
+            "id": "20_intermediate_frequency_if_table_2",
+            "sectionType": "simpleTable",
+            "title": "20. Intermediate Frequency (IF).",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "col_1",
+                "label": "Ser",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "col_2",
+                "label": "Test Equipment Used a.",
+                "type": "label",
+                "align": "left"
+              },
+              {
+                "key": "col_3",
+                "label": "Checks Undertaken b.",
+                "type": "label",
+                "align": "left"
+              }
+            ],
+            "rows": [
+              {
+                "_id": "20_intermediate_frequency_if_table_2_row_1",
+                "cells": [
+                  {
+                    "_id": "20_intermediate_frequency_if_table_2_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_2_row_1_cell_2_field_2",
+                    "key": "field_2",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "20_intermediate_frequency_if_table_2_row_1_cell_3_field_3",
+                    "key": "field_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": true,
+            "minRows": 1
+          }
+      ],
+      "tables_9": [
+          {
+            "id": "21_visual_inspection_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "21. Visual Inspection.",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser No.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Description of Check a.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks b.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "21_visual_inspection_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 3,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "Inspection of Antenna assembly",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "Greasing of gearings",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_2_cell_2_vi_rem_1_1",
+                    "key": "vi_rem_1_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "Antenna safety interlock checks",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_3_cell_2_vi_rem_1_2",
+                    "key": "vi_rem_1_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "Inspection of waveguide – material state",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_4_cell_3_vi_rem_2",
+                    "key": "vi_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "Status of ACH of sub units",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_5_cell_3_vi_rem_3",
+                    "key": "vi_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_6",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "Status of Cooling of critical compartments",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_7",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "Ops Room",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_7_cell_2_vi_rem_4_1",
+                    "key": "vi_rem_4_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_8",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "Revathi HF Post",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_8_cell_2_vi_rem_4_2",
+                    "key": "vi_rem_4_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_9",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_9_cell_1_static",
+                    "type": "serial",
+                    "value": "Stabilisation Compartment",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_9_cell_2_vi_rem_4_3",
+                    "key": "vi_rem_4_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_10",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_10_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_10_cell_2_static",
+                    "type": "label",
+                    "value": "Waveguide drier status",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_10_cell_3_vi_rem_5",
+                    "key": "vi_rem_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "21_visual_inspection_matrix_1_row_11",
+                "cells": [
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_11_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_11_cell_2_static",
+                    "type": "label",
+                    "value": "Status of cables / connectors",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "21_visual_inspection_matrix_1_row_11_cell_3_vi_rem_6",
+                    "key": "vi_rem_6",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          }
+      ],
+      "tables_10": [
+          {
+            "id": "22_operation_checks_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "22. Operation Checks.",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser No.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Checks Description a.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks b.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "22_operation_checks_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "RPM control of antenna",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_1_cell_3_op_rem_1",
+                    "key": "op_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "Stabilization of antenna",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_2_cell_3_op_rem_2",
+                    "key": "op_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "Video and Tracks presentation in Operator console",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_3_cell_3_op_rem_3",
+                    "key": "op_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "Ships House Hold Data (SHHD) checks",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "Gyro",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_5_cell_2_op_rem_4_1",
+                    "key": "op_rem_4_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_6",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "Log",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_6_cell_2_op_rem_4_2",
+                    "key": "op_rem_4_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_7",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "GPS",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_7_cell_2_op_rem_4_3",
+                    "key": "op_rem_4_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_8",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_8_cell_2_static",
+                    "type": "label",
+                    "value": "Availability of Tracks to CMS",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_8_cell_3_op_rem_5",
+                    "key": "op_rem_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "22_operation_checks_matrix_1_row_9",
+                "cells": [
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_9_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_9_cell_2_static",
+                    "type": "label",
+                    "value": "Checking of transfer of TD to Lynx U1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "22_operation_checks_matrix_1_row_9_cell_3_op_rem_6",
+                    "key": "op_rem_6",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          }
+      ],
+      "tables_11": [
+          {
+            "id": "23_all_electric_drives_aed_health_status_matrix_1",
+            "sectionType": "matrixTable",
+            "title": "23. All Electric Drives (AED) Health Status.",
+            "topHeaders": [
+              [
+                {
+                  "label": "Ser No.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Checks Description a",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks b.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
+            "columns": [],
+            "rows": [
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_1_cell_1_static",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_1_cell_2_static",
+                    "type": "label",
+                    "value": "Pitch Encoder",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_1_cell_3_aed_rem_1",
+                    "key": "aed_rem_1",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_2",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_2_cell_1_static",
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_2_cell_2_static",
+                    "type": "label",
+                    "value": "Roll Encoder",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_2_cell_3_aed_rem_2",
+                    "key": "aed_rem_2",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_3",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_3_cell_1_static",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_3_cell_2_static",
+                    "type": "label",
+                    "value": "Elevation Encoder",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_3_cell_3_aed_rem_3",
+                    "key": "aed_rem_3",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_4_cell_1_static",
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_4_cell_2_static",
+                    "type": "label",
+                    "value": "Communication link",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_4_cell_3_aed_rem_4",
+                    "key": "aed_rem_4",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_5_cell_1_static",
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_5_cell_2_static",
+                    "type": "label",
+                    "value": "Ship's Gyro Link",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_5_cell_3_aed_rem_5",
+                    "key": "aed_rem_5",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_6",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_6_cell_1_static",
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_6_cell_2_static",
+                    "type": "label",
+                    "value": "RC-SCU Link",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_6_cell_3_aed_rem_6",
+                    "key": "aed_rem_6",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_7",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_7_cell_2_static",
+                    "type": "label",
+                    "value": "Actuator 1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_7_cell_3_aed_rem_7",
+                    "key": "aed_rem_7",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_8",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_8_cell_1_static",
+                    "type": "serial",
+                    "value": "8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_8_cell_2_static",
+                    "type": "label",
+                    "value": "Actuator 2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_8_cell_3_aed_rem_8",
+                    "key": "aed_rem_8",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_9",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_9_cell_1_static",
+                    "type": "serial",
+                    "value": "9",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_9_cell_2_static",
+                    "type": "label",
+                    "value": "Platform Status",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_9_cell_3_aed_rem_9",
+                    "key": "aed_rem_9",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_10",
+                "cells": [
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_10_cell_1_static",
+                    "type": "serial",
+                    "value": "10",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_10_cell_2_static",
+                    "type": "label",
+                    "value": "Insulation health of AED",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "23_all_electric_drives_aed_health_status_matrix_1_row_10_cell_3_aed_rem_10",
+                    "key": "aed_rem_10",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 1,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": " ",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ],
+            "showRowActions": false,
+            "minRows": 1
+          }
+        ]
+    }
+    }
+  ]
+}

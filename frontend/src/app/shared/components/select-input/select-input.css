@@ -1,0 +1,390 @@
+:host {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+:host(:has(.dropdown-menu.open)) {
+  z-index: 9999 !important;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.required {
+  color: #ff5b5b;
+}
+
+/* ================= FIELD ================= */
+
+.dropdown-trigger {
+  position: relative;
+  box-sizing: border-box;
+
+  height: 45px;
+  width: 100%;
+  min-width: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border-input);
+
+  background: var(--bg-input);
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.dropdown-trigger.active {
+  border-color: var(--text-muted);
+}
+
+.dropdown-trigger.error {
+  border-color: #f82c36;
+  outline: 1px solid #f82c36;
+  outline-offset: -1px;
+}
+
+/* #f82c36 measures under 4.5:1 against this component's real dark-theme background once
+   rendered (SonarQube css:S7924) — #ff5b5b is the same "required/error" red already used by
+   `.required` above, just lightened enough to clear the ratio. */
+.dropdown-trigger.error .placeholder-text {
+  color: #ff5b5b;
+}
+
+/* Live "required & blank" hint (pre-submit) — same red hue as .error but softer/muted,
+   distinct from the full-strength red that only appears after a failed Submit. Opaque (not the
+   previous 0.65-alpha) — the translucent version measured well under 4.5:1 once composited over
+   the real dark background (SonarQube css:S7924); this is that same rgb(229,135,127) at full
+   opacity instead. */
+.dropdown-trigger.placeholder-error .placeholder-text {
+  color: #e5877f;
+}
+
+
+
+/* ================= PLACEHOLDER ================= */
+
+.placeholder-text,
+.selected-value {
+  font-size: 12px;
+  font-weight: 400;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selected-value {
+  color: var(--text-primary);
+}
+
+.placeholder-text {
+  color: var(--text-muted);
+}
+
+/* ================= INPUT ================= */
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 400;
+
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ================= ARROW ================= */
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 16px;
+  transition: transform .25s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* ================= MENU ================= */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+
+  width: 100%;
+
+  background: var(--bg-dropdown);
+
+  border: 1px solid var(--border-dropdown);
+  border-radius: 10px;
+
+  max-height: 180px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease,
+    visibility .2s ease;
+
+  z-index: 1000;
+}
+
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ================= OPTIONS ================= */
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+
+  padding: 10px 16px;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition: background .15s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-select-option);
+}
+
+.dropdown-item:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.empty-state {
+  padding: 14px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ================= SCROLLBAR ================= */
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--bg-scrollbar-thumb);
+  border-radius: 20px;
+}
+
+:host(.glass-popup) .dropdown-trigger {
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.30);
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.03),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+:host(.glass-popup) .dropdown-trigger.active {
+  border-color: var(--text-muted);
+}
+
+
+
+:host(.glass-popup) .selected-value,
+:host(.glass-popup) .search-input {
+  color: var(--text-primary);
+}
+
+:host(.glass-popup) .search-input {
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+:host(.glass-popup) .arrow {
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+:host(.glass-popup) .dropdown-menu {
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.38),
+    0 0 0 1px rgba(255,255,255,.04),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+:host(.glass-popup) .dropdown-item {
+  padding: 11px 12px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  background: rgba(255,255,255,.045);
+  font-weight: 500;
+  transition: background .15s ease, transform .12s ease, color .15s ease;
+}
+
+:host(.glass-popup) .dropdown-item + .dropdown-item {
+  margin-top: 8px;
+}
+
+:host(.glass-popup) .dropdown-item:hover {
+  background: rgba(255,255,255,.08);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+:host(.glass-popup) .dropdown-item:first-child {
+  border-radius: 10px;
+}
+
+:host(.glass-popup) .dropdown-item:last-child {
+  border-radius: 10px;
+}
+
+:host(.glass-popup) .selected-value,
+:host(.glass-popup) .placeholder-text {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+:host(.glass-popup) .selected-value {
+  color: var(--text-primary);
+}
+
+:host(.glass-popup) .placeholder-text {
+  color: var(--text-muted);
+}
+
+
+.dropdown-trigger.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  /* Matches app-input-field's readonly-field treatment: brighter/thicker than the default 1px
+     border so the dashes read as crisp, deliberate marks instead of a faint, blurred line
+     (matches the reference design's own --sfd-dashed token) — clearly non-interactive rather
+     than looking almost identical to an editable dropdown. */
+  background: var(--bg-input-disabled);
+  border: 1.5px dashed var(--border-input) !important;
+}
+
+.dropdown-trigger.disabled .arrow {
+  opacity: 0.5;
+}
+
+.dropdown-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.clear-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+}
+
+
+.dropdown-trigger.readonly {
+  cursor: not-allowed;
+  background: var(--bg-input-disabled);
+  opacity: 0.8;
+  border: 1.5px dashed var(--border-input)
+}
+
+.dropdown-trigger.readonly .arrow {
+  opacity: 0.5;
+}
+
+.dropdown-trigger.readonly .selected-value,
+.dropdown-trigger.readonly .placeholder-text {
+  cursor: not-allowed;
+}
+
+.required-placeholder {
+  /* Opaque, not the previous 0.65-alpha — see the matching note on
+     .dropdown-trigger.placeholder-error .placeholder-text above (SonarQube css:S7924). */
+  color: #e5877f;
+  /* red */
+}

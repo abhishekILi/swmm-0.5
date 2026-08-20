@@ -1,0 +1,120 @@
+<app-master-card cardTitle="Create DL-II" cardHeight="auto">
+  <div class="grid grid-cols-4 gap-4 mb-4 items-end">
+    <div>
+      <label for="refit-type" class="text-white/60 text-xs mb-1 block">Refit Type</label>
+      <select id="refit-type" [(ngModel)]="refitType" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="">-- Select Refit Type --</option>
+        @for (type of refitTypes; track type.id) {
+          <option [value]="type.id">{{ type.name }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label for="yard-name" class="text-white/60 text-xs mb-1 block">Select Yard Name</label>
+      <select id="yard-name" [(ngModel)]="yardName" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="">-- Select Yard --</option>
+        @for (yard of yardOptions; track yard.code) {
+          <option [value]="yard.code">{{ yard.label }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label for="export-format" class="text-white/60 text-xs mb-1 block">Select Export File Format</label>
+      <select id="export-format" [(ngModel)]="exportFormat" class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+        <option value="">-- Select Format --</option>
+        @for (format of exportFormats; track format) {
+          <option [value]="format">{{ format }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      @if (dlNoSet) {
+        <button type="button" [disabled]="exporting" (click)="exportToNavyojana()" class="w-full h-10 rounded-lg bg-[#008F4C] text-white text-sm disabled:opacity-60">
+          {{ exporting ? 'Exporting…' : 'Export to Navyojana' }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="flex items-end gap-2 mb-4">
+    <div class="flex-1 max-w-xs">
+      <label for="dl-no" class="text-white/60 text-xs mb-1 block">DL No :-</label>
+      <input
+        id="dl-no"
+        type="number"
+        [(ngModel)]="manualDlNo"
+        placeholder="e.g. 144"
+        class="w-full h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm"
+      />
+    </div>
+    <button type="button" (click)="setDlNo()" class="px-4 h-10 rounded-lg bg-white/10 border border-white/10 text-white text-sm">
+      OK
+    </button>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-white/50 border-b border-white/10">
+        <tr>
+          <th class="py-2 pr-3">Ser</th>
+          <th class="py-2 pr-3">DL No.</th>
+          <th class="py-2 pr-3">DART No.</th>
+          <th class="py-2 pr-3">Date</th>
+          <th class="py-2 pr-3">Status</th>
+          <th class="py-2 pr-3">Equipment</th>
+          <th class="py-2 pr-3">Description</th>
+          <th class="py-2 pr-3">Additional Remarks</th>
+          <th class="py-2 pr-3">SS Remarks</th>
+          <th class="py-2 pr-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows; track row.ser) {
+          <tr class="border-b border-white/5">
+            <td class="py-2 pr-3">{{ row.ser }}</td>
+            <td class="py-2 pr-3">{{ row.dl_no || '—' }}</td>
+            <td class="py-2 pr-3">{{ row.dart_no }}</td>
+            <td class="py-2 pr-3">{{ row.date }}</td>
+            <td class="py-2 pr-3">
+              <span class="px-2 py-0.5 rounded-full text-xs bg-amber-500/15 text-amber-400">{{ row.status }}</span>
+            </td>
+            <td class="py-2 pr-3">{{ row.equipment }}</td>
+            <td class="py-2 pr-3">{{ row.description }}</td>
+            <td class="py-2 pr-3">
+              <textarea
+                [(ngModel)]="row.remarks"
+                rows="1"
+                class="w-full h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white text-xs resize-none"
+              ></textarea>
+            </td>
+            <td class="py-2 pr-3">
+              <select [(ngModel)]="row.ss_remark" class="h-8 rounded-md bg-white/5 border border-white/10 px-2 text-white text-xs">
+                <option value="">-- Select --</option>
+                @for (opt of shipRemarkOptions; track opt.id) {
+                  <option [value]="opt.id">{{ opt.description }}</option>
+                }
+              </select>
+            </td>
+            <td class="py-2 pr-3">
+              <button type="button" (click)="removeRow(row.ser)" class="text-red-400 underline text-xs">Delete</button>
+            </td>
+          </tr>
+        }
+        @if (!rows.length) {
+          <tr>
+            <td colspan="10" class="py-6 text-center text-white/40">No drafted DL-II rows found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex gap-2 mt-4">
+    <button type="button" [disabled]="saving" (click)="save()" class="px-4 h-10 rounded-lg bg-[#1D96E9] text-white text-sm disabled:opacity-60">
+      {{ saving ? 'Saving…' : 'Save' }}
+    </button>
+    <button type="button" (click)="cancel()" class="px-4 h-10 rounded-lg bg-white/10 border border-white/10 text-white text-sm">
+      Cancel
+    </button>
+  </div>
+</app-master-card>

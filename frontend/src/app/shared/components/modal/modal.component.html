@@ -1,0 +1,24 @@
+<div class="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 modal-backdrop p-4 ">
+  <div
+    class="backdrop-blur-2xl rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.4)] relative modal-card flex flex-col"
+    [class.overflow-hidden]="!allowOverflow" [class.overflow-visible]="allowOverflow"
+    [class.modal-card-sm]="size === 'sm'"
+    [class]="'modal-card--' + size"
+    [style.background]="customBg || 'var(--bg-sfd-modal)'" [style.color]="'var(--text-primary)'"
+    role="dialog" tabindex="-1">
+
+    @if (title) {
+      <div class="flex items-center justify-between gap-3 px-5 py-3.5 shrink-0" [style.background]="titleBg">
+        <span class="text-[16px] font-semibold text-white">{{ title }}</span>
+        <button type="button" class="opacity-90 hover:opacity-100" (click)="closeModal.emit()" aria-label="Close">
+          <app-icon name="x" [size]="18" color="#ffffff" />
+        </button>
+      </div>
+    }
+
+    <div class="p-6 sm:p-8 modal-card__body" [class.overflow-visible]="allowOverflow">
+      <!-- Modal content slot -->
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

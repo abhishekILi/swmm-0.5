@@ -1,0 +1,176 @@
+<app-master-card cardTitle="Tank Masters" cardHeight="auto">
+  <div class="flex gap-4">
+    <div class="w-48 shrink-0 flex flex-col gap-1">
+      <button type="button" (click)="setTab('pol-types')"
+        class="text-left px-3 py-2 rounded-lg text-sm master-tab"
+        [class.master-tab--active]="activeTab === 'pol-types'">
+        Fluid/POL Types
+      </button>
+      <button type="button" (click)="setTab('pol-names')"
+        class="text-left px-3 py-2 rounded-lg text-sm master-tab"
+        [class.master-tab--active]="activeTab === 'pol-names'">
+        Fluid/POL Names
+      </button>
+      <button type="button" (click)="setTab('tank-category')"
+        class="text-left px-3 py-2 rounded-lg text-sm master-tab"
+        [class.master-tab--active]="activeTab === 'tank-category'">
+        Tank Category
+      </button>
+      <button type="button" (click)="setTab('tank-location')"
+        class="text-left px-3 py-2 rounded-lg text-sm master-tab"
+        [class.master-tab--active]="activeTab === 'tank-location'">
+        Tank Location
+      </button>
+    </div>
+
+    <div class="flex-1">
+      @switch (activeTab) {
+        @case ('pol-types') {
+          <div class="flex gap-2 mb-4">
+            <input type="text" [(ngModel)]="newPolType" placeholder="New Fluid/POL Type" class="flex-1 h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+            <button type="button" (click)="addPolType()" class="h-10 px-4 rounded-lg bg-[#1D96E9] text-white text-sm">Add Fluid/POL Type</button>
+          </div>
+          <table class="w-full text-sm text-left">
+            <thead class="text-white/50 border-b border-white/10">
+              <tr>
+                <th class="py-2 pr-3">Ser No.</th>
+                <th class="py-2 pr-3">Fluid/POL Type</th>
+                <th class="py-2 pr-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of polTypes; track row.id) {
+                <tr class="border-b border-white/5">
+                  <td class="py-2 pr-3">{{ row.ser }}</td>
+                  <td class="py-2 pr-3">{{ row.polType }}</td>
+                  <td class="py-2 pr-3">
+                    <button type="button" (click)="removePolType(row)" class="text-[#dc3545] underline text-xs">Delete</button>
+                  </td>
+                </tr>
+              }
+              @if (!polTypes.length) {
+                <tr><td colspan="3" class="py-6 text-center text-white/40">No Fluid/POL Types found.</td></tr>
+              }
+            </tbody>
+          </table>
+        }
+
+        @case ('pol-names') {
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <input type="text" [(ngModel)]="newPolName" placeholder="New Fluid/POL Name" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+            <select [(ngModel)]="newPolNameType" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+              <option value="">-- POL Type --</option>
+              @for (t of polTypes; track t.id) {
+                <option [value]="t.polType">{{ t.polType }}</option>
+              }
+            </select>
+            <select [(ngModel)]="newPolNameUnit" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+              <option value="Litres">Litres</option>
+              <option value="Tons">Tons</option>
+              <option value="Kilolitres">Kilolitres</option>
+            </select>
+            <button type="button" (click)="addPolName()" class="h-10 px-4 rounded-lg bg-[#1D96E9] text-white text-sm">Add Fluid/POL Name</button>
+          </div>
+          <table class="w-full text-sm text-left">
+            <thead class="text-white/50 border-b border-white/10">
+              <tr>
+                <th class="py-2 pr-3">Ser No.</th>
+                <th class="py-2 pr-3">Fluid/POL Name</th>
+                <th class="py-2 pr-3">Fluid/POL Type</th>
+                <th class="py-2 pr-3">Measuring Unit</th>
+                <th class="py-2 pr-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of polNames; track row.id) {
+                <tr class="border-b border-white/5">
+                  <td class="py-2 pr-3">{{ row.ser }}</td>
+                  <td class="py-2 pr-3">{{ row.polName }}</td>
+                  <td class="py-2 pr-3">{{ row.polType }}</td>
+                  <td class="py-2 pr-3">{{ row.unit }}</td>
+                  <td class="py-2 pr-3">
+                    <button type="button" (click)="removePolName(row)" class="text-[#dc3545] underline text-xs">Delete</button>
+                  </td>
+                </tr>
+              }
+              @if (!polNames.length) {
+                <tr><td colspan="5" class="py-6 text-center text-white/40">No Fluid/POL Names found.</td></tr>
+              }
+            </tbody>
+          </table>
+        }
+
+        @case ('tank-category') {
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <input type="text" [(ngModel)]="newCategoryName" placeholder="Category Name" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+            <input type="text" [(ngModel)]="newCategoryManualName" placeholder="Manual Name" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+            <select [(ngModel)]="newCategoryPol" class="h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm">
+              <option value="">-- Fluid/POL --</option>
+              @for (t of polTypes; track t.id) {
+                <option [value]="t.polType">{{ t.polType }}</option>
+              }
+            </select>
+            <button type="button" (click)="addTankCategory()" class="h-10 px-4 rounded-lg bg-[#1D96E9] text-white text-sm">Add Tank Category</button>
+          </div>
+          <table class="w-full text-sm text-left">
+            <thead class="text-white/50 border-b border-white/10">
+              <tr>
+                <th class="py-2 pr-3">Ser No.</th>
+                <th class="py-2 pr-3">Category Name</th>
+                <th class="py-2 pr-3">Manual Name</th>
+                <th class="py-2 pr-3">Fluid/POL</th>
+                <th class="py-2 pr-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of tankCategories; track row.id) {
+                <tr class="border-b border-white/5">
+                  <td class="py-2 pr-3">{{ row.ser }}</td>
+                  <td class="py-2 pr-3">{{ row.categoryName }}</td>
+                  <td class="py-2 pr-3">{{ row.manualName }}</td>
+                  <td class="py-2 pr-3">{{ row.pol || '—' }}</td>
+                  <td class="py-2 pr-3">
+                    <button type="button" (click)="removeTankCategory(row)" class="text-[#dc3545] underline text-xs">Delete</button>
+                  </td>
+                </tr>
+              }
+              @if (!tankCategories.length) {
+                <tr><td colspan="5" class="py-6 text-center text-white/40">No Tank Categories found.</td></tr>
+              }
+            </tbody>
+          </table>
+        }
+
+        @case ('tank-location') {
+          <div class="flex gap-2 mb-4">
+            <input type="text" [(ngModel)]="newLocationName" placeholder="New Tank Location" class="flex-1 h-10 rounded-lg bg-white/5 border border-white/10 px-3 text-white text-sm" />
+            <button type="button" (click)="addTankLocation()" class="h-10 px-4 rounded-lg bg-[#1D96E9] text-white text-sm">Add Tank Location</button>
+          </div>
+          <table class="w-full text-sm text-left">
+            <thead class="text-white/50 border-b border-white/10">
+              <tr>
+                <th class="py-2 pr-3">Ser No.</th>
+                <th class="py-2 pr-3">Location Name</th>
+                <th class="py-2 pr-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of tankLocations; track row.id) {
+                <tr class="border-b border-white/5">
+                  <td class="py-2 pr-3">{{ row.ser }}</td>
+                  <td class="py-2 pr-3">{{ row.locationName }}</td>
+                  <td class="py-2 pr-3">
+                    <button type="button" (click)="removeTankLocation(row)" class="text-[#dc3545] underline text-xs">Delete</button>
+                  </td>
+                </tr>
+              }
+              @if (!tankLocations.length) {
+                <tr><td colspan="3" class="py-6 text-center text-white/40">No Tank Locations found.</td></tr>
+              }
+            </tbody>
+          </table>
+        }
+      }
+    </div>
+  </div>
+</app-master-card>

@@ -1,0 +1,35 @@
+<app-master-card cardTitle="Complete Dart List" cardHeight="auto">
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-white/50 border-b border-white/10">
+        <tr>
+          <th class="py-2 pr-3">Ser</th>
+          <th class="py-2 pr-3">DART No.</th>
+          <th class="py-2 pr-3">Equipment</th>
+          <th class="py-2 pr-3">Defect Description</th>
+          <th class="py-2 pr-3">Closed Date</th>
+          <th class="py-2 pr-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows; track row.id) {
+          <tr class="border-b border-white/5">
+            <td class="py-2 pr-3">{{ row.ser }}</td>
+            <td class="py-2 pr-3">{{ row.dart_number }}</td>
+            <td class="py-2 pr-3">{{ row.equipment_name }}</td>
+            <td class="py-2 pr-3">{{ row.defective_discriptions }}</td>
+            <td class="py-2 pr-3">{{ row.closed_date }}</td>
+            <td class="py-2 pr-3">
+              <button type="button" (click)="reopen(row)" class="text-[#1D96E9] underline text-xs">View / Re-open</button>
+            </td>
+          </tr>
+        }
+        @if (!rows.length) {
+          <tr>
+            <td colspan="6" class="py-6 text-center text-white/40">No completed DARTs found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</app-master-card>

@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.h-screen{
+  background: var(--bg-primary);
+  background-position: center top;
+  transition: background 0.4s ease;
+}
+.scrollablecontent{
+  border-radius: 12px; padding-right: 11px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) transparent;
+}
+
+.scrollablecontent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollablecontent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollablecontent::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 99px;
+}

@@ -1,0 +1,15 @@
+
+
+@if(showActions){
+  <div class="flex items-center justify-center gap-3">
+    <!-- View Icon -->
+    <button (click)="openDetails()" class="text-[#0078D4] hover:opacity-80 transition">
+      <app-icon name="eye" [size]="16" [strokeWidth]="2" color="currentColor" />
+    </button>
+
+    <!-- Close Button -->
+    <button (click)="closeDart()" class="px-4 py-1.5 rounded-xl bg-[#7A7A7A] text-white text-sm font-medium">
+      Close
+    </button>
+  </div>
+}
