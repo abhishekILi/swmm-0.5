@@ -7,13 +7,6 @@ import {
   FormArray,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { DynamicTextarea } from '../../../../ui/dynamic-textarea/dynamic-textarea';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
@@ -34,7 +27,7 @@ import {
   trialRowFromGetFormResponse,
 } from '../../../../trial-route-prefill';
 import { FileUrlUtil } from '../../../../file-url-util';
-import { Apiendpoints } from 'app/ApiEndPoints';
+import { Apiendpoints } from '../../../../ApiEndPoints';
 import { MultiSelectDropdownComponent } from '../../../../ui/multiselect';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
@@ -63,9 +56,9 @@ export class PaintInspection {
   rowId!: string | null;
   editDataDetails: any = null;
   loading = false;
-  // readonly draftIcon = Save;
-  // readonly saveIcon = SaveAllIcon;
-  readonly restartIcon = RotateCcw;
+  // readonly draftIcon = 'save';
+  // readonly saveIcon = 'save-all';
+  readonly restartIcon = 'rotate-ccw';
   form!: FormGroup;
   reps_present_options: any[] = [];
   usersList: any[] = [];
@@ -75,9 +68,9 @@ export class PaintInspection {
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   occasionOptions = [
     { label: 'Pre-Refit Trials', value: 'Pre-Refit Trials' },
@@ -523,7 +516,7 @@ export class PaintInspection {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

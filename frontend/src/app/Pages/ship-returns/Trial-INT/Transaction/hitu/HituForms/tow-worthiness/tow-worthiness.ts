@@ -7,13 +7,6 @@ import {
   FormArray,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { DynamicTextarea } from '../../../../ui/dynamic-textarea/dynamic-textarea';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
@@ -59,13 +52,13 @@ export class TowWorthiness {
   editDataDetails: any = null;
   loading = false;
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
 
   occasionOptions = [
@@ -366,7 +359,7 @@ export class TowWorthiness {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

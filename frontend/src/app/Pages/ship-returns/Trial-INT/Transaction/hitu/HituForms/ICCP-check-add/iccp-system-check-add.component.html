@@ -115,390 +115,390 @@
         <div class="my-8">
             <h3 class="text-lg font-semibold mb-4">Preset Potential Value (mV)</h3>
             <!-- -------------------------- RE  -------------------------->
-            <div class="overflow-x-auto overflow-y-visible border border-gray-300 rounded-md">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            <div class="overflow-x-auto overflow-y-visible border border-white/15 rounded-md">
+                <table class="min-w-full divide-y divide-white/10">
+                    <thead class="bg-white/[0.04]">
                         <tr>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE (#)
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE1
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE2
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE3
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE4
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE5
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE6
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE7
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 RE8
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-white/[0.06] divide-y divide-white/10">
                         <!--location -->
                         <tr>
-                            <td class="px-4 py-3 text-sm font-medium border-r border-gray-300 bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium border-r border-white/15 bg-white/[0.04]">
                                 Locations
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re1_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re2_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re3_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re4_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re5_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re6_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re7_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="re8_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                         </tr>
                         <!--Fr stn -->
                         <tr>
-                            <td class="px-4 py-3 text-sm font-medium border-r border-gray-300 bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium border-r border-white/15 bg-white/[0.04]">
                                 Fr Stn
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re1_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re2_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re3_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re4_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re5_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re6_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re7_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="re8_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- -------------------------- ANODE  -------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10">
+                    <thead class="bg-white/[0.04]">
                         <tr>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 Anode (*)
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A1
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A2
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A3
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A4
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A5
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A6
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A7
                             </th>
                             <th
-                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-gray-300">
+                                class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider border-r border-white/15">
                                 A8
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-white/[0.06] divide-y divide-white/10">
                         <!--location -->
                         <tr>
-                            <td class="px-4 py-3 text-sm font-medium border-r border-gray-300 bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium border-r border-white/15 bg-white/[0.04]">
                                 Locations
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A1_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A2_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A3_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A4_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A5_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A6_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A7_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A8_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                         </tr>
                         <!--Fr stn -->
                         <tr>
-                            <td class="px-4 py-3 text-sm font-medium border-r border-gray-300 bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium border-r border-white/15 bg-white/[0.04]">
                                 Fr Stn
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A1_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A2_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A3_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A4_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A5_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A6_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A7_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                             <td class="custom-input">
                                 <input type="text" formControlName="A8_stn"
-                                    class="w-full px-2 py-1 border border-gray-300 rounded">
+                                    class="w-full px-2 py-1 border border-white/15 rounded">
                             </td>
                         </tr>
                     </tbody>
@@ -507,8 +507,8 @@
 
 
             <!-- -------------------------- Check No.1  ------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -546,14 +546,14 @@
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A5_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option value="over">Over protected</option>
                                         <option value="full">Fully protected</option>
                                         <option value="not">Not protected</option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                         </tr>
@@ -561,8 +561,8 @@
                 </table>
             </div>
             <!-- -------------------------- Check No.2  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -636,8 +636,8 @@
             </div>
 
             <!-- -------------------------- Check No.3  ------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -675,14 +675,14 @@
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="A5_location"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option value="over">Over protected</option>
                                         <option value="full">Fully protected</option>
                                         <option value="not">Not protected</option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                         </tr>
@@ -692,8 +692,8 @@
 
 
             <!-- -------------------------- Check No.4  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -963,8 +963,8 @@
             </div>
 
             <!-- -------------------------- Check No.5  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -1038,8 +1038,8 @@
             </div>
 
             <!-- -------------------------- Check No.6  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -1111,8 +1111,8 @@
             </div>
 
             <!-- -------------------------- Check No.7  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -1203,8 +1203,8 @@
                 </table>
             </div>
             <!-- -------------------------- Check No.9  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -1249,105 +1249,105 @@
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A1"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A2"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A3"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A4"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A5"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A6"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A7"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                             <td class="table-cell">
                                 <div class="relative w-full">
                                     <select formControlName="check_9_A8"
-                                        class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                        class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                         <option value="">--Select--</option>
                                         <option *ngFor="let option of ReOptions" [value]="option.value">
                                             {{ option.label }}
                                         </option>
                                     </select>
                                     <i
-                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                        class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                 </div>
                             </td>
                         </tr>
@@ -1357,8 +1357,8 @@
 
 
             <!-- -------------------------- Check No.10  --------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
 
                     <thead>
                         <tr>
@@ -1496,8 +1496,8 @@
 
 
             <!-- -------------------------- Check No.11  ------------------------------------------------------->
-            <div class="overflow-x-auto border border-gray-300 rounded-md my-2">
-                <table class="min-w-full divide-y divide-gray-200 inspection-table">
+            <div class="overflow-x-auto border border-white/15 rounded-md my-2">
+                <table class="min-w-full divide-y divide-white/10 inspection-table">
                     <tbody>
                         <tr>
                             <th class="check-column">
@@ -1512,14 +1512,14 @@
                                         <div class="relative w-full">
                                             <!-- <label class="form-label" for="ship">Inspection of Cofferdams</label> -->
                                             <select formControlName="check_9_A2"
-                                                class="w-full appearance-none rounded-none border border-slate-500 bg-white py-2 pl-3 pr-10 text-sm text-slate-700 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400">
+                                                class="w-full appearance-none rounded-none border border-white/20 bg-white/[0.06] py-2 pl-3 pr-10 text-sm text-white/80 shadow-[0_2px_6px_rgba(15,23,42,0.08)] transition hover:border-white/20 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500/25 disabled:cursor-not-allowed disabled:bg-white/[0.06] disabled:text-white/60">
                                                 <option value="">--Select--</option>
                                                 <option *ngFor="let option of openClosedOptions" [value]="option.value">
                                                     {{ option.label }}
                                                 </option>
                                             </select>
                                             <i
-                                                class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-500"></i>
+                                                class="fa-solid fa-chevron-down pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/60"></i>
                                         </div>
                                     </div>
                                 </div>

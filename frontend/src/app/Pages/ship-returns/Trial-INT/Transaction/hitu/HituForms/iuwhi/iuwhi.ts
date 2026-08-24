@@ -2,14 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFiles as Files,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
@@ -23,7 +15,6 @@ import { SelectWithSearchComponent } from '../../../../ui/select-with-search/sel
 import { SelectComponent } from '../../../../ui/select.component';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
-import { EditorComponent } from '../../../../ui/editor';
 import { Apiendpoints } from '../../../../ApiEndPoints';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import {
@@ -49,7 +40,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     LoadingButtonComponent,
     FileUploadComponent,
     SelectWithSearchComponent,
-    EditorComponent,
     ApprovalWorkFlow,
     MultiSelectDropdownComponent,
     InputComponent,
@@ -59,9 +49,9 @@ export class IUWHI {
   editMode = false;
   rowId!: string | null;
   editDataDetails: any = null;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   showApprovalWorkflowPopup = false;
   isSubmitTime = false;
   form!: FormGroup;
@@ -371,8 +361,8 @@ export class IUWHI {
     });
   }
 
-  handleFile(files: UploadedFileItem[]): void {
-    this.uploadDoc = files;
+  handleFile(files: UploadedFileItem[] | File | null): void {
+    this.uploadDoc = Array.isArray(files) ? files : [];
   }
 
   radioOptions = ['Yes', 'No'];
@@ -491,7 +481,7 @@ export class IUWHI {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

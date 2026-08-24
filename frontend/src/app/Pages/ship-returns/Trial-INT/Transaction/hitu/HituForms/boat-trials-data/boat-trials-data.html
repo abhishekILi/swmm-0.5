@@ -7,14 +7,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -24,7 +24,7 @@
       </span>
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -93,25 +93,25 @@
     <div class="mt-5 overflow-x-auto">
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser No</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Observation</th>
-            <th class="hitu-table-rows-border">Remarks</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser No</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="hitu-table-header">
-            <td colspan="4" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1. General Inspection and Documentation Checks
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">1.1</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Boat log book iaw Appendix 'C' of NO 03/18
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="boat_log_book_status"
                 [searchable]="false"
@@ -119,15 +119,15 @@
                 [options]="heldOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">1.2</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Records of inspection and maintenance of boat and lifting
               arrangements carried out iaw NO 03/18
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="inspection_records"
                 [searchable]="false"
@@ -135,14 +135,14 @@
                 [options]="SatUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">1.3</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1.3 Record of weighing of boat iaw NO 03/18
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="boat_weighing_status"
                 [searchable]="false"
@@ -150,7 +150,7 @@
                 [options]="SatUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 label="Present weight of boat"
                 formControlName="boat_weight"
@@ -158,12 +158,12 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">1.4</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Boat log book folder be also scrutinised iaw Part II of Appendix
               'C' of NO 03/18
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="log_book_folder_check"
                 [searchable]="false"
@@ -171,17 +171,17 @@
                 [options]="SatUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
           </tr>
-          <tr class="hitu-table-parameters-header">
-            <td colspan="4" td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="4" td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2. Lowering / Hoisting Test
             </td>
           </tr>
           <tr>
-            <td td class="hitu-table-rows-border">2.1</td>
-            <td class="hitu-table-rows-border">Representatives</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Representatives</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input label="Place" formControlName="place"></app-input>
                 <app-calendar
@@ -219,11 +219,11 @@
 
           <!-- ---------------------------------------------- -->
           <tr>
-            <td td class="hitu-table-rows-border">2.2</td>
-            <td class="hitu-table-rows-border">
+            <td td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               In-date load test certificate for Davit
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-1 gap-4">
                 <div class="grid grid-cols-3 gap-2">
                   <app-select
@@ -243,11 +243,11 @@
           </tr>
 
           <tr>
-            <td td class="hitu-table-rows-border">2.3</td>
-            <td class="hitu-table-rows-border">
+            <td td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               In-date test certificate for ARH
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-1 gap-4">
                 <div class="grid grid-cols-3 gap-2">
                   <app-select
@@ -265,12 +265,12 @@
           </tr>
 
           <tr>
-            <td td class="hitu-table-rows-border">2.4</td>
-            <td class="hitu-table-rows-border">
+            <td td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Lifting sling load test report and visual inspection of lifting
               eyes/hooks
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-1 gap-4">
                 <div class="grid grid-cols-2 gap-2">
                   <app-select
@@ -288,11 +288,11 @@
 
           <!-- -------------------------------------------------- -->
           <tr>
-            <td class="hitu-table-rows-border">2.5</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               General inspection post hoisting of boat
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-1 gap-3">
                 <app-select
                   label="5.1 Condition of hull, appendages and rubber collar"
@@ -353,9 +353,9 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">2.6</td>
-            <td class="hitu-table-rows-border">Inspection of webbing sling</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Inspection of webbing sling</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-select
                   label="6.1 Visual survey of webbing sling"
@@ -376,15 +376,15 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-parameters-header">
-            <td colspan="4" td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="4" td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3. Harbour Checks
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">3.1</td>
-            <td class="hitu-table-rows-border">Place and date</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Place and date</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Place"
@@ -398,9 +398,9 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">3.2</td>
-            <td class="hitu-table-rows-border">Boat type and registration</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Boat type and registration</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-select
                   label="Boat Type"
@@ -416,9 +416,9 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">3.3</td>
-            <td class="hitu-table-rows-border">Representatives</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Representatives</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-select
                   label="Ship Representative"
@@ -437,9 +437,9 @@
           </tr>
           <!-- /============================================== -->
           <tr>
-            <td class="hitu-table-rows-border">3.4</td>
-            <td class="hitu-table-rows-border">General inspection</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">General inspection</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 label="Condition of hull, appendages and rubber collar"
                 formControlName="harbour_hull_condition"
@@ -447,7 +447,7 @@
                 [options]="SatObsUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="isSatObs('harbour_hull_condition')"
                 label="Harbour hull remarks"
@@ -457,17 +457,17 @@
           </tr>
           <!-- -------------------------------------------------------------------- -->
           <tr>
-            <td class="hitu-table-rows-border" rowspan="8">3.5</td>
-            <td class="hitu-table-rows-border hitu-table-header" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="8">3.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="3">
               Machinery fitted
             </td>
           </tr>
           <!-- ----------------------------- -->
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Main Engines - Make and Power
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Main Engines - Make"
@@ -483,10 +483,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Drive Units : Make and serial no
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Drive Units Make"
@@ -502,10 +502,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Transom Shield : Make and Serial No
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Transom Shield - Make"
@@ -521,10 +521,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Bilge Pump : Make and Capacity
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Bilge Pump - Make"
@@ -540,8 +540,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">Batteries : Make and Model</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Batteries : Make and Model</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Batteries - Make"
@@ -557,8 +557,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">DG Set : Make and Mode</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">DG Set : Make and Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="DG Set - Make"
@@ -573,33 +573,33 @@
             </td>
           </tr>
 
-          <td class="hitu-table-rows-border" colspan="3">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
             <app-input
               label="Additional remarks"
               formControlName="harbour_additional_remarks"
             ></app-input>
           </td>
           <!-- --------------------------------------------------- -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="4" td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="4" td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4. Sub-Component Checks
             </td>
           </tr>
 
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser No</th>
-            <th class="hitu-table-rows-border">Sub-Components</th>
-            <th class="hitu-table-rows-border">(SAT / UNSAT)</th>
-            <th class="hitu-table-rows-border">Remarks / Observations</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser No</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Sub-Components</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">(SAT / UNSAT)</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks / Observations</th>
           </tr>
 
           <tr
             *ngFor="let item of subComponentChecks; let i = index"
             []="i % 2 === 1"
           >
-            <td class="hitu-table-rows-border">{{ i + 1 }}</td>
-            <td class="hitu-table-rows-border">{{ item.label }}</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">{{ i + 1 }}</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">{{ item.label }}</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 [formControlName]="item.status"
                 [searchable]="false"
@@ -607,29 +607,29 @@
                 placeholder="--Select--"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="needsObservation(item.status)"
                 [formControlName]="item.remark"
                 placeholder="Enter remarks / observations"
               ></app-input>
-              <!-- <span *ngIf="!needsObservation(item.status)" class="text-slate-400 text-xs italic">
+              <!-- <span *ngIf="!needsObservation(item.status)" class="text-white/60 text-xs italic">
                         If UNSAT / SAT with obs — enter alphanumeric data
                       </span> -->
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">21</td>
-            <td class="hitu-table-rows-border">Result of Harbour Checks</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">21</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Result of Harbour Checks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="harbour_check_status"
                 [searchable]="false"
                 [options]="SatObsUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="needsObservation('harbour_check_status')"
                 label="Result remarks"
@@ -639,15 +639,15 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-header">
-            <td colspan="4" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5. SHIP BORNE BOAT - SEA TRIALS
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">5.1</td>
-            <td class="hitu-table-rows-border">Place and Date</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Place and Date</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Place"
@@ -662,9 +662,9 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.2</td>
-            <td class="hitu-table-rows-border">Wind sea state</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Wind sea state</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-input
                   label="Wind (Knots)"
@@ -682,9 +682,9 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.3</td>
-            <td class="hitu-table-rows-border">Boat type and Boat Regn no</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Boat type and Boat Regn no</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-select
                   label="Boat Type"
@@ -701,9 +701,9 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.4</td>
-            <td class="hitu-table-rows-border">Distance</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Distance</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-input
                 label="Distance"
                 formControlName="sea_distance"
@@ -712,9 +712,9 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.5</td>
-            <td class="hitu-table-rows-border">Representative</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Representative</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-3">
                 <app-select
                   label="Ship Representative"
@@ -730,11 +730,11 @@
                 ></app-select>
               </div>
             </td>
-            <!-- <td class="hitu-table-rows-border">Sea state: Calm sea / SS 1 / SS 2 / SS 3 / SS 4.</td> -->
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Sea state: Calm sea / SS 1 / SS 2 / SS 3 / SS 4.</td> -->
           </tr>
           <!-- --------------------------------------------------- -->
           <tr>
-            <td colspan="4" class="hitu-table-rows-border">
+            <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <div>1. Light Load Condition</div>
               <div>
                 Three to four crew, fuel tank half filled (50% of the fuel
@@ -746,7 +746,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="4" class="hitu-table-rows-border">
+            <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <ng-container
                 *ngTemplateOutlet="powerTrials; context: { rows50: power50Rows, rows85: power85Rows, rows100: power100Rows, prefix: '1' }"
               ></ng-container>
@@ -769,7 +769,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="3" class="hitu-table-rows-border">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <div>2. Full Load Condition</div>
               <div>
                 Trials to be undertaken at full load displacement with 100%
@@ -779,7 +779,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="4" class="hitu-table-rows-border">
+            <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <ng-container
                 *ngTemplateOutlet="powerTrials; context: { rows50: fullLoad50Rows, rows85: fullLoad85Rows, rows100: fullLoad100Rows, prefix: '2' }"
               ></ng-container>
@@ -807,11 +807,11 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">3.</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Operational Checks of Navigation and Communication Equipment
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="nav_comm_status"
                 [searchable]="false"
@@ -820,16 +820,16 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">4</td>
-            <td class="hitu-table-rows-border">Overall Trials Report</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Overall Trials Report</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="overall_status"
                 [searchable]="false"
                 [options]="SatObsUnsatOptions"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="needsObservation('overall_status')"
                 label="Observations"
@@ -845,7 +845,7 @@
                   formControlName="reference_speed"
                 ></app-input>
               </div>
-              <div class="text-xs text-slate-600 mt-2">
+              <div class="text-xs text-white/70 mt-2">
                 The maximum speed achieved was entered in full load condition as
                 against reference speed as per NCD 4003 Issue 7 / PDI /
                 Reference document.
@@ -858,41 +858,41 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">4.1</td>
-            <td class="hitu-table-rows-border">Harbour Checks</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Harbour Checks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="harbour_check_status"
                 [searchable]="false"
                 [options]="SatObsUnsatOptions"
               ></app-select>
             </td>
-            <!-- <td class="hitu-table-rows-border">
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input *ngIf="needsObservation('harbour_check_status')" label="Harbour check observations"
                 formControlName="harbour_check_remark"></app-input>
               <span *ngIf="!needsObservation('harbour_check_status')">SAT / UNSAT / SAT with observations.</span>
             </td> -->
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">4.2</td>
-            <td class="hitu-table-rows-border">Sea Checks</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Sea Checks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="sea_check_status"
                 [searchable]="false"
                 [options]="SatObsUnsatOptions"
               ></app-select>
             </td>
-            <!-- <td class="hitu-table-rows-border">
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input *ngIf="needsObservation('sea_check_status')" label="Sea check observations"
                 formControlName="sea_check_remark"></app-input>
               <span *ngIf="!needsObservation('sea_check_status')">SAT / UNSAT / SAT with observations.</span>
             </td> -->
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">4.3</td>
-            <td class="hitu-table-rows-border">Supporting Documents</td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Supporting Documents</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="grid grid-cols-2 gap-4">
                 <app-file-upload
                   label="PDI Report"
@@ -955,25 +955,25 @@
       <div class="font-semibold mb-2">{{ title }}</div>
       <table class="w-full border-collapse text-center text-xs">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border" rowspan="2">Ser No</th>
-            <th class="hitu-table-rows-border" rowspan="2">Run</th>
-            <th class="hitu-table-rows-border" rowspan="2">Engine Speed RPM</th>
-            <th class="hitu-table-rows-border" colspan="2">Parameters</th>
-            <th class="hitu-table-rows-border" rowspan="2">
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Ser No</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Run</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Engine Speed RPM</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Parameters</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">
               Speed by GPS (Knots)
             </th>
           </tr>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border">Coolant Temp (F/C)</th>
-            <th class="hitu-table-rows-border">LO Pressure (bar)</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Coolant Temp (F/C)</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">LO Pressure (bar)</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let row of rows; let i = index">
-            <td class="border border-slate-300 px-2 py-2">{{ i + 1 }}</td>
-            <td class="border border-slate-300 px-2 py-2">{{ row.run }}</td>
-            <td class="border border-slate-300 px-2 py-2">
+            <td class="border border-white/15 px-2 py-2">{{ i + 1 }}</td>
+            <td class="border border-white/15 px-2 py-2">{{ row.run }}</td>
+            <td class="border border-white/15 px-2 py-2">
               <app-input
                 type="number"
                 [(ngModel)]="row.engineSpeed"
@@ -981,7 +981,7 @@
                 placeholder="Enter value"
               ></app-input>
             </td>
-            <td class="border border-slate-300 px-2 py-2">
+            <td class="border border-white/15 px-2 py-2">
               <app-input
                 type="number"
                 [(ngModel)]="row.coolantTemp"
@@ -989,7 +989,7 @@
                 placeholder="Enter value"
               ></app-input>
             </td>
-            <td class="border border-slate-300 px-2 py-2">
+            <td class="border border-white/15 px-2 py-2">
               <app-input
                 type="number"
                 [(ngModel)]="row.loPressure"
@@ -997,7 +997,7 @@
                 placeholder="Enter value"
               ></app-input>
             </td>
-            <td class="border border-slate-300 px-2 py-2">
+            <td class="border border-white/15 px-2 py-2">
               <app-input
                 type="number"
                 [(ngModel)]="row.speed"

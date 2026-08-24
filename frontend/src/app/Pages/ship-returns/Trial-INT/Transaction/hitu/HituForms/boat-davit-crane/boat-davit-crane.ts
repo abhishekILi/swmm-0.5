@@ -15,13 +15,6 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { SelectComponent } from '../../../../ui/select.component';
@@ -40,7 +33,7 @@ import {
 } from '../../../../trial-route-prefill';
 import { FileUrlUtil } from '../../../../file-url-util';
 import { FileUploadComponent } from '../../../../ui/file-upload/file-upload.component';
-import { MasterService } from 'app/services/master.service';
+import { MasterService } from '../../../../services/master.service';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
 export interface UploadedFileItem {
@@ -67,15 +60,15 @@ export interface UploadedFileItem {
   templateUrl: './boat-davit-crane.html',
 })
 export class BoatDavitCrane implements OnInit {
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
 
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   bdcForm!: FormGroup;
   loading = false;
@@ -1243,7 +1236,7 @@ export class BoatDavitCrane implements OnInit {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

@@ -10,15 +10,6 @@ import {
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
-import {
-  LucidePlus as Plus,
-  LucideMinus as Minus,
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { SelectComponent } from '../../../../ui/select.component';
@@ -76,16 +67,16 @@ export class ShipOhmi {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   // uploadedAuthorityFiles: UploadedFileItem[] = [];
 
-  // readonly draftIcon = Save;
-  // readonly saveIcon = SaveAllIcon;
-  readonly restartIcon = RotateCcw;
-  readonly plusIcon = Plus;
-  readonly minusIcon = Minus;
+  // readonly draftIcon = 'save';
+  // readonly saveIcon = 'save-all';
+  readonly restartIcon = 'rotate-ccw';
+  readonly plusIcon = 'plus';
+  readonly minusIcon = 'minus';
 
   form!: FormGroup;
   loading = false;
@@ -1758,7 +1749,7 @@ export class ShipOhmi {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

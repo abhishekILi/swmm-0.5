@@ -7,13 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
@@ -29,7 +22,6 @@ import { SelectComponent } from '../../../../ui/select.component';
 import { MultiSelectDropdownComponent } from '../../../../ui/multiselect';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
-import { EditorComponent } from '../../../../ui/editor';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import {
   resolveTrialQueryParam,
@@ -57,7 +49,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     FileUploadComponent,
     SelectWithSearchComponent,
     ApprovalWorkFlow,
-    EditorComponent,
   ],
 })
 export class PUWHI {
@@ -69,9 +60,9 @@ export class PUWHI {
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
   selectedShipId: number = 0;
 
@@ -382,6 +373,12 @@ export class PUWHI {
     this.uploadedAuthorityFiles = files;
   }
 
+  handleFileInput(event: Event): void {
+    const input = event.target as HTMLInputElement | null;
+    const file = input?.files?.[0] ?? null;
+    this.form.get('authority_doc')?.setValue(file);
+  }
+
   placesOptions: any[] = [];
   radioOptions = [
     { label: 'Yes', value: 'yes' },
@@ -588,7 +585,7 @@ export class PUWHI {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

@@ -8,14 +8,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -26,7 +26,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -131,22 +131,22 @@
       <!-- HEADER -->
       <thead>
         <tr>
-          <th class="hitu-table-header w-10" colspan="1">Ser</th>
-          <th class="hitu-table-header" colspan="2">Description</th>
-          <th class="hitu-table-header" colspan="2">Observations</th>
+          <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 w-10" colspan="1">Ser</th>
+          <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="2">Description</th>
+          <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="2">Observations</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Visual Inspection</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Visual Inspection</td>
         </tr>
 
         <!-- 1 -->
         <tr>
-          <td class="hitu-table-rows-border text-center" colspan="=1">1</td>
-          <td class="hitu-table-rows-border" colspan="2">Deck Head</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" colspan="=1">1</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Deck Head</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="deck_head"
@@ -158,10 +158,10 @@
 
         <!-- 2 -->
         <tr>
-          <td class="hitu-table-rows-border text-center" colspan="1">2</td>
-          <td class="hitu-table-rows-border" colspan="2">Hangar Top</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" colspan="1">2</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Hangar Top</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="hangar_top"
@@ -173,12 +173,12 @@
 
         <!-- 3 -->
         <tr>
-          <td class="hitu-table-rows-border text-center" colspan="1">3</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" colspan="1">3</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             Bulkheads (Fwd, C/L & Ship Side / Superstructure side)
           </td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="bulkhead"
@@ -190,12 +190,12 @@
 
         <!-- 4 -->
         <tr>
-          <td class="hitu-table-rows-border text-center" colspan="1">4</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" colspan="1">4</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             Deck and Dadoes Areas
           </td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="deck_dadoes"
@@ -205,16 +205,16 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Hanger Door</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Hanger Door</td>
         </tr>
 
         <!-- 5 Make -->
         <tr>
-          <td class="hitu-table-rows-border text-center">5</td>
-          <td class="hitu-table-rows-border">Make</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">5</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Make</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="make_cmms"
               [searchable]="false"
@@ -226,10 +226,10 @@
 
         <!-- 6 Model -->
         <tr>
-          <td class="hitu-table-rows-border text-center">6</td>
-          <td class="hitu-table-rows-border">Model</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">6</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Model</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="model_cmms"
               [searchable]="false"
@@ -241,10 +241,10 @@
 
         <!-- 7 Normal Mode -->
         <tr>
-          <td class="hitu-table-rows-border text-center">7</td>
-          <td class="hitu-table-rows-border">Normal Mode</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">7</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Normal Mode</td>
 
-          <td class="hitu-table-rows-border space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
             <app-select
               formControlName="normal_mode"
               [searchable]="false"
@@ -263,10 +263,10 @@
 
         <!-- 8 Emergency Mode -->
         <tr>
-          <td class="hitu-table-rows-border text-center">8</td>
-          <td class="hitu-table-rows-border">Emergency Mode</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">8</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Emergency Mode</td>
 
-          <td class="hitu-table-rows-border space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
             <app-select
               formControlName="emergency_mode_1"
               [searchable]="false"
@@ -286,11 +286,11 @@
 
         <!-- 9 Emergency Mode 
           <tr>
-            <td class="hitu-table-rows-border text-center">9</td>
-            <td class="hitu-table-rows-border">Manual Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">9</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Manual Mode</td>
 
 
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
 
               <app-select
                 formControlName="manual_mode"
@@ -312,10 +312,10 @@
 
         <!-- 10 Observations -->
         <tr>
-          <td class="hitu-table-rows-border text-center">9</td>
-          <td class="hitu-table-rows-border">Defects / Observations</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">9</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Defects / Observations</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="defects_obs"
@@ -327,10 +327,10 @@
 
         <!-- 11 Remarks -->
         <tr>
-          <td class="hitu-table-rows-border text-center">10</td>
-          <td class="hitu-table-rows-border font-semibold">Remarks</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">10</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">Remarks</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="final_remark_1"
               [searchable]="false"
@@ -351,17 +351,17 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Helo Traversing System
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border text-center">11</td>
-          <td class="hitu-table-rows-border">Make</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">11</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Make</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="helo_make_cmms"
               [searchable]="false"
@@ -373,10 +373,10 @@
 
         <!-- 12 Model -->
         <tr>
-          <td class="hitu-table-rows-border text-center">12</td>
-          <td class="hitu-table-rows-border">Model</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">12</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Model</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="helo_model_cmms"
               [searchable]="false"
@@ -388,10 +388,10 @@
 
         <!-- 13 Normal Mode -->
         <tr>
-          <td class="hitu-table-rows-border text-center">13</td>
-          <td class="hitu-table-rows-border">Normal Mode</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">13</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Normal Mode</td>
 
-          <td class="hitu-table-rows-border space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
             <app-select
               formControlName="normal_mode_1"
               [searchable]="false"
@@ -410,10 +410,10 @@
 
         <!-- 14 Emergency Mode -->
         <tr>
-          <td class="hitu-table-rows-border text-center">14</td>
-          <td class="hitu-table-rows-border">Emergency Mode</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">14</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Emergency Mode</td>
 
-          <td class="hitu-table-rows-border space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
             <app-select
               formControlName="emergency_mode"
               [searchable]="false"
@@ -431,11 +431,11 @@
 
           <!--</tr>
           <tr>
-            <td class="hitu-table-rows-border text-center">13</td>
-            <td class="hitu-table-rows-border">Manual Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">13</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Manual Mode</td>
 
 
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <app-select
                 formControlName="manual_mode_2"
                 [options]="naApplicableOptions"
@@ -453,18 +453,18 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border text-center" rowspan="2">15</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" rowspan="2">15</td>
 
           <!-- Parameter -->
-          <td class="hitu-table-rows-border font-medium" rowspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-medium" rowspan="2">
             Load test undertaken on
           </td>
 
           <!-- Checks (Port) -->
-          <td class="hitu-table-rows-border pl-6">Port</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 pl-6">Port</td>
 
           <!-- Observations -->
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="port_test"
               [searchable]="false"
@@ -481,8 +481,8 @@
               *ngIf="form.get('port_test')?.value === 'yes'"
               type="file"
               accept="application/pdf"
-              (change)="handleFile($event.target.files[0], 'port')"
-              class="w-full border border-gray-400 p-1 bg-gray-100 rounded"
+              (change)="handleFile($any($event.target)?.files?.[0] ?? null, 'port')"
+              class="w-full border border-white/20 p-1 bg-white/[0.06] rounded"
             />
           </td>
         </tr>
@@ -490,10 +490,10 @@
         <!-- STBD -->
         <tr>
           <!-- Checks -->
-          <td class="hitu-table-rows-border pl-6">Stbd</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 pl-6">Stbd</td>
 
           <!-- Observations -->
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="stbd_test"
               [searchable]="false"
@@ -510,16 +510,16 @@
               *ngIf="form.get('stbd_test')?.value === 'yes'"
               type="file"
               accept="application/pdf"
-              (change)="handleFile($event.target.files[0], 'stbd')"
-              class="w-full border border-gray-400 p-1 bg-gray-100 rounded"
+              (change)="handleFile($any($event.target)?.files?.[0] ?? null, 'stbd')"
+              class="w-full border border-white/20 p-1 bg-white/[0.06] rounded"
             />
           </td>
         </tr>
         <!-- 16 Observations -->
         <tr>
-          <td class="hitu-table-rows-border text-center">16</td>
-          <td class="hitu-table-rows-border">Defects / Observations</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">16</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Defects / Observations</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="defects_extra"
@@ -531,9 +531,9 @@
 
         <!-- 17 Remarks -->
         <tr class="">
-          <td class="hitu-table-rows-border text-center">17</td>
-          <td class="hitu-table-rows-border font-semibold">Remarks</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">17</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">Remarks</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="final_remark"
               [searchable]="false"
@@ -555,15 +555,15 @@
         </tr>
 
         <tr>
-          <td colspan="4" class="hitu-table-rows-border">Lashing Points</td>
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Lashing Points</td>
         </tr>
 
         <!-- 18 Visual Inspection -->
         <tr>
-          <td class="hitu-table-rows-border text-center">18</td>
-          <td class="hitu-table-rows-border">Visual Inspection</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">18</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Visual Inspection</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="visual_inspection"
@@ -575,10 +575,10 @@
 
         <!-- 19 Load Test Date + Qty -->
         <tr>
-          <td class="hitu-table-rows-border text-center">19</td>
-          <td class="hitu-table-rows-border">Load Test Date</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">19</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Test Date</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <div formArrayName="load_tests" class="flex flex-col gap-3">
               <div
                 *ngFor="let group of loadTests.controls; let i = index"
@@ -597,14 +597,14 @@
                     placeholder="Qty"
                     class="w-24"
                   ></app-input>
-                  <span class="text-xs text-gray-500">*Nos</span>
+                  <span class="text-xs text-white/60">*Nos</span>
                 </div>
 
                 <!-- Remove -->
                 <button
                   type="button"
                   (click)="removeLoadTest(i)"
-                  class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-sm bg-gray-100 hover:bg-red-100 hover:border-red-300"
+                  class="w-8 h-8 flex items-center justify-center border border-white/15 rounded-sm bg-white/[0.06] hover:bg-red-100 hover:border-red-300"
                 >
                   −
                 </button>
@@ -615,7 +615,7 @@
                 <button
                   type="button"
                   (click)="addLoadTest()"
-                  class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-sm bg-gray-100 hover:bg-green-100"
+                  class="w-8 h-8 flex items-center justify-center border border-white/15 rounded-sm bg-white/[0.06] hover:bg-green-100"
                 >
                   +
                 </button>
@@ -626,10 +626,10 @@
 
         <!-- 20 Load Test Certificate -->
         <tr>
-          <td class="hitu-table-rows-border text-center">20</td>
-          <td class="hitu-table-rows-border">Load Test Certificate</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">20</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Test Certificate</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-file-upload
               formControlName="lashing_load_test_certificate"
               (filesUploaded)="handleLashingLoadTestCertificateUploaded($event)"
@@ -639,36 +639,36 @@
         </tr>
 
         <!-- SECTION -->
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Helo Safety Nets</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Helo Safety Nets</td>
         </tr>
 
         <!-- 21 Qty -->
         <tr>
-          <td class="hitu-table-rows-border text-center">21</td>
-          <td class="hitu-table-rows-border">Qty (Nos)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">21</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Qty (Nos)</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input type="number" formControlName="helo_qty"></app-input>
           </td>
         </tr>
 
         <!-- 22 Load Tested On -->
         <tr>
-          <td class="hitu-table-rows-border text-center">22</td>
-          <td class="hitu-table-rows-border">Load Tested On</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">22</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Tested On</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-calendar formControlName="helo_load_date"></app-calendar>
           </td>
         </tr>
 
         <!-- 23 Certificate -->
         <tr>
-          <td class="hitu-table-rows-border text-center">23</td>
-          <td class="hitu-table-rows-border">Load Test Certificate</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">23</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Test Certificate</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-file-upload
               formControlName="helo_load_test_certificate"
               (filesUploaded)="handleHeloLoadTestCertificateUploaded($event)"
@@ -677,13 +677,13 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Harpoon Grid</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Harpoon Grid</td>
         </tr>
 
         <!-- Harpoon Grid -->
         <tr>
-          <td class="hitu-table-rows-border space-y-2" colspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="4">
             <app-select
               formControlName="harpoon_grid_status"
               [searchable]="false"
@@ -700,15 +700,15 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Helo/ Aircraft Lifts/ Turntable
           </td>
         </tr>
 
         <!-- Helo/ Aircraft Lifts/ Turntable -->
         <tr>
-          <td class="hitu-table-rows-border space-y-2" colspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="4">
             <app-input
               formControlName="helo_lifts_turntable_remark"
               placeholder="Enter details"
@@ -716,17 +716,17 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Preservation of Helo/ Hangar Deck
           </td>
         </tr>
 
         <!-- 24 Paint Scheme -->
         <tr>
-          <td class="hitu-table-rows-border text-center">24</td>
-          <td class="hitu-table-rows-border">Paint Scheme</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">24</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Paint Scheme</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="paint_scheme"
               [searchable]="false"
@@ -738,19 +738,19 @@
 
         <!-- 25 Full Paint Scheme Renewed -->
         <tr>
-          <td class="hitu-table-rows-border text-center">25</td>
-          <td class="hitu-table-rows-border">Full Paint Scheme Renewed on</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">25</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Full Paint Scheme Renewed on</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-calendar formControlName="paint_renewed_date"></app-calendar>
           </td>
         </tr>
 
         <!-- 26 Present Paint Condition -->
         <tr>
-          <td class="hitu-table-rows-border text-center">26</td>
-          <td class="hitu-table-rows-border">Present Paint Condition</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">26</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Present Paint Condition</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="paint_condition"
@@ -762,20 +762,20 @@
 
         <!-- 27 Friction Test -->
         <tr>
-          <td class="hitu-table-rows-border text-center">27</td>
-          <td class="hitu-table-rows-border">Friction Test Undertaken on</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">27</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Friction Test Undertaken on</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-calendar formControlName="friction_test_date"></app-calendar>
           </td>
         </tr>
 
         <!-- 28 Remarks -->
         <tr>
-          <td class="hitu-table-rows-border text-center">28</td>
-          <td class="hitu-table-rows-border font-semibold">Remarks</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">28</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">Remarks</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="paint_final_sel_remark"
               [searchable]="false"
@@ -795,15 +795,15 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Drainage</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Drainage</td>
         </tr>
 
         <!-- 29 Helo Deck -->
         <tr>
-          <td class="hitu-table-rows-border text-center">29</td>
-          <td class="hitu-table-rows-border">Helo Deck</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">29</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Helo Deck</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="helo_deck"
               [searchable]="false"
@@ -826,9 +826,9 @@
 
         <!-- 30 Hangar -->
         <tr>
-          <td class="hitu-table-rows-border text-center">30</td>
-          <td class="hitu-table-rows-border">Hangar</td>
-          <td class="hitu-table-rows-border space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">30</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Hangar</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
             <app-select
               formControlName="hangar_mode"
               [searchable]="false"
@@ -846,16 +846,16 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-parameters-header">
-          <td colspan="4" class="hitu-table-rows-border">Final Observation</td>
+        <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Final Observation</td>
         </tr>
 
         <!-- 31 Other Observations -->
         <tr>
-          <td class="hitu-table-rows-border text-center">31</td>
-          <td class="hitu-table-rows-border">Other Observations, if any</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">31</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Other Observations, if any</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="other_observations"
@@ -867,10 +867,10 @@
 
         <!-- 32 Overall Remarks -->
         <tr>
-          <td class="hitu-table-rows-border text-center">32</td>
-          <td class="hitu-table-rows-border font-semibold">Overall Remarks</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">32</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">Overall Remarks</td>
 
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <!-- <app-dynamic-select-textarea
                   [form]="form"
                   selectControl="overall_sel_remark"

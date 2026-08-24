@@ -8,13 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideCheckCheck as CheckCheck,
-  LucideFileText as FileText,
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideTrash as Trash,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
@@ -41,6 +34,7 @@ import {
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import { FileUrlUtil } from '../../../../file-url-util';
 import { UploadedFileItem } from '../../../../ui/file-upload/file-upload.component';
+import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
 @Component({
   selector: 'app-water-tight-door-add',
@@ -61,6 +55,7 @@ import { UploadedFileItem } from '../../../../ui/file-upload/file-upload.compone
     FormInputTableWithHeaders,
     DuctCalculatorDialogComponent,
     ReusableDeleteDialogDynamicContent,
+    ApprovalWorkFlow,
   ],
   templateUrl: './water-tight-door-add.component.html',
 })
@@ -109,11 +104,11 @@ export class WaterTightDoorAdd implements OnInit {
 
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
 
   form!: FormGroup;
   loading = false;
@@ -121,7 +116,7 @@ export class WaterTightDoorAdd implements OnInit {
   selectedRow: any = null;
   selectedRowIndex: number | null = null;
 
-  readonly deleteIcon = Trash;
+  readonly deleteIcon = 'trash';
 
   classOfShipOptions: any[] = [];
   shipOptions: any[] = [];
@@ -952,7 +947,7 @@ export class WaterTightDoorAdd implements OnInit {
             this.isSubmitTime = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

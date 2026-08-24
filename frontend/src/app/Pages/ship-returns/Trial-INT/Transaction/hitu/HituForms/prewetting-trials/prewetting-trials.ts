@@ -7,13 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
@@ -63,9 +56,9 @@ export class PrewettingTrials {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
 
   occasionOptions = [
@@ -367,7 +360,7 @@ export class PrewettingTrials {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

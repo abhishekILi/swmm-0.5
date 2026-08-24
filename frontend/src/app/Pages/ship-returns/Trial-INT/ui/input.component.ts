@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, forwardRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -60,12 +60,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputComponent implements ControlValueAccessor {
 
+  private readonly cdr = inject(ChangeDetectorRef);
+
   @Input() placeholder = '';
-  @Input() type: 'text' | 'number' | 'email' | 'password' | 'date' = 'text';
+  // `alphanumeric` is kept as a compatibility alias used by legacy forms.
+  @Input() type: 'text' | 'number' | 'email' | 'password' | 'date' | 'alphanumeric' = 'text';
   @Input() label = '';
   @Input() disabled = false;
-  @Input() readonly = false;
-  @Input() required = false;
+  @Input() readonly: boolean | '' = false;
+  @Input() required: boolean | '' = false;
   /** For `type="number"`: HTML min / max / step + live clamp vs min/max */
   @Input() min: number | string | null = null;
   @Input() max: number | string | null = null;
@@ -127,6 +130,7 @@ export class InputComponent implements ControlValueAccessor {
 
   writeValue(value: any): void {
     this.value = value ?? '';
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {
@@ -139,6 +143,7 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    this.cdr.markForCheck();
   }
 
   onInput(event: Event) {

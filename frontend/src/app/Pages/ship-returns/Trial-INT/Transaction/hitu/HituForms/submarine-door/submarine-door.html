@@ -9,14 +9,14 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -29,8 +29,8 @@ TTLES/ PORTHOLES – IN SUBMARINE"
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
         [ngClass]="
           isSameEquipment(activeHeaderEquipment, tab)
-            ? 'pt-glass-form-tab-sub--active'
-            : 'pt-glass-form-tab-sub--idle'
+            ? 'text-white'
+            : 'text-white/50'
         "
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
@@ -109,11 +109,11 @@ TTLES/ PORTHOLES – IN SUBMARINE"
       <table class="min-w-full text-sm border">
         <!-- HEADER -->
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border">Ser</th>
-            <th class="hitu-table-rows-border">Location</th>
-            <th class="hitu-table-rows-border">Condition of Rubber Sealing</th>
-            <th class="hitu-hitu-table-rows-border" colspan="2">
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Location</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Condition of Rubber Sealing</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               Observations/Remarks
             </th>
           </tr>
@@ -122,8 +122,8 @@ TTLES/ PORTHOLES – IN SUBMARINE"
         <tbody>
           <!-- 1 Fwd Escape Hatch -->
           <tr>
-            <td class="hitu-table-rows-border text-center">1</td>
-            <td class="hitu-table-rows-border space-5">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-5">
               <div>Fwd Escape Hatch</div>
 
               <app-select
@@ -135,7 +135,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
             </td>
 
             <!-- Condition of Rubber Sealing -->
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-select
                 [searchable]="false"
                 formControlName="fwd_status"
@@ -145,7 +145,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
             </td>
 
             <!-- Observation / Remarks -->
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <!-- If SAT selected -->
               <div *ngIf="form.get('fwd_status')?.value === 'SAT'">
                 <input
@@ -169,8 +169,8 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 
           <!-- 2 Conning Tower -->
           <tr>
-            <td class="hitu-table-rows-border text-center">2</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <div>Conning Tower</div>
 
               <app-select
@@ -181,7 +181,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="conning_status"
                 [searchable]="false"
@@ -190,7 +190,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <!-- If SAT selected -->
               <div *ngIf="form.get('conning_status')?.value === 'SAT'">
                 <input
@@ -214,8 +214,8 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 
           <!-- 3 Aft Escape Hatch -->
           <tr>
-            <td class="hitu-table-rows-border text-center">3</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <div>Aft Escape Hatch</div>
 
               <app-select
@@ -226,7 +226,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="aft_status"
                 [searchable]="false"
@@ -236,7 +236,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
             </td>
 
             <!-- Observation / Remarks (was stray outside the row before — now correctly inside a <td>) -->
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <!-- If SAT selected -->
               <div *ngIf="form.get('aft_status')?.value === 'SAT'">
                 <input
@@ -260,8 +260,8 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 
           <!-- 4 Compartment Masters -->
           <tr>
-            <td class="hitu-table-rows-border text-center">4</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- Compartment Masters
               <app-dynamic-textarea [form]="form" controlName="compartment_master" placeholder="Enter details">
               </app-dynamic-textarea> -->
@@ -274,7 +274,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
               >
               </app-multiselect>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-select
                 formControlName="compartment"
                 [options]="statusOptions"
@@ -283,7 +283,7 @@ TTLES/ PORTHOLES – IN SUBMARINE"
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <input
                 formControlName="compartment_remarks"
                 type="text"
@@ -295,10 +295,10 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 
           <!-- 5 Other Observations -->
           <tr>
-            <td class="hitu-table-rows-border text-center">5</td>
-            <td class="hitu-table-rows-border">Any Other Observations</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Any Other Observations</td>
 
-            <td colspan="2" class="hitu-table-rows-border">
+            <td colspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="other_obs"
                 class="input-field"
@@ -310,12 +310,12 @@ TTLES/ PORTHOLES – IN SUBMARINE"
 
           <!-- 6 Overall -->
           <tr>
-            <td class="hitu-table-rows-border text-center">6</td>
-            <td class="hitu-table-rows-border font-semibold">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center">6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">
               Overall Remarks
             </td>
 
-            <td colspan="3" class="hitu-table-rows-border">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 [searchable]="false"
                 formControlName="overall_sel_remark"

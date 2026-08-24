@@ -7,13 +7,6 @@ import {
   FormArray,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { DynamicSelectTextarea } from '../../../../ui/dynamic-select-textarea/dynamic-select-textarea';
 import { DynamicTextarea } from '../../../../ui/dynamic-textarea/dynamic-textarea';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
@@ -70,10 +63,10 @@ export class LSTLPD {
   saveLoading = false;
   submitLoading = false;
 
-  readonly restartIcon = RotateCcw;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  readonly restartIcon = 'rotate-ccw';
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
   uploadedAuthorityFiles: UploadedFileItem[] = [];
 
@@ -926,7 +919,7 @@ export class LSTLPD {
     }
   }
 
-  handleFile(file: File | null) {
+  handleFile(file: File | Event | null) {
     console.log('Selected file:', file);
   }
 
@@ -1634,7 +1627,7 @@ export class LSTLPD {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

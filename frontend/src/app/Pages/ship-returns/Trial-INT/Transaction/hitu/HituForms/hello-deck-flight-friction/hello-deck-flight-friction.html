@@ -11,14 +11,14 @@
 
 <div
       previewHeader
-      class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+      class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
       <button
           *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
           type="button"
           (click)="setActiveTab(tab)"
-          class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-          [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+          class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+          [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
       >
           <span class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
               {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
@@ -26,7 +26,7 @@
 
           <span
               class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
           >
               {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-' }}
           </span>
@@ -148,7 +148,7 @@
       </div>
 
 
-      <table class="w-full border-collapse border border-gray-300 text-sm">
+      <table class="w-full border-collapse border border-white/15 text-sm">
 
   <!-- Table Header -->
   <thead>

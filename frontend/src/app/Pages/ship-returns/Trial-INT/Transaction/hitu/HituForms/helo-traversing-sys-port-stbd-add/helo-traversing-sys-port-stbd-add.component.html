@@ -2,10 +2,10 @@
 
 <app-form-card title="HELO TRAVERSING SYSTEM–PORT/ STBD" [showPreviousReport]="true" [showBackButton]="true"
   [showPaginator]="true" [previewMode]="true" [pageScroll]="true">
-  <div previewHeader class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]">
+  <div previewHeader class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]">
     <button *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment" type="button" (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)">
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)">
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
         {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
@@ -15,8 +15,8 @@
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
         [ngClass]="
           isSameEquipment(activeHeaderEquipment, tab)
-            ? 'pt-glass-form-tab-sub--active'
-            : 'pt-glass-form-tab-sub--idle'
+            ? 'text-white'
+            : 'text-white/50'
         ">
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-'
         }}
@@ -87,63 +87,63 @@
       <table class="w-full border-collapse text-sm">
         <thead>
           <tr class="bg-[#0f172a] text-white">
-            <th class="hitu-table-header w-10">Ser</th>
-            <th class="hitu-table-header">Parameter (a)</th>
-            <th class="hitu-table-header">Checks (b)</th>
-            <th class="hitu-table-header">Observation (c)</th>
-            <th class="hitu-table-header">Remarks (d)</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 w-10">Ser</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Parameter (a)</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Checks (b)</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Observation (c)</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Remarks (d)</th>
           </tr>
         </thead>
 
         <tbody>
           <!-- 1 - Make -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">1</td>
-            <td class="hitu-table-rows-border">Make</td>
-            <!-- <td class="hitu-table-rows-border text-center"></td> -->
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Make</td>
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center"></td> -->
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-input formControlName="manufacturer_name" placeholder="Enter Make" class="w-full"></app-input>
             </td>
-            <!-- <td class="hitu-table-rows-border"></td> -->
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td> -->
           </tr>
 
           <!-- 2 - Model -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">2</td>
-            <td class="hitu-table-rows-border">Model</td>
-            <!-- <td class="hitu-table-rows-border text-center"></td> -->
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Model</td>
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center"></td> -->
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-input formControlName="model" placeholder="Enter Model" class="w-full"></app-input>
             </td>
-            <!-- <td class="hitu-table-rows-border"></td> -->
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td> -->
           </tr>
 
           <!-- 3 - Checking Condition of Hydraulic Motor of Winches -->
           <!-- 3a - Lubrication -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold" rowspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold" rowspan="2">
               3
             </td>
-            <td class="hitu-table-rows-border" rowspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">
               Checking Condition of Hydraulic Motor of Winches
             </td>
-            <td class="hitu-table-rows-border">Check lubrication of all gears</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Check lubrication of all gears</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="lubrication_check" [options]="LubricatiedOptions" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="lubrication_check_remark"></app-input>
             </td>
           </tr>
           <!-- 3b - Abnormal / Excessive Noise -->
           <tr>
-            <td class="hitu-table-rows-border">Abnormal / excessive noise</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Abnormal / excessive noise</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="excessive_noise" [options]="noiseObserved" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="excessive_noise_remark"></app-input>
               <app-input *ngIf="showNoiseRemarkInput" formControlName="excessive_noise_value"
                 placeholder="Enter noise details" class="mt-2 w-full">
@@ -153,17 +153,17 @@
 
           <!-- Filling & Drain Plugs Sealing -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold"></td>
-            <td class="hitu-table-rows-border">Filling &amp; Drain Plugs Sealing</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Filling &amp; Drain Plugs Sealing</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Check/If Greasing points/ drain plugs are open/ Concealed with
               paint
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="filling_drain" [options]="fillingDrainPlugs" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="filling_drain_remark"></app-input>
               <ng-container *ngIf="showFillingDrainRemarkInput">
                 <app-input formControlName="filling_drain_value" placeholder="Enter details" class="mt-2"></app-input>
@@ -173,21 +173,21 @@
 
           <!-- 4 - Checking Apparent Condition of Winch (header row) -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold" rowspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold" rowspan="3">
               4
             </td>
-            <td class="hitu-table-rows-border" rowspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="3">
               Checking Apparent Condition of Winch
             </td>
           </tr>
 
           <!-- 4(a) - Support Frame Attachment to Winch -->
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <strong>(a)</strong> Support Frame Attachment to Winch – Check for
               rust / corrosion
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="rust_corrosion_check" [options]="ObservationsOptions"
                 placeholder="--Select--" [searchable]="false"></app-select>
               <ng-container *ngIf="showRustObservationFields">
@@ -254,7 +254,7 @@
                 </div>
               </ng-container>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="rust_corrosion_remark"></app-input>
               <ng-container *ngIf="showRustObservationFields">
                 <div class="mt-3 flex flex-col gap-3">
@@ -292,47 +292,47 @@
 
           <!-- 4(b) - Cable Winds on Diving Drums -->
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <strong>(b)</strong> Cable Winds on Diving Drums – Check cables
               are properly wound on capstan
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="cable_wound_on_capstan" [options]="securedNotSecured"
                 placeholder="--Select--" [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="cable_wound_remark"></app-input>
             </td>
           </tr>
 
           <!-- 5 - Oil Level in Winch -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">5</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Checking Oil Level in Winch (HLB oil)
             </td>
-            <td class="hitu-table-rows-border">Check oil level using gauge glass</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Check oil level using gauge glass</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="oil_level" [options]="OilLevelGauge" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="oil_level_remark"></app-input>
             </td>
           </tr>
 
           <!-- 6 - General Inspection -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">6</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               General Inspection (Mil Carriages, Housing, Arms and Cross Bar)
             </td>
-            <td class="hitu-table-rows-border">Visual Inspection</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Visual Inspection</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="visual_inspection" [options]="ObservationsNilOptions"
                 placeholder="--Select--" [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="visual_inspection_remark"></app-input>
               <ng-container *ngIf="showVisualInspectionInput">
                 <app-input formControlName="visual_inspection_value" placeholder="Enter details"
@@ -343,95 +343,95 @@
 
           <!-- 7 - Rate of Traversing (Slow) -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold" rowspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold" rowspan="2">
               7
             </td>
-            <td class="hitu-table-rows-border" rowspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">
               Rate of Traversing (m/sec)
             </td>
-            <td class="hitu-table-rows-border">Slow speed – ** to ** m/sec</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Slow speed – ** to ** m/sec</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input type="number" formControlName="slow_speed" placeholder="Numeric value in m/sec"
                 (change)="checkSpeed()"></app-input>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="slow_speed_remark"></app-input>
             </td>
           </tr>
           <!-- 7 - Rate of Traversing (Fast) -->
           <tr>
-            <td class="hitu-table-rows-border">Fast speed – ** to ** m/sec</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Fast speed – ** to ** m/sec</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input type="number" formControlName="fast_speed" placeholder="Numeric value in m/sec"
                 (change)="checkSpeed()"></app-input>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="fast_speed_remark"></app-input>
             </td>
           </tr>
 
           <!-- 8 - Greasing of Hooking Points -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">8</td>
-            <td class="hitu-table-rows-border">Greasing of Hooking Points</td>
-            <td class="hitu-table-rows-border">Check for proper greasing</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">8</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Greasing of Hooking Points</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Check for proper greasing</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select formControlName="greasing_check" [options]="greasingOptions" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="greasing_remark"></app-input>
             </td>
           </tr>
 
           <!-- 9 - Replacement of Pulling Rope -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">9</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">9</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Replacement of Pulling Rope (SWR) (To be replaced every 60 months)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Date of last replacement of SWR (To be replaced every 60 months)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar formControlName="last_replacement_date"></app-month-year-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="replacement_remark"></app-input>
             </td>
           </tr>
 
           <!-- 10 - Load Test -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">10</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">10</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Load Test (Not to exceed 27 months)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Date of last load test (Not to exceed 27 months)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar formControlName="load_test_date"></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="load_test_remark"></app-input>
             </td>
           </tr>
 
           <!-- 11 - Any Other Observations -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">11</td>
-            <td class="hitu-table-rows-border">Any Other Observations</td>
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">11</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Any Other Observations</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-input formControlName="other_observation" placeholder="Enter observations"></app-input>
             </td>
           </tr>
 
           <!-- 12 - Overall Remarks -->
           <tr>
-            <td class="hitu-table-rows-border text-center font-bold">12</td>
-            <td class="hitu-table-rows-border">Overall Remarks</td>
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center font-bold">12</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Overall Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-select formControlName="overall_remark" [options]="overallRemarksOptions" placeholder="--Select--"
                 [searchable]="false"></app-select>
             </td>

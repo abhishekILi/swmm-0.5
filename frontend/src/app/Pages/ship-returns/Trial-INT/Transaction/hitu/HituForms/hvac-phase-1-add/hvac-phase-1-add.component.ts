@@ -8,14 +8,6 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
-import {
-  LucideCalculator as Calculator,
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-  LucideTrash as Trash,
-} from '@lucide/angular';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
@@ -44,7 +36,7 @@ import {
   resolveTrialQueryParam,
   trialRowFromGetFormResponse,
 } from '../../../../trial-route-prefill';
-import { FileUrlUtil } from '../../../../../../utils/validators-utils';
+import { FileUrlUtil } from '../../../../file-url-util';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
 @Component({
@@ -79,14 +71,14 @@ export class HvacPhase1AddComponent implements OnInit, DoCheck {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
 
-  readonly CalculatorIcon = Calculator;
-  readonly deleteIcon = Trash;
+  readonly CalculatorIcon = 'calculator';
+  readonly deleteIcon = 'trash';
 
   tableRowDeleteDialogOpen = false;
 
@@ -1420,7 +1412,7 @@ export class HvacPhase1AddComponent implements OnInit, DoCheck {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

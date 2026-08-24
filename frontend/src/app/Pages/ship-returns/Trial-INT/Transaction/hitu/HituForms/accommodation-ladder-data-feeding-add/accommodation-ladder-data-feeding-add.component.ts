@@ -9,11 +9,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-} from '@lucide/angular';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { SelectComponent } from '../../../../ui/select.component';
@@ -48,9 +43,9 @@ export class AccommodationLadderDataFeedingAdd {
   rowId!: string | null;
   editDataDetails: any = null;
 
-  readonly draftIcon = Save;
-  readonly saveIcon = SaveAllIcon;
-  readonly restartIcon = RotateCcw;
+  readonly draftIcon = 'save';
+  readonly saveIcon = 'save-all';
+  readonly restartIcon = 'rotate-ccw';
 
   form!: FormGroup;
   loading = false;

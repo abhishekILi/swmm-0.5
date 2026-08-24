@@ -8,14 +8,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -26,7 +26,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -141,27 +141,27 @@
       <table class="w-full border-collapse text-sm">
         <tbody>
           <tr>
-            <th class="hitu-table-header">Parameter</th>
-            <th class="hitu-table-header">Observation</th>
-            <th class="hitu-table-header">Remarks and Docs</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Parameter</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Observation</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Remarks and Docs</th>
           </tr>
           <!-- SECTION 2 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1&nbsp;&nbsp;HULL SURVEY &amp; REPAIRS
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">1.1 Type of survey</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.1 Type of survey</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="survey_type"
                 [options]="surveyTypeOptions"
                 placeholder="Select"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('survey_type')?.value === 'other'"
                 formControlName="survey_type_details"
@@ -171,15 +171,15 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">1.2 Doubler / cold repair</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.2 Doubler / cold repair</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="doubler_repair_status"
                 [options]="yesNoOptions"
                 placeholder="Select"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('doubler_repair_status')?.value === 'yes'"
                 formControlName="doubler_repair_details"
@@ -189,10 +189,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1.3 Plate renewal undertaken at
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="plate_renewal_location"
                 placeholder="Enter location/details"
@@ -204,17 +204,17 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1.4 Misalignment of rudders, if any
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="rudder_misalignment_status"
                 [options]="yesNoOptions"
                 placeholder="Select"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('rudder_misalignment_status')?.value === 'yes'"
                 formControlName="rudder_misalignment_details"
@@ -224,17 +224,17 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               1.5 Hull repair in progress at
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="hull_repair_status"
                 [options]="yesNilOptions"
                 placeholder="Select"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('hull_repair_status')?.value === 'yes'"
                 formControlName="hull_repair_details"
@@ -244,15 +244,15 @@
           </tr>
 
           <!-- SECTION 3 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2&nbsp;&nbsp;BILGE KEEL
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">2.1 Type of bilge keel</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.1 Type of bilge keel</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="bilge_type"
                 [options]="bilgeTypeOptions"
@@ -260,7 +260,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-input
                 *ngIf="form.get('bilge_type')?.value === 'other'"
                 formControlName="bilge_type_other"
@@ -276,8 +276,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">2.2 Survey undertaken</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.2 Survey undertaken</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="bilge_survey_status"
                 [options]="yesNoOptions"
@@ -285,7 +285,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="bilge_survey_details"
                 placeholder="Enter details"
@@ -294,10 +294,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.3 Plate renewal undertaken at
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="bilge_plate_renewal_status"
                 [options]="yesNilOptions"
@@ -305,7 +305,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('bilge_plate_renewal_status')?.value === 'yes'"
                 formControlName="bilge_plate_renewal_details"
@@ -315,10 +315,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.4 NDT undertaken in way of hot work locations
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="bilge_ndt_status"
                 [options]="yesNoNilOptions"
@@ -326,7 +326,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="bilge_ndt_details"
                 placeholder="Enter details"
@@ -335,10 +335,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.5 Pressure Test Certificate
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="pressure_cert_status"
                 [options]="submittedPendingNilOptions"
@@ -346,7 +346,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('pressure_cert_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -361,8 +361,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">2.6 QC Certificate</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.6 QC Certificate</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="qc_cert_status"
                 [options]="submittedPendingNilOptions"
@@ -370,7 +370,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('qc_cert_status')?.value === 'submitted'"
                 (fileSelected)="handleFile($event)"
@@ -385,18 +385,18 @@
           </tr>
 
           <!-- SECTION 4 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.&nbsp;&nbsp;TEST UNDERTAKEN TO PROVE THE EFFICACY OF HULL
               REPAIRS
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.1 Pressure testing of tanks in way of hot work
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="tank_pressure_status"
                 [options]="undertakenPendingOptions"
@@ -404,7 +404,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('tank_pressure_status')?.value === 'pending'"
                 formControlName="tank_pressure_details"
@@ -414,10 +414,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.2 Pressure testing of sea tubes in way of hot work
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="sea_tube_pressure_status"
                 [options]="undertakenPendingOptions"
@@ -425,7 +425,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('sea_tube_pressure_status')?.value === 'pending'"
                 formControlName="sea_tube_pressure_details"
@@ -435,10 +435,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.3 NDT undertaken in way of hot work locations
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="ndt_hotwork_status"
                 [options]="undertakenPendingOptions"
@@ -446,7 +446,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('ndt_hotwork_status')?.value === 'pending'"
                 formControlName="ndt_hotwork_details"
@@ -456,17 +456,17 @@
           </tr>
 
           <!-- SECTION 5 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4. CHECKS ON ICCP SYSTEM
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1 Dry Dock checks completed / (Sat/ Unsat)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="dd_check_status"
                 [options]="completedPendingOptions"
@@ -474,7 +474,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-select
                 *ngIf="form.get('dd_check_status')?.value === 'completed'"
                 formControlName="dd_check_result"
@@ -496,10 +496,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.2 MLAB/WECORS/OEM report to be obtained from ship
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="mlab_report_status"
                 [options]="submittedPendingOptions"
@@ -507,7 +507,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('mlab_report_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -522,10 +522,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.3 Inspection of ICCP Cofferdams cleared by HITU(V)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="cofferdam_status"
                 [options]="clearedPendingOptions"
@@ -533,7 +533,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 *ngIf="form.get('cofferdam_status')?.value === 'pending'"
                 formControlName="cofferdam_details"
@@ -543,10 +543,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.4 Filling of NMRL approved potting compound
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="potting_status"
                 [options]="undertakenPendingOptions"
@@ -558,15 +558,15 @@
           </tr>
 
           <!-- SECTION 6 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5. DOCUMENTS TO BE SUBMITTED
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.1 UW Hull survey report</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.1 UW Hull survey report</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="uw_hull_status"
                 [options]="submittedPendingNAOptions"
@@ -574,7 +574,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('uw_hull_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -589,8 +589,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.2 Endoscopy report</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.2 Endoscopy report</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="endoscopy_status"
                 [options]="submittedPendingNAOptions"
@@ -598,7 +598,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('endoscopy_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -613,10 +613,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5.3 Internal Hull Survey report &amp; renewal details
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="internal_hull_status"
                 [options]="submittedPendingNAOptions"
@@ -624,7 +624,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('internal_hull_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -639,10 +639,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5.4 List of repair/renewal area
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="repair_list_status"
                 [options]="submittedPendingNAOptions"
@@ -650,7 +650,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('repair_list_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -665,10 +665,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5.5 Pressure Test Certificates and NDT Certificates of QC
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="pressure_cert_status3"
                 [options]="submittedPendingNAOptions"
@@ -676,7 +676,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('pressure_cert_status3')?.value === 'submitted'"
                 [multiple]="true"
@@ -691,8 +691,8 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.6 Hose test certificate</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.6 Hose test certificate</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="hose_test_status"
                 [options]="submittedPendingNAOptions"
@@ -700,7 +700,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('hose_test_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -715,10 +715,10 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               5.7 Dry dock checks report of ICCP system
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="iccp_dd_status"
                 [options]="submittedPendingNAOptions"
@@ -726,7 +726,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 *ngIf="form.get('iccp_dd_status')?.value === 'submitted'"
                 [multiple]="true"
@@ -741,15 +741,15 @@
           </tr>
 
           <!-- SECTION 7 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               6.&nbsp;&nbsp;DEFECT RECTIFICATION / PRESERVATION OF INTERNAL U/W
               COMPARTMENTS / TANKS
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-input
                 formControlName="dialog_field"
                 rows="3"
@@ -760,14 +760,14 @@
           </tr>
 
           <!-- SECTION 8 -->
-          <tr class="hitu-table-parameters-header">
-            <td colspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               7.&nbsp;&nbsp;New Observation
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-input
                 formControlName="new_observation"
                 rows="3"
@@ -777,11 +777,11 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-parameters-header">
-            <td colspan="2" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               8. Upload action taken / planned report
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-file-upload
                 (fileSelected)="handleFile($event)"
                 formControlName="file3"
@@ -789,25 +789,25 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-parameters-header">
-            <td colspan="5" class="hitu-table-rows-border">9. Signatures</td>
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">9. Signatures</td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Signature of Ship Staff
             </td>
-            <td class="hitu-table-rows-border w-1/3" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 w-1/3" colspan="1">
               Signature of Refitting Authority
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               Signature of HITU Inspector
             </td>
           </tr>
 
           <!-- Digital Signature Upload -->
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-file-upload
                 [label]="'Upload Signature'"
                 formControlName="ship_staff_signature"
@@ -815,7 +815,7 @@
               </app-file-upload>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-file-upload
                 [label]="'Upload Signature'"
                 formControlName="refitting_authority_signature"
@@ -823,7 +823,7 @@
               </app-file-upload>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-file-upload
                 [label]="'Upload Signature'"
                 formControlName="hitu_inspector_signature"
@@ -834,12 +834,12 @@
 
           <!-- Name -->
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input formControlName="ship_staff_name" placeholder="Name">
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="refitting_authority_name"
                 placeholder="Name"
@@ -847,7 +847,7 @@
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-input
                 formControlName="hitu_inspector_name"
                 placeholder="Name"
@@ -858,12 +858,12 @@
 
           <!-- Rank -->
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input formControlName="ship_staff_rank" placeholder="Rank">
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="refitting_authority_rank"
                 placeholder="Rank"
@@ -871,7 +871,7 @@
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-input
                 formControlName="hitu_inspector_rank"
                 placeholder="Rank"
@@ -882,7 +882,7 @@
 
           <!-- Designation -->
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="ship_staff_dsg"
                 placeholder="Designation"
@@ -890,7 +890,7 @@
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="refitting_authority_dsg"
                 placeholder="Designation"
@@ -898,7 +898,7 @@
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-input
                 formControlName="hitu_inspector_dsg"
                 placeholder="Designation"

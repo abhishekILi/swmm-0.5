@@ -16,21 +16,14 @@ import { FileUploadComponent } from "../../../../ui/file-upload/file-upload.comp
 import { FormInputTableWithHeaders } from "../../../../ui/form-input-table-with-headers/form-input-table-with-headers.component";
 import { InputComponent } from "../../../../ui/input.component";
 import { LoadingButtonComponent } from "../../../../ui/loading-button.component";
-import { FormCardComponent, ReusableInputTableComponent, ReusableTableColumn } from "../../../../ui/master-compat";
+import { ReusableInputTableComponent, ReusableTableColumn } from "../../../../ui/master-compat";
+import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { ParameterCardComponent } from "../../../../ui/parameter-card/parameter-card.component";
 import { ReusableDeleteDialogDynamicContent } from "../../../../ui/reusable-delete-dialog-dynamic-content/reusable-delete-dialog-dynamic-content";
 import { SelectWithSearchComponent } from "../../../../ui/select-with-search/select-with-search-box.component";
 import { SelectComponent } from "../../../../ui/select.component";
 import { ToastComponent } from "../../../../ui/toast/toast.component";
 import { UploadedFileItem } from "../anchor-capstan-add/anchor-capstan-add.component";
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-  LucideTrash as Trash,
-} from '@lucide/angular';
 
 @Component({
   selector: 'app-water-tight-hatches-add',
@@ -64,14 +57,14 @@ export class WaterTightHatchesAdd implements OnInit {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
 
   locationOptions: [] = [];
-  readonly deleteIcon = Trash;
+  readonly deleteIcon = 'trash';
   form!: FormGroup;
   loading = false;
   showApprovalWorkflowPopup = false;
@@ -235,11 +228,11 @@ export class WaterTightHatchesAdd implements OnInit {
 
         // UPDATE COLUMN OPTIONS DYNAMICALLY
         const typeOfHatchColumn = this.dockingDetailsColumns.find(
-          (col) => col.field === 'hatch_type',
+          (col) => col["field"] === 'hatch_type',
         );
 
         if (typeOfHatchColumn) {
-          typeOfHatchColumn.options = [...this.doorOptions];
+          typeOfHatchColumn["options"] = [...this.doorOptions];
         }
 
         // force table refresh
@@ -260,11 +253,11 @@ export class WaterTightHatchesAdd implements OnInit {
 
         // UPDATE COLUMN OPTIONS DYNAMICALLY
         const locationColumn = this.dockingDetailsColumns.find(
-          (col) => col.field === 'location',
+          (col:any) => col.field === 'location',
         );
 
         if (locationColumn) {
-          locationColumn.options = [...this.locationsOptions];
+          locationColumn["options"] = [...this.locationsOptions];
         }
 
         // force table refresh
@@ -285,11 +278,11 @@ export class WaterTightHatchesAdd implements OnInit {
 
         // UPDATE COLUMN OPTIONS DYNAMICALLY
         const materialRubberBeadingColumn = this.dockingDetailsColumns.find(
-          (col) => col.field === 'rubber_beading_material',
+          (col) => col["field"] === 'rubber_beading_material',
         );
 
         if (materialRubberBeadingColumn) {
-          materialRubberBeadingColumn.options = [
+          materialRubberBeadingColumn["options"] = [
             ...this.materialRubberBeadingOptions,
           ];
         }
@@ -965,7 +958,7 @@ export class WaterTightHatchesAdd implements OnInit {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

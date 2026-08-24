@@ -2,13 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
@@ -22,7 +15,6 @@ import { SelectWithSearchComponent } from '../../../../ui/select-with-search/sel
 import { SelectComponent } from '../../../../ui/select.component';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
-import { EditorComponent } from '../../../../ui/editor';
 import { Apiendpoints } from '../../../../ApiEndPoints';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import {
@@ -48,7 +40,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     LoadingButtonComponent,
     FileUploadComponent,
     SelectWithSearchComponent,
-    EditorComponent,
     ApprovalWorkFlow,
     MultiSelectDropdownComponent,
   ],
@@ -60,9 +51,9 @@ export class FUWHI {
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
 
   selectedShipId: number = 0;
@@ -412,7 +403,7 @@ export class FUWHI {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

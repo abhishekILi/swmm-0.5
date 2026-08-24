@@ -2,11 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
@@ -34,7 +29,7 @@ import {
   trialRowFromGetFormResponse,
 } from '../../../../trial-route-prefill';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
-import { Apiendpoints } from 'app/ApiEndPoints';
+import { Apiendpoints } from '../../../../ApiEndPoints';
 
 @Component({
   selector: 'app-underwater-tanks',
@@ -105,9 +100,9 @@ export class UnderwaterTanks implements OnInit {
   }
   // -------------------------------------------------------------------------------
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   form!: FormGroup;
   placesOptions: any[] = [];
@@ -483,7 +478,7 @@ export class UnderwaterTanks implements OnInit {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

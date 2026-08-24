@@ -6,13 +6,6 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
@@ -37,6 +30,7 @@ import {
 import { FileUrlUtil } from '../../../../file-url-util';
 import { Apiendpoints } from '../../../../ApiEndPoints';
 import { MultiSelectDropdownComponent } from '../../../../ui/multiselect';
+import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
 @Component({
   selector: 'app-submarine-door',
@@ -56,6 +50,7 @@ import { MultiSelectDropdownComponent } from '../../../../ui/multiselect';
     SelectWithSearchComponent,
     DynamicTextarea,
     DynamicSelectTextarea,
+    ApprovalWorkFlow,
   ],
 })
 export class SubmarineDoor {
@@ -68,11 +63,11 @@ export class SubmarineDoor {
 
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
   compartmentOptions: any[] = [];
 
   form!: FormGroup;
@@ -596,7 +591,7 @@ export class SubmarineDoor {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

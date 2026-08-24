@@ -7,13 +7,6 @@ import {
   FormArray,
   Validators,
 } from '@angular/forms';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
@@ -67,15 +60,15 @@ export class StructuralHeloHanger {
   editDataDetails: any = null;
   loading = false;
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
 
   selectedShipId: number = 0;
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   form!: FormGroup;
   showApprovalWorkflowPopup = false;
   isSubmitTime = false;
@@ -442,7 +435,7 @@ export class StructuralHeloHanger {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

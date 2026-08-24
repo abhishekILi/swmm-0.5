@@ -8,14 +8,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -26,7 +26,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -192,10 +192,10 @@
     <table class="w-full border-collapse text-sm mt-5">
       <!-- Header -->
       <thead>
-        <tr class="hitu-table-header">
-          <th class="hitu-table-rows-border">Ser</th>
-          <th class="hitu-table-rows-border">Description</th>
-          <th class="hitu-table-rows-border" width="60%">Remarks</th>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Description</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85" width="60%">Remarks</th>
         </tr>
       </thead>
 
@@ -203,9 +203,9 @@
       <tbody>
         <!-- 1 -->
         <tr>
-          <td class="hitu-table-rows-border font-bold">1</td>
-          <td class="hitu-table-rows-border">Type of test</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-bold">1</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Type of test</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <!-- <app-input formControlName="type_of_test" placeholder="Enter type of test"></app-input> -->
             <app-select
               formControlName="type_of_test"
@@ -219,9 +219,9 @@
 
         <!-- 2 -->
         <tr>
-          <td class="hitu-table-rows-border">2</td>
-          <td class="hitu-table-rows-border">Reference document</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Reference document</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <!-- <app-input formControlName="reference_document"></app-input> -->
             <app-file-upload
               formControlName="reference_document"
@@ -231,9 +231,9 @@
 
         <!-- 3 -->
         <tr>
-          <td class="hitu-table-rows-border">3</td>
-          <td class="hitu-table-rows-border">Cluster No</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Cluster No</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="cluster_no"
               [searchable]="false"
@@ -244,54 +244,54 @@
 
         <!-- 4 -->
         <tr>
-          <td class="hitu-table-rows-border">4</td>
-          <td class="hitu-table-rows-border">Compartments located within</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Compartments located within</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="compartments"></app-input>
           </td>
         </tr>
 
         <!-- 5 -->
         <tr>
-          <td class="hitu-table-rows-border">5</td>
-          <td class="hitu-table-rows-border">Frame station</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Frame station</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="frame_station"></app-input>
           </td>
         </tr>
 
         <!-- 6 -->
         <tr>
-          <td class="hitu-table-rows-border">6</td>
-          <td class="hitu-table-rows-border">ITP location</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">ITP location</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="itp_location"></app-input>
           </td>
         </tr>
 
         <!-- 7 -->
         <tr>
-          <td class="hitu-table-rows-border">7</td>
-          <td class="hitu-table-rows-border">Test pressure</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Test pressure</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="test_pressure"></app-input>
           </td>
         </tr>
 
         <!-- 8 -->
         <tr>
-          <td class="hitu-table-rows-border">8</td>
-          <td class="hitu-table-rows-border">Last Test date</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Last Test date</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="last_test_date"></app-calendar>
           </td>
         </tr>
 
         <!-- 9 Adjacent -->
         <tr>
-          <td class="hitu-table-rows-border">9</td>
-          <td class="hitu-table-rows-border">Adjacent compartments</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Adjacent compartments</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
               <app-input formControlName="fwd" placeholder="Fwd"></app-input>
               <app-input formControlName="aft" placeholder="Aft"></app-input>
@@ -311,18 +311,18 @@
 
         <!-- 10 -->
         <tr>
-          <td class="hitu-table-rows-border">10</td>
-          <td class="hitu-table-rows-border">Date of test</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">10</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Date of test</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="date_of_test"></app-calendar>
           </td>
         </tr>
 
         <!-- 11 -->
         <!-- <tr>
-      <td class="hitu-table-rows-border">11</td>
-      <td class="hitu-table-rows-border">Drop of Pressure</td>
-      <td class="hitu-table-rows-border">
+      <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11</td>
+      <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Drop of Pressure</td>
+      <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
 
        
 
@@ -337,11 +337,11 @@
     </tr> -->
 
         <tr>
-          <td class="hitu-table-rows-border">11</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11</td>
 
-          <td class="hitu-table-rows-border font-semibold">Drop of Pressure</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold">Drop of Pressure</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="grid grid-cols-2 gap-4">
               <!-- Observation Dropdown -->
               <div>
@@ -387,22 +387,22 @@
 
         <!-- 12 -->
         <tr>
-          <td class="hitu-table-rows-border">12</td>
-          <td class="hitu-table-rows-border">Preparation prior APT</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">12</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Preparation prior APT</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="preparation"></app-input>
           </td>
         </tr>
 
         <!-- 13 -->
         <tr>
-          <td class="hitu-table-rows-border">13</td>
-          <td class="hitu-table-rows-border">Ty blanking</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">13</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ty blanking</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-start gap-4">
               <!-- Col 1: Type Number input (1–10) -->
               <div class="w-36 flex-shrink-0">
-                <label class="text-xs font-semibold text-gray-500 block mb-1"
+                <label class="text-xs font-semibold text-white/60 block mb-1"
                   >Type No.</label
                 >
                 <app-input
@@ -418,7 +418,7 @@
                 class="flex flex-col gap-2 flex-1"
                 *ngIf="getTyBlankingCount() > 0"
               >
-                <label class="text-xs font-semibold text-gray-500 block mb-1"
+                <label class="text-xs font-semibold text-white/60 block mb-1"
                   >Values</label
                 >
                 <ng-container
@@ -437,9 +437,9 @@
 
         <!-- 14 -->
         <tr>
-          <td class="hitu-table-rows-border">14</td>
-          <td class="hitu-table-rows-border">Observations</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">14</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Observations</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div formArrayName="observations" class="flex flex-col gap-2">
               <div
                 *ngFor="let ctrl of observationsArray.controls; let i = index"
@@ -458,7 +458,7 @@
                   type="button"
                   (click)="removeObservation(i)"
                   [disabled]="observationsArray.length === 1"
-                  class="flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-lg leading-none transition bg-red-500 hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  class="flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-lg leading-none transition bg-red-500 hover:bg-red-600 disabled:bg-white/[0.08] disabled:cursor-not-allowed"
                 >
                   &minus;
                 </button>
@@ -479,18 +479,18 @@
 
         <!-- 15 -->
         <tr>
-          <td class="hitu-table-rows-border">15</td>
-          <td class="hitu-table-rows-border">Recommendations</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">15</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Recommendations</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input formControlName="recommendations"></app-input>
           </td>
         </tr>
 
         <!-- 16 -->
         <tr>
-          <td class="hitu-table-rows-border">16</td>
-          <td class="hitu-table-rows-border">Overall Status</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">16</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Overall Status</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="overall_status"
               [options]="statusOptions"

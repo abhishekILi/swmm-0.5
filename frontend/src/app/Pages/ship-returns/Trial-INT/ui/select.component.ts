@@ -394,6 +394,7 @@ export class SelectComponent
   writeValue(value: any): void {
     this.value = value;
     this.syncSelectedOption();
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {
@@ -409,6 +410,7 @@ export class SelectComponent
     this.isOpen = false;
     this.detachScrollRepositionListener();
     this.isLoading = false;
+    this.cdr.markForCheck();
   }
 
   private syncSelectedOption(): void {

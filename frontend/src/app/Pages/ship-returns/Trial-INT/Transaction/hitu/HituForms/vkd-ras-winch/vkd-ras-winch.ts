@@ -9,13 +9,6 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { SelectComponent } from '../../../../ui/select.component';
@@ -62,10 +55,10 @@ export class VkdRasWinch {
   rowId!: string | null;
   editDataDetails: any = null;
 
-  readonly restartIcon = RotateCcw;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  readonly restartIcon = 'rotate-ccw';
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   draftLoading = false;
   saveLoading = false;
@@ -677,7 +670,7 @@ export class VkdRasWinch {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

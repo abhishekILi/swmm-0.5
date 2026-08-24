@@ -8,14 +8,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -26,7 +26,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -122,26 +122,26 @@
       <table class="w-full border-collapse text-sm">
         <!-- HEADER -->
         <thead>
-          <tr class="hitu-table-parameters-header">
-            <th class="w-16 hitu-table-rows-border">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observations</th>
-            <th class="hitu-table-rows-border">Remarks</th>
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <th class="w-16 border border-white/15 px-3 py-2 align-middle text-white/85">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observations</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</th>
           </tr>
         </thead>
 
         <tbody>
           <!-- SECTION -->
-          <!-- <tr class="hitu-table-parameters-header">
-            <td colspan="5" class="hitu-table-rows-border">Plant Definition</td>
+          <!-- <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">Plant Definition</td>
           </tr> -->
 
           <!-- 1 -->
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">1</td>
-            <td class="hitu-table-rows-border p-2">Make</td>
-            <td class="hitu-table-rows-border p-2" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Make</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="3">
               <app-input
                 formControlName="manufacturer_name"
                 placeholder="--Select--"
@@ -152,29 +152,29 @@
 
           <!-- 2 -->
           <tr class="">
-            <td class="hitu-table-rows-border p-2 text-center">2</td>
-            <td class="hitu-table-rows-border p-2">Model</td>
-            <td class="hitu-table-rows-border p-2" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Model</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="3">
               <app-input formControlName="model" placeholder="--Select--">
               </app-input>
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2 text-center">3</td>
-            <td class="hitu-table-rows-border p-2">Year of Manufacture</td>
-            <td class="hitu-table-rows-border p-2" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Year of Manufacture</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="3">
               <input type="date" formControlName="year_of_manuf" />
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">4.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">4.</td>
 
-            <td class="hitu-table-rows-border p-2">Electrical Checks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Electrical Checks</td>
 
             <!-- Status Dropdown -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="electrical_check_status"
                 [searchable]="false"
@@ -188,7 +188,7 @@
             </td>
 
             <!-- Details Column -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <!-- SAT -->
               <span
                 *ngIf="form.get('electrical_check_status')?.value === 'SAT'"
@@ -208,7 +208,7 @@
             </td>
 
             <!-- Remark Column -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <span
                 *ngIf="form.get('electrical_check_status')?.value === 'SAT'"
               >
@@ -224,16 +224,16 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">5.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">5.</td>
 
-            <td class="hitu-table-rows-border p-2">Limit Switch</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Limit Switch</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Functioning of limit switches
             </td>
 
             <!-- Dropdown -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="limit_switch"
                 [searchable]="false"
@@ -246,7 +246,7 @@
             </td>
 
             <!-- Remark -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <input
                 formControlName="lim_switch_remark"
                 class="input-field"
@@ -256,14 +256,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">6</td>
 
-            <td class="hitu-table-rows-border p-2">Oil Level in Gear Box</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Oil Level in Gear Box</td>
 
-            <td class="hitu-table-rows-border p-2 text-xs">Check Oil level</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs">Check Oil level</td>
 
             <!-- Dropdown -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="oil_level"
                 [searchable]="false"
@@ -277,7 +277,7 @@
             </td>
 
             <!-- Remark + Observation -->
-            <td class="hitu-table-rows-border p-2 space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 space-y-2">
               <!-- Display -->
               <input
                 class="input-field"
@@ -300,14 +300,14 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">7</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">7</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Type of oil used in Gear Box
             </td>
 
             <!-- Oil Type -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="oil_type"
                 [searchable]="false"
@@ -322,7 +322,7 @@
             </td>
 
             <!-- Oil Available -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="oil_available"
                 [searchable]="false"
@@ -336,7 +336,7 @@
             </td>
 
             <!-- Remark -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <input
                 formControlName="oil_remark"
                 class="input-field"
@@ -345,18 +345,18 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">8</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">8</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Condition of Foundations and Structure
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs">
               Corrosion / Pitting / Unpainted / Others
             </td>
 
             <!-- DROPDOWN -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="foundation_condition"
                 [searchable]="false"
@@ -397,7 +397,7 @@
             </td>
 
             <!-- REMARK COLUMN -->
-            <td class="hitu-table-rows-border p-2 space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 space-y-2">
               <!-- AUTO REMARK -->
               <input
                 [value]="form.get('foundation_remark')?.value"
@@ -416,16 +416,16 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">9</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">9</td>
 
-            <td class="hitu-table-rows-border p-2 text-xs">Greasing points</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs">Greasing points</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Condition of grease nipples – Charged / Painted / Choked
             </td>
 
             <!-- Condition -->
-            <td class="hitu-table-rows-border p-2 space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 space-y-2">
               <app-select
                 formControlName="lubrication_points"
                 [searchable]="false"
@@ -443,7 +443,7 @@
             </td>
 
             <!-- Remark -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <input
                 formControlName="greasing_point_remarks"
                 class="input-field"
@@ -462,16 +462,16 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2 text-center">10</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-center">10</td>
 
-            <td class="hitu-table-rows-border p-2">Drive</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Drive</td>
 
-            <td class="hitu-table-rows-border p-2 text-xs">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs">
               Check for abnormal noise
             </td>
 
             <!-- SELECT -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="drive_condition"
                 [searchable]="false"
@@ -484,7 +484,7 @@
             </td>
 
             <!-- INPUT / REMARK AREA -->
-            <td class="hitu-table-rows-border p-2 text-xs">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs">
               <!-- NIL CASE -->
               <input
                 *ngIf="form.get('drive_condition')?.value === 'nil'"
@@ -504,21 +504,21 @@
               </app-input>
             </td>
           </tr>
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               11. Safety Checks - Visual
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">11.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">11.1</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               In Electrical operation, the RSS will not Open/Close with the Side
               lock engaged
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="electrical_oper"
                 [searchable]="false"
@@ -530,7 +530,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- NIL CASE -->
               <input
                 *ngIf="form.get('electrical_oper')?.value === 'nil'"
@@ -551,14 +551,14 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border p-2">11.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">11.2</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               If RSS closure is in open condition, motor should not start for
               opening
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="rss_closure"
                 [searchable]="false"
@@ -567,7 +567,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <app-input
                 *ngIf="extract('rss_closure') === 'observation'"
                 formControlName="rss_closure_obs"
@@ -583,12 +583,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">11.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">11.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               When the Emergency stop is pressed, the operation of the RSS
               Screen is stopped in Electrical
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="rss_screen"
                 [searchable]="false"
@@ -601,7 +601,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('rss_screen')?.value === 'observation'"
                 formControlName="rss_screen_obs"
@@ -615,13 +615,13 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">11.4</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">11.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               During Manual mode of operation, the RSS Screen can be freely
               operated by the disengaging the clutches from motor with the help
               of handle
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="manual_mode"
                 [searchable]="false"
@@ -634,7 +634,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="extract('manual_mode') === 'observation'"
                 formControlName="manual_mode_obs"
@@ -647,18 +647,18 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               12. Electric Mode (Opening Procedures)
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">12.1</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Checks the Clutching of lever with gear box before the start
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="gear_box"
                 [searchable]="false"
@@ -671,7 +671,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('gear_box')?.value === 'observation'"
                 formControlName="gear_box_obs"
@@ -693,11 +693,11 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">12.2</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Energize the Electrical Panel
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="electrical_panel"
                 [searchable]="false"
@@ -710,7 +710,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="extract('electrical_panel') === 'observation'"
                 formControlName="electrical_panel_obs"
@@ -729,11 +729,11 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">12.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Disengage the Manual locks from the bottom of the screen
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="manual_locks"
                 [searchable]="false"
@@ -746,7 +746,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('manual_locks')?.value === 'observation'"
                 formControlName="manual_locks_obs"
@@ -765,14 +765,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2">12.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.4</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Select the Open/Off S1 switch & hold towards Left up and reach its
               limit positions
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="switch_hold"
                 [searchable]="false"
@@ -781,7 +781,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- Observation textbox -->
               <app-input
                 *ngIf="extract('switch_hold') === 'observation'"
@@ -804,14 +804,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2">12.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.5</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               The limit switch will be active once the screen will lift to its
               final positions and motor will be cut off
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="cut_off"
                 [searchable]="false"
@@ -820,7 +820,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- Observation textbox -->
               <app-input
                 *ngIf="extract('cut_off') === 'observation'"
@@ -843,14 +843,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2">12.6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">12.6</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Once the Motor cut-off screen will not move further from its final
               position
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="final_pos"
                 [searchable]="false"
@@ -859,7 +859,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- Observation textbox -->
               <app-input
                 *ngIf="extract('final_pos') === 'observation'"
@@ -881,18 +881,18 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               13. Electric Mode (Closing Procedure)
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border">13.1</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">13.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Checks the clutching of lever with gear box before the start
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="electrical_mode"
                 [searchable]="false"
@@ -905,7 +905,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- Observation -->
               <app-input
                 *ngIf="extract('electrical_mode') === 'observation'"
@@ -926,11 +926,11 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">13.2</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Energize the Electrical Panel
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="electrical_pan"
                 [searchable]="false"
@@ -942,7 +942,7 @@
               >
               </app-select>
             </td>
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('electrical_pan')?.value === 'observation'"
                 formControlName="electrical_pan_obs"
@@ -956,11 +956,11 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">13.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Engage the Manual locks from the bottom of the screen
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="engage_manual"
                 [searchable]="false"
@@ -973,7 +973,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('electrical_pan')?.value === 'observation'"
                 formControlName="electrical_pan_obs"
@@ -989,12 +989,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">13.4</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Select the Open/ Off S1 switch & hold towards Right from control
               panel until the screen reached to closing position
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="s1_switch"
                 [searchable]="false"
@@ -1007,7 +1007,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('s1_switch')?.value === 'observation'"
                 formControlName="s1_switch_obs"
@@ -1021,12 +1021,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">13.5</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               The limit switch will be active once the screen will lower to its
               final positions and motor will be cut off
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="cut_off1"
                 [searchable]="false"
@@ -1039,7 +1039,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('cut_off1')?.value === 'observation'"
                 formControlName="cut_off1_obs"
@@ -1053,15 +1053,15 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2">13.6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.6</td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Once the Motor Cut-off screen will not move further from its final
               position
             </td>
 
             <!-- Dropdown -->
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="motor_cut"
                 [searchable]="false"
@@ -1075,7 +1075,7 @@
             </td>
 
             <!-- SAT or Observation -->
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <!-- Observation Textarea -->
               <app-input
                 *ngIf="form.get('motor_cut')?.value === 'observation'"
@@ -1093,11 +1093,11 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">13.7</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">13.7</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Engage the locks at bottom of the screen with manual locking level
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="lock_level"
                 [searchable]="false"
@@ -1115,7 +1115,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('lock_level')?.value === 'observation'"
                 formControlName="lock_level_obs"
@@ -1133,18 +1133,18 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               14. Manual Mode(Opening Procedure)
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">14.1</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">14.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Unlock the Latch from the top of the frame from both sides
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="latch"
                 [searchable]="false"
@@ -1162,7 +1162,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <!-- Observation textbox -->
               <app-input
                 *ngIf="extract('latch') === 'observation'"
@@ -1180,12 +1180,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">14.2</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">14.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Operate the winch using the manual lever and rotate for downward
               movement of the screen
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="winch"
                 [searchable]="false"
@@ -1203,7 +1203,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <span *ngIf="form.get('winch')?.value === 'nil'"> SAT </span>
 
               <app-input
@@ -1217,12 +1217,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">14.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">14.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Operate the winch unite the screen reaches its maximum position
               towards the shipside
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="shipside"
                 [searchable]="false"
@@ -1240,7 +1240,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('shipside')?.value === 'observation'"
                 formControlName="shipside_obs"
@@ -1258,18 +1258,18 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               15. Manual Mode (Closing Procedure)
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">15.1</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">15.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Unlock the Latch from the top of the frame from both sides
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="frame"
                 [searchable]="false"
@@ -1287,7 +1287,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('frame')?.value === 'observation'"
                 formControlName="frame_obs"
@@ -1301,12 +1301,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">15.2</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">15.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Operate the winch using the manual lever and rotate for downward
               movement of the screen
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="downward"
                 [searchable]="false"
@@ -1324,7 +1324,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('downward')?.value === 'observation'"
                 formControlName="downward_obs"
@@ -1343,12 +1343,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">15.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">15.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Operate the winch unite the screen reaches its maximum position
               towards the shipside
             </td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-select
                 formControlName="max_pos"
                 [searchable]="false"
@@ -1366,7 +1366,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border p-2 text-xs" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 text-xs" colspan="2">
               <app-input
                 *ngIf="form.get('max_pos')?.value === 'observation'"
                 formControlName="max_pos_obs"
@@ -1388,19 +1388,19 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-rows-border">
-            <td class="hitu-table-header p-2" colspan="5">
+          <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+            <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2" colspan="5">
               16. Operating Time (Electric and Manual Mode)
             </td>
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">16.1</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">16.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Open Time (Electric) 120 sec
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <div class="flex items-center gap-2">
                 <app-input
                   type="number"
@@ -1412,7 +1412,7 @@
               </div>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <app-input
                 formControlName="open_time_electric_remark"
                 class="input-field"
@@ -1422,12 +1422,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">16.2</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">16.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Closing Time (Electric) 120 sec
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <div class="flex items-center gap-2">
                 <app-input
                   type="number"
@@ -1439,7 +1439,7 @@
               </div>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <app-input
                 formControlName="closing_time_electric_remark"
                 class="input-field"
@@ -1449,12 +1449,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">16.3</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">16.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Open Time (Manual) 300 sec
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <div class="flex items-center gap-2">
                 <app-input
                   type="number"
@@ -1466,7 +1466,7 @@
               </div>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <app-input
                 formControlName="open_time_manual_remark"
                 class="input-field"
@@ -1476,12 +1476,12 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">16.4</td>
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">16.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               Closing Time (Manual) 300 sec
             </td>
 
-            <td class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <div class="flex items-center gap-2">
                 <app-input
                   type="number"
@@ -1493,7 +1493,7 @@
               </div>
             </td>
 
-            <td class="hitu-table-rows-border p-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" colspan="2">
               <app-input
                 formControlName="closing_time_manual_remark"
                 class="input-field"
@@ -1503,9 +1503,9 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">17.</td>
-            <td class="hitu-table-rows-border p-2">Any other Observations</td>
-            <td colspan="3" class="hitu-table-rows-border p-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">17.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Any other Observations</td>
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">
               <app-input
                 formControlName="any_other_observations"
                 rows="3"
@@ -1516,10 +1516,10 @@
           </tr>
 
           <tr class="">
-            <td class="hitu-table-rows-border p-2">18</td>
-            <td class="hitu-table-rows-border p-2">Overall Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">18</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2">Overall Remarks</td>
             <!-- Dropdown -->
-            <td class="hitu-table-rows-border p-2 space-y-2" colspan="4">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2 space-y-2" colspan="4">
               <app-select
                 formControlName="overall_remark"
                 [searchable]="false"

@@ -2,14 +2,14 @@
   [previewMode]="true">
   <div
       previewHeader
-      class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+      class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
       <button
           *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
           type="button"
           (click)="setActiveTab(tab)"
-          class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-          [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+          class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+          [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
       >
           <span class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
               {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
@@ -17,7 +17,7 @@
 
           <span
               class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
           >
               {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-' }}
           </span>
@@ -63,55 +63,55 @@
         <table class="w-full border-collapse text-sm">
           <tbody>
             <tr>
-              <th class="hitu-table-header">RE (#)</th>
-              <th class="hitu-table-header" *ngFor="let item of reNumbers">RE{{ item }}</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE (#)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" *ngFor="let item of reNumbers">RE{{ item }}</th>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Locations</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Locations</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <app-select [formControlName]="'re' + item + '_location'" [searchable]="false"
                   [options]="locationOptions"></app-select>
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Fr Stn</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Fr Stn</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <app-input [formControlName]="'re' + item + '_fr_stn'" placeholder="AN"></app-input>
               </td>
             </tr>
 
             <tr>
-              <th class="hitu-table-header">Anode (*)</th>
-              <th class="hitu-table-header" *ngFor="let item of anodeNumbers">A{{ item }}</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Anode (*)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" *ngFor="let item of anodeNumbers">A{{ item }}</th>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Locations</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of anodeNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Locations</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of anodeNumbers">
                 <app-select [formControlName]="'anode' + item + '_location'" [searchable]="false"
                   [options]="locationOptions"></app-select>
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Fr Stn</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of anodeNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Fr Stn</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of anodeNumbers">
                 <app-input [formControlName]="'anode' + item + '_fr_stn'" placeholder="AN"></app-input>
               </td>
             </tr>
 
             <tr>
-              <th class="hitu-table-header">RE (#)</th>
-              <th class="hitu-table-header" *ngFor="let item of reNumbers">RE{{ item }}</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE (#)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" *ngFor="let item of reNumbers">RE{{ item }}</th>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Locations</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Locations</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <app-select [formControlName]="'pre_re' + item + '_location'" [searchable]="false"
                   [options]="locationOptions"></app-select>
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Fr Stn</th>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Fr Stn</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <app-input [formControlName]="'pre_re' + item + '_fr_stn'" placeholder="AN"></app-input>
               </td>
             </tr>
@@ -126,35 +126,35 @@
         <table class="w-full border-collapse text-sm">
           <tbody>
             <tr>
-              <th class="hitu-table-rows-border" rowspan="3">Check No.1</th>
-              <td class="hitu-table-header" colspan="4">ACU(s) in OFF position. Measure Hull potential with Portable RE.
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="3">Check No.1</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="4">ACU(s) in OFF position. Measure Hull potential with Portable RE.
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-header">Frame Stn</th>
-              <th class="hitu-table-header">Port (mV)</th>
-              <th class="hitu-table-header">Stbd (mV)</th>
-              <th class="hitu-table-header">Remarks</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Frame Stn</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Port (mV)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Stbd (mV)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Remarks</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border"><app-input formControlName="check_1_frame_stn"
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input formControlName="check_1_frame_stn"
                   placeholder=""></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-input type="number" formControlName="check_1_port_mv"></app-input>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number" formControlName="check_1_port_mv"></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-input type="number" formControlName="check_1_stbd_mv"></app-input>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number" formControlName="check_1_stbd_mv"></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-select formControlName="check_1_remarks"
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-select formControlName="check_1_remarks"
                   [options]="remarksOptions"></app-select></td>
             </tr>
 
             <tr>
-              <th class="hitu-table-rows-border" rowspan="2">Check No.2</th>
-              <td class="hitu-table-header" colspan="4">ACU(s) switched OFF. Measure Hull potential on terminals of REs
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Check No.2</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="4">ACU(s) switched OFF. Measure Hull potential on terminals of REs
                 on panel (mV).</td>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" colspan="4">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="4">
                 <div class="inline-grid">
                   <div *ngFor="let item of reNumbers" class="mini-field">
                     <span>RE{{ item }}</span>
@@ -165,25 +165,25 @@
             </tr>
 
             <tr>
-              <th class="hitu-table-rows-border" rowspan="3">Check No.3</th>
-              <td class="hitu-table-header" colspan="4">ACU(s) ON in Auto mode. Measure Hull potential with Portable RE.
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="3">Check No.3</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="4">ACU(s) ON in Auto mode. Measure Hull potential with Portable RE.
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-header">Frame Stn</th>
-              <th class="hitu-table-header">Port (mV)</th>
-              <th class="hitu-table-header">Stbd (mV)</th>
-              <th class="hitu-table-header">Remarks</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Frame Stn</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Port (mV)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Stbd (mV)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Remarks</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border"><app-input formControlName="check_3_frame_stn"
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input formControlName="check_3_frame_stn"
                   placeholder=""></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-input type="number" formControlName="check_3_port_mv"></app-input>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number" formControlName="check_3_port_mv"></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-input type="number" formControlName="check_3_stbd_mv"></app-input>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number" formControlName="check_3_stbd_mv"></app-input>
               </td>
-              <td class="hitu-table-rows-border"><app-select formControlName="check_3_remarks"
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-select formControlName="check_3_remarks"
                   [options]="remarksOptions"></app-select></td>
             </tr>
           </tbody>
@@ -197,44 +197,44 @@
         <table class="w-full border-collapse text-sm">
           <tbody>
             <tr>
-              <th colspan="12" class="hitu-table-header">Measure hull potential, Anode current and Anode voltage in Auto
+              <th colspan="12" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Measure hull potential, Anode current and Anode voltage in Auto
                 mode (Terminal
                 Reading)</th>
             </tr>
             <tr class="">
-              <th colspan="4" class="hitu-table-header">Hull potential (mV)</th>
-              <th colspan="4" class="hitu-table-header">Anode voltage (V)</th>
-              <th colspan="4" class="hitu-table-header">Anode current (Amps)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Hull potential (mV)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Anode voltage (V)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Anode current (Amps)</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">RE{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">A{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">A{{ item }}</th>
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">RE{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">A{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">A{{ item }}</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_hull_re' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_voltage_a' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_current_a' + item"></app-input>
               </td>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">RE{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">A{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">A{{ item }}</th>
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">RE{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">A{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">A{{ item }}</th>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_hull_re' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_voltage_a' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_terminal_current_a' + item"></app-input>
               </td>
             </tr>
@@ -247,44 +247,44 @@
         <table class="">
           <tbody>
             <tr>
-              <th colspan="12" class="hitu-table-header">Measure hull potential, Anode current and Anode voltage in Auto
+              <th colspan="12" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Measure hull potential, Anode current and Anode voltage in Auto
                 mode (Display
                 Reading)</th>
             </tr>
             <tr class="">
-              <th colspan="4" class="hitu-table-header">Hull potential (mV)</th>
-              <th colspan="4" class="hitu-table-header">Anode voltage (V)</th>
-              <th colspan="4" class="hitu-table-header">Anode current (Amps)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Hull potential (mV)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Anode voltage (V)</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Anode current (Amps)</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">RE{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">A{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of firstFour">A{{ item }}</th>
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">RE{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">A{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">A{{ item }}</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_display_hull_re' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_display_voltage_a' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_4_display_current_a' + item"></app-input>
               </td>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">RE{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">A{{ item }}</th>
-              <th class="hitu-table-rows-border" *ngFor="let item of secondFour">A{{ item }}</th>
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">RE{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">A{{ item }}</th>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">A{{ item }}</th>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_display_hull_re' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_display_voltage_a' + item"></app-input>
               </td>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_4_display_current_a' + item"></app-input>
               </td>
             </tr>
@@ -299,27 +299,27 @@
         <table class="w-full border-collapse text-sm">
           <tbody>
             <tr>
-              <th class="hitu-table-rows-border" rowspan="2">Check No.5</th>
-              <td class="hitu-table-header" colspan="8">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Check No.5</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">
                 ACU(s) switched to manual mode. Current set to Zero. ACU switched ON. Measure and record Hull Potential
                 as indicated by ICCP REs (mV).
               </td>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <span>RE{{ item }}</span>
                 <app-input [formControlName]="'check_5_re' + item" placeholder=""></app-input>
               </td>
             </tr>
 
             <tr>
-              <th class="hitu-table-rows-border" rowspan="2">Check No.6</th>
-              <td class="hitu-table-header" colspan="8">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Check No.6</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">
                 ACU(s) switched OFF. Measure open circuit voltage of Anodes with Hull (V).
               </td>
             </tr>
-            <tr class="hitu-table-rows-border">
-              <td class="hitu-table-rows-border" *ngFor="let item of anodeNumbers">
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of anodeNumbers">
                 <span>A{{ item }}</span>
                 <app-input type="number" step="0.01" [formControlName]="'check_6_a' + item"></app-input>
               </td>
@@ -348,14 +348,14 @@
       <table class="border-collapse w-full text-sm">
         <tbody>
           <tr>
-            <th class="hitu-table-rows-border" style="text-align: left; vertical-align: top; width: 220px;">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" style="text-align: left; vertical-align: top; width: 220px;">
               <div class="font-bold">Check No. 7</div>
               <div class="check-note italic">
                 To check ICCP system functionality and to record amount of current required to be impressed to maintain
                 the hull potential in the protected zone
               </div>
             </th>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <ol class="list-decimal pl-4 space-y-1">
                 <li>ACU-1 switched ON in manual mode. Other ACU(s) switched OFF.</li>
                 <li>Current to be impressed in increments of 01 or 02 Amps.</li>
@@ -378,59 +378,59 @@
           <tbody>
 
             <tr>
-              <th colspan="9" class="hitu-table-header">Manually impressed Currents and corresponding Anode Voltage</th>
-              <th colspan="4" class="hitu-table-header">Hull potential</th>
+              <th colspan="9" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Manually impressed Currents and corresponding Anode Voltage</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Hull potential</th>
             </tr>
 
             <tr>
-              <th rowspan="2" class="hitu-table-header">Preset potential (+mV)</th>
-              <th colspan="2" *ngFor="let item of firstFour" class="hitu-table-header">A{{ item }}</th>
-              <th rowspan="2" *ngFor="let item of firstFour" class="hitu-table-header">RE{{ item }} (mV)</th>
+              <th rowspan="2" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Preset potential (+mV)</th>
+              <th colspan="2" *ngFor="let item of firstFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">A{{ item }}</th>
+              <th rowspan="2" *ngFor="let item of firstFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE{{ item }} (mV)</th>
             </tr>
             <tr>
               <ng-container *ngFor="let item of firstFour">
-                <th class="hitu-table-header">Amp</th>
-                <th class="hitu-table-header">V</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Amp</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">V</th>
               </ng-container>
 
             </tr>
-            <tr class="hitu-table-rows-border" *ngFor="let row of acuRows">
-              <td class="hitu-table-rows-border"><app-input
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let row of acuRows">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input
                   [formControlName]="'check_7_row' + row + '_preset_potential'"></app-input></td>
               <ng-container *ngFor="let item of firstFour">
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_7_row' + row + '_a' + item + '_amp'"></app-input>
                 </td>
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_7_row' + row + '_a' + item + '_voltage'"></app-input></td>
               </ng-container>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_7_row' + row + '_re' + item"></app-input>
               </td>
             </tr>
             <tr class="">
-              <th rowspan="2" class="hitu-table-header">Preset potential (+mV)</th>
-              <th colspan="2" *ngFor="let item of secondFour" class="hitu-table-header">A{{ item }}</th>
-              <th rowspan="2" *ngFor="let item of secondFour" class="hitu-table-header">RE{{ item }} (mV)</th>
+              <th rowspan="2" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Preset potential (+mV)</th>
+              <th colspan="2" *ngFor="let item of secondFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">A{{ item }}</th>
+              <th rowspan="2" *ngFor="let item of secondFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE{{ item }} (mV)</th>
             </tr>
             <tr>
               <ng-container *ngFor="let item of secondFour">
-                <th class="hitu-table-header">Amp</th>
-                <th class="hitu-table-header">V</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Amp</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">V</th>
               </ng-container>
 
             </tr>
             <tr *ngFor="let row of acuRows">
-              <td class="hitu-table-rows-border"><app-input
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input
                   [formControlName]="'check_7_row' + row + '_preset_potential'"></app-input></td>
               <ng-container *ngFor="let item of secondFour">
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_7_row' + row + '_a' + item + '_amp'"></app-input>
                 </td>
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_7_row' + row + '_a' + item + '_voltage'"></app-input></td>
               </ng-container>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_7_row' + row + '_re' + item"></app-input>
               </td>
             </tr>
@@ -507,14 +507,14 @@
       <table class="border-collapse w-full text-sm">
         <tbody>
           <tr>
-            <th class="hitu-table-rows-border" style="text-align: left; vertical-align: top; width: 220px;">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" style="text-align: left; vertical-align: top; width: 220px;">
               <div class="font-bold">Check No. 8</div>
               <div class="check-note">
                 To check ICCP system functionality in ‘auto’ mode and to record amount of current impressed to maintain
                 the hull potential iaw the set potential
               </div>
             </th>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <ol class="list-decimal pl-4 space-y-1">
                 <li>ACU1 switched ON in ‘auto’ mode.</li>
                 <li>Other ACUs to be switched OFF.</li>
@@ -536,59 +536,59 @@
           <tbody>
 
             <tr>
-              <th colspan="9" class="hitu-table-header">ICCP system response to modification of Preset potential</th>
-              <th colspan="4" class="hitu-table-header">Hull potential</th>
+              <th colspan="9" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">ICCP system response to modification of Preset potential</th>
+              <th colspan="4" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Hull potential</th>
             </tr>
 
             <tr>
-              <th rowspan="2" class="hitu-table-header">Preset potential (+mV)</th>
-              <th colspan="2" *ngFor="let item of firstFour" class="hitu-table-header">A{{ item }}</th>
-              <th rowspan="2" *ngFor="let item of firstFour" class="hitu-table-header">RE{{ item }} (mV)</th>
+              <th rowspan="2" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Preset potential (+mV)</th>
+              <th colspan="2" *ngFor="let item of firstFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">A{{ item }}</th>
+              <th rowspan="2" *ngFor="let item of firstFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE{{ item }} (mV)</th>
             </tr>
             <tr>
               <ng-container *ngFor="let item of firstFour">
-                <th class="hitu-table-header">Amp</th>
-                <th class="hitu-table-header">V</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Amp</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">V</th>
               </ng-container>
 
             </tr>
-            <tr class="hitu-table-rows-border" *ngFor="let row of acuRows">
-              <td class="hitu-table-rows-border"><app-input
+            <tr class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let row of acuRows">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input
                   [formControlName]="'check_8_row' + row + '_preset_potential'"></app-input></td>
               <ng-container *ngFor="let item of firstFour">
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_8_row' + row + '_a' + item + '_amp'"></app-input>
                 </td>
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_8_row' + row + '_a' + item + '_voltage'"></app-input></td>
               </ng-container>
-              <td class="hitu-table-rows-border" *ngFor="let item of firstFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of firstFour">
                 <app-input type="number" [formControlName]="'check_8_row' + row + '_re' + item"></app-input>
               </td>
             </tr>
             <tr class="">
-              <th rowspan="2" class="hitu-table-header">Preset potential (+mV)</th>
-              <th colspan="2" *ngFor="let item of secondFour" class="hitu-table-header">A{{ item }}</th>
-              <th rowspan="2" *ngFor="let item of secondFour" class="hitu-table-header">RE{{ item }} (mV)</th>
+              <th rowspan="2" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Preset potential (+mV)</th>
+              <th colspan="2" *ngFor="let item of secondFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">A{{ item }}</th>
+              <th rowspan="2" *ngFor="let item of secondFour" class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">RE{{ item }} (mV)</th>
             </tr>
             <tr>
               <ng-container *ngFor="let item of secondFour">
-                <th class="hitu-table-header">Amp</th>
-                <th class="hitu-table-header">V</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Amp</th>
+                <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">V</th>
               </ng-container>
 
             </tr>
             <tr *ngFor="let row of acuRows">
-              <td class="hitu-table-rows-border"><app-input
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input
                   [formControlName]="'check_8_row' + row + '_preset_potential'"></app-input></td>
               <ng-container *ngFor="let item of secondFour">
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_8_row' + row + '_a' + item + '_amp'"></app-input>
                 </td>
-                <td class="hitu-table-rows-border"><app-input type="number"
+                <td class="border border-white/15 px-3 py-2 align-middle text-white/85"><app-input type="number"
                     [formControlName]="'check_8_row' + row + '_a' + item + '_voltage'"></app-input></td>
               </ng-container>
-              <td class="hitu-table-rows-border" *ngFor="let item of secondFour">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of secondFour">
                 <app-input type="number" [formControlName]="'check_8_row' + row + '_re' + item"></app-input>
               </td>
             </tr>
@@ -607,48 +607,48 @@
         <table class="w-full border-collapse text-sm min-w-max">
           <tbody>
             <tr>
-              <th class="hitu-table-rows-border" rowspan="2">Check No.9</th>
-              <td class="hitu-table-header" colspan="8">Check continuity of fuses (SAT/UNSAT).</td>
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">Check No.9</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">Check continuity of fuses (SAT/UNSAT).</td>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" *ngFor="let item of anodeNumbers">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of anodeNumbers">
                 <span>A{{ item }}</span>
                 <app-select [formControlName]="'check_9_a' + item" [options]="satUnsatOptions"></app-select>
               </td>
             </tr>
 
             <tr>
-              <th class="hitu-table-rows-border" rowspan="5">Check No.10</th>
-              <td class="hitu-table-header" colspan="8">Attach hull potential, Anode currents and voltages of previous
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="5">Check No.10</th>
+              <td class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">Attach hull potential, Anode currents and voltages of previous
                 day.</td>
             </tr>
             <tr>
-              <th class="hitu-table-header" colspan="8">Hull potential (mV)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">Hull potential (mV)</th>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" *ngFor="let item of reNumbers">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of reNumbers">
                 <span>RE{{ item }}</span>
                 <app-input type="number" [formControlName]="'check_10_hull_re' + item"></app-input>
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-header" colspan="8">Anode current (Amps)</th>
+              <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="8">Anode current (Amps)</th>
             </tr>
             <tr>
-              <td class="hitu-table-rows-border" *ngFor="let item of anodeNumbers">
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" *ngFor="let item of anodeNumbers">
                 <span>A{{ item }}</span>
                 <app-input type="number" [formControlName]="'check_10_current_a' + item"></app-input>
               </td>
             </tr>
             <tr>
-              <th class="hitu-table-rows-border">Anode voltage (V)</th>
-              <td class="hitu-table-rows-border" colspan="8"><app-input type="number"
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Anode voltage (V)</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="8"><app-input type="number"
                   formControlName="check_10_anode_voltage"></app-input></td>
             </tr>
 
             <tr>
-              <th class="hitu-table-rows-border">Check No.11</th>
-              <td class="hitu-table-rows-border" colspan="8">
+              <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Check No.11</th>
+              <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="8">
                 <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                   <app-select label="Inspection of Cofferdams" formControlName="check_11_cofferdam_status"
                     [options]="openClosedOptions"></app-select>

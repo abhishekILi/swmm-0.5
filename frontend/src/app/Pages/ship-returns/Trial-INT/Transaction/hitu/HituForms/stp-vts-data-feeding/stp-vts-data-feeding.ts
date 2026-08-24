@@ -6,13 +6,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  LucideRotateCcw as RotateCcw,
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { DuctCalculatorDialogComponent } from '../../../../ui/duct-calculator-dialog/duct-calculator-dialog.component';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { FormInputTableWithHeaders } from '../../../../ui/form-input-table-with-headers/form-input-table-with-headers.component';
@@ -67,11 +60,11 @@ export class STPVTSDataFeeding implements OnInit {
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
   form!: FormGroup;
   showApprovalWorkflowPopup = false;
   isSubmitTime = false;
@@ -288,7 +281,10 @@ export class STPVTSDataFeeding implements OnInit {
     control?.disable();
   }
 
-  onSpmChange(value: string) {
+  onSpmChange(value: string | Event) {
+    value = value instanceof Event
+      ? ((value.target as HTMLSelectElement | null)?.value ?? '')
+      : value;
     const mapping: Record<string, string> = {
       NA: 'NA',
       Green: 'SAT',
@@ -424,7 +420,7 @@ export class STPVTSDataFeeding implements OnInit {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

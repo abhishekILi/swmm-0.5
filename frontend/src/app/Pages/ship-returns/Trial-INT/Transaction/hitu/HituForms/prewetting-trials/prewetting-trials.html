@@ -7,14 +7,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -24,7 +24,7 @@
       </span>
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -100,33 +100,33 @@
       </div>
     </app-parameter-card>
 
-    <div class="overflow-x-auto border border-gray-400 mt-5">
-      <table class="w-full text-sm border border-gray-300-collapse">
+    <div class="overflow-x-auto border border-white/20 mt-5">
+      <table class="w-full text-sm border border-white/15 border-collapse">
         <!-- HEADER -->
         <thead>
           <tr>
-            <th class="hitu-table-header w-16">Ser</th>
-            <th class="hitu-table-header">Parameter</th>
-            <th class="hitu-table-header">Checks</th>
-            <th class="hitu-table-header" colspan="2">Observations</th>
-            <th class="hitu-table-header" colspan="2">Remarks</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 w-16">Ser</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Parameter</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">Checks</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="2">Observations</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="2">Remarks</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr class="hitu-table-parameters-header">
-            <td colspan="7" td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="7" td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Operational Status
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">1.</td>
-            <td class="hitu-table-rows-border" colspan="1">Remote Mode</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">Remote Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Check if system can be operated remotely from DCHQ/ Ops Room
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="remote_mode_offered"
                 [searchable]="false"
@@ -140,7 +140,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="remote_mode_status"
                 [searchable]="false"
@@ -155,14 +155,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">2.</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Local Mode/Manual Mode
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Check if system can be operated remotely from DCHQ/ Ops Room
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="local_mode_offered"
                 [searchable]="false"
@@ -176,7 +176,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="local_mode_status"
                 [searchable]="false"
@@ -190,21 +190,21 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-parameters-header">
-            <td colspan="7" td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="7" td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Machinery Status
             </td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">3.</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Number of Fireman running
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Functioning of Fireman
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-input
                 type="number"
                 min="1"
@@ -215,7 +215,7 @@
                 (blur)="normalizeNumberRange('fireman_dynamic')"
               ></app-input>
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="fireman_remark"
                 [searchable]="false"
@@ -230,14 +230,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">4.</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Fire-main pressure
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Checks for operating pressure from DCHQ
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <div class="flex items-center gap-2">
                 <app-input
                   type="number"
@@ -252,7 +252,7 @@
               </div>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="firemain_pressure_remark"
                 [searchable]="false"
@@ -266,22 +266,22 @@
             </td>
           </tr>
 
-          <tr class="hitu-table-parameters-header">
-            <td colspan="7" td class="hitu-table-rows-border">System checks</td>
+          <tr class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF]">
+            <td colspan="7" td class="border border-white/15 px-3 py-2 align-middle text-white/85">System checks</td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border p-2" rowspan="5">5.</td>
-            <td class="hitu-table-rows-border" rowspan="5" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 p-2" rowspan="5">5.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="5" colspan="1">
               Nozzle Checks
             </td>
-            <td class="hitu-table-rows-border" rowspan="5" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="5" colspan="1">
               Checks for chokes, defects, No. of nozzles in the section
             </td>
-            <td class="hitu-table-rows-border" colspan="1">Zone</td>
-            <td class="hitu-table-rows-border" colspan="1">No of Nozzle</td>
-            <td class="hitu-table-rows-border" colspan="1">Type of Nozzle</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">Zone</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">No of Nozzle</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">Type of Nozzle</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               No of Nozzle Jammed/Defective
             </td>
           </tr>
@@ -290,7 +290,7 @@
             *ngFor="let nozzleType of nozzleTypeCountFields; let first = first"
           >
             <td
-              class="hitu-table-rows-border"
+              class="border border-white/15 px-3 py-2 align-middle text-white/85"
               *ngIf="first"
               rowspan="4"
               colspan="1"
@@ -307,7 +307,7 @@
               </app-input>
             </td>
             <td
-              class="hitu-table-rows-border"
+              class="border border-white/15 px-3 py-2 align-middle text-white/85"
               *ngIf="first"
               rowspan="4"
               colspan="1"
@@ -322,10 +322,10 @@
               >
               </app-input>
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <span class="text-xs font-semibold">{{ nozzleType.label }}</span>
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 [formControlName]="nozzleType.defectiveControlName"
                 type="number"
@@ -339,23 +339,23 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" rowspan="2">6.</td>
-            <td class="hitu-table-rows-border" rowspan="2" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">6.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2" colspan="1">
               Sprayed Area Check
             </td>
-            <td class="hitu-table-rows-border" rowspan="2" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2" colspan="1">
               Checks for proper area coverage
             </td>
-            <td class="hitu-table-rows-border" colspan="1">Zone</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">Zone</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Coverage (Zone Wise)
             </td>
-            <td class="hitu-table-rows-border" colspan="2">Status</td>
-            <!-- <td class="hitu-table-rows-border">Remarks</td> -->
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Status</td>
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td> -->
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="sprayed_area_zone"
                 type="number"
@@ -368,7 +368,7 @@
               </app-input>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-select
                 formControlName="sprayed_area_coverage"
                 placeholder="Select"
@@ -382,7 +382,7 @@
               </app-select>
             </td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="spared_area_remark"
                 placeholder="Select"
@@ -394,29 +394,29 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" rowspan="2">7.</td>
-            <td class="hitu-table-rows-border" rowspan="2" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">7.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2" colspan="1">
               Leakages
             </td>
-            <td class="hitu-table-rows-border" rowspan="2" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2" colspan="1">
               Checks for leakages from nozzle/unions/lines etc.
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Zone No (Alpha Numeric)
             </td>
-            <td class="hitu-table-rows-border" colspan="1">Leakage Status</td>
-            <td class="hitu-table-rows-border" colspan="2">Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">Leakage Status</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Remarks</td>
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-input
                 formControlName="leakage_zone_no"
                 placeholder="Enter zone no"
               >
               </app-input>
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               <app-select
                 formControlName="leakage_status"
                 placeholder="Select"
@@ -428,7 +428,7 @@
               >
               </app-select>
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="leakage_remark"
                 placeholder="Select"
@@ -444,14 +444,14 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">8.</td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Mode of Operation
             </td>
-            <td class="hitu-table-rows-border" colspan="1">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="1">
               Checks for operational state in different modes
             </td>
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="operation_mode"
                 placeholder="Select"
@@ -463,7 +463,7 @@
               >
               </app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <app-select
                 formControlName="operation_remark"
                 placeholder="Select"
@@ -488,9 +488,9 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">9.</td>
-            <td class="hitu-table-rows-border">Overall Remarks</td>
-            <td class="hitu-table-rows-border space-y-2" colspan="5">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Overall Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="5">
               <!-- Dropdown -->
               <app-select
                 formControlName="overall_remark_9"

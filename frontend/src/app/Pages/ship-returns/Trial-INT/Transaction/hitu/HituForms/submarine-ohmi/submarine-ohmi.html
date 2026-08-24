@@ -8,14 +8,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -26,7 +26,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -99,36 +99,36 @@
     <table class="w-full text-sm border-collapse mt-5">
       <!-- HEADER -->
       <thead>
-        <tr class="hitu-table-header">
-          <th class="hitu-table-rows-border w-10">Ser</th>
-          <th class="hitu-table-rows-border">Equipment System</th>
-          <th class="hitu-table-rows-border" colspan="2">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Equipment System</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             Description of Inspection
           </th>
-          <th class="hitu-table-rows-border">Observations</th>
-          <th class="hitu-table-rows-border">Remarks</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observations</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</th>
         </tr>
       </thead>
       <tbody>
         <!-- MAIN ROW -->
         <!-- ============================= SERIAL 1: WT / GT INTEGRITY ============================= -->
         <tr>
-          <td class="hitu-table-rows-border text-center" rowspan="8">1</td>
-          <td class="hitu-table-rows-border font-medium" rowspan="8">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" rowspan="8">1</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-medium" rowspan="8">
             WT / GT Integrity
           </td>
 
           <!-- (a) Date of last vacuum test -->
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (a) Date of last vacuum test undertaken (Not to exceed 27 months)
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar
               formControlName="vacuum_test_date"
               (change)="updateDateRemark('vacuum_test_date', 'vacuum_test_remark', 27)"
             ></app-calendar>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-select
               formControlName="vacuum_test_remark"
               placeholder="Select"
@@ -140,24 +140,24 @@
 
         <!-- (b) Load Test Certificate -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (b) Load Test Certificate
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-file-upload
               formControlName="load_test"
               (filesUploaded)="handleFilesUploaded($event)"
             ></app-file-upload>
           </td>
-          <td class="hitu-table-rows-border"></td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
         </tr>
 
         <!-- (c) Vacuum achieved -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (c) Vacuum achieved upto 20 mm
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-center gap-2">
               <app-input
                 type="number"
@@ -169,7 +169,7 @@
               <span class="text-xs">mm</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-select
               formControlName="vacuum_ach_remark"
               placeholder="Select"
@@ -181,10 +181,10 @@
 
         <!-- (d) Leakages / defects observed -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (d) Leakages / defects observed if any
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="leak_status"
               placeholder="Select"
@@ -194,7 +194,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="leak_rem"
               placeholder="Select"
@@ -215,10 +215,10 @@
 
         <!-- (e) Structural defects on doors/hatches/flap -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (e) Structural defects on doors/hatches/flap
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="structural_status_1"
               placeholder="Select"
@@ -227,7 +227,7 @@
               (valueChange)="handleObservation('structural_status_1', 'structural_obs', 'structural_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="structural_rem"
               placeholder="Select"
@@ -247,10 +247,10 @@
 
         <!-- (f) Condition of rubber seals -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (f) Condition of rubber seals
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="rubber_seal_status"
               placeholder="Select"
@@ -259,7 +259,7 @@
               (valueChange)="handleObservation('rubber_seal_status', 'rubber_seal_obs', 'rubber_seal_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="rubber_seal_rem"
               placeholder="Select"
@@ -279,10 +279,10 @@
 
         <!-- (g) Condition of joints / surfaces of assembly hatch & soft patch -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (g) Condition of joints / surfaces of assembly hatch and soft patch
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="joint_status"
               placeholder="Select"
@@ -291,7 +291,7 @@
               (valueChange)="handleObservation('joint_status', 'joint_status_obs', 'joint_status_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="joint_status_rem"
               placeholder="Select"
@@ -311,10 +311,10 @@
 
         <!-- (h) Tightness test for all compartments & conning tower -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (h) Tightness test for all compartments and conning tower
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="tightness_status"
               placeholder="Select"
@@ -323,7 +323,7 @@
               (valueChange)="handleObservation('tightness_status', 'tightness_obs', 'tightness_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="tightness_rem"
               placeholder="Select"
@@ -343,16 +343,16 @@
 
         <!-- ============================= SERIAL 2: BOOKS & RECORDS ============================= -->
         <tr>
-          <td class="hitu-table-rows-border text-center" rowspan="6">2</td>
-          <td class="hitu-table-rows-border font-medium" rowspan="6">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" rowspan="6">2</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-medium" rowspan="6">
             Books & Records
           </td>
 
           <!-- (a) Hull Maintenance -->
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (a) Hull Maintenance
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="hull_status"
               placeholder="Select"
@@ -361,7 +361,7 @@
               (valueChange)="handleHeldStatus('hull_status', 'hull_remark', 'hull_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="hull_remark"
               placeholder="Select"
@@ -382,10 +382,10 @@
 
         <!-- (b) Weight Monitoring -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (b) Weight Monitoring
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="weight_status"
               placeholder="Select"
@@ -394,7 +394,7 @@
               (valueChange)="handleHeldStatus('weight_status', 'weight_remark', 'weight_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="weight_remark"
               placeholder="Select"
@@ -415,8 +415,8 @@
 
         <!-- (c) Rough defect -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">(c) Rough defect</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">(c) Rough defect</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="rough_status"
               placeholder="Select"
@@ -425,7 +425,7 @@
               (valueChange)="handleHeldStatus('rough_status', 'rough_remark', 'rough_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="rough_remark"
               placeholder="Select"
@@ -446,8 +446,8 @@
 
         <!-- (d) Master Defect -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">(d) Master Defect</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">(d) Master Defect</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="master_status"
               placeholder="Select"
@@ -456,7 +456,7 @@
               (valueChange)="handleHeldStatus('master_status', 'master_remark', 'master_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="master_remark"
               placeholder="Select"
@@ -477,10 +477,10 @@
 
         <!-- (e) Docking / Undocking -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (e) Docking / Undocking
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="docking_status"
               placeholder="Select"
@@ -489,7 +489,7 @@
               (valueChange)="handleHeldStatus('docking_status', 'docking_remark', 'docking_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="docking_remark"
               placeholder="Select"
@@ -509,10 +509,10 @@
 
         <!-- (f) Stability Booklet -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (f) Stability Booklet
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="stability_status"
               placeholder="Select"
@@ -521,7 +521,7 @@
               (valueChange)="handleHeldStatus('stability_status', 'stability_remark', 'stability_remark_obs')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="stability_remark"
               placeholder="Select"
@@ -541,16 +541,16 @@
 
         <!-- ============================= SERIAL 3: DEFECT HISTORY / STRUCTURE / LOCATION ============================= -->
         <tr>
-          <td class="hitu-table-rows-border text-center" rowspan="38">3</td>
-          <td class="hitu-table-rows-border font-medium" rowspan="38">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-center" rowspan="38">3</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-medium" rowspan="38">
             Defect History / Structure / Location
           </td>
 
           <!-- (a) Known / projected defects -->
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (a) Known / projected defects (compartments / tanks)
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="defect_status"
               placeholder="Select"
@@ -559,7 +559,7 @@
               (valueChange)="handleObservation('defect_status', 'defects', 'status_of_switches_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="status_of_switches_rem"
               placeholder="Select"
@@ -579,21 +579,21 @@
 
         <!-- (b) Date of last OHMI inspection -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (b) Date of last OHMI inspection by HITU
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="ohmi_date"></app-calendar>
           </td>
-          <td class="hitu-table-rows-border text-xs"></td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs"></td>
         </tr>
 
         <!-- (c) Observations pending liquidation of last OHMI -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (c) Observations pending liquidation of last OHMI
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="pending_status"
               placeholder="Select"
@@ -602,7 +602,7 @@
               (valueChange)="toggleObservationOnly('pending_status', 'status_of_pending_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('pending_status')?.value === 'observation'"
               formControlName="status_of_pending_rem"
@@ -614,19 +614,19 @@
 
         <!-- (d) Outcasting -->
         <tr>
-          <td rowspan="5" class="hitu-table-rows-border">(d)</td>
+          <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">(d)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Outcasting
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(i) Preservation standards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(i) Preservation standards</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="preservative_status"
               placeholder="Select"
@@ -641,7 +641,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <!-- NIL → SAT input -->
             <app-input
               *ngIf="form.get('preservative_status')?.value === 'nil'"
@@ -676,8 +676,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(ii) Rusting / Corrosion</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(ii) Rusting / Corrosion</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="rusting_status_1"
               placeholder="Select"
@@ -686,7 +686,7 @@
               (valueChange)="toggleObservationOnly('rusting_status_1', 'rusting_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('rusting_status_1')?.value === 'observation'"
               formControlName="rusting_rem"
@@ -697,8 +697,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(iii) Structural Defects</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(iii) Structural Defects</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="structural_status"
               placeholder="Select"
@@ -707,7 +707,7 @@
               (valueChange)="toggleObservationOnly('structural_status', 'structural_def_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('structural_status')?.value === 'observation'"
               formControlName="structural_def_rem"
@@ -718,8 +718,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(iv) Miscellaneous</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(iv) Miscellaneous</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="misc_status"
               placeholder="Select"
@@ -729,7 +729,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('misc_status')?.value === 'observation'"
               formControlName="misc_rem"
@@ -740,19 +740,19 @@
         </tr>
 
         <!-- (e) Internal Compartments -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="4">(e)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">(e)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Internal Compartments
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Preservation standards</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Preservation standards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="int_preservation_status"
               placeholder="Select"
@@ -762,7 +762,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-dynamic-select-textarea
               *ngIf="form.get('int_preservation_status')?.value === 'observation'"
               [form]="form"
@@ -775,8 +775,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">ii) Rusting / Corrosion</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">ii) Rusting / Corrosion</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="rusting_status"
               placeholder="Select"
@@ -785,7 +785,7 @@
               (valueChange)="toggleObservationOnly('rusting_status', 'rusting')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('rusting_status')?.value === 'observation'"
               formControlName="rusting"
@@ -796,8 +796,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">iii) Structural Defects</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">iii) Structural Defects</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="status_of_int_structural"
               placeholder="Select"
@@ -806,7 +806,7 @@
               (valueChange)="toggleObservationOnly('status_of_int_structural', 'int_structural')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('status_of_int_structural')?.value === 'observation'"
               formControlName="int_structural"
@@ -817,19 +817,19 @@
         </tr>
 
         <!-- (f) Wet Compartments -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="4">(f)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">(f)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Wet Compartments
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Preservation standards</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Preservation standards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="status_of_preserv"
               placeholder="Select"
@@ -841,7 +841,7 @@
           </td>
 
           <!-- start -->
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <!-- NIL → SAT input -->
             <app-input
               *ngIf="form.get('status_of_preserv')?.value === 'nil'"
@@ -874,8 +874,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">ii) Rusting / Corrosion</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">ii) Rusting / Corrosion</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="wet_rust_status"
               placeholder="Select"
@@ -884,7 +884,7 @@
               (valueChange)="toggleObservationOnly('wet_rust_status', 'wet_rust')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('wet_rust_status')?.value === 'observation'"
               formControlName="wet_rust"
@@ -895,8 +895,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">iii) Structural Defects</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">iii) Structural Defects</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="wet_struct_def"
               placeholder="Select"
@@ -905,7 +905,7 @@
               (valueChange)="toggleObservationOnly('wet_struct_def', 'wet_struc')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('wet_struct_def')?.value === 'observation'"
               formControlName="wet_struc"
@@ -916,19 +916,19 @@
         </tr>
 
         <!-- (g) Tank Tops / Free Flood Areas -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="4">(g)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">(g)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Tank Tops / Free Flood Areas
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Preservation standards</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Preservation standards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="preser_stand_status"
               placeholder="Select"
@@ -937,7 +937,7 @@
               (valueChange)="handleObservation('preser_stand_status', 'preser_stand', 'status_of_preser_rem')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-select
               formControlName="status_of_preser_rem"
               placeholder="Select"
@@ -956,8 +956,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">ii) Rusting / Corrosion</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">ii) Rusting / Corrosion</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="status_of_tank_rust"
               placeholder="Select"
@@ -966,7 +966,7 @@
               (valueChange)="toggleObservationOnly('status_of_tank_rust', 'tank_rust')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('status_of_tank_rust')?.value === 'observation'"
               formControlName="tank_rust"
@@ -977,8 +977,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">iii) Structural Defects</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">iii) Structural Defects</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="status_of_tank_def"
               placeholder="Select"
@@ -987,7 +987,7 @@
               (valueChange)="toggleObservationOnly('status_of_tank_def', 'tank_struc_def')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('status_of_tank_def')?.value === 'observation'"
               formControlName="tank_struc_def"
@@ -998,19 +998,19 @@
         </tr>
 
         <!-- (h) Machinery Compartments -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="6">(h)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="6">(h)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Machinery Compartments
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Preservation standards</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Preservation standards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="status_of_mach_press"
               placeholder="Select"
@@ -1021,7 +1021,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <!-- NIL → SAT input -->
             <app-input
               *ngIf="form.get('status_of_mach_press')?.value === 'nil'"
@@ -1052,7 +1052,7 @@
               </div>
             </div>
           </td>
-          <!-- <td class="hitu-table-rows-border text-xs">
+          <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
               <app-dynamic-select-textarea
                 *ngIf="form.get('status_of_mach_pres')?.value === 'observation'"
                 [form]="form"
@@ -1065,8 +1065,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">ii) Rusting / Corrosion</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">ii) Rusting / Corrosion</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="mach_rust_status"
               placeholder="Select"
@@ -1075,7 +1075,7 @@
               (valueChange)="toggleObservationOnly('mach_rust_status', 'mach_rust')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('mach_rust_status')?.value === 'observation'"
               formControlName="mach_rust"
@@ -1086,8 +1086,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">iii) General Bilge Hygiene</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">iii) General Bilge Hygiene</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="gen_bilge_hyg"
               placeholder="Select"
@@ -1097,7 +1097,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('gen_bilge_hyg')?.value === 'observation'"
               formControlName="gen_bilge"
@@ -1108,8 +1108,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">iv) Deck Coverings</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">iv) Deck Coverings</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="deck_cover_status"
               placeholder="Select"
@@ -1119,7 +1119,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('deck_cover_status')?.value === 'observation'"
               formControlName="deck_cover"
@@ -1130,8 +1130,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">v) Structural Defects</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">v) Structural Defects</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="mach_stru_def_status"
               placeholder="Select"
@@ -1140,7 +1140,7 @@
               (valueChange)="toggleObservationOnly('mach_stru_def_status', 'mach_str_def')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('mach_stru_def_status')?.value === 'observation'"
               formControlName="mach_str_def"
@@ -1151,19 +1151,19 @@
         </tr>
 
         <!-- (j) Battery Pits -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="5">(j)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="5">(j)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Battery Pits
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Paint Scheme</td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Paint Scheme</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="battery_paint_scheme"
               placeholder="Select"
@@ -1177,7 +1177,7 @@
       ]"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('battery_paint_scheme')?.value === 'other'"
               formControlName="battery_paint_other"
@@ -1188,16 +1188,16 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" rowspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">
             ii) Date of application / weather in-date
           </td>
-          <td class="hitu-table-rows-border space-y-3">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-3">
             <div>
               <label class="text-xs">Fwd Battery Pit</label>
               <app-calendar formControlName="battery_fwd_date"></app-calendar>
             </div>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               formControlName="battery_fwd_note"
               class="input-field mt-1"
@@ -1207,13 +1207,13 @@
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border space-y-3">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-3">
             <div>
               <label class="text-xs">Aft Battery Pit</label>
               <app-calendar formControlName="battery_aft_date"></app-calendar>
             </div>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               formControlName="battery_aft_note"
               class="input-field mt-1"
@@ -1224,10 +1224,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             iii) Details of defects (if any)
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="battery_def_status"
               placeholder="Select"
@@ -1236,7 +1236,7 @@
               (valueChange)="toggleObservationOnly('battery_def_status', 'battery_def')"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-input
               *ngIf="form.get('battery_def_status')?.value === 'observation'"
               formControlName="battery_def"
@@ -1247,21 +1247,21 @@
         </tr>
 
         <!-- (k) Vacuum test of Battery Pits -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="3">(k)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="3">(k)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Vacuum test of Battery Pits
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             i) Open Loop – Using Standard blowers and Exhaust / Supply blowers
           </td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="open_loop_applicable"
               placeholder="Select"
@@ -1284,7 +1284,7 @@
               <span class="text-xs">mm</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-select
               *ngIf="form.get('open_loop_applicable')?.value === 'applicable'"
               formControlName="open_loop_remark"
@@ -1296,10 +1296,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             ii) Closed Loop – Using Battery Power
           </td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="closed_loop_applicable"
               placeholder="Select"
@@ -1322,7 +1322,7 @@
               <span class="text-xs">mm</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border text-xs">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
             <app-select
               *ngIf="form.get('closed_loop_applicable')?.value === 'applicable'"
               formControlName="closed_loop_remark"
@@ -1335,19 +1335,19 @@
         </tr>
 
         <!-- (i) Tanks (Internal and External) -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="4">(i)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">(i)</td>
           <td
             colspan="3"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Tanks (Internal and External)
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">i) Paint Scheme</td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">i) Paint Scheme</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="tank_paint_scheme"
               placeholder="Select"
@@ -1355,13 +1355,13 @@
               [options]="shipOptions"
             ></app-select>
           </td>
-          <!-- <td class="hitu-table-rows-border text-xs"></td> -->
+          <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs"></td> -->
         </tr>
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             ii) Date of application / weather in-date
           </td>
-          <td class="hitu-table-rows-border space-y-3" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-3" colspan="2">
             <app-dynamic-textarea
               [form]="form"
               controlName="tank"
@@ -1369,12 +1369,12 @@
             >
             </app-dynamic-textarea>
           </td>
-          <!-- <td class="hitu-table-rows-border text-xs"></td> -->
+          <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs"></td> -->
         </tr>
         <tr>
-          <td class="hitu-table-rows-border pl-6">(iii)</td>
-          <td class="hitu-table-rows-border">Details of defects (if any)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 pl-6">(iii)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Details of defects (if any)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="tank_def_status"
               placeholder="Select"
@@ -1389,28 +1389,28 @@
               class="input-field"
             ></app-input>
           </td>
-          <!-- <td class="hitu-table-rows-border text-xs">
+          <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs">
     <app-input *ngIf="form.get('tank_def_status')?.value === 'observation'" formControlName="tank_def"
       placeholder="Enter observation" class="input-field"></app-input>
   </td> -->
         </tr>
 
         <!-- (m) Solid Ballast Distribution -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="2">(m)</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">(m)</td>
           <td
             colspan="5"
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
           >
             Solid Ballast Distribution
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Solid Ballast redistribution last carried out with details /
             locations / Authority
           </td>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-select
               formControlName="ballast_status"
               placeholder="Select"
@@ -1420,7 +1420,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs" colspan="2">
             <app-input
               *ngIf="form.get('ballast_status')?.value === 'observation'"
               formControlName="ballast_obs"
@@ -1431,10 +1431,10 @@
         </tr>
 
         <!-- 1 Towing / Mooring -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="8">4</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="8">4</td>
           <td
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
             colspan="5"
           >
             Towing / Mooring Arrangement
@@ -1442,7 +1442,7 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(a) Towing Hook "
               formControlName="towing_hook_count"
@@ -1450,12 +1450,12 @@
               type="number"
             ></app-input>
           </td>
-          <td class="hitu-table-rows-border" rowspan="7" colspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="7" colspan="4">
             Detailed report at Annexure I
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(b) Towing Pendant "
               formControlName="towing_pendant"
@@ -1465,7 +1465,7 @@
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(c) Towing Rope"
               formControlName="towing_rope"
@@ -1476,7 +1476,7 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(d) Bollards"
               formControlName="towing_bollards"
@@ -1486,7 +1486,7 @@
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(e) Cleats"
               formControlName="towing_cleats"
@@ -1496,7 +1496,7 @@
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label="(f) Fairleads"
               formControlName="towing_fairleads"
@@ -1506,7 +1506,7 @@
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             <app-input
               label=" (g) Cable clench"
               formControlName="towing_cable_clench"
@@ -1516,10 +1516,10 @@
           </td>
         </tr>
 
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="7">5</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="7">5</td>
           <td
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
             colspan="5"
           >
             Miscellaneous hull fittings on weather deck
@@ -1527,27 +1527,27 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (e) WT Doors / hatches
           </td>
-          <td class="hitu-table-rows-border" rowspan="2" colspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2" colspan="4">
             Detailed report at Annexure II
           </td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (f) GT Doors / hatches
           </td>
         </tr>
 
-        <tr class="bg-gray-100 font-semibold">
-          <td class="hitu-table-rows-border" rowspan="4">
+        <tr class="bg-white/[0.06] font-semibold">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">
             (g) Life Saving Equipment
           </td>
-          <td class="hitu-table-rows-border">Life Jackets (HDLJ)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Life Jackets (HDLJ)</td>
 
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="hdlj_status"
               [options]="heldNotHeldOpt"
@@ -1555,7 +1555,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-center gap-2">
               <app-input
                 *ngIf="form.get('hdlj_status')?.value === 'held'"
@@ -1566,7 +1566,7 @@
               <span *ngIf="form.get('hdlj_status')?.value === 'held'">QTY</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar
               label="Serviceablity Due Date*"
               formControlName="hdlj_due"
@@ -1576,8 +1576,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">Life Jackets (GSLJ)</td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Life Jackets (GSLJ)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="gslj_status"
               [options]="heldNotHeldOpt"
@@ -1585,7 +1585,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-center gap-2">
               <app-input
                 *ngIf="form.get('gslj_status')?.value === 'held'"
@@ -1596,7 +1596,7 @@
               <span *ngIf="form.get('gslj_status')?.value === 'held'">QTY</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar
               label="Serviceablity Due Date*"
               formControlName="gslj_due"
@@ -1605,8 +1605,8 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">Life Rafts</td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Life Rafts</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               formControlName="raft_status"
               [options]="heldNotHeldOpt"
@@ -1614,7 +1614,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-center gap-2">
               <app-input
                 *ngIf="form.get('raft_status')?.value === 'held'"
@@ -1625,7 +1625,7 @@
               <span *ngIf="form.get('raft_status')?.value === 'held'">QTY</span>
             </div>
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar
               label="Serviceablity Due Date*"
               formControlName="raft_due"
@@ -1634,7 +1634,7 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Escape Suits
             <app-select
               formControlName="escape_applicable"
@@ -1642,7 +1642,7 @@
               [searchable]="false"
             ></app-select>
           </td>
-          <td class="hitu-table-rows-border space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
             <app-select
               *ngIf="form.get('escape_applicable')?.value === 'applicable'"
               formControlName="escape_status"
@@ -1651,7 +1651,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <div class="flex items-center gap-2">
               <app-input
                 *ngIf="form.get('escape_status')?.value === 'held'"
@@ -1664,7 +1664,7 @@
               >
             </div>
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar
               label="Serviceablity Due Date*"
               formControlName="escape_due"
@@ -1673,10 +1673,10 @@
         </tr>
         <!-- ================================================================================== -->
         <!-- ================= 6 ================= -->
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="6">6</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="6">6</td>
           <td
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
             colspan="6"
           >
             Mooring Capstan / Windlass
@@ -1685,59 +1685,59 @@
 
         <!-- (a) Operational -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (a) Operational state
           </td>
 
-          <td class="hitu-table-rows-border text-xs" rowspan="5" colspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs" rowspan="5" colspan="4">
             Detailed report at Annexure III
           </td>
         </tr>
 
         <!-- (b) Maintenance -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (b) Periodic maintenance
           </td>
         </tr>
 
         <!-- (c) Checklist -->
         <tr>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             (c) Check off list for operation
           </td>
         </tr>
 
         <!-- (d) Crew -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (d) Crew proficiency
           </td>
         </tr>
 
         <!-- (e) Defect -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (e) Detail of defect (if any)
           </td>
         </tr>
 
         <!-- ================= 7 ================= -->
 
-        <tr class="hitu-table-rows-border">
-          <td class="hitu-table-rows-border" rowspan="5">7</td>
+        <tr class="border border-white/15 px-3 py-2 align-middle text-white/85">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="5">7</td>
           <td
-            class="hitu-table-parameters-header hitu-table-rows-border"
+            class="bg-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-[#61C2FF] border border-white/15 px-3 py-2 align-middle text-white/85"
             colspan="6"
           >
             Inidicator/Bouy
           </td>
         </tr>
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (a) Preservation status
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="indicator_status"
               [options]="nilObservationOptions"
@@ -1745,7 +1745,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border text-xs space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2" colspan="2">
             <app-input
               *ngIf="form.get('indicator_status')?.value === 'observation'"
               formControlName="indicator"
@@ -1758,10 +1758,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (b) Condition of Lugs
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="boyd_status"
               [options]="nilObservationOptions"
@@ -1769,7 +1769,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border text-xs space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2" colspan="2">
             <app-input
               *ngIf="form.get('boyd_status')?.value === 'observation'"
               formControlName="boyd"
@@ -1782,10 +1782,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (c) Releasing / cutting mechanism
           </td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="cutting_status"
               [options]="nilObservationOptions"
@@ -1793,7 +1793,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border text-xs space-y-2" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2" colspan="2">
             <app-input
               *ngIf="form.get('cutting_status')?.value === 'observation'"
               formControlName="cutting"
@@ -1807,11 +1807,11 @@
 
         <!-- (d) Date -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             (d) Last survey / routine
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="buoy_date"></app-calendar>
           </td>
         </tr>
@@ -1822,25 +1822,25 @@
       ANNEXURE I - EMERGENCY TOWING ARRANGEMENTS
     </div>
 
-    <div class="overflow-x-auto border border-gray-400">
+    <div class="overflow-x-auto border border-white/20">
       <table class="w-full text-sm border-collapse">
         <!-- ================= 1 TOWING CHAIN ================= -->
-        <tr class="hitu-table-header">
-          <td colspan="4" class="hitu-table-rows-border">1. Towing Chain</td>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">1. Towing Chain</td>
         </tr>
 
-        <tr class="hitu-table-header">
-          <td class="hitu-table-rows-border">Ser</td>
-          <td class="hitu-table-rows-border">Parameter</td>
-          <td class="hitu-table-rows-border">Value</td>
-          <td class="hitu-table-rows-border">Remarks</td>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Value</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(a)</td>
-          <td class="hitu-table-rows-border">Size (mm)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(a)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Size (mm)</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="chain_size"
@@ -1848,7 +1848,7 @@
             ></app-input>
           </td>
 
-          <td class="hitu-table-rows-border space-y-2" rowspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" rowspan="4">
             <!-- <select formControlName="chain_inspection" class="input-field">
               <option value="">Select</option>
               <option value="SAT">SAT</option>
@@ -1864,9 +1864,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(b)</td>
-          <td class="hitu-table-rows-border">Length (m)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(b)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Length (m)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="chain_length"
@@ -1876,9 +1876,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(c)</td>
-          <td class="hitu-table-rows-border">Breaking Load MN (tf)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(c)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Breaking Load MN (tf)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="chain_load"
@@ -1888,9 +1888,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(d)</td>
-          <td class="hitu-table-rows-border">Mass (Kg)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(d)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Mass (Kg)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="chain_mass"
@@ -1900,22 +1900,22 @@
         </tr>
 
         <!-- ================= 2 STEEL TOW LINE ================= -->
-        <tr class="hitu-table-header">
-          <td colspan="4" class="hitu-table-rows-border">2. Steel Tow Line</td>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">2. Steel Tow Line</td>
         </tr>
 
-        <tr class="hitu-table-header">
-          <td class="hitu-table-rows-border">Ser</td>
-          <td class="hitu-table-rows-border">Parameter</td>
-          <td class="hitu-table-rows-border">Value</td>
-          <td class="hitu-table-rows-border">Remarks</td>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Value</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(a)</td>
-          <td class="hitu-table-rows-border">Diameter (mm)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(a)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Diameter (mm)</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="steel_diameter"
@@ -1923,7 +1923,7 @@
             ></app-input>
           </td>
 
-          <td class="hitu-table-rows-border" rowspan="4">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="4">
             <app-select
               formControlName="steel_inspection"
               class="input-field"
@@ -1935,9 +1935,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(b)</td>
-          <td class="hitu-table-rows-border">Length (m)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(b)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Length (m)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="steel_length"
@@ -1947,9 +1947,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(c)</td>
-          <td class="hitu-table-rows-border">Breaking Load MN (tf)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(c)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Breaking Load MN (tf)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="steel_load"
@@ -1959,9 +1959,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(d)</td>
-          <td class="hitu-table-rows-border">Mass (Kg)</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(d)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Mass (Kg)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               type="number"
               formControlName="steel_mass"
@@ -1971,33 +1971,33 @@
         </tr>
 
         <!-- ================= 3 RELEASE MECHANISM ================= -->
-        <tr class="hitu-table-header">
-          <td colspan="4" class="hitu-table-rows-border">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             3. Check Release Mechanism of Towing Hook
           </td>
         </tr>
 
-        <tr class="hitu-table-header">
-          <th rowspan="2" class="hitu-table-rows-border align-middle">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <th rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85 align-middle">
             No of Checks
           </th>
-          <th colspan="2" class="hitu-table-rows-border">
+          <th colspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Towing Hook Release Mechanism
           </th>
-          <th rowspan="2" class="hitu-table-rows-border align-middle">
+          <th rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85 align-middle">
             Remarks
           </th>
         </tr>
         <!-- Row 2: Sub-headings for the middle section -->
-        <tr class="hitu-table-header">
-          <th class="hitu-table-rows-border">Manual drive</th>
-          <th class="hitu-table-rows-border">Pneumatic Machine</th>
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Manual drive</th>
+          <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Pneumatic Machine</th>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(a)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(a)</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="manua"
               class="input-field"
@@ -2006,7 +2006,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="pneumatic"
               class="input-field"
@@ -2015,7 +2015,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border" rowspan="3">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="3">
             <app-select
               formControlName="pneumatic_rem"
               class="input-field"
@@ -2027,9 +2027,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(b)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(b)</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="manua_a"
               class="input-field"
@@ -2038,7 +2038,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="pneumatic_a"
               class="input-field"
@@ -2049,9 +2049,9 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(c)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(c)</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="manua_c"
               class="input-field"
@@ -2060,7 +2060,7 @@
             ></app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="pneumatic_c"
               class="input-field"
@@ -2071,23 +2071,23 @@
         </tr>
 
         <!-- ================= 4 REEL OPERATIONS ================= -->
-        <tr class="hitu-table-header">
-          <td colspan="4" class="hitu-table-rows-border">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td colspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             4. Raising, Lowering & Turning of Reel
           </td>
         </tr>
 
-        <tr class="bg-gray-50 font-semibold text-center">
-          <td class="hitu-table-rows-border">Ser</td>
-          <td class="hitu-table-rows-border">Parameter</td>
-          <td colspan="2" class="hitu-table-rows-border">Remarks</td>
+        <tr class="bg-white/[0.04] font-semibold text-center">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</td>
+          <td colspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(a)</td>
-          <td class="hitu-table-rows-border">Lifting & lowering of bollards</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(a)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Lifting & lowering of bollards</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="bollards_status"
               class="input-field"
@@ -2097,7 +2097,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               formControlName="bollards"
               class="input-field"
@@ -2113,10 +2113,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(b)</td>
-          <td class="hitu-table-rows-border">Fairleads</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(b)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Fairleads</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="fairleads_status"
               class="input-field"
@@ -2127,7 +2127,7 @@
           </td>
 
           <!-- Observation + Remark -->
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input
               formControlName="fairleads"
               class="input-field"
@@ -2143,10 +2143,10 @@
         </tr>
 
         <tr>
-          <td class="hitu-table-rows-border">(c)</td>
-          <td class="hitu-table-rows-border">Warping heads</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">(c)</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Warping heads</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="warping_status"
               class="input-field"
@@ -2157,7 +2157,7 @@
           </td>
 
           <!-- Observation + Remark -->
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input
               formControlName="warping"
               class="input-field"
@@ -2178,21 +2178,21 @@
     <div class="form-section-header-wo-top-margin mb-5">
       ANNEXURE II – DOORS / HATCHES / ESCAPE HATCHES / SCUTTLES / PORTHOLES
     </div>
-    <div class="overflow-x-auto border border-gray-400">
+    <div class="overflow-x-auto border border-white/20">
       <table class="w-full text-sm border-collapse">
-        <tr class="hitu-table-header">
-          <td class="hitu-table-rows-border">Ser No.</td>
-          <td class="hitu-table-rows-border">Location</td>
-          <td class="hitu-table-rows-border">Condition of Rubber Sealing</td>
-          <td class="hitu-table-rows-border" colspan="2">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ser No.</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Location</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Condition of Rubber Sealing</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             Observation / Remarks
           </td>
         </tr>
 
         <!-- ================= 1 FWD ================= -->
         <tr>
-          <td class="hitu-table-rows-border">1</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="fwd_lid"
               class="input-field"
@@ -2203,7 +2203,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="fwd_escape_status"
               class="input-field"
@@ -2214,7 +2214,7 @@
           </td>
 
           <!-- Observation + Remark -->
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input
               formControlName="fwd_escape"
               class="input-field"
@@ -2231,8 +2231,8 @@
 
         <!-- ================= 2 CONNING ================= -->
         <tr>
-          <td class="hitu-table-rows-border">2</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="conning_lid"
               class="input-field"
@@ -2243,7 +2243,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="conning_lid_status"
               class="input-field"
@@ -2254,7 +2254,7 @@
           </td>
 
           <!-- Observation + Remark -->
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input
               formControlName="conning"
               class="input-field"
@@ -2271,8 +2271,8 @@
 
         <!-- ================= 3 AFT ================= -->
         <tr>
-          <td class="hitu-table-rows-border">3</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="aft_lid"
               class="input-field"
@@ -2283,7 +2283,7 @@
             </app-select>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="aft_escape_status"
               class="input-field"
@@ -2294,7 +2294,7 @@
           </td>
 
           <!-- Observation + Remark -->
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input
               formControlName="aft_escape"
               class="input-field"
@@ -2311,8 +2311,8 @@
 
         <!-- ================= 4 COMPARTMENT (DYNAMIC) ================= -->
         <tr>
-          <td class="hitu-table-rows-border">4</td>
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-multiselect
               formControlName="deck_plating_obs_12"
               [options]="compartmentOptions"
@@ -2323,7 +2323,7 @@
             </app-multiselect>
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="compartment_master"
               class="input-field"
@@ -2332,7 +2332,7 @@
             >
             </app-select>
           </td>
-          <td class="hitu-table-rows-border text-xs space-y-2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 text-xs space-y-2">
             <app-input formControlName="comp1" class="input-field"></app-input>
 
             <div class="mt-2" *ngIf="showCompRem">
@@ -2346,10 +2346,10 @@
 
         <!-- ================= 5 OTHER ================= -->
         <tr>
-          <td class="hitu-table-rows-border">5</td>
-          <td class="hitu-table-rows-border">Any Other Observations</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Any Other Observations</td>
 
-          <td colspan="3" class="hitu-table-rows-border">
+          <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               formControlName="other_obs"
               class="input-field"
@@ -2359,12 +2359,12 @@
 
         <!-- ================= 6 FINAL ================= -->
         <tr>
-          <td class="hitu-table-rows-border">6</td>
-          <td class="font-semibold" class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6</td>
+          <td class="font-semibold" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             Overall Remarks
           </td>
 
-          <td colspan="3" class="hitu-table-rows-border">
+          <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="overall_sel_remark"
               textareaControl="overall_remark"

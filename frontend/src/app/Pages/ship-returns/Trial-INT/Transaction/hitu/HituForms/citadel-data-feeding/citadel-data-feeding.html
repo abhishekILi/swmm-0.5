@@ -11,14 +11,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -29,7 +29,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -109,19 +109,19 @@
     <table class="w-full border-collapse text-sm">
       <tbody>
         <!-- Section Title -->
-        <tr class="hitu-table-header">
-          <td class="hitu-table-rows-border font-semibold" colspan="5">
+        <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85 font-semibold" colspan="5">
             1. Equipment Status
           </td>
         </tr>
 
         <!-- Row 1 -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             NBC Category A/B/C/D
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-select
               formControlName="nbc_category"
               [options]="nbcCategoryOptions"
@@ -134,11 +134,11 @@
 
         <!-- Row 2 -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
             Total No of Citadel Zones
           </td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               formControlName="total_citadel_zones"
               type="number"
@@ -152,9 +152,9 @@
 
         <!-- Row 3 -->
         <tr>
-          <td class="hitu-table-rows-border" colspan="2">No of NBC Filters</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">No of NBC Filters</td>
 
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-input
               formControlName="no_of_nbc_filters"
               type="number"
@@ -169,23 +169,23 @@
         <!-- Row 4 (Rowspan Structure) -->
         <tr>
           <!-- Main Label -->
-          <td class="hitu-table-rows-border" rowspan="2">NBC Filters</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85" rowspan="2">NBC Filters</td>
 
           <!-- Sub Label -->
-          <td class="hitu-table-rows-border">Last Renewal Date</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Last Renewal Date</td>
 
           <!-- Input -->
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="nbc_last_renewal"></app-calendar>
           </td>
         </tr>
 
         <tr>
           <!-- Sub Label -->
-          <td class="hitu-table-rows-border">Next Due on</td>
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Next Due on</td>
 
           <!-- Input -->
-          <td class="hitu-table-rows-border">
+          <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
             <app-calendar formControlName="nbc_next_due"></app-calendar>
           </td>
         </tr>

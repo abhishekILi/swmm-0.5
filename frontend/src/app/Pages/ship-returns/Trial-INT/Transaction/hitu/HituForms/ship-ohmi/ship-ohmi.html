@@ -10,14 +10,14 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
     >
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide"
@@ -28,7 +28,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{
         tab?.serial_no || tab?.serial_number || '-' }}
@@ -104,25 +104,25 @@
     <div class="overflow-x-auto">
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1.1: Details of last Inspection -->
           <tr>
-            <td class="hitu-table-rows-border">1.1.</td>
-            <td class="hitu-table-rows-border">Details of last Inspection</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.1.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Details of last Inspection</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_1"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_2"
                 class="w-full"
@@ -131,56 +131,56 @@
           </tr>
 
           <!-- ROW 1.2: Details of last Refit -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">1.2.</td>
-            <td class="hitu-table-rows-border">Details of last Refit</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.2.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Details of last Refit</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="refit_details"></app-input>
             </td>
-            <td class="hitu-table-rows-border"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
           </tr>
 
           <!-- ROW 1.3: OPDEFs (with sub-rows 1.3.1 and 1.3.2) -->
           <tr>
-            <td rowspan="2" class="hitu-table-rows-border">1.3.</td>
-            <td rowspan="2" class="hitu-table-rows-border">OPDEFs</td>
-            <td class="hitu-table-rows-border pl-6">
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">1.3.</td>
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">OPDEFs</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 pl-6">
               1.3.1. No. of OPDEFs Since last inspection
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="opdefs_since_last_inspection"
               ></app-input>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border pl-6">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 pl-6">
               1.3.2. Details of Hull OPDEFs
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="hull_opdefs_details"></app-input>
             </td>
           </tr>
 
           <!-- ROW 1.4: Hull Concessions -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">1.4.</td>
-            <td class="hitu-table-rows-border">Hull Concessions</td>
-            <td class="hitu-table-rows-border"></td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.4.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Hull Concessions</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="hull_concessions_details"></app-input>
             </td>
           </tr>
 
           <!-- ROW 1.5: Structural defects -->
           <tr>
-            <td class="hitu-table-rows-border">1.5.</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.5.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Structural defects (Cracks, Holes, Pitting, Thinning of structure,
               suspect structure)
             </td>
-            <td class="hitu-table-rows-border"></td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="deck_plating_obs_2"> </app-input>
               <ng-container *ngIf="showDeckPlatingObsFields">
                 <div class="mt-1 flex flex-col gap-1">
@@ -214,12 +214,12 @@
           </tr>
 
           <!-- ROW 1.6: Helo Hangar Structural Inspection -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">1.6.</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1.6.</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Helo Hangar Structural Inspection
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_3"
                 [options]="applicableOptions"
@@ -228,7 +228,7 @@
               >
               </app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="rem1"></app-input>
             </td>
           </tr>
@@ -245,19 +245,19 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
           <tr>
-            <td class="hitu-table-rows-border">2.1</td>
-            <td class="hitu-table-rows-border">Internal Compartments</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Internal Compartments</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_4"
                 [options]="applicableOptions"
@@ -265,7 +265,7 @@
                 [searchable]="false"
               ></app-select>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_4_remark"
               ></app-input>
@@ -273,13 +273,13 @@
           </tr>
 
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">2.2</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">2.2</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Machinery compartments
             </td>
-            <td class="hitu-table-rows-border">2.2.1 Present paint scheme</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.2.1 Present paint scheme</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_5"
                 [options]="paintSchemeOptions"
@@ -290,11 +290,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.2.2 Date of last 100% renewal
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_3"
                 class="w-full"
@@ -302,11 +302,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.2.3 Present paint condition
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_6"
                 [options]="satunsatOptions"
@@ -317,9 +317,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.2.4 General bilges hygiene</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.2.4 General bilges hygiene</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_7"
                 [options]="satunsatOptions"
@@ -330,11 +330,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.2.5 Presence of water / oil in bilges
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_8"
                 [options]="yesNoOptions"
@@ -346,11 +346,11 @@
           </tr>
 
           <!-- ROW 3: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">2.3</td>
-            <td rowspan="5" class="hitu-table-rows-border">Weather decks</td>
-            <td class="hitu-table-rows-border">2.3.1 Present paint scheme</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">2.3</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">Weather decks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.3.1 Present paint scheme</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_9"
                 [options]="paintSchemeOptions"
@@ -361,11 +361,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.3.2 Date of last 100% renewal
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_4"
                 class="w-full"
@@ -373,11 +373,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               2.3.3 Present paint condition
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_10"
                 [options]="satunsatOptions"
@@ -388,9 +388,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.3.4 Maintenance standard</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.3.4 Maintenance standard</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_11"
                 [options]="satunsatOptions"
@@ -401,9 +401,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.3.5 Rusting / corrosion</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.3.5 Rusting / corrosion</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-multiselect
                 formControlName="deck_plating_obs_12"
                 [options]="compartmentOptions"
@@ -415,11 +415,11 @@
           </tr>
 
           <!-- ROW 4: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.4</td>
-            <td class="hitu-table-rows-border">Superstructure</td>
-            <td class="hitu-table-rows-border">Rusting / corrosion</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Superstructure</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Rusting / corrosion</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_13"
                 [options]="deckPlatingObsOptions"
@@ -432,13 +432,13 @@
 
           <!-- ROW 5: Make -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">2.5</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Deck coverings/ Dadoe Casting
             </td>
-            <td class="hitu-table-rows-border">2.5.1 Present system</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5.1 Present system</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_14"
                 [options]="presentSystemOptions"
@@ -449,9 +449,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.5.2 Cracks / peeling off</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5.2 Cracks / peeling off</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_15"
                 [options]="deckPlatingObsOptions"
@@ -462,9 +462,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.5.3 Any other defect</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5.3 Any other defect</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_16"
                 [options]="yesNoOptions"
@@ -485,9 +485,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">2.5.4 Condition of edges</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2.5.4 Condition of edges</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_17"
                 [options]="satunsatOptions"
@@ -510,24 +510,24 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
 
           <!-- ROW 3: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="12" class="hitu-table-rows-border">3.1</td>
-            <td rowspan="12" class="hitu-table-rows-border">Documentation</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="12" class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1</td>
+            <td rowspan="12" class="border border-white/15 px-3 py-2 align-middle text-white/85">Documentation</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.1.1 Record of Hull survey by SS
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_18"
                 [options]="heldNotHeldOptions"
@@ -538,11 +538,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.1.2 Record of Hull potential measurements
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_19"
                 [options]="heldNotHeldOptions"
@@ -553,9 +553,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.1.3 EMAP</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1.3 EMAP</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_20"
                 [options]="heldNotHeldOptions"
@@ -566,9 +566,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.1.4 Boat log book</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1.4 Boat log book</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_21"
                 [options]="heldNotHeldOptions"
@@ -579,9 +579,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.1.5 Record of defects</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1.5 Record of defects</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_22"
                 [options]="heldNotHeldOptions"
@@ -592,9 +592,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.1.6 HMP/VMP log book</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.1.6 HMP/VMP log book</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_23"
                 [options]="heldNotHeldOptions"
@@ -605,11 +605,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border" colspan="3">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               3.1.7 Availability of stability documents related stability
             </td>
-            <!-- <td class="hitu-table-rows-border">
+            <!-- <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
     <app-select formControlName="deck_plating_obs_24"
       [options]="heldOptions"
       placeholder="--Select--" [searchable]="false">
@@ -617,9 +617,9 @@
   </td> -->
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Hydrostatic curves</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Hydrostatic curves</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="hydrostatic_curves"
                 [options]="heldOptions"
@@ -630,9 +630,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Inclining Experiment report</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Inclining Experiment report</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_24_inclining"
                 [options]="heldOptions"
@@ -643,9 +643,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Weight Management Book</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Weight Management Book</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_24_weight_mgmt"
                 [options]="heldOptions"
@@ -656,11 +656,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Stability book or data book /Statement of GM
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_24_stability_book"
                 [options]="heldOptions"
@@ -671,9 +671,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Cross curves of stability</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Cross curves of stability</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_24_cross_curves"
                 [options]="heldOptions"
@@ -686,11 +686,11 @@
 
           <!-- returns start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="6" class="hitu-table-rows-border">3.2</td>
-            <td rowspan="6" class="hitu-table-rows-border">Returns</td>
-            <td class="hitu-table-rows-border">3.2.1 IN 378</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">3.2</td>
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">Returns</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.2.1 IN 378</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <app-select formControlName="deck_plating_obs_25"
                 [options]="deckPlatingObsOptions"
                 placeholder="--Select--">
@@ -702,11 +702,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.2.2 Quarterly Hull survey by SS
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_26"
                 class="w-full"
@@ -714,9 +714,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.2.3 Hull Potential / ICCP</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.2.3 Hull Potential / ICCP</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_27"
                 class="w-full"
@@ -724,11 +724,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.2.4 Boat returns / Boat History sheet
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_28"
                 class="w-full"
@@ -736,9 +736,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.2.5 E-DART</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.2.5 E-DART</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_29"
                 class="w-full"
@@ -746,11 +746,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.2.6 Weight Management Audit Report
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_30"
                 class="w-full"
@@ -760,13 +760,13 @@
 
           <!-- Miscellaneous start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">3.3</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Miscellaneous Records
             </td>
-            <td class="hitu-table-rows-border">3.3.1 Policy file</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3.1 Policy file</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_31"
                 [options]="heldOptions"
@@ -777,9 +777,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.3.2 MAINTOPs</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3.2 MAINTOPs</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_32"
                 [options]="heldOptions"
@@ -790,9 +790,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.3.3 IN 305 (Last Refit)</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3.3 IN 305 (Last Refit)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_33"
                 [options]="heldOptions"
@@ -802,9 +802,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">3.3.4 IN 379 (Docking form)</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.3.4 IN 379 (Docking form)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_34"
                 [options]="heldOptions"
@@ -815,11 +815,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.3.5 Hull Survey Report by Yard
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_35"
                 [options]="heldOptions"
@@ -832,11 +832,11 @@
 
           <!-- HMP / VMP start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">3.4</td>
-            <td rowspan="5" class="hitu-table-rows-border">HMP / VMP</td>
-            <td class="hitu-table-rows-border">3.4.1 Regular</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">3.4</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">HMP / VMP</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3.4.1 Regular</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_36"
                 [options]="yesNoOptions"
@@ -847,11 +847,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.4.2 Whether HMP / VMP Adequate
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_37"
                 [options]="yesNoOptions"
@@ -862,11 +862,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               3.4.3 Whether Employed iaw Main Tops or not
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_38"
                 [options]="yesNoOptions"
@@ -890,26 +890,26 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
 
           <!-- ROW 3: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">4.1</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">4.1</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Air Pressure Test of W/T compartments
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1.1 Availability of APT Equipment
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_41"
                 [options]="heldOptions"
@@ -920,11 +920,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1.2 Cycle (Commencing from)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_42"
                 class="w-full"
@@ -932,12 +932,12 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1.3 List of Compartments tested in current successfully in
               presence of HITU(Mbi)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <app-select formControlName="deck_plating_obs_43"
                 [options]="deckPlatingObsOptions"
                 placeholder="--Select--">
@@ -949,11 +949,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1.4 List of Compartments tested but not proved in present cycle
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_44"
                 type="number"
@@ -964,11 +964,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.1.5 Plan for remaining compartments
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_45"
                 [options]="comspletedOptions"
@@ -981,13 +981,13 @@
 
           <!-- Citadel  start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="6" class="hitu-table-rows-border">4.2</td>
-            <td rowspan="6" class="hitu-table-rows-border">Citadel</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">4.2</td>
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">Citadel</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.2.1 Status of last Citadel test
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_46"
                 [options]="satOptions"
@@ -1020,9 +1020,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.2.2 Frequency</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.2.2 Frequency</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_47"
                 [options]="frequencyOptions"
@@ -1042,11 +1042,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.2.3 Results of Citadel test
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_48"
                 [options]="satOptions"
@@ -1057,9 +1057,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.2.4 Routines on AFU</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.2.4 Routines on AFU</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_49"
                 [options]="satOptions"
@@ -1070,11 +1070,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.2.5 Whether AFU due for renewal
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_50"
                 [options]="yesNoOptions"
@@ -1095,9 +1095,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.2.6 Other Defects</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.2.6 Other Defects</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_51"
                 [options]="yesNoOptions"
@@ -1115,13 +1115,13 @@
 
           <!-- W/T, G/T Doors/ Hatches/ Flaps start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">4.3</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">4.3</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               W/T, G/T Doors/ Hatches/ Flaps
             </td>
-            <td class="hitu-table-rows-border">4.3.1 Chalk test cycle</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.3.1 Chalk test cycle</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="deck_plating_obs_52"
                 class="w-full"
@@ -1129,9 +1129,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.3.2 No. of defective doors</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.3.2 No. of defective doors</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_53"
                 [min]="0"
@@ -1143,11 +1143,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.3.3 No. of defective hatches
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_54"
                 placeholder="0 - 1000"
@@ -1159,9 +1159,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.3.4 No. of defective flaps</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.3.4 No. of defective flaps</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_55"
                 placeholder="0 - 1000"
@@ -1173,11 +1173,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               4.3.5 Condition of rubber seals (visual)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_56"
                 [options]="satunsatOptions"
@@ -1190,11 +1190,11 @@
 
           <!-- Mushroom heads start -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="2" class="hitu-table-rows-border">4.4</td>
-            <td rowspan="2" class="hitu-table-rows-border">Mushroom heads</td>
-            <td class="hitu-table-rows-border">4.4.1 Nos defective</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">4.4</td>
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">Mushroom heads</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.4.1 Nos defective</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_57"
                 placeholder="0 - 1000"
@@ -1206,9 +1206,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">4.4.2 Other defects</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4.4.2 Other defects</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_58"
                 [options]="yesNoOptions"
@@ -1238,33 +1238,33 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Equipment</th>
-            <th class="hitu-table-rows-border">Last Load Test Conducted On</th>
-            <th class="hitu-table-rows-border">Load Test Certificate</th>
-            <th class="hitu-table-rows-border">Whether Due for Load Test</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Equipment</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Last Load Test Conducted On</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Test Certificate</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Whether Due for Load Test</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
           <tr>
-            <td class="hitu-table-rows-border">5.1</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Hydraulic Palfinger Crane (P)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_5"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="crane_p_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_59"
                 [options]="yesNoOptions"
@@ -1275,23 +1275,23 @@
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">5.2</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Hydraulic Palfinger Crane (S)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_6"
                 class="w-full"
               ></app-calendar>
             </td>
 
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="crane_s_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_60"
                 [options]="yesNoOptions"
@@ -1303,20 +1303,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.3</td>
-            <td class="hitu-table-rows-border">Accommodation Ladder (P)</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Accommodation Ladder (P)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_7"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="ladder_p_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_61"
                 [options]="yesNoOptions"
@@ -1328,20 +1328,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.4</td>
-            <td class="hitu-table-rows-border">Accommodation Ladder (S)</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Accommodation Ladder (S)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_8"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="ladder_s_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_62"
                 [options]="yesNoOptions"
@@ -1353,20 +1353,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.5</td>
-            <td class="hitu-table-rows-border">RAS Winch (P)</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">RAS Winch (P)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_9"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="ras_winch_p_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_63"
                 [options]="yesNoOptions"
@@ -1378,20 +1378,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.6</td>
-            <td class="hitu-table-rows-border">RAS Winch (S)</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">RAS Winch (S)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_10"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="ras_winch_s_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_64"
                 [options]="yesNoOptions"
@@ -1403,20 +1403,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.7</td>
-            <td class="hitu-table-rows-border">Cargo Winch</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.7</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Cargo Winch</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_11"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="cargo_winch_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_65"
                 [options]="yesNoOptions"
@@ -1428,20 +1428,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.8</td>
-            <td class="hitu-table-rows-border">Ships Brows (** Nos)</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.8</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ships Brows (** Nos)</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date_12"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="ships_brows_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_66"
                 [options]="yesNoOptions"
@@ -1453,20 +1453,20 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">5.9</td>
-            <td class="hitu-table-rows-border">Towing hook</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5.9</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Towing hook</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-calendar
                 formControlName="last_oil_change_date"
                 class="w-full"
               ></app-calendar>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-file-upload
                 formControlName="towing_hook_certificate"
               ></app-file-upload>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_67"
                 [options]="yesNoOptions"
@@ -1491,22 +1491,22 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
           <tr>
-            <td class="hitu-table-rows-border">6.1</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               ICCP system/ Cathodic protection
             </td>
-            <td class="hitu-table-rows-border"></td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_68"
                 [options]="applicableOptions"
@@ -1518,13 +1518,13 @@
           </tr>
 
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">6.2</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">6.2</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Ventilation system
             </td>
-            <td class="hitu-table-rows-border">Status</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Status</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_69"
                 [options]="opsOptions"
@@ -1535,9 +1535,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Details of defects, if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Details of defects, if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_70"
                 [options]="yesNoOptions"
@@ -1552,9 +1552,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">State of ATUs/ HEs</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">State of ATUs/ HEs</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_71"
                 [options]="opsOptions"
@@ -1565,11 +1565,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               ATU/ HEs Routines iaw MAINTOPs
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_72"
                 [options]="yesNoOptions"
@@ -1580,9 +1580,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Choking of trunking if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Choking of trunking if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_73"
                 [options]="yesNoOptions"
@@ -1594,13 +1594,13 @@
           </tr>
 
           <!-- ROW 3: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="2" class="hitu-table-rows-border">6.3</td>
-            <td rowspan="2" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">6.3</td>
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Fresh water systems
             </td>
-            <td class="hitu-table-rows-border">6.3.1 Operational Status</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.3.1 Operational Status</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_74"
                 [options]="opsOptions"
@@ -1611,11 +1611,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               6.3.2 Details of defects if any
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_75"
                 [options]="yesNoOptions"
@@ -1631,11 +1631,11 @@
           </tr>
 
           <!-- ROW 4: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">6.4</td>
-            <td class="hitu-table-rows-border">Sewage treatment plant</td>
-            <td class="hitu-table-rows-border">Rusting / corrosion</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Sewage treatment plant</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Rusting / corrosion</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_76"
                 [options]="applicableOptions"
@@ -1648,13 +1648,13 @@
 
           <!-- ROW 5: Make -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="3" class="hitu-table-rows-border">6.5</td>
-            <td rowspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">6.5</td>
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Pre-wetting system
             </td>
-            <td class="hitu-table-rows-border">6.5.1 Status</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.5.1 Status</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_77"
                 [options]="opsOptions"
@@ -1665,9 +1665,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">6.5.2 Date last operated</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.5.2 Date last operated</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="date_of_conduct_of_trials_3"
                 class="w-full"
@@ -1675,11 +1675,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               6.5.3 Details of defects, if any
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_78"
                 [options]="yesNoOptions"
@@ -1696,11 +1696,11 @@
 
           <!-- ROW 6: Make -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="4" class="hitu-table-rows-border">6.6</td>
-            <td rowspan="4" class="hitu-table-rows-border">Sanitary system</td>
-            <td class="hitu-table-rows-border">6.6.1 Defects if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">6.6</td>
+            <td rowspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">Sanitary system</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.6.1 Defects if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_79"
                 [options]="yesNoOptions"
@@ -1714,9 +1714,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">6.6.2 Chokes if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.6.2 Chokes if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_80"
                 [options]="yesNoOptions"
@@ -1727,11 +1727,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               6.6.3 Status of flushing valves
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_81"
                 [options]="opsOptions"
@@ -1742,9 +1742,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">6.6.4 Status of OBD valves</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6.6.4 Status of OBD valves</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_82"
                 [options]="opsOptions"
@@ -1767,26 +1767,26 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 1: Type of Capstan -->
 
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="3" class="hitu-table-rows-border">7.1</td>
-            <td rowspan="3" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">7.1</td>
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Anchor chain cable and associated fittings
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               7.1.1 Last survey details - IN 305
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_83"
                 [options]="heldOptions"
@@ -1797,9 +1797,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">7.1.2 BER items if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7.1.2 BER items if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_84"
                 [options]="yesNoOptions"
@@ -1810,9 +1810,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">7.1.3 Deficiency if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7.1.3 Deficiency if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_85"
                 [options]="yesNoOptions"
@@ -1824,13 +1824,13 @@
           </tr>
 
           <!-- ROW 3: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">7.2</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Details of observations on Hull equipment
             </td>
-            <td class="hitu-table-rows-border">-</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">-</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_86"
                 [options]="applicableOptions"
@@ -1842,11 +1842,11 @@
           </tr>
 
           <!-- ROW 4: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">7.3</td>
-            <td class="hitu-table-rows-border">A's & A's / ABER</td>
-            <td class="hitu-table-rows-border">-</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">A's & A's / ABER</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">-</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_87"
                 [options]="nilYesOptions"
@@ -1870,23 +1870,23 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">8.1</td>
-            <td rowspan="5" class="hitu-table-rows-border">Boats</td>
-            <td class="hitu-table-rows-border">8.1.1 Authorisation</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">8.1</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">Boats</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.1.1 Authorisation</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_88"
-                [options]=""
+                [options]="[]"
                 placeholder="--Select--"
                 [searchable]="false"
               >
@@ -1894,11 +1894,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               8.1.2 Held / Deficiency on board
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_89"
                 [options]="heldOptions"
@@ -1909,9 +1909,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.1.3 BER</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.1.3 BER</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_90"
                 placeholder="Enter Details"
@@ -1920,9 +1920,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.1.4 Landed for repairs</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.1.4 Landed for repairs</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_91"
                 [options]="yesNoOptions"
@@ -1933,9 +1933,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.1.5 Defects if any</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.1.5 Defects if any</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_92"
                 [options]="yesNoOptions"
@@ -1950,11 +1950,11 @@
           </tr>
 
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td rowspan="6" class="hitu-table-rows-border">8.2</td>
-            <td rowspan="6" class="hitu-table-rows-border">Life rafts</td>
-            <td class="hitu-table-rows-border">8.2.1 Authorisation</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">8.2</td>
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">Life rafts</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.2.1 Authorisation</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_93"
                 placeholder="Enter Details"
@@ -1963,9 +1963,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.2.2 Held / deficiency</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.2.2 Held / deficiency</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_94"
                 placeholder="Enter Details"
@@ -1974,11 +1974,11 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               8.2.3 BER/ Serviceability date
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_95"
                 [options]="yesNoOptions"
@@ -1989,9 +1989,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.2.4 Landed for survey</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.2.4 Landed for survey</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_96"
                 [options]="yesNoOptions"
@@ -2002,9 +2002,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">8.2.5 Stowage arrangements</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8.2.5 Stowage arrangements</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="deck_plating_obs_97"
                 placeholder="Enter Details"
@@ -2013,12 +2013,12 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               8.2.6 Hydrostatic releasing gear – Last serviceability checks
               undertaken on
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-month-year-calendar
                 formControlName="date_of_conduct_of_trials_4"
                 class="w-full"
@@ -2038,19 +2038,19 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">9.1</td>
-            <td class="hitu-table-rows-border">Living condition</td>
-            <td class="hitu-table-rows-border" colspan="3">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Living condition</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-select
                 formControlName="deck_plating_obs_98"
                 [options]="satOptions"
@@ -2061,10 +2061,10 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">9.2</td>
-            <td class="hitu-table-rows-border">Ships husbandry</td>
-            <td class="hitu-table-rows-border" colspan="3">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ships husbandry</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-select
                 formControlName="deck_plating_obs_99"
                 [options]="satOptions"
@@ -2075,10 +2075,10 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">9.3</td>
-            <td class="hitu-table-rows-border">A/C discipline</td>
-            <td class="hitu-table-rows-border" colspan="3">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">A/C discipline</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-select
                 formControlName="deck_plating_obs_100"
                 [options]="satOptions"
@@ -2101,23 +2101,23 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">10.1</td>
-            <td class="hitu-table-rows-border">Authorisation of tools</td>
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">10.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Authorisation of tools</td>
             <!-- Split TD into 2 Parts -->
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <div class="grid grid-cols-2 h-full">
                 <!-- Left Part -->
-                <div class="border-r border-slate-300 px-3 py-2">
+                <div class="border-r border-white/15 px-3 py-2">
                   Authorised ** Nos
                 </div>
 
@@ -2125,7 +2125,7 @@
                 <div class="px-3 py-2">Held ** Nos</div>
               </div>
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_101"
                 [options]="yesNoOptions"
@@ -2154,20 +2154,20 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
             <!-- <th ></th> -->
-            <th class="hitu-table-rows-border" colspan="2">Observation</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- ROW 2: Make -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.1</td>
-            <td class="hitu-table-rows-border">Light weight deck Covering</td>
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Light weight deck Covering</td>
 
-            <td class="hitu-table-rows-border" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="2">
               <app-select
                 formControlName="deck_plating_obs_102"
                 [options]="implemnetedOptions"
@@ -2185,14 +2185,14 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.2</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Removal of wooden furniture and panelling from non-essential
               compartment
             </td>
 
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_103"
                 [options]="implemnetedOptions"
@@ -2210,13 +2210,13 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.3</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Replacement of EPDM/Neoprene rubber coaming with silicone rubber
               coaming on progressive basis
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_104"
                 [options]="implemnetedOptions"
@@ -2234,12 +2234,12 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.4</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Replacement of Emergency escape hatches/ scuttles
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_105"
                 [options]="implemnetedOptions"
@@ -2258,12 +2258,12 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.5</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Standardisation of three roller fairlead
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_106"
                 [options]="implemnetedOptions"
@@ -2281,12 +2281,12 @@
               </div>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.6</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Implementation Plan – STP compartments and H2S sensors
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_107"
                 [options]="implemnetedOptions"
@@ -2304,12 +2304,12 @@
               </div>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">11.7</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">11.7</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Utilisation of corrosion inhibitor pellets in machinery bilges
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_108"
                 [options]="implemnetedOptions"
@@ -2342,22 +2342,22 @@
       <br />
       <table class="w-full border-collapse text-sm">
         <thead>
-          <tr class="hitu-table-header">
-            <th class="hitu-table-rows-border w-10">Ser</th>
-            <th class="hitu-table-rows-border">Parameter</th>
-            <th class="hitu-table-rows-border">Checks</th>
-            <th class="hitu-table-rows-border">Observation</th>
+          <tr class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70">
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85 w-10">Ser</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Parameter</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Checks</th>
+            <th class="border border-white/15 px-3 py-2 align-middle text-white/85">Observation</th>
           </tr>
         </thead>
         <tbody>
           <!-- Ser 1: Visual Inspection -->
-          <tr class="bg-slate-50">
-            <td rowspan="4" class="hitu-table-rows-border">1</td>
-            <td rowspan="4" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td rowspan="4" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Visual Inspection
             </td>
-            <td class="hitu-table-rows-border">Deck Head</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Deck Head</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div *ngFor="let ctrl of getControls('app_vi_deck_head'); let i = index" class="flex gap-2 mb-1">
                 <app-input [formControl]="ctrl" placeholder="Enter observation" class="flex-1"></app-input>
                 <button type="button" (click)="removeRow('app_vi_deck_head', i)" class="p-1 text-red-500 hover:text-red-700" [disabled]="getArray('app_vi_deck_head').length === 1"><lucide-icon [img]="minusIcon" class="w-4 h-4"></lucide-icon></button>
@@ -2371,9 +2371,9 @@
               </app-dynamic-textarea>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Hangar Top</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Hangar Top</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div *ngFor="let ctrl of getControls('app_vi_hangar_top'); let i = index" class="flex gap-2 mb-1">
                 <app-input [formControl]="ctrl" placeholder="Enter observation" class="flex-1"></app-input>
                 <button type="button" (click)="removeRow('app_vi_hangar_top', i)" class="p-1 text-red-500 hover:text-red-700" [disabled]="getArray('app_vi_hangar_top').length === 1"><lucide-icon [img]="minusIcon" class="w-4 h-4"></lucide-icon></button>
@@ -2387,11 +2387,11 @@
               </app-dynamic-textarea>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Bulkheads (Fwd, C/L &amp; Ship Side/ Superstructure side)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div *ngFor="let ctrl of getControls('app_vi_bulkheads'); let i = index" class="flex gap-2 mb-1">
                 <app-input [formControl]="ctrl" placeholder="Enter observation" class="flex-1"></app-input>
                 <button type="button" (click)="removeRow('app_vi_bulkheads', i)" class="p-1 text-red-500 hover:text-red-700" [disabled]="getArray('app_vi_bulkheads').length === 1"><lucide-icon [img]="minusIcon" class="w-4 h-4"></lucide-icon></button>
@@ -2405,9 +2405,9 @@
               </app-dynamic-textarea>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Deck and Dadoes Areas</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Deck and Dadoes Areas</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div *ngFor="let ctrl of getControls('app_vi_deck_dadoes'); let i = index" class="flex gap-2 mb-1">
                 <app-input [formControl]="ctrl" placeholder="Enter observation" class="flex-1"></app-input>
                 <button type="button" (click)="removeRow('app_vi_deck_dadoes', i)" class="p-1 text-red-500 hover:text-red-700" [disabled]="getArray('app_vi_deck_dadoes').length === 1"><lucide-icon [img]="minusIcon" class="w-4 h-4"></lucide-icon></button>
@@ -2423,13 +2423,13 @@
           </tr>
 
           <!-- Ser 2: Hangar Door - ** Nos (Link with CMMS) -->
-          <tr class="bg-slate-50">
-            <td rowspan="6" class="hitu-table-rows-border">2</td>
-            <td rowspan="6" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">2</td>
+            <td rowspan="6" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Hangar Door - ** Nos (Link with CMMS)
             </td>
-            <td class="hitu-table-rows-border">Make</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Make</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="app_hd_make"
                 placeholder="Link from CMMS"
@@ -2437,9 +2437,9 @@
               ></app-input>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Model</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Model</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input
                 formControlName="app_hd_model"
                 placeholder="Link from CMMS"
@@ -2447,9 +2447,9 @@
               ></app-input>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Normal Mode</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Normal Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="app_hd_normal_mode"
                 [options]="naApplicableOptions"
@@ -2466,9 +2466,9 @@
               </div>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Emergency Mode</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Emergency Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="app_hd_emergency_mode"
                 [options]="naApplicableOptions"
@@ -2485,9 +2485,9 @@
               </div>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Defects/ Observations</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Defects/ Observations</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div *ngFor="let ctrl of getControls('app_hd_defects'); let i = index" class="flex gap-2 mb-1">
                 <app-input [formControl]="ctrl" placeholder="Enter observation" class="flex-1"></app-input>
                 <button type="button" (click)="removeRow('app_hd_defects', i)" class="p-1 text-red-500 hover:text-red-700" [disabled]="getArray('app_hd_defects').length === 1"><lucide-icon [img]="minusIcon" class="w-4 h-4"></lucide-icon></button>
@@ -2501,9 +2501,9 @@
               </app-dynamic-textarea>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Remarks</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="app_hd_remarks"
                 [options]="satunsatOptions"
@@ -2514,13 +2514,13 @@
           </tr>
           <!-- ROW 5: Make -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="8" class="hitu-table-rows-border">3</td>
-            <td rowspan="8" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="8" class="border border-white/15 px-3 py-2 align-middle text-white/85">3</td>
+            <td rowspan="8" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Helo Traversing system
             </td>
-            <td class="hitu-table-rows-border">Make</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Make</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <div class="flex flex-col gap-1">
                 <app-input
                   placeholder="Enter Place"
@@ -2532,9 +2532,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Model</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Model</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <div class="flex flex-col gap-1">
                 <app-input
                   placeholder="Enter Place"
@@ -2546,9 +2546,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Normal Mode</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Normal Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_113"
                 [options]="naApplicableOptions"
@@ -2566,9 +2566,9 @@
               </div>
             </td>
           </tr>
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Emergency Mode</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Emergency Mode</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_114"
                 [options]="naApplicableOptions"
@@ -2588,11 +2588,11 @@
           </tr>
 
           <!-- Load test undertaken on - PORT -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Load test undertaken on (Port)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="app_ht_load_test_port"
                 [options]="yesNoOptions"
@@ -2619,11 +2619,11 @@
           </tr>
 
           <!-- Load test undertaken on - STBD -->
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Load test undertaken on (Stbd)
             </td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="app_ht_load_test_stbd"
                 [options]="yesNoOptions"
@@ -2649,10 +2649,10 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Defects/ Observations</td>
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Defects/ Observations</td>
 
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <!-- <div formArrayName="extra_modes1">
 
       <div
@@ -2702,9 +2702,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Remarks</td>
-            <td class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-select
                 formControlName="deck_plating_obs_116"
                 [options]="satunsatOptions"
@@ -2717,11 +2717,11 @@
 
           <!-- ROW 6: Make -->
 
-          <tr class="bg-slate-50">
-            <td rowspan="3" class="hitu-table-rows-border">2</td>
-            <td rowspan="3" class="hitu-table-rows-border">Lashing Points</td>
-            <td class="hitu-table-rows-border">Visual Inspection</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">2</td>
+            <td rowspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">Lashing Points</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Visual Inspection</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-dynamic-textarea
                 [form]="form"
                 controlName="extra_modes7"
@@ -2731,9 +2731,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Load Test Date</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load Test Date</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-calendar
                 formControlName="date_of_conduct_of_trials_5"
                 class="w-full"
@@ -2742,17 +2742,17 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Load test Certificate</td>
-            <td class="hitu-table-rows-border"></td>
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Load test Certificate</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85"></td>
           </tr>
 
           <!-- row start -->
-          <tr class="bg-slate-50">
-            <td rowspan="1" class="hitu-table-rows-border">1</td>
-            <td rowspan="1" class="hitu-table-rows-border">Harpoon Grid</td>
-            <td class="border border-gray-200 p-2 space-y-2">-</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="1" class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td rowspan="1" class="border border-white/15 px-3 py-2 align-middle text-white/85">Harpoon Grid</td>
+            <td class="border border-white/15 p-2 space-y-2">-</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs_117"
                 [options]="fittedOptions"
@@ -2774,14 +2774,14 @@
           </tr>
 
           <!-- row start -->
-          <tr class="bg-slate-50">
-            <td rowspan="5" class="hitu-table-rows-border">1</td>
-            <td rowspan="5" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td rowspan="5" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Helo/ Aircraft Lifts/ Turntable - NA, Preservation of Helo/ Hangar
               Deck
             </td>
-            <td class="border border-gray-200 p-2 space-y-2">Paint Scheme</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+            <td class="border border-white/15 p-2 space-y-2">Paint Scheme</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs_118"
                 [options]="paintSchemeOptions"
@@ -2792,9 +2792,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Full Paint Scheme Renewed on</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Full Paint Scheme Renewed on</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-calendar
                 formControlName="date_of_conduct_of_trials_6"
                 class="w-full"
@@ -2803,9 +2803,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Present Paint condition</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Present Paint condition</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-dynamic-textarea
                 [form]="form"
                 controlName="extra_modes8"
@@ -2815,9 +2815,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Friction Test Undertaken on</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Friction Test Undertaken on</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-calendar
                 formControlName="date_of_conduct_of_trials"
                 class="w-full"
@@ -2826,9 +2826,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Remarks</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Remarks</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs_119"
                 [options]="satunsatOptions"
@@ -2842,11 +2842,11 @@
           <!-- end -->
 
           <!-- row start -->
-          <tr class="bg-slate-50">
-            <td rowspan="2" class="hitu-table-rows-border">1</td>
-            <td rowspan="2" class="hitu-table-rows-border">Drainage</td>
-            <td class="border border-gray-200 p-2 space-y-2">Helo Deck</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">Drainage</td>
+            <td class="border border-white/15 p-2 space-y-2">Helo Deck</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs_120"
                 [options]="satunsatOptions"
@@ -2857,9 +2857,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Hangar</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Hangar</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs_121"
                 [options]="appOptions"
@@ -2885,15 +2885,15 @@
           <!-- end -->
 
           <!-- row start -->
-          <tr class="bg-slate-50">
-            <td rowspan="2" class="hitu-table-rows-border">1</td>
-            <td rowspan="2" class="hitu-table-rows-border">
+          <tr class="bg-white/[0.04]">
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td rowspan="2" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Final Observations
             </td>
-            <td class="border border-gray-200 p-2 space-y-2">
+            <td class="border border-white/15 p-2 space-y-2">
               Other Observations, if any
             </td>
-            <td class="border border-gray-200 p-2 space-y-2">
+            <td class="border border-white/15 p-2 space-y-2">
               <app-dynamic-textarea
                 [form]="form"
                 controlName="extra_modes10"
@@ -2903,9 +2903,9 @@
             </td>
           </tr>
 
-          <tr class="bg-slate-50">
-            <td class="hitu-table-rows-border">Overall Remarks</td>
-            <td class="border border-gray-200 p-2 space-y-2">
+          <tr class="bg-white/[0.04]">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Overall Remarks</td>
+            <td class="border border-white/15 p-2 space-y-2">
               <app-select
                 formControlName="deck_plating_obs"
                 [options]="satunsatOptions"

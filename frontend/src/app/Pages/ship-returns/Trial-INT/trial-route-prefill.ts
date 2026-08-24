@@ -4,6 +4,8 @@ import { FormApiService } from './angulerFromconverting/form-api.service';
 export function resolveTrialQueryParam(route: ActivatedRoute, router: Router): string | null {
   let current: ActivatedRoute | null = route;
   while (current) {
+    const trialId = current.snapshot.paramMap.get('trialId');
+    if (trialId) return trialId;
     const trial = current.snapshot.queryParamMap.get('trial');
     if (trial) return trial;
     current = current.parent;

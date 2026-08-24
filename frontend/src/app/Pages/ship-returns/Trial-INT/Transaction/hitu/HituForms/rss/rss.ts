@@ -1,13 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { CommonModule } from '@angular/common';
@@ -22,7 +15,6 @@ import {
 import { InputComponent } from '../../../../ui/input.component';
 import { SelectWithSearchComponent } from '../../../../ui/select-with-search/select-with-search-box.component';
 import { SelectComponent } from '../../../../ui/select.component';
-import { EditorComponent } from '../../../../ui/editor';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import {
   resolveTrialQueryParam,
@@ -47,7 +39,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     FileUploadComponent,
     SelectWithSearchComponent,
     ApprovalWorkFlow,
-    EditorComponent,
   ],
 })
 export class RSS {
@@ -56,14 +47,14 @@ export class RSS {
   editDataDetails: any = null;
   loading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
   draftLoading = false;
   saveLoading = false;
   submitLoading = false;
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
   showApprovalWorkflowPopup = false;
   isSubmitTime = false;
   form!: FormGroup;
@@ -1063,7 +1054,10 @@ export class RSS {
     });
   }
 
-  onElectricalCheckChange(value: string): void {
+  onElectricalCheckChange(value: string | Event): void {
+    value = value instanceof Event
+      ? ((value.target as HTMLSelectElement | null)?.value ?? '')
+      : value;
     if (value === 'SAT') {
       this.form.patchValue({
         electrical_check_status: 'SAT',
@@ -1180,7 +1174,7 @@ export class RSS {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

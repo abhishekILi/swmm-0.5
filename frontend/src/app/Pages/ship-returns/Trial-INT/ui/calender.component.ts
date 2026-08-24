@@ -1,7 +1,9 @@
 import {
+  ChangeDetectorRef,
   Component,
   Input,
   forwardRef,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -44,6 +46,7 @@ template: `
   ],
 })
 export class CalenderComponent implements ControlValueAccessor {
+  private readonly cdr = inject(ChangeDetectorRef);
   @Input() label = '';
   @Input() placeholder = '';
   @Input() disabled = false;
@@ -66,6 +69,7 @@ export class CalenderComponent implements ControlValueAccessor {
   writeValue(value: any): void {
     if (!value) {
       this.value = '';
+      this.cdr.markForCheck();
       return;
     }
 
@@ -75,6 +79,7 @@ export class CalenderComponent implements ControlValueAccessor {
     } else {
       this.value = value;
     }
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {
@@ -87,6 +92,7 @@ export class CalenderComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    this.cdr.markForCheck();
   }
 
   onInput(event: Event) {

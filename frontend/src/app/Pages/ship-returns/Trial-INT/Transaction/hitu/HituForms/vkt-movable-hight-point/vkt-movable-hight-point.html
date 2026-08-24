@@ -5,14 +5,14 @@
 
   <div
       previewHeader
-      class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+      class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
       <button
           *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
           type="button"
           (click)="setActiveTab(tab)"
-          class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-          [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
+          class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+          [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
       >
           <span class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
               {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
@@ -20,7 +20,7 @@
 
           <span
               class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'"
+              [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
           >
               {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-' }}
           </span>
@@ -51,38 +51,38 @@
   <table class="w-full border-collapse text-sm">
     <thead>
       <tr >
-        <th class="border border-slate-300 px-3 py-2 text-left w-10">Ser</th>
-        <th class="border border-slate-300 px-3 py-2 text-left">Parameter (a)</th>
-        <th class="border border-slate-300 px-3 py-2 text-left">Checks (b)</th>
-        <th class="border border-slate-300 px-3 py-2 text-left">Observation (c)</th>
-        <th class="border border-slate-300 px-3 py-2 text-left">Remarks (d)</th>
+        <th class="border border-white/15 px-3 py-2 text-left w-10">Ser</th>
+        <th class="border border-white/15 px-3 py-2 text-left">Parameter (a)</th>
+        <th class="border border-white/15 px-3 py-2 text-left">Checks (b)</th>
+        <th class="border border-white/15 px-3 py-2 text-left">Observation (c)</th>
+        <th class="border border-white/15 px-3 py-2 text-left">Remarks (d)</th>
       </tr>
     </thead>
     <tbody [formGroup]="form">
 
       <!-- Row 1: Make -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">1</td>
-        <td class="border border-slate-300 px-3 py-2">Make</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="3">
+        <td class="border border-white/15 px-3 py-2">1</td>
+        <td class="border border-white/15 px-3 py-2">Make</td>
+        <td class="border border-white/15 px-3 py-2" colspan="3">
           <app-input formControlName="manufacturer_name"></app-input>
         </td>
       </tr>
 
       <!-- Row 2: Type -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">2</td>
-        <td class="border border-slate-300 px-3 py-2">Type</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="3">
+        <td class="border border-white/15 px-3 py-2">2</td>
+        <td class="border border-white/15 px-3 py-2">Type</td>
+        <td class="border border-white/15 px-3 py-2" colspan="3">
           <app-input formControlName="type" placeholder="Enter Type"></app-input>
         </td>
       </tr>
 
       <!-- Row 3: Year of Manufacture -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">3</td>
-        <td class="border border-slate-300 px-3 py-2">Year of Manufacture</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="3">
+        <td class="border border-white/15 px-3 py-2">3</td>
+        <td class="border border-white/15 px-3 py-2">Year of Manufacture</td>
+        <td class="border border-white/15 px-3 py-2" colspan="3">
           <app-input type="date" formControlName="year_of_manufacture"></app-input>
         </td>
       </tr>
@@ -90,14 +90,14 @@
       <!-- Row 4: Load Testing -->
       <!-- < 27 months from Date of Load Testing → SAT | > 27 months → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">4</td>
-        <td class="border border-slate-300 px-3 py-2">Load Testing</td>
-        <td class="border border-slate-300 px-3 py-2">Date of last load test (Not to exceed 27 months)</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">4</td>
+        <td class="border border-white/15 px-3 py-2">Load Testing</td>
+        <td class="border border-white/15 px-3 py-2">Date of last load test (Not to exceed 27 months)</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-calendar label=""
             formControlName="load_testing_last_date"></app-calendar>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="load_testing_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -110,12 +110,12 @@
       <!-- Sub-row 5a: Electrical hygiene -->
       <!-- Nil → SAT | Observation → SAT with obs/UNSAT + dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2" rowspan="3">5</td>
-        <td class="border border-slate-300 px-3 py-2" rowspan="3">Condition of JB/ Control</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2" rowspan="3">5</td>
+        <td class="border border-white/15 px-3 py-2" rowspan="3">Condition of JB/ Control</td>
+        <td class="border border-white/15 px-3 py-2">
           Electrical hygiene, condition of connector lugs. Check tightness of electrical cable connections and fasteners
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="jb_control_observation"
             [options]="nilObservationOptions"
             [searchable]="false"></app-select>
@@ -124,7 +124,7 @@
               formControlName="jb_control_observation_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showJbControlInput"
             formControlName="jb_control_remark"
             [options]="SatUnsatOptions"
@@ -141,8 +141,8 @@
       <!-- Sub-row 5b: Status of Switches -->
       <!-- Nil → SAT | Observation → SAT with obs/UNSAT + dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Status of Switches</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Status of Switches</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="jb_switches_observation"
             [options]="nilObservationOptions"
             [searchable]="false"></app-select>
@@ -151,7 +151,7 @@
               formControlName="jb_switches_observation_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showJbSwitchesInput"
             formControlName="jb_switches_remark"
             [options]="SatUnsatOptions"
@@ -168,8 +168,8 @@
       <!-- Sub-row 5c: Status of Indicators -->
       <!-- Nil → SAT | Observation → SAT with obs/UNSAT + dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Status of Indicators</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Status of Indicators</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="jb_indicators_observation"
             [options]="nilObservationOptions"
             [searchable]="false"></app-select>
@@ -178,7 +178,7 @@
               formControlName="jb_indicators_observation_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showJbIndicatorsInput"
             formControlName="jb_indicators_remark"
             [options]="SatUnsatOptions"
@@ -195,10 +195,10 @@
       <!-- Row 6: Condition of Foundations/ -->
       <!-- No Observation → SAT | Observation → dialog boxes (Corrosion/Pitting/Unpainted/Others) -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">6</td>
-        <td class="border border-slate-300 px-3 py-2">Condition of Foundations/</td>
-        <td class="border border-slate-300 px-3 py-2">Corrosion/ Pitting/ Unpainted/ Condition of Bond Strap</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">6</td>
+        <td class="border border-white/15 px-3 py-2">Condition of Foundations/</td>
+        <td class="border border-white/15 px-3 py-2">Corrosion/ Pitting/ Unpainted/ Condition of Bond Strap</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="foundation_inspection"
             [options]="ObservationsOptions"
             [searchable]="false"></app-select>
@@ -209,7 +209,7 @@
             <div class="min-h-[38px] flex items-center">Others</div>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showFoundationInspectionFields"
             formControlName="foundation_inspection_remark"
             [options]="SatUnsatOptions"
@@ -231,10 +231,10 @@
       <!-- Row 7: Lubrication of Mechanical Part -->
       <!-- Charged → SAT | Painted/Choked/Missing → UNSAT | Others → dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">7</td>
-        <td class="border border-slate-300 px-3 py-2">Lubrication of Mechanical Part</td>
-        <td class="border border-slate-300 px-3 py-2">Check application of grease on mechanical/ moving parts</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">7</td>
+        <td class="border border-white/15 px-3 py-2">Lubrication of Mechanical Part</td>
+        <td class="border border-white/15 px-3 py-2">Check application of grease on mechanical/ moving parts</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="lubrication_mechanical"
             [options]="greaseConditionOptions"
             [searchable]="false"></app-select>
@@ -243,7 +243,7 @@
               formControlName="lubrication_mechanical_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showLubricationMechanicalInput"
             formControlName="lubrication_mechanical_remark"
             [options]="SatUnsatOptions"
@@ -255,10 +255,10 @@
       <!-- Row 8: Lubrication Points -->
       <!-- Charged → SAT | Painted/Choked/Missing → UNSAT | Others → dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">8</td>
-        <td class="border border-slate-300 px-3 py-2">Lubrication Points</td>
-        <td class="border border-slate-300 px-3 py-2">Condition of greasing points, nipples – clean/ painted/ chocked</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">8</td>
+        <td class="border border-white/15 px-3 py-2">Lubrication Points</td>
+        <td class="border border-white/15 px-3 py-2">Condition of greasing points, nipples – clean/ painted/ chocked</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="lubrication_points"
             [options]="greaseConditionOptions"
             [searchable]="false"></app-select>
@@ -267,7 +267,7 @@
               formControlName="lubrication_points_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showLubricationPointsInput"
             formControlName="lubrication_points_remark"
             [options]="SatUnsatOptions"
@@ -279,10 +279,10 @@
       <!-- Row 9: Drive -->
       <!-- Nil → SAT | Noise Observed → UNSAT + dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">9</td>
-        <td class="border border-slate-300 px-3 py-2">Drive</td>
-        <td class="border border-slate-300 px-3 py-2">Check for excessive noise during operation</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">9</td>
+        <td class="border border-white/15 px-3 py-2">Drive</td>
+        <td class="border border-white/15 px-3 py-2">Check for excessive noise during operation</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="drive_noise"
             [options]="noiseObservedOptions"
             [searchable]="false"></app-select>
@@ -291,7 +291,7 @@
               formControlName="drive_noise_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="drive_noise_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -302,10 +302,10 @@
       <!-- Row 10: Limit Switch/ sensor -->
       <!-- Nil → SAT | Observation → SAT with obs/UNSAT + dialog box -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">10</td>
-        <td class="border border-slate-300 px-3 py-2">Limit Switch/ sensor</td>
-        <td class="border border-slate-300 px-3 py-2">Functioning of limit switches sensor</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">10</td>
+        <td class="border border-white/15 px-3 py-2">Limit Switch/ sensor</td>
+        <td class="border border-white/15 px-3 py-2">Functioning of limit switches sensor</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="limit_switch_observation"
             [options]="nilObservationOptions"
             [searchable]="false"></app-select>
@@ -314,7 +314,7 @@
               formControlName="limit_switch_observation_value"></app-input>
           </div>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select *ngIf="!showLimitSwitchInput"
             formControlName="limit_switch_remark"
             [options]="SatUnsatOptions"
@@ -331,14 +331,14 @@
       <!-- Row 11: Insulation Motor -->
       <!-- >= 2 M Ohms → SAT | < 10 M Ohms → UNSAT (as per image text) -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">11</td>
-        <td class="border border-slate-300 px-3 py-2">Insulation Motor</td>
-        <td class="border border-slate-300 px-3 py-2">&gt; 2 M Ohms</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">11</td>
+        <td class="border border-white/15 px-3 py-2">Insulation Motor</td>
+        <td class="border border-white/15 px-3 py-2">&gt; 2 M Ohms</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input label="Numeric value in M Ohms"
             formControlName="insulation_motor_value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="insulation_motor_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -349,7 +349,7 @@
       <!-- CBPM Parameters header -->
       <tr>
         <td colspan="5"
-          class="border border-slate-300 px-3 py-2  text-white font-semibold text-center">
+          class="border border-white/15 px-3 py-2  text-white font-semibold text-center">
           CBPM PARAMETERS
         </td>
       </tr>
@@ -357,7 +357,7 @@
       <!-- Lubrication Oil Status sub-header -->
       <tr>
         <td colspan="5"
-          class="border border-slate-300 px-3 py-2  text-slate-100 font-medium">
+          class="border border-white/15 px-3 py-2  text-white/70 font-medium">
           Lubrication Oil Status
         </td>
       </tr>
@@ -365,15 +365,15 @@
       <!-- Row 12: Oil Level in Gear Box -->
       <!-- 40-100% filled → SAT | Less than 40% filled → SAT with observation | Empty → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">12</td>
-        <td class="border border-slate-300 px-3 py-2">Oil Level in Gear Box</td>
-        <td class="border border-slate-300 px-3 py-2">Oil level should be maintained between max and min marking indicated on oil level glass</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">12</td>
+        <td class="border border-white/15 px-3 py-2">Oil Level in Gear Box</td>
+        <td class="border border-white/15 px-3 py-2">Oil level should be maintained between max and min marking indicated on oil level glass</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_level_gear_box"
             [options]="oilLevelOptions"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_level_gear_box_remark"
             [options]="overallRemarksOptions"
             placeholder="--Select--"
@@ -384,21 +384,21 @@
       <!-- Row 13: Oil being used in Gear Box -->
       <!-- Yes → SAT | No → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">13</td>
-        <td class="border border-slate-300 px-3 py-2">Oil being used in Gear Box</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">13</td>
+        <td class="border border-white/15 px-3 py-2">Oil being used in Gear Box</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_type_reference"
             [options]="oilTypeOptions"
             placeholder="--Select--"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_type_measured"
             [options]="yesNoOptions"
             placeholder="--Select--"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_type_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -409,14 +409,14 @@
       <!-- Row 14: Change of Oil (in Drum and Gear Box) -->
       <!-- < 12 months from last date of oil change → SAT | > 12 months → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">14</td>
-        <td class="border border-slate-300 px-3 py-2">Change of Oil (in Drum and Gear Box)</td>
-        <td class="border border-slate-300 px-3 py-2">Last date of oil change</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">14</td>
+        <td class="border border-white/15 px-3 py-2">Change of Oil (in Drum and Gear Box)</td>
+        <td class="border border-white/15 px-3 py-2">Last date of oil change</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-month-year-calendar label=""
             formControlName="oil_change_last_date"></app-month-year-calendar>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="oil_change_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -427,38 +427,38 @@
       <!-- Row 15-20: Lub oil analysis parameter -->
       <!-- Lab Test - all alphanumeric dialog box entries for each parameter -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2" rowspan="6">15-20</td>
-        <td class="border border-slate-300 px-3 py-2" rowspan="6">Lub oil analysis parameter</td>
-        <td class="border border-slate-300 px-3 py-2" rowspan="6">Lab Test (report to be enclosed)</td>
-        <td class="border border-slate-300 px-3 py-2 font-medium text-center" colspan="2">Parameters</td>
+        <td class="border border-white/15 px-3 py-2" rowspan="6">15-20</td>
+        <td class="border border-white/15 px-3 py-2" rowspan="6">Lub oil analysis parameter</td>
+        <td class="border border-white/15 px-3 py-2" rowspan="6">Lab Test (report to be enclosed)</td>
+        <td class="border border-white/15 px-3 py-2 font-medium text-center" colspan="2">Parameters</td>
       </tr>
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Water content</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="2">
+        <td class="border border-white/15 px-3 py-2">Water content</td>
+        <td class="border border-white/15 px-3 py-2" colspan="2">
           <app-input formControlName="lub_water_content" placeholder="Enter value (Alphanumeric)"></app-input>
         </td>
       </tr>
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Viscosity</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="2">
+        <td class="border border-white/15 px-3 py-2">Viscosity</td>
+        <td class="border border-white/15 px-3 py-2" colspan="2">
           <app-input formControlName="lub_viscosity" placeholder="Enter value (Alphanumeric)"></app-input>
         </td>
       </tr>
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Base Number</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="2">
+        <td class="border border-white/15 px-3 py-2">Base Number</td>
+        <td class="border border-white/15 px-3 py-2" colspan="2">
           <app-input formControlName="lub_base_number" placeholder="Enter value (Alphanumeric)"></app-input>
         </td>
       </tr>
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Acid Number</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="2">
+        <td class="border border-white/15 px-3 py-2">Acid Number</td>
+        <td class="border border-white/15 px-3 py-2" colspan="2">
           <app-input formControlName="lub_acid_number" placeholder="Enter value (Alphanumeric)"></app-input>
         </td>
       </tr>
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Metal traces</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="2">
+        <td class="border border-white/15 px-3 py-2">Metal traces</td>
+        <td class="border border-white/15 px-3 py-2" colspan="2">
           <app-input formControlName="lub_metal_traces" placeholder="Enter value (Alphanumeric)"></app-input>
         </td>
       </tr>
@@ -466,33 +466,33 @@
       <!-- Current/Load Checks sub-header -->
       <tr>
         <td colspan="5"
-          class="border border-slate-300 px-3 py-2  text-slate-100 font-medium">
+          class="border border-white/15 px-3 py-2  text-white/70 font-medium">
           Current/ Load Checks
         </td>
       </tr>
 
       <!-- Sub-header row for Current/Load Checks columns -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2"></td>
-        <td class="border border-slate-300 px-3 py-2 font-medium"></td>
-        <td class="border border-slate-300 px-3 py-2 font-medium text-center">Reference</td>
-        <td class="border border-slate-300 px-3 py-2 font-medium text-center">Measured</td>
-        <td class="border border-slate-300 px-3 py-2 font-medium text-center">SAT / UNSAT</td>
+        <td class="border border-white/15 px-3 py-2"></td>
+        <td class="border border-white/15 px-3 py-2 font-medium"></td>
+        <td class="border border-white/15 px-3 py-2 font-medium text-center">Reference</td>
+        <td class="border border-white/15 px-3 py-2 font-medium text-center">Measured</td>
+        <td class="border border-white/15 px-3 py-2 font-medium text-center">SAT / UNSAT</td>
       </tr>
 
       <!-- Row 21: Starting current group -->
 
       <!-- 21a: Starting current -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2" rowspan="4">21</td>
-        <td class="border border-slate-300 px-3 py-2">Starting current</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2" rowspan="4">21</td>
+        <td class="border border-white/15 px-3 py-2">Starting current</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="starting_current_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -502,14 +502,14 @@
 
       <!-- 21b: Slide In/Out -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Slide In/Out</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Slide In/Out</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_slide_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_slide_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="starting_current_slide_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -519,14 +519,14 @@
 
       <!-- 21c: Tilt In/Out -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Tilt In/Out</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Tilt In/Out</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_tilt_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_tilt_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="starting_current_tilt_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -536,14 +536,14 @@
 
       <!-- 21d: Lowering/Hoisting -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Lowering/Hoisting</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Lowering/Hoisting</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_lowering_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="starting_current_lowering_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="starting_current_lowering_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -555,15 +555,15 @@
 
       <!-- 22a: Running Current -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2" rowspan="4">22</td>
-        <td class="border border-slate-300 px-3 py-2">Running Current</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2" rowspan="4">22</td>
+        <td class="border border-white/15 px-3 py-2">Running Current</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="running_current_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -573,14 +573,14 @@
 
       <!-- 22b: Slide In/Out -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Slide In/Out</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Slide In/Out</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_slide_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_slide_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="running_current_slide_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -590,14 +590,14 @@
 
       <!-- 22c: Tilt In/Out -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Tilt In/Out</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Tilt In/Out</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_tilt_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_tilt_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="running_current_tilt_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -607,14 +607,14 @@
 
       <!-- 22d: Lowering/Hoisting -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">Lowering/Hoisting</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">Lowering/Hoisting</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_lowering_reference" placeholder="As per manual"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-input formControlName="running_current_lowering_measured" placeholder="Enter value"></app-input>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="running_current_lowering_remark"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -625,16 +625,16 @@
       <!-- Row 23: Log book exist -->
       <!-- Yes → SAT | No → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">23</td>
-        <td class="border border-slate-300 px-3 py-2">Log book exist</td>
-        <td class="border border-slate-300 px-3 py-2">Yes/ No</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">23</td>
+        <td class="border border-white/15 px-3 py-2">Log book exist</td>
+        <td class="border border-white/15 px-3 py-2">Yes/ No</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="log_book_measured"
             [options]="yesNoOptions"
             placeholder="--Select--"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="log_book_remarks"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -645,16 +645,16 @@
       <!-- Row 24: Periodicity of measurement -->
       <!-- Monthly/Quarterly → SAT | Nil → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">24</td>
-        <td class="border border-slate-300 px-3 py-2">Periodicity of measurement</td>
-        <td class="border border-slate-300 px-3 py-2">Monthly/ Quarterly</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">24</td>
+        <td class="border border-white/15 px-3 py-2">Periodicity of measurement</td>
+        <td class="border border-white/15 px-3 py-2">Monthly/ Quarterly</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="periodicity_measured"
             [options]="montlyQuarterlyNilOption"
             placeholder="--Select--"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="periodicity_remarks"
             [options]="SatUnsatOptions"
             placeholder="--Select--"
@@ -665,16 +665,16 @@
       <!-- Row 25: SPM Check of Motor (For Motor Vibration) -->
       <!-- NA → NA | Green → SAT | Yellow → SAT with observation | Red → UNSAT -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">25</td>
-        <td class="border border-slate-300 px-3 py-2">SPM Check of Motor<br>(For Motor Vibration)</td>
-        <td class="border border-slate-300 px-3 py-2">0-20 dbm<br>Green/ Yellow/ Red<br>(0-20/ 20-35/ &gt;35)</td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">25</td>
+        <td class="border border-white/15 px-3 py-2">SPM Check of Motor<br>(For Motor Vibration)</td>
+        <td class="border border-white/15 px-3 py-2">0-20 dbm<br>Green/ Yellow/ Red<br>(0-20/ 20-35/ &gt;35)</td>
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="spm_measured"
             [options]="spmCheckOptions"
             placeholder="--Select--"
             [searchable]="false"></app-select>
         </td>
-        <td class="border border-slate-300 px-3 py-2">
+        <td class="border border-white/15 px-3 py-2">
           <app-select formControlName="spm_remarks"
             [options]="overallRemarksNaOptions"
             placeholder="--Select--"
@@ -684,9 +684,9 @@
 
       <!-- Row 26: Any other observations -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">26</td>
-        <td class="border border-slate-300 px-3 py-2">Any other observations</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="3">
+        <td class="border border-white/15 px-3 py-2">26</td>
+        <td class="border border-white/15 px-3 py-2">Any other observations</td>
+        <td class="border border-white/15 px-3 py-2" colspan="3">
           <app-input formControlName="other_observation"
             placeholder="Enter observations (Alphanumeric)"></app-input>
         </td>
@@ -695,9 +695,9 @@
       <!-- Row 27: Overall Remarks -->
       <!-- Auto-computed, disabled -->
       <tr>
-        <td class="border border-slate-300 px-3 py-2">27</td>
-        <td class="border border-slate-300 px-3 py-2">Overall Remarks</td>
-        <td class="border border-slate-300 px-3 py-2" colspan="3">
+        <td class="border border-white/15 px-3 py-2">27</td>
+        <td class="border border-white/15 px-3 py-2">Overall Remarks</td>
+        <td class="border border-white/15 px-3 py-2" colspan="3">
           <app-select formControlName="overall_remark"
             [options]="overallRemarksOptions"
             [disabled]="true"

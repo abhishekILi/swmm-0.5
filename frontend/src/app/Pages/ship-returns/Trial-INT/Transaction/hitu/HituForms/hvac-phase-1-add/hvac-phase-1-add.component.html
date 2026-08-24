@@ -9,14 +9,18 @@
 >
   <div
     previewHeader
-    class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]"
+    class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
   >
     <button
       *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
       type="button"
       (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="
+        isSameEquipment(activeHeaderEquipment, tab)
+      " [class.bg-[#1069AB]]="
+        isSameEquipment(activeHeaderEquipment, tab)
+      " [class.text-white]="
         isSameEquipment(activeHeaderEquipment, tab)
       "
     >
@@ -32,8 +36,8 @@
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
         [ngClass]="
           isSameEquipment(activeHeaderEquipment, tab)
-            ? 'pt-glass-form-tab-sub--active'
-            : 'pt-glass-form-tab-sub--idle'
+            ? 'text-white'
+            : 'text-white/50'
         "
       >
         {{ tab?.nomenclature || tab?.equipment_nomenclature || "-" }} -
@@ -187,7 +191,7 @@
 
               <ng-template #ductTypeTemplate let-row>
                 <div class="flex flex-col gap-1">
-                  <div class="text-sm text-black text-center">
+                  <div class="text-sm text-white text-center">
                     <div *ngFor="let item of row.typeOfDuct; let i = index">
                       <span class="font-bold mr-1">{{ i + 1 }}.</span>
                       {{ item ?? "-" }}
@@ -253,7 +257,7 @@
 
       <!-- ===================== TAB 2 ===================== -->
       <ng-template>
-        <div class="overflow-x-auto border border-slate-300 rounded-lg p-3">
+        <div class="overflow-x-auto border border-white/15 rounded-lg p-3">
           AIR FLOW MEASUREMENTS OF MACHINERY COMPARTMENTS
         </div>
 
@@ -308,7 +312,7 @@
 
               <ng-template #ductTypeTemplate let-row>
                 <div class="flex flex-col gap-1">
-                  <div class="text-sm text-black text-center">
+                  <div class="text-sm text-white text-center">
                     <div *ngFor="let item of row.typeOfDuct; let i = index">
                       <span class="font-bold mr-1">{{ i + 1 }}.</span>
                       {{ item ?? "-" }}
@@ -319,7 +323,7 @@
 
               <ng-template #ductAreaTemplate let-row>
                 <div class="flex flex-col gap-1">
-                  <div class="text-sm text-black text-center">
+                  <div class="text-sm text-white text-center">
                     <div
                       *ngFor="let item of row.calCulatedDetails; let i = index"
                     >

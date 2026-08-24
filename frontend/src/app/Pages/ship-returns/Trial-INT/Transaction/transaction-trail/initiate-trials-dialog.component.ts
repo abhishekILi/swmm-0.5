@@ -1472,7 +1472,7 @@ export class InitiateTrialsDialogComponent implements OnChanges, OnDestroy {
     trial_form_type?: number;
   }): void {
     const { path, queryParams } = this.trailService.trialTypeNavigateOptions(
-      '/afterAuth/'+ (response?.trial_type_url ?? ''),
+      '/afterAuth/ship-returns/trials/'+ (response?.trial_type_url ?? ''),
       response?.uuid,
     );
     if (path.length) {

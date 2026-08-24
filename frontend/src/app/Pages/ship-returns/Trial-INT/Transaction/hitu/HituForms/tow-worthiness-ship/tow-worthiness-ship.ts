@@ -8,13 +8,6 @@ import {
   FormArray,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideRotateCcw as RotateCcw,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { Apiendpoints } from '../../../../ApiEndPoints';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
@@ -72,7 +65,7 @@ export class TowWorthinessShip {
   editDataDetails: any = null;
   uploadedAuthorityFiles: UploadedFileItem[] = [];
 
-  readonly restartIcon = RotateCcw;
+  readonly restartIcon = 'rotate-ccw';
   showApprovalWorkflowPopup = false;
   isSubmitTime = false;
 
@@ -80,9 +73,9 @@ export class TowWorthinessShip {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   form!: FormGroup;
   loading = false;
@@ -564,7 +557,7 @@ export class TowWorthinessShip {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },

@@ -1,10 +1,12 @@
 import {
   Component,
+  ChangeDetectorRef,
   Input,
   forwardRef,
   ElementRef,
   ViewChild,
   AfterViewInit,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -47,6 +49,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class TextareaComponent implements ControlValueAccessor, AfterViewInit {
+  private readonly cdr = inject(ChangeDetectorRef);
   @ViewChild('textareaRef') textareaRef!: ElementRef<HTMLTextAreaElement>;
 
   @Input() placeholder = '';
@@ -78,6 +81,7 @@ export class TextareaComponent implements ControlValueAccessor, AfterViewInit {
 
   writeValue(value: any): void {
     this.value = value ?? '';
+    this.cdr.markForCheck();
 
     setTimeout(() => {
       this.adjustHeight();
@@ -94,6 +98,7 @@ export class TextareaComponent implements ControlValueAccessor, AfterViewInit {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    this.cdr.markForCheck();
   }
 
   onInput(event: Event): void {

@@ -4,14 +4,14 @@
       <textarea
         [formControlName]="i"
         rows="2"
-        class="custom-input flex-1 resize-none py-2 text-sm"
+        class="flex-1 resize-none rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF]"
         [placeholder]="placeholder"
       ></textarea>
 
       <button
         type="button"
         (click)="removeItem(i)"
-        class="pt-glass-table__control flex h-8 w-8 items-center justify-center rounded-lg text-red-400 transition hover:border-red-400/50"
+        class="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] text-red-300 transition hover:border-red-400/50 hover:bg-red-500/15"
       >
         −
       </button>
@@ -21,7 +21,7 @@
       <button
         type="button"
         (click)="addItem()"
-        class="pt-glass-table__control flex h-8 w-8 items-center justify-center rounded-lg transition"
+        class="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/[0.08] text-white/90 transition hover:border-[#61C2FF]/50 hover:bg-[#61C2FF]/15"
       >
         +
       </button>

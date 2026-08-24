@@ -255,10 +255,10 @@ export class ApprovalWorkFlow implements OnInit {
         // }
         // const isSeg = selectedUnitId === 27;
         // const type = this.route.snapshot.queryParamMap.get('type') || '';
-        // const redirectUrl = this.triaalType === 'returns' ? '/transactions/return':'/transactions/trial';
+        // const redirectUrl = this.triaalType === 'returns' ? '/transactions/return':'/afterAuth/ship-returns/transactions/trial';
 
         //yha pr seg redirection update krrha hu bss
-        // const redirectUrl = isSeg? '/transactions/request-review': this.triaalType === 'returns'? '/transactions/return': '/transactions/trial';
+        // const redirectUrl = isSeg? '/transactions/request-review': this.triaalType === 'returns'? '/transactions/return': '/afterAuth/ship-returns/transactions/trial';
         // this.router.navigate([redirectUrl]);
 
         this.notificationService.success('From Forworded successfully');

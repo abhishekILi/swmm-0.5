@@ -1,10 +1,10 @@
 <app-form-card title="TOW WORTHINESS SHIP" [showPreviousReport]="true" [showBackButton]="true" [showPaginator]="true"
   [previewMode]="true" [pageScroll]="true">
 
-  <div previewHeader class="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide max-w-[420px]">
+  <div previewHeader class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]">
     <button *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment" type="button" (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
-      [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)">
+      class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+      [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)" [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)" [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)">
       <span
         class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
         {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
@@ -12,7 +12,7 @@
 
       <span
         class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
-        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'pt-glass-form-tab-sub--active' : 'pt-glass-form-tab-sub--idle'">
+        [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'">
         {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-'
         }}
       </span>
@@ -58,20 +58,20 @@
       <table class="w-full border-collapse text-sm">
         <thead>
           <tr>
-            <th class="hitu-table-header p-2">Ser No</th>
-            <th class="hitu-table-header p-2">Checks</th>
-            <th class="hitu-table-header" colspan="3">Observation</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2">Ser No</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70 p-2">Checks</th>
+            <th class="bg-white/[0.06] text-[11px] font-bold uppercase tracking-wider text-white/70" colspan="3">Observation</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td class="hitu-table-rows-border">1</td>
-            <td class="hitu-table-rows-border">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">1</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">
               Visual Inspection of Internal U/W Compartments
             </td>
 
-            <td colspan="3" class="hitu-table-rows-border">
+            <td colspan="3" class="border border-white/15 px-3 py-2 align-middle text-white/85">
               <app-input formControlName="visual_inspection_internal_comp"
                 placeholder="Detailed report placed at enclosure">
               </app-input>
@@ -79,93 +79,93 @@
           </tr>
 
           <tr>
-            <td class="hitu-table-rows-border">2</td>
-            <td class="hitu-table-rows-border">Chalk Test</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">2</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Chalk Test</td>
 
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <app-select formControlName="chalk_type" [searchable]="false" [options]="chalkOptions">
               </app-select>
             </td>
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-input formControlName="chalk_obs" placeholder="Enter observation">
               </app-input>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">3</td>
-            <td class="hitu-table-rows-border">Towing Arrangements</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">3</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Towing Arrangements</td>
 
-            <td class="hitu-table-rows-border space-y-2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2">
               <app-input formControlName="towing_qty" placeholder="Qty (nos)">
               </app-input>
               <app-input class="space-y-2 p-2" formControlName="towing_obs" placeholder="Observation">
               </app-input>
             </td>
-            <td class="hitu-table-rows-border space-y-2" colspan="2">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85 space-y-2" colspan="2">
               <app-dynamic-textarea [form]="form" controlName="towing_details" placeholder="Enter towing details">
               </app-dynamic-textarea>
             </td>
 
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">4</td>
-            <td class="hitu-table-rows-border">Twin Towing Bollards</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">4</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Twin Towing Bollards</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="twin_bollards" placeholder="Enter details">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">5</td>
-            <td class="hitu-table-rows-border">Ventilation Openings</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">5</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Ventilation Openings</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="ventilation_openings" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">6</td>
-            <td class="hitu-table-rows-border">Loose Items</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">6</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Loose Items</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="loose_items" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">7</td>
-            <td class="hitu-table-rows-border">Structural Openings / Soft Patches</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">7</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Structural Openings / Soft Patches</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="structural_openings" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">8</td>
-            <td class="hitu-table-rows-border">Tank Manhole Covers</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">8</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Tank Manhole Covers</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="manhole_covers" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">9</td>
-            <td class="hitu-table-rows-border">Weather Deck / Superstructure</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">9</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Weather Deck / Superstructure</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="weather_deck" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>
           </tr>
           <tr>
-            <td class="hitu-table-rows-border">10</td>
-            <td class="hitu-table-rows-border">Stability Data</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">10</td>
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85">Stability Data</td>
 
-            <td class="hitu-table-rows-border" colspan="3">
+            <td class="border border-white/15 px-3 py-2 align-middle text-white/85" colspan="3">
               <app-dynamic-textarea [form]="form" controlName="stability_data" placeholder="Enter observations">
               </app-dynamic-textarea>
             </td>

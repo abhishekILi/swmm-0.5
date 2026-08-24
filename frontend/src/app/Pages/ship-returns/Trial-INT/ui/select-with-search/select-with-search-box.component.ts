@@ -1,10 +1,12 @@
 import {
   Component,
+  ChangeDetectorRef,
   Input,
   forwardRef,
   HostListener,
   OnChanges,
   SimpleChanges,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -23,6 +25,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   ],
 })
 export class SelectWithSearchComponent implements ControlValueAccessor, OnChanges {
+  private readonly cdr = inject(ChangeDetectorRef);
   @Input() options: { label: string; value: any }[] = [];
   @Input() placeholder = '--Select--';
   @Input() disabled = false;
@@ -39,6 +42,7 @@ export class SelectWithSearchComponent implements ControlValueAccessor, OnChange
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['options']) {
       this.filteredOptions = [...this.options];
+      this.cdr.markForCheck();
     }
   }
 
@@ -71,6 +75,7 @@ export class SelectWithSearchComponent implements ControlValueAccessor, OnChange
 
   writeValue(value: any): void {
     this.value = value;
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {
@@ -84,6 +89,7 @@ export class SelectWithSearchComponent implements ControlValueAccessor, OnChange
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
     this.isOpen = false;
+    this.cdr.markForCheck();
   }
 
   @HostListener('document:click', ['$event'])

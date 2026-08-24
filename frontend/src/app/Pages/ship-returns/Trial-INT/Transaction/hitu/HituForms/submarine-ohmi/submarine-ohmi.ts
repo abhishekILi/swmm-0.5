@@ -7,12 +7,6 @@ import {
   Validators,
   FormArray,
 } from '@angular/forms';
-import {
-  LucideSave as Save,
-  LucideSaveAll as SaveAllIcon,
-  LucideFileText as FileText,
-  LucideCheckCheck as CheckCheck,
-} from '@lucide/angular';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
@@ -27,7 +21,7 @@ import { ApiService } from '../../../../api.service';
 import { DynamicSelectTextarea } from '../../../../ui/dynamic-select-textarea/dynamic-select-textarea';
 import { DynamicTextarea } from '../../../../ui/dynamic-textarea/dynamic-textarea';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
-import { ToastService } from 'app/services/toast.service';
+import { ToastService } from '../../../../services/toast.service';
 import {
   resolveTrialQueryParam,
   trialRowFromGetFormResponse,
@@ -73,9 +67,9 @@ export class SubmarineOHMI {
   saveLoading = false;
   submitLoading = false;
 
-  draftIcon = FileText;
-  saveIcon = Save;
-  submitIcon = CheckCheck;
+  draftIcon = 'file-text';
+  saveIcon = 'save';
+  submitIcon = 'check-check';
 
   classOfShipOptions: any[] = [];
   shipOptions: any[] = [];
@@ -537,7 +531,7 @@ export class SubmarineOHMI {
             this.showApprovalWorkflowPopup = true;
           } else {
             this.toast.showSuccess('Forms Saved successfully.');
-            this.router.navigate(['/transactions/trial']);
+            this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },
