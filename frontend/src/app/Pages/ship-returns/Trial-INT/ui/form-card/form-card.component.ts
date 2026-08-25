@@ -127,7 +127,17 @@ export class FormCardComponent {
 
   onBack(): void {
     this.back.emit();
-    window.history.back();
+    const currentUrl = this.router.url.split('?')[0];
+
+    if (currentUrl.endsWith('-add')) {
+      const parentUrl = currentUrl.replace(/-add$/, '');
+      this.router.navigateByUrl(parentUrl);
+    } else if (currentUrl.includes('/edit') || currentUrl.includes('/view-details')) {
+      const parentUrl = currentUrl.replace(/\/(edit|view-details|\d+)+.*$/, '');
+      this.router.navigateByUrl(parentUrl);
+    } else {
+      window.history.back();
+    }
   }
 
   onTrialTypes(): void {

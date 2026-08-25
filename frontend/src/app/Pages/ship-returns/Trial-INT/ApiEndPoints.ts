@@ -12,10 +12,10 @@ export const Apiendpoints = {
   PROPULSION: '',
   BER_CERTIFICATE: 'shipmodule/ber-certificate/',
   SHIP_WEIGHT_MANAGEMENT: 'shipmodule/ship-weight-management/',
-  IN_378: 'shipmodule/in-378',
+  IN_378: 'shipmodule/in378/render-part1/',
   MASTER_REFITS: 'master/refits/',
   BOATS: '',
-  BOAT_HISTORY_SHEET: '',
+  BOAT_HISTORY_SHEET: 'shipmodule/boat-history-sheet-details/',
   MASTER_SHIP: 'master/ships/',
   // master/ship-classes/
   MASTER_CLASS: 'master/ship-classes/',
@@ -94,6 +94,21 @@ export const Apiendpoints = {
   SHIP_DASHBOARD_CARDS: 'api/data-cap-analysis/ship-dashboard/',
   SEG_ANALYTICS_KPI: 'api/data-cap-analysis/seg/kpi/',
   SEG_SHIP_WORKING_STATUS: 'api/data-cap-analysis/seg/ship-working-status/',
+
+  DOCUMENT_UPLOAD: 'shipmodule/record-file-upload/',
+  IN_378_PART_II: 'shipmodule/in378/render-part2/',
+  IN_305: 'shipmodule/in305/',
+  QUARTERLY_HULL_POTENTIAL_FITTED_WITH_SACRIFICIAL_ANODES:
+    'shipmodule/iccp-returns-quarterly-hull-potential/sacrificial-anodes/quarterly-hull-potential/',
+  QUARTERLY_HULL_POTENTIAL_DATA_OF_SHIPS_FITTED_WITH_CONVENTIIONAL_ICCP_SYSTEM:
+    'shipmodule/iccp-returns-part-one/quarterly-hull-potential/',
+  QUARTERLY_HULL_POTENTIAL_DATA_OF_SHIPS_FITTED_WITH_MODULAR_ICCP_SYSTEM:
+    'shipmodule/hull-potential-return-modular-iccp/',
+  LOAD_TEST_CERTIFICATE: 'shipmodule/load-test/',
+  SHIP_STAFF_REPORT_ON_HULL_INSPECTION: 'shipmodule/quarterly-hull-inspection/',
+  SHELL_EXPANSION_GA_DRAWING: 'dashboard/ship-drawing-data/',
+  MASTER_STRAKES: 'master/strakes/',
+  MASTER_DECKS: 'master/decks/',
 };
 export const equipmentHtml = {
   labelKey: 'name',

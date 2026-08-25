@@ -310,15 +310,32 @@ const createTagInOutHeader = (): HeaderConfig =>
     configuration: { enabled: false, route: null },
   });
 
+const HULL_RETURNS_MASTER_CHILDREN = [
+  { id: "ship-weight-management", label: "Ship Weight Management", route: "returns/ship-weight-management" },
+  { id: "ber-certificate", label: "BER Certificate", route: "returns/ber-certificate" },
+  { id: "in-378-part1", label: "IN-378 Part 1", route: "returns/in-378-part1" },
+  { id: "in-378-part2", label: "IN-378 Part 2", route: "returns/in-378-part2" },
+  { id: "boat-history-sheet", label: "Boat History Sheet", route: "returns/boat-history-sheet" },
+  { id: "in-305", label: "IN-305", route: "returns/in-305" },
+  { id: "quarterly-hull-sacrificial", label: "Quarterly Hull (Sacrificial Anodes)", route: "returns/quarterly-hull-potential-with-sacrifical-anodes" },
+  { id: "load-test-certificate", label: "Load Test Certificate", route: "returns/load-test-certificate" },
+  { id: "quarterly-hull-conventional-iccp", label: "Quarterly Hull (Conventional ICCP)", route: "returns/quarterly-hull-potential-with-conventional-iccp-system" },
+  { id: "quarterly-hull-modular-iccp", label: "Quarterly Hull (Modular ICCP)", route: "returns/quarterly-hull-potential-with-modular-iccp-system" },
+  { id: "ship-staff-hull-inspection-report", label: "Ship Staff Report of Hull Inspection", route: "returns/ship-staff-hull-inspection-report" },
+];
+
 const createHullReturnsHeader = (): HeaderConfig =>
   createHeader({
     overview: { enabled: false, route: null },
-    configuration: { enabled: false, route: null },
     actions: { enabled: false, route: null },
+    configuration: {
+      label: "Transactions",
+      route: "returns/ship-weight-management",
+      children: HULL_RETURNS_MASTER_CHILDREN,
+    },
     reports: { enabled: false, route: null },
     dlGeneration: { enabled: false, route: null },
     insights: { enabled: false, route: null },
-
   });
 export const NAVIGATION_CONFIG: NavigationModule[] = [
   createModule({

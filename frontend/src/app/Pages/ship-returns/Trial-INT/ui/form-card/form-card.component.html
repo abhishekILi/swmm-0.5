@@ -58,13 +58,19 @@
   </div>
 
   <!-- ================= NORMAL HEADER ================= -->
-  <div *ngIf="!previewMode" class="form-card-header shrink-0 border-b border-white/15 bg-white/[0.04] px-6 py-3">
-    <div class="text-[16px] font-semibold uppercase tracking-[1.4px] text-white">
-      {{ title }}
+  <div *ngIf="!previewMode" class="form-card-header shrink-0 border-b border-white/15 bg-white/[0.04] px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-[16px] font-semibold uppercase tracking-[1.4px] text-white">
+        {{ title }}
+      </div>
+      <div *ngIf="smallTitle" class="mt-0.5 text-[11px] font-medium uppercase tracking-[1.2px] text-white/60">
+        {{ smallTitle }}
+      </div>
     </div>
-    <div class="mt-0.5 text-[11px] font-medium uppercase tracking-[1.2px] text-white/60">
-      {{ smallTitle }}
-    </div>
+    <button type="button" (click)="onBack()" class="inline-flex h-9 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-xs font-semibold uppercase tracking-wide text-white/90 transition hover:bg-white/20 hover:text-white">
+      <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+      <span>Back</span>
+    </button>
   </div>
 
   <!-- ================= MAIN CONTENT - ONLY ONE NG-CONTENT ================= -->

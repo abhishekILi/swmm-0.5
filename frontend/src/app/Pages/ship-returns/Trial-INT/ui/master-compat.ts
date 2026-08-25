@@ -107,6 +107,7 @@ export class ReusableInputTableComponent {
   @Input() data: any[] = [];
   @Input() columns: any[] = [];
   @Input() enableRowActions = false;
+  @Input() isReadonly = false;
 
   addRow(): void {
     const row = this.columns.reduce((result, column) => {
@@ -198,3 +199,83 @@ export class AgActionCellComponent implements ICellRendererAngularComp {
     this.params.onAction?.(action.key, this.params.data);
   }
 }
+
+@Component({
+  selector: 'app-transaction-table-tabs',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div class="mb-4 flex border-b border-gray-200 gap-1">
+      <button *ngFor="let tab of tabs" type="button" (click)="selectTab(tab.value)"
+        [class]="'px-4 py-2.5 text-sm font-semibold transition-all border-b-2 rounded-t-lg ' + (activeTab === tab.value ? 'border-sky-500 text-sky-600 bg-sky-50/70 font-bold' : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100/60')">
+        {{ tab.label }}
+      </button>
+    </div>
+  `,
+})
+export class TransactionTableTabs {
+  @Input() activeTab = 'draft';
+  @Input() tabs: { label: string; value: string }[] = [];
+  @Output() activeTabChange = new EventEmitter<string>();
+  @Output() tabChange = new EventEmitter<string>();
+
+  selectTab(val: string): void {
+    this.activeTabChange.emit(val);
+    this.tabChange.emit(val);
+  }
+}
+
+@Component({
+  selector: 'app-reusable-delete-dialog-dynamic-content',
+  standalone: true,
+  imports: [CommonModule, ReusableDeleteDialogComponent],
+  template: `<app-reusable-delete-dialog [open]="open" [message]="message" (confirm)="confirm.emit()" (cancel)="cancel.emit()"></app-reusable-delete-dialog>`,
+})
+export class ReusableDeleteDialogDynamicContentComponent {
+  @Input() open = false; @Input() message = '';
+  @Output() confirm = new EventEmitter<void>(); @Output() cancel = new EventEmitter<void>();
+}
+
+@Component({
+  selector: 'app-toast',
+  standalone: true,
+  imports: [CommonModule],
+  template: ``,
+})
+export class ToastComponent {}
+
+@Component({
+  selector: 'app-shell-expension-ga-dialog-view',
+  standalone: true,
+  imports: [CommonModule],
+  template: ``,
+})
+export class ShellExpensionGaDrawingDialogViewer {
+  @Input() open = false;
+  @Input() data: any;
+  @Output() close = new EventEmitter<void>();
+}
+
+@Component({
+  selector: 'app-reusable-button',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <button [type]="type" [disabled]="loading || disabled" (click)="clicked.emit($event)"
+      [class]="'inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition ' + customClass">
+      <i *ngIf="loading" class="fa-solid fa-circle-notch animate-spin text-sm" aria-hidden="true"></i>
+      <span>{{ label }}</span>
+    </button>
+  `,
+})
+export class ReusableButtonComponent {
+  @Input() label = '';
+  @Input() variant = 'primary';
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  @Input() loading = false;
+  @Input() disabled = false;
+  @Input() icon: any;
+  @Input() customClass = 'border border-white/20 bg-white/10 text-white hover:bg-white/15';
+  @Output() clicked = new EventEmitter<Event>();
+}
+

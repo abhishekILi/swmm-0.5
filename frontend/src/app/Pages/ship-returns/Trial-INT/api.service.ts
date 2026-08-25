@@ -25,19 +25,51 @@ export interface DropdownOption<T = string | number> {
 })
 export class ApiService {
   private readonly apiUrl = environment.API_URL;
+  private readonly hullApiUrl = (environment as any).HULL_API_URL || 'https://hull-insights-api.ilizien-projects-cdf.in:8443/';
   private readonly genericServerErrorMessage =
     'Something went wrong on server. Please try again.';
   private readonly http = inject(HttpClient);
   private readonly notificationService = inject(NotificationService);
 
-  constructor() {}
+  constructor() { }
 
   private buildUrl(endpoint: string): string {
     if (!endpoint) return this.apiUrl;
     if (/^https?:\/\//i.test(endpoint)) return endpoint;
 
-    const base = this.apiUrl.endsWith('/') ? this.apiUrl.slice(0, -1) : this.apiUrl;
-    const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    const cleanEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+    const isHullEndpoint =
+      cleanEndpoint.startsWith('shipmodule/') ||
+      cleanEndpoint.startsWith('yardmodule/') ||
+      cleanEndpoint.includes('master/boat-details') ||
+      cleanEndpoint.includes('master/dockyards') ||
+      cleanEndpoint.includes('master/boat-specifications') ||
+      cleanEndpoint.includes('master/boat-builders') ||
+      cleanEndpoint.includes('master/engine-oems') ||
+      cleanEndpoint.includes('master/survey-cycle') ||
+      cleanEndpoint.includes('master/reference-electrodes') ||
+      cleanEndpoint.includes('master/anodes') ||
+      cleanEndpoint.includes('master/strakes') ||
+      cleanEndpoint.includes('master/decks');
+
+    const targetBase = isHullEndpoint ? this.hullApiUrl : this.apiUrl;
+
+    const base = targetBase.endsWith('/') ? targetBase.slice(0, -1) : targetBase;
+    let path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+
+    if (isHullEndpoint) {
+      const queryIdx = path.indexOf('?');
+      if (queryIdx !== -1) {
+        const routePath = path.substring(0, queryIdx);
+        const queryString = path.substring(queryIdx);
+        if (!routePath.endsWith('/')) {
+          path = `${routePath}/${queryString}`;
+        }
+      } else if (!path.endsWith('/')) {
+        path = `${path}/`;
+      }
+    }
+
     return `${base}${path}`;
   }
 
@@ -137,6 +169,15 @@ export class ApiService {
     return this.http
       .get<T>(this.buildUrl(endpoint), {
         params: this.buildHttpParams(params),
+      })
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getText(endpoint: string, params?: RequestParams): Observable<string> {
+    return this.http
+      .get(this.buildUrl(endpoint), {
+        params: this.buildHttpParams(params),
+        responseType: 'text',
       })
       .pipe(catchError((error) => this.handleError(error)));
   }
