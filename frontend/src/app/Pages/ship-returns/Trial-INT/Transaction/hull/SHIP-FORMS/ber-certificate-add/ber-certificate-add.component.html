@@ -56,36 +56,51 @@
         >
         </app-input>
       </div>
-      <!------------------------------------------ BER For -->
-      <div class="flex flex-col gap-1">
-        <label class="form-label" for="ber_for">BER For *</label>
 
-        <app-select formControlName="ber_for" [options]="berForOptions">
-        </app-select>
-      </div>
+      <app-select
+        label="BER For"
+        formControlName="ber_for"
+        [options]="berForOptions"
+        [required]="true"
+      >
+      </app-select>
 
       <!------------------------------------------ Hull (Conditional) -->
-      <div class="flex flex-col gap-1" *ngIf="form.value.ber_for === 'HULL'">
-        <label class="form-label" for="ber_hull">Hull *</label>
-        <app-select formControlName="ber_hull" [options]="hullOptions">
+      <div *ngIf="form.value.ber_for === 'HULL'">
+        <app-select
+          label="Hull"
+          formControlName="ber_hull"
+          [options]="hullOptions"
+        >
         </app-select>
       </div>
 
       <!------------------------------------------ Engine (Conditional) -->
-      <div class="flex flex-col gap-1" *ngIf="form.value.ber_for === 'ENGINE'">
-        <label class="form-label" for="ber_engine">Engine *</label>
-
-        <app-select formControlName="ber_engine" [options]="engineOptions">
+      <div *ngIf="form.value.ber_for === 'ENGINE'">
+        <app-select
+          label="Engine"
+          formControlName="ber_engine"
+          [options]="engineOptions"
+        >
         </app-select>
       </div>
 
-      <!------------------------------------------ DG -->
-      <div class="flex flex-col gap-1">
-        <label class="form-label" for="dg">DG *</label>
-        <app-select formControlName="dg" [options]="dgOptions"> </app-select>
-      </div>
-      <!------------------------------------------ File Upload -->
-      <div class="file-upload-field gap-1">
+      <app-select label="DG" formControlName="dg" [options]="dgOptions">
+      </app-select>
+
+      <!-- <app-file-upload
+        [label]="'Reference authority'"
+        formControlName="ref_auth"
+        [allowedFileTypes]="['pdf']"
+        [fileFieldName]="'auth_ref'"
+        [formOrMasterName]="'ber_certficate'"
+      >
+      </app-file-upload> -->
+    </div>
+
+    <!------------------------------------------ Remarks ------------------------->
+    <div class="mt-4 flex flex-row gap-4">
+      <div class="flex-1">
         <app-file-upload
           [label]="'Reference authority'"
           formControlName="ref_auth"
@@ -95,16 +110,15 @@
         >
         </app-file-upload>
       </div>
-    </div>
 
-    <!------------------------------------------ Remarks ------------------------->
-    <div class="mt-4 flex flex-col gap-1">
-      <app-input
-        label="Remarks"
-        placeholder="Enter Remarks"
-        formControlName="remarks"
-      >
-      </app-input>
+      <div class="flex-1">
+        <app-input
+          label="Remarks"
+          placeholder="Enter Remarks"
+          formControlName="remarks"
+        >
+        </app-input>
+      </div>
     </div>
 
     <!----------------------------------- Add Digital Sign Button --------------------------------->
