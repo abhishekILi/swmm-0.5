@@ -221,7 +221,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
       this.cdr.detectChanges();
     });
   }
-
+// ship dropdown for ship staff
   loadShips(shipId?: number) {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe((res: any) => {
