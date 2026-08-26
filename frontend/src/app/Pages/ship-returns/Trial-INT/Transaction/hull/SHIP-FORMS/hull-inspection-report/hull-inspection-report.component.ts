@@ -1092,14 +1092,17 @@ export class HullInspectionReportComponent implements OnInit {
     } else if (count < currentLength) {
       this.inspectionData.splice(count);
     }
+    this.inspectionData = [...this.inspectionData];
   }
 
   onInspectionRowChange(event: Event): void {
-    const value = +(event.target as HTMLInputElement).value;
+    let value = +(event.target as HTMLInputElement).value;
+    if (!value || value < 1) value = 1;
 
     this.inspectionRows = Math.max(1, Math.min(99, value));
 
     this.updateInspectionRows(this.inspectionRows);
+    this.cdr.detectChanges();
   }
 
   // ===========================================================================

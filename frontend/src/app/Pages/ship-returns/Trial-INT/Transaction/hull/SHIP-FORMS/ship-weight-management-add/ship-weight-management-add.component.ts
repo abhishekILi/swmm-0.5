@@ -312,12 +312,14 @@ export class ShipWeightManagementAddComponent implements OnInit {
 
   onOpsRowCountChange(event: Event) {
     let value = +(event.target as HTMLInputElement).value;
+    if (!value || value < 1) value = 1;
     if (this.editMode) {
       value = Math.max(value, this.totalRowsOpsInEditMode);
     }
 
     this.totalRowsOps = value;
     this.updateOpsTableRows(value);
+    this.cdr.detectChanges();
   }
   updateOpsTableRows(count: number) {
     const currentLength = this.opsTableData.length;
@@ -342,6 +344,8 @@ export class ShipWeightManagementAddComponent implements OnInit {
     if (count < currentLength) {
       this.opsTableData.splice(count);
     }
+
+    this.opsTableData = [...this.opsTableData];
   }
 
   handleOpsTableChange(index: number, field: string, value: string) {
@@ -377,6 +381,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
 
   onRefitRowCountChange(event: Event) {
     let value = +(event.target as HTMLInputElement).value;
+    if (!value || value < 1) value = 1;
 
     // ✅ enforce minimum in edit mode
     if (this.editMode) {
@@ -384,6 +389,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
     }
     this.totalRowsRefit = value;
     this.updateRefitTableRows(value);
+    this.cdr.detectChanges();
   }
   updateRefitTableRows(count: number) {
     const currentLength = this.refitTableData.length;
@@ -401,6 +407,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
     if (count < currentLength) {
       this.refitTableData.splice(count);
     }
+    this.refitTableData = [...this.refitTableData];
   }
   handleRefitTableChange(index: number, field: string, value: string) {
     if (this.viewMode) return;

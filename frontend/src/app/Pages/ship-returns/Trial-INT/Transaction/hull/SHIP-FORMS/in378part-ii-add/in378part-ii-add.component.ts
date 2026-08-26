@@ -220,12 +220,17 @@ export class In378partIIAddComponent implements OnInit {
   onReportRowChanges(event: Event) {
     let value = +(event.target as HTMLInputElement).value;
 
+    if (!value || value < 1) {
+      value = 1;
+    }
+
     if (this.editMode && value < this.initialTotalRows) {
       value = this.initialTotalRows;
     }
 
     this.totalRows = value;
     this.updateReportTableRows(value);
+    this.cdr.detectChanges();
   }
 
   updateReportTableRows(count: number) {
@@ -247,6 +252,8 @@ export class In378partIIAddComponent implements OnInit {
     if (count < currentLength) {
       this.reportData.splice(count);
     }
+
+    this.reportData = [...this.reportData];
   }
 
   handleTableChange(index: number, field: string, value: any) {

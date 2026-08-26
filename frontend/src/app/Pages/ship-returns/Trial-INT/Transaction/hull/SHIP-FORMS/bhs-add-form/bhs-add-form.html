@@ -115,16 +115,17 @@
     <div class="col-span-2 mt-2">
       <!-- ROW COUNT INPUT -->
       <div class="mb-4 flex items-center space-x-4">
-        <label class="text-sm font-medium text-gray-700">
+        <label class="text-sm font-medium text-white">
           Enter Total Number of Rows:
         </label>
         <input
           type="number"
           min="1"
           max="99"
-          class="w-20 px-3 py-2 border rounded-md"
+          class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
           [value]="tableRows"
           (input)="onTableDetailsRowChanges($event)"
+          (change)="onTableDetailsRowChanges($event)"
         />
       </div>
       <div class="overflow-x-auto w-full">
@@ -134,7 +135,7 @@
         >
           <ng-template #inputTpl let-row let-index="index" let-field="field">
             <input
-              class="w-full px-3 py-2 border rounded-md"
+              class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
               [value]="row[field]"
               (input)="
                 handleOpsTableChange(index, field, $any($event.target).value)

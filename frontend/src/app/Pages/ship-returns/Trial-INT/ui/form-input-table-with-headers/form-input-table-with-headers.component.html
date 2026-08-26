@@ -1,5 +1,5 @@
 <div class="w-full relative overflow-x-auto rounded-lg border border-white/15 bg-[#0d2438]">
-  <table class="w-full table-fixed border-collapse text-sm text-white/90">
+  <table class="min-w-max w-full border-collapse text-sm text-white/90">
     <!-- ===================================================== -->
     <!-- HEADER -->
     <!-- ===================================================== -->
@@ -10,10 +10,11 @@
         <tr *ngFor="let headerRow of headerRows; let rowIndex = index">
           <th
             *ngFor="let col of headerRow"
-            class="border border-white/15 bg-white/[0.06] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70"
+            class="border border-white/15 bg-white/[0.06] px-2 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70 whitespace-normal break-words leading-tight"
             [attr.colspan]="col.colspan || null"
             [attr.rowspan]="col.rowspan || null"
             [style.width]="col.width || 'auto'"
+            [style.minWidth]="col.width || 'auto'"
           >
             <span>
               {{ col.header }}
@@ -42,7 +43,7 @@
         <tr>
           <th
             *ngFor="let col of visibleColumns"
-            class="border border-white/15 bg-white/[0.06] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70"
+            class="border border-white/15 bg-white/[0.06] px-2 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70 whitespace-normal break-words leading-tight"
             [style.width]="col.width || 'auto'"
             [style.minWidth]="col.width || 'auto'"
             [style.maxWidth]="col.width || 'auto'"

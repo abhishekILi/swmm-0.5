@@ -391,6 +391,8 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     } else if (count < currentLength) {
       this.anodesData.splice(count);
     }
+    this.anodesData = [...this.anodesData];
+    this.cdr.detectChanges();
   }
 
   // Update potential measurements table rows
@@ -414,6 +416,8 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     } else if (count < currentLength) {
       this.potentialData.splice(count);
     }
+    this.potentialData = [...this.potentialData];
+    this.cdr.detectChanges();
   }
 
   updateAnodeActionColumnVisibility() {

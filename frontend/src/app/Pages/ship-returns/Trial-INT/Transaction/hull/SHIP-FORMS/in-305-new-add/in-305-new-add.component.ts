@@ -246,9 +246,11 @@ export class In305NewAdd implements OnInit {
   ];
 
   onOpsRowCountChange(event: Event) {
-    const value = +(event.target as HTMLInputElement).value;
+    let value = +(event.target as HTMLInputElement).value;
+    if (!value || value < 1) value = 1;
     this.totalRows = value;
     this.updateOpsTableRows(value);
+    this.cdr.detectChanges();
   }
   updateOpsTableRows(count: number) {
     const currentLength = this.tableData.length;
@@ -271,6 +273,7 @@ export class In305NewAdd implements OnInit {
     if (count < currentLength) {
       this.tableData.splice(count);
     }
+    this.tableData = [...this.tableData];
   }
 
   handleOpsTableChange(index: number, field: string, value: string) {

@@ -42,53 +42,40 @@
           ></app-calendar>
         </div>
 
-        <!-- Type of sacrificial anode -->
+        <app-select
+          label="Type of Sacrificial Anode*"
+          formControlName="type_of_sacrificial_anode"
+          [options]="anodeOptions"
+          placeholder="--Select--"
+          class="w-full"
+          [required]="true"
+        >
+        </app-select>
 
-        <div class="flex flex-col gap-1">
-          <label class="form-label" for="type_of_sacrificial_anode"
-            >Type of Sacrificial Anode*</label
-          >
-          <app-select
-            formControlName="type_of_sacrificial_anode"
-            [options]="anodeOptions"
-            placeholder="--Select--"
-            class="w-full"
-          >
-          </app-select>
-        </div>
-
-        <!-- <app-input label="Reference Electrode Used" formControlName="reference_electrode_used">
-          </app-input> -->
-        <div class="flex flex-col gap-1">
-          <label class="form-label" for="reference_electrode_used"
-            >Type Reference Electrode Used*</label
-          >
-          <app-select
-            formControlName="reference_electrode_used"
-            [options]="referenceElectrodeOptions"
-            placeholder="--Select--"
-            class="w-full"
-          >
-          </app-select>
-        </div>
+        <app-select
+          label="Type Reference Electrode Used*"
+          formControlName="reference_electrode_used"
+          [options]="referenceElectrodeOptions"
+          placeholder="--Select--"
+          class="w-full"
+          [required]="true"
+        >
+        </app-select>
 
         <app-calendar
           label="Date of Return"
           formControlName="date_of_return"
         ></app-calendar>
 
-        <div class="flex flex-col gap-1">
-          <label class="form-label" for="quarterly_ending"
-            >Quarterly Ending*</label
-          >
-          <app-select
-            formControlName="quarterly_ending"
-            [options]="quarterlyEndingOptions"
-            placeholder="--Select--"
-            class="w-full"
-          >
-          </app-select>
-        </div>
+        <app-select
+          label="Quarterly Ending*"
+          formControlName="quarterly_ending"
+          [options]="quarterlyEndingOptions"
+          placeholder="--Select--"
+          class="w-full"
+          [required]="true"
+        >
+        </app-select>
 
         <div class="flex flex-col gap-1 col-span-2">
           <app-calendar
@@ -104,16 +91,17 @@
       <div class="my-5">
         <!-- ROW COUNT INPUT -->
         <div class="mb-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-1 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="anodesRows"
             (input)="onAnodesRowChange($event)"
+            (change)="onAnodesRowChange($event)"
           />
         </div>
 
@@ -130,14 +118,10 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="
-                  handleAnodeTableChange(
-                    index,
-                    field,
-                    $any($event.target).value
-                  )
+                  handleAnodeTableChange(index, field, $any($event.target).value)
                 "
               />
             </ng-template>
@@ -152,7 +136,7 @@
                         type: 'delete',
                         row,
                         index,
-                        table: 'firstTable',
+                        table: 'firstTable'
                       })
                     "
                   >
@@ -164,24 +148,25 @@
         </div>
       </div>
 
-      <!-- SECTION 2: PORTABLE REFERENCE ELECTRODE READINGS -->
-      <div class="mb-6">
+      <!-- SECTION 2: HULL POTENTIAL MEASUREMENTS AT SACRIFICIAL ANODES -->
+      <div class="my-5">
         <div class="form-section-header">
-          PORTABLE REFERENCE ELECTRODE READINGS
+          TABLE 2 - HULL POTENTIAL MEASUREMENTS AT SACRIFICIAL ANODES
         </div>
 
         <!-- ROW COUNT INPUT -->
         <div class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-2 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="potentialRows"
             (input)="onPotentialRowChange($event)"
+            (change)="onPotentialRowChange($event)"
           />
         </div>
 
@@ -197,7 +182,7 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="
                   handlePotentialTableChange(

@@ -178,6 +178,9 @@ export class LoadTestCertificateAddComponent implements OnInit {
   onReportRowChanges(event: Event) {
     const input = event.target as HTMLInputElement;
     let value = +input.value;
+    if (!value || value < 1) {
+      value = 1;
+    }
     // Prevent decreasing below existing rows
     if (this.editMode && value < this.initialRowsCountInEditMode) {
       value = this.initialRowsCountInEditMode;
@@ -185,6 +188,7 @@ export class LoadTestCertificateAddComponent implements OnInit {
     }
     this.totalRows = value;
     this.updateReportTableRows(value);
+    this.cdr.detectChanges();
   }
 
   updateReportTableRows(count: number) {
@@ -201,6 +205,8 @@ export class LoadTestCertificateAddComponent implements OnInit {
     if (count < currentLength) {
       this.reportData.splice(count);
     }
+
+    this.reportData = [...this.reportData];
   }
 
   handleTableChange(index: number, field: string, value: string) {

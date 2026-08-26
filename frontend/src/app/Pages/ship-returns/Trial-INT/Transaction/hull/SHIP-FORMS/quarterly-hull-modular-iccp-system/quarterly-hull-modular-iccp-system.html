@@ -12,16 +12,17 @@
       <div class="mb-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-4">
           <!-- Ship Name -->
-          <div class="flex flex-col gap-1">
-            <label class="form-label" for="ship_id">Select Ship*</label>
+         
             <app-select
+            label="Select Ship"
               formControlName="ship_id"
               [options]="shipOptions"
               placeholder="--Select--"
               class="w-full"
+              [required]="true"
             >
             </app-select>
-          </div>
+          
           <!-- Ship Last Undocked -->
 
           <app-year-picker
@@ -54,15 +55,14 @@
             ></app-calendar>
           </div>
 
-          <div class="flex flex-col gap-1 col-span-2">
-            <label class="form-label" for="type_reference_electrode_used"
-              >Type of Reference Electrode Used</label
-            >
+          <div class="col-span-2">
             <app-select
+              label="Type of Reference Electrode Used"
               formControlName="type_reference_electrode_used"
               [options]="referenceElectrodeOptions"
               placeholder="--Select--"
               class="w-full"
+              [required]="true"
             >
             </app-select>
           </div>
@@ -78,15 +78,14 @@
             >
             </app-input>
           </div>
-          <div class="flex flex-col gap-1 col-span-2">
-            <label class="form-label" for="quarter_ending"
-              >Quarter ending</label
-            >
+          <div class="col-span-2">
             <app-select
+              label="Quarter ending"
               formControlName="quarter_ending"
               [options]="quarterEndingOptions"
               placeholder="--Select--"
               class="w-full"
+              [required]="true"
             >
             </app-select>
           </div>
@@ -121,16 +120,17 @@
       <div class="my-5">
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="mb-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-1 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="iccp_system_rows"
             (input)="onIccpSystemRowChange($event)"
+            (change)="onIccpSystemRowChange($event)"
           />
         </div>
 
@@ -147,7 +147,7 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="handleIccpSystemTableChange(index, field, $any($event.target).value)"
               />
@@ -172,16 +172,17 @@
       <div class="mb-5">
         <div class="form-section-header mb-3">SACRIFICIAL ANODE</div>
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-2 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="sacrificialAnodeRows"
             (input)="onSacrificialAnodeRowsChange($event)"
+            (change)="onSacrificialAnodeRowsChange($event)"
           />
         </div>
         <!-- sacrificialAnodeColumns -->
@@ -197,7 +198,7 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="handleSacrificialAnodeTableChange(index, field, $any($event.target).value)"
               />
@@ -246,16 +247,17 @@
 
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-2 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="potentialRows"
             (input)="onPotentialRowChange($event)"
+            (change)="onPotentialRowChange($event)"
           />
         </div>
 
@@ -271,7 +273,7 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="handlePotentialTableChange(index, field, $any($event.target).value)"
               />
@@ -297,16 +299,17 @@
 
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-gray-700">
+          <label class="text-sm font-medium text-white">
             Enter Total Number of Rows:
           </label>
           <input
             type="number"
             min="1"
             max="99"
-            class="w-20 px-3 py-2 border rounded-md"
+            class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
             [value]="forthTableRows"
             (input)="onForthTableRowChange($event)"
+            (change)="onForthTableRowChange($event)"
           />
         </div>
 
@@ -322,7 +325,7 @@
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
               <input
-                class="w-full px-3 py-2 border rounded-md"
+                class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
                 [value]="row[field]"
                 (input)="handleForthTableChange(index, field, $any($event.target).value)"
               />
@@ -364,136 +367,72 @@
 
       <div class="form-section-header">INSPECTION REPORT</div>
       <div class="mb-8 mt-4">
-        <div class="overflow-x-auto border border-gray-300 rounded-md">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <!-- Row 1: Main Headers -->
-              <tr>
-                <th class="th-base text-white w-16">Sr No.</th>
-                <th class="th-base">Header</th>
-                <th class="th-base">Observation</th>
-                <th class="th-base">Remarks</th>
+        <div class="overflow-x-auto border border-white/15 rounded-xl bg-[#0d2438]">
+          <table class="w-full border-collapse text-sm text-white/90">
+            <thead>
+              <tr class="border-b border-white/15 bg-white/[0.06]">
+                <th class="px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15 w-16">Sr No.</th>
+                <th class="px-4 py-2.5 text-left text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15">Header</th>
+                <th class="px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15 w-56">Observation</th>
+                <th class="px-4 py-2.5 text-left text-xs font-bold uppercase tracking-wider text-white/70">Remarks</th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr>
-                <td
-                  class="px-4 py-3 whitespace-nowrap text-sm text-gray-900 border-r border-gray-300 pl-8"
-                >
-                  (A)
+            <tbody class="divide-y divide-white/10">
+              <tr class="even:bg-white/[0.03]">
+                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+                  (a)
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300"
-                >
+                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
                   Cables
                 </td>
-                <td class="table-cell">
-                  <div class="custom-select-wrapper">
-                    <select
-                      formControlName="cables_observation"
-                      class="custom-select"
-                    >
-                      <option value="">--Select--</option>
-                      <option
-                        *ngFor="let option of satUnsatOptions"
-                        [value]="option.value"
-                      >
-                        {{ option.label }}
-                      </option>
-                    </select>
-                    <span class="select-arrow"></span>
-                  </div>
+                <td class="px-2 py-2 border-r border-white/10">
+                  <select formControlName="cables_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
+                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                      {{ option.label }}
+                    </option>
+                  </select>
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300"
-                >
-                  <input
-                    formControlName="cables_remarks"
-                    type="text"
-                    class="custom-input-full-width"
-                    min="0"
-                  />
+                <td class="px-2 py-2">
+                  <input formControlName="cables_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
                 </td>
               </tr>
-              <tr>
-                <td
-                  class="px-4 py-3 whitespace-nowrap text-sm text-gray-900 border-r border-gray-300 pl-8"
-                >
-                  (B)
+              <tr class="even:bg-white/[0.03]">
+                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+                  (b)
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300"
-                >
+                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
                   Conduits
                 </td>
-                <td class="table-cell">
-                  <div class="custom-select-wrapper">
-                    <select
-                      formControlName="conduits_observation"
-                      class="custom-select"
-                    >
-                      <option value="">--Select--</option>
-                      <option
-                        *ngFor="let option of satUnsatOptions"
-                        [value]="option.value"
-                      >
-                        {{ option.label }}
-                      </option>
-                    </select>
-                    <span class="select-arrow"></span>
-                  </div>
+                <td class="px-2 py-2 border-r border-white/10">
+                  <select formControlName="conduits_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
+                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                      {{ option.label }}
+                    </option>
+                  </select>
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300"
-                >
-                  <input
-                    formControlName="conduits_remarks"
-                    type="text"
-                    class="custom-input-full-width"
-                    min="0"
-                  />
+                <td class="px-2 py-2">
+                  <input formControlName="conduits_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
                 </td>
               </tr>
-
-              <tr>
-                <td
-                  class="px-4 py-3 whitespace-nowrap text-sm text-gray-900 border-r border-gray-300 pl-8"
-                >
-                  (C)
+              <tr class="even:bg-white/[0.03]">
+                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+                  (c)
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300 w-64"
-                >
-                  Cofferdams (In case cofferdams are located in the bilges the
-                  same to be offered for inspection to HITU's at every
-                  opportunity of internal underwater inspections)
+                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
+                  Cofferdams (In case cofferdams are located in the bilges the same to be offered for inspection to HITU's at every opportunity of internal underwater inspections)
                 </td>
-                <td class="table-cell">
-                  <div class="custom-select-wrapper">
-                    <select
-                      formControlName="cofferdams_observation"
-                      class="custom-select"
-                    >
-                      <option value="">--Select--</option>
-                      <option
-                        *ngFor="let option of satUnsatOptions"
-                        [value]="option.value"
-                      >
-                        {{ option.label }}
-                      </option>
-                    </select>
-                    <span class="select-arrow"></span>
-                  </div>
+                <td class="px-2 py-2 border-r border-white/10">
+                  <select formControlName="cofferdams_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
+                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                      {{ option.label }}
+                    </option>
+                  </select>
                 </td>
-                <td
-                  class="px-4 py-3 text-sm text-gray-800 border-r border-gray-300"
-                >
-                  <input
-                    formControlName="cofferdams_remarks"
-                    type="text"
-                    class="custom-input-full-width"
-                    min="0"
-                  />
+                <td class="px-2 py-2">
+                  <input formControlName="cofferdams_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
                 </td>
               </tr>
             </tbody>

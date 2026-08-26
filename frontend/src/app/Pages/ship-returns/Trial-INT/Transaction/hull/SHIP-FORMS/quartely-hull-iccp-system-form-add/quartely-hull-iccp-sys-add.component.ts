@@ -662,6 +662,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     } else if (count < currentLength) {
       this.iccp_system_data.splice(count);
     }
+    this.iccp_system_data = [...this.iccp_system_data];
+    this.cdr.detectChanges();
   }
   // TABLE 2 : Update anodes table rows
   updateSacrificialRows(count: number): void {
@@ -681,6 +683,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     } else {
       this.sacrificialAnodeData.splice(count);
     }
+    this.sacrificialAnodeData = [...this.sacrificialAnodeData];
+    this.cdr.detectChanges();
   }
   // TABLE 3 : Update POTENTIAL table rows
   updatePotentialRows(count: number): void {
@@ -705,6 +709,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     } else if (count < currentLength) {
       this.potentialData.splice(count);
     }
+    this.potentialData = [...this.potentialData];
+    this.cdr.detectChanges();
   }
   // TABLE 4 : Update FORTH table rows
   updateForthTableRows(count: number): void {
@@ -729,6 +735,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     } else if (count < currentLength) {
       this.forthTableData.splice(count);
     }
+    this.forthTableData = [...this.forthTableData];
+    this.cdr.detectChanges();
   }
 
   updateIccpSystemActionColumnVisibility() {

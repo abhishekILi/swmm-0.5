@@ -488,11 +488,13 @@ export class BhsAddFormComponent implements OnInit {
   // =========================================================================
 
   onTableDetailsRowChanges(event: Event): void {
-    const value = +(event.target as HTMLInputElement).value;
+    let value = +(event.target as HTMLInputElement).value;
+    if (!value || value < 1) value = 1;
 
     this.tableRows = Math.max(1, Math.min(99, value));
 
     this.updateTableRows(this.tableRows);
+    this.cdr.detectChanges();
   }
 
   updateTableRows(count: number): void {
@@ -511,6 +513,7 @@ export class BhsAddFormComponent implements OnInit {
     } else if (count < currentLength) {
       this.tableDetailsData.splice(count);
     }
+    this.tableDetailsData = [...this.tableDetailsData];
   }
 
   // =========================================================================
