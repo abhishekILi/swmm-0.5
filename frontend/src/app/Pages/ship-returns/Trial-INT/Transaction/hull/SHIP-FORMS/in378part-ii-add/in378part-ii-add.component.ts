@@ -127,24 +127,66 @@ export class In378partIIAddComponent implements OnInit {
     }
   }
 
+  getUser(): any {
+    try {
+      const userStr = localStorage.getItem('user');
+      return userStr ? JSON.parse(userStr) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
+        return true;
+      }
+    }
+    return false;
+  }
+
   shipOptions: any[] = [];
   clusterOptions: any[] = [];
 
   loadShips() {
-    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.shipOptions = dataList.map((item: any) => ({
-        label: item.name,
-        value: item.id,
-      }));
+    const user = this.getUser();
+    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
+      next: (res: any) => {
+        const dataList = res?.results || res?.data || [];
+        this.shipOptions = dataList.map((item: any) => ({
+          label: item.name,
+          value: item.id,
+        }));
 
-      // ✅ AUTO SELECT if only one ship
-      if (this.shipOptions.length === 1) {
-        this.form.patchValue({
-          ship_id: this.shipOptions[0].value,
-        });
+        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
+          this.shipOptions.unshift({ label: user.ship_name || `Ship ${user.ship_id}`, value: user.ship_id });
+        }
+
+        if (this.isShipUser(user) && user?.ship_id) {
+          this.form.patchValue({ ship_id: user.ship_id });
+          this.form.get('ship_id')?.disable();
+        } else if (user?.ship_id && !this.rowId) {
+          this.form.patchValue({ ship_id: user.ship_id });
+        } else if (this.shipOptions.length === 1 && !this.rowId) {
+          this.form.patchValue({
+            ship_id: this.shipOptions[0].value,
+          });
+        }
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error loading ships:', err);
+        if (user?.ship_id) {
+          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
+          this.form.patchValue({ ship_id: user.ship_id });
+          if (this.isShipUser(user)) {
+            this.form.get('ship_id')?.disable();
+          }
+        }
       }
-      this.cdr.detectChanges();
     });
   }
 
@@ -375,7 +417,7 @@ export class In378partIIAddComponent implements OnInit {
     this.saveLoading = draftStatus === 'save';
     this.draftLoading = draftStatus !== 'save';
 
-    const formValues = this.form.value;
+    const formValues = this.form.getRawValue();
 
     const payload: any = {
       draft_status: draftStatus,

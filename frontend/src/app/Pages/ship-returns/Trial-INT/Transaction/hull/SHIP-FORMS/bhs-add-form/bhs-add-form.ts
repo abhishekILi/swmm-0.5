@@ -153,10 +153,8 @@ export class BhsAddFormComponent implements OnInit {
     // Listen for boat registration changes
     this.listenToBoatRegistrationChanges();
 
-    // Load initial ships only for new record
-    if (!this.rowId) {
-      this.loadShips();
-    }
+    // Load initial ships
+    this.loadShips();
 
     // Initialize table
     this.updateTableRows(this.tableRows);
@@ -265,6 +263,18 @@ export class BhsAddFormComponent implements OnInit {
     }
   }
 
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
+        return true;
+      }
+    }
+    return false;
+  }
+
   // =========================================================================
   // LOAD SHIPS
   // =========================================================================
@@ -285,7 +295,10 @@ export class BhsAddFormComponent implements OnInit {
           });
         }
 
-        if (user?.ship_id && !this.rowId) {
+        if (this.isShipUser(user) && user?.ship_id) {
+          this.form.patchValue({ ship_id: user.ship_id });
+          this.form.get('ship_id')?.disable();
+        } else if (user?.ship_id && !this.rowId) {
           this.form.patchValue({ ship_id: user.ship_id });
         } else if (this.shipOptions.length === 1 && !this.rowId) {
           this.form.patchValue({ ship_id: this.shipOptions[0].value });
@@ -298,8 +311,9 @@ export class BhsAddFormComponent implements OnInit {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
           this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
-          if (!this.rowId) {
-            this.form.patchValue({ ship_id: user.ship_id });
+          this.form.patchValue({ ship_id: user.ship_id });
+          if (this.isShipUser(user)) {
+            this.form.get('ship_id')?.disable();
           }
         }
         this.cdr.detectChanges();
@@ -885,7 +899,7 @@ export class BhsAddFormComponent implements OnInit {
     // FORM VALUES
     // ---------------------------------------------------------------
 
-    const formValues = this.form.value;
+    const formValues = this.form.getRawValue();
 
     const payload: any = {
       draft_status: draftStatus,
