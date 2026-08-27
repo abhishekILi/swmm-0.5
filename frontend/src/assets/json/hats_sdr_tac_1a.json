@@ -7,7 +7,9 @@
       "id": "basic_information",
       "title": "Basic Information",
       "sectionType": "fields",
-      "fields": [
+      "sectionTitle": "Basic Information",
+      "sectionGroup": {
+        "fields_1": [
         {
           "type": "input",
           "name": "ship_name",
@@ -35,7 +37,7 @@
           "options": [
             {
               "label": "-- Select --",
-              "value": "-- Select --"
+              "value": ""
             },
             {
               "label": "ND",
@@ -61,14 +63,14 @@
           "name": "hats_sdr_tac_1a_equipment",
           "label": "Equipment",
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
           "options": [],
           "isDynamic": true,
           "lookupKey": "equipment",
           "prefill": true,
-          "prefillSource": "context.hats_sdr_tac_1a_equipment",
+          "prefillSource": "equipment.nomenclature",
           "tree": true
         },
         {
@@ -84,14 +86,14 @@
           "type": "select",
           "name": "hats_sdr_tac_1a_nature_of_trials",
           "label": "Nature of Trial",
-          "required": true,
+          "required": false,
           "disabled": false,
           "placeholder": "",
           "value": "",
           "options": [
             {
               "label": "--Select--",
-              "value": "--Select--"
+              "value": ""
             },
             {
               "label": "SATs",
@@ -113,22 +115,15 @@
           "isDynamic": false
         }
       ],
-      "tables": []
-    },
-    {
-      "id": "section_2",
-      "title": "Section 2",
-      "sectionType": "matrixTable",
-      "fields": [],
-      "tables": [
+      "tables_1": [
         {
           "id": "section_2_matrix_1",
           "sectionType": "matrixTable",
-          "title": "Section 2",
+          "title": "",
           "topHeaders": [
             [
               {
-                "label": "TRIAL SER",
+                "label": "TRIAL SNo.",
                 "colspan": 1,
                 "rowspan": 1,
                 "align": "center"
@@ -137,13 +132,15 @@
                 "label": "CHECK DESCRIPTION AS PER SCHEDULE",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "center"
+                "align": "center",
+                "width":"25%"
               },
               {
-                "label": "RESULTSAT/UNSAT",
+                "label": "RESULT SAT/UNSAT",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "center"
+                "align": "center",
+                "width":"15%"
               },
               {
                 "label": "PRESENTING AUTHORITY REMARKS",
@@ -156,7 +153,7 @@
           "columns": [
             {
               "key": "trial_ser",
-              "label": "TRIAL SER",
+              "label": "TRIAL SNo.",
               "type": "serial",
               "align": "center"
             },
@@ -168,7 +165,7 @@
             },
             {
               "key": "resultsat_unsat",
-              "label": "RESULTSAT/UNSAT",
+              "label": "RESULT SAT/UNSAT",
               "type": "label",
               "align": "left"
             },
@@ -200,8 +197,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_1_cell_3_sdr_tac_1a_10_1_1_ch1_fm_part_1",
-                  "key": "sdr_tac_1a_10_1_1_ch1_fm_part_1",
+                  "_id": "section_2_matrix_1_row_1_cell_3_sdr_tac_1a_10_1_1_ch1_fm",
+                  "key": "sdr_tac_1a_10_1_1_ch1_fm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -222,30 +219,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_1_cell_4_sdr_tac_1a_10_1_1_ch1_fm_part_2",
-                  "key": "sdr_tac_1a_10_1_1_ch1_fm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_1_cell_4_sdr_tac_1a_10_1_1_ch1_fm_remarks",
                   "key": "sdr_tac_1a_10_1_1_ch1_fm_remarks",
                   "type": "textarea",
@@ -282,8 +256,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_2_cell_3_sdr_tac_1a_10_1_1_ch1_am_atc_part_1",
-                  "key": "sdr_tac_1a_10_1_1_ch1_am_atc_part_1",
+                  "_id": "section_2_matrix_1_row_2_cell_3_sdr_tac_1a_10_1_1_ch1_am_atc",
+                  "key": "sdr_tac_1a_10_1_1_ch1_am_atc",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -304,30 +278,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_2_cell_4_sdr_tac_1a_10_1_1_ch1_am_atc_part_2",
-                  "key": "sdr_tac_1a_10_1_1_ch1_am_atc_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_2_cell_4_sdr_tac_1a_10_1_1_ch1_am_atc_remarks",
                   "key": "sdr_tac_1a_10_1_1_ch1_am_atc_remarks",
                   "type": "textarea",
@@ -364,8 +315,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_3_cell_3_sdr_tac_1a_10_1_1_ch2_fm_part_1",
-                  "key": "sdr_tac_1a_10_1_1_ch2_fm_part_1",
+                  "_id": "section_2_matrix_1_row_3_cell_3_sdr_tac_1a_10_1_1_ch2_fm",
+                  "key": "sdr_tac_1a_10_1_1_ch2_fm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -386,30 +337,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_3_cell_4_sdr_tac_1a_10_1_1_ch2_fm_part_2",
-                  "key": "sdr_tac_1a_10_1_1_ch2_fm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_3_cell_4_sdr_tac_1a_10_1_1_ch2_fm_remarks",
                   "key": "sdr_tac_1a_10_1_1_ch2_fm_remarks",
                   "type": "textarea",
@@ -446,8 +374,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_4_cell_3_sdr_tac_1a_10_1_1_ch2_am_atc_part_1",
-                  "key": "sdr_tac_1a_10_1_1_ch2_am_atc_part_1",
+                  "_id": "section_2_matrix_1_row_4_cell_3_sdr_tac_1a_10_1_1_ch2_am_atc",
+                  "key": "sdr_tac_1a_10_1_1_ch2_am_atc",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -468,30 +396,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_4_cell_4_sdr_tac_1a_10_1_1_ch2_am_atc_part_2",
-                  "key": "sdr_tac_1a_10_1_1_ch2_am_atc_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_4_cell_4_sdr_tac_1a_10_1_1_ch2_am_atc_remarks",
                   "key": "sdr_tac_1a_10_1_1_ch2_am_atc_remarks",
                   "type": "textarea",
@@ -528,8 +433,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_5_cell_3_sdr_tac_1a_10_1_2_ch1_tx_part_1",
-                  "key": "sdr_tac_1a_10_1_2_ch1_tx_part_1",
+                  "_id": "section_2_matrix_1_row_5_cell_3_sdr_tac_1a_10_1_2_ch1_tx",
+                  "key": "sdr_tac_1a_10_1_2_ch1_tx",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -550,30 +455,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_5_cell_4_sdr_tac_1a_10_1_2_ch1_tx_part_2",
-                  "key": "sdr_tac_1a_10_1_2_ch1_tx_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_5_cell_4_sdr_tac_1a_10_1_2_ch1_tx_remarks",
                   "key": "sdr_tac_1a_10_1_2_ch1_tx_remarks",
                   "type": "textarea",
@@ -610,8 +492,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_6_cell_3_sdr_tac_1a_10_1_2_ch2_tx_part_1",
-                  "key": "sdr_tac_1a_10_1_2_ch2_tx_part_1",
+                  "_id": "section_2_matrix_1_row_6_cell_3_sdr_tac_1a_10_1_2_ch2_tx",
+                  "key": "sdr_tac_1a_10_1_2_ch2_tx",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -632,30 +514,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_6_cell_4_sdr_tac_1a_10_1_2_ch2_tx_part_2",
-                  "key": "sdr_tac_1a_10_1_2_ch2_tx_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_6_cell_4_sdr_tac_1a_10_1_2_ch2_tx_remarks",
                   "key": "sdr_tac_1a_10_1_2_ch2_tx_remarks",
                   "type": "textarea",
@@ -692,8 +551,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_7_cell_3_sdr_tac_1a_10_1_2_lband_part_1",
-                  "key": "sdr_tac_1a_10_1_2_lband_part_1",
+                  "_id": "section_2_matrix_1_row_7_cell_3_sdr_tac_1a_10_1_2_lband",
+                  "key": "sdr_tac_1a_10_1_2_lband",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -714,30 +573,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_7_cell_4_sdr_tac_1a_10_1_2_lband_part_2",
-                  "key": "sdr_tac_1a_10_1_2_lband_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_7_cell_4_sdr_tac_1a_10_1_2_lband_remarks",
                   "key": "sdr_tac_1a_10_1_2_lband_remarks",
                   "type": "textarea",
@@ -774,8 +610,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_8_cell_3_sdr_tac_1a_11_1_audio_output_part_1",
-                  "key": "sdr_tac_1a_11_1_audio_output_part_1",
+                  "_id": "section_2_matrix_1_row_8_cell_3_sdr_tac_1a_11_1_audio_output",
+                  "key": "sdr_tac_1a_11_1_audio_output",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -796,30 +632,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_8_cell_4_sdr_tac_1a_11_1_audio_output_part_2",
-                  "key": "sdr_tac_1a_11_1_audio_output_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_8_cell_4_sdr_tac_1a_11_1_audio_output_remarks",
                   "key": "sdr_tac_1a_11_1_audio_output_remarks",
                   "type": "textarea",
@@ -856,8 +669,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_9_cell_3_sdr_tac_1a_11_2_frequency_deviation_part_1",
-                  "key": "sdr_tac_1a_11_2_frequency_deviation_part_1",
+                  "_id": "section_2_matrix_1_row_9_cell_3_sdr_tac_1a_11_2_frequency_deviation",
+                  "key": "sdr_tac_1a_11_2_frequency_deviation",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -878,30 +691,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_9_cell_4_sdr_tac_1a_11_2_frequency_deviation_part_2",
-                  "key": "sdr_tac_1a_11_2_frequency_deviation_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_9_cell_4_sdr_tac_1a_11_2_frequency_deviation_remarks",
                   "key": "sdr_tac_1a_11_2_frequency_deviation_remarks",
                   "type": "textarea",
@@ -924,7 +714,7 @@
                 {
                   "_id": "section_2_matrix_1_row_10_cell_1_static",
                   "type": "serial",
-                  "value": "FUNCTIONAL CHECKS B/W Radios",
+                  "value": "<span class='font-bold'>FUNCTIONAL CHECKS B/W Radios</span>",
                   "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
@@ -951,8 +741,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_11_cell_3_sdr_tac_1a_12_1_voice_fm_part_1",
-                  "key": "sdr_tac_1a_12_1_voice_fm_part_1",
+                  "_id": "section_2_matrix_1_row_11_cell_3_sdr_tac_1a_12_1_voice_fm",
+                  "key": "sdr_tac_1a_12_1_voice_fm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -973,30 +763,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_11_cell_4_sdr_tac_1a_12_1_voice_fm_part_2",
-                  "key": "sdr_tac_1a_12_1_voice_fm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_11_cell_4_sdr_tac_1a_12_1_voice_fm_remarks",
                   "key": "sdr_tac_1a_12_1_voice_fm_remarks",
                   "type": "textarea",
@@ -1033,8 +800,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_12_cell_3_sdr_tac_1a_12_2_voice_am_part_1",
-                  "key": "sdr_tac_1a_12_2_voice_am_part_1",
+                  "_id": "section_2_matrix_1_row_12_cell_3_sdr_tac_1a_12_2_voice_am",
+                  "key": "sdr_tac_1a_12_2_voice_am",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1055,30 +822,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_12_cell_4_sdr_tac_1a_12_2_voice_am_part_2",
-                  "key": "sdr_tac_1a_12_2_voice_am_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_12_cell_4_sdr_tac_1a_12_2_voice_am_remarks",
                   "key": "sdr_tac_1a_12_2_voice_am_remarks",
                   "type": "textarea",
@@ -1115,8 +859,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_13_cell_3_sdr_tac_1a_12_3_voice_atc_part_1",
-                  "key": "sdr_tac_1a_12_3_voice_atc_part_1",
+                  "_id": "section_2_matrix_1_row_13_cell_3_sdr_tac_1a_12_3_voice_atc",
+                  "key": "sdr_tac_1a_12_3_voice_atc",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1137,30 +881,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_13_cell_4_sdr_tac_1a_12_3_voice_atc_part_2",
-                  "key": "sdr_tac_1a_12_3_voice_atc_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_13_cell_4_sdr_tac_1a_12_3_voice_atc_remarks",
                   "key": "sdr_tac_1a_12_3_voice_atc_remarks",
                   "type": "textarea",
@@ -1197,8 +918,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_14_cell_3_sdr_tac_1a_12_4_voice_iov_part_1",
-                  "key": "sdr_tac_1a_12_4_voice_iov_part_1",
+                  "_id": "section_2_matrix_1_row_14_cell_3_sdr_tac_1a_12_4_voice_iov",
+                  "key": "sdr_tac_1a_12_4_voice_iov",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1219,30 +940,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_14_cell_4_sdr_tac_1a_12_4_voice_iov_part_2",
-                  "key": "sdr_tac_1a_12_4_voice_iov_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_14_cell_4_sdr_tac_1a_12_4_voice_iov_remarks",
                   "key": "sdr_tac_1a_12_4_voice_iov_remarks",
                   "type": "textarea",
@@ -1279,8 +977,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_15_cell_3_sdr_tac_1a_12_5_link_ii_part_1",
-                  "key": "sdr_tac_1a_12_5_link_ii_part_1",
+                  "_id": "section_2_matrix_1_row_15_cell_3_sdr_tac_1a_12_5_link_ii",
+                  "key": "sdr_tac_1a_12_5_link_ii",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1301,30 +999,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_15_cell_4_sdr_tac_1a_12_5_link_ii_part_2",
-                  "key": "sdr_tac_1a_12_5_link_ii_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_15_cell_4_sdr_tac_1a_12_5_link_ii_remarks",
                   "key": "sdr_tac_1a_12_5_link_ii_remarks",
                   "type": "textarea",
@@ -1361,8 +1036,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_16_cell_3_sdr_tac_1a_12_6_ldr_eccm_part_1",
-                  "key": "sdr_tac_1a_12_6_ldr_eccm_part_1",
+                  "_id": "section_2_matrix_1_row_16_cell_3_sdr_tac_1a_12_6_ldr_eccm",
+                  "key": "sdr_tac_1a_12_6_ldr_eccm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1383,30 +1058,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_16_cell_4_sdr_tac_1a_12_6_ldr_eccm_part_2",
-                  "key": "sdr_tac_1a_12_6_ldr_eccm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_16_cell_4_sdr_tac_1a_12_6_ldr_eccm_remarks",
                   "key": "sdr_tac_1a_12_6_ldr_eccm_remarks",
                   "type": "textarea",
@@ -1443,8 +1095,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_17_cell_3_sdr_tac_1a_12_7_hdr_uhf_eccm_part_1",
-                  "key": "sdr_tac_1a_12_7_hdr_uhf_eccm_part_1",
+                  "_id": "section_2_matrix_1_row_17_cell_3_sdr_tac_1a_12_7_hdr_uhf_eccm",
+                  "key": "sdr_tac_1a_12_7_hdr_uhf_eccm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1465,30 +1117,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_17_cell_4_sdr_tac_1a_12_7_hdr_uhf_eccm_part_2",
-                  "key": "sdr_tac_1a_12_7_hdr_uhf_eccm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_17_cell_4_sdr_tac_1a_12_7_hdr_uhf_eccm_remarks",
                   "key": "sdr_tac_1a_12_7_hdr_uhf_eccm_remarks",
                   "type": "textarea",
@@ -1525,8 +1154,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_18_cell_3_sdr_tac_1a_12_8_hdr_uhf_manet_part_1",
-                  "key": "sdr_tac_1a_12_8_hdr_uhf_manet_part_1",
+                  "_id": "section_2_matrix_1_row_18_cell_3_sdr_tac_1a_12_8_hdr_uhf_manet",
+                  "key": "sdr_tac_1a_12_8_hdr_uhf_manet",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1547,30 +1176,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_18_cell_4_sdr_tac_1a_12_8_hdr_uhf_manet_part_2",
-                  "key": "sdr_tac_1a_12_8_hdr_uhf_manet_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_18_cell_4_sdr_tac_1a_12_8_hdr_uhf_manet_remarks",
                   "key": "sdr_tac_1a_12_8_hdr_uhf_manet_remarks",
                   "type": "textarea",
@@ -1607,8 +1213,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_19_cell_3_sdr_tac_1a_12_9_hdr_l_band_eccm_part_1",
-                  "key": "sdr_tac_1a_12_9_hdr_l_band_eccm_part_1",
+                  "_id": "section_2_matrix_1_row_19_cell_3_sdr_tac_1a_12_9_hdr_l_band_eccm",
+                  "key": "sdr_tac_1a_12_9_hdr_l_band_eccm",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1629,30 +1235,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_19_cell_4_sdr_tac_1a_12_9_hdr_l_band_eccm_part_2",
-                  "key": "sdr_tac_1a_12_9_hdr_l_band_eccm_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_19_cell_4_sdr_tac_1a_12_9_hdr_l_band_eccm_remarks",
                   "key": "sdr_tac_1a_12_9_hdr_l_band_eccm_remarks",
                   "type": "textarea",
@@ -1689,8 +1272,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_20_cell_3_sdr_tac_1a_12_10_hdr_l_band_6_mbps_part_1",
-                  "key": "sdr_tac_1a_12_10_hdr_l_band_6_mbps_part_1",
+                  "_id": "section_2_matrix_1_row_20_cell_3_sdr_tac_1a_12_10_hdr_l_band_6_mbps",
+                  "key": "sdr_tac_1a_12_10_hdr_l_band_6_mbps",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1711,30 +1294,7 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_20_cell_4_sdr_tac_1a_12_10_hdr_l_band_6_mbps_part_2",
-                  "key": "sdr_tac_1a_12_10_hdr_l_band_6_mbps_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
+                                {
                   "_id": "section_2_matrix_1_row_20_cell_4_sdr_tac_1a_12_10_hdr_l_band_6_mbps_remarks",
                   "key": "sdr_tac_1a_12_10_hdr_l_band_6_mbps_remarks",
                   "type": "textarea",
@@ -1771,8 +1331,8 @@
                   "align": "left"
                 },
                 {
-                  "_id": "section_2_matrix_1_row_21_cell_3_sdr_tac_1b_13_ccs_interface_part_1",
-                  "key": "sdr_tac_1b_13_ccs_interface_part_1",
+                  "_id": "section_2_matrix_1_row_21_cell_3_sdr_tac_1a_13_ccs_interface",
+                  "key": "sdr_tac_1a_13_ccs_interface",
                   "type": "radio",
                   "label": "SAT",
                   "value": "",
@@ -1793,32 +1353,9 @@
                   "rowspan": 1,
                   "align": "left"
                 },
-                {
-                  "_id": "section_2_matrix_1_row_21_cell_4_sdr_tac_1b_13_ccs_interface_part_2",
-                  "key": "sdr_tac_1b_13_ccs_interface_part_2",
-                  "type": "radio",
-                  "label": "SAT",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "options": [
-                    {
-                      "label": "SAT",
-                      "value": "SAT"
-                    },
-                    {
-                      "label": "UNSAT",
-                      "value": "UNSAT"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "_id": "section_2_matrix_1_row_21_cell_4_sdr_tac_1b_13_ccs_interface_remarks",
-                  "key": "sdr_tac_1b_13_ccs_interface_remarks",
+                                {
+                  "_id": "section_2_matrix_1_row_21_cell_4_sdr_tac_1a_13_ccs_interface_remarks",
+                  "key": "sdr_tac_1a_13_ccs_interface_remarks",
                   "type": "textarea",
                   "label": "sdr tac 1b 13 ccs interface remarks",
                   "value": "",
@@ -1837,13 +1374,8 @@
           "showRowActions": false,
           "minRows": 1
         }
-      ]
-    },
-    {
-      "id": "presenting_authority",
-      "title": "Presenting Authority",
-      "sectionType": "hybrid",
-      "fields": [
+      ],
+      "fields_2": [
         {
           "type": "select",
           "name": "hats_sdr_tac_1a_presenting_authority",
@@ -1855,7 +1387,7 @@
           "options": [
             {
               "label": "--Select--",
-              "value": "--Select--"
+              "value": ""
             },
             {
               "label": "Dockyard",
@@ -1903,11 +1435,11 @@
           "inputType": "text"
         }
       ],
-      "tables": [
+      "tables_3": [
         {
           "id": "presenting_authority_matrix_1",
           "sectionType": "matrixTable",
-          "title": "Presenting Authority",
+          "title": "",
           "topHeaders": [
             [
               {
@@ -2088,7 +1620,7 @@
                 {
                   "_id": "presenting_authority_matrix_1_row_2_cell_1_static",
                   "type": "serial",
-                  "value": "OIC",
+                  "value": "<span class='font-bold'>OIC</span>",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2096,7 +1628,7 @@
                 {
                   "_id": "presenting_authority_matrix_1_row_2_cell_2_static",
                   "type": "label",
-                  "value": "CDR TRIALS",
+                  "value": "<span class='font-bold'>CDR TRIALS</span>",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left"
@@ -2104,7 +1636,7 @@
                 {
                   "_id": "presenting_authority_matrix_1_row_2_cell_3_static",
                   "type": "label",
-                  "value": "STO (G)",
+                  "value": "<span class='font-bold'>STO (G)</span>",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left"
@@ -2112,7 +1644,7 @@
                 {
                   "_id": "presenting_authority_matrix_1_row_2_cell_4_static",
                   "type": "label",
-                  "value": "STO (L)",
+                  "value": "<span class='font-bold'>STO (L)</span>",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left"
@@ -2120,7 +1652,7 @@
                 {
                   "_id": "presenting_authority_matrix_1_row_2_cell_5_static",
                   "type": "label",
-                  "value": "TO (L)",
+                  "value": "<span class='font-bold'>TO (L)</span>",
                   "colspan": 2,
                   "rowspan": 1,
                   "align": "left"
@@ -2132,6 +1664,8 @@
           "minRows": 1
         }
       ]
+      }
+      
     }
   ]
 }

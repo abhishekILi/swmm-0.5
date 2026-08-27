@@ -21,9 +21,9 @@
               "cells": [
                 {
                   "_id": "section_1_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
-                  "colspan": 1,
+                  "colspan": 2,
                   "rowspan": 1,
                   "align": "left"
                 },
@@ -41,11 +41,11 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 },
@@ -714,28 +714,28 @@
           "topHeaders": [
             [
               {
-                "label": "SNO",
+                "label": "SNo.",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "DESCRIPTION OF TASK",
                 "colspan": 3,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "STATUS",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "REMARKS",
                 "colspan": 4,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ],
             [
@@ -764,10 +764,10 @@
                   "_id": "section_1_table_2_row_1_cell_2_static",
                   "key": "running_log_book",
                   "type": "label",
-                  "value": "Running Log Book",
+                  "value": "<b>Running Log Book</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -1237,10 +1237,10 @@
                   "_id": "section_1_table_2_row_10_cell_2_static",
                   "key": "service_log",
                   "type": "label",
-                  "value": "Service Log",
+                  "value": "<b>Service Log</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -1527,10 +1527,10 @@
                   "_id": "section_1_table_2_row_15_cell_2_static",
                   "key": "emap",
                   "type": "label",
-                  "value": "EMAP",
+                  "value": "<b>EMAP</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -1813,28 +1813,28 @@
           "topHeaders": [
             [
               {
-                "label": "SNO",
+                "label": "SNo.",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "DESCRIPTION OF TASK",
                 "colspan": 3,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "STATUS",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "REMARKS",
                 "colspan": 4,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ]
           ],
@@ -1855,10 +1855,10 @@
                   "_id": "section_2_table_3_row_1_cell_2_static",
                   "key": "air_intake_exhaust_system",
                   "type": "label",
-                  "value": "Air Intake/Exhaust System",
+                  "value": "<b>Air Intake/Exhaust System</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -2413,10 +2413,10 @@
                   "_id": "section_2_table_3_row_10_cell_2_static",
                   "key": "fuel_system",
                   "type": "label",
-                  "value": "Fuel System",
+                  "value": "<b>Fuel System</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -2770,10 +2770,10 @@
                   "_id": "section_2_table_3_row_16_cell_2_static",
                   "key": "lub_oil_system",
                   "type": "label",
-                  "value": "Lub Oil System",
+                  "value": "<b>Lub Oil System</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -3194,10 +3194,10 @@
                   "_id": "section_2_table_3_row_23_cell_2_static",
                   "key": "general_condition_hygiene",
                   "type": "label",
-                  "value": "General Condition / Hygiene",
+                  "value": "<b>General Condition / Hygiene</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -3744,7 +3744,7 @@
                   "_id": "section_2_table_3_row_32_cell_1_static",
                   "key": "s7j_desc",
                   "type": "label",
-                  "value": "(j) Check all steam valves for GTG holding properly",
+                  "value": "(i) Check all steam valves for GTG holding properly",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -3811,7 +3811,7 @@
                   "_id": "section_2_table_3_row_33_cell_1_static",
                   "key": "s7k_desc",
                   "type": "label",
-                  "value": "(k) Check for lub oil leakages from bearing housings/ labyrinth covers of TC – RG coupling and RG – Generator coupling",
+                  "value": "(j) Check for lub oil leakages from bearing housings/ labyrinth covers of TC – RG coupling and RG – Generator coupling",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -3878,7 +3878,7 @@
                   "_id": "section_2_table_3_row_34_cell_1_static",
                   "key": "s7l_desc",
                   "type": "label",
-                  "value": "(l) Check floating washer clearance",
+                  "value": "(k) Check floating washer clearance",
                   "colspan": 3,
                   "rowspan": 2,
                   "align": "left"
@@ -4029,10 +4029,10 @@
                   "_id": "section_2_table_3_row_36_cell_2_static",
                   "key": "condition_controls_instrumentation",
                   "type": "label",
-                  "value": "Condition of Controls/Instrumentation",
+                  "value": "<b>Condition of Controls/Instrumentation</b>",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -4608,19 +4608,19 @@
                   "label": "COLD START",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "LIMITING VALUES",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "OBSERVED VALUES",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -4631,7 +4631,7 @@
                 "cells": [
                   {
                     "_id": "section_2_table_2_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "TIME",
                     "colspan": 2,
                     "rowspan": 1,
@@ -4986,19 +4986,19 @@
                   "label": "HOT START",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "LIMITING VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "OBSERVED VALUES",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -5009,7 +5009,7 @@
                 "cells": [
                   {
                     "_id": "section_2_table_3_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "TIME",
                     "colspan": 2,
                     "rowspan": 1,
@@ -5550,20 +5550,20 @@
           {
             "id": "section_2_table_4",
             "sectionType": "matrixTable",
-            "title": "TYPE OF START BATTERY RECTIFIER",
+            "title": "",
             "topHeaders": [
               [
                 {
                   "label": "A/C L/O PUMP PRESSURE",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "D/C L/O PUMP PRESSURE",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "right"
+                  "align": "center"
                 }
               ]
             ],
@@ -5717,19 +5717,19 @@
                   "label": "PARAMETERS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "LIMITING VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "OBSERVED VALUES AT 450 KW LOAD",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -5740,7 +5740,7 @@
                 "cells": [
                   {
                     "_id": "section_2_table_5_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "DATE",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7104,7 +7104,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -7113,8 +7113,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.nomenclature",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -7132,34 +7132,34 @@
             "topHeaders": [
               [
                 {
-                  "label": "S NO.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "LOCATION",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "LIMITS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "GTG PA CHECKS",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -7170,9 +7170,9 @@
                 "cells": [
                   {
                     "_id": "section_2_table_7_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "DATE",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -7250,6 +7250,15 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
+                  },
+                  {
+                    "_id": "section_2_table_7_row_1_cell_2_static1",
+                    "key": "cell_2",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -7259,7 +7268,7 @@
                   {
                     "_id": "section_2_table_7_row_2_cell_1_static",
                     "key": "1",
-                    "type": "label",
+                    "type": "serial",
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7379,7 +7388,7 @@
                   {
                     "_id": "section_2_table_7_row_3_cell_1_static",
                     "key": "2",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7398,7 +7407,7 @@
                     "_id": "section_2_table_7_row_3_cell_3_static",
                     "key": "2_5_allowable_2_6_3_2_alert_3_3_4_0_alarm_4_1_abort",
                     "type": "label",
-                    "value": "< 2.5 – Allowable 2.6-3.2 – Alert 3.3 –4.0 – Alarm > 4.1 - Abort",
+                    "value": "<p class='text-xs'>&lt; 2.5 – Allowable<br>2.6–3.2 – Alert<br>3.3–4.0 – Alarm<br>&gt; 4.1 – Abort</p>",
                     "colspan": 1,
                     "rowspan": 2,
                     "align": "left"
@@ -7499,7 +7508,7 @@
                   {
                     "_id": "section_2_table_7_row_4_cell_1_static",
                     "key": "3",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7610,7 +7619,7 @@
                   {
                     "_id": "section_2_table_7_row_5_cell_1_static",
                     "key": "4",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7629,7 +7638,7 @@
                     "_id": "section_2_table_7_row_5_cell_3_static",
                     "key": "3_0_allowable_3_1_4_0_alert_4_1_5_5_alarm_5_6_abort",
                     "type": "label",
-                    "value": "< 3.0 – Allowable 3.1 – 4.0 – Alert 4.1 –5.5 – Alarm > 5.6 - Abort",
+                    "value": "<p class='text-xs'>&lt; 3.0 – Allowable<br>3.1–4.0 – Alert<br>4.1–5.5 – Alarm<br>&gt; 5.6 – Abort</p>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -7730,7 +7739,7 @@
                   {
                     "_id": "section_2_table_7_row_6_cell_1_static",
                     "key": "5",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7749,7 +7758,7 @@
                     "_id": "section_2_table_7_row_6_cell_3_static",
                     "key": "4_0_allowable_4_1_5_5_alert_5_6_7_0_alarm_7_1_abort",
                     "type": "label",
-                    "value": "< 4.0 – Allowable 4.1 – 5.5 – Alert 5.6 –7.0 – Alarm > 7.1 - Abort",
+                    "value": "<p class='text-xs'>&lt; 4.0 – Allowable<br>4.1–5.5 – Alert<br>5.6–7.0 – Alarm<br>&gt; 7.1 – Abort</p>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -7850,7 +7859,7 @@
                   {
                     "_id": "section_2_table_7_row_7_cell_1_static",
                     "key": "6",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 3,
@@ -7869,7 +7878,7 @@
                     "_id": "section_2_table_7_row_7_cell_3_static",
                     "key": "4_3_allowable_4_3_7_0_alert_7_1_10_5_alarm_10_6_abort",
                     "type": "label",
-                    "value": "< 4.3 – Allowable 4.3 – 7.0 – Alert 7.1–10.5– Alarm > 10.6 - Abort",
+                    "value": "<p class='text-xs'>&le; 4.3 – Allowable<br>4.3–7.0 – Alert<br>7.1–10.5 – Alarm<br>&ge; 10.6 – Abort</p>",
                     "colspan": 1,
                     "rowspan": 3,
                     "align": "left"
@@ -8222,7 +8231,7 @@
           {
             "id": "section_2_table_9",
             "sectionType": "matrixTable",
-            "title": "1. Governor",
+            "title": "SETTING OF GOVERNORS, LOAD CONTROLLER AND STARTING THROTTLE",
             "topHeaders": [],
             "columns": [],
             "rows": [
@@ -8231,7 +8240,7 @@
                 "cells": [
                   {
                     "_id": "section_2_table_9_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Drum",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8467,115 +8476,115 @@
                 "key": "mount_no",
                 "label": "Mount No.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "1",
                 "label": "1",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "2",
                 "label": "2",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "3",
                 "label": "3",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "4",
                 "label": "4",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "5",
                 "label": "5",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "6",
                 "label": "6",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "7",
                 "label": "7",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "8",
                 "label": "8",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "9",
                 "label": "9",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "10",
                 "label": "10",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "11",
                 "label": "11",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "12",
                 "label": "12",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "13",
                 "label": "13",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "14",
                 "label": "14",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "15",
                 "label": "15",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "16",
                 "label": "16",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "17",
                 "label": "17",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "18",
                 "label": "18",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -9823,91 +9832,91 @@
                 "key": "mount_no",
                 "label": "Mount No.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "1",
                 "label": "1",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "2",
                 "label": "2",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "3",
                 "label": "3",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "4",
                 "label": "4",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "5",
                 "label": "5",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "6",
                 "label": "6",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "7",
                 "label": "7",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "8",
                 "label": "8",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "9",
                 "label": "9",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "10",
                 "label": "10",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "11",
                 "label": "11",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "12",
                 "label": "12",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "13",
                 "label": "13",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "14",
                 "label": "14",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -10330,25 +10339,25 @@
                   "label": "PHASE ANALYSIS POINTS",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "DEFECT PHASE RANGE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "DELTA PHASE VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],

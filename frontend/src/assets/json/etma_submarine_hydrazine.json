@@ -18,33 +18,34 @@
             "value": "Basic Information",
             "colSpan" : 12
           },
+          
+          {
+            "_id": "submarine_id",
+            "key": "submarine_id",
+            "name": "submarine_id",
+            "label": "Submarine",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
           {
             "_id": "date_of_trials",
             "key": "date_of_trials",
             "name": "date_of_trials",
-            "label": "DATE OF TRIALS *",
+            "label": "DATE OF TRIALS ",
             "type": "date",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "submarine_id",
-            "key": "submarine_id",
-            "name": "submarine_id",
-            "label": "Submarine",
-            "type": "select",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "options": [],
-            "isDynamic": true,
-            "lookupKey": "submarine_id",
-            "prefill": true,
-            "prefillSource": "context.submarine_id"
           }
         ],
         "tables_1": [
@@ -55,10 +56,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "6%"
                 },
                 {
                   "label": "TEST/NOMINAL VALUE",

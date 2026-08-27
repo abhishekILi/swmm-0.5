@@ -13,7 +13,7 @@
             "id": "section_1_table_1_preTrialInformationProforma",
             "sectionType": "simpleTable",
             "topHeaders": [],
-
+            
             "rows": [
               {
                 "_id": "section_1_table_1_row_1",
@@ -89,7 +89,7 @@
           {
             "id": "section_1_table_2",
             "sectionType": "matrixTable",
-
+             
             "topHeaders": [
               [
                 {
@@ -217,7 +217,7 @@
           {
             "id": "section_1_table_3",
             "sectionType": "matrixTable",
-
+             
             "topHeaders": [
               [
                 {
@@ -381,7 +381,7 @@
           {
             "id": "section_1_table_4",
             "sectionType": "matrixTable",
-
+             
             "topHeaders": [],
             "columns":[
             {
@@ -997,11 +997,11 @@
           {
             "id": "section_1_safety_device_trial_details_table",
             "sectionType": "matrixTable",
-
+             
             "topHeaders": [],
             "columns": [],
             "rows": [
-
+              
               {
                 "_id": "section_1_table_1_row_2",
                 "cells": [
@@ -1052,7 +1052,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -1061,8 +1061,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.nomenclature",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -1088,7 +1088,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -1097,8 +1097,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.manufacturer_name",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -1119,7 +1119,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-
+                    
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -1128,11 +1128,12 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.model",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "disabled": true
                   }
                 ]
               },
@@ -1177,10 +1178,10 @@
             "minRows": 1
           },
           {
-
+            
             "id": "section_1_safety_device_checks_table",
             "sectionType": "matrixTable",
-
+             
             "topHeaders": [],
             "columns": [
               {

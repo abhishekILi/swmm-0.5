@@ -22,7 +22,7 @@
             "key": "ship",
             "name": "ship",
             "label": "ship",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "kolmorgan_date",
@@ -93,7 +95,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -126,7 +128,7 @@
                   {
                     "_id": "section_2_matrix_1_row_1_cell_1_kolmorgan_embark_time",
                     "key": "kolmorgan_embark_time",
-                    "lb" : "Trials team embarked onboard at on dd-mm-yyyy for OP-Checks of KOLMORGAN (FWD PERISCOPE) as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "lb" : "Trials team embarked onboard at",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -149,6 +151,7 @@
                   {
                     "_id": "section_2_matrix_1_row_1_cell_2_kolmorgan_embark_date",
                     "key": "kolmorgan_embark_date",
+                    "lb":"on dd-mm-yyyy for OP-Checks of KOLMORGAN (FWD PERISCOPE) as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "type": "date",
                     "value": "",
                     "rows": null,
@@ -170,13 +173,26 @@
                   }
                 ]
               },
+              {
+                "_id": "section_2_matrix_1_row_31",
+                "cells": [
+                  {
+                    "_id": "section_2_matrix_1_row_31_cell_1_static",
+                    "type": "label",
+                    "value": "CHECKS",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+                },
 
               {
                 "_id": "section_2_matrix_1_row_3",
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "8.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -188,7 +204,7 @@
                     "value": "Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_kolmorgan_status_8_2",
@@ -262,7 +278,7 @@
                     "value": "Local illumination Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_kolmorgan_status_8_2_1",
@@ -336,7 +352,7 @@
                     "value": "Fully Raised Indication Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_kolmorgan_status_8_2_2",
@@ -410,7 +426,7 @@
                     "value": "Setting display & control (D&C) Initial conditions",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_kolmorgan_status_8_2_2_1",
@@ -484,7 +500,7 @@
                     "value": "Initial pressure check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_kolmorgan_status_8_2_3",
@@ -558,7 +574,7 @@
                     "value": "Junction box Power supply check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_kolmorgan_status_8_2_4",
@@ -632,7 +648,7 @@
                     "value": "Magnification check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_kolmorgan_status_8_2_5",
@@ -706,7 +722,7 @@
                     "value": "Elevation check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_kolmorgan_status_8_2_6",
@@ -780,7 +796,7 @@
                     "value": "Rotation check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_kolmorgan_status_8_2_7",
@@ -854,7 +870,7 @@
                     "value": "Focus check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_kolmorgan_status_8_2_8",
@@ -928,7 +944,7 @@
                     "value": "Bearing and ships heading check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_kolmorgan_status_8_2_9",
@@ -1002,7 +1018,7 @@
                     "value": "Stadimeter ranging check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_kolmorgan_status_8_2_10",
@@ -1076,7 +1092,7 @@
                     "value": "Television control check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_kolmorgan_status_8_2_11",
@@ -1150,7 +1166,7 @@
                     "value": "Photo take check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_kolmorgan_status_8_2_12",
@@ -1224,7 +1240,7 @@
                     "value": "IR Sensor control check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_kolmorgan_status_8_2_13",
@@ -1298,7 +1314,7 @@
                     "value": "Microphone Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_kolmorgan_status_8_2_14",
@@ -1372,7 +1388,7 @@
                     "value": "Heater function checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_kolmorgan_status_8_2_15",
@@ -1446,7 +1462,7 @@
                     "value": "Heated head window heat",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_kolmorgan_status_8_2_15_1",
@@ -1520,7 +1536,7 @@
                     "value": "Eyepiece heat",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_3_kolmorgan_status_8_2_15_2",
@@ -1594,7 +1610,7 @@
                     "value": "Visual filter checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_3_kolmorgan_status_8_2_16",
@@ -1668,7 +1684,7 @@
                     "value": "Rotation drift check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_3_kolmorgan_status_8_2_17",
@@ -1742,7 +1758,7 @@
                     "value": "CAGE Mode check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_3_kolmorgan_status_8_2_18",
@@ -1816,7 +1832,7 @@
                     "value": "Azimuth rotation check \u2013 Gyro Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_3_kolmorgan_status_8_2_19",
@@ -1890,7 +1906,7 @@
                     "value": "Elevation Check \u2013 Gyro Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_3_kolmorgan_status_8_2_20",
@@ -1964,7 +1980,7 @@
                     "value": "Video Recording and Playback check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_3_kolmorgan_status_8_2_21",
@@ -2038,7 +2054,7 @@
                     "value": "Video exporting check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_3_kolmorgan_status_8_2_22",
@@ -2112,7 +2128,7 @@
                     "value": "ESM, Communications & GPS check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_3_kolmorgan_status_8_2_23",
@@ -2186,7 +2202,7 @@
                     "value": "ESM note",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_3_kolmorgan_status_8_2_23_1",
@@ -2260,7 +2276,7 @@
                     "value": "U/VHF Reception",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_3_kolmorgan_status_8_2_23_2",
@@ -2335,6 +2351,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -2347,6 +2364,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

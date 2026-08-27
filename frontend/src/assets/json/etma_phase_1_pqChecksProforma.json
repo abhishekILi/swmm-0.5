@@ -15,15 +15,15 @@
             "label": "Ship",
             "colSpan": 3,
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "value": "",
             "inputType": "text",
             "options": null,
-            "isDynamic": false,
-            "lookupKey": null,
+            "isDynamic": true,
+            "lookupKey": "ship_name",
             "prefill": true,
-            "prefillSource": "context.shipID",
+            "prefillSource": "context.ship_name",
             "lockAfterPrefill": false,
             "hiddenKey": null,
             "displayKey": null
@@ -91,7 +91,7 @@
             "label": "As Load",
             "colSpan": 2,
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "value": "",
             "inputType": "text",
@@ -113,7 +113,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -194,9 +194,10 @@
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_2_static",
@@ -241,7 +242,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -362,9 +363,10 @@
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_2_static",
@@ -496,9 +498,10 @@
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_2_static",
@@ -630,9 +633,10 @@
                     "key": "d",
                     "type": "label",
                     "value": "(d)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_2_static",
@@ -764,9 +768,10 @@
                     "key": "e",
                     "type": "label",
                     "value": "(e)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_2_static",
@@ -898,9 +903,10 @@
                     "key": "f",
                     "type": "label",
                     "value": "(f)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_2_static",
@@ -1032,9 +1038,10 @@
                     "key": "g",
                     "type": "label",
                     "value": "(g)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_2_static",
@@ -1180,9 +1187,10 @@
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_2_static",
@@ -1314,9 +1322,10 @@
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_9_cell_2_static",
@@ -1448,9 +1457,10 @@
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_10_cell_2_static",
@@ -1596,9 +1606,10 @@
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_11_cell_2_static",
@@ -1612,7 +1623,7 @@
                   {
                     "_id": "section_1_table_1_row_11_cell_3_acceptableNominalFrq",
                     "key": "acceptableNominalFrq",
-                    "type": "select",
+                    "type": "radio",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -1620,10 +1631,6 @@
                     "placeholder": "Select Friquency",
                     "inputType": null,
                     "options": [
-                      {
-                        "label": "Select Friquency",
-                        "value": "Select Friquency"
-                      },
                       {
                         "label": "50Hz",
                         "value": "50Hz"
@@ -1756,9 +1763,10 @@
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_12_cell_2_static",
@@ -1890,9 +1898,10 @@
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_13_cell_2_static",
@@ -2024,9 +2033,10 @@
                     "key": "d",
                     "type": "label",
                     "value": "(d)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_14_cell_2_static",
@@ -2158,9 +2168,10 @@
                     "key": "e",
                     "type": "label",
                     "value": "(e)",
+                    "width": "20px",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_1_row_15_cell_2_static",

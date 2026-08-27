@@ -11,7 +11,6 @@
       "tables": [],
       "sectionTitle": "Basic Information",
       "sectionGroup": {
-
         "fields_2": [
           {
             "type": "label",
@@ -19,32 +18,32 @@
             "colSpan": 12
           },
           {
+            "_id": "submarine_id",
+            "key": "submarine_id",
+            "name": "submarine_id",
+            "label": "Submarine",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
             "_id": "date_of_trials",
             "key": "date_of_trials",
             "name": "date_of_trials",
-            "label": "DATE OF TRIALS *",
+            "label": "DATE OF TRIALS ",
             "type": "date",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "submarine_id",
-            "key": "submarine_id",
-            "name": "submarine_id",
-            "label": "Submarine",
-            "type": "select",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "options": [],
-            "isDynamic": true,
-            "lookupKey": "submarine_id",
-            "prefill": true,
-            "prefillSource": "context.submarine_id"
           }
         ],
         "tables_1": [
@@ -55,10 +54,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 3,
-                  "align": "center"
+                  "align": "center",
+                  "width": "7%"
                 },
                 {
                   "label": "TEST/ NOMINAL VALUE",
@@ -67,7 +67,7 @@
                   "align": "center"
                 },
                 {
-                  "label": "ACTUAL VALUE",
+                  "label": "ACTUAL VALUE GENERATORS",
                   "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
@@ -76,14 +76,6 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 3,
-                  "align": "center"
-                }
-              ],
-              [
-                {
-                  "label": "GENERATORS",
-                  "colspan": 4,
-                  "rowspan": 1,
                   "align": "center"
                 }
               ],
@@ -133,7 +125,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_1_cell_3_actual_114_100_g1",
@@ -228,7 +220,7 @@
                     "key": "remarks_114_100",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -264,7 +256,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_actual_114_101_g1",
@@ -359,7 +351,7 @@
                     "key": "remarks_114_101",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -395,7 +387,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_actual_114_102_g1",
@@ -490,7 +482,7 @@
                     "key": "remarks_114_102",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -526,7 +518,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_actual_114_103_g1",
@@ -621,7 +613,7 @@
                     "key": "remarks_114_103",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -657,7 +649,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_actual_114_104_g1",
@@ -752,7 +744,7 @@
                     "key": "remarks_114_104",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -788,7 +780,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_actual_114_105_g1",
@@ -883,7 +875,7 @@
                     "key": "remarks_114_105",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -919,7 +911,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_actual_114_106_g1",
@@ -1014,7 +1006,7 @@
                     "key": "remarks_114_106",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1050,7 +1042,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_actual_114_107_g1",
@@ -1145,7 +1137,7 @@
                     "key": "remarks_114_107",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1181,7 +1173,7 @@
                     "value": "Visual inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_actual_114_108_g1",
@@ -1276,7 +1268,7 @@
                     "key": "remarks_114_108",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1312,7 +1304,7 @@
                     "value": "Insulation Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_static",
@@ -1361,11 +1353,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(a) Insulation resistance of Stator winding >= 2.00 M Ohms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_actual_114_109_a_g1",
@@ -1460,7 +1452,7 @@
                     "key": "remarks_114_109_a",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1484,11 +1476,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(b) Insulation resistance of Excitation field >= 2.00 M Ohms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_actual_114_109_b_g1",
@@ -1583,7 +1575,7 @@
                     "key": "remarks_114_109_b",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1607,11 +1599,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(c) Insulation resistance of Stand Still Heating >= 1.00 M Ohms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_actual_114_109_c_g1",
@@ -1706,7 +1698,7 @@
                     "key": "remarks_114_109_c",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1742,7 +1734,7 @@
                     "value": "VOLTAGE measured at :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_static",
@@ -1791,11 +1783,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_2_actual_114_110_a_dm_panel_g1",
@@ -1890,7 +1882,7 @@
                     "key": "remarks_114_110_a_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1914,11 +1906,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_2_actual_114_110_a_data_logging_g1",
@@ -2013,7 +2005,7 @@
                     "key": "remarks_114_110_a_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2037,11 +2029,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_2_actual_114_110_a_test_points_g1",
@@ -2136,7 +2128,7 @@
                     "key": "remarks_114_110_a_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2160,11 +2152,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_static",
@@ -2213,11 +2205,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_actual_114_110_a_current_dm_panel_g1",
@@ -2312,7 +2304,7 @@
                     "key": "remarks_114_110_a_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2336,11 +2328,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_actual_114_110_a_current_data_logging_g1",
@@ -2435,7 +2427,7 @@
                     "key": "remarks_114_110_a_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2459,11 +2451,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_21_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_actual_114_110_a_current_test_points_g1",
@@ -2558,7 +2550,7 @@
                     "key": "remarks_114_110_a_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2594,7 +2586,7 @@
                     "value": "VOLTAGE measured at :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_3_static",
@@ -2643,11 +2635,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_23_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_actual_114_110_b_dm_panel_g1",
@@ -2742,7 +2734,7 @@
                     "key": "remarks_114_110_b_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2766,11 +2758,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_24_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_2_actual_114_110_b_data_logging_g1",
@@ -2865,7 +2857,7 @@
                     "key": "remarks_114_110_b_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2889,11 +2881,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_2_actual_114_110_b_test_points_g1",
@@ -2988,7 +2980,7 @@
                     "key": "remarks_114_110_b_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3012,11 +3004,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_26_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_2_static",
@@ -3065,11 +3057,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_2_actual_114_110_b_current_dm_panel_g1",
@@ -3164,7 +3156,7 @@
                     "key": "remarks_114_110_b_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3188,11 +3180,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_28_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_2_actual_114_110_b_current_data_logging_g1",
@@ -3287,7 +3279,7 @@
                     "key": "remarks_114_110_b_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3311,11 +3303,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_2_actual_114_110_b_current_test_points_g1",
@@ -3410,7 +3402,7 @@
                     "key": "remarks_114_110_b_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3434,11 +3426,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_30_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_actual_114_110_b_current_power_recorderd_g1",
@@ -3533,7 +3525,7 @@
                     "key": "remarks_114_110_b_current_power_recorderd",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3569,7 +3561,7 @@
                     "value": "VOLTAGE measured at :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_3_static",
@@ -3618,11 +3610,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_32_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_2_actual_114_110_c_dm_panel_g1",
@@ -3717,7 +3709,7 @@
                     "key": "remarks_114_110_c_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3741,11 +3733,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_33_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_2_actual_114_110_c_data_logging_g1",
@@ -3840,7 +3832,7 @@
                     "key": "remarks_114_110_c_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3864,11 +3856,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_34_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_2_actual_114_110_c_test_points_g1",
@@ -3963,7 +3955,7 @@
                     "key": "remarks_114_110_c_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -3987,11 +3979,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_35_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_2_static",
@@ -4040,11 +4032,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_36_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_2_actual_114_110_c_current_dm_panel_g1",
@@ -4139,7 +4131,7 @@
                     "key": "remarks_114_110_c_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4163,11 +4155,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_37_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_2_actual_114_110_c_current_data_logging_g1",
@@ -4262,7 +4254,7 @@
                     "key": "remarks_114_110_c_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4286,11 +4278,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_38_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_2_actual_114_110_c_current_test_points_g1",
@@ -4385,7 +4377,7 @@
                     "key": "remarks_114_110_c_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4421,7 +4413,7 @@
                     "value": "VOLTAGE measured at",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_3_static",
@@ -4470,11 +4462,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_40_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_2_actual_114_110_d_dm_panel_g1",
@@ -4569,7 +4561,7 @@
                     "key": "remarks_114_110_d_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4593,11 +4585,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_41_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_2_actual_114_110_d_data_logging_g1",
@@ -4692,7 +4684,7 @@
                     "key": "remarks_114_110_d_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4716,11 +4708,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_42_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_2_actual_114_110_d_test_points_g1",
@@ -4815,7 +4807,7 @@
                     "key": "remarks_114_110_d_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -4839,11 +4831,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_43_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_2_static",
@@ -4892,11 +4884,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_44_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_44_cell_2_actual_114_110_d_current_dm_panel_g1",
@@ -4991,7 +4983,7 @@
                     "key": "remarks_114_110_d_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5015,11 +5007,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_45_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_45_cell_2_actual_114_110_d_current_data_logging_g1",
@@ -5114,7 +5106,7 @@
                     "key": "remarks_114_110_d_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5138,11 +5130,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_46_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_46_cell_2_actual_114_110_d_current_test_points_g1",
@@ -5237,7 +5229,7 @@
                     "key": "remarks_114_110_d_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5261,11 +5253,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_47_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_47_cell_2_actual_114_110_d_current_power_recorded_g1",
@@ -5360,7 +5352,7 @@
                     "key": "remarks_114_110_d_current_power_recorded",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5396,7 +5388,7 @@
                     "value": "VOLTAGE measured at :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_48_cell_3_static",
@@ -5445,11 +5437,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_49_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_49_cell_2_actual_114_110_e_dm_panel_g1",
@@ -5544,7 +5536,7 @@
                     "key": "remarks_114_110_e_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5568,11 +5560,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_50_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_50_cell_2_actual_114_110_e_data_logging_g1",
@@ -5667,7 +5659,7 @@
                     "key": "remarks_114_110_e_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5691,11 +5683,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_51_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_51_cell_2_actual_114_110_e_test_points_g1",
@@ -5790,7 +5782,7 @@
                     "key": "remarks_114_110_e_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5814,11 +5806,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_52_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_52_cell_2_static",
@@ -5867,11 +5859,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_53_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_53_cell_2_actual_114_110_e_current_dm_panel_g1",
@@ -5966,7 +5958,7 @@
                     "key": "remarks_114_110_e_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -5990,11 +5982,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_54_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_54_cell_2_actual_114_110_e_current_data_logging_g1",
@@ -6089,7 +6081,7 @@
                     "key": "remarks_114_110_e_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6113,11 +6105,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_55_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_55_cell_2_actual_114_110_e_current_test_points_g1",
@@ -6212,7 +6204,7 @@
                     "key": "remarks_114_110_e_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6248,7 +6240,7 @@
                     "value": "VOLTAGE measured at",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_56_cell_3_static",
@@ -6297,11 +6289,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_57_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_57_cell_2_actual_114_110_f_dm_panel_g1",
@@ -6396,7 +6388,7 @@
                     "key": "remarks_114_110_f_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6420,11 +6412,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_58_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_58_cell_2_actual_114_110_f_data_logging_g1",
@@ -6519,7 +6511,7 @@
                     "key": "remarks_114_110_f_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6543,11 +6535,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_59_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_59_cell_2_actual_114_110_f_test_points_g1",
@@ -6642,7 +6634,7 @@
                     "key": "remarks_114_110_f_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6666,11 +6658,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_60_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_60_cell_2_static",
@@ -6719,11 +6711,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_61_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_61_cell_2_actual_114_110_f_current_dm_panel_g1",
@@ -6818,7 +6810,7 @@
                     "key": "remarks_114_110_f_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6842,11 +6834,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_62_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_62_cell_2_actual_114_110_f_current_data_logging_g1",
@@ -6941,7 +6933,7 @@
                     "key": "remarks_114_110_f_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -6965,11 +6957,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_63_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_63_cell_2_actual_114_110_f_current_test_points_g1",
@@ -7064,7 +7056,7 @@
                     "key": "remarks_114_110_f_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7088,11 +7080,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_64_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_64_cell_2_actual_114_110_f_current_power_recorded_g1",
@@ -7187,7 +7179,7 @@
                     "key": "remarks_114_110_f_current_power_recorded",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7223,7 +7215,7 @@
                     "value": "Functional Check, Max No Load Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_65_cell_3_actual_114_112_g1",
@@ -7318,7 +7310,7 @@
                     "key": "remarks_114_112",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7354,7 +7346,7 @@
                     "value": "Limitation of current with 260V",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_66_cell_3_actual_114_113_g1",
@@ -7449,7 +7441,7 @@
                     "key": "remarks_114_113",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7485,7 +7477,7 @@
                     "value": "VOLTAGE measured at",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_67_cell_3_static",
@@ -7534,11 +7526,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_68_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_68_cell_2_actual_114_114_a_dm_panel_g1",
@@ -7633,7 +7625,7 @@
                     "key": "remarks_114_114_a_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7657,11 +7649,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_69_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_69_cell_2_actual_114_114_a_data_logging_g1",
@@ -7756,7 +7748,7 @@
                     "key": "remarks_114_114_a_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7780,11 +7772,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_70_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_70_cell_2_actual_114_114_a_test_points_g1",
@@ -7879,7 +7871,7 @@
                     "key": "remarks_114_114_a_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -7903,11 +7895,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_71_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_71_cell_2_static",
@@ -7956,11 +7948,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_72_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_72_cell_2_actual_114_114_a_current_dm_panel_g1",
@@ -8055,7 +8047,7 @@
                     "key": "remarks_114_114_a_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8079,11 +8071,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_73_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_73_cell_2_actual_114_114_a_current_data_logging_g1",
@@ -8178,7 +8170,7 @@
                     "key": "remarks_114_114_a_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8202,11 +8194,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_74_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_74_cell_2_actual_114_114_a_current_test_points_g1",
@@ -8301,7 +8293,7 @@
                     "key": "remarks_114_114_a_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8325,11 +8317,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_75_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_75_cell_2_actual_114_114_a_current_power_recorded_g1",
@@ -8424,7 +8416,7 @@
                     "key": "remarks_114_114_a_current_power_recorded",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8460,7 +8452,7 @@
                     "value": "VOLTAGE measured at",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_76_cell_3_static",
@@ -8509,11 +8501,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_77_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_77_cell_2_actual_114_114_b_dm_panel_g1",
@@ -8608,7 +8600,7 @@
                     "key": "remarks_114_114_b_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8632,11 +8624,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_78_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_78_cell_2_actual_114_114_b_data_logging_g1",
@@ -8731,7 +8723,7 @@
                     "key": "remarks_114_114_b_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8755,11 +8747,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_79_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_79_cell_2_actual_114_114_b_test_points_g1",
@@ -8854,7 +8846,7 @@
                     "key": "remarks_114_114_b_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -8878,11 +8870,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_80_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_80_cell_2_static",
@@ -8926,16 +8918,16 @@
                   }
                 ]
               },
-               {
+              {
                 "_id": "section_2_matrix_1_row_81",
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_81_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_81_cell_2_actual_114_114_b_current_dm_panel_g1",
@@ -9030,7 +9022,7 @@
                     "key": "remarks_114_114_b_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9054,11 +9046,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_82_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_82_cell_2_actual_114_114_b_current_data_logging_g1",
@@ -9153,7 +9145,7 @@
                     "key": "remarks_114_114_b_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9177,11 +9169,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_83_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_83_cell_2_actual_114_114_b_current_test_points_g1",
@@ -9276,7 +9268,7 @@
                     "key": "remarks_114_114_b_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9300,11 +9292,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_84_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_84_cell_2_actual_114_114_b_current_power_recorded_g1",
@@ -9399,7 +9391,7 @@
                     "key": "remarks_114_114_b_current_power_recorded",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9435,7 +9427,7 @@
                     "value": "VOLTAGE measured at",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_85_cell_3_static",
@@ -9484,11 +9476,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_86_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_86_cell_2_actual_114_114_c_dm_panel_g1",
@@ -9583,7 +9575,7 @@
                     "key": "remarks_114_114_c_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9607,11 +9599,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_87_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_87_cell_2_actual_114_114_c_data_logging_g1",
@@ -9706,7 +9698,7 @@
                     "key": "remarks_114_114_c_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9730,11 +9722,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_88_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test Points",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_88_cell_2_actual_114_114_c_test_points_g1",
@@ -9829,7 +9821,7 @@
                     "key": "remarks_114_114_c_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -9853,11 +9845,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_89_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CURRENT in Amps :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_89_cell_2_static",
@@ -9906,11 +9898,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_90_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- DM Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_90_cell_2_actual_114_114_c_current_dm_panel_g1",
@@ -10005,7 +9997,7 @@
                     "key": "remarks_114_114_c_current_dm_panel",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10029,11 +10021,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_91_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Data logging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_91_cell_2_actual_114_114_c_current_data_logging_g1",
@@ -10128,7 +10120,7 @@
                     "key": "remarks_114_114_c_current_data_logging",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10152,11 +10144,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_92_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "- Test points (mV)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_92_cell_2_actual_114_114_c_current_test_points_g1",
@@ -10251,7 +10243,7 @@
                     "key": "remarks_114_114_c_current_test_points",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10275,11 +10267,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_93_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "POWER Recorded by Data logging system in KW",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_93_cell_2_actual_114_114_c_current_power_recorded_g1",
@@ -10374,7 +10366,7 @@
                     "key": "remarks_114_114_c_current_power_recorded",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10400,6 +10392,5 @@
         ]
       }
     }
-
   ]
 }

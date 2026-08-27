@@ -21,8 +21,8 @@
             "_id": "submarine",
             "key": "submarine",
             "name": "submarine",
-            "label": "submarine",
-            "type": "input",
+            "label": "Submarine",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "twa_mca_date",
@@ -93,7 +95,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -114,7 +116,8 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"600px"
                 }
               ]
             ],
@@ -185,7 +188,7 @@
                     "value": "Preliminaries",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_twa_mca_status_1",
@@ -259,7 +262,7 @@
                     "value": "Initial condition",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_twa_mca_status_2",
@@ -333,7 +336,7 @@
                     "value": "Deployment of cable antenna (150 mtr cable deployed)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_twa_mca_status_3",
@@ -407,7 +410,7 @@
                     "value": "Cable antenna retrieval",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_twa_mca_status_4",
@@ -481,7 +484,7 @@
                     "value": "Maintenance mode (Cable paid out and retrieval)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_twa_mca_status_5",
@@ -568,7 +571,7 @@
                     "value": "Control of the inflatable seals water tightness",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_twa_mca_status_6",
@@ -642,7 +645,7 @@
                     "value": "Control of 'O' ring water tightness",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_twa_mca_status_7",
@@ -716,7 +719,7 @@
                     "value": "Ball valve water tightness",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_twa_mca_status_8",
@@ -803,7 +806,7 @@
                     "value": "Normal operating test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_twa_mca_status_9",
@@ -877,7 +880,7 @@
                     "value": "Test mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_twa_mca_status_10",
@@ -951,7 +954,7 @@
                     "value": "Reception in active mode (Cable paid out 150 mtr and both VLF & HF broadcast received by HDVLF)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_twa_mca_status_11",
@@ -1026,6 +1029,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -1038,6 +1042,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

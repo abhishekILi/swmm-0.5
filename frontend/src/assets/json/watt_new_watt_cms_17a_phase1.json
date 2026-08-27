@@ -87,10 +87,12 @@
             "type": "input",
             "value": "CMS P 17A, Phase-I",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan" : 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "cms_date",
@@ -149,7 +151,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -243,7 +245,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -255,7 +257,7 @@
                     "value": "LOG Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_4_status_2_1",
@@ -325,7 +327,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -337,7 +339,7 @@
                     "value": "Gyro Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_status_2_2",
@@ -407,7 +409,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -419,7 +421,7 @@
                     "value": "GPS Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_4_status_2_3",
@@ -489,7 +491,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -501,7 +503,7 @@
                     "value": "GPS Latitude / Longitude from SYSTEM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_4_status_2_3_1",
@@ -571,7 +573,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -583,7 +585,7 @@
                     "value": "GPS Course over Ground from System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_status_2_3_2",
@@ -653,7 +655,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.3.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -665,7 +667,7 @@
                     "value": "GPS Speed over Ground from System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_4_status_2_3_3",
@@ -735,7 +737,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -747,7 +749,7 @@
                     "value": "WIND Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_status_2_4",
@@ -817,7 +819,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -829,7 +831,7 @@
                     "value": "Echo Sounder Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_status_2_5",
@@ -899,7 +901,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -911,7 +913,7 @@
                     "value": "Create Area (Type \u2014 True)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_status_2_6",
@@ -981,7 +983,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -993,7 +995,7 @@
                     "value": "Create Area (Type \u2014 Relative)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_status_2_7",
@@ -1076,7 +1078,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1088,7 +1090,7 @@
                     "value": "Create a Lettered Position at specified coordinates",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_4_status_3_1",
@@ -1158,7 +1160,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1170,7 +1172,7 @@
                     "value": "Create Glide Path",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_4_status_3_2",
@@ -1253,7 +1255,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1265,7 +1267,7 @@
                     "value": "Target Reporting \u2014 IFF MK XII",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_4_status_4_1",
@@ -1335,7 +1337,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1347,7 +1349,7 @@
                     "value": "Target Reporting \u2014 3D ASR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_4_status_4_2",
@@ -1417,7 +1419,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1429,7 +1431,7 @@
                     "value": "Target Reporting \u2014 MFSTAR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_4_status_4_3",
@@ -1499,7 +1501,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1511,7 +1513,7 @@
                     "value": "Automatic Track Classification (Hostility Determination)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_4_status_4_4",
@@ -1581,7 +1583,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1593,7 +1595,7 @@
                     "value": "Track Investigation & Stop Track Investigation \u2014 MFSTAR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_4_status_4_5",
@@ -1676,7 +1678,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1688,7 +1690,7 @@
                     "value": "Receiver Band Select",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_4_status_5_1",
@@ -1758,7 +1760,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1770,7 +1772,7 @@
                     "value": "Start / Stop Reporting periodic EW System Tracks to CMS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_4_status_5_2",
@@ -1840,7 +1842,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1852,7 +1854,7 @@
                     "value": "Track and Break Track",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_4_status_5_3",
@@ -1922,7 +1924,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1934,7 +1936,7 @@
                     "value": "Jam and Stop Jam ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_4_status_5_4",
@@ -2004,7 +2006,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2016,7 +2018,7 @@
                     "value": "Track and Jam ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_4_status_5_5",
@@ -2099,7 +2101,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2111,7 +2113,7 @@
                     "value": "Detection of HUMSA Sonar Active Channel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_4_status_6_1",
@@ -2181,7 +2183,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2193,7 +2195,7 @@
                     "value": "Detection of HUMSA Sonar Passive Channel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_4_status_6_2",
@@ -2276,7 +2278,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2288,7 +2290,7 @@
                     "value": "Designate Target for Rocket Launcher (IRC)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_4_status_7_1",
@@ -2358,7 +2360,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2370,7 +2372,7 @@
                     "value": "Designate Target for ITTL Firing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_4_status_7_2",
@@ -2440,7 +2442,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2452,7 +2454,7 @@
                     "value": "Order 'ENGAGE'",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_4_status_7_3",
@@ -2522,7 +2524,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2534,7 +2536,7 @@
                     "value": "ORDER 'CANCEL TD'",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_4_status_7_4",
@@ -2617,7 +2619,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2629,7 +2631,7 @@
                     "value": "Select Mode \u2014 MRSAM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_4_status_8_1",
@@ -2699,7 +2701,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2711,7 +2713,7 @@
                     "value": "Manual Gun Assignment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_4_status_8_2",
@@ -2781,7 +2783,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2793,7 +2795,7 @@
                     "value": "Cancel Gun Assignment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_4_status_8_3",
@@ -2863,7 +2865,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2875,7 +2877,7 @@
                     "value": "MRSAM (WCS) Track Engagement and Stop Engagement",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_4_status_8_4",
@@ -2945,7 +2947,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2957,7 +2959,7 @@
                     "value": "View MRSAM (WCS) Threatening Target File",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_4_status_8_5",
@@ -3027,7 +3029,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3039,7 +3041,7 @@
                     "value": "Display of WCS Engagement Planning \u2014 LEP",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_4_status_8_6",
@@ -3109,7 +3111,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3121,7 +3123,7 @@
                     "value": "Display WCS Engagement Report & Engaging Missile Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_4_status_8_7",
@@ -3191,7 +3193,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_44_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3203,7 +3205,7 @@
                     "value": "TD and Cancel TD Recommendation for Coastal Target to MRSAM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_44_cell_4_status_8_8",
@@ -3286,7 +3288,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_46_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3298,7 +3300,7 @@
                     "value": "Mode change of BrahMos",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_46_cell_4_status_9_1",
@@ -3381,7 +3383,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_48_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3393,7 +3395,7 @@
                     "value": "Add Sea Target into SSM Target List",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_48_cell_4_status_9_2_1",
@@ -3463,7 +3465,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_49_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3475,7 +3477,7 @@
                     "value": "Fire Mission for Sea Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_49_cell_4_status_9_2_2",
@@ -3545,7 +3547,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_50_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3557,7 +3559,7 @@
                     "value": "Transmission of COMBAT TD Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_50_cell_4_status_9_2_3",
@@ -3627,7 +3629,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_51_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3639,7 +3641,7 @@
                     "value": "Transmission of CANCEL TD Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_51_cell_4_status_9_2_4",
@@ -3709,7 +3711,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_52_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3721,7 +3723,7 @@
                     "value": "Transmission of FIRE Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_52_cell_4_status_9_2_5",
@@ -3791,7 +3793,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_53_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3803,7 +3805,7 @@
                     "value": "Transmission of Trigger Hold Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_53_cell_4_status_9_2_6",
@@ -3873,7 +3875,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_54_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3885,7 +3887,7 @@
                     "value": "Transmission of Stop FIRE Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_54_cell_4_status_9_2_7",
@@ -3968,7 +3970,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_56_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3980,7 +3982,7 @@
                     "value": "Create Land Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_56_cell_4_status_9_3_1",
@@ -4050,7 +4052,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_57_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4062,7 +4064,7 @@
                     "value": "Add LAND Target into SSM Target List",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_57_cell_4_status_9_3_2",
@@ -4132,7 +4134,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_58_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4144,7 +4146,7 @@
                     "value": "Fire Mission for Land Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_58_cell_4_status_9_3_3",
@@ -4214,7 +4216,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_59_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4226,7 +4228,7 @@
                     "value": "Transmission of COMBAT TD Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_59_cell_4_status_9_3_4",
@@ -4296,7 +4298,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_60_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4308,7 +4310,7 @@
                     "value": "Transmission of CANCEL TD Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_60_cell_4_status_9_3_5",
@@ -4378,7 +4380,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_61_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4390,7 +4392,7 @@
                     "value": "Transmission of FIRE Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_61_cell_4_status_9_3_6",
@@ -4460,7 +4462,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_62_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4472,7 +4474,7 @@
                     "value": "Transmission of Trigger Hold Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_62_cell_4_status_9_3_7",
@@ -4542,7 +4544,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_63_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4554,7 +4556,7 @@
                     "value": "Transmission of Stop FIRE Command to BrFCS SSM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_63_cell_4_status_9_3_8",
@@ -4637,7 +4639,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_65_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4649,7 +4651,7 @@
                     "value": "Display of KAVACH Status",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_65_cell_4_status_10_1",
@@ -4719,7 +4721,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_66_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4731,7 +4733,7 @@
                     "value": "CHANGE MODE \u2014 KAVACH",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_66_cell_4_status_10_2",
@@ -4801,7 +4803,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_67_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4813,7 +4815,7 @@
                     "value": "Target Designation to KAVACH",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_67_cell_4_status_10_3",
@@ -4883,7 +4885,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_68_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4895,7 +4897,7 @@
                     "value": "Cancel Target Designation to KAVACH",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_68_cell_4_status_10_4",
@@ -5005,6 +5007,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "ND",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -5017,6 +5020,7 @@
             "label": "STI / TI",
             "type": "input",
             "value": "STI / TI",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -5029,6 +5033,7 @@
             "label": "Inspecting Authority (STO)",
             "type": "input",
             "value": "WATT (V)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

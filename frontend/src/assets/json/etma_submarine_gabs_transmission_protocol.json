@@ -17,47 +17,34 @@
             "value": "Trial Information",
             "colSpan": 12
           },
+          
+          {
+            "_id": "ins_name",
+            "key": "ins_name",
+            "name": "ins_name",
+            "label": "INS",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [ ],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
           {
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "DATE OF TRIALS *",
+            "label": "DATE OF TRIALS ",
             "type": "date",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "ins_name",
-            "key": "ins_name",
-            "name": "ins_name",
-            "label": "INS",
-            "type": "select",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "options": [
-              {
-                "label": "INS KOCHI",
-                "value": "INS KOCHI"
-              },
-              {
-                "label": "INS KOLKATA",
-                "value": "INS KOLKATA"
-              },
-              {
-                "label": "INS CHENNAI",
-                "value": "INS CHENNAI"
-              },
-              {
-                "label": "INS VIKRANT",
-                "value": "INS VIKRANT"
-              }
-            ],
-            "isDynamic": false
           }
         ],
         "tables_1": [
@@ -68,10 +55,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center", 
+                  "width": "6%"
                 },
                 {
                   "label": "TEST / NOMINAL VALUE",

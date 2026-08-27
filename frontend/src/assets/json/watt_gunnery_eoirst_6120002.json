@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "label": "Basic Information",
             "colSpan": 12
           },
@@ -75,13 +75,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -141,7 +141,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -177,33 +177,19 @@
               {
                 "_id": "section_2_matrix_1_row_1",
                 "cells": [
-                 {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "section_2_matrix_1_row_1_cell_1_eoirst_6120002_embarked_onboard_at",
+                    "key": "eoirst_6120002_embarked_onboard_at",
+                    "lb": "Trials team embarked onboard at",
                     "type": "input",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
+                    "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -215,33 +201,18 @@
                     "displayKey": null
                   },
                   {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "on",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "section_2_matrix_1_row_1_cell_2_eoirst_6120002_embarked_on_date",
+                    "key": "eoirst_6120002_embarked_on_date",
+                    "lb": "on for SATs of EOIRST as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "type": "input",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
+                    "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -251,21 +222,6 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of AICS LAMA (FASC) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
                   }
                 ]
               },
@@ -278,7 +234,7 @@
                     "value": "01",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_2_static",
@@ -286,7 +242,7 @@
                     "value": "1.1 to 3.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_static",
@@ -294,14 +250,14 @@
                     "value": "Basic checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_4_eoirst_6120002_1_1_to_3_1_result",
                     "key": "eoirst_6120002_1_1_to_3_1_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -360,7 +316,7 @@
                     "value": "02",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
@@ -368,7 +324,7 @@
                     "value": "4.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_static",
@@ -376,14 +332,14 @@
                     "value": "Hardware as built configuration",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_4_eoirst_6120002_4_1_result",
                     "key": "eoirst_6120002_4_1_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -442,7 +398,7 @@
                     "value": "03",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
@@ -450,7 +406,7 @@
                     "value": "4.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_static",
@@ -458,14 +414,14 @@
                     "value": "Wear counters - PASEOXLR beginning of tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_eoirst_6120002_4_2_result",
                     "key": "eoirst_6120002_4_2_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -524,7 +480,7 @@
                     "value": "04",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
@@ -532,7 +488,7 @@
                     "value": "4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_static",
@@ -540,14 +496,14 @@
                     "value": "Wear counters-VNG beginning of tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_4_eoirst_6120002_4_3_result",
                     "key": "eoirst_6120002_4_3_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -606,7 +562,7 @@
                     "value": "05",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_static",
@@ -614,7 +570,7 @@
                     "value": "4.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_static",
@@ -622,14 +578,14 @@
                     "value": "Stabilization test -VNG",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_4_eoirst_6120002_4_5_result",
                     "key": "eoirst_6120002_4_5_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -688,7 +644,7 @@
                     "value": "06",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
@@ -696,7 +652,7 @@
                     "value": "4.6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_static",
@@ -704,7 +660,7 @@
                     "value": "Video Display - PASEOXLR \n (i) ZM-TV \n (ii) ZM- IR tests \n (iii) SP TV (iv) SP-SW tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_eoirst_6120002_4_6_result",
@@ -770,7 +726,7 @@
                     "value": "07",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_static",
@@ -778,7 +734,7 @@
                     "value": "4.7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_static",
@@ -786,14 +742,14 @@
                     "value": "Functional tests on surface target PASEOXLR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_4_eoirst_6120002_4_7_result",
                     "key": "eoirst_6120002_4_7_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -852,7 +808,7 @@
                     "value": "08",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
@@ -860,7 +816,7 @@
                     "value": "4.8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_static",
@@ -868,14 +824,14 @@
                     "value": "Functional tests on air target PASEOXLR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_eoirst_6120002_4_8_result",
                     "key": "eoirst_6120002_4_8_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -934,7 +890,7 @@
                     "value": "09",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
@@ -942,7 +898,7 @@
                     "value": "4.9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_static",
@@ -950,14 +906,14 @@
                     "value": "Surface tracking capacity VNG.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_eoirst_6120002_4_9_result",
                     "key": "eoirst_6120002_4_9_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1016,7 +972,7 @@
                     "value": "10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
@@ -1024,7 +980,7 @@
                     "value": "4.10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_static",
@@ -1032,14 +988,14 @@
                     "value": "Air tracking capacity VNG.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_eoirst_6120002_4_10_result",
                     "key": "eoirst_6120002_4_10_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1098,7 +1054,7 @@
                     "value": "11",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
@@ -1106,7 +1062,7 @@
                     "value": "4.11",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_static",
@@ -1114,14 +1070,14 @@
                     "value": "PASEOXLR and VNG system Coupling.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_eoirst_6120002_4_11_result",
                     "key": "eoirst_6120002_4_11_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1180,7 +1136,7 @@
                     "value": "12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_static",
@@ -1188,7 +1144,7 @@
                     "value": "4.12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_static",
@@ -1196,14 +1152,14 @@
                     "value": "EOIRST system Interfaces.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_4_eoirst_6120002_4_12_result",
                     "key": "eoirst_6120002_4_12_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1262,7 +1218,7 @@
                     "value": "13",
                     "colspan": 1,
                     "rowspan": 12,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_2_static",
@@ -1270,7 +1226,7 @@
                     "value": "4.13",
                     "colspan": 1,
                     "rowspan": 12,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_static",
@@ -1278,14 +1234,14 @@
                     "value": "Functional tests of DRI PASEO-XLR <b>ZM-TV Channel tests</b> \n (i) Visual Detection - At least 18.7 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_4_eoirst_6120002_4_13_zmtv_i_result",
                     "key": "eoirst_6120002_4_13_zmtv_i_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1340,18 +1296,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Visual recognition - At least 10.6 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_2_eoirst_6120002_4_13_zmtv_ii_result",
                     "key": "eoirst_6120002_4_13_zmtv_ii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1406,18 +1362,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Visual Identification - At least 6.4 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_2_eoirst_6120002_4_13_zmtv_iii_result",
                     "key": "eoirst_6120002_4_13_zmtv_iii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1472,18 +1428,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "<b>ZM-IR Channel tests</b> \n (i) Visual Detection - At least 19.5 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_2_eoirst_6120002_4_13_zmir_i_result",
                     "key": "eoirst_6120002_4_13_zmir_i_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1538,18 +1494,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Visual recognition - At least 10.9 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_eoirst_6120002_4_13_zmir_ii_result",
                     "key": "eoirst_6120002_4_13_zmir_ii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1604,18 +1560,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Visual Identification - At least 6.6 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_eoirst_6120002_4_13_zmir_iii_result",
                     "key": "eoirst_6120002_4_13_zmir_iii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1670,18 +1626,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
-                    "value": "<b>SP-TV Channel tests </b> \n (i) Visual Detection - At least 27.2 Km",
+                    "type": "label",
+                    "value": "<b>SP-TV Channel tests</b>  \n (i) Visual Detection - At least 27.2 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_eoirst_6120002_4_13_sptv_i_result",
                     "key": "eoirst_6120002_4_13_sptv_i_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1736,18 +1692,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_21_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Visual recognition - At least 19.4 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_eoirst_6120002_4_13_sptv_ii_result",
                     "key": "eoirst_6120002_4_13_sptv_ii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1802,18 +1758,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_22_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Visual Identification - At least 13.5 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_2_eoirst_6120002_4_13_sptv_iii_result",
                     "key": "eoirst_6120002_4_13_sptv_iii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1868,18 +1824,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_23_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "<b>SP-SW Channel tests</b> (i) Visual Detection - At least 24 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_eoirst_6120002_4_13_spsw_i_result",
                     "key": "eoirst_6120002_4_13_spsw_i_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1934,18 +1890,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_24_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Visual recognition - At least 16.1 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_2_eoirst_6120002_4_13_spsw_ii_result",
                     "key": "eoirst_6120002_4_13_spsw_ii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2000,18 +1956,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Visual Identification - At least 10.7 Km",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_2_eoirst_6120002_4_13_spsw_iii_result",
                     "key": "eoirst_6120002_4_13_spsw_iii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2070,7 +2026,7 @@
                     "value": "14",
                     "colspan": 1,
                     "rowspan": 4,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_2_static",
@@ -2078,7 +2034,7 @@
                     "value": "4.14",
                     "colspan": 1,
                     "rowspan": 4,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -2087,18 +2043,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Functional tests of DRI VNG (i) Automatic detection of surface target at least 16 Km.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_2_eoirst_6120002_4_14_i_result",
                     "key": "eoirst_6120002_4_14_i_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2153,18 +2109,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_28_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Automatic detection of rotary wing aircraft targets at least 25 Km.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_2_eoirst_6120002_4_14_ii_result",
                     "key": "eoirst_6120002_4_14_ii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2219,18 +2175,18 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Automatic detection of fighter aircraft targets at least 35 Km.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_2_eoirst_6120002_4_14_iii_result",
                     "key": "eoirst_6120002_4_14_iii_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2289,7 +2245,7 @@
                     "value": "15",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_static",
@@ -2297,7 +2253,7 @@
                     "value": "4.15",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_3_static",
@@ -2305,14 +2261,14 @@
                     "value": "Wear counters PASEO XLR end of tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_4_eoirst_6120002_4_15_result",
                     "key": "eoirst_6120002_4_15_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2371,7 +2327,7 @@
                     "value": "16",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_2_static",
@@ -2379,7 +2335,7 @@
                     "value": "4.16",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_3_static",
@@ -2387,14 +2343,14 @@
                     "value": "Wear counters VNG end of tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_4_eoirst_6120002_4_16_result",
                     "key": "eoirst_6120002_4_16_result",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2451,7 +2407,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Presenting Authority",
             "colSpan": 12
           },
@@ -2464,6 +2420,7 @@
             "value": "",
             "required": true,
             "disabled": false,
+            "colSpan": 12,
             "placeholder": "",
             "options": [
               {
@@ -2495,7 +2452,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

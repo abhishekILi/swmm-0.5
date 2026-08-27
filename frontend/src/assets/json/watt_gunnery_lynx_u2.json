@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "basic_information",
-      "title": "watt_gunnery_lynx_u2",
+      "title": "LYNX U2",
       "sectionType": "form",
       "fields": [],
       "tables": [],
@@ -18,9 +18,9 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
+            "_id": "lynx_u2_ship_name",
+            "key": "lynx_u2_ship_name",
+            "name": "lynx_u2_ship_name",
             "label": "SHIP",
             "type": "input",
             "value": "",
@@ -79,10 +79,12 @@
             "type": "input",
             "value": "LYNX U2",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "lynx_u2_date",
@@ -141,7 +143,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -172,10 +174,11 @@
                "_id": "checks_matrix_1_row_1_combined",
               "cells": [
                     {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
-                    "type": "time",
+                    "_id": "lynx_u2_embark_time",
+                    "key": "lynx_u2_embark_time",
+                    "name": "lynx_u2_embark_time",
+                    "type": "input",
+                    "inputType": "text",
                     "value": "",
                     "lb" : "Trials team embarked onboard at",
                     "required": true,
@@ -184,22 +187,22 @@
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
 
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
-                    "inputType": "text",
+                    "_id": "lynx_u2_embark_date",
+                    "key": "lynx_u2_embark_date",
+                    "name": "lynx_u2_embark_date",
+                    "type": "date",
+                    "inputType": "date",
                     "value": "",
                     "lb" : "on for SATs of LYNX U2 as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
                     "required": false,
                     "disabled": false,
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -212,7 +215,7 @@
                     "value": "01",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_2_static",
@@ -220,7 +223,7 @@
                     "value": "Check No. 2 Basic Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_lynx_u2_result_01",
@@ -286,7 +289,7 @@
                     "value": "02",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
@@ -294,7 +297,7 @@
                     "value": "Check No 2.1 to 2.2.41",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_lynx_u2_result_02",
@@ -360,7 +363,7 @@
                     "value": "03",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
@@ -368,7 +371,7 @@
                     "value": "Check No 2.2.5 sight Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_lynx_u2_result_03",
@@ -434,7 +437,7 @@
                     "value": "04",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
@@ -442,7 +445,7 @@
                     "value": "Check No. 2.3 Alignment Data Verification",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_lynx_u2_result_04",
@@ -508,7 +511,7 @@
                     "value": "Check No. 3.1.1 Surface Target Acquisition & Engagement",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -521,7 +524,7 @@
                     "value": "05",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
@@ -529,7 +532,7 @@
                     "value": "<b>Types of Target - XBR</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_static",
@@ -537,7 +540,7 @@
                     "value": "<b>Specified</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_static",
@@ -545,7 +548,7 @@
                     "value": "<b>Achieve</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -558,7 +561,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_static",
@@ -566,7 +569,7 @@
                     "value": "(a) Fregat Max Target Acquisition Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_static",
@@ -574,7 +577,7 @@
                     "value": "\u226535 KM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_4_lynx_u2_status_05a",
@@ -618,7 +621,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
@@ -626,7 +629,7 @@
                     "value": "(b) Autonomous Acquisition Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_static",
@@ -634,7 +637,7 @@
                     "value": "25-35 KM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_lynx_u2_status_05b",
@@ -678,7 +681,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
@@ -686,7 +689,7 @@
                     "value": "(c) TVI/TI Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_static",
@@ -694,7 +697,7 @@
                     "value": "\u22657 KM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_lynx_u2_status_05c",
@@ -738,7 +741,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
@@ -746,7 +749,7 @@
                     "value": "(d) LRF",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_static",
@@ -754,7 +757,7 @@
                     "value": "10-15 KM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_lynx_u2_status_05d",
@@ -862,7 +865,7 @@
                     "value": "01",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_1_cell_2_in_idr_01",
@@ -1007,7 +1010,7 @@
                     "value": "02",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_2_cell_2_in_idr_02",
@@ -1152,7 +1155,7 @@
                     "value": "03",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_3_cell_2_in_idr_03",
@@ -1297,7 +1300,7 @@
                     "value": "04",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_4_cell_2_in_idr_04",
@@ -1442,7 +1445,7 @@
                     "value": "01",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_5_cell_2_out_idr_01",
@@ -1587,7 +1590,7 @@
                     "value": "02",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_6_cell_2_out_idr_02",
@@ -1732,7 +1735,7 @@
                     "value": "03",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_7_cell_2_out_idr_03",
@@ -1877,7 +1880,7 @@
                     "value": "04",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_2_row_8_cell_2_out_idr_04",
@@ -2034,7 +2037,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           },
           {
             "_id": "inspecting_authority",
@@ -2046,7 +2050,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

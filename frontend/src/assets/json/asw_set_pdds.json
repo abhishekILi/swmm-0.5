@@ -55,24 +55,17 @@
           "isDynamic": false
         },
         {
-          "type": "select",
+          "type": "input",
           "name": "equipment",
           "label": "Equipment",
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
-          "options": [
-            {
-              "label": "-- Select --",
-              "value": ""
-            },
-            {
-              "label": "PDDS",
-              "value": "PDDS"
-            }
-          ],
-          "isDynamic": false
+          "inputType": "text",
+          "isDynamic": false,
+          "prefill": true,
+          "prefillSource": "equipment.nomenclature"
         },
         {
           "type": "date",

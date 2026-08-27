@@ -13,9 +13,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "aics_sat_date",
@@ -69,7 +71,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "aics_sat_occasion",
@@ -82,7 +84,7 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-             "colSpan": 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -93,28 +95,32 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
-                  "colspan": 1,
+                  "label": "SNo.",
+                  "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "8%"
                 },
                 {
                   "label": "OBSERVATIONS",
-                  "colspan": 1,
+                  "colspan": 11,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "47%"
                 },
                 {
                   "label": "SAT / UNSAT",
-                  "colspan": 1,
+                  "colspan": 4,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "18%"
                 },
                 {
                   "label": "REMARKS",
-                  "colspan": 1,
+                  "colspan": 7,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "27%"
                 }
               ]
             ],
@@ -124,34 +130,28 @@
                 "_id": "section_2_matrix_1_row_1",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "section_2_matrix_1_row_1_intro_label",
                     "type": "label",
                     "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
+                    "_id": "section_2_matrix_1_row_1_embark_time",
                     "key": "embark_time",
+                    "name": "embark_time",
                     "type": "time",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "HH:MM",
                     "inputType": "time",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -161,35 +161,28 @@
                     "displayKey": null
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "section_2_matrix_1_row_1_hours_label",
                     "type": "label",
-                    "value": "for SATs of AICS as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
+                    "value": "hrs on",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
-
                   {
-                    "_id": "observations_matrix_1_row_1_cell_2_embark_date",
+                    "_id": "section_2_matrix_1_row_1_embark_date",
                     "key": "embark_date",
+                    "name": "embark_date",
                     "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "dd-mm-yyyy",
                     "inputType": "date",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -197,6 +190,14 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_1_schedule_label",
+                    "type": "label",
+                    "value": "for SATs of <b>AICS</b> as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "colspan": 14,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -204,10 +205,13 @@
                 "_id": "section_2_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "_id": "section_2_matrix_1_row_2_checks_heading",
+                    "key": "checks_heading",
+                    "name": "checks_heading",
+                    "type": "label",
                     "value": "CHECKS",
-                    "colspan": 4,
+                    "isBold": true,
+                    "colspan": 24,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -217,24 +221,25 @@
                 "_id": "section_2_matrix_1_row_3",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_1_static",
+                    "_id": "section_2_matrix_1_row_3_serial",
                     "type": "serial",
                     "value": "3.2.1.4/5",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_2_static",
+                    "_id": "section_2_matrix_1_row_3_observation",
                     "type": "label",
                     "value": "Check of AICS operation wrt generation of the recommended submarine course and feeding the same to Pirit-M system",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_3_aics_status_3_2_1_4_5",
+                    "_id": "section_2_matrix_1_row_3_status",
                     "key": "aics_status_3_2_1_4_5",
+                    "name": "aics_status_3_2_1_4_5",
                     "type": "radio",
                     "value": "",
                     "rows": null,
@@ -252,20 +257,15 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_4_aics_remarks_3_2_1_4_5",
+                    "_id": "section_2_matrix_1_row_3_remarks",
                     "key": "aics_remarks_3_2_1_4_5",
+                    "name": "aics_remarks_3_2_1_4_5",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -274,16 +274,10 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -291,31 +285,29 @@
                 "_id": "section_2_matrix_1_row_4",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_1_static",
+                    "_id": "section_2_matrix_1_row_4_serial",
                     "type": "serial",
                     "value": "3.2.1.6",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_2_static",
+                    "_id": "section_2_matrix_1_row_4_observation",
                     "type": "label",
                     "value": "Check of AICS in real submarine sailing condition with firing",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_3_aics_status_3_2_1_6",
+                    "_id": "section_2_matrix_1_row_4_status",
                     "key": "aics_status_3_2_1_6",
+                    "name": "aics_status_3_2_1_6",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -326,38 +318,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_4_aics_remarks_3_2_1_6",
+                    "_id": "section_2_matrix_1_row_4_remarks",
                     "key": "aics_remarks_3_2_1_6",
+                    "name": "aics_remarks_3_2_1_6",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -365,31 +344,29 @@
                 "_id": "section_2_matrix_1_row_5",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_1_static",
+                    "_id": "section_2_matrix_1_row_5_serial",
                     "type": "serial",
                     "value": "3.2.1.7",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_2_static",
+                    "_id": "section_2_matrix_1_row_5_observation",
                     "type": "label",
                     "value": "Check of the initial state of TT complex by the corresponding video frames",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_3_aics_status_3_2_1_7",
+                    "_id": "section_2_matrix_1_row_5_status",
                     "key": "aics_status_3_2_1_7",
+                    "name": "aics_status_3_2_1_7",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -400,38 +377,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_4_aics_remarks_3_2_1_7",
+                    "_id": "section_2_matrix_1_row_5_remarks",
                     "key": "aics_remarks_3_2_1_7",
+                    "name": "aics_remarks_3_2_1_7",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -439,31 +403,29 @@
                 "_id": "section_2_matrix_1_row_6",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_1_static",
+                    "_id": "section_2_matrix_1_row_6_serial",
                     "type": "serial",
                     "value": "3.2.1.8",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_2_static",
+                    "_id": "section_2_matrix_1_row_6_observation",
                     "type": "label",
                     "value": "For Checking of TT auto loading at Depth 50 mtr",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_3_aics_status_3_2_1_8",
+                    "_id": "section_2_matrix_1_row_6_status",
                     "key": "aics_status_3_2_1_8",
+                    "name": "aics_status_3_2_1_8",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -474,38 +436,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_4_aics_remarks_3_2_1_8",
+                    "_id": "section_2_matrix_1_row_6_remarks",
                     "key": "aics_remarks_3_2_1_8",
+                    "name": "aics_remarks_3_2_1_8",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -513,31 +462,29 @@
                 "_id": "section_2_matrix_1_row_7",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_1_static",
+                    "_id": "section_2_matrix_1_row_7_serial",
                     "type": "serial",
                     "value": "3.2.1.9",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_2_static",
+                    "_id": "section_2_matrix_1_row_7_observation",
                     "type": "label",
                     "value": "Checking of the initial state of the TT complex",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_3_aics_status_3_2_1_9",
+                    "_id": "section_2_matrix_1_row_7_status",
                     "key": "aics_status_3_2_1_9",
+                    "name": "aics_status_3_2_1_9",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -548,38 +495,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_4_aics_remarks_3_2_1_9",
+                    "_id": "section_2_matrix_1_row_7_remarks",
                     "key": "aics_remarks_3_2_1_9",
+                    "name": "aics_remarks_3_2_1_9",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -587,31 +521,29 @@
                 "_id": "section_2_matrix_1_row_8",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_1_static",
+                    "_id": "section_2_matrix_1_row_8_serial",
                     "type": "serial",
                     "value": "3.2.1.10",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_2_static",
+                    "_id": "section_2_matrix_1_row_8_observation",
                     "type": "label",
                     "value": "Checking of system operation during emergency ejection",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_3_aics_status_3_2_1_10",
+                    "_id": "section_2_matrix_1_row_8_status",
                     "key": "aics_status_3_2_1_10",
+                    "name": "aics_status_3_2_1_10",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -622,38 +554,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_4_aics_remarks_3_2_1_10",
+                    "_id": "section_2_matrix_1_row_8_remarks",
                     "key": "aics_remarks_3_2_1_10",
+                    "name": "aics_remarks_3_2_1_10",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -661,31 +580,29 @@
                 "_id": "section_2_matrix_1_row_9",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_9_cell_1_static",
+                    "_id": "section_2_matrix_1_row_9_serial",
                     "type": "serial",
                     "value": "3.2.2",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_9_cell_2_static",
+                    "_id": "section_2_matrix_1_row_9_observation",
                     "type": "label",
-                    "value": "Solving of \u043b\u03f6i\u0440 table is carried out",
-                    "colspan": 1,
+                    "value": "Solving of ЛЭР table is carried out",
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_9_cell_3_aics_status_3_2_2",
+                    "_id": "section_2_matrix_1_row_9_status",
                     "key": "aics_status_3_2_2",
+                    "name": "aics_status_3_2_2",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -696,38 +613,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_9_cell_4_aics_remarks_3_2_2",
+                    "_id": "section_2_matrix_1_row_9_remarks",
                     "key": "aics_remarks_3_2_2",
+                    "name": "aics_remarks_3_2_2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -735,31 +639,29 @@
                 "_id": "section_2_matrix_1_row_10",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_10_cell_1_static",
+                    "_id": "section_2_matrix_1_row_10_serial",
                     "type": "serial",
                     "value": "3.2.3",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_10_cell_2_static",
+                    "_id": "section_2_matrix_1_row_10_observation",
                     "type": "label",
                     "value": "Check of AICS operation of FASC together",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_10_cell_3_aics_status_3_2_3",
+                    "_id": "section_2_matrix_1_row_10_status",
                     "key": "aics_status_3_2_3",
+                    "name": "aics_status_3_2_3",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -770,38 +672,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_10_cell_4_aics_remarks_3_2_3",
+                    "_id": "section_2_matrix_1_row_10_remarks",
                     "key": "aics_remarks_3_2_3",
+                    "name": "aics_remarks_3_2_3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               }
@@ -812,7 +701,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority",
             "colSpan": 12
           },

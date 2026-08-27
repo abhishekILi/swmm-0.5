@@ -22,7 +22,7 @@
             "key": "ship",
             "name": "ship",
             "label": "Ship",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -75,10 +75,12 @@
             "type": "input",
             "value": "MMB RT 6222",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan" : 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "mmb_rt_7222_date",
@@ -130,30 +132,16 @@
           }
         ],
         "tables_1": [],
-        "fields_2": [
-          {
-            "_id": "mmb_rt_7222_reported_time",
-            "key": "mmb_rt_7222_reported_time",
-            "name": "mmb_rt_7222_reported_time",
-            "label": "Trial Team reported onboard for Op Checks of MMB RT 6222 at hrs. The trials were carried out iaw IHQ MoD (N) /DNS fax CM/0301/Ops_ Dated, 27 Dec 23 approved schedule and CNO. 07/10 are enumerated in succeeding paragraph. :-",
-            "type": "textarea",
-            "colSpan": 12,
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "rows": 1
-          }
-        ],
+        
         "tables_2": [
           {
             "id": "checks_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Checks4",
+            "title": "Checks",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -180,6 +168,50 @@
             ],
             "columns": [],
             "rows": [
+              {
+               "_id": "observations_matrix_1_row_1",
+              "cells": [
+                {
+            "_id": "observations_matrix_1_row_1_cell_1_embark_time",
+            "type": "serial",
+            "value": "",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+                    {
+            "_id": "observations_matrix_1_row_1_cell_2_embark_time",
+            "type": "label",
+            "value": "Trial Team reported onboard for Op Checks of MMB RT 6222 at",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+
+                  {
+            "_id": "observations_matrix_1_row_1_cell_3_embark_time",
+            "key": "ccs_mk2_reported_time1",
+            "name": "ccs_mk2_reported_time1",
+            "type": "time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "time",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "center"
+          },
+                  {
+            "_id": "observations_matrix_1_row_1_cell_4_embark_time",
+            "type": "label",
+            "value": "hrs. The trials were carried out iaw IHQ MoD (N) /DNS fax CM/0301/Ops_ Dated, 27 Dec 23 approved schedule and CNO. 07/10 are enumerated in succeeding paragraph. :-",
+            "colspan": 2,
+            "rowspan": 1,
+            "align": "left"
+          }
+                ]
+              },
               {
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
@@ -226,7 +258,7 @@
                     "value": "Fitment of Tx/Rx unit in Bridge/Flag Bridge.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_mmb_rt_7222_a_i",
@@ -361,7 +393,7 @@
                     "value": "Antenna connection to Tx/Rx.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_mmb_rt_7222_a_iii",
@@ -421,7 +453,7 @@
                     "value": "Grounding of Tx/Rx and securing of system.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_mmb_rt_7222_a_iv",
@@ -481,7 +513,7 @@
                     "value": "All sub-assemblies are fixed properly.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_mmb_rt_7222_a_v",
@@ -541,7 +573,7 @@
                     "value": "Securing of connecting cables.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_mmb_rt_7222_a_vi",
@@ -601,7 +633,7 @@
                     "value": "Power supply to Tx/Rx.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_4_mmb_rt_7222_a_vii",
@@ -661,7 +693,7 @@
                     "value": "Switch from main power supply to uninterrupted power supply and Air conditioning in the compartment.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_4_mmb_rt_7222_a_viii",
@@ -742,7 +774,7 @@
                     "value": "Switch on Main power supply & indication on VHF Control unit.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_4_mmb_rt_7222_b_i",
@@ -802,7 +834,7 @@
                     "value": "Check and Verify key function, volume controls, menu functions.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_mmb_rt_7222_b_ii",
@@ -862,7 +894,7 @@
                     "value": "Check position data from GPS.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_4_mmb_rt_7222_b_iii",
@@ -922,7 +954,7 @@
                     "value": "Check and verify DSC test.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_mmb_rt_7222_b_iv",
@@ -982,7 +1014,7 @@
                     "value": "Check RT operation, transmission and reception on various frequencies.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_mmb_rt_7222_b_v",
@@ -1042,7 +1074,7 @@
                     "value": "Check communication with Navy control and Tower.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_mmb_rt_7222_b_vi",
@@ -1102,7 +1134,7 @@
                     "value": "Verify the transmission power (25 W).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_mmb_rt_7222_b_vii",
@@ -1162,7 +1194,7 @@
                     "value": "DSC Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_mmb_rt_7222_b_ix",
@@ -1222,7 +1254,7 @@
                     "value": "Select same channel on VHF radio set and onboard available portable VHF set for voice communication.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_mmb_rt_7222_b_x",
@@ -1282,7 +1314,7 @@
                     "value": "Check interfacing with DMR 16A and check recording. Switch from main power supply to uninterrupted power supply and the overall Stability of the power supply.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_mmb_rt_7222_b_xi",
@@ -1328,7 +1360,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1350,7 +1382,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1358,13 +1390,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1384,7 +1416,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1406,7 +1438,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1443,6 +1475,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1473,6 +1506,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

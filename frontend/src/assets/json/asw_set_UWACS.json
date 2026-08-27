@@ -59,7 +59,7 @@
           "name": "equipment",
           "label": "Equipment",
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
           "options": [
@@ -72,7 +72,9 @@
               "value": "AIS"
             }
           ],
-          "isDynamic": false
+          "isDynamic": false,
+          "prefill": true,
+          "prefillSource": "equipment.nomenclature"
         },
         {
           "type": "date",

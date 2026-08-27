@@ -64,23 +64,16 @@
             "key": "equipment",
             "name": "equipment",
             "label": "Equipment",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan" :4,
-            "options": [
-              {
-                "label": "-- Select --",
-                "value": ""
-              },
-              {
-                "label": "SBE 1-26E",
-                "value": "caviatition_meter"
-              }
-            ],
-            "isDynamic": false
+            "inputType": "text",
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date_prcm",

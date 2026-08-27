@@ -18,11 +18,31 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
+            "_id": "form_id",
+            "key": "form_id",
+            "name": "form_id",
             "type": "input",
+            "inputType": "hidden",
+            "value": "ssr_622002_7110012",
+            "hidden": true,
+            "colSpan": 0
+          },
+          {
+            "_id": "form_name",
+            "key": "form_name",
+            "name": "form_name",
+            "type": "input",
+            "inputType": "hidden",
+            "value": "SSR_622002_OP_CHECKS",
+            "hidden": true,
+            "colSpan": 0
+          },
+          {
+            "_id": "ssr_622002_ship",
+            "key": "ssr_622002_ship",
+            "name": "ssr_622002_ship",
+            "label": "Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -75,13 +95,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "ssr_622002_equipment",
             "prefill": true,
-            "prefillSource": "context.ssr_622002_equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -141,7 +161,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -171,81 +191,53 @@
               {
                 "_id": "section_2_matrix_1_row_1",
                 "cells": [
-                 {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
+                    "_id": "embark_time",
                     "key": "embark_time",
+                    "name": "embark_time",
+                    "lb": "Trials team embarked onboard at",
                     "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "input",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-
-
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "date",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "date",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of SSR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "embark_date",
+                    "key": "embark_date",
+                    "name": "embark_date",
+                    "lb": "hrs on for SATs of SSR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "type": "date",
+                    "inputType": "date",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "options": null,
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
                   }
                 ]
               },
@@ -254,11 +246,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "Check No. 7 : Radar System \u2013 Basic Test",
+                    "type": "label",
+                    "value": "<b>Check No. 7 : Radar System \u2013 Basic Test</b>",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -271,7 +263,7 @@
                     "value": "01.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
@@ -279,7 +271,7 @@
                     "value": "Check No. 7.1 \u2013 System/ Hardware configuration Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_ssr_622002_result_1",
@@ -345,7 +337,7 @@
                     "value": "02.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
@@ -353,7 +345,7 @@
                     "value": "Check No. 7.2 \u2013 Manufacturing and installation Checks (Waveguide pressure between 30-80m bar)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_ssr_622002_result_2",
@@ -419,7 +411,7 @@
                     "value": "03.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
@@ -427,7 +419,7 @@
                     "value": "Check No. 7.3 \u2013 System status evaluated by Bite",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_ssr_622002_result_3",
@@ -493,7 +485,7 @@
                     "value": "04.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_static",
@@ -501,7 +493,7 @@
                     "value": "Check No. 7.4 \u2013 Test for Radar plots and tracks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_ssr_622002_result_4",
@@ -563,11 +555,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
-                    "value": "Check No. 8 : General Function Test",
+                    "type": "label",
+                    "value": "<b>Check No. 8 : General Function Test</b>",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -580,7 +572,7 @@
                     "value": "05.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_static",
@@ -588,7 +580,7 @@
                     "value": "Check No. 8.1 \u2013 Test for sweep to sweep integration",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_ssr_622002_result_5",
@@ -654,7 +646,7 @@
                     "value": "06.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
@@ -662,7 +654,7 @@
                     "value": "Check No. 8.2 \u2013 Test for Scan-to-Scan integration (Fast speed threshold value \u2013 17) (Slow speed threshold value \u2013 06)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_ssr_622002_result_6",
@@ -728,7 +720,7 @@
                     "value": "07.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
@@ -736,7 +728,7 @@
                     "value": "Check No. 8.3 \u2013 Test for clutter discrimination",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_ssr_622002_result_7",
@@ -802,7 +794,7 @@
                     "value": "08.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
@@ -810,7 +802,7 @@
                     "value": "Check No. 8.4 \u2013 Test for constant false alarm rate (CFAR)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_ssr_622002_result_8",
@@ -876,7 +868,7 @@
                     "value": "09.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
@@ -884,7 +876,7 @@
                     "value": "CCheck No. 8.5 \u2013 Test for frequency diversity (Burst TMFD sequence length shall be greater than 1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_ssr_622002_result_9",
@@ -950,7 +942,7 @@
                     "value": "10.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_static",
@@ -958,7 +950,7 @@
                     "value": "Check No. 8.6 \u2013 Test for detection of targets in different profiles",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_ssr_622002_result_10",
@@ -1024,7 +1016,7 @@
                     "value": "11.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_2_static",
@@ -1032,7 +1024,7 @@
                     "value": "Check No. 8.7 \u2013 Sector transmission",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_ssr_622002_result_11",
@@ -1094,11 +1086,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
-                    "value": "Check No. 9 : General Function Test requiring consort targets",
+                    "type": "label",
+                    "value": "<b>Check No. 9 : General Function Test requiring consort targets",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1111,7 +1103,7 @@
                     "value": "12.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_2_static",
@@ -1119,7 +1111,7 @@
                     "value": "Check No. 9.1 \u2013 Target Resolution Test in Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_ssr_622002_result_12",
@@ -1185,7 +1177,7 @@
                     "value": "13.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_2_static",
@@ -1193,7 +1185,7 @@
                     "value": "Check No. 9.2 \u2013 Target Resolution Test in Azimuth",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_ssr_622002_result_13",
@@ -1259,7 +1251,7 @@
                     "value": "14.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_static",
@@ -1267,7 +1259,7 @@
                     "value": "Check No. 9.3 \u2013 Own ship Maneuvers",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_ssr_622002_result_14",
@@ -1333,7 +1325,7 @@
                     "value": "15.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_static",
@@ -1341,7 +1333,7 @@
                     "value": "Check No. 9.4 \u2013 Surrounding Surface Target Detection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_ssr_622002_result_15",
@@ -1407,7 +1399,7 @@
                     "value": "16.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_static",
@@ -1415,7 +1407,7 @@
                     "value": "Check No. 9.5 \u2013 Minimum detection and tracking range of stationary target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_ssr_622002_result_16",
@@ -1481,7 +1473,7 @@
                     "value": "17.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_static",
@@ -1489,7 +1481,7 @@
                     "value": "Check No. 9.6 \u2013 Test for tracking accuracy",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_3_ssr_622002_result_17",
@@ -1567,6 +1559,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 12,
             "options": [
               {
                 "label": "--Select--",
@@ -1597,7 +1590,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

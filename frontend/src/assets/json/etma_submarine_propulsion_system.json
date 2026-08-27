@@ -12,24 +12,22 @@
         "fields_2": [
            {
             "type":"label",
-            "value":"Double Field Rheostat",
+            "value":"Report Details",
             "colSpan": 12
           },
         {
-          "type": "select",
+          "type": "input",
           "name": "ps_submarine",
           "label": "Submarine ",
           "required": true,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
-          "options": [
-            {
-              "label": "-- Select Submarine --",
-              "value": ""
-            }
-          ],
-          "isDynamic": false
+          "options": [],
+          "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
         },
         {
           "type": "date",
@@ -49,27 +47,31 @@
           "topHeaders": [
             [
               {
-                "label": "TEST SER",
+                "label": "SNo.",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "6%",
                 "align": "center"
               },
               {
                 "label": "TEST/NOMINAL VALUE",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "24%",
                 "align": "center"
               },
               {
                 "label": "ACTUAL VALUE",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "35%",
                 "align": "center"
               },
               {
                 "label": "REMARKS",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "35%",
                 "align": "center"
               }
             ]
@@ -81,11 +83,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.100",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_1_cell_2_static",
@@ -93,7 +96,7 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_1_cell_3_ps_102_100_actual_value",
@@ -150,11 +153,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.101",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_2_cell_2_static",
@@ -162,7 +166,7 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_2_cell_3_ps_102_101_actual_value",
@@ -219,11 +223,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_3_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.102",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_3_cell_2_static",
@@ -231,7 +236,7 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_3_cell_3_ps_102_102_actual_value",
@@ -288,11 +293,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.103",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_4_cell_2_static",
@@ -300,7 +306,7 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_4_cell_3_ps_102_103_actual_value",
@@ -357,11 +363,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_5_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.104",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_5_cell_2_static",
@@ -369,7 +376,7 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_5_cell_3_ps_102_104_actual_value",
@@ -426,19 +433,20 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.105",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_6_cell_2_static",
                   "type": "label",
-                  "value": "Insulation Test M001 M002",
+                  "value": "Insulation Test <br>M001 <br>M002",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_6_cell_3_ps_102_105_actual_value",
@@ -495,11 +503,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_7_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.106",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_7_cell_2_static",
@@ -507,7 +516,7 @@
                   "value": "Insulation Test (Excitation ckts)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_7_cell_3_ps_102_106_actual_value",
@@ -564,11 +573,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_8_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.107",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_8_cell_2_static",
@@ -576,7 +586,7 @@
                   "value": "Insulation Test (SSH)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_8_cell_3_ps_102_107_actual_value",
@@ -633,11 +643,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_9_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.108",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_9_cell_2_static",
@@ -645,7 +656,7 @@
                   "value": "Functional Test",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_9_cell_3_ps_102_108_actual_value",
@@ -702,11 +713,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_matrix_1_row_10_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.109",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_10_cell_2_static",
@@ -714,7 +726,7 @@
                   "value": "Functional Test. (Tension >= 12 N Per Brush)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_matrix_1_row_10_cell_3_ps_102_109_actual_value",
@@ -780,27 +792,31 @@
           "columns": [
             {
               "key": "col_1",
-              "label": "TEST SER",
+              "label": "SNo.",
               "type": "label",
+              "width": "6%",
               "align": "center"
             },
             {
               "key": "col_2",
               "label": "TEST/NOMINAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "24%",
+              "align": "center"
             },
             {
               "key": "col_3",
               "label": "ACTUAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             },
             {
               "key": "col_4",
               "label": "REMARKS",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             }
           ],
           "rows": [
@@ -809,11 +825,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.200",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_1_cell_2_static",
@@ -878,11 +895,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.201",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_2_cell_2_static",
@@ -947,11 +965,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_3_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.202",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_3_cell_2_static",
@@ -1016,11 +1035,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_4_cell_2_static",
@@ -1085,11 +1105,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_5_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_5_cell_2_static",
@@ -1154,11 +1175,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.203",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_6_cell_2_static",
@@ -1223,11 +1245,12 @@
               "cells": [
                 {
                   "_id": "double_field_rheostat_table_1_row_7_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.204",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "double_field_rheostat_table_1_row_7_cell_2_static",
@@ -1301,27 +1324,31 @@
           "columns": [
             {
               "key": "col_1",
-              "label": "TEST SER",
+              "label": "SNo.",
               "type": "label",
+              "width": "6%",
               "align": "center"
             },
             {
               "key": "col_2",
               "label": "TEST/NOMINAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "24%",
+              "align": "center"
             },
             {
               "key": "col_3",
               "label": "ACTUAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             },
             {
               "key": "col_4",
               "label": "REMARKS",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             }
           ],
           "rows": [
@@ -1330,11 +1357,12 @@
               "cells": [
                 {
                   "_id": "shaft_turning_device_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.300",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "shaft_turning_device_table_1_row_1_cell_2_static",
@@ -1399,11 +1427,12 @@
               "cells": [
                 {
                   "_id": "shaft_turning_device_table_1_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.301",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "shaft_turning_device_table_1_row_2_cell_2_static",
@@ -1468,11 +1497,12 @@
               "cells": [
                 {
                   "_id": "shaft_turning_device_table_1_row_3_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.302",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "shaft_turning_device_table_1_row_3_cell_2_static",
@@ -1537,11 +1567,12 @@
               "cells": [
                 {
                   "_id": "shaft_turning_device_table_1_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.303",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "shaft_turning_device_table_1_row_4_cell_2_static",
@@ -1615,27 +1646,31 @@
           "columns": [
             {
               "key": "col_1",
-              "label": "TEST SER",
+              "label": "SNo.",
               "type": "label",
+              "width": "6%",
               "align": "center"
             },
             {
               "key": "col_2",
               "label": "TEST/NOMINAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "24%",
+              "align": "center"
             },
             {
               "key": "col_3",
               "label": "ACTUAL VALUE",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             },
             {
               "key": "col_4",
               "label": "REMARKS",
               "type": "label",
-              "align": "left"
+              "width": "35%",
+              "align": "center"
             }
           ],
           "rows": [
@@ -1644,11 +1679,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.400",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_1_cell_2_static",
@@ -1713,16 +1749,17 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.401",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_2_cell_2_static",
                   "type": "label",
-                  "value": "Insulation test Fan ckt. 1 Fan ckt. 2",
+                  "value": "Insulation test <br>Fan ckt. 1 <br>Fan ckt. 2",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left"
@@ -1782,11 +1819,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_3_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.402",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_3_cell_2_static",
@@ -1851,11 +1889,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.403",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_4_cell_2_static",
@@ -1920,11 +1959,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_5_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.404",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_5_cell_2_static",
@@ -1989,11 +2029,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.405",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_6_cell_2_static",
@@ -2058,11 +2099,12 @@
               "cells": [
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_7_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "6%",
                   "value": "102.406",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "propulsion_motor_cooling_fans_with_switch_box_fan_control_table_1_row_7_cell_2_static",

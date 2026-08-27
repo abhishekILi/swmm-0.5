@@ -12,16 +12,16 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value" : "Trial Header Information",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Trial Header Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
             "key": "ship",
             "name": "ship",
             "label": "Ship",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -31,7 +31,7 @@
             "lookupKey": "ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "equipment",
@@ -44,20 +44,22 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "trial_date",
@@ -70,7 +72,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "department",
@@ -82,7 +84,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select Department --",
@@ -117,7 +119,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select Nature of Trials --",
@@ -141,6 +143,33 @@
               }
             ],
             "isDynamic": false
+          }
+        ],
+        "fields_3": [
+          {
+            "_id": "vlf_hf_rx_ek896_prefix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">Trial team reported onboard for Op Checks of VLF-HF Rx EK 896 at</p>",
+            "colSpan": 4
+          },
+          {
+            "_id": "vlf_hf_rx_ek896_reported_time",
+            "key": "vlf_hf_rx_ek896_reported_time",
+            "name": "vlf_hf_rx_ek896_reported_time",
+            "label": "",
+            "type": "time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "inputType": "time",
+            "colSpan": 2
+          },
+          {
+            "_id": "vlf_hf_rx_ek896_suffix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">hrs. The trials were carried out i.a.w. IHQ MoD (N) approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs :–</p>",
+            "colSpan": 6
           }
         ],
         "tables_1": [
@@ -189,7 +218,7 @@
                     "value": "Installation of RX into Rx cabinet.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_1_cell_3_phys_1_rmk",
@@ -245,7 +274,7 @@
                     "value": "Securing of RX.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_2_cell_3_phys_2_rmk",
@@ -301,7 +330,7 @@
                     "value": "Antenna connection to RX (Single Aerial).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_3_cell_3_phys_3_rmk",
@@ -357,7 +386,7 @@
                     "value": "Power supply to RX cabinet.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_4_cell_3_phys_4_rmk",
@@ -413,7 +442,7 @@
                     "value": "All push buttons / functional rotating knobs / toggle switch.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_5_cell_3_phys_5_rmk",
@@ -469,7 +498,7 @@
                     "value": "Interfacing of HSDM and AVLF Demodulator.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_6_cell_3_phys_6_rmk",
@@ -525,7 +554,7 @@
                     "value": "<b>HSDM Ser No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_7_cell_3_hsdm_ser_no",
@@ -568,7 +597,7 @@
                     "value": "<b>AVLF Demodulator Ser No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_8_cell_3_avlf_ser_no",
@@ -611,7 +640,7 @@
                     "value": "<b>IBA Device Ser No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_9_cell_3_iba_ser_no",
@@ -654,7 +683,7 @@
                     "value": "<b>Monitor / Laptop Ser No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "a_physical_checks_matrix_1_row_10_cell_3_monitor_ser_no",
@@ -729,7 +758,7 @@
                     "value": "Functions of all functional push buttons.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_1_cell_3_func_1_rmk",
@@ -785,7 +814,7 @@
                     "value": "Changing of modes.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_2_cell_3_func_2_rmk",
@@ -841,7 +870,7 @@
                     "value": "Changing of frequency manually.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_3_cell_3_func_3_rmk",
@@ -897,7 +926,7 @@
                     "value": "Changing of frequency by scanning.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_4_cell_3_func_4_rmk",
@@ -953,7 +982,7 @@
                     "value": "Inserting of frequency in channels.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_5_cell_3_func_5_rmk",
@@ -1009,7 +1038,7 @@
                     "value": "Scanning of frequency on both receivers.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_6_cell_3_func_6_rmk",
@@ -1065,7 +1094,7 @@
                     "value": "Changing of scanning programme.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_7_cell_3_func_7_rmk",
@@ -1121,7 +1150,7 @@
                     "value": "Rx of Voice / CW.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_8_cell_3_func_8_rmk",
@@ -1177,7 +1206,7 @@
                     "value": "Reception of VND through IBA / HSDM.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_9_cell_3_func_9_rmk",
@@ -1233,7 +1262,7 @@
                     "value": "Reception of LNX through IBA / AVLF Demodulator.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "b_functional_checks_matrix_1_row_10_cell_3_func_10_rmk",
@@ -1283,7 +1312,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1305,7 +1334,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1313,13 +1342,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1339,7 +1368,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1361,7 +1390,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1378,7 +1407,6 @@
                     "hiddenKey": null,
                     "displayKey": null
                   }
-
                 ]
               }
             ],
@@ -1388,9 +1416,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
-            "value" : "Presenting Authority",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Presenting Authority",
+            "colSpan": 12
           },
           {
             "_id": "dmr_16a_presenting_authority",
@@ -1399,6 +1427,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan": 12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1429,6 +1458,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan": 12,
             "required": false,
             "disabled": false,
             "placeholder": "",

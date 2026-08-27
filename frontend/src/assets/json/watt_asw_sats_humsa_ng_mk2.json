@@ -25,7 +25,7 @@
             "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
@@ -77,10 +77,12 @@
             "type": "input",
             "value": "HUMSA NG MK II",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "humsa_ng_mk2_date",
@@ -139,10 +141,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TRIAL SER",
+                  "label": "TRIAL SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "CHECK DESCRIPTION AS PER SCHEDULE",
@@ -160,7 +163,8 @@
                   "label": "PRESENTING AUTHORITY REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "750px"
                 }
               ]
             ],
@@ -181,9 +185,8 @@
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
-
                   {
                     "_id": "schedule",
                     "key": "schedule",
@@ -196,7 +199,7 @@
                     "disabled": false,
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -217,7 +220,7 @@
                     "value": "ACTIVE SONAR RANGE AND BEARING ACCURACY TRAILS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_ch2_active_sonar_range_bearing_accuracy_result",
@@ -291,7 +294,7 @@
                     "value": "ACTIVE SONAR MAXIMUM HOLDING RANGE TRAILS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_ch3_active_sonar_max_holding_range_result",
@@ -365,7 +368,7 @@
                     "value": "ACTIVE SONAR INITIAL DETECTION RANGE TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_ch4_active_sonar_initial_detection_result",
@@ -439,7 +442,7 @@
                     "value": "ACTIVE SONAR DOPPLER ACCURACY TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_ch5_active_sonar_doppler_accuracy_result",
@@ -513,7 +516,7 @@
                     "value": "ACTIVE CMA TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_ch6_active_cma_result",
@@ -587,7 +590,7 @@
                     "value": "ACTIVE CLASSIFIER TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_ch7_active_classifier_result",
@@ -661,7 +664,7 @@
                     "value": "PASSIVE SONAR SYSTEM TRIALS & MHR TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_ch8_passive_sonar_system_mhr_result",
@@ -735,7 +738,7 @@
                     "value": "PASSIVE CMA TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_ch9_passive_cma_result",
@@ -809,7 +812,7 @@
                     "value": "PASSIVE CLASSIFIER TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_ch10_passive_classifier_result",
@@ -883,7 +886,7 @@
                     "value": "TORPEDO DETECTION TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_ch11_torpedo_detection_result",
@@ -957,7 +960,7 @@
                     "value": "INTERCEPT TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_ch12_intercept_result",
@@ -1031,7 +1034,7 @@
                     "value": "BI-STATIC TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_ch13_bi_static_result",
@@ -1105,7 +1108,7 @@
                     "value": "UWACS TRITON TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_ch14_uwacs_triton_result",
@@ -1179,7 +1182,7 @@
                     "value": "XBT & EXTERNAL SYSTEM INTERFACES TRIALS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_annx_xbt_external_interfaces_result",
@@ -1250,25 +1253,29 @@
                   "label": "PARAMETER",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "180px"
                 },
                 {
                   "label": "RESULT TO BE ACHIEVED",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "11%"
                 },
                 {
                   "label": "RESULT COMPUTED",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "900px"
                 },
                 {
                   "label": "SAT/UNSAT",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 }
               ]
             ],
@@ -1308,12 +1315,12 @@
                     "value": "RANGE (M)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_2_1_standard_deviation_of_range_and_bearing_to_be_achieved_table_1_row_1_cell_2_static",
                     "type": "label",
-                    "value": "\u2264 200",
+                    "value": "≤ 200",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1382,12 +1389,12 @@
                     "value": "BEARING (DEG)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_2_1_standard_deviation_of_range_and_bearing_to_be_achieved_table_1_row_2_cell_2_static",
                     "type": "label",
-                    "value": "\u2264 2",
+                    "value": "≤ 2",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1458,7 +1465,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -1517,7 +1524,7 @@
                   {
                     "_id": "table_2_2_active_sonar_range_bearing_accuracy_checks_scr_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -1677,7 +1684,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "rows": 2,
+            "rows": 3,
             "colSpan": 12
           }
         ],
@@ -1689,7 +1696,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -1748,7 +1755,7 @@
                   {
                     "_id": "table_2_3_navigational_radar_range_and_bearing_data_radar_room_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -1892,78 +1899,63 @@
             "minRows": 1
           }
         ],
-
         "tables_3": [
           {
-            "id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1",
-            "sectionType": "matrixTable",
+            "id": "bearing_range_error_table_3",
+            "sectionType": "simpleTable",
             "title": "TABLE 2-4. ERROR IN BEARING & RANGE (FOR OFFLINE COMPUTATION)",
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
-                  "rowspan": 2,
+                  "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "CUT NO.",
                   "colspan": 1,
-                  "rowspan": 2,
+                  "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "TIME",
                   "colspan": 1,
-                  "rowspan": 2,
-                  "align": "center"
-                },
-                {
-                  "label": "BEARING ERROR",
-                  "colspan": 3,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "RANGE ERROR",
-                  "colspan": 3,
-                  "rowspan": 1,
-                  "align": "center"
-                }
-              ],
-              [
-                {
-                  "label": "SONAR TRUE BRG (TB s)",
+                  "label": "SONAR TRUE BRG (TBₛ)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "RADAR TRUE BEARING (TB R)",
+                  "label": "BEARING ERROR\nRADAR TRUE BEARING (TBᵣ)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "BEARING ERROR (B = TB s - TB R)",
+                  "label": "BEARING ERROR (B = TBₛ - TBᵣ)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "SONAR RANGE (R s) (KM)",
+                  "label": "SONAR RANGE (Rₛ)\n(KM)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "RADAR RANGE (R R) (KM)",
+                  "label": "RANGE ERROR\nRADAR RANGE (Rᵣ)\n(KM)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "RANGE ERROR (R = R s - R R)",
+                  "label": "RANGE ERROR (R = Rₛ - Rᵣ)",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1973,200 +1965,145 @@
             "columns": [],
             "rows": [
               {
-                "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1",
+                "_id": "bearing_range_error_table_3_row_1",
                 "cells": [
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_1_static",
+                    "_id": "bearing_range_error_table_3_row_1_cell_1_serial",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_2_table2_4_cut__forloop_counter",
-                    "key": "table2_4_cut_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_2_cut_no",
+                    "key": "table_3_cut_no",
+                    "name": "table_3_cut_no",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_3_table2_4_time__forloop_counter",
-                    "key": "table2_4_time_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_3_time",
+                    "key": "table_3_time",
+                    "name": "table_3_time",
                     "type": "time",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "time",
-                    "options": null,
+                    "placeholder": "HH:MM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_4_table2_4_tbs__forloop_counter",
-                    "key": "table2_4_tbs_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_4_sonar_true_bearing",
+                    "key": "table_3_sonar_true_bearing",
+                    "name": "table_3_sonar_true_bearing",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_5_table2_4_tbr__forloop_counter",
-                    "key": "table2_4_tbr_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_5_radar_true_bearing",
+                    "key": "table_3_radar_true_bearing",
+                    "name": "table_3_radar_true_bearing",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_6_table2_4_bearing_error__forloop_counter",
-                    "key": "table2_4_bearing_error_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_6_bearing_error",
+                    "key": "table_3_bearing_error",
+                    "name": "table_3_bearing_error",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_7_table2_4_rs__forloop_counter",
-                    "key": "table2_4_rs_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_7_sonar_range",
+                    "key": "table_3_sonar_range",
+                    "name": "table_3_sonar_range",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_8_table2_4_rr__forloop_counter",
-                    "key": "table2_4_rr_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_8_radar_range",
+                    "key": "table_3_radar_range",
+                    "name": "table_3_radar_range",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "table_2_4_error_in_bearing_range_for_offline_computation_matrix_1_row_1_cell_9_table2_4_range_error__forloop_counter",
-                    "key": "table2_4_range_error_{{ forloop.counter }}",
+                    "_id": "bearing_range_error_table_3_row_1_cell_9_range_error",
+                    "key": "table_3_range_error",
+                    "name": "table_3_range_error",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               }
             ],
-            "showRowActions": false,
+            "isDynamic": true,
+            "allowAddRow": true,
+            "allowDeleteRow": true,
             "minRows": 1
           }
         ],
-
         "fields_3": [
           {
             "_id": "table2_4_std_dev_bearing_error",
@@ -2201,7 +2138,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2210,13 +2147,15 @@
                   "label": "SOURCE LEVEL SETTING",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "TX MODE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "MHR IN VIDEO (KM)",
@@ -2228,13 +2167,15 @@
                   "label": "RANGE IMPROVEMENT IN KM FROM PREVIOUS SL",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "400px"
                 },
                 {
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "600px"
                 }
               ]
             ],
@@ -2257,7 +2198,7 @@
                     "value": "-24 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_1_cell_3_static",
@@ -2265,7 +2206,7 @@
                     "value": "OMNI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_1_cell_4_table3_1_mhr_video_1",
@@ -2352,7 +2293,7 @@
                     "value": "-18 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_2_cell_3_static",
@@ -2360,7 +2301,7 @@
                     "value": "OMNI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_2_cell_4_table3_1_mhr_video_2",
@@ -2447,7 +2388,7 @@
                     "value": "-24 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_3_cell_3_static",
@@ -2455,7 +2396,7 @@
                     "value": "DRDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_3_cell_4_table3_1_mhr_video_3",
@@ -2542,7 +2483,7 @@
                     "value": "-12 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_4_cell_3_static",
@@ -2550,7 +2491,7 @@
                     "value": "OMNI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_4_cell_4_table3_1_mhr_video_4",
@@ -2637,7 +2578,7 @@
                     "value": "-18 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_5_cell_3_static",
@@ -2645,7 +2586,7 @@
                     "value": "DRDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_5_cell_4_table3_1_mhr_video_5",
@@ -2732,7 +2673,7 @@
                     "value": "-6 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_6_cell_3_static",
@@ -2740,7 +2681,7 @@
                     "value": "OMNI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_6_cell_4_table3_1_mhr_video_6",
@@ -2827,7 +2768,7 @@
                     "value": "-12 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_7_cell_3_static",
@@ -2835,7 +2776,7 @@
                     "value": "DRDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_7_cell_4_table3_1_mhr_video_7",
@@ -2922,7 +2863,7 @@
                     "value": "-0 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_8_cell_3_static",
@@ -2930,7 +2871,7 @@
                     "value": "OMNI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_8_cell_4_table3_1_mhr_video_8",
@@ -3017,7 +2958,7 @@
                     "value": "-6 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_9_cell_3_static",
@@ -3025,7 +2966,7 @@
                     "value": "DRDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_9_cell_4_table3_1_mhr_video_9",
@@ -3112,7 +3053,7 @@
                     "value": "-0 dB",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_10_cell_3_static",
@@ -3120,7 +3061,7 @@
                     "value": "DRDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_3_1_order_of_changing_transmission_mode_source_level_matrix_1_row_10_cell_4_table3_1_mhr_video_10",
@@ -3197,7 +3138,7 @@
         ],
         "fields_4": [
           {
-            "type":"label",
+            "type": "label",
             "value": "TABLE 3-2. ACTIVE MHR READINGS",
             "colSpan": 12
           },
@@ -3211,7 +3152,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "rows": 2,
+            "rows": 3,
             "colSpan": 12
           }
         ],
@@ -4192,7 +4133,8 @@
                   "label": "TARGET POSITION",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "150px"
                 },
                 {
                   "label": "OWN SPEED (KNOTS)",
@@ -5248,7 +5190,7 @@
             "disabled": false,
             "placeholder": "",
             "rows": 2,
-            "colSpan" : 12
+            "colSpan": 12
           }
         ],
         "tables_6": [
@@ -5885,7 +5827,7 @@
                     "value": "Stbd GT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_1_cell_9_ship_data_status_1",
@@ -6118,7 +6060,7 @@
                     "value": "Port GT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_2_cell_9_ship_data_status_2",
@@ -6351,7 +6293,7 @@
                     "value": "Port DA",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_3_cell_9_ship_data_status_3",
@@ -6584,7 +6526,7 @@
                     "value": "Fwd Fire Pump",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_4_cell_9_ship_data_status_4",
@@ -6817,7 +6759,7 @@
                     "value": "Stbd Refrigerating Plant",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_5_cell_9_ship_data_status_5",
@@ -7050,7 +6992,7 @@
                     "value": "Stbd Steering Motor",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_6_cell_9_ship_data_status_6",
@@ -7283,7 +7225,7 @@
                     "value": "Port Steering Motor Outboard Servo",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_7_cell_9_ship_data_status_7",
@@ -7516,7 +7458,7 @@
                     "value": "Air Compressor Inboard Servo",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_8_cell_9_ship_data_status_8",
@@ -7749,7 +7691,7 @@
                     "value": "Air Compressor",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_9_cell_9_ship_data_status_9",
@@ -7982,7 +7924,7 @@
                     "value": "Both Main Engine A/C",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_ship_data_to_be_filled_every_hour_matrix_1_row_10_cell_9_ship_data_status_10",
@@ -8508,7 +8450,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -8577,7 +8519,7 @@
                   {
                     "_id": "table_navigational_radar_data_radar_room_run_1_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -8793,7 +8735,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -8845,7 +8787,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "SER",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -8899,7 +8841,7 @@
                   {
                     "_id": "table_active_sonar_doppler_accuracy_checks_scr_run_1_table_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -9088,7 +9030,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -9128,7 +9070,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "SER",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -9170,7 +9112,7 @@
                   {
                     "_id": "table_error_in_doppler_for_offline_computation_run_1_table_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -9315,7 +9257,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -9379,7 +9321,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "SER",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -9445,7 +9387,7 @@
                   {
                     "_id": "table_navigational_radar_data_radar_room_run_2_table_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -9678,7 +9620,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -9718,7 +9660,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "SER",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -9760,7 +9702,7 @@
                   {
                     "_id": "table_error_in_doppler_for_offline_computation_run_2_table_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -9888,7 +9830,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -9940,7 +9882,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "SER",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -9994,7 +9936,7 @@
                   {
                     "_id": "table_active_sonar_doppler_accuracy_checks_scr_run_2_table_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -10169,7 +10111,8 @@
                   "label": "RUN NO.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "DOPPLER (KNOTS)",
@@ -10215,7 +10158,7 @@
                   {
                     "_id": "table_standard_deviation_of_doppler_to_be_achieved_matrix_1_row_1_cell_2_static",
                     "type": "label",
-                    "value": "\u2264 2",
+                    "value": "≤ 2",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -10289,7 +10232,7 @@
                   {
                     "_id": "table_standard_deviation_of_doppler_to_be_achieved_matrix_1_row_2_cell_2_static",
                     "type": "label",
-                    "value": "\u2264 2",
+                    "value": "≤ 2",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -10363,7 +10306,8 @@
                   "label": "RUN NO.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "7%"
                 },
                 {
                   "label": "RUN NAME",
@@ -10609,7 +10553,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -10686,7 +10630,7 @@
                   {
                     "_id": "table_passive_sonar_bearing_accuracy_checks_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -10908,7 +10852,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -10979,7 +10923,7 @@
                   {
                     "_id": "table_passive_sonar_maximum_holding_checks_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -11511,10 +11455,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "CUT NO",
+                  "label": "CUT NO.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "7%"
                 },
                 {
                   "label": "TIME",
@@ -11642,7 +11587,7 @@
                   {
                     "_id": "table_active_cma_evaluation_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -11990,7 +11935,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "CUT NO",
+                  "label": "CUT NO.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -12115,7 +12060,7 @@
                   {
                     "_id": "table_passive_cma_evaluation_matrix_1_row_1_cell_1_static",
                     "type": "serial",
-                    "value": "{{ forloop.counter }}",
+                    "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"

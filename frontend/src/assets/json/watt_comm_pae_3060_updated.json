@@ -101,7 +101,7 @@
             "isDynamic": true,
             "lookupKey": "ship_name",
             "prefill": true,
-            "prefillSource": "context.ship_name",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -160,9 +160,11 @@
             "type": "textarea",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
-           "colSpan": 4
+           "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           }
         ],
 

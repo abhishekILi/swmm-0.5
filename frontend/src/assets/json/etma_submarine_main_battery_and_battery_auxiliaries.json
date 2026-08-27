@@ -22,22 +22,22 @@
             "key": "mbba_submarine",
             "name": "mbba_submarine",
             "label": "Submarine",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "mbba_submarine",
+            "lookupKey": "ship_name",
             "prefill": true,
-            "prefillSource": "context.mbba_submarine"
+            "prefillSource": "context.ship_name"
           },
           {
             "_id": "mbba_report_date",
             "key": "mbba_report_date",
             "name": "mbba_report_date",
-            "label": "Date *",
+            "label": "Date",
             "type": "date",
             "value": "",
             "required": true,
@@ -54,10 +54,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width" : "7%"
                 },
                 {
                   "label": "TEST / NOMINAL VALUE",
@@ -802,16 +803,18 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width" : "7%"
                 },
                 {
                   "label": "TEST/NOMINAL VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 },
                 {
                   "label": "ACTUAL VALUE",
@@ -1125,16 +1128,18 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width" : "7%"
                 },
                 {
                   "label": "TEST/NOMINAL VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"20%"
                 },
                 {
                   "label": "ACTUAL VALUE",

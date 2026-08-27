@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -25,7 +25,7 @@
             "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
@@ -76,16 +76,16 @@
             "key": "equipment",
             "name": "equipment",
             "label": "Equipment",
-            "type": "select",
+            "type": "textarea",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -137,8 +137,6 @@
             "isDynamic": false
           }
         ],
-        "tables_1": [],
-
         "tables_2": [
           {
             "id": "checks_table_1",
@@ -147,7 +145,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -181,7 +179,7 @@
             "columns": [
               {
                 "key": "ser_no",
-                "label": "Ser No.",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1008,6 +1006,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_table_1_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_table_1_test_dropdown",
+                    "key": "table_1_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_1_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -1020,7 +1063,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1054,7 +1097,7 @@
             "columns": [
               {
                 "key": "ser_no",
-                "label": "Ser No.",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1098,7 +1141,7 @@
                   {
                     "_id": "checks_table_2_row_1_cell_2_static",
                     "type": "label",
-                    "value": "210 \u2013 270",
+                    "value": "210 – 270",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1265,6 +1308,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_table_2_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_table_2_test_dropdown",
+                    "key": "table_2_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_2_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -1277,7 +1365,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1311,7 +1399,7 @@
             "columns": [
               {
                 "key": "ser_no",
-                "label": "Ser No.",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1394,12 +1482,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "yes",
-                        "value": "yes"
+                        "label": "OK",
+                        "value": "OK"
                       },
                       {
-                        "label": "no",
-                        "value": "no"
+                        "label": "Not Ok",
+                        "value": "Not Ok"
                       }
                     ],
                     "colspan": 1,
@@ -1499,12 +1587,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "yes",
-                        "value": "yes"
+                        "label": "OK",
+                        "value": "OK"
                       },
                       {
-                        "label": "no",
-                        "value": "no"
+                        "label": "Not Ok",
+                        "value": "Not Ok"
                       }
                     ],
                     "colspan": 1,
@@ -1604,12 +1692,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "yes",
-                        "value": "yes"
+                        "label": "OK",
+                        "value": "OK"
                       },
                       {
-                        "label": "no",
-                        "value": "no"
+                        "label": "Not Ok",
+                        "value": "Not Ok"
                       }
                     ],
                     "colspan": 1,
@@ -1655,6 +1743,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_table_3_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_table_3_test_dropdown",
+                    "key": "table_3_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_3_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -1667,7 +1800,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -1822,6 +1955,94 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_matrix_4_bearing_accuracy_result_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_4_bearing_accuracy_result_label",
+                    "type": "label",
+                    "value": "Bearing Accuracy as RMS Value for {{ table.frequency }} MHz:",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_4_bearing_accuracy_result",
+                    "key": "4{{ table.letter|lower }}_table_bearing_accuracy_result",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_4_bearing_accuracy_specification",
+                    "type": "label",
+                    "value": "RMS Specified bearing accuracy:- {{ table.rms_accuracy }}° RMS",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_4_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_4_test_dropdown",
+                    "key": "table_4_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_4_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": false
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -1830,11 +2051,11 @@
           {
             "id": "checks_matrix_5",
             "sectionType": "matrixTable",
-            "title": "Table :5 Test Data Record for DF Accuracy (Ship Consort)",
+            "title": "<div><b>Table :5 Test Data Record for DF Accuracy (Ship Consort)</b></div><div style=\"display:flex;align-items:center;gap:4px;margin:2px 0 4px 0;\"><label for=\"table_5_frequency_mhz\">Frequency in MHz</label><input id=\"table_5_frequency_mhz\" name=\"table_5_frequency_mhz\" data-key=\"table_5_frequency_mhz\" type=\"text\" style=\"width:170px;height:22px;box-sizing:border-box;\" /></div>",
             "topHeaders": [
               [
                 {
-                  "label": "S.No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -3110,6 +3331,120 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_matrix_5_df_accuracy_result_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_5_df_accuracy_result_label",
+                    "type": "label",
+                    "value": "DF Accuracy (Ship Consort) Test Result:",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_5_df_accuracy_result",
+                    "key": "table_5_df_accuracy_test_result",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_5_df_accuracy_result_unit",
+                    "type": "label",
+                    "value": "° RMS",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_5_specification_row_1",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_5_specification_1",
+                    "type": "label",
+                    "value": "Specified bearing accuracy: < 4.5° RMS (30 - 100 MHz)",
+                    "colspan": 6,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_5_specification_row_2",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_5_specification_2",
+                    "type": "label",
+                    "value": "< 3.5° RMS (100 - 1000 MHz)",
+                    "colspan": 6,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_5_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_5_test_dropdown",
+                    "key": "table_5_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_5_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": false
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -3119,10 +3454,36 @@
             "id": "checks_matrix_6",
             "sectionType": "matrixTable",
             "title": "Table :6 Test Data Record for DF Accuracy (Air Consort)",
+            "fields": [
+              {
+                "_id": "checks_matrix_6_frequency",
+                "key": "table_6_frequency_mhz",
+                "type": "input",
+                "value": "",
+                "rows": null,
+                "required": false,
+                "disabled": false,
+                "placeholder": "",
+                "inputType": "text",
+                "options": null,
+                "align": "left",
+                "isDynamic": false,
+                "lookupKey": null,
+                "prefill": null,
+                "prefillSource": null,
+                "lockAfterPrefill": null,
+                "hiddenKey": null,
+                "displayKey": null,
+                "label": "Frequency in MHz",
+                "position": "beforeTable",
+                "display": "inline",
+                "width": "170px"
+              }
+            ],
             "topHeaders": [
               [
                 {
-                  "label": "S.No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -4398,6 +4759,120 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_matrix_6_df_accuracy_result_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_6_df_accuracy_result_label",
+                    "type": "label",
+                    "value": "DF Accuracy (Air Consort) Test Result:",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_6_df_accuracy_result",
+                    "key": "table_6_df_accuracy_test_result",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null,
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "_id": "checks_matrix_6_df_accuracy_result_unit",
+                    "type": "label",
+                    "value": "° RMS",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_6_specification_row_1",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_6_specification_1",
+                    "type": "label",
+                    "value": "Specified bearing accuracy: < 4.5° RMS (30 - 100 MHz)",
+                    "colspan": 6,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_6_specification_row_2",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_6_specification_2",
+                    "type": "label",
+                    "value": "< 3.5° RMS (100 - 1000 MHz)",
+                    "colspan": 6,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_6_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_6_test_dropdown",
+                    "key": "table_6_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_6_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": false
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -4407,10 +4882,36 @@
             "id": "checks_table_7",
             "sectionType": "simpleTable",
             "title": "Table :7 Test Data Record for Monitoring of Narrow band signals (Ground Emitter)",
+            "fields": [
+              {
+                "_id": "checks_table_7_date",
+                "key": "table_7_date",
+                "type": "input",
+                "label": "Date",
+                "value": "",
+                "rows": null,
+                "required": false,
+                "disabled": false,
+                "placeholder": "dd-mm-yyyy",
+                "inputType": "date",
+                "options": null,
+                "align": "left",
+                "position": "beforeTable",
+                "display": "inline",
+                "width": "115px",
+                "isDynamic": false,
+                "lookupKey": null,
+                "prefill": null,
+                "prefillSource": null,
+                "lockAfterPrefill": null,
+                "hiddenKey": null,
+                "displayKey": null
+              }
+            ],
             "topHeaders": [
               [
                 {
-                  "label": "S.NO",
+                  "label": "SNO.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -4765,6 +5266,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_table_7_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_table_7_test_dropdown",
+                    "key": "table_7_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_7_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": false
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -4777,7 +5323,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "S.No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -4941,6 +5487,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_matrix_8_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_8_test_dropdown",
+                    "key": "table_8_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_8_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -4953,7 +5544,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "S.No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -5080,6 +5671,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_matrix_9_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_matrix_9_test_dropdown",
+                    "key": "table_9_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_9_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -5092,7 +5728,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "S.No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -5158,7 +5794,7 @@
                   {
                     "_id": "checks_table_10_row_1_cell_2_static",
                     "type": "label",
-                    "value": "DF <br>DF Bite <br> RF BitFields <br> Champ FX3 Board <br>BIT Fields DAQ Board 1-2 BIT Report Champ FX3 Board Temperature",
+                    "value": "DF<br>DF Bite<br>RF BitFields<br>Champ FX3 Board BIT<br>Fields<br>DAQ Board 1-2 BIT<br>Report<br>Champ FX3 Board Temperature&gt;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -5223,7 +5859,7 @@
                   {
                     "_id": "checks_table_10_row_2_cell_2_static",
                     "type": "label",
-                    "value": "MRx1 MRx1 RF Status MRx2 MRx2 RF Status",
+                    "value": "MRx1<br>MRx1 RF Status<br>MRx2<br>MRx2 RF Status",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -5338,6 +5974,51 @@
                     "displayKey": null
                   }
                 ]
+              },
+              {
+                "_id": "checks_table_10_test_dropdown_row",
+                "cells": [
+                  {
+                    "_id": "checks_table_10_test_dropdown",
+                    "key": "table_10_test_result",
+                    "type": "select",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "-- Select test --",
+                    "inputType": null,
+                    "options": [
+                      {
+                        "label": "PASS",
+                        "value": "PASS"
+                      },
+                      {
+                        "label": "FAIL",
+                        "value": "FAIL"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_table_10_test_dropdown_label",
+                    "type": "label",
+                    "value": "Test",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
               }
             ],
             "showRowActions": false,
@@ -5369,8 +6050,7 @@
             "placeholder": "",
             "inputType": "text"
           }
-        ],
-        "tables_3": []
+        ]
       }
     }
   ]

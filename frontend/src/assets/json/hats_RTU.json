@@ -6,29 +6,30 @@
     {
       "id": "basic_information",
       "title": "Basic Information",
-      "sectionType": "fields",
-      "fields": [
+      "sectionType": "form",
+      "sectionTitle": "Basic Information",
+      "sectionGroup": {
+        "fields_1": [
         {
-          "type": "select",
+          "type": "input",
           "name": "keltron_em_log_rtu_name_of_ship",
           "label": "Name of Ship",
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
           "options": [],
           "isDynamic": true,
-          "lookupKey": "ship_id",
-          "prefill": true,
-          "prefillSource": "context.keltron_em_log_rtu_name_of_ship",
-          "tree": false
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
         },
         {
           "type": "select",
           "name": "keltron_em_log_rtu_equipment",
           "label": "Equipment",
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
           "options": [
@@ -41,7 +42,9 @@
               "value": "KELTRON_EM_LOG_RTU_HATS"
             }
           ],
-          "isDynamic": false
+          "isDynamic": false,
+          "prefill": true,
+          "prefillSource": "equipment.nomenclature"
         },
         {
           "type": "date",
@@ -93,14 +96,7 @@
           "inputType": "text"
         }
       ],
-      "tables": []
-    },
-    {
-      "id": "checks",
-      "title": "Checks",
-      "sectionType": "matrixTable",
-      "fields": [],
-      "tables": [
+      "tables_1": [
         {
           "id": "checks_matrix_1",
           "sectionType": "matrixTable",
@@ -108,13 +104,13 @@
           "topHeaders": [
             [
               {
-                "label": "Ser",
+                "label": "SNo.",
                 "colspan": 1,
                 "rowspan": 2,
                 "align": "center"
               },
               {
-                "label": "TRIAL SER.",
+                "label": "TRIAL SNo.",
                 "colspan": 1,
                 "rowspan": 2,
                 "align": "center"
@@ -123,8 +119,8 @@
                 "label": "Description",
                 "colspan": 1,
                 "rowspan": 2,
-                "align": "center"
-              },
+                "align": "center",
+                "width": "20%"              },
               {
                 "label": "Remarks",
                 "colspan": 2,
@@ -614,10 +610,10 @@
                   "align": "left"
                 },
                 {
-                  "_id": "checks_matrix_1_row_9_cell_3_keltron_em_log_rtu_remark_15",
-                  "key": "keltron_em_log_rtu_remark_15",
+                  "_id": "checks_matrix_1_row_9_cell_3_keltron_em_log_rtu_remark_17",
+                  "key": "keltron_em_log_rtu_remark_17",
                   "type": "textarea",
-                  "label": "keltron em log rtu remark 15",
+                  "label": "keltron em log rtu remark 17",
                   "value": "",
                   "rows": 1,
                   "required": false,
@@ -629,10 +625,10 @@
                   "align": "left"
                 },
                 {
-                  "_id": "checks_matrix_1_row_9_cell_4_keltron_em_log_rtu_remark_16",
-                  "key": "keltron_em_log_rtu_remark_16",
+                  "_id": "checks_matrix_1_row_9_cell_4_keltron_em_log_rtu_remark_18",
+                  "key": "keltron_em_log_rtu_remark_18",
                   "type": "textarea",
-                  "label": "keltron em log rtu remark 16",
+                  "label": "keltron em log rtu remark 18",
                   "value": "",
                   "rows": 1,
                   "required": false,
@@ -665,10 +661,10 @@
                   "align": "left"
                 },
                 {
-                  "_id": "checks_matrix_1_row_10_cell_3_keltron_em_log_rtu_remark_15",
-                  "key": "keltron_em_log_rtu_remark_15",
+                  "_id": "checks_matrix_1_row_10_cell_3_keltron_em_log_rtu_remark_19",
+                  "key": "keltron_em_log_rtu_remark_19",
                   "type": "textarea",
-                  "label": "keltron em log rtu remark 15",
+                  "label": "keltron em log rtu remark 19",
                   "value": "",
                   "rows": 1,
                   "required": false,
@@ -680,10 +676,10 @@
                   "align": "left"
                 },
                 {
-                  "_id": "checks_matrix_1_row_10_cell_4_keltron_em_log_rtu_remark_16",
-                  "key": "keltron_em_log_rtu_remark_16",
+                  "_id": "checks_matrix_1_row_10_cell_4_keltron_em_log_rtu_remark_20",
+                  "key": "keltron_em_log_rtu_remark_20",
                   "type": "textarea",
-                  "label": "keltron em log rtu remark 16",
+                  "label": "keltron em log rtu remark 20",
                   "value": "",
                   "rows": 1,
                   "required": false,
@@ -701,6 +697,7 @@
           "minRows": 1
         }
       ]
+      }
     }
   ]
 }

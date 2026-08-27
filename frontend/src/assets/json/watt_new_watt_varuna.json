@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Infromation",
             "colSpan": 12
           },
@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -84,7 +84,9 @@
                 "value": ""
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "varuna_date",
@@ -97,7 +99,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "varuna_nature_of_trials",
@@ -109,7 +111,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -143,16 +145,17 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sl. No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
                 },
                 {
-                  "label": "Trial Ser",
+                  "label": "Trial SNo.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "50px"
                 },
                 {
                   "label": "Check Description as per Schedule",
@@ -170,7 +173,8 @@
                   "label": "Presenting Authority Remarks",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "400px"
                 }
               ],
               [
@@ -209,7 +213,7 @@
                     "value": "Man Machine Interface Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_4_varuna_man_machine_interface_checks",
@@ -291,7 +295,7 @@
                     "value": "User Authentication",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_varuna_user_authentication",
@@ -373,7 +377,7 @@
                     "value": "Select System Configuration",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_varuna_select_system_configuration",
@@ -455,7 +459,7 @@
                     "value": "Remove Unnecessary Files",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_varuna_remove_unnecessary_files",
@@ -537,7 +541,7 @@
                     "value": "Emitter Library Management",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_varuna_emitter_library_management",
@@ -619,7 +623,7 @@
                     "value": "User Management",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_varuna_user_management",
@@ -701,7 +705,7 @@
                     "value": "Replay",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_varuna_replay",
@@ -783,7 +787,7 @@
                     "value": "Display Mode Selection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_4_varuna_display_mode_selection",
@@ -865,7 +869,7 @@
                     "value": "Zoom Commands",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_4_varuna_zoom_commands",
@@ -947,7 +951,7 @@
                     "value": "Change True Relative Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_4_varuna_change_true_relative_mode",
@@ -1029,7 +1033,7 @@
                     "value": "Display Filters",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_4_varuna_display_filters",
@@ -1111,7 +1115,7 @@
                     "value": "ESMP",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_varuna_esmp",
@@ -1193,7 +1197,7 @@
                     "value": "Library Match For Warner Entries At ES Processor",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_4_varuna_library_match_warner_entries_es_processor",
@@ -1275,7 +1279,7 @@
                     "value": "Receiver Configuration",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_varuna_receiver_configuration",
@@ -1357,7 +1361,7 @@
                     "value": "Perform Radar Fingerprint System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_varuna_perform_radar_fingerprint_system",
@@ -1439,7 +1443,7 @@
                     "value": "ESI",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_varuna_esi",
@@ -1521,7 +1525,7 @@
                     "value": "Map",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_varuna_map",
@@ -1603,7 +1607,7 @@
                     "value": "Perform SELF Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_varuna_perform_self_test",
@@ -1685,7 +1689,7 @@
                     "value": "Start/Stop Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_varuna_start_stop_recording",
@@ -1767,7 +1771,7 @@
                     "value": "Go to Offline Logout",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_varuna_go_to_offline_logout",
@@ -1849,7 +1853,7 @@
                     "value": "Print Emitter Data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_4_varuna_print_emitter_data",
@@ -1931,7 +1935,7 @@
                     "value": "CMS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_varuna_cms",
@@ -2013,7 +2017,7 @@
                     "value": "Import/Export Files Between SCD & FDL",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_4_varuna_import_export_files_scd_fdl",
@@ -2095,7 +2099,7 @@
                     "value": "RFPS MMI Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_4_varuna_rfps_mmi_test",
@@ -2177,7 +2181,7 @@
                     "value": "System Startup, Fine grain Analysis & Emitter Identification MMI Screens",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_4_varuna_system_startup_fine_grain_emitter_id_mmi",
@@ -2259,7 +2263,7 @@
                     "value": "System Self Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_4_varuna_system_self_test",
@@ -2341,7 +2345,7 @@
                     "value": "Built-In Test Equipment (BITE) Tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_27_cell_4_varuna_bite_tests",
@@ -2423,7 +2427,7 @@
                     "value": "Maintenance BITE With Internal System BITE Source- NB Rx",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_28_cell_4_varuna_bite_internal_nb_rx",
@@ -2505,7 +2509,7 @@
                     "value": "Maintenance BITE With Internal System BITE Source- BB Rx-L",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_29_cell_4_varuna_bite_internal_bb_rx_l",
@@ -2587,7 +2591,7 @@
                     "value": "Maintenance BITE With Internal System BITE Source- BB Rx-H",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_30_cell_4_varuna_bite_internal_bb_rx_h",
@@ -2669,7 +2673,7 @@
                     "value": "Maintenance BITE With Internal System BITE Source- RFPS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_31_cell_4_varuna_bite_internal_rfps",
@@ -2751,7 +2755,7 @@
                     "value": "Maintenance BITE With External System BITE Source- NB Rx",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_32_cell_4_varuna_bite_external_nb_rx",
@@ -2833,7 +2837,7 @@
                     "value": "Maintenance BITE With External System BITE Source- BB Rx-L",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_33_cell_4_varuna_bite_external_bb_rx_l",
@@ -2915,7 +2919,7 @@
                     "value": "Maintenance BITE With External System BITE Source- BB Rx-H",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_34_cell_4_varuna_bite_external_bb_rx_h",
@@ -2997,7 +3001,7 @@
                     "value": "Maintenance BITE With External System BITE Source- RFPS(0.4-2.2GHz)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_35_cell_4_varuna_bite_external_rfps_04_22ghz",
@@ -3079,7 +3083,7 @@
                     "value": "Maintenance BITE With External System BITE Source- RFPS(2.2-18GHz)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_36_cell_4_varuna_bite_external_rfps_22_18ghz",
@@ -3161,7 +3165,7 @@
                     "value": "FDL Interface /Library Data Loading And Library Identification Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_37_cell_4_varuna_fdl_interface_library_data_loading",
@@ -3243,7 +3247,7 @@
                     "value": "FDL Interface Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_38_cell_4_varuna_fdl_interface_test",
@@ -3325,7 +3329,7 @@
                     "value": "Import/Export Files Between FDL & SCD Computer",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_39_cell_4_varuna_import_export_files_fdl_scd",
@@ -3407,7 +3411,7 @@
                     "value": "File Transfer Between FDL & RFPS Computer",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_40_cell_4_varuna_file_transfer_fdl_rfps",
@@ -3489,7 +3493,7 @@
                     "value": "Library Downloading From FDL And Emitter Identification At SCD",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_41_cell_4_varuna_library_downloading_fdl_emitter_id_scd",
@@ -3571,7 +3575,7 @@
                     "value": "Loading Sanchay Library to Varuna",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_42_cell_4_varuna_loading_sanchay_library",
@@ -3653,7 +3657,7 @@
                     "value": "Import ESM Emitter Library File From Sanchay FC to Varuna FDL (MLM ELINT)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_43_cell_4_varuna_import_esm_emitter_library_sanchay_mlm_elint",
@@ -3735,7 +3739,7 @@
                     "value": "Exporting Of Varuna ESM Recorded File To Sanchay Field Component",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_44_cell_4_varuna_exporting_esm_recorded_file_sanchay",
@@ -3817,7 +3821,7 @@
                     "value": "Import RFPS Emitter Library File From Sanchay FC To Varuna FDL (MLM RFPS)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_45_cell_4_varuna_import_rfps_emitter_library_sanchay_mlm_rfps",
@@ -3899,7 +3903,7 @@
                     "value": "Export RFPS Recorded Data File of Varuna To Sanchay FC (PDMA RFPS)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_46_cell_4_varuna_export_rfps_recorded_data_sanchay_pdma",
@@ -3967,7 +3971,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -4071,9 +4075,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
-            "value" : "Presenting Authority",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Presenting Authority",
+            "colSpan": 12
           },
           {
             "_id": "varuna_presenting_authority",
@@ -4130,7 +4134,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           }
         ],
         "tables_2": []

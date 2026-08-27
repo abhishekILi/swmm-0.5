@@ -12,7 +12,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Trial Header Information",
             "colSpan": 12
           },
@@ -31,7 +31,7 @@
             "lookupKey": "ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "equipment",
@@ -44,7 +44,9 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
@@ -57,7 +59,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "trial_date",
@@ -70,7 +72,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "department",
@@ -82,7 +84,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select Department --",
@@ -117,7 +119,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select Nature of Trials --",
@@ -149,14 +151,15 @@
           {
             "id": "ch_12_bi_static_trials_table_1",
             "sectionType": "simpleTable",
-            "title": "CH 12 \u2014 Bi-Static Trials",
+            "title": "CH 12 — Bi-Static Trials",
             "topHeaders": [
               [
                 {
-                  "label": "Trial Ser",
+                  "label": "Trial SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "Check Description as per Schedule",
@@ -168,13 +171,15 @@
                   "label": "Result (Sat / Unsat)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "200px"
                 },
                 {
                   "label": "Presenting Authority Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "800px"
                 }
               ]
             ],
@@ -227,7 +232,7 @@
                   {
                     "_id": "ch_12_bi_static_trials_table_1_row_1_cell_3_ch12_bistatic_rmk",
                     "key": "ch12_bistatic_rmk",
-                    "type": "select",
+                    "type": "radio",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -235,10 +240,6 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      {
-                        "label": "--",
-                        "value": ""
-                      },
                       {
                         "label": "Sat",
                         "value": ""
@@ -297,7 +298,8 @@
                   "label": "Parameter",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "150px"
                 },
                 {
                   "label": "Result to be achieved",
@@ -315,7 +317,8 @@
                   "label": "Sat / Unsat",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "200px"
                 }
               ]
             ],
@@ -390,7 +393,7 @@
                   {
                     "_id": "ch_12_bi_static_trials_table_2_row_1_cell_4_tbl48_range_rmk",
                     "key": "tbl48_range_rmk",
-                    "type": "select",
+                    "type": "radio",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -398,10 +401,6 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      {
-                        "label": "--",
-                        "value": ""
-                      },
                       {
                         "label": "Sat",
                         "value": ""
@@ -468,7 +467,7 @@
                   {
                     "_id": "ch_12_bi_static_trials_table_2_row_2_cell_4_tbl48_bearing_rmk",
                     "key": "tbl48_bearing_rmk",
-                    "type": "select",
+                    "type": "radio",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -476,10 +475,6 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      {
-                        "label": "--",
-                        "value": ""
-                      },
                       {
                         "label": "Sat",
                         "value": ""

@@ -18,6 +18,23 @@
             "value": "Bsic Information",
             "colSpan" : 12
           },
+          
+          {
+           "_id": "ship",
+            "key": "ship",
+            "name": "ship",
+            "label": "Ship ",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
           {
             "_id": "date_of_trials",
             "key": "date_of_trials",
@@ -29,40 +46,6 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "unit",
-            "key": "unit",
-            "name": "unit",
-            "label": "INS",
-            "type": "select",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "options": [
-              {
-                "label": "-- Select (Ship) --",
-                "value": ""
-              },
-              {
-                "label": "INS Alpha",
-                "value": "INS_A"
-              },
-              {
-                "label": "INS Bravo",
-                "value": "INS_B"
-              },
-              {
-                "label": "INS Charlie",
-                "value": "INS_C"
-              },
-              {
-                "label": "INS Delta",
-                "value": "INS_D"
-              }
-            ],
-            "isDynamic": false
           }
         ],
         "tables_1": [
@@ -73,10 +56,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "Trial Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"6%"
                 },
                 {
                   "label": "TEST/NOMINAL VALUE",
@@ -123,7 +107,7 @@
                     "value": "Visual Inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_1_cell_3_t2r1",
@@ -219,7 +203,7 @@
                     "value": "Visual Inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_2_cell_3_t2r2",
@@ -315,7 +299,7 @@
                     "value": "Visual Inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_3_cell_3_t2r3",
@@ -411,7 +395,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_4_cell_3_t2r4",
@@ -507,7 +491,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_5_cell_3_t2r5",
@@ -603,7 +587,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_6_cell_3_t2r6",
@@ -699,7 +683,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_7_cell_3_t2r7",
@@ -795,7 +779,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_8_cell_3_t2r8",
@@ -891,7 +875,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_9_cell_3_t2r9",
@@ -987,7 +971,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_10_cell_3_t2r10",
@@ -1083,7 +1067,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_11_cell_3_t2r11",
@@ -1179,7 +1163,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_12_cell_3_t2r12",
@@ -1275,7 +1259,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_13_cell_3_t2r13",
@@ -1371,7 +1355,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_14_cell_3_t2r14",
@@ -1467,7 +1451,7 @@
                     "value": "Functional Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_15_cell_3_t2r15",

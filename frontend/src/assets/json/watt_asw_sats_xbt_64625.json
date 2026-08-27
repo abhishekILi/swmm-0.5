@@ -13,9 +13,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type" : "label",
-            "value" : "Basic Information",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -32,7 +32,7 @@
             "lookupKey": "ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "department",
@@ -44,7 +44,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               { "label": "-- Select --", "value": "" },
               { "label": "ND", "value": "ND" },
@@ -62,14 +62,14 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
-            "colSpan" : 4
+            "prefillSource": "equipment.nomenclature",
+            "colSpan": 4
           },
           {
             "_id": "date",
@@ -103,255 +103,343 @@
             "isDynamic": false
           }
         ],
-        "tables_1": [],
         "tables_2": [
           {
-            "id": "section_2_matrix_1",
-            "sectionType": "matrixTable",
+            "id": "xbt_trials_table_2",
+            "sectionType": "simpleTable",
             "title": "",
             "topHeaders": [
               [
-                { "label": "SER", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "OBSERVATIONS", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "RESULT", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "REMARKS", "colspan": 1, "rowspan": 1, "align": "center" }
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "OBSERVATIONS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "RESULT",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "REMARKS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
-            "columns": [],
             "rows": [
               {
-                "_id": "section_2_matrix_1_row_1",
+                "_id": "xbt_trials_table_2_row_1",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_1_cell_1_xbt_64625_embarked_onboard_at",
-                    "key": "xbt_64625_embarked_onboard_at",
-                    "type": "input",
+                    "_id": "xbt_trials_table_2_row_1_embarked_label",
+                    "type": "label",
+                    "value": "Trials team embarked onboard at",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_1_embarked_time",
+                    "key": "xbt_trial_team_embarked_time",
+                    "name": "xbt_trial_team_embarked_time",
+                    "type": "time",
                     "value": "",
                     "required": false,
                     "disabled": false,
-                    "placeholder": "Trials team embarked onboard at",
-                    "inputType": "text",
+                    "placeholder": "HH:MM",
+                    "style": "max-width: 120px; min-width: 100px; width: 100%;",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_1_embarked_date",
+                    "key": "xbt_trial_team_embarked_date",
+                    "name": "xbt_trial_team_embarked_date",
+                    "type": "date",
+                    "lb": "on",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "style": "max-width: 150px; min-width: 130px; width: 100%;",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_1_schedule_label",
+                    "type": "label",
+                    "value": "for SATs XBT as per approved schedule.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_2",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_2_serial",
+                    "type": "serial",
+                    "value": "1.",
+                    "colspan": 1,
+                    "rowspan": 9,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_2_xbt_system_trials",
+                    "key": "xbt_system_trials_observation",
+                    "name": "xbt_system_trials_observation",
+                    "type": "textarea",
+                    "lb": "Annexure - XBT Trials\nXBT system trials -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_2_result",
+                    "key": "xbt_trials_result",
+                    "name": "xbt_trials_result",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 9,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "xbt_trials_table_2_row_2_remarks",
+                    "key": "xbt_trials_remarks",
+                    "name": "xbt_trials_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 9,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_3",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_3_calibration_checks",
+                    "key": "xbt_calibration_checks_observation",
+                    "name": "xbt_calibration_checks_observation",
+                    "type": "textarea",
+                    "lb": "Calibration checks -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_4",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_4_probes_launch",
+                    "key": "xbt_probes_launch_observation",
+                    "name": "xbt_probes_launch_observation",
+                    "type": "textarea",
+                    "lb": "Probes launch -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_5",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_5_speed_0",
+                    "key": "xbt_speed_required_0",
+                    "name": "xbt_speed_required_0",
+                    "type": "textarea",
+                    "lb": "Speed Required\n0 -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_6",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_6_speed_5",
+                    "key": "xbt_speed_required_5",
+                    "name": "xbt_speed_required_5",
+                    "type": "textarea",
+                    "lb": "5 -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_7",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_7_speed_10",
+                    "key": "xbt_speed_required_10",
+                    "name": "xbt_speed_required_10",
+                    "type": "textarea",
+                    "lb": "10 -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_8",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_8_speed_15",
+                    "key": "xbt_speed_required_15",
+                    "name": "xbt_speed_required_15",
+                    "type": "textarea",
+                    "lb": "15 -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_9",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_9_speed_20",
+                    "key": "xbt_speed_required_20",
+                    "name": "xbt_speed_required_20",
+                    "type": "textarea",
+                    "lb": "20 -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_10",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_10_speed_max",
+                    "key": "xbt_speed_required_max",
+                    "name": "xbt_speed_required_max",
+                    "type": "textarea",
+                    "lb": "Max -",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "xbt_trials_table_2_row_11",
+                "cells": [
+                  {
+                    "_id": "xbt_trials_table_2_row_11_general_observations",
+                    "key": "xbt_general_observations",
+                    "name": "xbt_general_observations",
+                    "type": "textarea",
+                    "lb": "General Observations",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_1_cell_2_xbt_64625_embarked_on_date",
-                    "key": "xbt_64625_embarked_on_date",
-                    "type": "input",
+                    "_id": "xbt_trials_table_2_row_11_result_blank",
+                    "type": "label",
                     "value": "",
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "on date for SATs XBT as per approved schedule.",
-                    "inputType": "text",
-                    "colspan": 2,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_header_1",
-                "cells": [
+                    "align": "center"
+                  },
                   {
-                    "_id": "section_2_matrix_1_row_header_1_cell",
+                    "_id": "xbt_trials_table_2_row_11_remarks_blank",
                     "type": "label",
-                    "value": "Annexure - XBT Trials",
-                    "colspan": 4,
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isHeading": true
+                    "align": "center"
                   }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_2",
-                "cells": [
-                  { "type": "label", "value": "1.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "XBT system trials -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_system_trials_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_system_trials_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_3",
-                "cells": [
-                  { "type": "label", "value": "2.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Calibration checks -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_calibration_checks_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_calibration_checks_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_4",
-                "cells": [
-                  { "type": "label", "value": "3.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Probes launch -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_probes_launch_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_probes_launch_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_header_2",
-                "cells": [
-                  {
-                    "_id": "section_2_matrix_1_row_header_2_cell",
-                    "type": "label",
-                    "value": "Speed Required",
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isHeading": true
-                  }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_5",
-                "cells": [
-                  { "type": "label", "value": "4.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "0 -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_speed_0_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_speed_0_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_6",
-                "cells": [
-                  { "type": "label", "value": "5.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "5 -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_speed_5_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_speed_5_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_7",
-                "cells": [
-                  { "type": "label", "value": "6.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "10 -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_speed_10_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_speed_10_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_8",
-                "cells": [
-                  { "type": "label", "value": "7.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "15 -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_speed_15_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_speed_15_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_9",
-                "cells": [
-                  { "type": "label", "value": "8.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "20 -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_speed_20_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_speed_20_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_10",
-                "cells": [
-                  { "type": "label", "value": "9.", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Max -", "colspan": 1, "rowspan": 1, "align": "left" },
-                  {
-                    "key": "xbt_64625_max_speed_result",
-                    "type": "radio",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  { "key": "xbt_64625_max_speed_remarks", "type": "textarea", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               }
-            ],
-            "showRowActions": false,
-            "minRows": 1
+            ]
           }
         ],
         "fields_2": [
@@ -366,7 +454,7 @@
             "disabled": false,
             "placeholder": "",
             "rows": 3,
-            "colSpan" : 12
+            "colSpan": 12
           }
         ]
       }

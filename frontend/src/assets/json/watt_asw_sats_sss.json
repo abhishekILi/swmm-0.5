@@ -12,8 +12,8 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value" : "Section 1",
+            "type": "label",
+            "value": "Section 1",
             "colSpan": 12
           },
           {
@@ -31,7 +31,7 @@
             "lookupKey": "ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "department",
@@ -43,7 +43,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-             "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "Select Department",
@@ -76,10 +76,12 @@
             "type": "input",
             "value": "SSS",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
-             "colSpan" : 4,
-            "inputType": "text"
+            "colSpan": 4,
+            "inputType": "text",
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -132,11 +134,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Section 2",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -151,13 +153,15 @@
                   "label": "RESULT",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "430px"
                 },
                 {
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "430px"
                 }
               ]
             ],
@@ -170,7 +174,7 @@
                     "_id": "section_2_matrix_1_row_1_cell_1_embarked_time",
                     "key": "embarked_time",
                     "type": "input",
-                    "lb" : "Trials team embarked onboard at hrs",
+                    "lb": "Trials team embarked onboard at hrs",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -194,7 +198,7 @@
                     "key": "embarked_date",
                     "type": "date",
                     "value": "",
-                    "lb" : "on for SATs of SSS as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "lb": "on for SATs of SSS as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -281,7 +285,7 @@
                     "value": "SATs",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_result_1",
@@ -346,7 +350,7 @@
                     "value": "Along track resolution and Across track resolution checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_result_2",
@@ -411,7 +415,7 @@
                     "value": "Recorded data playback and analysis",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_result_3",
@@ -476,7 +480,7 @@
                     "value": "Data Exporting",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_result_4",
@@ -541,7 +545,7 @@
                     "value": "Final Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_result_5",
@@ -599,14 +603,14 @@
             "_id": "general_observations",
             "key": "general_observations",
             "name": "general_observations",
-            "label": "general_observations",
+            "label": "General Observations",
             "type": "textarea",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "Enter general observations here...",
-            "rows": 2,
-            "colSpan" : 12
+            "rows": 4,
+            "colSpan": 12
           }
         ],
         "tables_2": [],

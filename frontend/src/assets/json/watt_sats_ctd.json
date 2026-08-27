@@ -18,23 +18,44 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "ship_name",
+            "key": "ship_name",
+            "name": "ship_name",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": false,
             "disabled": false,
-            "placeholder": "",
+            "placeholder": "-- Select Ship --",
             "options": [
-              { "label": "-- Select Ship --", "value": "" },
-              { "label": "INS Alpha", "value": "INS_Alpha" },
-              { "label": "INS Bravo", "value": "INS_Bravo" },
-              { "label": "INS Charlie", "value": "INS_Charlie" },
-              { "label": "INS Delta", "value": "INS_Delta" },
-              { "label": "INS Echo", "value": "INS_Echo" },
-              { "label": "INS Foxtrot", "value": "INS_Foxtrot" }
+              {
+                "label": "-- Select Ship --",
+                "value": ""
+              },
+              {
+                "label": "INS Alpha",
+                "value": "INS_Alpha"
+              },
+              {
+                "label": "INS Bravo",
+                "value": "INS_Bravo"
+              },
+              {
+                "label": "INS Charlie",
+                "value": "INS_Charlie"
+              },
+              {
+                "label": "INS Delta",
+                "value": "INS_Delta"
+              },
+              {
+                "label": "INS Echo",
+                "value": "INS_Echo"
+              },
+              {
+                "label": "INS Foxtrot",
+                "value": "INS_Foxtrot"
+              }
             ],
             "isDynamic": false
           },
@@ -65,14 +86,16 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
               { "label": "-- Select Equipment --", "value": "" },
               { "label": "CTD", "value": "CTD" }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -111,11 +134,11 @@
           {
             "id": "ctd_checks_matrix_1",
             "sectionType": "matrixTable",
-            "title": "CTD — Checks",
+            "title": "CTD \u2014 Checks",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -130,7 +153,8 @@
                   "label": "Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "18%"
                 }
               ]
             ],
@@ -147,14 +171,14 @@
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb": "Trials team embarked onboard at",
+                    "lb": "Trial team embarked onboard at",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "ctd_checks_matrix_1_row_1_cell_2_embarked_date",
@@ -168,21 +192,17 @@
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "ctd_checks_matrix_1_row_1_cell_3_schedule_note",
                     "key": "schedule_note",
                     "name": "schedule_note",
-                    "type": "input",
-                    "inputType": "text",
-                    "value": "",
-                    "lb": "for SATs of Colour Tactical Display as per IHQ MoD (navy) approved schedule. Following observations :-",
-                    "required": false,
-                    "disabled": false,
+                    "type": "label",
+                    "value": "for SATs of Colour Tactical Display as per IHQ MoD (navy) approved schedule. Following observations :-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -195,7 +215,7 @@
                     "key": "check1_label",
                     "name": "check1_label",
                     "type": "label",
-                    "value": "Check 1 – Record the vessel, Location (Bridge, Ops Room etc), Serial and Part Numbers of the CTD and associated Monitor and Processor.",
+                    "value": "Check 1 \u2013 Record the vessel, Location (Bridge, Ops Room etc), Serial and Part Numbers of the CTD and associated Monitor and Processor.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -237,8 +257,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -257,7 +283,7 @@
                     "key": "check2_label",
                     "name": "check2_label",
                     "type": "label",
-                    "value": "Check 2 – Heading Line Alignment (Bearing Accuracy) checks.",
+                    "value": "Check 2 \u2013 Heading Line Alignment (Bearing Accuracy) checks.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -282,7 +308,7 @@
                     "key": "check2_specified_brg",
                     "name": "check2_specified_brg",
                     "type": "label",
-                    "value": "Specified Brg = ± 0.5°",
+                    "value": "Specified Brg = \u00b1 0.5\u00b0",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -294,8 +320,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -314,7 +346,7 @@
                     "key": "check3_label",
                     "name": "check3_label",
                     "type": "label",
-                    "value": "Check 3 – Index Error checks.",
+                    "value": "Check 3 \u2013 Index Error checks.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -339,7 +371,7 @@
                     "key": "check3_specified_rng",
                     "name": "check3_specified_rng",
                     "type": "label",
-                    "value": "Specified Rng = ± 0.01nm",
+                    "value": "Specified Rng = \u00b1 0.01nm",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -351,8 +383,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -371,7 +409,7 @@
                     "key": "check4_label",
                     "name": "check4_label",
                     "type": "label",
-                    "value": "Check 4 – Range Accuracy checks (Optional).",
+                    "value": "Check 4 \u2013 Range Accuracy checks (Optional).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -396,7 +434,7 @@
                     "key": "check4_specified_rng",
                     "name": "check4_specified_rng",
                     "type": "label",
-                    "value": "Specified Rng = ± 0.5% or 25 mtrs",
+                    "value": "Specified Rng = \u00b1 0.5% or 25 mtrs",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -408,8 +446,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -428,7 +472,7 @@
                     "key": "check5_label",
                     "name": "check5_label",
                     "type": "label",
-                    "value": "Check 5 – Bearing Accuracy checks (Relative).",
+                    "value": "Check 5 \u2013 Bearing Accuracy checks (Relative).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -453,7 +497,7 @@
                     "key": "check5_specified_brg",
                     "name": "check5_specified_brg",
                     "type": "label",
-                    "value": "Specified Brg = ± 0.5°",
+                    "value": "Specified Brg = \u00b1 0.5\u00b0",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -465,8 +509,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -485,7 +535,7 @@
                     "key": "check6_label",
                     "name": "check6_label",
                     "type": "label",
-                    "value": "Check 6 – Gyro Compass checks.",
+                    "value": "Check 6 \u2013 Gyro Compass checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -497,8 +547,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -517,7 +573,7 @@
                     "key": "check7_label",
                     "name": "check7_label",
                     "type": "label",
-                    "value": "Check 7 – Bearing Accuracy checks (True).",
+                    "value": "Check 7 \u2013 Bearing Accuracy checks (True).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -542,7 +598,7 @@
                     "key": "check7_specified_brg",
                     "name": "check7_specified_brg",
                     "type": "label",
-                    "value": "Specified Brg = ± 0.5°",
+                    "value": "Specified Brg = \u00b1 0.5\u00b0",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -554,8 +610,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -574,7 +636,7 @@
                     "key": "check8_label",
                     "name": "check8_label",
                     "type": "label",
-                    "value": "Check 8 – Minimum Range checks.",
+                    "value": "Check 8 \u2013 Minimum Range checks.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -599,7 +661,7 @@
                     "key": "check8_specified_rng",
                     "name": "check8_specified_rng",
                     "type": "label",
-                    "value": "Specified Rng = ± 0.02 – 0.03nm",
+                    "value": "Specified Rng = \u00b1 0.02 \u2013 0.03nm",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -611,8 +673,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -631,7 +699,7 @@
                     "key": "check9_label",
                     "name": "check9_label",
                     "type": "label",
-                    "value": "Check 9 – Maximum Ranges checks.",
+                    "value": "Check 9 \u2013 Maximum Ranges checks.",
                     "isBold": true,
                     "colspan": 3,
                     "rowspan": 1,
@@ -644,13 +712,19 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
-                    "rowspan": 1,
+                    "rowspan": 6,
                     "align": "center"
                   }
                 ]
@@ -689,16 +763,6 @@
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
-                  },
-                  {
-                    "_id": "ctd_checks_matrix_1_row_10_subheader_cell_4_placeholder",
-                    "key": "check9_result_placeholder",
-                    "name": "check9_result_placeholder",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
                   }
                 ]
               },
@@ -711,7 +775,7 @@
                     "key": "check9a_label",
                     "name": "check9a_label",
                     "type": "label",
-                    "value": "(a) Navigational Buoy with Radar Reflector (2m height) 6nm",
+                    "value": "(a) Navigational Buoy with Radar Reflector (2m height)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -739,17 +803,121 @@
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ctd_checks_matrix_1_row_10b",
+                "ser": "",
+                "cells": [
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10b_cell_1_label",
+                    "key": "check9b_label",
+                    "name": "check9b_label",
+                    "type": "label",
+                    "value": "(b) Medium Naval Target (2000 ton Frigates)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   },
                   {
-                    "_id": "ctd_checks_matrix_1_row_10a_cell_4_result",
-                    "key": "check9a_result",
-                    "name": "check9a_result",
-                    "type": "radio",
+                    "_id": "ctd_checks_matrix_1_row_10b_cell_2_spcd",
+                    "key": "check9b_spcd",
+                    "name": "check9b_spcd",
+                    "type": "label",
+                    "value": "12nm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10b_cell_3_obtd",
+                    "key": "check9b_obtd",
+                    "name": "check9b_obtd",
+                    "type": "input",
+                    "inputType": "text",
+                    "placeholder": "nm",
                     "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ctd_checks_matrix_1_row_10c",
+                "ser": "",
+                "cells": [
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10c_cell_1_label",
+                    "key": "check9c_label",
+                    "name": "check9c_label",
+                    "type": "label",
+                    "value": "(c) Large Merchant Target (100000 ton Tanker)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10c_cell_2_spcd",
+                    "key": "check9c_spcd",
+                    "name": "check9c_spcd",
+                    "type": "label",
+                    "value": "18nm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10c_cell_3_obtd",
+                    "key": "check9c_obtd",
+                    "name": "check9c_obtd",
+                    "type": "input",
+                    "inputType": "text",
+                    "placeholder": "nm",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "ctd_checks_matrix_1_row_10d",
+                "ser": "",
+                "cells": [
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10d_cell_1_label",
+                    "key": "check9d_label",
+                    "name": "check9d_label",
+                    "type": "label",
+                    "value": "(d) Land (Height 60m)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10d_cell_2_spcd",
+                    "key": "check9d_spcd",
+                    "name": "check9d_spcd",
+                    "type": "label",
+                    "value": "25.5nm",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ctd_checks_matrix_1_row_10d_cell_3_obtd",
+                    "key": "check9d_obtd",
+                    "name": "check9d_obtd",
+                    "type": "input",
+                    "inputType": "text",
+                    "placeholder": "nm",
+                    "value": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
@@ -767,7 +935,7 @@
                     "key": "check10_label",
                     "name": "check10_label",
                     "type": "label",
-                    "value": "Check 10 – Radar Blind Arcs checks.",
+                    "value": "Check 10 \u2013 Radar Blind Arcs checks.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -809,8 +977,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -829,7 +1003,7 @@
                     "key": "check11_label",
                     "name": "check11_label",
                     "type": "label",
-                    "value": "Check 11 – Clutter checks.",
+                    "value": "Check 11 \u2013 Clutter checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -841,8 +1015,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -861,7 +1041,7 @@
                     "key": "check12_label",
                     "name": "check12_label",
                     "type": "label",
-                    "value": "Check 12 – True Motion Checks.",
+                    "value": "Check 12 \u2013 True Motion Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -873,8 +1053,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -893,7 +1079,7 @@
                     "key": "check13_label",
                     "name": "check13_label",
                     "type": "label",
-                    "value": "Check 13 – True Motion Centre Display Checks.",
+                    "value": "Check 13 \u2013 True Motion Centre Display Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -905,8 +1091,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -925,7 +1117,7 @@
                     "key": "check14_label",
                     "name": "check14_label",
                     "type": "label",
-                    "value": "Check 14 – ARPA Vectors Checks.",
+                    "value": "Check 14 \u2013 ARPA Vectors Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -937,8 +1129,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -957,7 +1155,7 @@
                     "key": "check15_label",
                     "name": "check15_label",
                     "type": "label",
-                    "value": "Check 15 – Auto Tracking, Guard Rings Checks.",
+                    "value": "Check 15 \u2013 Auto Tracking, Guard Rings Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -969,8 +1167,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -989,7 +1193,7 @@
                     "key": "check16_label",
                     "name": "check16_label",
                     "type": "label",
-                    "value": "Check 16 – External Interfacing: Satellite Navigation Checks.",
+                    "value": "Check 16 \u2013 External Interfacing: Satellite Navigation Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1001,8 +1205,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -1021,7 +1231,7 @@
                     "key": "check17_label",
                     "name": "check17_label",
                     "type": "label",
-                    "value": "Check 17 – Additional CTD Radars Checks.",
+                    "value": "Check 17 \u2013 Additional CTD Radars Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1033,8 +1243,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -1053,7 +1269,7 @@
                     "key": "check18_label",
                     "name": "check18_label",
                     "type": "label",
-                    "value": "Check 18 – Interface checks with Log.",
+                    "value": "Check 18 \u2013 Interface checks with Log.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1065,8 +1281,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -1085,7 +1307,7 @@
                     "key": "check19_label",
                     "name": "check19_label",
                     "type": "label",
-                    "value": "Check 19 – Interface checks with Wind Computer.",
+                    "value": "Check 19 \u2013 Interface checks with Wind Computer.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1097,8 +1319,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -1117,7 +1345,7 @@
                     "key": "check20_label",
                     "name": "check20_label",
                     "type": "label",
-                    "value": "Check 20 – MRAT Procedure Checks.",
+                    "value": "Check 20 \u2013 MRAT Procedure Checks.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1129,8 +1357,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,
@@ -1149,7 +1383,7 @@
                     "key": "check21_label",
                     "name": "check21_label",
                     "type": "label",
-                    "value": "Check 21 – Interference from other Radars.",
+                    "value": "Check 21 \u2013 Interference from other Radars.",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -1161,8 +1395,14 @@
                     "type": "radio",
                     "value": "",
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "required": false,
                     "disabled": false,

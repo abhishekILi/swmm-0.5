@@ -6,9 +6,9 @@
     {
       "id": "section_1",
       "title": "GTG UTILISATION FACTOR",
-      "sectionType": "hybrid",
-      "fields": [],
-      "tables": [
+      "sectionType": "mixed",
+      "sectionGroup": {
+        "tables_1": [
         {
           "id": "section_1_table_1",
           "sectionType": "simpleTable",
@@ -94,45 +94,45 @@
           "columns": [
             {
               "key": "ser",
-              "label": "Ser",
+              "label": "SNo.",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "description",
               "label": "Description",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "formula",
               "label": "Formula",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gtg_1",
               "label": "GTG-1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gtg_2",
               "label": "GTG-2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "hours",
               "label": "Hours",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "measured_value",
               "label": "Measured Value",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -142,7 +142,7 @@
                 {
                   "_id": "section_1_table_2_row_1_cell_1_static",
                   "key": "a",
-                  "type": "label",
+                  "type": "serial",
                   "value": "(a)",
                   "colspan": 1,
                   "rowspan": 1,
@@ -164,7 +164,7 @@
                   "value": "∑ RH of (GTG-1 + GTG-2) Hrs underway",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_1_cell_4_snfGufSeaGTG1",
@@ -262,7 +262,7 @@
                 {
                   "_id": "section_1_table_2_row_2_cell_1_static",
                   "key": "b",
-                  "type": "label",
+                  "type": "serial",
                   "value": "(b)",
                   "colspan": 1,
                   "rowspan": 1,
@@ -284,7 +284,7 @@
                   "value": "∑ RH of (GTG-1 + GTG-2) Hrs in Harbour & at Anchorage",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_2_cell_4_snfGufHarborGTG1",
@@ -386,7 +386,7 @@
                   "value": "Total GUF",
                   "colspan": 6,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_3_cell_2_snfTotalGuf",
@@ -415,46 +415,23 @@
           ],
           "showRowActions": false,
           "minRows": 1
-        },
-        {
-          "id": "section_1_table_3",
-          "sectionType": "simpleTable",
-          "title": "REMARKS",
-          "topHeaders": [],
-          "columns": [],
-          "rows": [
-            {
-              "_id": "section_1_table_3_row_1",
-              "cells": [
-                {
-                  "_id": "section_1_table_3_row_1_cell_1_snfGufMonthlyRemarks",
-                  "key": "snfGufMonthlyRemarks",
-                  "type": "textarea",
-                  "value": "",
-                  "rows": 10,
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "Leave a comment here",
-                  "inputType": null,
-                  "options": null,
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
-                  "hiddenKey": null,
-                  "displayKey": null
-                }
-              ]
-            }
-          ],
-          "showRowActions": false,
-          "minRows": 1
         }
-      ]
+        ],
+        "fields_2": [
+          {
+            "key": "snfGufMonthlyRemarks",
+            "name": "snfGufMonthlyRemarks",
+            "type": "editor",
+            "label": "REMARKS",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "Leave a comment here",
+            "editorHeight": 250,
+            "colSpan": 12
+          }
+        ]
+      }
     }
   ]
 }

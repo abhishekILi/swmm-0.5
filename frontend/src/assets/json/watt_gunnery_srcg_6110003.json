@@ -24,9 +24,9 @@
             "inputType": "text",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "ship_name",
-            "prefill": true,
-            "prefillSource": "context.ship_name"
+            "lookupKey": "",
+            "prefill": false,
+            "prefillSource": ""
           },
           {
             "_id": "field_2",
@@ -48,16 +48,18 @@
             "type": "input",
             "value": "SRCG",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
             "key": "date",
             "name": "date",
-            "label": "DATE *",
+            "label": "DATE",
             "type": "date",
             "value": "",
             "required": true,
@@ -88,7 +90,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -119,56 +121,19 @@
                 "_id": "observations_matrix_1_row_1",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
+                    "_id": "embarked_location",
+                    "key": "embarked_location",
+                    "name": "embarked_location",
+                    "lb": "Trials team embarked onboard at",
+                    "type": "input",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "input",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
                     "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-
-
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "input",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -180,19 +145,28 @@
                     "displayKey": null
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of AICS LAMA (FASC) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "_id": "embarked_date",
+                    "key": "embarked_date",
+                    "name": "embarked_date",
+                    "lb": "on for SATs of SRCG as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
                   }
                 ]
               },
@@ -201,11 +175,11 @@
                 "cells": [
                   {
                     "_id": "observations_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "5: SAT ATP Testing",
+                    "type": "label",
+                    "value": "<b>5: SAT ATP Testing</b>",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -218,7 +192,7 @@
                     "value": "5.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_3_cell_2_static",
@@ -226,7 +200,7 @@
                     "value": "Mechanical testing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_3_cell_3_result_5_1",
@@ -292,7 +266,7 @@
                     "value": "5.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_4_cell_2_static",
@@ -300,7 +274,7 @@
                     "value": "Start up and system status report test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_4_cell_3_result_5_2",
@@ -366,7 +340,7 @@
                     "value": "5.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_5_cell_2_static",
@@ -374,7 +348,7 @@
                     "value": "Pedestal motion test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_5_cell_3_result_5_3",
@@ -440,7 +414,7 @@
                     "value": "5.4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_6_cell_2_static",
@@ -448,7 +422,7 @@
                     "value": "Movement limits test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_6_cell_3_result_5_4",
@@ -514,7 +488,7 @@
                     "value": "5.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_7_cell_2_static",
@@ -522,7 +496,7 @@
                     "value": "POD Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_7_cell_3_result_5_5",
@@ -588,7 +562,7 @@
                     "value": "5.6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_8_cell_2_static",
@@ -596,7 +570,7 @@
                     "value": "DSS Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_8_cell_3_result_5_6",
@@ -662,7 +636,7 @@
                     "value": "5.7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_9_cell_2_static",
@@ -670,7 +644,7 @@
                     "value": "SCP Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_9_cell_3_result_5_7",
@@ -736,7 +710,7 @@
                     "value": "5.8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_10_cell_2_static",
@@ -744,7 +718,7 @@
                     "value": "MFDU Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_10_cell_3_result_5_8",
@@ -810,7 +784,7 @@
                     "value": "5.9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_11_cell_2_static",
@@ -818,7 +792,7 @@
                     "value": "Integration with ships system",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_11_cell_3_result_5_9",
@@ -884,7 +858,7 @@
                     "value": "5.10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_12_cell_2_static",
@@ -892,7 +866,7 @@
                     "value": "Gun operation test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_12_cell_3_result_5_10",
@@ -954,11 +928,11 @@
                 "cells": [
                   {
                     "_id": "observations_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
-                    "value": "6: SAT firing Test",
+                    "type": "label",
+                    "value": "<b>6: SAT firing Test</b>",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -971,7 +945,7 @@
                     "value": "6.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_14_cell_2_static",
@@ -979,7 +953,7 @@
                     "value": "Sea condition for test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_14_cell_3_result_6_1",
@@ -1045,7 +1019,7 @@
                     "value": "6.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_15_cell_2_static",
@@ -1053,7 +1027,7 @@
                     "value": "Target for firing test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_15_cell_3_result_6_2",
@@ -1119,7 +1093,7 @@
                     "value": "6.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_16_cell_2_static",
@@ -1127,7 +1101,7 @@
                     "value": "Safety instruction",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_16_cell_3_result_6_3",
@@ -1193,7 +1167,7 @@
                     "value": "6.4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_17_cell_2_static",
@@ -1201,7 +1175,7 @@
                     "value": "General instruction",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_17_cell_3_result_6_4",
@@ -1267,7 +1241,7 @@
                     "value": "6.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_18_cell_2_static",
@@ -1275,7 +1249,7 @@
                     "value": "Firing procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_18_cell_3_result_6_5",
@@ -1341,7 +1315,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_19_cell_2_static",
@@ -1349,7 +1323,7 @@
                     "value": "<b>(a) Total No of rounds fire \u2013 33</b> \n Warm up shot \u2013 03 rds \n Single shot \u2013 10 rds \n Slow burst \u2013 20 rds",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_19_cell_3_result_6_5_a",
@@ -1415,7 +1389,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_20_cell_2_static",
@@ -1423,7 +1397,7 @@
                     "value": "<b>(b) Position the vessel and the SRCG at a distance of 800 \u2013 1200 meter from the floating target<b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_20_cell_3_result_6_5_b",
@@ -1489,7 +1463,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_21_cell_2_static",
@@ -1497,7 +1471,7 @@
                     "value": "<b>(c) Count the target firing hits (10% of hits \u2013 mark all hits before starting new firing scenario</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_21_cell_3_result_6_5_c",
@@ -1575,7 +1549,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           },
           {
             "_id": "inspecting_authority",
@@ -1587,7 +1562,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

@@ -13,26 +13,31 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type" : "label",
-            "value" : "Basic Information",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
-            "disabled": true,
+            "disabled": false,
             "placeholder": "",
-            "options": [],
+            "options": [
+              {
+                "label": "-- Select --",
+                "value": ""
+              }
+            ],
             "isDynamic": true,
             "lookupKey": "ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "department",
@@ -44,7 +49,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               { "label": "-- Select --", "value": "" },
               { "label": "ND", "value": "P15A" },
@@ -62,14 +67,16 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               { "label": "-- Select --", "value": "" },
               { "label": "UWACS", "value": "AIS" }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -103,7 +110,6 @@
             "isDynamic": false
           }
         ],
-        "tables_1": [],
         "tables_2": [
           {
             "id": "checks_matrix_1",
@@ -112,7 +118,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -213,7 +219,38 @@
                     "_id": "checks_matrix_1_row_1b_cell_1_schedule_label",
                     "type": "label",
                     "value": "for SATs of UWACS Triton as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
-                    "colspan": 4,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_1b_cell_2_comment_box",
+                    "key": "comment_box",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 2,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_1b_cell_3_schedule_label2",
+                    "type": "label",
+                    "value": "as per approved schedule vide IHQ MoD (N) / DSR letter WP 0642 dated 06 Aug 14./ Following observed:-",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false
@@ -229,7 +266,7 @@
                     "value": "CHECKS",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -284,7 +321,7 @@
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
                     "type": "label",
-                    "value": "UWACS Triton Trials Communication Modes. Voice Mode – Pinger Mode – Morse Mode – CSK Mode – FSK Mode – Rx/ respond – Transponder – Results to be Achieved – UWACS Triton provides a typical operational range between 3Km and 10Km. -",
+                    "value": "UWACS Triton Trials Communication Modes.\nVoice Mode –\n\nPinger Mode –\n\nMorse Mode –\n\nCSK Mode –\n\nFSK Mode –\n\nRx/ respond –\n\nTransponder –\n\nResults to be Achieved – UWACS Triton provides a typical operational range between 3Km and 10Km. -",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -319,7 +356,7 @@
                     "key": "uwacs_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 4,
+                    "rows": 8,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -391,12 +428,12 @@
               [
                 {
                   "label": "Presenting Authority: Ship's Staff",
-                  "colspan": 2,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "Inspecting Authority: WATT (V)",
+                  "label": "Inspecting Authority:WATT (V)",
                   "colspan": 2,
                   "rowspan": 1,
                   "align": "center"
@@ -414,7 +451,7 @@
                     "value": "ND:",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false
                   },
                   {
@@ -445,7 +482,7 @@
                     "value": "STI / TI:",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false
                   },
                   {
@@ -469,23 +506,18 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "authority_matrix_1_row_2",
-                "cells": [
+                  },
                   {
-                    "_id": "authority_matrix_1_row_2_cell_1_sto_label",
+                    "_id": "authority_matrix_1_row_1_cell_5_sto_label",
                     "type": "label",
                     "value": "STO:",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false
                   },
                   {
-                    "_id": "authority_matrix_1_row_2_cell_2_sto_input",
+                    "_id": "authority_matrix_1_row_1_cell_6_sto_input",
                     "key": "authority_sto",
                     "type": "input",
                     "value": "",
@@ -495,7 +527,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,

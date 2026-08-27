@@ -18,15 +18,15 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
-            "disabled": true,
-            "placeholder": "",
+            "disabled": false,
+            "placeholder": "-- Select --",
             "options": [
               {
                 "label": "-- Select --",
@@ -34,22 +34,22 @@
               },
               {
                 "label": "INS Alpha",
-                "value": "INS_A"
+                "value": "INS Alpha"
               },
               {
                 "label": "INS Bravo",
-                "value": "INS_B"
+                "value": "INS Bravo"
               },
               {
                 "label": "INS Charlie",
-                "value": "INS_C"
+                "value": "INS Charlie"
               },
               {
                 "label": "INS Delta",
-                "value": "INS_D"
+                "value": "INS Delta"
               }
             ],
-            "isDynamic": true
+            "colSpan": 6
           },
           {
             "_id": "department",
@@ -90,16 +90,16 @@
             "key": "equipment",
             "name": "equipment",
             "label": "Equipment",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "ship_name",
+            "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.ship_name",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -159,7 +159,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "S. No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -174,7 +174,8 @@
                   "label": "Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "22%"
                 }
               ]
             ],
@@ -246,7 +247,7 @@
                     "value": "Check the correctness of wiring to and from interfaced units.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_2_cell_3_psu_criterion_2_9",
@@ -298,7 +299,7 @@
                     "value": "Check fan of Processor electronic unit working correctly.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_3_cell_3_psu_criterion_2_9",
@@ -350,7 +351,7 @@
                     "value": "Check Degaussing function on display (not for LCD displays).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_4_cell_3_psu_criterion_2_9",
@@ -402,7 +403,7 @@
                     "value": "Check access of main and sub-menu functions.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_5_cell_3_psu_criterion_2_9",
@@ -454,7 +455,7 @@
                     "value": "Check for available pulse length (short/Medium/Long) in various range scales.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_6_cell_3_psu_criterion_2_9",
@@ -506,7 +507,7 @@
                     "value": "Check modes of stabilisation (Sea / Ground) and presentation Modes (TM / RM / etc) by joystick / track ball and access to cursor Read out data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_7_cell_3_psu_criterion_2_9",
@@ -610,7 +611,7 @@
                     "value": "Heading Line alignment check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_9_cell_3_psu_criterion_2_9",
@@ -662,7 +663,7 @@
                     "value": "Gyro Compass alignment check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_10_cell_3_psu_criterion_2_9",
@@ -714,7 +715,7 @@
                     "value": "Minimum safe CPA and TCPA alarms check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_11_cell_3_psu_criterion_2_9",
@@ -766,7 +767,7 @@
                     "value": "Check display of parallel index line.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_12_cell_3_psu_criterion_2_9",
@@ -818,7 +819,7 @@
                     "value": "Check off-centring own ship function.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_13_cell_3_psu_criterion_2_9",
@@ -870,7 +871,7 @@
                     "value": "Check Target tracking by ARPA function.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_14_cell_3_psu_criterion_2_9",
@@ -922,7 +923,7 @@
                     "value": "Check stabilisation of Video maps.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_15_cell_3_psu_criterion_2_9",
@@ -974,7 +975,7 @@
                     "value": "Check interfaces with Log, Gyro, ECDIS, GPS, AIS and CMS (If fitted).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_16_cell_3_psu_criterion_2_9",
@@ -1026,7 +1027,7 @@
                     "value": "Check selection of range scales from minimum to maximum (available range scales as per TD to be indicated to trial agency by Presenting Authority).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_17_cell_3_psu_criterion_2_9",
@@ -1078,7 +1079,7 @@
                     "value": "Check interface for track table output with Trigun / CMS / CTD (as applicable).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_18_cell_3_psu_criterion_2_9",
@@ -1130,7 +1131,7 @@
                     "value": "Check generation of pre-sync pulse and interfacing the same to Interference Suppression Unit.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_1_of_2_matrix_1_row_19_cell_3_psu_criterion_2_9",
@@ -1182,7 +1183,7 @@
                     "value": "Check for facility for naming of contacts.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_1_row_1_cell_3_psu_criterion_2_9",
@@ -1282,7 +1283,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1326,7 +1327,7 @@
                     "value": "Min Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_1_cell_3_min_range_value",
@@ -1400,7 +1401,7 @@
                     "value": "Max Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_2_cell_3_max_range_value",
@@ -1471,10 +1472,10 @@
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_3_cell_2_static",
                     "type": "label",
-                    "value": "Range Discrimination(*) (IMO Resolution MSC.192(79))",
+                    "value": "Range Discrimination(*)<br><b>(IMO Resolution MSC.192(79))</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_3_cell_3_static",
@@ -1482,7 +1483,7 @@
                     "value": "Radar should be capable of displaying two point targets on the same bearing, separated by 40m in range, as two distinct objects (*)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_3_cell_4_det_c",
@@ -1531,10 +1532,10 @@
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_4_cell_2_static",
                     "type": "label",
-                    "value": "Bearing Discrimination(*) (IMO Resolution MSC.192(79))",
+                    "value": "Bearing Discrimination(*)<br><b>(IMO Resolution MSC.192(79))</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_4_cell_3_static",
@@ -1542,7 +1543,7 @@
                     "value": "Radar should be capable of displaying two point targets at the same range, separated by 2.5 degree in bearing, as two distinct objects(*)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_4_cell_4_det_d",
@@ -1591,10 +1592,10 @@
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_5_cell_2_static",
                     "type": "label",
-                    "value": "Range and Bearing Accuracy(*) (IMO Resolution MSC.192(79))",
+                    "value": "Range and Bearing Accuracy(*)<br><b>(IMO Resolution MSC.192(79))</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_5_cell_3_range_bearing_value",
@@ -1669,7 +1670,7 @@
                     "value": "Index Error Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_6_cell_3_index_error_value",
@@ -1744,7 +1745,7 @@
                     "value": "Blind Sector Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_7_cell_3_blind_sector_value",
@@ -1819,7 +1820,7 @@
                     "value": "Helo Tracking Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_page_2_of_2_matrix_2_row_8_cell_3_helo_tracking_value",

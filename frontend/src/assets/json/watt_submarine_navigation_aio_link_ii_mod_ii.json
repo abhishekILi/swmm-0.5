@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -45,13 +45,15 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "link_ii_mod_ii_sno",
             "key": "link_ii_mod_ii_sno",
             "name": "link_ii_mod_ii_sno",
-            "label": "SNo",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -108,7 +110,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -142,8 +144,9 @@
                   {
                     "_id": "section_2_matrix_1_row_1",
                     "key": "embark_time",
+                    
                     "type": "label",
-                    "value": "2200 Trial team reported onboard for Op Check of Link II MoD II at hrs. Checks and trials carried out IAW IHQ MoD (Navy)/DSR approved schedule WP/1280/LINK II dated 09 Jul 15 and CNO. 07/10 are enumerated in succeeding paragraphs: -",
+                    "value": "2200 Trial team reported onboard for Op Check of Link II MoD II at ",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -152,11 +155,12 @@
                     "options": null,
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_matrix_1_row_1_cell_1_link_ii_mod_ii_report_time",
                     "key": "link_ii_mod_ii_report_time",
+                    "lb":"hrs. Checks and trials carried out IAW IHQ MoD (Navy)/DSR approved schedule WP/1280/LINK II dated 09 Jul 15 and CNO. 07/10 are enumerated in succeeding paragraphs: -",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -165,7 +169,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -224,7 +228,7 @@
                     "value": "Large/ Small/ Single Ship Configuration :",
                     "colspan": 1,
                     "rowspan": 7,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_link_ii_mod_ii_server_system",
@@ -234,7 +238,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Server System",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -294,7 +298,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "SADL",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -322,7 +326,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Client",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -350,7 +354,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "1 KVA UPS",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -378,7 +382,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Printers",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -406,7 +410,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "LAN Components : Switch 24 Ports ",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -434,7 +438,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Switch 8 ports LIU",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -497,7 +501,7 @@
                     "value": "Server System:",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_link_ii_mod_ii_server_rf_9_6",
@@ -572,7 +576,7 @@
                     "value": "SADL :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_link_ii_mod_ii_sadl_rf_9_6",
@@ -647,7 +651,7 @@
                     "value": "Client :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_link_ii_mod_ii_client_rf_9_6",
@@ -777,7 +781,7 @@
                   {
                     "_id": "section_2_matrix_1_row_10_cell_1_static",
                     "type": "serial",
-                    "value": "",
+                    "value": "(i)",
                     "colspan": 1,
                     "rowspan": 2,
                     "align": "center"
@@ -785,14 +789,15 @@
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
                     "type": "label",
-                    "value": "(i) Server System Large/ Small",
+                    "value": "Server System Large/ Small",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_link_ii_mod_ii_app_server_lm",
                     "key": "link_ii_mod_ii_app_server_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -825,8 +830,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -850,6 +859,7 @@
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_link_ii_mod_ii_app_server_lm",
                     "key": "link_ii_mod_ii_app_server_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -878,7 +888,7 @@
                   {
                     "_id": "section_2_matrix_1_row_11_cell_1_static",
                     "type": "serial",
-                    "value": "",
+                    "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 2,
                     "align": "center"
@@ -886,14 +896,15 @@
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
                     "type": "label",
-                    "value": "(ii) SADL System",
+                    "value": "SADL System",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_link_ii_mod_ii_app_sadl_lm",
                     "key": "link_ii_mod_ii_app_sadl_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -926,9 +937,14 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
+
                     ],
                     "colspan": 1,
                     "rowspan": 2,
@@ -951,6 +967,7 @@
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_link_ii_mod_ii_app_sadl_lm",
                     "key": "link_ii_mod_ii_app_sadl_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -979,7 +996,7 @@
                   {
                     "_id": "section_2_matrix_1_row_12_cell_1_static",
                     "type": "serial",
-                    "value": "",
+                    "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 2,
                     "align": "center"
@@ -987,14 +1004,15 @@
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
                     "type": "label",
-                    "value": "(iii) Client System",
+                    "value": "Client System",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_link_ii_mod_ii_app_client_lm",
                     "key": "link_ii_mod_ii_app_client_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -1027,8 +1045,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1052,6 +1074,7 @@
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_link_ii_mod_ii_app_client_lm",
                     "key": "link_ii_mod_ii_app_client_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -1080,7 +1103,7 @@
                   {
                     "_id": "section_2_matrix_1_row_13_cell_1_static",
                     "type": "serial",
-                    "value": "",
+                    "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 2,
                     "align": "center"
@@ -1088,14 +1111,15 @@
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_static",
                     "type": "label",
-                    "value": "(iv) Single System",
+                    "value": "Single System",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_link_ii_mod_ii_app_single_lm",
                     "key": "link_ii_mod_ii_app_single_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -1128,8 +1152,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1153,6 +1181,7 @@
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_link_ii_mod_ii_app_single_lm",
                     "key": "link_ii_mod_ii_app_single_lm",
+                    "lb":"Ver",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -1221,7 +1250,7 @@
                     "value": "Check Server is interfaced with V/UHF/ HF/ MSS/ Rukmani",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_link_ii_mod_ii_status_5_i",
@@ -1235,9 +1264,14 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
+                      
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1269,7 +1303,7 @@
                     "value": "Transmit 02 messages each on MSS/Rukmani and check auto Ack Pop-up received.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_link_ii_mod_ii_status_5_ii",
@@ -1283,8 +1317,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1317,7 +1355,7 @@
                     "value": "Check all 9.6 Kbps RF modem port by connecting V/UHF & HF set and transmit 02 messages from each port to consort ship with auto ack pop-up received.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_link_ii_mod_ii_status_5_iii",
@@ -1331,8 +1369,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1394,8 +1436,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1457,8 +1503,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1480,7 +1530,7 @@
                   {
                     "_id": "section_2_matrix_1_row_20_cell_1_static",
                     "type": "serial",
-                    "value": "Ser",
+                    "value": "SNo.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -1565,8 +1615,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1636,8 +1690,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1666,6 +1724,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -1678,6 +1737,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

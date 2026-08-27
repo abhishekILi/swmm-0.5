@@ -69,10 +69,12 @@
             "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -123,63 +125,126 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Section 2",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "5%"
                 },
                 {
                   "label": "OBSERVATIONS",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "85%"
                 },
                 {
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "10%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+                "_id": "section_2_matrix_1_intro_row",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at hrs on",
+                    "lb": "Trials team embarked onboard at",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "inputType": "time",
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "isDynamic": false
                   },
-
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
-                    "inputType": "text",
+                    "_id": "embarked_date",
+                    "key": "embarked_date",
+                    "name": "embarked_date",
+                    "type": "date",
                     "value": "",
-                    "lb" : "for SATs of JAT Transponder as per IHQ MoD (navy) approved schedule. Following observed:-",
+                    "lb": "hrs on",
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "dd-mm-yyyy",
+                    "inputType": "date",
+                    "style": "max-width: 140px; min-width: 130px; width: 100%;",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "jat_transponder_schedule_label",
+                    "type": "label",
+                    "value": "for SATs of JAT Transponder as per IHQ MoD (navy) approved schedule. Following observed:-",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false
+                  }
+                ]
+              },
+              {
+                "_id": "section_2_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "section_2_matrix_1_row_1_serial",
+                    "type": "serial",
+                    "value": "1.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_1_observation",
+                    "type": "label",
+                    "value": "<b><u>Consort Requirement</u></b> – (i) One Aircraft/ Ship is to be fitted with a suitable IFF Transponder viz. IFF 1410NV or IFF JAT 400NV (with appliqué unit) <b>(ii) For Mode 'S' trials, MK transponder or transponder with Mode 'S' applique unit will be required.</b>",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_1_status",
+                    "key": "row1_status",
+                    "name": "row1_status",
+                    "type": "radio",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
                     "required": false,
                     "disabled": false,
-                    "colspan": 3,
+                    "orientation": "vertical",
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -187,83 +252,29 @@
                 "_id": "section_2_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "1.",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_2_cell_2_static",
-                    "type": "label",
-                    "value": "Consort Requirement \u2013 (i) One Aircraft/ Ship is to be fitted with a suitable IFF Transponder viz. IFF 1410NV or IFF JAT 400NV (with appliqu\u00e9 unit) (ii) For Mode 'S' trials, MK transponder or transponder with Mode 'S' applique unit will be required.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_2_cell_3_row1_status",
-                    "key": "row1_status",
-                    "type": "radio",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": [
-                      {
-                        "label": "SAT",
-                        "value": "SAT"
-                      },
-                      {
-                        "label": "UNSAT",
-                        "value": "UNSAT"
-                      }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_3",
-                "cells": [
-                  {
-                    "_id": "section_2_matrix_1_row_3_cell_1_static",
+                    "_id": "section_2_matrix_1_row_2_serial",
                     "type": "serial",
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_2_static",
+                    "_id": "section_2_matrix_1_row_2_observation",
                     "type": "label",
-                    "value": "Check \u2013 Check for intermittent glow of interrogation lamp on the consort unit.",
+                    "value": "Check – Check for intermittent glow of interrogation lamp on the consort unit.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_3_row2_status",
+                    "_id": "section_2_matrix_1_row_2_status",
                     "key": "row2_status",
+                    "name": "row2_status",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -274,105 +285,90 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "required": false,
+                    "disabled": false,
+                    "orientation": "vertical",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_4",
+                "_id": "section_2_matrix_1_row_3_heading",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_1_static",
+                    "_id": "section_2_matrix_1_row_3_serial",
                     "type": "serial",
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 5,
-                    "align": "center"
+                    "align": "left",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_2_static",
+                    "_id": "section_2_matrix_1_row_3_mode_heading",
                     "type": "label",
                     "value": "MODE CODE INTERROGATION LAMP",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_3_static",
+                    "_id": "section_2_matrix_1_row_3_remarks_blank",
                     "type": "label",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_5",
+                "_id": "section_2_matrix_1_row_3_mode_1",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_1_mode_1_code",
+                    "_id": "section_2_matrix_1_row_3_mode_1_code",
                     "key": "mode_1_code",
+                    "name": "mode_1_code",
                     "type": "input",
                     "value": "",
-                    "rows": null,
+                    "lb": "1",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_2_mode_1_lamp",
+                    "_id": "section_2_matrix_1_row_3_mode_1_lamp",
                     "key": "mode_1_lamp",
+                    "name": "mode_1_lamp",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_2_mode_1_status",
+                    "_id": "section_2_matrix_1_row_3_mode_1_status",
                     "key": "mode_1_status",
+                    "name": "mode_1_status",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -383,76 +379,58 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "required": false,
+                    "disabled": false,
+                    "orientation": "vertical",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_6",
+                "_id": "section_2_matrix_1_row_3_mode_2",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_1_mode_2_code",
+                    "_id": "section_2_matrix_1_row_3_mode_2_code",
                     "key": "mode_2_code",
+                    "name": "mode_2_code",
                     "type": "input",
                     "value": "",
-                    "rows": null,
+                    "lb": "2",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_2_mode_2_lamp",
+                    "_id": "section_2_matrix_1_row_3_mode_2_lamp",
                     "key": "mode_2_lamp",
+                    "name": "mode_2_lamp",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_2_mode_2_status",
+                    "_id": "section_2_matrix_1_row_3_mode_2_status",
                     "key": "mode_2_status",
+                    "name": "mode_2_status",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -463,76 +441,58 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "required": false,
+                    "disabled": false,
+                    "orientation": "vertical",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_7",
+                "_id": "section_2_matrix_1_row_3_mode_3a",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_1_mode_3a_code",
+                    "_id": "section_2_matrix_1_row_3_mode_3a_code",
                     "key": "mode_3a_code",
+                    "name": "mode_3a_code",
                     "type": "input",
                     "value": "",
-                    "rows": null,
+                    "lb": "3/A",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_2_mode_3a_lamp",
+                    "_id": "section_2_matrix_1_row_3_mode_3a_lamp",
                     "key": "mode_3a_lamp",
+                    "name": "mode_3a_lamp",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_2_mode_3a_status",
+                    "_id": "section_2_matrix_1_row_3_mode_3a_status",
                     "key": "mode_3a_status",
+                    "name": "mode_3a_status",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -543,76 +503,58 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "required": false,
+                    "disabled": false,
+                    "orientation": "vertical",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_8",
+                "_id": "section_2_matrix_1_row_3_mode_s",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_1_mode_s_code",
+                    "_id": "section_2_matrix_1_row_3_mode_s_code",
                     "key": "mode_s_code",
+                    "name": "mode_s_code",
                     "type": "input",
                     "value": "",
-                    "rows": null,
+                    "lb": "S",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_2_mode_s_lamp",
+                    "_id": "section_2_matrix_1_row_3_mode_s_lamp",
                     "key": "mode_s_lamp",
+                    "name": "mode_s_lamp",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
+                    "style": "max-width: 175px; min-width: 150px; width: 100%;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_2_mode_s_status",
+                    "_id": "section_2_matrix_1_row_3_mode_s_status",
                     "key": "mode_s_status",
+                    "name": "mode_s_status",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -623,16 +565,13 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "required": false,
+                    "disabled": false,
+                    "orientation": "vertical",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               }

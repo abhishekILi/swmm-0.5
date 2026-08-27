@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -79,13 +79,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -99,7 +99,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -111,7 +111,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-             "colSpan": 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -137,6 +137,33 @@
             "isDynamic": false
           }
         ],
+        "fields_3": [
+          {
+            "type": "label",
+            "name": "board",
+            "key": "board",
+            "value": "<p class='text-sm'>Trial team reported onboard for Op Checks of VLF-HF Rx at</p>",
+            "colSpan":3
+          },
+          {
+            "type": "time",
+            "name": "board_time",
+            "key": "board_time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "colSpan": 2
+          },
+          {
+             "type": "label",
+            "name": "board_lable",
+            "key": "board_lable",
+            "colSpan":7,
+            "value": "<p class='text-sm'>hrs. The trials carried were out i.a.w. NHQ approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs: -</p>"
+          }
+          
+        ],
         "tables_1": [
           {
             "id": "checks_matrix_1",
@@ -145,7 +172,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -172,29 +199,7 @@
             ],
             "columns": [],
             "rows": [
-{
-                "_id": "checks_matrix_1_row_1",
-                "cells": [
-                  {
-                      "_id": "blank_cell",
-                      "type": "label",
-                      "value": "",
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "align": "center"
-                },
-                  {
-                    "_id": "checks_matrix_1_row_1_cell_1_static",
-                    "lb" : "Trial team reported onboard for Op Checks of VLF-HF Rx at hrs. The trials carried were out i.a.w. NHQ approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs: -",
-                    "type": "time",
-                    "value": "",
-                    "colspan": 5,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-
+              
               {
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
@@ -208,7 +213,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -218,7 +223,7 @@
                     "_id": "checks_matrix_1_row_1_cell_3_static",
                     "type": "label",
                     "value": "<b>Preliminary/ Visual Checks</b>",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -237,7 +242,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -249,7 +254,7 @@
                     "value": "Installation of VLF-HF RX into Rx cabinet (Inter connecting cable between Units/Racks/ HDVLF HF Receiver -viz RF Antenna cable and Data Cable)",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_preliminary_checks_installation_vlf_hf_rx",
@@ -297,7 +302,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -309,7 +314,7 @@
                     "value": "Power supply, Earthing of the RX and the overall Air conditioning in the compartment.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_preliminary_checks_power_earthing_ac",
@@ -357,7 +362,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -369,7 +374,7 @@
                     "value": "Securing/fitment of RX and interfacing equipment.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_preliminary_checks_securing_fitment_rx",
@@ -417,7 +422,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -429,7 +434,7 @@
                     "value": "Fitment of Single Antenna fitted on and check Antenna connection to RX",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_preliminary_checks_antenna_fitment",
@@ -477,7 +482,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -489,7 +494,7 @@
                     "value": "All push buttons/functional rotating knobs/toggle switch.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_preliminary_checks_push_buttons",
@@ -537,7 +542,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -549,7 +554,7 @@
                     "value": "Check Interfacing cable connectivity. (each cable separates for data/plot/voice)",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_preliminary_checks_interfacing_cable",
@@ -587,17 +592,30 @@
               {
                 "_id": "checks_matrix_1_row_7_1",
                 "cells": [
-
                   {
-                    "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "_id": "checks_matrix_1_row_7_cell_1_static",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_7_cell_2_static",
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_7_cell_3_static",
+                    "type": "serial",
+                    "value": "Details of Interfacing Equipment: -",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
                   }
-
-
                 ]
               },
               {
@@ -613,7 +631,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -709,7 +727,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -805,7 +823,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -901,7 +919,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -997,7 +1015,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1093,7 +1111,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1122,7 +1140,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1134,7 +1152,7 @@
                     "value": "Power on Self test/ Bite test and check all functional push buttons",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_functional_checks_self_test",
@@ -1182,7 +1200,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1194,7 +1212,7 @@
                     "value": "Security token Authentication test and Changing of modes(VLF/HF data/plot and HF Voice)",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_functional_checks_security_token",
@@ -1242,7 +1260,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1254,7 +1272,7 @@
                     "value": "Changing of frequency manually",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_functional_checks_frequency_change",
@@ -1302,7 +1320,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1314,7 +1332,7 @@
                     "value": "Changing of frequency by scanning",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_functional_checks_frequency_scanning",
@@ -1362,7 +1380,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1374,7 +1392,7 @@
                     "value": "Inserting of frequency in channels",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_functional_checks_frequency_insertion",
@@ -1422,7 +1440,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1434,7 +1452,7 @@
                     "value": "VLF data/plot reception",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_functional_checks_vlf_data_plot_reception",
@@ -1482,7 +1500,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1494,7 +1512,7 @@
                     "value": "HF data/plot reception",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_4_functional_checks_hf_data_plot_reception",
@@ -1542,7 +1560,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(viii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1554,7 +1572,7 @@
                     "value": "HF voice reception",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_functional_checks_hf_voice_reception",
@@ -1600,7 +1618,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1622,7 +1640,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1630,15 +1648,14 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
-
             ],
             "rows": [
               {
@@ -1657,7 +1674,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1679,7 +1696,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1711,6 +1728,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1741,6 +1759,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colspan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

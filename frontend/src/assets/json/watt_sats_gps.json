@@ -15,18 +15,19 @@
           {
             "type": "label",
             "value": "Basic Information",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
-            "required": false,
+            "required": true,
             "disabled": false,
-            "placeholder": "",
+            "placeholder": "-- Select --",
+            "colSpan": 6,
             "options": [
               {
                 "label": "-- Select --",
@@ -34,25 +35,21 @@
               },
               {
                 "label": "INS Alpha",
-                "value": "INS_A"
+                "value": "INS Alpha"
               },
               {
                 "label": "INS Bravo",
-                "value": "INS_B"
+                "value": "INS Bravo"
               },
               {
                 "label": "INS Charlie",
-                "value": "INS_C"
+                "value": "INS Charlie"
               },
               {
                 "label": "INS Delta",
-                "value": "INS_D"
+                "value": "INS Delta"
               }
-            ],
-            "isDynamic": true,
-            "lookupKey": "ship_name",
-            "prefill": true,
-            "prefillSource": "context.ship_name"
+            ]
           },
           {
             "_id": "department",
@@ -96,13 +93,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -162,7 +159,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -184,22 +181,22 @@
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at hrs on",
+                    "lb": "Trials team embarked onboard at hrs on",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -207,13 +204,13 @@
                     "name": "schedule",
                     "type": "date",
                     "inputType": "date",
-                      "lb" : "for SATs of GYRO RLG SIGMA 40",
+                    "lb": "for SATs of GYRO RLG SIGMA 40",
                     "value": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -222,12 +219,12 @@
                     "type": "textarea",
                     "inputType": "text",
                     "value": "",
-                    "lb" : "as per IHQ MoD (N) / DSR approved schedule. Following observed:-",
+                    "lb": "as per IHQ MoD (N) / DSR approved schedule. Following observed:-",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -248,7 +245,7 @@
                     "value": "Check antenna is fitted properly with clear view of satellite constellation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_3_cell_3_psu_criterion_2_9",
@@ -300,7 +297,7 @@
                     "value": "Check acquiring position within 30 min without valid almanac.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_4_cell_3_psu_criterion_2_9",
@@ -352,7 +349,7 @@
                     "value": "Check acquiring position within 5 min with valid almanac.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_5_cell_3_psu_criterion_2_9",
@@ -404,7 +401,7 @@
                     "value": "Re-acquire position within 2 min after power interruption.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_6_cell_3_psu_criterion_2_9",
@@ -456,7 +453,7 @@
                     "value": "Check minimum resolution of position (0.001 minutes).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_7_cell_3_psu_criterion_2_9",
@@ -521,7 +518,7 @@
                     "value": "Warning of loss of position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_9_cell_3_psu_criterion_2_9",
@@ -573,7 +570,7 @@
                     "value": "DGPS status indication and corrections applied.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_10_cell_3_psu_criterion_2_9",
@@ -625,7 +622,7 @@
                     "value": "DGPS integrity status and alarm.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_11_cell_3_psu_criterion_2_9",
@@ -677,7 +674,7 @@
                     "value": "DGPS text message display.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_12_cell_3_psu_criterion_2_9",
@@ -729,7 +726,7 @@
                     "value": "HDOP indication within 5 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_13_cell_3_psu_criterion_2_9",
@@ -794,7 +791,7 @@
                     "value": "Interface checks with AIS, ECDIS, RADAR, CTD, Gyro etc.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "observations_matrix_1_row_15_cell_3_psu_criterion_2_9",

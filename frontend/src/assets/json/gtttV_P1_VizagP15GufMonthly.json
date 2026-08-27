@@ -21,7 +21,7 @@
               "cells": [
                 {
                   "_id": "section_1_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "DATE",
                   "colspan": 1,
                   "rowspan": 1,
@@ -59,19 +59,25 @@
                   "align": "left"
                 },
                 {
-                  "type": "select",
-                  "name": "ship_name",
-                  "label": "SHIP",
-                  "required": true,
+                  "type": "input",
+                  "key": "ship",
+                  "value": "",
+                  "rows": null,
+                  "required": false,
                   "disabled": true,
                   "placeholder": "",
-                  "value": "",
-                  "options": [],
+                  "inputType": "text",
+                  "options": null,
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left",
                   "isDynamic": true,
-                  "lookupKey": "ship_id",
+                  "lookupKey": "context.ship_name",
                   "prefill": true,
                   "prefillSource": "context.ship_name",
-                  "tree": false,
+                  "lockAfterPrefill": false,
+                  "hiddenKey": null,
+                  "displayKey": null,
                   "_id": "section_1_table_1_row_1_cell_4_ship_name"
                 }
               ]
@@ -88,57 +94,57 @@
           "columns": [
             {
               "key": "ser",
-              "label": "Ser",
+              "label": "SNo.",
               "type": "serial",
               "align": "center"
             },
             {
-              "key": "description",
+            "key": "description",
               "label": "Description",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "formula",
+            "key": "formula",
               "label": "Formula",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "gtg_j1",
+            "key": "gtg_j1",
               "label": "GTG-J1",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "gtg_j3",
+            "key": "gtg_j3",
               "label": "GTG-J3",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "gtg_m2",
+            "key": "gtg_m2",
               "label": "GTG-M2",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "gtg_m4",
+            "key": "gtg_m4",
               "label": "GTG-M4",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "hours",
+            "key": "hours",
               "label": "Hours",
               "type": "label",
-              "align": "left"
+            "align": "center"
             },
             {
-              "key": "measured_value",
+            "key": "measured_value",
               "label": "Measured Value",
               "type": "label",
-              "align": "left"
+            "align": "center"
             }
           ],
           "rows": [
@@ -148,7 +154,7 @@
                 {
                   "_id": "section_1_table_2_row_1_cell_1_static",
                   "key": "a",
-                  "type": "label",
+                  "type": "serial",
                   "value": "(a)",
                   "colspan": 1,
                   "rowspan": 1,
@@ -170,7 +176,7 @@
                   "value": "∑ RH of (GTG-J1 + GTG-J3 + GTG-M2 + GTG-M4) Hrs underway",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_1_cell_4_p15GufSeaJ1",
@@ -312,7 +318,7 @@
                 {
                   "_id": "section_1_table_2_row_2_cell_1_static",
                   "key": "b",
-                  "type": "label",
+                  "type": "serial",
                   "value": "(b)",
                   "colspan": 1,
                   "rowspan": 1,
@@ -334,7 +340,7 @@
                   "value": "∑ RH of (GTG-J1 + GTG-J3 + GTG-M2 + GTG-M4) Hrs in Harbour & at Anchorage",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_2_cell_4_p15GufHarborJ1",
@@ -480,7 +486,7 @@
                   "value": "Total GUF",
                   "colspan": 8,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "section_1_table_2_row_3_cell_2_p15TotalGuf",

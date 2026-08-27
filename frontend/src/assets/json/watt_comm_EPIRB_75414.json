@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -44,13 +44,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -143,6 +145,33 @@
             "isDynamic": false
           }
         ],
+        "fields_3": [
+          {
+            "_id": "vlf_hf_rx_epirb_prefix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">Trial team reported onboard for Op Checks of EPIRB at</p>",
+            "colSpan": 3
+          },
+          {
+            "_id": "vlf_hf_rx_epirb_reported_time",
+            "key": "vlf_hf_rx_epirb_reported_time",
+            "name": "vlf_hf_rx_epirb_reported_time",
+            "label": "",
+            "type": "time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "inputType": "time",
+            "colSpan": 2
+          },
+          {
+            "_id": "vlf_hf_rx_epirb_suffix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">hrs. The trials were carried out i.a.w. IHQ MoD(N) letter CM/0301/OPS dated 15 Apr 24 approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs :–</p>",
+            "colSpan": 7
+          }
+        ],
         "tables_1": [
           {
             "id": "a_preliminary_checks_table_1",
@@ -151,7 +180,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -173,7 +202,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -181,13 +210,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -199,7 +228,7 @@
                     "type": "serial",
                     "value": "1.",
                     "colspan": 1,
-                    "rowspan": 1,
+                    "rowspan": 2,
                     "align": "center"
                   },
                   {
@@ -250,14 +279,7 @@
               {
                 "_id": "a_preliminary_checks_table_1_row_2",
                 "cells": [
-                  {
-                    "_id": "a_preliminary_checks_table_1_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "2.",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
+                  
                   {
                     "_id": "a_preliminary_checks_table_1_row_2_cell_2_static",
                     "type": "label",
@@ -297,7 +319,7 @@
                   {
                     "_id": "a_preliminary_checks_table_1_row_2_cell_1_static",
                     "type": "serial",
-                    "value": "3.",
+                    "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -353,7 +375,7 @@
                   {
                     "_id": "a_preliminary_checks_table_1_row_3_cell_1_static",
                     "type": "serial",
-                    "value": "4.",
+                    "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -414,7 +436,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -436,7 +458,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -444,13 +466,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -577,7 +599,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -599,7 +621,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -607,13 +629,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -839,7 +861,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -862,7 +884,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -870,13 +892,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
 
             ],
@@ -897,7 +919,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -919,7 +941,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -949,7 +971,7 @@
             "type" :"label",
             "value": "Presenting Authority",
             "colSpan" : 12
-          },
+          },  
           {
             "_id": "dmr_16a_presenting_authority",
             "key": "dmr_16a_presenting_authority",
@@ -957,6 +979,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -987,6 +1010,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

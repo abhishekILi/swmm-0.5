@@ -13,8 +13,8 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value" : "Basic Information",
+            "type": "label",
+            "value": "Basic Information",
             "colSpan": 12
           },
           {
@@ -44,12 +44,30 @@
             "disabled": false,
             "placeholder": "",
             "options": [
-              { "label": "-- Select --", "value": "" },
-              { "label": "ND", "value": "ND" },
-              { "label": "ASW", "value": "ASW" },
-              { "label": "COMM", "value": "COMM" },
-              { "label": "GUNNERY", "value": "GUNNERY" },
-              { "label": "SUBMARINE", "value": "submarine" }
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "ND",
+                "value": "ND"
+              },
+              {
+                "label": "ASW",
+                "value": "ASW"
+              },
+              {
+                "label": "COMM",
+                "value": "COMM"
+              },
+              {
+                "label": "GUNNERY",
+                "value": "GUNNERY"
+              },
+              {
+                "label": "SUBMARINE",
+                "value": "submarine"
+              }
             ],
             "isDynamic": false
           },
@@ -61,14 +79,14 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
-            "colSpan" : 4
+            "prefillSource": "equipment.nomenclature",
+            "colSpan": 4
           },
           {
             "_id": "date",
@@ -81,7 +99,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -93,26 +111,81 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
-              { "label": "--Select--", "value": "" },
-              { "label": "SATs", "value": "SATs" },
-              { "label": "HATs", "value": "HATS" },
-              { "label": "OP CHECKS", "value": "OP_CHECKS" },
-              { "label": "IIs", "value": "IIS" }
+              {
+                "label": "--Select--",
+                "value": ""
+              },
+              {
+                "label": "SATs",
+                "value": "SATs"
+              },
+              {
+                "label": "HATs",
+                "value": "HATS"
+              },
+              {
+                "label": "OP CHECKS",
+                "value": "OP_CHECKS"
+              },
+              {
+                "label": "IIs",
+                "value": "IIS"
+              }
             ],
             "isDynamic": false
+          }
+        ],
+        "fields_3": [
+          {
+            "_id": "trial_team_reported_heading",
+            "type": "label",
+            "value": "<h4 class='font-bold'>Checks</h4>",
+            "colspan": 12,
+            "rowspan": 1,
+            "align": "left"
+          },
+          {
+            "_id": "trial_team_reported_text_1",
+            "type": "label",
+            "value": "<p class='text-sm'>Trial team reported onboard for Op Checks of VLF-HF Rx at </p>",
+            "colspan": 4,
+            "rowspan": 1,
+            "align": "left"
+          },
+          {
+            "_id": "trial_team_reported_time",
+            "key": "trial_team_reported_time",
+            "name": "trial_team_reported_time",
+            "type": "time",
+            "inputType": "time",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "colspan": 2,
+            "rowspan": 1,
+            "align": "center"
+          },
+          {
+            "_id": "trial_team_reported_text_2",
+            "type": "label",
+            "value": "<p class='text-sm'>hrs. The trials carried were out i.a.w. NHQ approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs: - </p>",
+            "colspan": 6,
+            "rowspan": 1,
+            "align": "left"
           }
         ],
         "tables_1": [
           {
             "id": "checks_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Checks",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -125,7 +198,7 @@
                 },
                 {
                   "label": "Observation",
-                  "colspan": 2,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
                 },
@@ -152,7 +225,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -162,9 +235,9 @@
                     "_id": "checks_matrix_1_row_1_cell_3_static",
                     "type": "label",
                     "value": "Preliminary/ Visual Checks",
-                    "colspan": 2,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -181,7 +254,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -191,9 +264,9 @@
                     "_id": "checks_matrix_1_row_2_cell_3_static",
                     "type": "label",
                     "value": "Installation of VLF-HF RX into Rx cabinet (Inter connecting cable between Units/Racks/ HDVLF HF Receiver -viz RF Antenna cable and Data Cable)",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_preliminary_checks_installation_vlf_hf_rx",
@@ -206,8 +279,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -235,7 +314,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -245,9 +324,9 @@
                     "_id": "checks_matrix_1_row_3_cell_3_static",
                     "type": "label",
                     "value": "Power supply, Earthing of the RX and the overall Air conditioning in the compartment.",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_preliminary_checks_power_earthing_ac",
@@ -260,8 +339,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -289,7 +374,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -299,9 +384,9 @@
                     "_id": "checks_matrix_1_row_4_cell_3_static",
                     "type": "label",
                     "value": "Securing/fitment of RX and interfacing equipment.",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_preliminary_checks_securing_fitment_rx",
@@ -314,8 +399,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -343,7 +434,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -353,9 +444,9 @@
                     "_id": "checks_matrix_1_row_5_cell_3_static",
                     "type": "label",
                     "value": "Fitment of Single Antenna fitted on and check Antenna connection to RX",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_preliminary_checks_antenna_fitment",
@@ -368,8 +459,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -397,7 +494,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -407,9 +504,9 @@
                     "_id": "checks_matrix_1_row_6_cell_3_static",
                     "type": "label",
                     "value": "All push buttons/functional rotating knobs/toggle switch.",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_preliminary_checks_push_buttons",
@@ -422,8 +519,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -451,7 +554,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -461,9 +564,9 @@
                     "_id": "checks_matrix_1_row_7_cell_3_static",
                     "type": "label",
                     "value": "Check Interfacing cable connectivity. (each cable separates for data/plot/voice)",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_preliminary_checks_interfacing_cable",
@@ -476,8 +579,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -505,7 +614,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 6,
@@ -515,7 +624,7 @@
                     "_id": "checks_matrix_1_row_8_cell_3_static",
                     "type": "label",
                     "value": "Details of Interfacing Equipment: -",
-                    "colspan": 2,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -526,7 +635,7 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_9_cell_1_label",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -555,6 +664,37 @@
                     "displayKey": null
                   },
                   {
+                    "_id": "checks_matrix_1_row_9_cell_1_label",
+                    "type": "label",
+                    "value": "Ser No.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_2_equip1",
+                    "key": "preliminary_checks_interfacing_detail_a_equip1",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "equipment",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+
+                  {
                     "_id": "checks_matrix_1_row_9_cell_3_radio",
                     "key": "preliminary_checks_interfacing_detail_a_check",
                     "type": "radio",
@@ -565,8 +705,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -586,12 +732,13 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_10_cell_1_label",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
+                  
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_ser_no",
                     "key": "preliminary_checks_interfacing_detail_b_ser_no",
@@ -601,6 +748,36 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "Ser No",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_1_label",
+                    "type": "label",
+                    "value": "Ser No.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_2_equip2",
+                    "key": "preliminary_checks_interfacing_detail_a_equip2",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "equipment",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -625,8 +802,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -646,7 +829,7 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_11_cell_1_label",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -675,6 +858,36 @@
                     "displayKey": null
                   },
                   {
+                    "_id": "checks_matrix_1_row_9_cell_1_label",
+                    "type": "label",
+                    "value": "Ser No.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_2_equip3",
+                    "key": "preliminary_checks_interfacing_detail_a_equip3",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "equipment",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
                     "_id": "checks_matrix_1_row_11_cell_3_radio",
                     "key": "preliminary_checks_interfacing_detail_c_check",
                     "type": "radio",
@@ -685,8 +898,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -706,7 +925,7 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_12_cell_1_label",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -735,6 +954,36 @@
                     "displayKey": null
                   },
                   {
+                    "_id": "checks_matrix_1_row_9_cell_1_label",
+                    "type": "label",
+                    "value": "Ser No.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_2_equip4",
+                    "key": "preliminary_checks_interfacing_detail_a_equip4",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "equipment",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
                     "_id": "checks_matrix_1_row_12_cell_3_radio",
                     "key": "preliminary_checks_interfacing_detail_d_check",
                     "type": "radio",
@@ -745,8 +994,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -766,11 +1021,11 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_13_cell_1_label",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_ser_no",
@@ -795,6 +1050,36 @@
                     "displayKey": null
                   },
                   {
+                    "_id": "checks_matrix_1_row_9_cell_1_label",
+                    "type": "label",
+                    "value": "Ser No.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_9_cell_2_equip5",
+                    "key": "preliminary_checks_interfacing_detail_a_equip5",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "equipment",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  },
+                  {
                     "_id": "checks_matrix_1_row_13_cell_3_radio",
                     "key": "preliminary_checks_interfacing_detail_e_check",
                     "type": "radio",
@@ -805,8 +1090,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -834,7 +1125,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -844,9 +1135,9 @@
                     "_id": "checks_matrix_1_row_14_cell_3_static",
                     "type": "label",
                     "value": "Functional Checks",
-                    "colspan": 3,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -863,7 +1154,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -873,9 +1164,9 @@
                     "_id": "checks_matrix_1_row_15_cell_3_static",
                     "type": "label",
                     "value": "Power on Self test/ Bite test and check all functional push buttons",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_functional_checks_self_test",
@@ -888,8 +1179,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -917,7 +1214,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -927,9 +1224,9 @@
                     "_id": "checks_matrix_1_row_16_cell_3_static",
                     "type": "label",
                     "value": "Security token Authentication test and Changing of modes(VLF/HF data/plot and HF Voice)",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_functional_checks_security_token",
@@ -942,8 +1239,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -971,7 +1274,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -981,9 +1284,9 @@
                     "_id": "checks_matrix_1_row_17_cell_3_static",
                     "type": "label",
                     "value": "Changing of frequency manually",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_functional_checks_frequency_change",
@@ -996,8 +1299,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1025,7 +1334,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1035,9 +1344,9 @@
                     "_id": "checks_matrix_1_row_18_cell_3_static",
                     "type": "label",
                     "value": "Changing of frequency by scanning",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_functional_checks_frequency_scanning",
@@ -1050,8 +1359,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1079,7 +1394,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1089,9 +1404,9 @@
                     "_id": "checks_matrix_1_row_19_cell_3_static",
                     "type": "label",
                     "value": "Inserting of frequency in channels",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_functional_checks_frequency_insertion",
@@ -1104,8 +1419,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1133,7 +1454,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1143,9 +1464,9 @@
                     "_id": "checks_matrix_1_row_20_cell_3_static",
                     "type": "label",
                     "value": "VLF data/plot reception",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_functional_checks_vlf_data_plot_reception",
@@ -1158,8 +1479,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1187,7 +1514,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1197,9 +1524,9 @@
                     "_id": "checks_matrix_1_row_21_cell_3_static",
                     "type": "label",
                     "value": "HF data/plot reception",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_4_functional_checks_hf_data_plot_reception",
@@ -1212,8 +1539,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1241,7 +1574,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(viii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1251,9 +1584,9 @@
                     "_id": "checks_matrix_1_row_22_cell_3_static",
                     "type": "label",
                     "value": "HF voice reception",
-                    "colspan": 2,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_functional_checks_hf_voice_reception",
@@ -1266,8 +1599,14 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -1292,15 +1631,45 @@
             "title": "REMARKS",
             "topHeaders": [
               [
-                { "label": "Sr No", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Observations", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "SS Remarks", "colspan": 1, "rowspan": 1, "align": "center" }
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Observations",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "SS Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "columns": [
-              { "key": "sr_no", "label": "Sr No", "type": "label", "align": "center" },
-              { "key": "observations", "label": "Observations", "type": "label", "align": "left" },
-              { "key": "ss_remarks", "label": "SS Remarks", "type": "label", "align": "left" }
+              {
+                "key": "sr_no",
+                "label": "SNo.",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "observations",
+                "label": "Observations",
+                "type": "label",
+                "align": "center"
+              },
+              {
+                "key": "ss_remarks",
+                "label": "SS Remarks",
+                "type": "label",
+                "align": "center"
+              }
             ],
             "rows": [
               {
@@ -1319,7 +1688,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1341,7 +1710,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1373,14 +1742,27 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
             "options": [
-              { "label": "--Select--", "value": "" },
-              { "label": "Dockyard", "value": "dockyard" },
-              { "label": "Shipstaff", "value": "shipstaff" },
-              { "label": "OEM", "value": "oem" }
+              {
+                "label": "--Select--",
+                "value": ""
+              },
+              {
+                "label": "Dockyard",
+                "value": "dockyard"
+              },
+              {
+                "label": "Shipstaff",
+                "value": "shipstaff"
+              },
+              {
+                "label": "OEM",
+                "value": "oem"
+              }
             ],
             "isDynamic": false
           },
@@ -1391,6 +1773,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colspan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

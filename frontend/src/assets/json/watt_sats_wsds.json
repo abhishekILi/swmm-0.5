@@ -75,13 +75,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -141,7 +141,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -162,23 +162,23 @@
             ],
             "columns": [],
             "rows": [
-               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+              {
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at hrs on",
+                    "lb": "Trials team embarked onboard at hrs on",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -186,13 +186,13 @@
                     "name": "schedule",
                     "type": "date",
                     "inputType": "date",
-                      "lb" : "for SATs of Wind",
+                    "lb": "for SATs of Wind",
                     "value": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -201,12 +201,12 @@
                     "type": "input",
                     "inputType": "text",
                     "value": "",
-                    "lb" : "Speed Direction System as per IHQ MoD (N) approved schedule. Following observed:-",
+                    "lb": "Speed Direction System as per IHQ MoD (N) approved schedule. Following observed:-",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -227,7 +227,7 @@
                     "value": "Check - Switching ON the WSDS system.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_3_wsds_check_1",
@@ -279,7 +279,7 @@
                     "value": "Check - Feed to all Repeater showing same reading.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_3_wsds_check_2",
@@ -331,7 +331,7 @@
                     "value": "Check- Recorded the readings in GPS Mode and verified the data with Battenberg and other software in various course",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_wsds_check_3",
@@ -383,7 +383,7 @@
                     "value": "Check- Recorded the reading on Gyro-Log mode and calculate true wind by using with Battenberg and other software and compared each other in various courses.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_wsds_check_4",
@@ -435,7 +435,7 @@
                     "value": "Check \u2013 Slave LSO repeater reading.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_wsds_check_5",
@@ -487,7 +487,7 @@
                     "value": "Check \u2013 Interface Checks with ECDIS, Gyro, Log, other equipment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_3_wsds_check_6",
@@ -536,7 +536,8 @@
                   "label": "SL",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "Own Ship",

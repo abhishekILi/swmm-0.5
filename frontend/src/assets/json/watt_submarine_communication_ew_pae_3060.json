@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -81,7 +81,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -94,7 +94,9 @@
                 "value": "V/UHF TX/RX PAE 3060"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "serial_no",
@@ -104,10 +106,12 @@
             "type": "input",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           },
           {
             "_id": "date",
@@ -156,21 +160,35 @@
               }
             ],
             "isDynamic": false
-          },
-          {
-            "_id": "nature_of_time",
-            "key": "nature_of_time",
-            "name": "nature_of_time",
-            "label": "Trial team reported onboard for Ops Check of V/UHF TX/RX PAE 3060 at hrs Checks and trials carried out IAW IHQ approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs :-",
-            "type": "time",
-            "value": "",
-            "colSpan" : "12",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "isDynamic": false
           }
         ],
+        "fields_5": [
+          {
+            "type": "label",
+            "name": "Tboard",
+            "key": "Tboard",
+            "value": "<p class='text-xs'>Trial team reported onboard for Ops Check of V/UHF TX/RX PAE 3060 at</p>",
+            "colSpan":4
+          },
+          {
+            "type": "time",
+            "name": "Tboard_time",
+            "key": "Tboard_time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "colSpan": 3
+          },
+          {
+             "type": "label",
+            "name": "Tboard_lable",
+            "key": "Tboard_lable",
+            "colSpan":5,
+            "value": "<p class='text-xs'>hrs Checks and trials carried out IAW IHQ approved schedule and CNO. 07/10 are enumerated in succeeding paragraphs :-</p>"
+          }
+        ],
+
         "tables_1": [
           {
             "id": "checks_matrix_1",
@@ -179,7 +197,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -219,17 +237,17 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
-                    "value": "<b>Physical Checks/Checks Prior Switching ON.</b>",
-                    "colspan": 2,
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_3_static",
                     "type": "label",
-                    "value": "",
-                    "colspan": 1,
+                    "value": "<b>Physical Checks/Checks Prior Switching ON.</b>",
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -248,7 +266,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -260,7 +278,7 @@
                     "value": "Fitment of Antenna on mast.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_physical_checks_antenna_fitment",
@@ -308,7 +326,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -320,7 +338,7 @@
                     "value": "Fitment of equipment cabinet on shock mount in MCO compartment.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_physical_checks_equipment_cabinet_fitment",
@@ -368,7 +386,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -380,7 +398,7 @@
                     "value": "Fitment of TX/RX into cabinet.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_physical_checks_tx_rx_fitment",
@@ -428,7 +446,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -440,7 +458,7 @@
                     "value": "Grounding of TX/RX into cabinet",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_physical_checks_grounding_tx_rx",
@@ -488,7 +506,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -500,7 +518,7 @@
                     "value": "All sub-assemblies. are fixed properly.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_physical_checks_sub_assemblies_fixed",
@@ -548,7 +566,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -560,7 +578,7 @@
                     "value": "Securing of connecting cables.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_physical_checks_securing_cables",
@@ -608,7 +626,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -620,7 +638,7 @@
                     "value": "Fitment of RCU in Bridge.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_4_physical_checks_rcu_fitment_bridge",
@@ -668,17 +686,17 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
-                    "type": "label",
-                    "value": "<b>Functional Checks</b>",
-                    "colspan": 2,
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_3_static",
                     "type": "label",
-                    "value": "",
-                    "colspan": 1,
+                    "value": "<b>Functional Checks</b>",
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -697,7 +715,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -709,7 +727,7 @@
                     "value": "Power ON /Self-test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_4_functional_checks_power_on_self_test",
@@ -757,7 +775,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -769,7 +787,7 @@
                     "value": "Function of front panel, switches, Led and functional keys",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_4_functional_checks_front_panel_switches",
@@ -817,7 +835,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -829,7 +847,7 @@
                     "value": "PDP indicating lamps",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_functional_checks_pdp_lamps",
@@ -877,17 +895,17 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_static",
-                    "type": "label",
-                    "value": "<b>Operational Checks</b>",
-                    "colspan": 2,
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_3_static",
                     "type": "label",
-                    "value": "",
-                    "colspan": 1,
+                    "value": "<b>Operational Checks</b>",
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -906,7 +924,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -918,7 +936,7 @@
                     "value": "Changing of frequency from set and RCU.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_operational_checks_frequency_change",
@@ -966,7 +984,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -978,7 +996,7 @@
                     "value": "Setting of frequency into channel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_operational_checks_frequency_into_channel",
@@ -1026,7 +1044,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1038,7 +1056,7 @@
                     "value": "Recalling channels",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_operational_checks_recalling_channels",
@@ -1086,7 +1104,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1098,7 +1116,7 @@
                     "value": "Changing of mode and forward power in AM/FM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_operational_checks_mode_forward_power",
@@ -1146,7 +1164,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1158,7 +1176,7 @@
                     "value": "Extending of frequency",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_operational_checks_extending_frequency",
@@ -1206,7 +1224,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1218,7 +1236,7 @@
                     "value": "Communication with Navy Control and Tower",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_operational_checks_navy_control_tower",
@@ -1266,7 +1284,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1341,17 +1359,17 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
-                    "type": "label",
-                    "value": "<b>RCU Checks</b>",
-                    "colspan": 2,
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_3_static",
                     "type": "label",
-                    "value": "",
-                    "colspan": 1,
+                    "value": "<b>RCU Checks</b>",
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -1370,7 +1388,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1382,7 +1400,7 @@
                     "value": "Operation of TX/RX from RCU",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_rcu_checks_tx_rx_operation",
@@ -1430,7 +1448,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1442,7 +1460,7 @@
                     "value": "Changing of Ch./ Frequency/ Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_4_rcu_checks_ch_frequency_mode",
@@ -1490,7 +1508,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1563,7 +1581,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1585,7 +1603,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1593,13 +1611,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1619,7 +1637,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1641,7 +1659,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1673,6 +1691,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1703,6 +1722,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colspan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "trial_header",
-      "title": "watt_gunnery_KAVACH_MOD_I_666101",
+      "title": "KAVACH MOD I — DAILY SUMMARY OF PROGRESS (666101)",
       "sectionType": "fields",
       "fields": [],
       "tables": [],
@@ -57,13 +57,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "Date *",
+            "label": "Date",
             "type": "date",
             "value": "",
             "required": true,
@@ -106,7 +108,7 @@
             "title": "Preliminary Checks Before Firing (Verify the Following Condition)",
             "topHeaders": [
               [
-                { "label": "Ser", "colspan": 1, "rowspan": 1, "align": "center" },
+                { "label": "SNo.", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "OBSERVATIONS", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "RESULT", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "REMARKS", "colspan": 1, "rowspan": 1, "align": "center" }
@@ -130,7 +132,7 @@
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -144,43 +146,43 @@
                     "disabled": false,
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
               {
                 "_id": "preliminary_checks_before_firing_verify_the_following_condition_matrix_1_row_2",
                 "cells": [
-                  { "type": "serial", "value": "01.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "01.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Integration Checks of SR, MR and LR tubes with Dummy rockets of all launchers.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "prelim_01_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "key": "prelim_01_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "prelim_01_rmk", "type": "textarea", "value": "", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               },
               {
                 "_id": "preliminary_checks_before_firing_verify_the_following_condition_matrix_1_row_3",
                 "cells": [
-                  { "type": "serial", "value": "02.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "02.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Integration Checks with Dummy rocket with MOL ON.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "prelim_02_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "key": "prelim_02_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "prelim_02_rmk", "type": "textarea", "value": "", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               },
               {
                 "_id": "preliminary_checks_before_firing_verify_the_following_condition_matrix_1_row_4",
                 "cells": [
-                  { "type": "serial", "value": "03.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "03.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Auxiliary console checks of all launchers with dummy rockets.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "prelim_03_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "key": "prelim_03_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "prelim_03_rmk", "type": "textarea", "value": "", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               },
               {
                 "_id": "preliminary_checks_before_firing_verify_the_following_condition_matrix_1_row_5",
                 "cells": [
-                  { "type": "serial", "value": "04.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "04.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Auxiliary Console Checks of SR, MR and LR with MOL ON.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "prelim_04_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "key": "prelim_04_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "prelim_04_rmk", "type": "textarea", "value": "", "rows": 2, "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               }
@@ -212,11 +214,11 @@
               {
                 "_id": "sr_launcher_row_1",
                 "cells": [
-                  { "type": "serial", "value": "SR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "SR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr1_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr1_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr1_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr1_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -224,11 +226,11 @@
               {
                 "_id": "sr_launcher_row_2",
                 "cells": [
-                  { "type": "serial", "value": "SR-2", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "SR-2", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr2_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr2_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr2_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr2_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -236,11 +238,11 @@
               {
                 "_id": "sr_launcher_row_3",
                 "cells": [
-                  { "type": "serial", "value": "SR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "SR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr3_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr3_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr3_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr3_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -248,11 +250,11 @@
               {
                 "_id": "sr_launcher_row_4",
                 "cells": [
-                  { "type": "serial", "value": "SR-4", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "SR-4", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr4_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr4_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "sr4_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "sr4_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -285,11 +287,11 @@
               {
                 "_id": "mr_launcher_row_1",
                 "cells": [
-                  { "type": "serial", "value": "MR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "MR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr1_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr1_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr1_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr1_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -297,11 +299,11 @@
               {
                 "_id": "mr_launcher_row_2",
                 "cells": [
-                  { "type": "serial", "value": "MR-2", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "MR-2", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr2_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr2_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr2_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr2_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -309,11 +311,11 @@
               {
                 "_id": "mr_launcher_row_3",
                 "cells": [
-                  { "type": "serial", "value": "MR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "MR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr3_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr3_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr3_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr3_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -321,11 +323,11 @@
               {
                 "_id": "mr_launcher_row_4",
                 "cells": [
-                  { "type": "serial", "value": "MR-4", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "MR-4", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr4_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr4_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "mr4_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "mr4_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -358,11 +360,11 @@
               {
                 "_id": "lr_launcher_row_1",
                 "cells": [
-                  { "type": "serial", "value": "LR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "LR-1 (PORT)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr1_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr1_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr1_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr1_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -370,11 +372,11 @@
               {
                 "_id": "lr_launcher_row_2",
                 "cells": [
-                  { "type": "serial", "value": "LR-2", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "LR-2", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr2_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr2_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr2_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr2_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -382,11 +384,11 @@
               {
                 "_id": "lr_launcher_row_3",
                 "cells": [
-                  { "type": "serial", "value": "LR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "LR-3 (STBD)", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "Single", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr3_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr3_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr3_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr3_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -394,11 +396,11 @@
               {
                 "_id": "lr_launcher_row_4",
                 "cells": [
-                  { "type": "serial", "value": "LR-4", "colspan": 1, "rowspan": 1, "align": "center" },
-                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "LR-4", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "type": "label", "value": "—————", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr4_t1_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr4_t1_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
-                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "label", "value": "Salvo (02)", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "lr4_t2_tube", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "lr4_t2_pos", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 }
                 ]
@@ -420,7 +422,7 @@
             ],
             "topHeaders": [
               [
-                { "label": "Sr No", "colspan": 1, "rowspan": 1, "align": "left" },
+                { "label": "SNo.", "colspan": 1, "rowspan": 1, "align": "left" },
                 { "label": "Observations", "colspan": 1, "rowspan": 1, "align": "left" },
                 { "label": "Remarks", "colspan": 1, "rowspan": 1, "align": "left" },
                 { "label": "Action", "colspan": 1, "rowspan": 1, "align": "center" }
@@ -433,7 +435,7 @@
                   { "type": "serial", "value": 1, "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "post_firing_obs_1", "type": "input", "inputType": "text", "value": "", "colspan": 1, "rowspan": 1 },
                   { "key": "post_firing_rmk_1", "type": "textarea", "value": "", "rows": 1, "colspan": 1, "rowspan": 1 },
-                  { "type": "actionButtons", "actions": ["add", "remove"], "colspan": 1, "rowspan": 1, "align": "center" }
+                  { "type": "actionButtons", "actions": ["add", "remove"], "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               }
             ],
@@ -457,6 +459,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 12,
             "options": [
               { "label": "-- Select --", "value": "" },
               { "label": "Dockyard", "value": "Dockyard" },
@@ -475,7 +478,8 @@
             "required": false,
             "disabled": false,
             "placeholder": " ",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

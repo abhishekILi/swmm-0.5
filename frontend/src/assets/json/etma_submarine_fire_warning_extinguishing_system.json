@@ -18,18 +18,7 @@
             "value": "Basic Information",
             "colSpan": 12
           },
-          {
-            "_id": "date_of_trials",
-            "key": "date_of_trials",
-            "name": "date_of_trials",
-            "label": "DATE OF TRIALS *",
-            "type": "date",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "inputType": "date"
-          },
+          
           {
             "_id": "ins",
             "key": "ins",
@@ -38,9 +27,25 @@
             "type": "input",
             "value": "",
             "required": false,
+            "disabled": true,
+            "placeholder": "",
+            "inputType": "text",
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
+            "_id": "date_of_trials",
+            "key": "date_of_trials",
+            "name": "date_of_trials",
+            "label": "DATE OF TRIALS ",
+            "type": "date",
+            "value": "",
+            "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "date"
           }
         ],
         "tables_1": [
@@ -51,10 +56,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "7%"
                 },
                 {
                   "label": "TEST / NOMINAL VALUE",
@@ -101,7 +107,7 @@
                     "value": "Visual Inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_1_cell_3_status_115100",
@@ -194,10 +200,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_2_cell_2_static",
                     "type": "label",
-                    "value": "Power Supply Check;",
+                    "value": "Power Supply Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_2_cell_3_status_115101",
@@ -293,7 +299,7 @@
                     "value": "Functional Tests, Normal Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_3_cell_3_status_115102",
@@ -386,10 +392,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_4_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Loop Open Circuit Test;",
+                    "value": "Functional Tests, Loop Open Circuit Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_4_cell_3_status_115103a",
@@ -482,10 +488,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_5_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Loop Short Circuit Test;",
+                    "value": "Functional Tests, Loop Short Circuit Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_5_cell_3_status_115103b",
@@ -578,10 +584,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_6_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Smoke/Heat Detector Removed Test;",
+                    "value": "Functional Tests, Smoke/Heat Detector Removed Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_6_cell_3_status_115104a",
@@ -674,10 +680,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_7_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Input/ Output Module Removed Test;",
+                    "value": "Functional Tests, Input/ Output Module Removed Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_7_cell_3_status_115104b",
@@ -770,10 +776,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_8_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Repeater Panel Test;",
+                    "value": "Functional Tests, Repeater Panel Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_8_cell_3_status_115105",
@@ -866,10 +872,10 @@
                   {
                     "_id": "result_sheet_matrix_1_row_9_cell_2_static",
                     "type": "label",
-                    "value": "Functional Tests, Cause & Effect Functional Test;",
+                    "value": "Functional Tests, Cause & Effect Functional Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_9_cell_3_status_115106",

@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": false,
             "disabled": true,
@@ -88,20 +88,20 @@
             "isDynamic": false
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
+            "_id": "Equipment",
+            "key": "Equipment",
+            "name": "Equipment",
             "label": "Equipment",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": false,
             "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "ship_name",
+            "lookupKey": "",
             "prefill": true,
-            "prefillSource": "context.ship_name",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -160,10 +160,12 @@
             "type": "textarea",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "rows": 1,
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           }
         ],
 
@@ -175,7 +177,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -216,7 +218,7 @@
                     "disabled": false,
                     "placeholder": "HH:MM",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   },
@@ -250,7 +252,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "<b>Physical checks/Setup</b>",
                     "colspan": 3,
                     "rowspan": 1,
@@ -271,7 +273,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -350,7 +352,7 @@
                     "value": "Water integrity of the cable/ wiring/ interconnections from Antenna to BDU.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_3_mss_mk_i_cable_water_integrity",
@@ -402,7 +404,7 @@
                     "value": "Connections are properly insulated",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_mss_mk_i_connections_insulation",
@@ -454,7 +456,7 @@
                     "value": "Interconnections to sub units PC, Key Board and Mouse.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_mss_mk_i_subunit_interconnections",
@@ -506,7 +508,7 @@
                     "value": "Power supply from individual UPS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_mss_mk_i_power_ups",

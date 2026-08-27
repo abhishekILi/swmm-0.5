@@ -21,7 +21,7 @@
               "cells": [
                 {
                   "_id": "section_1_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
                   "colspan": 2,
                   "rowspan": 1,
@@ -41,11 +41,11 @@
                   "colspan": 4,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 }
@@ -223,7 +223,7 @@
         {
           "id": "section_1_table_2",
           "sectionType": "matrixTable",
-          "title": "GAS TURBINE (GT) PRT/FPT",
+          "title": "",
           "topHeaders": [
             [
               {
@@ -231,27 +231,27 @@
                 "label": "Location",
                 "rowspan": 2,
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "serial_no",
                 "label": "Serial No.",
                 "rowspan": 2,
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "cycle",
                 "label": "Cycle",
                 "rowspan": 2,
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "Running Hours",
                 "colspan": 5,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ],
             [
@@ -259,26 +259,26 @@
                 "key": "since_new",
                 "label": "Since New",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "since_installations",
                 "label": "Since Installations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "since_last_trials",
                 "label": "Since Last Trials",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "last_trial_and_date",
                 "label": "Last Trial and Date",
                 "colspan": "2",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ]
           ],
@@ -1303,14 +1303,14 @@
           "topHeaders": [
             [
               {
-                "label": "SNO",
+                "label": "SNo.",
                 "colspan": 1,
                 "align": "center"
               },
               {
                 "label": "DESCRIPTION OF CHECKS",
                 "colspan": 3,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "STATUS",
@@ -1320,7 +1320,7 @@
               {
                 "label": "REMARKS",
                 "colspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ]
           ],
@@ -1341,10 +1341,10 @@
                   "_id": "section_1_table_3_row_1_cell_2_static",
                   "key": "running_log_book",
                   "type": "label",
-                  "value": "Running Log Book",
+                  "value": "<b>Running Log Book</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "background-color: #1e3a5f; color: #ffffff; font-weight: bold;"
                 }
               ]
@@ -1856,10 +1856,10 @@
                   "_id": "section_1_table_3_row_11_cell_2_static",
                   "key": "service_log",
                   "type": "label",
-                  "value": "Service Log",
+                  "value": "<b>Service Log</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "background-color: #1e3a5f; color: #ffffff; font-weight: bold;"
                 }
               ]
@@ -2109,10 +2109,10 @@
                   "_id": "section_1_table_3_row_16_cell_2_static",
                   "key": "emap",
                   "type": "label",
-                  "value": "EMAP",
+                  "value": "<b>EMAP</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "background-color: #1e3a5f; color: #ffffff; font-weight: bold;"
                 }
               ]
@@ -2354,18 +2354,18 @@
         {
           "id": "section_1_table_4",
           "sectionType": "matrixTable",
-          "title": "SECTION II -- STATE OF SYSTEMS",
+          "title": "",
           "topHeaders": [
             [
               {
-                "label": "SNO",
+                "label": "SNo.",
                 "colspan": 1,
                 "align": "center"
               },
               {
                 "label": "DESCRIPTION OF CHECKS",
                 "colspan": 3,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "STATUS",
@@ -2375,7 +2375,7 @@
               {
                 "label": "REMARKS",
                 "colspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ],
             [
@@ -2795,7 +2795,7 @@
                   "_id": "section_1_table_4_row_9_cell_1_airExhaustSystemDesc_j",
                   "key": "airExhaustSystemDesc_j",
                   "type": "label",
-                  "value": "(j) Check load hangers of exhaust and cooling air ducts",
+                  "value": "(i) Check load hangers of exhaust and cooling air ducts",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -2852,14 +2852,14 @@
                   "_id": "section_1_table_4_row_10_cell_2_airExhaustSystemRemarks_j",
                   "key": "airExhaustSystemRemarks_j",
                   "type": "label",
-                  "value": "Fuel System",
+                  "value": "<b>Fuel System</b>",
                   "required": false,
                   "disabled": false,
                   "placeholder": "",
                   "inputType": "text",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             },
@@ -3253,7 +3253,7 @@
                   "_id": "section_1_table_4_row_20_cell_1_fuelSystemDesc_k",
                   "key": "fuelSystemDesc_k",
                   "type": "label",
-                  "value": "(k) Check date of fuel components calibration",
+                  "value": "(j) Check date of fuel components calibration",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -3310,10 +3310,10 @@
                   "_id": "section_1_table_4_row_21_cell_2_lubOilSystemHeader",
                   "key": "lubOilSystemHeader",
                   "type": "label",
-                  "value": "Lub Oil System",
+                  "value": "<b>Lub Oil System</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -3570,7 +3570,7 @@
                   "_id": "section_1_table_4_row_27_cell_1_lubOilSystemDesc_g",
                   "key": "lubOilSystemDesc_g",
                   "type": "label",
-                  "value": "(g) Check for wire lashing of accessories and lub oil pipe lines",
+                  "value": "(f) Check for wire lashing of accessories and lub oil pipe lines",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -3619,7 +3619,7 @@
                   "_id": "section_1_table_4_row_28_cell_1_lubOilSystemDesc_h",
                   "key": "lubOilSystemDesc_h",
                   "type": "label",
-                  "value": "(h) Inspect lub oil drain tanks",
+                  "value": "(g) Inspect lub oil drain tanks",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -3676,10 +3676,10 @@
                   "_id": "section_1_table_4_row_29_cell_2_pneumaticSystemHeader",
                   "key": "pneumaticSystemHeader",
                   "type": "label",
-                  "value": "Pneumatic System",
+                  "value": "<b>Pneumatic System</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -3846,10 +3846,10 @@
                   "_id": "section_1_table_4_row_33_cell_2_generalConditionHeader",
                   "key": "generalConditionHeader",
                   "type": "label",
-                  "value": "General Condition / Hygiene",
+                  "value": "<b>General Condition / Hygiene</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -4310,10 +4310,10 @@
                   "_id": "section_1_table_4_row_43_cell_2_seaWaterCoolingSystemHeader",
                   "key": "seaWaterCoolingSystemHeader",
                   "type": "label",
-                  "value": "Sea Water Cooling System",
+                  "value": "<b>Sea Water Cooling System</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -4418,52 +4418,7 @@
             },
             {
               "_id": "section_1_table_4_row_46",
-              "cells": [
-                {
-                  "_id": "section_1_table_4_row_46_cell_1_seaWaterCoolingSystemDesc_c",
-                  "key": "seaWaterCoolingSystemDesc_c",
-                  "type": "label",
-                  "value": "(c) Check condition of control wiring",
-                  "colspan": 3,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "_id": "section_1_table_4_row_46_cell_2_seaWaterCoolingSystemStatus_c",
-                  "key": "seaWaterCoolingSystemStatus_c",
-                  "type": "radio",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "Select an option",
-                  "options": [
-                    {
-                      "label": "Sat",
-                      "value": "Sat"
-                    },
-                    {
-                      "label": "Unsat",
-                      "value": "Unsat"
-                    }
-                  ],
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "_id": "section_1_table_4_row_46_cell_3_seaWaterCoolingSystemRemarks_c",
-                  "key": "seaWaterCoolingSystemRemarks_c",
-                  "type": "input",
-                  "value": "",
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "inputType": "text",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                }
-              ]
+              "cells": []
             },
             {
               "_id": "section_1_table_4_row_47",
@@ -4472,7 +4427,7 @@
                   "_id": "section_1_table_4_row_47_cell_1_seaWaterCoolingSystemDesc_d",
                   "key": "seaWaterCoolingSystemDesc_d",
                   "type": "label",
-                  "value": "(d) Check Cooler inlet and outlet temperatures",
+                  "value": "(c) Check Cooler inlet and outlet temperatures",
                   "colspan": 3,
                   "rowspan": 1,
                   "align": "left"
@@ -4529,10 +4484,10 @@
                   "_id": "section_1_table_4_row_48_cell_2_fireFightingSystemHeader",
                   "key": "fireFightingSystemHeader",
                   "type": "label",
-                  "value": "Fire Fighting System",
+                  "value": "<b>Fire Fighting System</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -4797,10 +4752,10 @@
                   "_id": "section_1_table_4_row_54_cell_2_controlSystemHeader",
                   "key": "controlSystemHeader",
                   "type": "label",
-                  "value": "Control System",
+                  "value": "<b>Control System</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -4967,10 +4922,10 @@
                   "_id": "section_1_table_4_row_58_cell_2_miscellaneousHeader",
                   "key": "miscellaneousHeader",
                   "type": "label",
-                  "value": "Miscellaneous",
+                  "value": "<b>Miscellaneous</b>",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left",
+                  "align": "center",
                   "style": "header"
                 }
               ]
@@ -5076,37 +5031,37 @@
               "key": "parameter",
               "label": "PARAMETER",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "recommended_range",
               "label": "RECOMMENDED RANGE",
               "type": "label",
-              "align": "left"
+              "align": "lecenterft"
             },
             {
               "key": "gt_1",
               "label": "GT-1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_2",
               "label": "GT-2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_3",
               "label": "GT-3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_4",
               "label": "GT-4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -5115,7 +5070,7 @@
               "cells": [
                 {
                   "_id": "section_1_table_6_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "TIME",
                   "colspan": 1,
                   "rowspan": 1,
@@ -5789,37 +5744,37 @@
               "key": "parameters",
               "label": "PARAMETERS",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "recommended_range",
               "label": "RECOMMENDED RANGE",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_1",
               "label": "GT-1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_2",
               "label": "GT-2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_3",
               "label": "GT-3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt_4",
               "label": "GT-4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -5828,7 +5783,7 @@
               "cells": [
                 {
                   "_id": "section_1_table_7_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "TIME",
                   "colspan": 1,
                   "rowspan": 1,
@@ -8650,43 +8605,44 @@
               "key": "parameter",
               "label": "Parameter",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "recommended_range_at_0_6_n",
               "label": "Recommended Range at 0.6 N",
               "type": "label",
-              "align": "left"
+              "align": "center",
+              "width": "14%"
             },
             {
               "key": "gt1",
               "label": "GT1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt2",
               "label": "GT2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt3",
               "label": "GT3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt4",
               "label": "GT4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "remarks",
               "label": "Remarks",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -12563,7 +12519,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_3_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
                   "colspan": 4,
                   "rowspan": 1,
@@ -12576,18 +12532,18 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
                   "options": null,
-                  "colspan": 2,
+                  "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 },
@@ -12638,37 +12594,37 @@
               "key": "bearing",
               "label": "BEARING",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "column_2",
               "label": "",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "point_no",
               "label": "POINT NO.",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "limit",
               "label": "LIMIT",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_1",
               "label": "RG 1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_2",
               "label": "RG 2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -12762,7 +12718,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -12913,7 +12869,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13064,7 +13020,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13215,7 +13171,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_8_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13366,7 +13322,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_10_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13517,7 +13473,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_12_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13668,7 +13624,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_14_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13819,7 +13775,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_16_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -13970,7 +13926,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_18_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -14121,7 +14077,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_20_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -14272,7 +14228,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_22_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -14423,7 +14379,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_24_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -14574,7 +14530,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_26_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -15020,7 +14976,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_32_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "ATB",
                   "colspan": 1,
                   "rowspan": 2,
@@ -15104,7 +15060,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_4_row_33_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "AFT",
                   "colspan": 1,
                   "rowspan": 1,
@@ -15333,7 +15289,7 @@
         {
           "id": "section_2_table_5",
           "sectionType": "matrixTable",
-          "title": "",
+          "title": "PERFORMANCE PARAMETERS AT 0.8 N OF GT",
           "topHeaders": [],
           "columns": [],
           "rows": [
@@ -15418,37 +15374,37 @@
               "key": "parameter",
               "label": "Parameter",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt1",
               "label": "GT1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt2",
               "label": "GT2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt3",
               "label": "GT3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt4",
               "label": "GT4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "remarks",
               "label": "Remarks",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -18692,7 +18648,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_7_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
                   "colspan": 4,
                   "rowspan": 1,
@@ -18705,18 +18661,18 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
                   "options": null,
-                  "colspan": 2,
+                  "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 },
@@ -18767,37 +18723,37 @@
               "key": "bearing",
               "label": "BEARING",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "column_2",
               "label": "",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "point_no",
               "label": "POINT NO.",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "limit",
               "label": "LIMIT",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_1",
               "label": "RG 1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_2",
               "label": "RG 2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -18891,7 +18847,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19042,7 +18998,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19193,7 +19149,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19344,7 +19300,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_8_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19495,7 +19451,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_10_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19646,7 +19602,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_12_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19797,7 +19753,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_14_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -19948,7 +19904,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_16_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -20099,7 +20055,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_18_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -20250,7 +20206,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_20_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -20401,7 +20357,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_22_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -20552,7 +20508,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_24_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -20703,7 +20659,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_26_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -21149,7 +21105,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_32_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "ATB",
                   "colspan": 1,
                   "rowspan": 2,
@@ -21233,7 +21189,7 @@
               "cells": [
                 {
                   "_id": "section_2_table_8_row_33_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "AFT",
                   "colspan": 1,
                   "rowspan": 1,
@@ -21547,43 +21503,44 @@
               "key": "parameter",
               "label": "Parameter",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "recommended_range_at_1_0_n",
               "label": "Recommended Range at 1.0 N",
               "type": "label",
-              "align": "left"
+              "align": "center",
+              "width": "14%"
             },
             {
               "key": "gt1",
               "label": "GT1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt2",
               "label": "GT2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt3",
               "label": "GT3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt4",
               "label": "GT4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "remarks",
               "label": "Remarks",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -25067,7 +25024,7 @@
                   "rows": 3,
                   "required": false,
                   "disabled": false,
-                  "placeholder": "Leave a comment here",
+                  "placeholder": "",
                   "inputType": null,
                   "options": null,
                   "colspan": 1,
@@ -25107,7 +25064,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
                   "colspan": 4,
                   "rowspan": 1,
@@ -25120,18 +25077,18 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
                   "options": null,
-                  "colspan": 2,
+                  "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 },
@@ -25182,37 +25139,37 @@
               "key": "bearing",
               "label": "BEARING",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "column_2",
               "label": "",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "point_no",
               "label": "POINT NO.",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "limit",
               "label": "LIMIT",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_1",
               "label": "RG 1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rg_2",
               "label": "RG 2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -25306,7 +25263,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -25457,7 +25414,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -25608,7 +25565,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -25759,7 +25716,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_8_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -25910,7 +25867,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_10_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26061,7 +26018,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_12_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26212,7 +26169,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_14_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26363,7 +26320,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_16_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26514,7 +26471,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_18_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26665,7 +26622,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_20_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26816,7 +26773,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_22_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -26967,7 +26924,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_24_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -27118,7 +27075,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_26_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "A",
                   "colspan": 1,
                   "rowspan": 1,
@@ -27564,7 +27521,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_32_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "ATB",
                   "colspan": 1,
                   "rowspan": 2,
@@ -27648,7 +27605,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_2_row_33_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "AFT",
                   "colspan": 1,
                   "rowspan": 1,
@@ -27886,7 +27843,7 @@
               "cells": [
                 {
                   "_id": "section_3_table_3_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "SHIP",
                   "colspan": 2,
                   "rowspan": 1,
@@ -27899,18 +27856,18 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
                   "options": null,
-                  "colspan": 4,
+                  "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 },
@@ -28419,31 +28376,31 @@
                 "label": "LOCATION",
                 "colspan": 1,
                 "rowspan": 2,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "GT - 1",
                 "colspan": 2,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "GT - 2",
                 "colspan": 2,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "GT - 3",
                 "colspan": 2,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "GT - 4",
                 "colspan": 2,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ]
           ],
@@ -30034,19 +29991,19 @@
                 "label": "VIBRATION LIMITS",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "GT POINTS",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               },
               {
                 "label": "RG POINTS",
                 "colspan": 1,
                 "rowspan": 1,
-                "align": "left"
+                "align": "center"
               }
             ]
           ],

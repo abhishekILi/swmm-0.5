@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "SHIP",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -58,13 +58,15 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "uhf_satcom_sno",
             "key": "uhf_satcom_sno",
             "name": "uhf_satcom_sno",
-            "label": "S.No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -108,7 +110,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -135,7 +137,8 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"350px"
                 }
               ]
             ],
@@ -144,26 +147,20 @@
               {
                "_id": "checks_matrix_1_row_1_combined",
               "cells": [
-                  {
-                    "_id": "blank_cell",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
+                
+                  
                     {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trial team reported onboard for Ops Check of UHF Satcom at hrs.",
+                    "lb" : "Trial team reported onboard for Ops Check of UHF Satcom at",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
                   },
@@ -175,7 +172,7 @@
                     "type": "textarea",
                     "inputType": "text",
                     "value": "",
-                    "lb" : "Checks and trials carried out IAW IHQ approved schedule IHQ MOD(Navy)/PDNSO Fax CM/1777/UHF(II) dated 21 May 22 14 and CNO. 07/10 are enumerated in succeeding paragraphs :-",
+                    "lb" : "hrs. Checks and trials carried out IAW IHQ approved schedule IHQ MOD(Navy)/PDNSO Fax CM/1777/UHF(II) dated 21 May 22 14 and CNO. 07/10 are enumerated in succeeding paragraphs :-",
                     "required": false,
                     "disabled": false,
                     "colspan": 3,
@@ -195,9 +192,10 @@
                     "rowspan": 1,
                     "align": "center"
                   },
+                  
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "_id": "section_2_matrix_1_row_2_cell_3_static",
+                    "type": "serial",
                     "value": "<b>Visual Checks</b>",
                     "colspan": 6,
                     "rowspan": 1,
@@ -218,7 +216,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -227,6 +225,7 @@
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_uhf_satcom_00",
                     "key": "uhf_satcom_00",
+                    "lb":"Fitment of equipment rack on shock mount in ",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -315,6 +314,7 @@
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_uhf_satcom_01",
                     "key": "uhf_satcom_01",
+                    "lb":" Fitment of LOS Antenna on ",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -396,6 +396,7 @@
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_uhf_satcom_01",
                     "key": "uhf_satcom_01",
+                    "lb":"and Satcom Antenna on ",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -434,7 +435,7 @@
                     "value": "LOS and Satcom Antenna connection to the UHF Satcom trough feeder cable.",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_uhf_satcom_status_vc3",
@@ -508,7 +509,7 @@
                     "value": "Grounding of Rack/Equipment",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_uhf_satcom_status_vc4",
@@ -582,7 +583,7 @@
                     "value": "Power supply 230V AC, 50Hz",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_uhf_satcom_status_vc5",
@@ -656,7 +657,7 @@
                     "value": "Fitment of sub units in cabinet and interconnection.",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_uhf_satcom_status_vc6",
@@ -730,7 +731,7 @@
                     "value": "Functions of all knobs, switches, push buttons and display.",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_uhf_satcom_status_vc7",
@@ -805,7 +806,7 @@
                     "value": "LOS and Satcom Handset of Main equipment",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_uhf_satcom_status_vc8",
@@ -874,9 +875,10 @@
                     "rowspan": 1,
                     "align": "center"
                   },
+                  
                   {
-                    "_id": "section_2_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "_id": "section_2_matrix_1_row_11_cell_3_static",
+                    "type": "serial",
                     "value": "<b>Test Procedure</b>",
                     "colspan": 6,
                     "rowspan": 1,
@@ -897,7 +899,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -909,7 +911,7 @@
                     "value": "BITE Test",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_uhf_satcom_status_61",
@@ -983,7 +985,7 @@
                     "value": "LOS Voice Test. (Set the LOS service in NB mode and frequency 150 MHz).",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_uhf_satcom_status_62",
@@ -1057,7 +1059,7 @@
                     "value": "Satcom Voice Test. (Set the Satcom service in Voice)",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_uhf_satcom_status_63",
@@ -1131,7 +1133,7 @@
                     "value": "Satcom operation in U x U",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_uhf_satcom_status_63i",
@@ -1205,7 +1207,7 @@
                     "value": "Satcom operation in U x C",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_uhf_satcom_status_63ii",
@@ -1279,7 +1281,7 @@
                     "value": "Satcom operation in C x U",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_uhf_satcom_status_63iii",
@@ -1347,8 +1349,9 @@
                     "rowspan": 1,
                     "align": "center"
                   },
+                  
                   {
-                    "_id": "section_2_matrix_1_row_18_cell_2_uhf_satcom_01",
+                    "_id": "section_2_matrix_1_row_18_cell_3_uhf_satcom_01",
                     "key": "uhf_satcom_01",
                     "lb" : "RCU Check   RCU Sl No.",
                     "type": "input",
@@ -1359,7 +1362,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 5,
+                    "colspan": 6,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1385,7 +1388,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1486,7 +1489,7 @@
                     "value": "Grounding of RCUs",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_uhf_satcom_status_7b",
@@ -1560,7 +1563,7 @@
                     "value": "Functions of all knobs, switches, push buttons and display",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_3_uhf_satcom_status_7c",
@@ -1634,7 +1637,8 @@
                     "value": "LOS and Satcom Handset of RCU",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
+
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_3_uhf_satcom_status_7d",
@@ -1708,7 +1712,7 @@
                     "value": "Connecterisation of RCU from main equipment",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_3_uhf_satcom_status_7e",
@@ -1782,7 +1786,7 @@
                     "value": "LOS Voice Test. (Set the LOS service in NB mode and frequency 150 MHz).",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_3_uhf_satcom_status_7f",
@@ -1856,7 +1860,7 @@
                     "value": "Satcom Voice Test. (Set the Satcom service in Voice and Satcom operation in U x U mode)",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_3_uhf_satcom_status_7g",
@@ -1931,6 +1935,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -1943,6 +1948,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (VZG)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

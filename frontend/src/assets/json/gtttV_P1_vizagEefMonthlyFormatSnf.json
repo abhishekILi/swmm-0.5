@@ -30,19 +30,22 @@
           },
           {
             "type": "input",
-            "name": "ship",
-            "label": "ship",
-            "colSpan": 4,
+            "value": "",
+            "label":"Ship",
+            "key":"ship",
+            "rows": null,
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "value": "",
             "inputType": "text",
             "options": null,
-            "isDynamic": false,
-            "lookupKey": null,
+            "colspan": 4,
+            "rowspan": 1,
+            "align": "left",
+            "isDynamic": true,
+            "lookupKey": "context.ship_name",
             "prefill": true,
-            "prefillSource": "context.ship",
+            "prefillSource": "context.ship_name",
             "lockAfterPrefill": false,
             "hiddenKey": null,
             "displayKey": null
@@ -84,49 +87,49 @@
                 "key": "no_s_of_main_engine_fitted",
                 "label": "No’s of Main Engine Fitted",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "gt1",
                 "label": "GT1",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "gt2",
                 "label": "GT2",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "gt3",
                 "label": "GT3",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "gt4",
                 "label": "GT4",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "total_rh",
                 "label": "Total RH",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "hours_underway",
                 "label": "Hours Underway",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "eef",
                 "label": "EEF",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -336,44 +339,20 @@
             ],
             "showRowActions": false,
             "minRows": 1
-          },
+          }
+        ],
+        "fields_2": [
           {
-            "id": "section_1_table_2",
-            "sectionType": "simpleTable",
-            "title": "REMARKS",
-            "topHeaders": [],
-            "columns": [],
-            "rows": [
-              {
-                "_id": "section_1_table_2_row_1",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_1_cell_1_snfEefMonthlyRemarks",
-                    "key": "snfEefMonthlyRemarks",
-                    "type": "textarea",
-                    "value": "",
-                    "rows": 10,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "Leave a comment here",
-                    "inputType": null,
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
+            "key": "snfEefMonthlyRemarks",
+            "name": "snfEefMonthlyRemarks",
+            "type": "editor",
+            "label": "REMARKS",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "Leave a comment here",
+            "editorHeight": 250,
+            "colSpan": 12
           }
         ]
       }

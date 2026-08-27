@@ -18,15 +18,15 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
-            "disabled": true,
-            "placeholder": "",
+            "disabled": false,
+            "placeholder": "-- Select --",
             "options": [
               {
                 "label": "-- Select --",
@@ -34,25 +34,22 @@
               },
               {
                 "label": "INS Alpha",
-                "value": "INS_A"
+                "value": "INS Alpha"
               },
               {
                 "label": "INS Bravo",
-                "value": "INS_B"
+                "value": "INS Bravo"
               },
               {
                 "label": "INS Charlie",
-                "value": "INS_C"
+                "value": "INS Charlie"
               },
               {
                 "label": "INS Delta",
-                "value": "INS_D"
+                "value": "INS Delta"
               }
             ],
-            "isDynamic": true,
-            "lookupKey": "ship_name",
-            "prefill": true,
-            "prefillSource": "context.ship_name"
+            "colSpan": 6
           },
           {
             "_id": "department",
@@ -93,16 +90,16 @@
             "key": "equipment",
             "name": "equipment",
             "label": "Equipment",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -168,7 +165,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -189,7 +186,8 @@
                   "label": "Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "24%"
                 }
               ]
             ],
@@ -281,7 +279,7 @@
                     "value": "Verification of the Alarm Messages",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_gen_criterion_1_1",
@@ -341,7 +339,7 @@
                     "value": "Verification of the recording, and replaying facility",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_gen_criterion_1_2",
@@ -401,7 +399,7 @@
                     "value": "Verification of frequency of operation and No of Sub Bands",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_gen_criterion_1_3",
@@ -461,7 +459,7 @@
                     "value": "Verification of frequency agility features",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_gen_criterion_1_4",
@@ -521,7 +519,7 @@
                     "value": "Verification od sector transmission feature",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_4_gen_criterion_1_5",
@@ -581,7 +579,7 @@
                     "value": "Verification of the tracking initiation criteria",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_4_gen_criterion_1_5",
@@ -654,7 +652,7 @@
                     "value": "Selection/ change of operation modes and verification of antenna rotation rate",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_4_gen_criterion_1_6",
@@ -714,7 +712,7 @@
                     "value": "Verification of radar performance in various operation modesto the indicated ship\u2019s position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_gen_criterion_1_7",
@@ -774,7 +772,7 @@
                     "value": "Verification of the ECM capabilities for frequency diversity",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_4_gen_criterion_1_8",
@@ -834,7 +832,7 @@
                     "value": "Verification of the Range and Azimuth resolution of the target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_gen_criterion_1_9",
@@ -894,7 +892,7 @@
                     "value": "Verification of tracking accuracy (bearing, range and elevation)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_gen_criterion_1_10",
@@ -954,7 +952,7 @@
                     "value": "Verify programmable power attenuation features (Graceful degradation)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_gen_criterion_1_10",
@@ -1014,7 +1012,7 @@
                     "value": "Detection of target at max radar detection height",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_gen_criterion_1_10",
@@ -1074,7 +1072,7 @@
                     "value": "Detection of Max velocity of Air Targets",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_gen_criterion_1_10",
@@ -1134,7 +1132,7 @@
                     "value": "Detection of max target acceleration (6g) and Max Turn Rate (6g maneuvers)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_gen_criterion_1_10",
@@ -1194,7 +1192,7 @@
                     "value": "Detection of max target speed (100 knots) and Max Acceleration (0.5g) for a Surface target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_gen_criterion_1_10",
@@ -1267,7 +1265,7 @@
                     "value": "Anti-sea/rain clutter features.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_gen_criterion_1_11",
@@ -1327,7 +1325,7 @@
                     "value": "Verification of the Electronic Compensation of Beam Pointing etc.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_4_gen_criterion_1_11",
@@ -1387,7 +1385,7 @@
                     "value": "Verification of the track maintenance, latency and track numbering",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_4_gen_criterion_1_11",
@@ -1447,7 +1445,7 @@
                     "value": "Verification of the primary radar and AIS data for correlation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_4_gen_criterion_1_11",
@@ -1507,7 +1505,7 @@
                     "value": "Verification of primary radar & IFF tracks for correlation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_4_gen_criterion_1_11",
@@ -1550,10 +1548,11 @@
                     "key": "test_1_rlg1_velocity",
                     "type": "textarea",
                     "value": "",
+                    "lb": "General Observations:",
                     "rows": 1,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "General Observations",
+                    "placeholder": "",
                     "inputType": null,
                     "options": null,
                     "colspan": 6,

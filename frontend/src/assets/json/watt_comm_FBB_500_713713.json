@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -44,13 +44,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan" : 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -151,7 +153,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -173,7 +175,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -181,13 +183,13 @@
                 "key": "checks",
                 "label": "Checks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks_sat_unsat",
                 "label": "Remarks (Sat / Unsat)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -645,7 +647,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -667,7 +669,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -675,13 +677,13 @@
                 "key": "checks",
                 "label": "Checks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks_sat_unsat",
                 "label": "Remarks (Sat / Unsat)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1006,7 +1008,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1028,7 +1030,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1036,13 +1038,13 @@
                 "key": "checks",
                 "label": "Checks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks_sat_unsat",
                 "label": "Remarks (Sat / Unsat)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1620,7 +1622,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1643,7 +1645,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1651,13 +1653,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1677,7 +1679,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1699,7 +1701,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1736,6 +1738,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1766,6 +1769,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "label": "Name of ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -41,16 +41,18 @@
             "type": "input",
             "value": "LINK II MOD III",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan" : 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "SNo",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -139,11 +141,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Section 2",
+            "title": " ",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -177,31 +179,47 @@
             "columns": [],
             "rows": [
               {
-                "_id": "section_2_matrix_1_row_1",
-                "cells": [
+               "_id": "checks_matrix_1_row_1_combined",
+              "cells": [
+                {
+            "_id": "ccs_mk2_reported_time_label0",
+            "type": "serial",
+            "value": "",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+                    {
+            "_id": "ccs_mk2_reported_time_label1",
+            "type": "label",
+            "value": "Trial team embarked onboard for Ops Check of Link II MOD III (Ver 2.0) at",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+
                   {
-                    "_id": "section_2_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "lb" : "Trial team embarked onboard for Ops Check of Link II MOD III (Ver 2.0) at hrs. Trials carried out IAW IHQ MoD(Navy)/DEE approved schedule WP/1280/LINK II dated 13 Oct 23 and CNO. 07/10 are enumerated in succeeding paragraphs:-",
-                    "type": "time",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "time",
-                    "options": null,
-                    "colspan": 5,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
+            "_id": "ccs_mk2_reported_time1",
+            "key": "ccs_mk2_reported_time1",
+            "name": "ccs_mk2_reported_time1",
+            "type": "time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "time",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "center"
+          },
+                  {
+            "_id": "ccs_mk2_reported_time_label2",
+            "type": "label",
+            "value": "hrs. Trials carried out IAW IHQ MoD(Navy)/DEE approved schedule WP/1280/LINK II dated 13 Oct 23 and CNO. 07/10 are enumerated in succeeding paragraphs:-",
+            "colspan": 2,
+            "rowspan": 1,
+            "align": "left"
+          }
                 ]
               },
               {
@@ -233,7 +251,7 @@
                     "type": "serial",
                     "value": "5.1",
                     "colspan": 1,
-                    "rowspan": 11,
+                    "rowspan": 12,
                     "align": "center"
                   },
                   {
@@ -241,32 +259,18 @@
                     "type": "label",
                     "value": "",
                     "colspan": 1,
-                    "rowspan": 11,
+                    "rowspan": 12,
                     "align": "center"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_3_inv_mpu",
-                    "key": "inv_mpu",
-                    "lb" : "Large / Small / Single Ship Configuration : MPU (2)",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
+                    "_id": "section_2_matrix_1_row_3_cell_3_static",
+                    "type": "label",
+                    "value": "Large / Small / Single Ship Configuration",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center"
                   },
+                  
                   {
                     "_id": "section_2_matrix_1_row_3_cell_4_status_5_1",
                     "key": "status_5_1",
@@ -288,7 +292,36 @@
                       }
                     ],
                     "colspan": 1,
-                    "rowspan": 11,
+                    "rowspan": 12,
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
+                  }
+                ]
+              },
+              {
+                "_id": "section_2_matrix_1_row_3_0",
+                "cells": [
+
+                  {
+                    "_id": "section_2_matrix_1_row_3_cell_3_inv_mpu",
+                    "key": "inv_mpu",
+                    "lb" : "MPU (2)",
+                    "type": "input",
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 2,
+                    "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
@@ -609,7 +642,7 @@
                     "value": "<b>Preliminary checks: </b> Check the installation of cables, connectors, sub-assemblies, fuse ratings and proper grounding of all the eqpts of LINK II MOD III .",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_status_5_2",
@@ -721,7 +754,7 @@
                     "value": "<b>Main Processor Unit (MPU):</b> Power cables are connected from MPU to AC/DC adaptor and AC/DC adaptor to AC Mains socket.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_status_5_3_1",
@@ -773,7 +806,7 @@
                     "value": "<b>4 CH Radio Modem Unit (RMU):</b> Check Power cable is connected from 4 CH Radio Modem Unit to AC mains Socket.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_status_5_3_2",
@@ -825,7 +858,7 @@
                     "value": "<b>Messaging console (24 Inch):</b> Check cable is connected from MC to AC mains socket.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_status_5_3_3",
@@ -877,7 +910,7 @@
                     "value": "<b>Mobile Messaging Console:</b> Connect the charger cable onto the connector marked Power on the MMC.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_status_5_3_4",
@@ -929,7 +962,7 @@
                     "value": "<b>Ethernet Switch:</b> Check Power cable connected from Ethernet switch to AC mains socket / Ethernet cables are connected to ethernet switch.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_status_5_3_5",
@@ -981,7 +1014,7 @@
                     "value": "Colour Network Printer connected - AC mains socket.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_status_5_3_6",
@@ -1033,7 +1066,7 @@
                     "value": "Time Reference Server to AC Mains socket.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_status_5_3_7",
@@ -1085,7 +1118,7 @@
                     "value": "Access Point Assy.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_status_5_3_8",
@@ -1137,7 +1170,7 @@
                     "value": "UPS Checks.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_status_5_3_9",
@@ -1189,7 +1222,7 @@
                     "value": "SDR TAC Checks.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_status_5_3_10",
@@ -1241,7 +1274,7 @@
                     "value": "SDR NC Checks.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_status_5_3_11",
@@ -1302,11 +1335,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Power ON/ OFF Units.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_status_5_6_1",
@@ -1346,11 +1379,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Connect the power cables to MPU to AC/DC adaptor to socket before power on system.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_status_5_6_1",
@@ -1390,11 +1423,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Switch on MPU- 4 CH radio \u2013 MC \u2013 Printer - TRS.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_status_5_6_1",
@@ -1606,7 +1639,7 @@
                     "value": "Pre \u2013 Requisites conditions.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_3_status_5_6_1",
@@ -1658,7 +1691,7 @@
                     "value": "Primary Configuration management.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_3_status_5_6_2",
@@ -1710,7 +1743,7 @@
                     "value": "Tactical configuration start up procedure.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_3_status_5_6_3",
@@ -1814,7 +1847,7 @@
                     "value": "Msg transfer using 4 CH RMU (CH 1).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_3_status_5_7_a1",
@@ -1866,7 +1899,7 @@
                     "value": "Tactical Data Transfer using 4CH RMU (CH 2).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_3_status_5_7_a2",
@@ -1918,7 +1951,7 @@
                     "value": "Link II \u2013 CMS Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_3_status_5_7_a3",
@@ -1970,7 +2003,7 @@
                     "value": "Link II \u2013 Rukmani Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_3_status_5_7_a4",
@@ -2022,7 +2055,7 @@
                     "value": "Link II \u2013 HMS (HUMSA NAG) Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_3_status_5_7_a5",
@@ -2074,7 +2107,7 @@
                     "value": "Link II \u2013 MSS Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_3_status_5_7_a6",
@@ -2126,7 +2159,7 @@
                     "value": "Link II \u2013 IMSAS / MDA Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_3_status_5_7_a7",
@@ -2178,7 +2211,7 @@
                     "value": "Tactical Console interface with AIS.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_3_status_5_7_a8",
@@ -2230,7 +2263,7 @@
                     "value": "MPU/Server \u2013 Messaging Console Checks (NTS \u2013 NTP Checks).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_3_status_5_7_a9",
@@ -2326,7 +2359,7 @@
                     "value": "Msg Transfer using HDR UHF ECCM Manet Waveform CH 1 & 2.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_3_status_5_7_b1",
@@ -2378,7 +2411,7 @@
                     "value": "Tactical Transfer using HDR ECCM Manet Waveform CH 1 & 2.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_3_status_5_7_b2",
@@ -2430,7 +2463,7 @@
                     "value": "Msg Transfer using HDR L Band ECCM Manet Waveform CH 3 & 4.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_3_status_5_7_b3",
@@ -2482,7 +2515,7 @@
                     "value": "Tactical Transfer using HDR L Band ECCM Manet Waveform CH 3 & 4.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_3_status_5_7_b4",
@@ -2534,7 +2567,7 @@
                     "value": "Msg Data transfer on LDR \u2013 ECCM Waveform CH 1 & 2 (SDR NC).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_3_status_5_7_b5",
@@ -2594,7 +2627,7 @@
                     "value": "Part A and B (Same as Above Check Ser 5.7).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_4_status_6_0",
@@ -2654,7 +2687,7 @@
                     "value": "Test Measurement Report (TMR) (Result of above Check Ser 6.0).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_4_status_7_0",
@@ -2700,7 +2733,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2722,7 +2755,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -2730,13 +2763,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -2756,7 +2789,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2778,7 +2811,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2815,6 +2848,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -2845,6 +2879,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

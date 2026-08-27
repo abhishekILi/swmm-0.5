@@ -20,7 +20,7 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
+            "label": "Name of Ship",
             "type": "select",
             "value": "",
             "required": true,
@@ -44,13 +44,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -143,7 +145,37 @@
             "isDynamic": false
           }
         ],
-        "tables_1": [],
+        "tables_1": [
+        ],
+        "fields_4": [
+          {
+            "type": "label",
+            "name": "Pboard",
+            "key": "Pboard",
+            "value": "<p class='text-xs'>Trial team embarked onboard for ops check of V/UHF TX/RX LUP 329 at</p>",
+            "colSpan":3
+          },
+          {
+            "type": "time",
+            "name": "Pboard_time",
+            "key": "Pboard_time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "colSpan": 2
+          },
+          {
+             "type": "label",
+            "name": "Pboard_lable",
+            "key": "Pboard_lable",
+            "colSpan":7,
+            "value": "<p class='text-xs'>hrs. The trials carried out IAW IHQ MoD(Navy)/JDNS(System) approved schedule CM/4859 dated 15 Oct 12 and CNO 07/10 are enumerated in succeeding paragraphs:-</p>"
+          }
+
+          
+        ],
+
 
         "tables_2": [
           {
@@ -153,7 +185,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -162,11 +194,12 @@
                   "label": "Item / Observations",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width" : "850px"
                 },
                 {
                   "label": "Remarks (Sat / Unsat)",
-                  "colspan": 1,
+                  "colspan": 2,
                   "rowspan": 1,
                   "align": "center"
                 }
@@ -174,28 +207,7 @@
             ],
             "columns": [],
             "rows": [
-              {
-                "_id": "physical_checks_matrix_1_row_1",
-                "cells": [
-                  {
-                    "_id": "blank_cell",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "physical_checks_matrix_1_row_1_cell_1_static",
-                    "type": "time",
-                    "lb" : "Trial team embarked onboard for ops check of V/UHF TX/RX LUP 329 at hrs. The trials carried out IAW IHQ MoD(Navy)/JDNS(System) approved schedule CM/4859 dated 15 Oct 12 and CNO 07/10 are enumerated in succeeding paragraphs:-",
-                    "value": "",
-                    "colspan": 3,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
+              
               {
                 "_id": "physical_checks_matrix_1_row_1",
                 "cells": [
@@ -211,9 +223,9 @@
                     "_id": "physical_checks_matrix_1_row_1_cell_2_static",
                     "type": "label",
                     "value": "V/UHF Tx/Rx LUP 329",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_1_cell_3_phys_1_rmk",
@@ -271,7 +283,7 @@
                     "placeholder": " ",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -330,9 +342,9 @@
                     "_id": "physical_checks_matrix_1_row_3_cell_2_static",
                     "type": "label",
                     "value": "Handset Assembly.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_3_cell_3_phys_3_rmk",
@@ -382,9 +394,9 @@
                     "_id": "physical_checks_matrix_1_row_4_cell_2_static",
                     "type": "label",
                     "value": "Headgear & Microphone Assembly.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_4_cell_3_phys_4_rmk",
@@ -442,7 +454,7 @@
                     "placeholder": " ",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -501,9 +513,9 @@
                     "_id": "physical_checks_matrix_1_row_6_cell_2_static",
                     "type": "label",
                     "value": "Carrying Case (LUP 329).",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_6_cell_3_phys_6_rmk",
@@ -553,9 +565,9 @@
                     "_id": "physical_checks_matrix_1_row_7_cell_2_static",
                     "type": "label",
                     "value": "Carrying Harness.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_7_cell_3_phys_7_rmk",
@@ -605,9 +617,9 @@
                     "_id": "physical_checks_matrix_1_row_8_cell_2_static",
                     "type": "label",
                     "value": "Antenna, RF 50 Tape-620MM.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_8_cell_3_phys_8_rmk",
@@ -665,7 +677,7 @@
                     "placeholder": " ",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -724,9 +736,9 @@
                     "_id": "physical_checks_matrix_1_row_10_cell_2_static",
                     "type": "label",
                     "value": "Antenna V/UHF.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_10_cell_3_phys_10_rmk",
@@ -776,9 +788,9 @@
                     "_id": "physical_checks_matrix_1_row_11_cell_2_static",
                     "type": "label",
                     "value": "Cable Assy 20 M.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_11_cell_3_phys_11_rmk",
@@ -828,9 +840,9 @@
                     "_id": "physical_checks_matrix_1_row_12_cell_2_static",
                     "type": "label",
                     "value": "Cable Assy 5 M.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_12_cell_3_phys_12_rmk",
@@ -880,9 +892,9 @@
                     "_id": "physical_checks_matrix_1_row_13_cell_2_static",
                     "type": "label",
                     "value": "Mast Telescopic 11.4 M.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_13_cell_3_phys_13_rmk",
@@ -932,9 +944,9 @@
                     "_id": "physical_checks_matrix_1_row_14_cell_2_static",
                     "type": "label",
                     "value": "Tool Kit.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_14_cell_3_phys_14_rmk",
@@ -984,9 +996,9 @@
                     "_id": "physical_checks_matrix_1_row_15_cell_2_static",
                     "type": "label",
                     "value": "Fill Gun & Accessories.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_15_cell_3_phys_15_rmk",
@@ -1036,9 +1048,9 @@
                     "_id": "physical_checks_matrix_1_row_16_cell_2_static",
                     "type": "label",
                     "value": "All knobs and switches.",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "physical_checks_matrix_1_row_16_cell_3_phys_16_rmk",
@@ -1084,7 +1096,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1106,7 +1118,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1114,13 +1126,13 @@
                 "key": "checks_observations",
                 "label": "Checks / Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks_sat_unsat",
                 "label": "Remarks (Sat / Unsat)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1395,7 +1407,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1423,7 +1435,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1431,19 +1443,19 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "sign",
                 "label": "Sign",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1463,7 +1475,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1485,7 +1497,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1539,6 +1551,7 @@
             "label": "Presenting Authority ",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1569,6 +1582,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colspan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

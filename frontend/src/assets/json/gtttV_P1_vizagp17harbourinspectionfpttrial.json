@@ -11,70 +11,44 @@
         "fields_1": [
           {
             "type": "input",
-            "name": "shipID",
-            "label": "shipID",
-            "colSpan": 12,
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
+            "label": "SHIP",
             "value": "",
+            "rows": null,
+            "required": false,
+            "disabled": true,
+            "placeholder": "",
             "inputType": "text",
             "options": null,
-            "isDynamic": false,
-            "lookupKey": null,
+            "colspan": 12,
+            "rowspan": 1,
+            "align": "left",
+            "isDynamic": true,
+            "lookupKey": "context.ship_name",
             "prefill": true,
-            "prefillSource": "context.shipID",
+            "prefillSource": "context.ship_name",
             "lockAfterPrefill": false,
             "hiddenKey": null,
             "displayKey": null
           }
         ],
-        "tables_1": [
+        "fields_2": [
           {
-            "id": "section_1_table_1",
-            "sectionType": "simpleTable",
-            "title": "1. Reference.",
-            "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
-            "rows": [
-              {
-                "_id": "section_1_table_1_row_1",
-                "cells": [
-                  {
-                    "_id": "section_1_table_1_row_1_cell_1_fPTReference",
-                    "key": "fPTReference",
-                    "type": "textarea",
-                    "value": "",
-                    "rows": 10,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": true,
-            "minRows": 1
-          },
+            "_id": "fPT_reference_section_!",
+            "key": "fPTReference",
+            "type": "editor",
+            "label": "1. Reference.",
+            "value": "",
+            "height": 200,
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": null,
+            "options": null,
+            "colspan": 12,
+            "rowspan": 1
+          }
+        ],
+        "tables_1": [
           {
             "id": "section_1_table_2",
             "sectionType": "matrixTable",
@@ -85,19 +59,19 @@
                   "label": "Position/GT Ser",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Running Hours",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Last Routine Undertaken",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "left"
+                  "align": "center"
                 }
               ],
               [
@@ -105,13 +79,13 @@
                   "label": "Since Installation",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Since Last Trials",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -402,17 +376,10 @@
           },
           {
             "id": "section_1_table_3",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "3. Mode.",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_3_row_1",
@@ -422,7 +389,6 @@
                     "key": "fPTMode",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -437,27 +403,21 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
             "id": "section_1_table_4",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "4. Environment/Ship Conditions.",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_4_row_1",
@@ -467,7 +427,6 @@
                     "key": "fPTEnvShipCond",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -482,27 +441,21 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
             "id": "section_1_table_5",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "5. Loading of GTs.",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_5_row_1",
@@ -512,7 +465,6 @@
                     "key": "fPTLoadGT",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -527,25 +479,26 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
             "id": "section_1_table_6",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "6.Performance Parameter/Analysis/Trends.",
             "topHeaders": [],
             "columns": [
               {
                 "key": "pgt",
                 "label": "PGT",
-                "type": "serial",
-                "align": "center"
+                "type": "label",
+                "align": "left"
               }
             ],
             "rows": [
@@ -557,7 +510,6 @@
                     "key": "fPTPerfPGT",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -572,7 +524,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               },
@@ -581,7 +534,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_6_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "SGT",
                     "colspan": 1,
                     "rowspan": 1,
@@ -597,7 +550,6 @@
                     "key": "fPTPerfSGT",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -612,7 +564,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
@@ -622,17 +575,10 @@
           },
           {
             "id": "section_1_table_7",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "7. Observations",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_7_row_1",
@@ -642,7 +588,6 @@
                     "key": "fPTObservations",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -657,27 +602,21 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
             "id": "section_1_table_8",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "8. Conclusion of FTP Trials",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_8_row_1",
@@ -687,7 +626,6 @@
                     "key": "fPTConlusion",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -702,27 +640,21 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
             "id": "section_1_table_9",
-            "sectionType": "simpleTable",
+            "sectionType": "editorTable",
             "title": "9. Recommendations",
             "topHeaders": [],
-            "columns": [
-              {
-                "key": "ser",
-                "label": "Ser",
-                "type": "serial",
-                "align": "center"
-              }
-            ],
+            "columns": [],
             "rows": [
               {
                 "_id": "section_1_table_9_row_1",
@@ -732,7 +664,6 @@
                     "key": "fPTRecommendation",
                     "type": "textarea",
                     "value": "",
-                    "rows": 10,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -747,12 +678,13 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "height": 200
                   }
                 ]
               }
             ],
-            "showRowActions": true,
+            "showRowActions": false,
             "minRows": 1
           },
           {
@@ -762,7 +694,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SNO.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1007,18 +939,12 @@
               [
                 {
                   "label": "SECTION-II STATE OF SYSTEMS",
-                  "colspan": 6,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "left"
                 }
               ],
               [
-                {
-                  "label": "4.",
-                  "colspan": 1,
-                  "rowspan": 8,
-                  "align": "left"
-                },
                 {
                   "label": "AIR INTAKE/EXHAUST SYSTEM",
                   "colspan": 2,
@@ -1045,85 +971,222 @@
                 "_id": "section_1_table_11_row_1",
                 "cells": [
                   {
-                    "_id": "section_1_table_11_row_1_cell_1_static",
+                    "_id": "section_1_table_11_row_1_cell_1",
                     "type": "serial",
-                    "value": "1",
-                    "colspan": 1,
-                    "rowspan": 1,
+                    "value": "4.1",
                     "align": "center"
                   },
                   {
-                    "_id": "section_1_table_11_row_1_cell_2_description",
-                    "key": "description",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "_id": "section_1_table_11_row_1_cell_2",
+                    "type": "label",
+                    "value": "Check Air Intake Filter and Intake Compartment for cleanliness, corrosion and wear and tear.",
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_11_row_1_cell_3_status",
-                    "key": "status",
+                    "_id": "section_1_table_11_row_1_cell_3",
+                    "key": "fptAirIntakePgt1",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "inputType": "text"
                   },
                   {
-                    "_id": "section_1_table_11_row_1_cell_4_remarks",
-                    "key": "remarks",
-                    "type": "textarea",
+                    "_id": "section_1_table_11_row_1_cell_4",
+                    "key": "fptAirIntakeSgt1",
+                    "type": "input",
                     "value": "",
-                    "rows": 1,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_2",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_2_cell_1",
+                    "type": "serial",
+                    "value": "4.2",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_2_cell_2",
+                    "type": "label",
+                    "value": "Inspect B&E of each GT, Make sure doors are locked.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_2_cell_3",
+                    "key": "fptAirIntakePgt2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_2_cell_4",
+                    "key": "fptAirIntakeSgt2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_3",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_3_cell_1",
+                    "type": "serial",
+                    "value": "4.3",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_3_cell_2",
+                    "type": "label",
+                    "value": "Check Operation of ventilation Damper from remote.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_3_cell_3",
+                    "key": "fptAirIntakePgt3",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_3_cell_4",
+                    "key": "fptAirIntakeSgt3",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_4",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_4_cell_1",
+                    "type": "serial",
+                    "value": "4.4",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_4_cell_2",
+                    "type": "label",
+                    "value": "Check Condition of all Flexible Joints.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_4_cell_3",
+                    "key": "fptAirIntakePgt4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_4_cell_4",
+                    "key": "fptAirIntakeSgt4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_5",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_5_cell_1",
+                    "type": "serial",
+                    "value": "4.5",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_5_cell_2",
+                    "type": "label",
+                    "value": "Check Condition of Exhaust IRSS Sensors.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_5_cell_3",
+                    "key": "fptAirIntakePgt5",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_5_cell_4",
+                    "key": "fptAirIntakeSgt5",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_6",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_6_cell_1",
+                    "type": "serial",
+                    "value": "4.6",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_6_cell_2",
+                    "type": "label",
+                    "value": "Check GT Enclosure Drains by pouring water.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_6_cell_3",
+                    "key": "fptAirIntakePgt6",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_6_cell_4",
+                    "key": "fptAirIntakeSgt6",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_11_row_7",
+                "cells": [
+                  {
+                    "_id": "section_1_table_11_row_7_cell_1",
+                    "type": "serial",
+                    "value": "4.7",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_7_cell_2",
+                    "type": "label",
+                    "value": "Check that secondary Exhaust cooling system is functional.(FAN-Operational)",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_7_cell_3",
+                    "key": "fptAirIntakePgt7",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "section_1_table_11_row_7_cell_4",
+                    "key": "fptAirIntakeSgt7",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text"
                   }
                 ]
               }
             ],
-            "showRowActions": true,
-            "minRows": 1,
-            "rowsBinding": "FPT_harbourInspection_air"
+            "showRowActions": false,
+            "minRows": 7
           },
           {
             "id": "section_1_table_12",
@@ -1135,25 +1198,25 @@
                 "key": "parameters",
                 "label": "PARAMETERS",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "operating_range",
                 "label": "OPERATING RANGE",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt",
                 "label": "PORT GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt",
                 "label": "STBD GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -3650,25 +3713,25 @@
                 "key": "parameters",
                 "label": "PARAMETERS",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "operating_range",
                 "label": "OPERATING RANGE",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt",
                 "label": "PORT GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt",
                 "label": "STBD GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -6165,25 +6228,25 @@
                 "key": "parameters",
                 "label": "PARAMETERS",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "operating_range",
                 "label": "OPERATING RANGE",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt",
                 "label": "PORT GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt",
                 "label": "STBD GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -8680,25 +8743,25 @@
                 "key": "parameters",
                 "label": "PARAMETERS",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "operating_range",
                 "label": "OPERATING RANGE",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt",
                 "label": "PORT GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt",
                 "label": "STBD GT",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -11193,7 +11256,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -11201,25 +11264,25 @@
                 "key": "location",
                 "label": "Location",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "limits",
                 "label": "Limits",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt_peak_peak",
                 "label": "Port GT (Peak - Peak)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt_peak_peak",
                 "label": "Stbd GT (Peak - Peak)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -11229,7 +11292,7 @@
                   {
                     "_id": "section_1_table_16_row_1_cell_1_static",
                     "key": "1",
-                    "type": "label",
+                    "type": "serial",
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11305,7 +11368,7 @@
                   {
                     "_id": "section_1_table_16_row_2_cell_1_static",
                     "key": "2",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11372,7 +11435,7 @@
                   {
                     "_id": "section_1_table_16_row_3_cell_1_static",
                     "key": "3",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11439,7 +11502,7 @@
                   {
                     "_id": "section_1_table_16_row_4_cell_1_static",
                     "key": "4",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11515,7 +11578,7 @@
                   {
                     "_id": "section_1_table_16_row_5_cell_1_static",
                     "key": "5",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11582,7 +11645,7 @@
                   {
                     "_id": "section_1_table_16_row_6_cell_1_static",
                     "key": "6",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11655,7 +11718,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -11663,25 +11726,25 @@
                 "key": "location",
                 "label": "Location",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "limits",
                 "label": "Limits",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "port_gt_mm_s_rms",
                 "label": "PORT GT mm/s(RMS)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "stbd_gt_mm_s_rms",
                 "label": "STBD GT mm/s(RMS)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -11691,7 +11754,7 @@
                   {
                     "_id": "section_1_table_17_row_1_cell_1_static",
                     "key": "1",
-                    "type": "label",
+                    "type": "serial",
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11767,7 +11830,7 @@
                   {
                     "_id": "section_1_table_17_row_2_cell_1_static",
                     "key": "2",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11790,7 +11853,7 @@
                   {
                     "_id": "section_1_table_17_row_3_cell_1_static",
                     "key": "3",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11813,7 +11876,7 @@
                   {
                     "_id": "section_1_table_17_row_4_cell_1_static",
                     "key": "4",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11889,7 +11952,7 @@
                   {
                     "_id": "section_1_table_17_row_5_cell_1_static",
                     "key": "5",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11912,7 +11975,7 @@
                   {
                     "_id": "section_1_table_17_row_6_cell_1_static",
                     "key": "6",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11943,13 +12006,13 @@
                   "label": "Mount No.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Attenuation in Percentage(%)",
                   "colspan": 5,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ],
               [
@@ -11957,13 +12020,13 @@
                   "label": "PORT GT",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "STBD GT",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -13807,13 +13870,13 @@
                   "label": "Mount No.",
                   "colspan": 1,
                   "rowspan": 3,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Measuring Value in %",
                   "colspan": 8,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ],
               [
@@ -13821,13 +13884,13 @@
                   "label": "PORT GT",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "STBD GT",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ],
               [
@@ -13835,37 +13898,37 @@
                   "label": "Top",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Bottom",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Attenuation %",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Top",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Bottom",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Attenuation %",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 }
               ]
             ],
@@ -18522,79 +18585,19 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Relevant Technical Directive / Bulletin",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Directive Policy no. / Letter Reference",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                }
-              ],
-              [
-                {
-                  "label": "1.",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Guidelines for maintaining Quality and Hygiene of Diesel Fuel",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Technical Directive 06/20- HQENC letter EG/3000/Policy/TD dated 09 Apr 20.",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                }
-              ],
-              [
-                {
-                  "label": "2.",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Maintenance Issues Related To OWS And LO/Fuel Centrifuges ENC Ships",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Technical Directive 16/19- HQENC letter EG/3000/Policy/TD dated 5 Dec 19.",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                }
-              ],
-              [
-                {
-                  "label": "3.",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Defect on Control air system components and driers",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left"
-                },
-                {
-                  "label": "Technical Directive 11/20- HQENC letter EG/3000/Policy/TD dated 13 May 20.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left"
@@ -18607,63 +18610,327 @@
                 "_id": "section_1_table_20_row_1",
                 "cells": [
                   {
-                    "_id": "section_1_table_20_row_1_cell_1_static",
+                    "_id": "section_1_table_20_row_1_cell_1",
                     "type": "serial",
-                    "value": "1",
-                    "colspan": 1,
-                    "rowspan": 1,
+                    "value": "1.",
                     "align": "center"
                   },
                   {
-                    "_id": "section_1_table_20_row_1_cell_2_relevantTechnicalDirective",
-                    "key": "relevantTechnicalDirective",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": true,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "_id": "section_1_table_20_row_1_cell_2",
+                    "type": "label",
+                    "value": "Guidelines for maintaining Quality and Hygiene of Diesel Fuel",
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_20_row_1_cell_3_directivePolicyNo",
-                    "key": "directivePolicyNo",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": true,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "_id": "section_1_table_20_row_1_cell_3",
+                    "type": "label",
+                    "value": "Technical Directive 06/20- HQENC letter EG/3000/Policy/TD dated 09 Apr 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_2",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_2_cell_1",
+                    "type": "serial",
+                    "value": "2.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_2_cell_2",
+                    "type": "label",
+                    "value": "Maintenance Issues Related To OWS And LO/Fuel Centrifuges ENC Ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_2_cell_3",
+                    "type": "label",
+                    "value": "Technical Directive 16/19- HQENC letter EG/3000/Policy/TD dated 5 Dec 19.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_3",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_3_cell_1",
+                    "type": "serial",
+                    "value": "3.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_3_cell_2",
+                    "type": "label",
+                    "value": "Defect on Control air system components and driers",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_3_cell_3",
+                    "type": "label",
+                    "value": "Technical Directive 11/20- HQENC letter EG/3000/Policy/TD dated 13 May 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_4",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_4_cell_1",
+                    "type": "serial",
+                    "value": "4.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_4_cell_2",
+                    "type": "label",
+                    "value": "Exhaust IRSS sensor of LM 2500 GT's P-17 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_4_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin-GTTT(V)letter 302/5/1 dated 16 Dec 19.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_5",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_5_cell_1",
+                    "type": "serial",
+                    "value": "5.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_5_cell_2",
+                    "type": "label",
+                    "value": "Blow-in-Door system of LM 2500 GT's P-17 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_5_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin 01/20 GTTT(V) letter 102/2/5 dated 26 Feb 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_6",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_6_cell_1",
+                    "type": "serial",
+                    "value": "6.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_6_cell_2",
+                    "type": "label",
+                    "value": "GT Enclosure cooling system of LM2500 GT's P-17 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_6_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin 03/20 GTTT(V) letter 102/2/5 dated 30 March 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_7",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_7_cell_1",
+                    "type": "serial",
+                    "value": "7.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_7_cell_2",
+                    "type": "label",
+                    "value": "GT Pneumatic system of LM2500 GT's P-17 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_7_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin 04/20 GTTT(V) letter 102/2/5 dated 09 Apr 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_8",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_8_cell_1",
+                    "type": "serial",
+                    "value": "8.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_8_cell_2",
+                    "type": "label",
+                    "value": "GT Fuel system of LM2500 GT's P-17 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_8_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin 05/20 GTTT(V) letter 102/2/5 dated 23 Apr 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_9",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_9_cell_1",
+                    "type": "serial",
+                    "value": "9.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_9_cell_2",
+                    "type": "label",
+                    "value": "GT Control Supplies/Control System Configuration of LM 2500 GTs P-17 class of ships system",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_9_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin 06/20 GTTT(V) letter 102/2/5 dated 22 Jun 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_10",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_10_cell_1",
+                    "type": "serial",
+                    "value": "10.",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_10_cell_2",
+                    "type": "label",
+                    "value": "Lub Oil Analysis(Partical Counting)-LM2500 GTs",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_10_cell_3",
+                    "type": "label",
+                    "value": "GTTT(V) letter 308/1/1 dated 20 Jan 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_11",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_11_cell_1",
+                    "type": "serial",
+                    "value": "11.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_11_cell_2",
+                    "type": "label",
+                    "value": "Lessons learnt - Shivalik NR",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_11_cell_3",
+                    "type": "label",
+                    "value": "GTTT(V) letter 302/5/3 dated 25 Apr 19.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_12",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_12_cell_1",
+                    "type": "serial",
+                    "value": "12.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_12_cell_2",
+                    "type": "label",
+                    "value": "Lessons learnt - Satpura NR",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_12_cell_3",
+                    "type": "label",
+                    "value": "GTTT(V) letter 302/5/3 dated 03 Nov 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_13",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_13_cell_1",
+                    "type": "serial",
+                    "value": "13.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_13_cell_2",
+                    "type": "label",
+                    "value": "Correct Operation and Maintenance of Engine room Ventilation System",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_13_cell_3",
+                    "type": "label",
+                    "value": "HQENC letter EG/3000/6/1 dated 27 Jan 20.",
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "section_1_table_20_row_14",
+                "cells": [
+                  {
+                    "_id": "section_1_table_20_row_14_cell_1",
+                    "type": "serial",
+                    "value": "14.",
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_14_cell_2",
+                    "type": "label",
+                    "value": "Maintenance and Layout of BNC cable for P-17 and P-71 class of ships",
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_20_row_14_cell_3",
+                    "type": "label",
+                    "value": "Technical Bulletin - GTTT(V) letter 102/2/5 dated 16 Aug 23.",
+                    "align": "left"
                   }
                 ]
               }
             ],
-            "showRowActions": true,
-            "minRows": 1,
-            "rowsBinding": "gttt_fpt_technical_directive_rows"
+            "showRowActions": false,
+            "minRows": 14
           }
         ]
       }

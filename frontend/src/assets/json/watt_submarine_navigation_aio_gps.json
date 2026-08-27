@@ -22,7 +22,7 @@
             "key": "ship",
             "name": "ship",
             "label": "Submarine",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "gps_date",
@@ -89,11 +91,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Checks",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo. ",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -166,7 +168,7 @@
                     "value": "Check the antenna is fitted at a position on the ship which ensures a clear view of the satellite constellation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_gps_status_1",
@@ -190,7 +192,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -218,7 +220,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 30 min, when there is no valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_gps_status_2",
@@ -270,7 +272,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 5min, when there is valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_gps_status_3",
@@ -322,7 +324,7 @@
                     "value": "Check for capability of re-acquiring position to the required accuracy, within 2 min, when subjected to a power interruption of 60 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_gps_status_4",
@@ -374,7 +376,7 @@
                     "value": "Check for a minimum resolution of position, i.e latitude and longitude, of 0.001 minutes.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_gps_status_5",
@@ -439,7 +441,7 @@
                     "value": "Check for warning of loss of position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_gps_status_6",
@@ -491,7 +493,7 @@
                     "value": "DGPS status indication of the receipt of DGPS signals and whether DGPS corrections are being applied to the indicated ship's position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_gps_status_7",
@@ -543,7 +545,7 @@
                     "value": "Check for DGPS integrity status and alarm.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_gps_status_8",
@@ -595,7 +597,7 @@
                     "value": "Check for DGPS text message display.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_gps_status_9",
@@ -647,7 +649,7 @@
                     "value": "Check for indication within 5 sec if the specified \"Horizontal Dilution of Precision\" (HDOP) has been exceeded or a new position has not been calculated for more than 1 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_gps_status_10",
@@ -712,7 +714,7 @@
                     "value": "Interface checks with other user AIS, ECDIS, RADAR, CTD, Trigun/MDA, Gyro, etc.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_gps_status_11",
@@ -765,6 +767,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -777,6 +780,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

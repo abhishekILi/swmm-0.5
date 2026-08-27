@@ -13,9 +13,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -84,7 +84,9 @@
                 "value": ""
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "rlg_gyro_date",
@@ -97,7 +99,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "rlg_gyro_nature_of_trials",
@@ -109,7 +111,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-             "colSpan": 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -143,16 +145,17 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sl. No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
                 },
                 {
-                  "label": "Trial Ser",
+                  "label": "Trial SNo.",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px "
                 },
                 {
                   "label": "Check Description as per Schedule",
@@ -170,7 +173,8 @@
                   "label": "Presenting Authority Remarks",
                   "colspan": 1,
                   "rowspan": 2,
-                  "align": "center"
+                  "align": "center",
+                  "width": "530px"
                 }
               ],
               [
@@ -209,7 +213,7 @@
                     "value": "Quay Alignment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_4_rlg_gyro_quay_alignment",
@@ -291,7 +295,7 @@
                     "value": "NINU Input Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_rlg_gyro_ninu_input_test",
@@ -373,7 +377,7 @@
                     "value": "GPS Position Input Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_rlg_gyro_gps_position_input_test",
@@ -455,7 +459,7 @@
                     "value": "Log Speed Input Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_rlg_gyro_log_speed_input_test",
@@ -537,7 +541,7 @@
                     "value": "Time & Data input Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_rlg_gyro_time_data_input_test",
@@ -619,7 +623,7 @@
                     "value": "Global Performance Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_4_rlg_gyro_global_performance_test",
@@ -701,7 +705,7 @@
                     "value": "NINU Configuration Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_4_rlg_gyro_ninu_configuration_test",
@@ -769,7 +773,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -778,13 +782,15 @@
                   "label": "Observations",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "500px"
                 },
                 {
                   "label": "SS Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "500px"
                 }
               ]
             ],
@@ -873,7 +879,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Presenting Authority",
             "colSpan": 12
           },
@@ -887,7 +893,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan":4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -919,7 +925,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           },
           {
             "_id": "rlg_gyro_inspection_authority",
@@ -932,7 +938,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           }
         ],
         "tables_2": []

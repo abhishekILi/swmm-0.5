@@ -12,16 +12,16 @@
       "sectionGroup": {
         "fields_1": [
           {
-          "type": "select",
+          "type": "input",
           "name": "ship_name",
-          "label": "SHIP",
+          "label": "Ship",
           "required": true,
-
+          "disabled": true,
           "placeholder": "",
           "value": "",
           "options": [],
           "isDynamic": true,
-          "lookupKey": "ship_id",
+          "lookupKey": "ship_name",
           "prefill": true,
           "prefillSource": "context.ship_name",
           "tree": false
@@ -77,13 +77,13 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "Test Equipment Used a.",
+                  "label": "Test Equipment Used",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -93,13 +93,13 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
               {
                 "key": "test_equipment_used_a",
-                "label": "Test Equipment Used a.",
+                "label": "Test Equipment Used",
                 "type": "label",
                 "align": "left"
               },
@@ -125,6 +125,7 @@
                   {
                     "_id": "1_test_equipment_used_during_trials_table_1_row_1_cell_2_field_2",
                     "key": "field_2",
+                    "lb": "<span class=\"text-lg text-black-600\">a.</span>",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -135,7 +136,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -157,7 +158,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -166,7 +167,8 @@
                   "label": "Activity",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "25%"
                 },
                 {
                   "label": "Date",
@@ -185,7 +187,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -480,7 +482,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -489,7 +491,8 @@
                   "label": "Description",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "25%"
                 },
                 {
                   "label": "Remarks",
@@ -518,7 +521,7 @@
                     "value": "Manufacturer \u2013",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_1_cell_3_dr_manufacturer",
@@ -561,7 +564,7 @@
                     "value": "Make & Model \u2013",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_2_cell_3_dr_make_model",
@@ -604,7 +607,7 @@
                     "value": "CMMS Code \u2013",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_3_cell_3_dr_cmms_code",
@@ -613,7 +616,7 @@
                     "value": "",
                     "rows": 1,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": " ",
                     "inputType": null,
                     "options": null,
@@ -622,8 +625,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.sfd_code",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -656,11 +659,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.1 Technical/ functional description including that at PCB and component level.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_5_cell_2_dr_cert_3_4_1",
@@ -691,11 +694,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.2 Operating instruction manual.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_6_cell_2_dr_cert_3_4_2",
@@ -726,11 +729,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.3 Preventive maintenance routines/ repair instructions manual along with drawings.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_7_cell_2_dr_cert_3_4_3",
@@ -761,11 +764,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.4 Installation and Test manual.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_8_cell_2_dr_cert_3_4_4",
@@ -796,11 +799,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.5 Part Identification list.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_9_cell_2_dr_cert_3_4_5",
@@ -831,11 +834,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.6 Test procedure and documentation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_2_dr_cert_3_4_6",
@@ -866,11 +869,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.7 Certified test report.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_2_dr_cert_3_4_7",
@@ -901,11 +904,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.8 Fault location procedure.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_2_dr_cert_3_4_8",
@@ -936,11 +939,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.9 List of onboard and B&D spares.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_2_dr_cert_3_4_9",
@@ -971,11 +974,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.10 Performance figure including MTBF and MTTR.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_2_dr_cert_3_4_10",
@@ -1006,11 +1009,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.11 Type Testing.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_15_cell_2_dr_cert_3_4_11",
@@ -1041,11 +1044,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.12 Certificate for low voltage (5.6 V) battery protection.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_16_cell_2_dr_cert_3_4_12",
@@ -1076,11 +1079,11 @@
                 "cells": [
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "3.4.13 Certificate for over charge protection.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_17_cell_2_dr_cert_3_4_13",
@@ -1117,7 +1120,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1126,13 +1129,15 @@
                   "label": "Reference",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "10%"
                 },
                 {
                   "label": "Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "30%"
                 },
                 {
                   "label": "Remarks",
@@ -1161,7 +1166,7 @@
                     "value": "BR 2000 (52)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_1_cell_3_static",
@@ -1169,7 +1174,7 @@
                     "value": "Check the earthing of equipment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_1_cell_4_ic_remarks_4_1",
@@ -1212,7 +1217,7 @@
                     "value": "Para 11",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_2_cell_3_static",
@@ -1220,7 +1225,7 @@
                     "value": "Check availability of tally and diagram plates.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_2_cell_4_ic_remarks_4_2",
@@ -1263,7 +1268,7 @@
                     "value": "Para 12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_3_cell_3_static",
@@ -1271,14 +1276,14 @@
                     "value": "Check all incoming supply cables and internal wiring end connection are provisioned with bolted type terminals and crimped lugs/ sockets of electrolytic copper.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_3_cell_4_ic_remarks_4_3",
                     "key": "ic_remarks_4_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -1314,7 +1319,7 @@
                     "value": "Para 13",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_4_cell_3_static",
@@ -1322,7 +1327,7 @@
                     "value": "Check for the availability of cable entry glands.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_4_cell_4_ic_remarks_4_4",
@@ -1365,7 +1370,7 @@
                     "value": "Para 9 (z)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_5_cell_3_static",
@@ -1373,7 +1378,7 @@
                     "value": "Enclosure \u2013 IP 65",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_5_cell_4_ic_remarks_4_5",
@@ -1416,7 +1421,7 @@
                     "value": "Para 8 (b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_6_cell_3_static",
@@ -1424,7 +1429,7 @@
                     "value": "Check for the provision of automatic 'Boost' and 'Trickle' charge modes.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_6_cell_4_ic_remarks_4_6",
@@ -1467,7 +1472,7 @@
                     "value": "Para 8 (d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_7_cell_3_static",
@@ -1475,7 +1480,7 @@
                     "value": "Check for the provision of over charge protection.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_7_cell_4_ic_remarks_4_7",
@@ -1518,7 +1523,7 @@
                     "value": "Para 8 (h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_8_cell_3_static",
@@ -1526,14 +1531,14 @@
                     "value": "Ensure maintenance free leak proof, Sealed Ni-mh (Nickel Metal Hydride) battery of 6 volts 4.5 AH is used in AEL with proper securing arrangement.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_8_cell_4_ic_remarks_4_8",
                     "key": "ic_remarks_4_8",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -1569,7 +1574,7 @@
                     "value": "Para 9 (aa)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_9_cell_3_static",
@@ -1577,7 +1582,7 @@
                     "value": "Overall dimensions not exceeding to \u2013 L x W x H = 260 x 140 x 120 mm.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_9_cell_4_ic_remarks_4_9",
@@ -1614,7 +1619,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1623,13 +1628,16 @@
                   "label": "Reference",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "10%"
                 },
                 {
                   "label": "Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "30%"
+                  
                 },
                 {
                   "label": "Remarks",
@@ -1658,7 +1666,7 @@
                     "value": "Para 7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_1_cell_3_static",
@@ -1666,7 +1674,7 @@
                     "value": "Check Input Supply Voltage. 115/127/230 V, 50/60 Hz, 1PH.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_1_cell_4_oc_remarks_5_1",
@@ -1709,7 +1717,7 @@
                     "value": "Para 8 (e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_2_cell_3_static",
@@ -1717,14 +1725,14 @@
                     "value": "Testing by Test Push: \u2013 Press the Test push button for checking operational state of battery/ lamp.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_2_cell_4_oc_remarks_5_2",
                     "key": "oc_remarks_5_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -1760,7 +1768,7 @@
                     "value": "Para 8 (k)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_3_cell_3_static",
@@ -1768,7 +1776,7 @@
                     "value": "Instantaneous automatic switching ON/ OFF AEL in case of failure of main supply.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_3_cell_4_oc_remarks_5_3",
@@ -1811,7 +1819,7 @@
                     "value": "--",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_4_cell_3_static",
@@ -1819,7 +1827,7 @@
                     "value": "Check for battery backup \u2013 30 minutes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_4_cell_4_oc_remarks_5_4",
@@ -1862,7 +1870,7 @@
                     "value": "Para 8 (l)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_5_cell_3_static",
@@ -1870,14 +1878,14 @@
                     "value": "Ensure power LED should provide 'Reflected angled beam illumination' to avoid eye blindness & direct visibility of LEDs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_5_cell_4_oc_remarks_5_5",
                     "key": "oc_remarks_5_5",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -1913,7 +1921,7 @@
                     "value": "Para 9 (m)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_6_cell_3_static",
@@ -1921,7 +1929,7 @@
                     "value": "Ensure Lux value of LED source > 40 Lux measured at a distance of 1 meter.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_6_cell_4_oc_remarks_5_6",
@@ -1964,7 +1972,7 @@
                     "value": "Para 9 (w)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_7_cell_3_static",
@@ -1972,14 +1980,14 @@
                     "value": "Battery Fault Indication. Ensure red LED flickers when the battery become dead or battery is removed.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_7_cell_4_oc_remarks_5_7",
                     "key": "oc_remarks_5_7",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -2015,7 +2023,7 @@
                     "value": "Para 2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_8_cell_3_static",
@@ -2023,14 +2031,14 @@
                     "value": "Check for sufficient illumination of AEL's in all compartments including machinery spaces, workshops, galley and associated areas/ Passage ways to indicate exit routes from enclosed spaces to weather deck in case of partial power failure / Total power failure.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_operational_checks_matrix_1_row_8_cell_4_oc_remarks_5_8",
                     "key": "oc_remarks_5_8",
                     "type": "textarea",
                     "value": "",
-                    "rows": 3,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": " ",
@@ -2060,7 +2068,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2094,7 +2102,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -2120,7 +2128,7 @@
                 "key": "sat_unsat",
                 "label": "(SAT/ UNSAT)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "action",
@@ -2229,7 +2237,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,

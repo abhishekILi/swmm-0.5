@@ -13,14 +13,14 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
+            "_id": "limited_sats_bfcs_ship_name",
+            "key": "limited_sats_bfcs_ship_name",
+            "name": "limited_sats_bfcs_ship_name",
             "label": "SHIP",
             "type": "input",
             "value": "",
@@ -79,10 +79,12 @@
             "type": "input",
             "value": "Limited SATs BFCS",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "limited_sats_bfcs_date",
@@ -141,7 +143,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -189,13 +191,14 @@
                   {
                     "_id": "observations_matrix_1_row_1_cell_1_embark_time",
                     "key": "embark_time",
+                    "name": "embark_time",
                     "type": "input",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
+                    "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -208,11 +211,11 @@
                     "hiddenKey": null,
                     "displayKey": null
                   },
-
-
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "observations_matrix_1_row_1_cell_2_embark_date",
+                    "key": "embark_date",
+                    "name": "embark_date",
+                    "lb": "on",
                     "type": "date",
                     "value": "",
                     "rows": null,
@@ -236,7 +239,7 @@
                     "_id": "observations_matrix_1_row_1_cell_1_embark_time",
                     "key": "embark_time",
                     "type": "label",
-                    "value": "for SATs of AICS LAMA (FASC) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "value": "for SATs of BFCS as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -258,7 +261,7 @@
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_2_static",
@@ -266,7 +269,7 @@
                     "value": "Check no.7.1 Power on Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_result_1",
@@ -332,7 +335,7 @@
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
@@ -340,7 +343,7 @@
                     "value": "Check no.7.1 Power on Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_result_2",
@@ -406,7 +409,7 @@
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
@@ -414,7 +417,7 @@
                     "value": "Check no.7.2 MINS Data Reception.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_result_3",
@@ -480,7 +483,7 @@
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
@@ -488,7 +491,7 @@
                     "value": "Check no.7.3 GPS Almanac Data Reception.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_result_4",
@@ -554,7 +557,7 @@
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_static",
@@ -562,7 +565,7 @@
                     "value": "Check no.7.4 Missile Health CHECKS, SALVO Type A and Salvo of Type B.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_result_5",
@@ -628,7 +631,7 @@
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
@@ -636,7 +639,7 @@
                     "value": "Check no.7.5 Missile Launch, Salvo of Type A.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_result_6",
@@ -702,7 +705,7 @@
                     "value": "7.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_static",
@@ -710,7 +713,7 @@
                     "value": "Check no.7.6 Missile Launch, Salvo of Type B Extended Range Sea Attack.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_result_7",
@@ -776,7 +779,7 @@
                     "value": "8.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
@@ -784,7 +787,7 @@
                     "value": "Check no.7.7 Missile Launch, Dual Salvo of Type B Land Attack.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_result_8",
@@ -850,7 +853,7 @@
                     "value": "9.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
@@ -858,7 +861,7 @@
                     "value": "Check no.7.8 Missile Launch in Independent Mode with TEM Article.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_result_9",
@@ -924,7 +927,7 @@
                     "value": "10.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
@@ -932,7 +935,7 @@
                     "value": "Check no.7.9 BFCS Checks in Main Mode with Land Attack Capability.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_result_10",
@@ -998,7 +1001,7 @@
                     "value": "11.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
@@ -1006,7 +1009,7 @@
                     "value": "Check no.7.10 Missile Launch in Main Mode with TEM Article.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_result_11",
@@ -1072,7 +1075,7 @@
           {
             "type": "label",
             "value": "Authority",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "presenting_authority",
@@ -1084,7 +1087,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           },
           {
             "_id": "inspecting_authority",
@@ -1096,7 +1100,8 @@
             "required": false,
             "disabled": true,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

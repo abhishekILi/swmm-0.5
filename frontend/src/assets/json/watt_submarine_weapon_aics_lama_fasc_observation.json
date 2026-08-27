@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "fasc_sat_date",
@@ -69,7 +71,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "fasc_sat_occasion",
@@ -82,7 +84,7 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-             "colSpan": 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -93,110 +95,109 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
-                  "colspan": 1,
+                  "label": "SNo.",
+                  "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "8%"
                 },
                 {
                   "label": "OBSERVATIONS",
-                  "colspan": 1,
+                  "colspan": 11,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "47%"
                 },
                 {
                   "label": "SAT / UNSAT",
-                  "colspan": 1,
+                  "colspan": 4,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "18%"
                 },
                 {
                   "label": "REMARKS",
-                  "colspan": 1,
+                  "colspan": 7,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "27%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
+                "_id": "section_2_matrix_1_intro_row",
+                "cells": [
+                  {
+                    "_id": "section_2_matrix_1_intro_label_1",
+                    "type": "label",
+                    "value": "Trials team embarked onboard at",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_2_matrix_1_embarked_time",
+                    "key": "fasc_embarked_time",
+                    "name": "fasc_embarked_time",
+                    "type": "time",
+                    "value": "",
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "HH:MM",
+                    "inputType": "time",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "section_2_matrix_1_intro_label_2",
+                    "type": "label",
+                    "value": "hrs on",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_2_matrix_1_trial_date",
+                    "key": "fasc_trial_date",
+                    "name": "fasc_trial_date",
+                    "type": "date",
+                    "value": "",
+                    "required": true,
+                    "disabled": false,
+                    "placeholder": "dd-mm-yyyy",
+                    "inputType": "date",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "section_2_matrix_1_intro_label_3",
+                    "type": "label",
+                    "value": "for SATs of <b>AICS LAMA (FASC)</b> as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "colspan": 14,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
                 "_id": "section_2_matrix_1_row_1",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "section_2_matrix_1_row_1_checks",
+                    "key": "checks_heading",
+                    "name": "checks_heading",
                     "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "value": "CHECKS",
+                    "isBold": true,
+                    "colspan": 24,
                     "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "time",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "time",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of AICS LAMA (FASC) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_2_embark_date",
-                    "key": "embark_date",
-                    "type": "date",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "date",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center"
                   }
                 ]
               },
@@ -204,12 +205,58 @@
                 "_id": "section_2_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_1_static",
+                    "_id": "section_2_matrix_1_row_2_serial",
                     "type": "serial",
-                    "value": "CHECKS",
+                    "value": "4.1",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_2_observation",
+                    "type": "label",
+                    "value": "Objectives and tasks",
+                    "colspan": 11,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_2_status",
+                    "key": "fasc_status_4_1",
+                    "name": "fasc_status_4_1",
+                    "type": "radio",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "isDynamic": false
+                  },
+                  {
+                    "_id": "section_2_matrix_1_row_2_remarks",
+                    "key": "fasc_remarks_4_1",
+                    "name": "fasc_remarks_4_1",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 7,
+                    "rowspan": 1,
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -217,31 +264,29 @@
                 "_id": "section_2_matrix_1_row_3",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_1_static",
+                    "_id": "section_2_matrix_1_row_3_serial",
                     "type": "serial",
-                    "value": "4.1",
-                    "colspan": 1,
+                    "value": "4.2",
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_2_static",
+                    "_id": "section_2_matrix_1_row_3_observation",
                     "type": "label",
-                    "value": "Objectives and tasks",
-                    "colspan": 1,
+                    "value": "List of documents used for carried out of the trials",
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_3_fasc_status_4_1",
-                    "key": "fasc_status_4_1",
+                    "_id": "section_2_matrix_1_row_3_status",
+                    "key": "fasc_status_4_2",
+                    "name": "fasc_status_4_2",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -252,38 +297,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_4_fasc_remarks_4_1",
-                    "key": "fasc_remarks_4_1",
+                    "_id": "section_2_matrix_1_row_3_remarks",
+                    "key": "fasc_remarks_4_2",
+                    "name": "fasc_remarks_4_2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -291,31 +323,29 @@
                 "_id": "section_2_matrix_1_row_4",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_1_static",
+                    "_id": "section_2_matrix_1_row_4_serial",
                     "type": "serial",
-                    "value": "4.2",
-                    "colspan": 1,
+                    "value": "4.3",
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_2_static",
+                    "_id": "section_2_matrix_1_row_4_observation",
                     "type": "label",
-                    "value": "List of documents used for carried out of the trials",
-                    "colspan": 1,
+                    "value": "List of hard ware utilized during the trials of \"club's\" complex is given in table",
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_3_fasc_status_4_2",
-                    "key": "fasc_status_4_2",
+                    "_id": "section_2_matrix_1_row_4_status",
+                    "key": "fasc_status_4_3",
+                    "name": "fasc_status_4_3",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -326,38 +356,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_4_fasc_remarks_4_2",
-                    "key": "fasc_remarks_4_2",
+                    "_id": "section_2_matrix_1_row_4_remarks",
+                    "key": "fasc_remarks_4_3",
+                    "name": "fasc_remarks_4_3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -365,31 +382,29 @@
                 "_id": "section_2_matrix_1_row_5",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_1_static",
+                    "_id": "section_2_matrix_1_row_5_serial",
                     "type": "serial",
-                    "value": "4.3",
-                    "colspan": 1,
+                    "value": "4.5.1",
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_2_static",
+                    "_id": "section_2_matrix_1_row_5_observation",
                     "type": "label",
-                    "value": "List of hard ware utilized during the trials of \"club's\" complex is given in table",
-                    "colspan": 1,
+                    "value": "Functional checks of \"club's\" complex",
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_3_fasc_status_4_3",
-                    "key": "fasc_status_4_3",
+                    "_id": "section_2_matrix_1_row_5_status",
+                    "key": "fasc_status_4_5_1",
+                    "name": "fasc_status_4_5_1",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -400,38 +415,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_4_fasc_remarks_4_3",
-                    "key": "fasc_remarks_4_3",
+                    "_id": "section_2_matrix_1_row_5_remarks",
+                    "key": "fasc_remarks_4_5_1",
+                    "name": "fasc_remarks_4_5_1",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -439,31 +441,29 @@
                 "_id": "section_2_matrix_1_row_6",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_1_static",
+                    "_id": "section_2_matrix_1_row_6_serial",
                     "type": "serial",
-                    "value": "4.5.1",
-                    "colspan": 1,
+                    "value": "4.5.2",
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_2_static",
+                    "_id": "section_2_matrix_1_row_6_observation",
                     "type": "label",
-                    "value": "Functional checks of \"club's\" complex",
-                    "colspan": 1,
+                    "value": "Joint operation of \"club's\" complex with ship's system",
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_3_fasc_status_4_5_1",
-                    "key": "fasc_status_4_5_1",
+                    "_id": "section_2_matrix_1_row_6_status",
+                    "key": "fasc_status_4_5_2",
+                    "name": "fasc_status_4_5_2",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -474,38 +474,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_4_fasc_remarks_4_5_1",
-                    "key": "fasc_remarks_4_5_1",
+                    "_id": "section_2_matrix_1_row_6_remarks",
+                    "key": "fasc_remarks_4_5_2",
+                    "name": "fasc_remarks_4_5_2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               },
@@ -513,105 +500,29 @@
                 "_id": "section_2_matrix_1_row_7",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
-                    "value": "4.5.2",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_7_cell_2_static",
-                    "type": "label",
-                    "value": "Joint operation of \"club's\" complex with ship's system",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_7_cell_3_fasc_status_4_5_2",
-                    "key": "fasc_status_4_5_2",
-                    "type": "radio",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": [
-                      {
-                        "label": "SAT",
-                        "value": "SAT"
-                      },
-                      {
-                        "label": "UNSAT",
-                        "value": "UNSAT"
-                      }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_7_cell_4_fasc_remarks_4_5_2",
-                    "key": "fasc_remarks_4_5_2",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_2_matrix_1_row_8",
-                "cells": [
-                  {
-                    "_id": "section_2_matrix_1_row_8_cell_1_static",
+                    "_id": "section_2_matrix_1_row_7_serial",
                     "type": "serial",
                     "value": "4.5.3",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_2_static",
+                    "_id": "section_2_matrix_1_row_7_observation",
                     "type": "label",
                     "value": "Joint operation of \"club's\" simulator devices providing volley from TT5 and TT6 MRM and MCM",
-                    "colspan": 1,
+                    "colspan": 11,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_3_fasc_status_4_5_3",
+                    "_id": "section_2_matrix_1_row_7_status",
                     "key": "fasc_status_4_5_3",
+                    "name": "fasc_status_4_5_3",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -622,38 +533,25 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_4_fasc_remarks_4_5_3",
+                    "_id": "section_2_matrix_1_row_7_remarks",
                     "key": "fasc_remarks_4_5_3",
+                    "name": "fasc_remarks_4_5_3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 7,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "center",
+                    "isDynamic": false
                   }
                 ]
               }
@@ -664,7 +562,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority",
             "colSpan": 12
           },

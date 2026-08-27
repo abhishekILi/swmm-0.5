@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -44,13 +44,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -63,7 +65,7 @@
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "Date *",
+            "label": "Date*",
             "type": "date",
             "value": "",
             "required": false,
@@ -166,7 +168,8 @@
                   "label": "Remarks (Sat / Unsat)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"200px"
                 }
               ]
             ],
@@ -181,13 +184,14 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks_sat_unsat",
                 "label": "Remarks (Sat / Unsat)",
                 "type": "label",
-                "align": "left"
+                "align": "center",
+                "width":"200px"
               }
             ],
             "rows": [
@@ -520,7 +524,7 @@
                     "value": "BITE test.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_1_cell_3_func_1_rmk",
@@ -576,7 +580,7 @@
                     "value": "USB connectivity between PC and ECL Beacon MK III on clear side .",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_2_cell_3_func_2_rmk",
@@ -632,7 +636,7 @@
                     "value": "USB connectivity between PC and ECL Beacon MK III on Crypt side .",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_3_cell_3_func_3_rmk",
@@ -688,7 +692,7 @@
                     "value": "Loading of Keys from SKG to ECL Beacon MK III.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_4_cell_3_func_4_rmk",
@@ -744,7 +748,7 @@
                     "value": "Display of failure codes on screen when keys have been erased from equipment.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_5_cell_3_func_5_rmk",
@@ -800,7 +804,7 @@
                     "value": "\"OFFLINE\" mode message encryption and decryption.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_6_cell_3_func_6_rmk",
@@ -856,7 +860,7 @@
                     "value": "\"OFFLINE\" mode file encryption and decryption.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "functional_checks_configurations_matrix_1_row_7_cell_3_func_7_rmk",
@@ -1004,7 +1008,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1026,7 +1030,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1034,13 +1038,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1060,7 +1064,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1082,7 +1086,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1119,6 +1123,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -1149,6 +1154,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

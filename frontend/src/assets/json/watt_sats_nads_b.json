@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -88,7 +88,9 @@
                 "value": "NADS-B"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -147,7 +149,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -169,22 +171,22 @@
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at hrs on",
+                    "lb": "Trials team embarked onboard at hrs on",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -192,13 +194,13 @@
                     "name": "schedule",
                     "type": "date",
                     "inputType": "date",
-                      "lb" : "for OP Checks",
+                    "lb": "for OP Checks",
                     "value": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -207,12 +209,12 @@
                     "type": "input",
                     "inputType": "text",
                     "value": "",
-                    "lb" : "of NADS B as per approved schedule vide",
+                    "lb": "of NADS B as per approved schedule vide",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -233,7 +235,7 @@
                     "value": "Test 01 - Physical Verification of System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_2_cell_3_test_01",
@@ -285,7 +287,7 @@
                     "value": "Test 02- Powering 'ON' System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_3_cell_3_test_02",
@@ -337,7 +339,7 @@
                     "value": "Test 03- Operating Modes: Login and Start System",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_4_cell_3_test_03",
@@ -389,7 +391,7 @@
                     "value": "Test 04- System Status",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_5_cell_3_test_04",
@@ -438,7 +440,7 @@
                   {
                     "_id": "op_checks_matrix_1_row_6_cell_2_test_1_rlg1_velocity",
                     "key": "test_1_rlg1_velocity",
-                    "lb" : "Test 05- Aircraft I Target Information. Target Range ≥250 km.Range obtained kts",
+                    "lb": "Test 05- Aircraft I Target Information. Target Range ≥250 km.Range obtained kts",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -508,7 +510,7 @@
                     "value": "Test 06- Selection of Coastline Map or Political Boundary Map with Airspace Boundaries",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_7_cell_3_test_06",
@@ -560,7 +562,7 @@
                     "value": "Test 07- Timestamp of ADS-B Target. Check 'UTC' and '1ST' time is displayed at bottom of GUI.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_8_cell_3_test_07",
@@ -612,7 +614,7 @@
                     "value": "Test 08- Target Filters",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_9_cell_3_test_08",
@@ -664,7 +666,7 @@
                     "value": "Test 09- Replay Feature",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_10_cell_3_test_09",
@@ -716,7 +718,7 @@
                     "value": "Test 10- 360\u00b0 Coverage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_11_cell_3_test_10",
@@ -768,7 +770,7 @@
                     "value": "Test 11 - System Alarms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_12_cell_3_test_11",
@@ -820,7 +822,7 @@
                     "value": "Test 12- Dual Redundancy: Auto Selection of ADSB1 or ADSB2 Receiver",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "op_checks_matrix_1_row_13_cell_3_test_12",
@@ -862,67 +864,101 @@
         ],
         "fields_2": [
           {
-            "_id": "field_1",
-            "key": "field_1",
-            "name": "field_1",
-            "label": "Presenting Authority: Ship's Staff",
-            "type": "textarea",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "rows": 1
+            "_id": "presenting_authority_label",
+            "type": "label",
+            "value": "<b>Presenting Authority: Ship's Staff</b>",
+            "colSpan": 2
           },
           {
-            "_id": "field_2",
-            "key": "field_2",
-            "name": "field_2",
-            "label": "Inspecting Authority: WATT(V/MI)",
+            "_id": "presenting_authority",
+            "key": "presenting_authority",
+            "name": "presenting_authority",
+            "label": "",
             "type": "textarea",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "rows": 1
+            "rows": 1,
+            "colSpan": 4
           },
           {
-            "_id": "field_3",
-            "key": "field_3",
-            "name": "field_3",
-            "label": "ND:",
-            "type": "textarea",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "rows": 1
+            "_id": "inspecting_authority_label",
+            "type": "label",
+            "value": "<b>Inspecting Authority: WATT(V/MI)</b>",
+            "colSpan": 2
           },
           {
-            "_id": "field_4",
-            "key": "field_4",
-            "name": "field_4",
-            "label": "STI / TI:",
+            "_id": "inspecting_authority",
+            "key": "inspecting_authority",
+            "name": "inspecting_authority",
+            "label": "",
             "type": "textarea",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "rows": 1
+            "rows": 1,
+            "colSpan": 4
           },
           {
-            "_id": "field_5",
-            "key": "field_5",
-            "name": "field_5",
-            "label": "STO:",
+            "_id": "nd_label",
+            "type": "label",
+            "value": "<b>ND:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "authority_nd",
+            "key": "authority_nd",
+            "name": "authority_nd",
+            "label": "",
             "type": "textarea",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "rows": 1
+            "rows": 1,
+            "colSpan": 3
+          },
+          {
+            "_id": "sti_ti_label",
+            "type": "label",
+            "value": "<b>STI / TI:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "authority_sti_ti",
+            "key": "authority_sti_ti",
+            "name": "authority_sti_ti",
+            "label": "",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1,
+            "colSpan": 3
+          },
+          {
+            "_id": "sto_label",
+            "type": "label",
+            "value": "<b>STO:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "authority_sto",
+            "key": "authority_sto",
+            "name": "authority_sto",
+            "label": "",
+            "type": "textarea",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "rows": 1,
+            "colSpan": 3
           }
-        ],
-        "tables_2": []
+        ]
       }
     }
   ]

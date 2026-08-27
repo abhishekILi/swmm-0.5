@@ -11,9 +11,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "BASIC INFROMATION",
-            "colSpan":12
+            "colSpan": 12
           },
           {
             "_id": "system_subsystem",
@@ -38,7 +38,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 4
-
           },
           {
             "_id": "reference_document",
@@ -50,7 +49,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 4
-
           },
           {
             "_id": "authority",
@@ -63,7 +61,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 4
-
           },
           {
             "_id": "agencies_involved",
@@ -76,7 +73,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 4
-
           },
           {
             "_id": "date_commenced",
@@ -89,7 +85,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 4
-
           },
           {
             "_id": "date_completed",
@@ -102,7 +97,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 6
-
           },
           {
             "_id": "prepared_by",
@@ -115,7 +109,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 6
-
           },
           {
             "_id": "vetted_by",
@@ -128,7 +121,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 6
-
           },
           {
             "_id": "reference_no",
@@ -141,7 +133,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 6
-
           },
           {
             "_id": "summary_observations",
@@ -154,7 +145,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 12
-
           },
           {
             "_id": "operational_limitations",
@@ -167,7 +157,6 @@
             "required": false,
             "disabled": false,
             "colSpan": 12
-
           }
         ],
         "tables_1": [
@@ -178,7 +167,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -187,13 +176,15 @@
                   "label": "Frequency a.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "230px"
                 },
                 {
                   "label": "Specified Value b.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "50px"
                 },
                 {
                   "label": "Last Measured Value c.",
@@ -229,7 +220,8 @@
                   {
                     "key": "specified_value",
                     "type": "label",
-                    "value": "≤ 3.5"
+                    "value": "≤ 3.5",
+                    "align": "center"
                   },
                   { "key": "last_measured", "type": "input", "value": "" },
                   { "key": "present_value", "type": "input", "value": "" },
@@ -250,7 +242,12 @@
                     "type": "label",
                     "value": "CHANNEL -2(2.0 - 2.2 GHz)"
                   },
-                  { "key": "specified_value", "type": "label", "value": "≤ 3" },
+                  {
+                    "key": "specified_value",
+                    "type": "label",
+                    "value": "≤ 3",
+                    "align": "center"
+                  },
                   { "key": "last_measured", "type": "input", "value": "" },
                   { "key": "present_value", "type": "input", "value": "" },
                   {
@@ -299,7 +296,7 @@
             "columns": [
               {
                 "key": "col_1",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -307,13 +304,13 @@
                 "key": "col_2",
                 "label": "Test Equipment Used a.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "col_3",
                 "label": "Checks Undertaken b.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -369,7 +366,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -445,7 +442,7 @@
                     "value": "Start Frequency",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "14_noise_figure_sat_measured_values_as_tabulated_below_matrix_1_row_1_cell_3_static",
@@ -526,7 +523,7 @@
                     "value": "Center Frequency",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "14_noise_figure_sat_measured_values_as_tabulated_below_matrix_1_row_2_cell_3_field_3",
@@ -599,7 +596,7 @@
                     "value": "Stop Frequency",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "14_noise_figure_sat_measured_values_as_tabulated_below_matrix_1_row_3_cell_3_field_3",
@@ -667,7 +664,7 @@
             "columns": [
               {
                 "key": "col_1",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -675,13 +672,13 @@
                 "key": "col_2",
                 "label": "Test Equipment Used a.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "col_3",
                 "label": "Checks Undertaken b.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -737,7 +734,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -970,7 +967,7 @@
             "columns": [
               {
                 "key": "col_1",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -978,13 +975,13 @@
                 "key": "col_2",
                 "label": "Test Equipment Used a.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "col_3",
                 "label": "Checks Undertaken b.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1040,7 +1037,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -1435,7 +1432,7 @@
             "columns": [
               {
                 "key": "col_1",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -1443,13 +1440,13 @@
                 "key": "col_2",
                 "label": "Test Equipment Used a.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "col_3",
                 "label": "Checks Undertaken b.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1505,7 +1502,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -1524,7 +1521,7 @@
                 },
                 {
                   "label": "Power Output CH II (μA)",
-                  "colspan": 3,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
                 }
@@ -1579,23 +1576,23 @@
                   {
                     "key": "ch1_last_measured",
                     "type": "input",
-                    "value": "67.5"
+                    "value": ""
                   },
                   {
                     "key": "ch1_present_value",
                     "type": "input",
-                    "value": "67.8"
+                    "value": ""
                   },
                   { "key": "ch2_specified", "type": "label", "value": "55" },
                   {
                     "key": "ch2_last_measured",
                     "type": "input",
-                    "value": "54.5"
+                    "value": ""
                   },
                   {
                     "key": "ch2_present_value",
                     "type": "input",
-                    "value": "54.8"
+                    "value": ""
                   }
                 ]
               },
@@ -1608,23 +1605,23 @@
                   {
                     "key": "ch1_last_measured",
                     "type": "input",
-                    "value": "71.5"
+                    "value": ""
                   },
                   {
                     "key": "ch1_present_value",
                     "type": "input",
-                    "value": "71.8"
+                    "value": ""
                   },
                   { "key": "ch2_specified", "type": "label", "value": "66" },
                   {
                     "key": "ch2_last_measured",
                     "type": "input",
-                    "value": "65.5"
+                    "value": ""
                   },
                   {
                     "key": "ch2_present_value",
                     "type": "input",
-                    "value": "65.8"
+                    "value": ""
                   }
                 ]
               },
@@ -1637,23 +1634,23 @@
                   {
                     "key": "ch1_last_measured",
                     "type": "input",
-                    "value": "79.5"
+                    "value": ""
                   },
                   {
                     "key": "ch1_present_value",
                     "type": "input",
-                    "value": "79.8"
+                    "value": ""
                   },
                   { "key": "ch2_specified", "type": "label", "value": "63" },
                   {
                     "key": "ch2_last_measured",
                     "type": "input",
-                    "value": "62.5"
+                    "value": ""
                   },
                   {
                     "key": "ch2_present_value",
                     "type": "input",
-                    "value": "62.8"
+                    "value": ""
                   }
                 ]
               }
@@ -1719,7 +1716,7 @@
             "columns": [
               {
                 "key": "col_1",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1727,13 +1724,13 @@
                 "key": "col_2",
                 "label": "Test Equipment Used a.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "col_3",
                 "label": "Checks Undertaken b.",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1762,7 +1759,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1771,7 +1768,8 @@
                   "label": "Description of Check a.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "500px"
                 },
                 {
                   "label": "Remarks b.",
@@ -1809,11 +1807,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Greasing of gearings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_2_cell_2_field_2",
@@ -1835,11 +1833,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Antenna safety interlock checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_3_cell_2_field_2",
@@ -1861,11 +1859,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Status of antenna connectors",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_4_cell_2_field_2",
@@ -1887,11 +1885,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Antenna RPM - Barrier Mode (Specified: 6 RPM)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_5_cell_2_field_2",
@@ -1913,11 +1911,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Antenna RPM - Temp Mode (Specified: 12 RPM)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_6_cell_2_field_2",
@@ -1939,11 +1937,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Status of accumulating water in Antenna slotted waveguide",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_7_cell_2_field_2",
@@ -1986,11 +1984,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "220V, 400 Hz, 3ϕ (ATT1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_9_cell_2_field_2",
@@ -2012,11 +2010,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "220V, 400 Hz, 3ϕ (ATT2)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_10_cell_2_field_2",
@@ -2038,11 +2036,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "220V, 400 Hz, 1ϕ (ATO)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_11_cell_2_field_2",
@@ -2064,11 +2062,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "220V, 50 Hz, 3ϕ (TCBM)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_12_cell_2_field_2",
@@ -2102,7 +2100,7 @@
                     "value": "Inspection of waveguide - material state",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_13_cell_3_field_3",
@@ -2145,11 +2143,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Fregat HF Room",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_15_cell_2_field_2",
@@ -2171,11 +2169,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Fregat Control Post",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_16_cell_2_field_2",
@@ -2197,11 +2195,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Fregat Equipment Room",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_17_cell_2_field_2",
@@ -2223,11 +2221,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Level of distilled water for Transmitter cooling",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_18_cell_2_field_2",
@@ -2249,11 +2247,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Status of system ventilation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_19_cell_2_field_2",
@@ -2287,7 +2285,7 @@
                     "value": "Checks of waveguide drier status (Air pressure: 0.3–0.6 kgf/cm²; pressure during 10 min check should not drop below 0.05 kgf/cm²)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_20_cell_3_field_3",
@@ -2321,7 +2319,7 @@
                     "value": "Status of Cables / Connectors of Sub-units",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_21_cell_3_field_3",
@@ -2355,7 +2353,7 @@
                     "value": "Availability of Main / Standby power supply (ACOS)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_22_cell_3_field_3",
@@ -2389,7 +2387,7 @@
                     "value": "Status of SPTA, Tool Kits and Accessories required for onboard repairs and maintenance",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_23_cell_3_field_3",
@@ -2432,11 +2430,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "System running hours",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_25_cell_2_field_2",
@@ -2458,11 +2456,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_26_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Transmitter Channel 1 (Stage 1 & 2)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_26_cell_2_field_2",
@@ -2484,11 +2482,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Transmitter Channel 1 (Stage 3)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_27_cell_2_field_2",
@@ -2510,11 +2508,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_28_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Transmitter Channel 2 (Stage 1 & 2)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_28_cell_2_field_2",
@@ -2536,11 +2534,11 @@
                 "cells": [
                   {
                     "_id": "18_visual_inspection_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Transmitter Channel 2 (Stage 3)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "18_visual_inspection_matrix_1_row_29_cell_2_field_2",
@@ -2570,7 +2568,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2579,7 +2577,8 @@
                   "label": "Description of Check a.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "320px"
                 },
                 {
                   "label": "Remarks b.",
@@ -2608,7 +2607,7 @@
                     "value": "Checking of video presentation on B Scope",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_1_cell_3_field_3",
@@ -2651,11 +2650,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Kashmir M",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_3_cell_2_field_2",
@@ -2677,11 +2676,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "BARAK FCS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_4_cell_2_field_2",
@@ -2703,11 +2702,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CMS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_5_cell_2_field_2",
@@ -2750,11 +2749,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Weapons Stabiliser (Ladoga)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_7_cell_2_field_2",
@@ -2776,11 +2775,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship's Gyro (RLG)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_8_cell_2_field_2",
@@ -2802,11 +2801,11 @@
                 "cells": [
                   {
                     "_id": "19_operation_checks_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Log",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "19_operation_checks_matrix_1_row_9_cell_2_field_2",

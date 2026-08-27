@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "c303_date",
@@ -69,7 +71,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "c303_occasion",
@@ -82,37 +84,37 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-             "colSpan": 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
           {
-            "id": "section_2_matrix_1",
+            "id": "c303_checks_matrix",
             "sectionType": "matrixTable",
             "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "OBSERVATIONS",
-                  "colspan": 1,
+                  "colspan": 5,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "SAT / UNSAT",
-                  "colspan": 1,
+                  "colspan": 2,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "REMARKS",
-                  "colspan": 1,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
                 }
@@ -121,114 +123,72 @@
             "columns": [],
             "rows": [
               {
-                "_id": "section_2_matrix_1_row_1",
+                "_id": "c303_intro_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "c303_embarked_time",
+                    "key": "c303_embarked_time",
+                    "name": "c303_embarked_time",
                     "type": "time",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
+                    "lb": "Trials team embarked onboard at",
                     "inputType": "time",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of C303 as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
-                    "rows": null,
+                    "placeholder": "HH:MM",
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
-
                   {
-                    "_id": "observations_matrix_1_row_1_cell_2_embark_date",
-                    "key": "embark_date",
+                    "_id": "c303_embarked_date",
+                    "key": "c303_embarked_date",
+                    "name": "c303_embarked_date",
                     "type": "date",
                     "value": "",
-                    "rows": null,
+                    "lb": "hrs on",
+                    "inputType": "date",
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "date",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c303_schedule_note",
+                    "type": "label",
+                    "value": "for SATs of <b>C303</b> as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "colspan": 8,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_2",
+                "_id": "c303_check_1_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_1_static",
+                    "_id": "c303_check_1_serial",
                     "type": "serial",
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_2_static",
+                    "_id": "c303_check_1_observation",
                     "type": "label",
                     "value": "Check 5 - Preliminary operation.",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_3_c303_status_1",
-                    "key": "c303_status_1",
+                    "_id": "c303_check_1_result",
+                    "key": "c303_check_1_result",
+                    "name": "c303_check_1_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -239,70 +199,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_4_c303_remarks_1",
-                    "key": "c303_remarks_1",
+                    "_id": "c303_check_1_remarks",
+                    "key": "c303_check_1_remarks",
+                    "name": "c303_check_1_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_3",
+                "_id": "c303_check_2_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_1_static",
+                    "_id": "c303_check_2_serial",
                     "type": "serial",
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_2_static",
+                    "_id": "c303_check_2_observation",
                     "type": "label",
                     "value": "Check 5.1 - Visual inspection",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_3_c303_status_2",
-                    "key": "c303_status_2",
+                    "_id": "c303_check_2_result",
+                    "key": "c303_check_2_result",
+                    "name": "c303_check_2_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -313,70 +259,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_3_cell_4_c303_remarks_2",
-                    "key": "c303_remarks_2",
+                    "_id": "c303_check_2_remarks",
+                    "key": "c303_check_2_remarks",
+                    "name": "c303_check_2_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_4",
+                "_id": "c303_check_3_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_1_static",
+                    "_id": "c303_check_3_serial",
                     "type": "serial",
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_2_static",
+                    "_id": "c303_check_3_observation",
                     "type": "label",
                     "value": "Check 5.2 - Preliminary arrangements",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_3_c303_status_3",
-                    "key": "c303_status_3",
+                    "_id": "c303_check_3_result",
+                    "key": "c303_check_3_result",
+                    "name": "c303_check_3_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -387,70 +319,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_4_cell_4_c303_remarks_3",
-                    "key": "c303_remarks_3",
+                    "_id": "c303_check_3_remarks",
+                    "key": "c303_check_3_remarks",
+                    "name": "c303_check_3_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_5",
+                "_id": "c303_check_4_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_1_static",
+                    "_id": "c303_check_4_serial",
                     "type": "serial",
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_2_static",
+                    "_id": "c303_check_4_observation",
                     "type": "label",
                     "value": "Check 5.3 - Effectors loading",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_3_c303_status_4",
-                    "key": "c303_status_4",
+                    "_id": "c303_check_4_result",
+                    "key": "c303_check_4_result",
+                    "name": "c303_check_4_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -461,70 +379,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_5_cell_4_c303_remarks_4",
-                    "key": "c303_remarks_4",
+                    "_id": "c303_check_4_remarks",
+                    "key": "c303_check_4_remarks",
+                    "name": "c303_check_4_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_6",
+                "_id": "c303_check_5_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_1_static",
+                    "_id": "c303_check_5_serial",
                     "type": "serial",
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_2_static",
+                    "_id": "c303_check_5_observation",
                     "type": "label",
                     "value": "Check 5.4 - Praful filling",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_3_c303_status_5",
-                    "key": "c303_status_5",
+                    "_id": "c303_check_5_result",
+                    "key": "c303_check_5_result",
+                    "name": "c303_check_5_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -535,70 +439,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_6_cell_4_c303_remarks_5",
-                    "key": "c303_remarks_5",
+                    "_id": "c303_check_5_remarks",
+                    "key": "c303_check_5_remarks",
+                    "name": "c303_check_5_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_7",
+                "_id": "c303_check_6_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_1_static",
+                    "_id": "c303_check_6_serial",
                     "type": "serial",
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_2_static",
+                    "_id": "c303_check_6_observation",
                     "type": "label",
                     "value": "Check 5.5 - Air bottle charging",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_3_c303_status_6",
-                    "key": "c303_status_6",
+                    "_id": "c303_check_6_result",
+                    "key": "c303_check_6_result",
+                    "name": "c303_check_6_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -609,70 +499,56 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_7_cell_4_c303_remarks_6",
-                    "key": "c303_remarks_6",
+                    "_id": "c303_check_6_remarks",
+                    "key": "c303_check_6_remarks",
+                    "name": "c303_check_6_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               },
               {
-                "_id": "section_2_matrix_1_row_8",
+                "_id": "c303_check_7_row",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_1_static",
+                    "_id": "c303_check_7_serial",
                     "type": "serial",
                     "value": "7.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_2_static",
+                    "_id": "c303_check_7_observation",
                     "type": "label",
-                    "value": "Check 6 - Live launches of dummy effectors DRC 101 (i) Aft stbd, Row 1 Barrel 1-7 (ii) Fwd stbd, Row 1 Barrel 1-7",
-                    "colspan": 1,
+                    "value": "Check 6 - Live launches of dummy effectors DRC 101<br>(i) Aft stbd, Row 1 Barrel 1-7<br>(ii) Fwd stbd, Row 1 Barrel 1-7",
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_3_c303_status_7",
-                    "key": "c303_status_7",
+                    "_id": "c303_check_7_result",
+                    "key": "c303_check_7_result",
+                    "name": "c303_check_7_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -683,38 +559,28 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   },
                   {
-                    "_id": "section_2_matrix_1_row_8_cell_4_c303_remarks_7",
-                    "key": "c303_remarks_7",
+                    "_id": "c303_check_7_remarks",
+                    "key": "c303_check_7_remarks",
+                    "name": "c303_check_7_remarks",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "style": "max-width: 176px; min-width: 160px; width: 100%; padding: 4px;",
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "isDynamic": false
                   }
                 ]
               }
@@ -725,7 +591,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority",
             "colSpan": 12
           },

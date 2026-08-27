@@ -11,7 +11,6 @@
       "tables": [],
       "sectionTitle": "Basic Information",
       "sectionGroup": {
-
         "fields_1": [
           {
             "type": "label",
@@ -19,32 +18,32 @@
             "colSpan": 12
           },
           {
+            "_id": "submarine_id",
+            "key": "submarine_id",
+            "name": "submarine_id",
+            "label": "Submarine",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "options": [],
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
             "_id": "date_of_trials",
             "key": "date_of_trials",
             "name": "date_of_trials",
-            "label": "DATE OF TRIALS *",
+            "label": "DATE OF TRIALS ",
             "type": "date",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "submarine_id",
-            "key": "submarine_id",
-            "name": "submarine_id",
-            "label": "Submarine",
-            "type": "select",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "options": [],
-            "isDynamic": true,
-            "lookupKey": "submarine_id",
-            "prefill": true,
-            "prefillSource": "context.submarine_id"
           }
         ],
         "tables_1": [
@@ -55,7 +54,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -118,15 +117,15 @@
                     "value": "Top light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_static",
                     "type": "label",
-                    "value": ">1 M\u03a9 for circuit or >100 M\u03a9 for light alone",
+                    "value": ">1 MΩ for circuit or >100 MΩ for light alone",
                     "colspan": 1,
                     "rowspan": 10,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_4_measured_1",
@@ -200,7 +199,7 @@
                     "value": "Backup top light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_measured_2",
@@ -274,7 +273,7 @@
                     "value": "Port side light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_measured_3",
@@ -348,7 +347,7 @@
                     "value": "Emergency port side light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_measured_4",
@@ -422,7 +421,7 @@
                     "value": "Starboard side light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_measured_5",
@@ -496,7 +495,7 @@
                     "value": "Emergency starboard side light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_measured_6",
@@ -570,7 +569,7 @@
                     "value": "Stern light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_measured_7",
@@ -644,7 +643,7 @@
                     "value": "Rudder stern light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_measured_8",
@@ -718,7 +717,7 @@
                     "value": "White marking light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_measured_9",
@@ -792,7 +791,7 @@
                     "value": "Recognition light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_measured_10",
@@ -879,15 +878,15 @@
                     "value": "Adapting connector upper manoeuvrable vessel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_static",
                     "type": "label",
-                    "value": ">1 M\u03a9 for circuit or >100 M\u03a9 for light alone",
+                    "value": ">1 MΩ for circuit or >100 MΩ for light alone",
                     "colspan": 1,
                     "rowspan": 4,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_4_measured_11",
@@ -961,7 +960,7 @@
                     "value": "Adapting connector lower manoeuvrable vessel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_measured_12",
@@ -1035,7 +1034,7 @@
                     "value": "Adapting connector forward anchoring light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_measured_13",
@@ -1109,7 +1108,7 @@
                     "value": "Adapting connector aft anchoring light",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_measured_14",
@@ -1196,15 +1195,15 @@
                     "value": "Connector for lighting gangway",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_static",
                     "type": "label",
-                    "value": ">1 M\u03a9 for circuit or >100 M\u03a9 for light alone",
+                    "value": ">1 MΩ for circuit or >100 MΩ for light alone",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_4_measured_15",
@@ -1278,7 +1277,7 @@
                     "value": "Connector for map pilot chart table",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_measured_16",

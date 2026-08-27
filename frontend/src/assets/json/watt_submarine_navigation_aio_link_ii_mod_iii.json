@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -45,13 +45,15 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "link_ii_mod_ii_sno",
             "key": "link_ii_mod_ii_sno",
             "name": "link_ii_mod_ii_sno",
-            "label": "SNo",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -104,11 +106,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Checks",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -142,7 +144,7 @@
                     "_id": "section_2_matrix_1_row_1",
                     "key": "embark_time",
                     "type": "label",
-                    "value": "Trial team embarked onboard for Ops Check of Link II MOD III (Ver 2.0) at hrs. Trials carried out IAW IHQ MoD (Navy)/DEE approved schedule WP/1280/LINK II dated 13 Oct 23 and CNO. 07/10 are enumerated in succeeding paragraphs:",
+                    "value": "Trial team embarked onboard for Ops Check of Link II MOD III (Ver 2.0) at",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -156,6 +158,7 @@
                   {
                     "_id": "section_2_matrix_1_row_1_cell_1_link3_report_time",
                     "key": "link3_report_time",
+                    "lb":"hrs. Trials carried out IAW IHQ MoD (Navy)/DEE approved schedule WP/1280/LINK II dated 13 Oct 23 and CNO. 07/10 are enumerated in succeeding paragraphs:",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -164,7 +167,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -192,17 +195,9 @@
                     "_id": "section_2_matrix_1_row_2_cell_2_static",
                     "type": "label",
                     "value": "Initial Checks and Electrical Tests",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_2_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -223,7 +218,7 @@
                     "value": "Large/ Small/ Single Ship Configuration",
                     "colspan": 1,
                     "rowspan": 11,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_mpu_count",
@@ -233,7 +228,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "MPU",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -260,8 +255,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -292,7 +291,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Msg Console",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -320,7 +319,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Mobile Messaging Console",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -348,7 +347,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Colour NW Printers",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -376,7 +375,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "4 CH Radio",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -405,7 +404,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "TRS",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -433,7 +432,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Ethernet Switch",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -461,7 +460,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Access Point Assy",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -489,7 +488,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "MPU Accs",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -517,7 +516,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "UPS with Accs",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -545,7 +544,7 @@
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "Com Access Terminal(for link-1)",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
@@ -579,7 +578,7 @@
                     "value": "Preliminary checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_static",
@@ -587,7 +586,7 @@
                     "value": "Check the installation of cables, connectors, sub-assemblies, fuse ratings and proper grounding of all the eqpts of LINK II MOD III.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_link3_status_5_2",
@@ -601,9 +600,14 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
+                      
                     ],
                     "colspan": 1,
                     "rowspan": 1,
@@ -633,17 +637,9 @@
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
                     "type": "label",
                     "value": "Visual Checks",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_5_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -664,7 +660,7 @@
                     "value": "Main Processor Unit (MPU)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_static",
@@ -672,7 +668,7 @@
                     "value": "Power cables are connected from MPU to AC/DC adaptor and AC/DC adaptor to AC Mains socket",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_4_link3_status_5_3_1",
@@ -686,8 +682,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -720,7 +720,7 @@
                     "value": "4 CH Radio Modem Unit (RMU)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_static",
@@ -728,7 +728,7 @@
                     "value": "Check Power cable is connected from 4 CH Radio Modem Unit to AC mains Socket.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_link3_status_5_3_2",
@@ -742,8 +742,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -776,7 +780,7 @@
                     "value": "Messaging console (24 Inch)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_static",
@@ -784,7 +788,7 @@
                     "value": "Check cable is connected from MC to AC mains socket",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_4_link3_status_5_3_3",
@@ -798,8 +802,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -832,7 +840,7 @@
                     "value": "Mobile Messaging Console",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_static",
@@ -840,7 +848,7 @@
                     "value": "Connect the charger cable onto the connector marked Power on the MMC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_link3_status_5_3_4",
@@ -854,8 +862,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -888,7 +900,7 @@
                     "value": "Ethernet Switch",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_static",
@@ -896,7 +908,7 @@
                     "value": "Check Power cable connected from Ethernet switch to AC mains socket / Ethernet cables are connected to ethernet switch",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_link3_status_5_3_5",
@@ -910,8 +922,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -952,7 +968,7 @@
                     "value": "Colour Network Printer connected-AC mains socket",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_link3_status_5_3_6",
@@ -966,8 +982,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1008,7 +1028,7 @@
                     "value": "Time Reference Server to AC Mains socket",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_link3_status_5_3_7",
@@ -1022,8 +1042,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1064,7 +1088,7 @@
                     "value": "Access Point Assy",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_4_link3_status_5_3_8",
@@ -1078,8 +1102,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1120,7 +1148,7 @@
                     "value": "UPS Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_4_link3_status_5_3_9",
@@ -1134,8 +1162,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1176,7 +1208,7 @@
                     "value": "SDR TAC Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_4_link3_status_5_3_10",
@@ -1190,8 +1222,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1232,7 +1268,7 @@
                     "value": "SDR NC Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_4_link3_status_5_3_11",
@@ -1246,8 +1282,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1288,7 +1328,7 @@
                     "value": "Power ON/ OFF Units",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_4_link3_status_5_4_a",
@@ -1302,8 +1342,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1336,7 +1380,7 @@
                     "value": "Connect the power cables to MPU to AC/DC adaptor to socket before power on system",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_link3_status_5_4_b",
@@ -1350,8 +1394,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1384,7 +1432,7 @@
                     "value": "Switch on MPU- 4 CH radio \u2013 MC \u2013 Printer - TRS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_link3_status_5_4_switch_on",
@@ -1398,8 +1446,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1432,7 +1484,7 @@
                     "value": "Pre \u2013 Requisites to perform the ops checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_static",
@@ -1440,7 +1492,7 @@
                     "value": "Power voltage/ Internal cooling and EMC/EMI isolation/ Arrangement of Consort/ Power on all required Eqpts/ Go through all Checks required/ Ensure Noise strength",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_4_link3_status_5_5",
@@ -1454,8 +1506,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1486,17 +1542,9 @@
                     "_id": "section_2_matrix_1_row_21_cell_2_static",
                     "type": "label",
                     "value": "STARTUP Procedure of EQPT",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_21_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1525,7 +1573,7 @@
                     "value": "Pre \u2013 Requisites conditions",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_4_link3_status_5_6_1",
@@ -1539,8 +1587,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1581,7 +1633,7 @@
                     "value": "Primary Configuration management",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_4_link3_status_5_6_2",
@@ -1595,8 +1647,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1637,7 +1693,7 @@
                     "value": "Tactical configuration start up procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_4_link3_status_5_6_3",
@@ -1651,8 +1707,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1683,17 +1743,9 @@
                     "_id": "section_2_matrix_1_row_25_cell_2_static",
                     "type": "label",
                     "value": "Ops Checks test cases (Part A)",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "section_2_matrix_1_row_25_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1722,7 +1774,7 @@
                     "value": "Msg transfer using 4 CH RMU (CH 1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_4_link3_status_5_7_1",
@@ -1736,8 +1788,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1778,7 +1834,7 @@
                     "value": "Tactical Data Transfer using 4CH RMU (CH 2)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_4_link3_status_5_7_2",
@@ -1792,8 +1848,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1834,7 +1894,7 @@
                     "value": "Link II \u2013 CMS Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_4_link3_status_5_7_3",
@@ -1848,8 +1908,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1890,7 +1954,7 @@
                     "value": "Link II \u2013 Rukmani Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_4_link3_status_5_7_4",
@@ -1904,8 +1968,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -1946,7 +2014,7 @@
                     "value": "Link II \u2013 HMS(HUMSA NAG) Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_4_link3_status_5_7_5",
@@ -1960,8 +2028,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2002,7 +2074,7 @@
                     "value": "Link II \u2013 MSS Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_4_link3_status_5_7_6",
@@ -2016,8 +2088,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2058,7 +2134,7 @@
                     "value": "Link II \u2013 IMSAS/ MDA Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_4_link3_status_5_7_7",
@@ -2072,8 +2148,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2114,7 +2194,7 @@
                     "value": "Tactical Console interface with AIS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_4_link3_status_5_7_8",
@@ -2128,8 +2208,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2170,7 +2254,7 @@
                     "value": "MPU/Server \u2013 Messaging Console Checks (NTS \u2013 NTP Checks)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_4_link3_status_5_7_9",
@@ -2184,8 +2268,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2210,7 +2298,7 @@
                     "value": "Part B",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -2239,7 +2327,7 @@
                     "value": "Msg Transfer using HDR UHF ECCM Manet Waveform CH 1&2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_4_link3_status_5_7b_1",
@@ -2253,8 +2341,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2295,7 +2387,7 @@
                     "value": "Tactical Transfer using HDR ECCM Manet Waveform CH1 &2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_4_link3_status_5_7b_2",
@@ -2309,8 +2401,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2351,7 +2447,7 @@
                     "value": "Msg Transfer using HDR L Band ECCM Manet Waveform CH 3 &4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_4_link3_status_5_7b_3",
@@ -2365,8 +2461,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2407,7 +2507,7 @@
                     "value": "Tactical Transfer using HDR L Band ECCM Manet Waveform CH 3 &4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_4_link3_status_5_7b_4",
@@ -2421,8 +2521,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2463,7 +2567,7 @@
                     "value": "Msg Data transfer on LDR - ECCM Waveform CH 1 & 2 (SDR NCC)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_4_link3_status_5_7b_5",
@@ -2477,8 +2581,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2519,7 +2627,7 @@
                     "value": "Part A and B (Same as Above Check Ser 5.7)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_4_link3_status_6_0",
@@ -2533,8 +2641,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2575,7 +2687,7 @@
                     "value": "Test Measurement Report (TMR) (Result of above Check Ser 6.0)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_4_link3_status_7_0",
@@ -2589,8 +2701,12 @@
                     "inputType": null,
                     "options": [
                       {
-                        "label": "Sat/Unsat",
+                        "label": "Sat",
                         "value": "SAT"
+                      },
+                      {
+                        "label": "Unsat",
+                        "value": "UNSAT"
                       }
                     ],
                     "colspan": 1,
@@ -2619,6 +2735,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -2631,6 +2748,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

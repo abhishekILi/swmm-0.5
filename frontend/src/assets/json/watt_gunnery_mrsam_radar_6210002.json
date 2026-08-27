@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -88,7 +88,9 @@
                 "value": "MFSTAR_RADAR"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -147,7 +149,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -177,33 +179,20 @@
               {
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
-                   {
-                    "_id": "section_2_matrix_1_row_1",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
+                    "_id": "embark_time",
                     "key": "embark_time",
+                    "name": "embark_time",
+                    "lb": "Trials team embarked onboard at",
                     "type": "input",
+                    "inputType": "time",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -214,20 +203,20 @@
                     "hiddenKey": null,
                     "displayKey": null
                   },
-
-
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "embark_date",
+                    "key": "embark_date",
+                    "name": "embark_date",
+                    "lb": "on for SATs of MRSAM as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "type": "date",
+                    "inputType": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "date",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -237,21 +226,6 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of MRSAM as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
                   }
                 ]
               },
@@ -264,7 +238,7 @@
                     "value": "Check No.",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -277,7 +251,7 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
@@ -285,7 +259,7 @@
                     "value": "Check No. 2.1 General Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_3_check_no__2_1_remarks",
@@ -351,7 +325,7 @@
                     "value": "2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
@@ -359,7 +333,7 @@
                     "value": "Check No. 2.2 Ship INS Attitude and Velocity",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_check_no__2_2_remarks",
@@ -425,7 +399,7 @@
                     "value": "3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
@@ -433,7 +407,7 @@
                     "value": "Check No. 2.3 EOD Alignment Verification",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_check_no__2_3_remarks",
@@ -499,7 +473,7 @@
                     "value": "4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
@@ -507,7 +481,7 @@
                     "value": "Check No. 2.3.5.1 MFSTAR to EODs Alignment Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_check_no__2_3_5_1_remarks",
@@ -573,7 +547,7 @@
                     "value": "5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
@@ -581,7 +555,7 @@
                     "value": "Check No. 2.3.5.2 EOD to EOD Alignment Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_3_check_no__2_3_5_2_remarks",
@@ -647,7 +621,7 @@
                     "value": "6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
@@ -655,7 +629,7 @@
                     "value": "Check No. 2.4 EOD LRF Range Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_3_check_no__2_4_remarks",
@@ -721,7 +695,7 @@
                     "value": "7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
@@ -729,7 +703,7 @@
                     "value": "Check No. 2.4.5.1 Surface Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_3_check_no__2_4_5_1_remarks",
@@ -795,7 +769,7 @@
                     "value": "8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
@@ -803,7 +777,7 @@
                     "value": "Check No. 2.4.5.2 Air Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_3_check_no__2_4_5_2_remarks",
@@ -869,7 +843,7 @@
                     "value": "9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
@@ -877,7 +851,7 @@
                     "value": "Check No. 2.5 ASP Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_3_check_no__2_5_remarks",
@@ -943,7 +917,7 @@
                     "value": "10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
@@ -951,7 +925,7 @@
                     "value": "Check No. 2.5.5 ASP Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_3_check_no__2_5_5_remarks",
@@ -1017,7 +991,7 @@
                     "value": "11",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_static",
@@ -1025,7 +999,7 @@
                     "value": "Check No. 2.6 Fire Policy Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_3_check_no__2_6_remarks",
@@ -1091,7 +1065,7 @@
                     "value": "12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
@@ -1099,7 +1073,7 @@
                     "value": "Check No. 2.6.5 Fire Policy Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_3_check_no__2_6_5_remarks",
@@ -1165,7 +1139,7 @@
                     "value": "13",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
@@ -1173,7 +1147,7 @@
                     "value": "Check No. 2.7 Change of Threat Level Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_3_check_no__2_7_remarks",
@@ -1239,7 +1213,7 @@
                     "value": "14",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
@@ -1247,7 +1221,7 @@
                     "value": "Check No. 2.7.5 Change of Threat Level Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_3_check_no__2_7_5_remarks",
@@ -1313,7 +1287,7 @@
                     "value": "15",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
@@ -1321,7 +1295,7 @@
                     "value": "Check No. 2.8 Single and Salvo Engagement Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_3_check_no__2_8_remarks",
@@ -1387,7 +1361,7 @@
                     "value": "16",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
@@ -1395,7 +1369,7 @@
                     "value": "Check No. 2.8.5 Single and Salvo Engagement Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_3_check_no__2_8_5_remarks",
@@ -1461,7 +1435,7 @@
                     "value": "17",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
@@ -1469,7 +1443,7 @@
                     "value": "Check No. 2.9 Formation Recognition and Engagement Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_3_check_no__2_9_remarks",
@@ -1535,7 +1509,7 @@
                     "value": "18",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
@@ -1543,7 +1517,7 @@
                     "value": "Check No. 2.10 AK630 Gunnery Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_3_check_no__2_10_remarks",
@@ -1609,7 +1583,7 @@
                     "value": "19",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
@@ -1617,7 +1591,7 @@
                     "value": "Check No. 2.11 SRGM Gunnery Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_3_check_no__2_11_remarks",
@@ -1683,7 +1657,7 @@
                     "value": "20",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
@@ -1691,7 +1665,7 @@
                     "value": "Check No. 2.12 SBDL1/SBDL2 Communication",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_3_check_no__2_12_remarks",
@@ -1757,7 +1731,7 @@
                     "value": "21",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_2_static",
@@ -1765,7 +1739,7 @@
                     "value": "Check No. 2.12.5 SBDL1/SBDL2 Communication Test Procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_3_check_no__2_12_5_remarks",
@@ -1831,7 +1805,7 @@
                     "value": "22",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_2_static",
@@ -1839,7 +1813,7 @@
                     "value": "Check No. 2.13 JTC Test (Run test procedure according to task force test procedure document ATP-L2100-2100)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_3_check_no__2_13_remarks",
@@ -1905,7 +1879,7 @@
                     "value": "23",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_2_static",
@@ -1913,7 +1887,7 @@
                     "value": "Check No. 3.2 JTC Connectivity Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_3_check_no__3_2_remarks",
@@ -1979,7 +1953,7 @@
                     "value": "24",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_2_static",
@@ -1987,7 +1961,7 @@
                     "value": "Check No. 3.3 Ship Parameters and Position Update Between Ships",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_3_check_no__3_3_remarks",
@@ -2053,7 +2027,7 @@
                     "value": "25",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_27_cell_2_static",
@@ -2061,7 +2035,7 @@
                     "value": "Check No. 3.4 JTC Common Air Situation Picture (CASP)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_27_cell_3_check_no__3_4_remarks",
@@ -2127,7 +2101,7 @@
                     "value": "26",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_28_cell_2_static",
@@ -2135,7 +2109,7 @@
                     "value": "Check No. 3.5 JTC Engagement Process in Training Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_28_cell_3_check_no__3_5_remarks",
@@ -2201,7 +2175,7 @@
                     "value": "27",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_29_cell_2_static",
@@ -2209,7 +2183,7 @@
                     "value": "Check No. 3.6 JTC Engagement in Training Mode \u2013 Operator Commands",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_29_cell_3_check_no__3_6_remarks",
@@ -2275,7 +2249,7 @@
                     "value": "28",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_30_cell_2_static",
@@ -2283,7 +2257,7 @@
                     "value": "Check No. 4 Firing Test Preparation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_30_cell_3_check_no__4_remarks",
@@ -2349,7 +2323,7 @@
                     "value": "29",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_31_cell_2_static",
@@ -2357,7 +2331,7 @@
                     "value": "Check No. 4.1 System Activation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_31_cell_3_check_no__4_1_remarks",
@@ -2423,7 +2397,7 @@
                     "value": "30",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_32_cell_2_static",
@@ -2431,7 +2405,7 @@
                     "value": "Check No. 4.2 Guns Activation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_32_cell_3_check_no__4_2_remarks",
@@ -2497,7 +2471,7 @@
                     "value": "31",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_33_cell_2_static",
@@ -2505,7 +2479,7 @@
                     "value": "Check No. 4.3 WCS Maintenance Mode Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_33_cell_3_check_no__4_3_remarks",
@@ -2571,7 +2545,7 @@
                     "value": "32",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_34_cell_2_static",
@@ -2579,7 +2553,7 @@
                     "value": "Check No. 4.4 MFSTAR Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_34_cell_3_check_no__4_4_remarks",
@@ -2645,7 +2619,7 @@
                     "value": "33",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_35_cell_2_static",
@@ -2653,7 +2627,7 @@
                     "value": "Check No. 4.5 WCS Operational Mode Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_35_cell_3_check_no__4_5_remarks",
@@ -2719,7 +2693,7 @@
                     "value": "34",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_36_cell_2_static",
@@ -2727,7 +2701,7 @@
                     "value": "Check No. 5. Gunnery Trials Scenarios Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_36_cell_3_check_no__5_remarks",
@@ -2793,7 +2767,7 @@
                     "value": "35",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_37_cell_2_static",
@@ -2801,7 +2775,7 @@
                     "value": "Check No. 5.1 Performing of Guns Firing Trials",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_37_cell_3_check_no__5_1_remarks",
@@ -2867,7 +2841,7 @@
                     "value": "36",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_38_cell_2_static",
@@ -2875,7 +2849,7 @@
                     "value": "Check No. 5.2 SRGM-MR Surface Firing Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_38_cell_3_check_no__5_2_remarks",
@@ -2941,7 +2915,7 @@
                     "value": "37",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_39_cell_2_static",
@@ -2949,7 +2923,7 @@
                     "value": "Check No. 5.3 AK 630 Surface Firing Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_39_cell_3_check_no__5_3_remarks",
@@ -3015,7 +2989,7 @@
                     "value": "38",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_40_cell_2_static",
@@ -3023,7 +2997,7 @@
                     "value": "Check No. 5.4 SRGM-MR Air Firing Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_40_cell_3_check_no__5_4_remarks",
@@ -3089,7 +3063,7 @@
                     "value": "39",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_41_cell_2_static",
@@ -3097,7 +3071,7 @@
                     "value": "Check No. 5.5 AK 630 Air Firing Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_41_cell_3_check_no__5_5_remarks",
@@ -3163,7 +3137,7 @@
                     "value": "40",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_42_cell_2_static",
@@ -3171,7 +3145,7 @@
                     "value": "Check No. 5.6 SRGM-MR Geographic Firing Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_42_cell_3_check_no__5_6_remarks",
@@ -3249,6 +3223,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+             "colSpan": 12,
             "options": [
               {
                 "label": "--Select--",
@@ -3279,7 +3254,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+             "colSpan": 12
           }
         ],
         "tables_2": []

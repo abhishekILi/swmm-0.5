@@ -13,9 +13,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value" : "Basic Information",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "srcg_date",
@@ -69,7 +71,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "srcg_occasion",
@@ -82,7 +84,7 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -93,7 +95,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -114,22 +116,23 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "570px"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trial team embarked onboard at",
+                    "lb": "Trial team embarked onboard at",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
@@ -146,7 +149,7 @@
                     "type": "date",
                     "inputType": "date",
                     "value": "",
-                    "lb" : "hrs on for SATs of SRCG as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "lb": "hrs on for SATs of SRCG as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
                     "required": false,
                     "disabled": false,
                     "colspan": 2,
@@ -185,7 +188,7 @@
                     "value": "Mechanical testing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_srcg_result_5_1",
@@ -259,7 +262,7 @@
                     "value": "Start up and system status report test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_srcg_result_5_2",
@@ -333,7 +336,7 @@
                     "value": "Pedestal motion test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_srcg_result_5_3",
@@ -407,7 +410,7 @@
                     "value": "Movement limits test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_srcg_result_5_4",
@@ -481,7 +484,7 @@
                     "value": "POD Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_srcg_result_5_5",
@@ -555,7 +558,7 @@
                     "value": "DSS Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_srcg_result_5_6",
@@ -629,7 +632,7 @@
                     "value": "SCP Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_srcg_result_5_7",
@@ -703,7 +706,7 @@
                     "value": "MFDU Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_srcg_result_5_8",
@@ -777,7 +780,7 @@
                     "value": "Integration with ships system",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_srcg_result_5_9",
@@ -851,7 +854,7 @@
                     "value": "Gun operation test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_srcg_result_5_10",
@@ -938,7 +941,7 @@
                     "value": "Sea condition for test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_srcg_result_6_1",
@@ -1012,7 +1015,7 @@
                     "value": "Target for firing test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_srcg_result_6_2",
@@ -1086,7 +1089,7 @@
                     "value": "Safety instruction",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_srcg_result_6_3",
@@ -1160,7 +1163,7 @@
                     "value": "General instruction",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_srcg_result_6_4",
@@ -1234,7 +1237,7 @@
                     "value": "Firing procedure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_srcg_result_6_5",
@@ -1308,7 +1311,7 @@
                     "value": "(a) <b>Total No of rounds fire - 33</b> <br> Warm up shot - 03 rds <br> Single shot - 10 rds <br> Slow burst - 20 rds",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_srcg_result_6_a",
@@ -1382,7 +1385,7 @@
                     "value": "(b) Position the vessel and the SRCG at a distance of 800 - 1200 meter from the floating target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_srcg_result_6_b",
@@ -1456,7 +1459,7 @@
                     "value": "(c) Count the target firing hits (10% of hits - mark all hits before starting new firing scenario)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_3_srcg_result_6_c",
@@ -1520,9 +1523,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "srcg_presenting_authority",

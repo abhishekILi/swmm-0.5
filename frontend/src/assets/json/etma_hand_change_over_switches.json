@@ -17,16 +17,16 @@
             "colSpan": 12
           },
            {
-          "type": "select",
+          "type": "input",
           "name": "ship_name",
           "label": "SHIP",
           "required": true,
-
+          "disabled":true,
           "placeholder": "",
           "value": "",
           "options": [],
           "isDynamic": true,
-          "lookupKey": "ship_id",
+          "lookupKey": "ship_name",
           "prefill": true,
           "prefillSource": "context.ship_name",
           "colSpan": 4,
@@ -36,7 +36,7 @@
             "_id": "occasion_of_trial",
             "key": "occasion_of_trial",
             "name": "occasion_of_trial",
-            "label": "Occasion of Trial *",
+            "label": "Occasion of Trial ",
             "type": "select",
             "value": "",
             "required": true,
@@ -75,7 +75,7 @@
             "_id": "presented_by",
             "key": "presented_by",
             "name": "presented_by",
-            "label": "Presented By *",
+            "label": "Presented By ",
             "type": "select",
             "value": "",
             "required": true,
@@ -132,47 +132,40 @@
         "fields_2": [
           {
             "type":"label",
-            "value":"Select all applicable test equipment:",
+            "value":"1. Test Equipment Used During Trials:",
             "colSpan": 12
           },
           {
+            "type":"label",
+            "value":"Select all applicable test equipment:",
+            "colSpan": 12
+          },
+                    {
             "_id": "test_equipment",
             "key": "test_equipment",
             "name": "test_equipment",
-            "label": "Insulation Tester",
-            "type": "checkbox",
-            "value": "",
+            "label": "Test Equipment",
+            "type": "multiselect",
+            "value": [],
             "required": false,
             "disabled": false,
-            "placeholder": "",
-            "checked": false,
-            "colSpan" : 4
-          },
-          {
-            "_id": "test_equipment_phase",
-            "key": "test_equipment_phase",
-            "name": "test_equipment_phase",
-            "label": "Phase Sequence Meter",
-            "type": "checkbox",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "checked": false,
-            "colSpan" : 4
-          },
-          {
-            "_id": "test_equipment_multimeter",
-            "key": "test_equipment_multimeter",
-            "name": "test_equipment_multimeter",
-            "label": "Multimeter",
-            "type": "checkbox",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "checked": false,
-            "colSpan" : 4
+            "placeholder": "--Select--",
+            "colSpan": 6,
+            "isDynamic": false,
+            "options": [
+              {
+                "label": "Insulation Tester",
+                "value": "Insulation Tester"
+              },
+              {
+                "label": "Phase Sequence Meter",
+                "value": "Phase Sequence Meter"
+              },
+              {
+                "label": "Multimeter",
+                "value": "Multimeter"
+              }
+            ]
           }
         ],
         "tables_2": [
@@ -183,7 +176,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -192,7 +185,8 @@
                   "label": "Activity",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "30%"
                 },
                 {
                   "label": "Date",
@@ -211,7 +205,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -506,7 +500,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -515,7 +509,8 @@
                   "label": "Description",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "30%"
                 },
                 {
                   "label": "Remarks",
@@ -544,7 +539,7 @@
                     "value": "Manufacturer",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_1_cell_3_dr_manufacturer",
@@ -553,7 +548,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -562,8 +557,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.manufacturer_name",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -587,7 +582,7 @@
                     "value": "Make & Model",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_2_cell_3_dr_make_model",
@@ -630,7 +625,7 @@
                     "value": "Rating",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_3_cell_3_dr_rating",
@@ -673,7 +668,7 @@
                     "value": "Equipment Serial Number",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_4_cell_3_dr_serial_no",
@@ -682,7 +677,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -691,8 +686,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.serial_no",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -716,7 +711,7 @@
                     "value": "CMMS Code",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_5_cell_3_dr_cmms_code",
@@ -725,7 +720,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -734,8 +729,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.sfd_code",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -759,7 +754,7 @@
                     "value": "GRAQ",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_6_cell_3_dr_graq",
@@ -802,7 +797,7 @@
                     "value": "ATP",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_7_cell_3_dr_atp",
@@ -845,7 +840,7 @@
                     "value": "Board Proceedings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_8_cell_3_dr_board_proc",
@@ -888,7 +883,7 @@
                     "value": "FATs Report",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_9_cell_3_dr_fats_report",
@@ -952,7 +947,7 @@
                     "value": "Operating Instruction Manual/ Technical documentation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_3_dr_3101",
@@ -995,7 +990,7 @@
                     "value": "Preventive maintenance routines / repair instructions Manual along with drawings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_3_dr_3102",
@@ -1038,7 +1033,7 @@
                     "value": "Installation and Test Manual.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_3_dr_3103",
@@ -1081,7 +1076,7 @@
                     "value": "Part Identification list and Tools Catalogue",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_3_dr_3106",
@@ -1124,7 +1119,7 @@
                     "value": "Test Procedure and Documentation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_15_cell_3_dr_3107",
@@ -1167,7 +1162,7 @@
                     "value": "List of onboard and B&D spares",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_16_cell_3_dr_3108",
@@ -1204,7 +1199,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1223,7 +1218,7 @@
                 },
                 {
                   "label": "Remarks",
-                  "colspan": 3,
+                  "colspan": 4,
                   "rowspan": 1,
                   "align": "center"
                 }
@@ -1232,7 +1227,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1294,7 +1289,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1345,7 +1340,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1396,7 +1391,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1447,7 +1442,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1492,13 +1487,13 @@
                     "key": "ic_451_rmk",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": null,
                     "options": null,
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -1525,16 +1520,16 @@
                   {
                     "_id": "4_installation_checks_matrix_1_row_9_cell_2_static",
                     "type": "label",
-                    "value": "Section XIII Para 1307 [ Value (MΩ) ]",
+                    "value": "Section XIII Para 1307",
                     "colspan": 1,
                     "rowspan": 7,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_installation_checks_matrix_1_row_9_cell_3_static",
                     "type": "label",
                     "value": "Insulation Resistance Checks",
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
                   },
@@ -1544,7 +1539,7 @@
                     "key": "ic_48_rmk",
                     "type": "textarea",
                     "value": "",
-                    "rows": 4,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1569,17 +1564,34 @@
                   {
                     "_id": "4_installation_checks_matrix_1_row_10_cell_1_static",
                     "type": "label",
-                    "value": "4.8.1 Insulation value between each Phase and Earth (>2 M\u03a9)",
-                    "colspan": 3,
+                    "value": "4.6.1 Insulation value between each Phase and Earth (>2 M\u03a9)",
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
 
               {
+                "_id": "4_installation_checks_matrix_1_row_11",
+                "cells": [
+                  { "_id": "4_installation_checks_matrix_1_row_11_blank", "type": "label", "value": "", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "_id": "4_installation_checks_matrix_1_row_11_r", "type": "label", "value": "R", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" },
+                  { "_id": "4_installation_checks_matrix_1_row_11_y", "type": "label", "value": "Y", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" },
+                  { "_id": "4_installation_checks_matrix_1_row_11_b", "type": "label", "value": "B", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" }
+                ]
+              },
+              {
                 "_id": "4_installation_checks_matrix_1_row_12",
                 "cells": [
+                  {
+                    "_id": "4_installation_checks_matrix_1_row_12_value_label",
+                    "type": "label",
+                    "value": "Value (MΩ)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "4_installation_checks_matrix_1_row_12_cell_1_ins_r_earth",
                     "key": "ins_r_earth",
@@ -1654,17 +1666,34 @@
                   {
                     "_id": "4_installation_checks_matrix_1_row_13_cell_1_static",
                     "type": "label",
-                    "value": "4.8.2 Insulation value between Phases (>2 M\u03a9)",
-                    "colspan": 3,
+                    "value": "4.6.2 Insulation value between Phases (>2 M\u03a9)",
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
 
               {
+                "_id": "4_installation_checks_matrix_1_row_14",
+                "cells": [
+                  { "_id": "4_installation_checks_matrix_1_row_14_blank", "type": "label", "value": "", "colspan": 1, "rowspan": 1, "align": "left" },
+                  { "_id": "4_installation_checks_matrix_1_row_14_ry", "type": "label", "value": "R-Y", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" },
+                  { "_id": "4_installation_checks_matrix_1_row_14_yb", "type": "label", "value": "Y-B", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" },
+                  { "_id": "4_installation_checks_matrix_1_row_14_br", "type": "label", "value": "B-R", "colspan": 1, "rowspan": 1, "align": "center", "className": "font-semibold" }
+                ]
+              },
+              {
                 "_id": "4_installation_checks_matrix_1_row_15",
                 "cells": [
+                  {
+                    "_id": "4_installation_checks_matrix_1_row_15_value_label",
+                    "type": "label",
+                    "value": "Value (MΩ)",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "4_installation_checks_matrix_1_row_15_cell_1_ins_ry",
                     "key": "ins_ry",
@@ -1744,7 +1773,7 @@
   "topHeaders": [
     [
       {
-        "label": "Ser",
+        "label": "SNo.",
         "colspan": 1,
         "rowspan": 1,
         "align": "center"
@@ -1788,7 +1817,7 @@
           "value": "Section X Para 1008",
           "colspan": 1,
           "rowspan": 5,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "5_row_51_desc",
@@ -1803,7 +1832,7 @@
           "key": "oc_51_rmk",
           "type": "textarea",
           "value": "",
-          "rows": 5,
+          "rows": 1,
           "required": false,
           "disabled": false,
           "placeholder": "",
@@ -1859,7 +1888,7 @@
         {
           "_id": "5_row_51_r3_blank",
           "type": "label",
-          "value": "",
+          "value": "I/P",
           "colspan": 1,
           "rowspan": 1,
           "align": "center"
@@ -1917,14 +1946,6 @@
           "rowspan": 1,
           "align": "center",
           "style": "subheader"
-        },
-        {
-          "_id": "5_row_51_r3_op_extra",
-          "type": "label",
-          "value": "",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
         }
       ]
     },
@@ -2070,14 +2091,6 @@
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
-        },
-        {
-          "_id": "5_row_51_main_filler",
-          "type": "label",
-          "value": "",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
         }
       ]
     },
@@ -2223,14 +2236,6 @@
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
-        },
-        {
-          "_id": "5_row_51_alt_filler",
-          "type": "label",
-          "value": "",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
         }
       ]
     },
@@ -2252,7 +2257,7 @@
           "value": "Operational Checks with System Load. Put changeover switch to 'Normal'/'Alternate' supply position and check proper operation of equipment.",
           "colspan": 9,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "5_row_51_ip_ry",

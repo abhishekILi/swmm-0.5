@@ -14,30 +14,30 @@
         "fields_2": [
           {
             "type":"label",
-            "value": "Basic Information",
+            "value": "Report Details",
             "colSpan": 12
           },
           {
             "_id": "mbba_submarine",
             "key": "mbba_submarine",
             "name": "mbba_submarine",
-            "label": "Submarine *",
-            "type": "select",
+            "label": "Submarine ",
+            "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "mbba_submarine",
+            "lookupKey": "ship_name",
             "prefill": true,
-            "prefillSource": "context.mbba_submarine"
+            "prefillSource": "context.ship_name"
           },
           {
             "_id": "mbba_report_date",
             "key": "mbba_report_date",
             "name": "mbba_report_date",
-            "label": "Date *",
+            "label": "Date ",
             "type": "date",
             "value": "",
             "required": true,
@@ -54,7 +54,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Trial Serial",
+                  "label": "Trial SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -82,7 +82,7 @@
             "columns": [
               {
                 "key": "trial_serial",
-                "label": "Trial Serial",
+                "label": "Trial SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -115,7 +115,8 @@
                     "value": "1.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "power_supply_check_table_1_row_1_cell_2_static",
@@ -175,7 +176,8 @@
                     "value": "1.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "power_supply_check_table_1_row_2_cell_2_static",
@@ -237,7 +239,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Trial Serial",
+                  "label": "Trial SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -265,7 +267,7 @@
             "columns": [
               {
                 "key": "trial_serial",
-                "label": "Trial Serial",
+                "label": "Trial SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -298,7 +300,8 @@
                     "value": "2.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "functional_test_between_all_intercom_units_table_1_row_1_cell_2_static",
@@ -358,7 +361,8 @@
                     "value": "2.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "functional_test_between_all_intercom_units_table_1_row_2_cell_2_static",
@@ -418,7 +422,8 @@
                     "value": "2.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "functional_test_between_all_intercom_units_table_1_row_3_cell_2_static",
@@ -478,7 +483,8 @@
                     "value": "2.4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "[&_.text-center]:!text-left"
                   },
                   {
                     "_id": "functional_test_between_all_intercom_units_table_1_row_4_cell_2_static",
@@ -543,7 +549,8 @@
                   "label": "DESCRIPTION",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "240px"
                 },
                 {
                   "label": "INTERCOM",
@@ -656,11 +663,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Check The Multifunction Button Activity",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_2_static",
@@ -668,7 +676,7 @@
                     "value": "Result expected",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_3_static",
@@ -676,7 +684,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_4_static",
@@ -684,7 +692,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_5_static",
@@ -692,7 +700,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_6_static",
@@ -700,7 +708,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_7_static",
@@ -708,7 +716,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_8_static",
@@ -716,7 +724,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_9_static",
@@ -724,7 +732,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_10_static",
@@ -732,7 +740,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_11_static",
@@ -740,7 +748,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_12_static",
@@ -748,7 +756,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_13_static",
@@ -756,7 +764,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_14_static",
@@ -764,7 +772,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_15_static",
@@ -772,7 +780,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_16_static",
@@ -780,7 +788,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_17_static",
@@ -788,7 +796,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_1_cell_18_static",
@@ -796,7 +804,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -805,11 +813,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Result obtained",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_2_cell_2_multifunction_prop_cpt_result_optain",
@@ -1170,11 +1179,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Check the Point to Point communication",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_2_static",
@@ -1182,7 +1192,7 @@
                     "value": "Result expected",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_3_static",
@@ -1190,7 +1200,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_4_static",
@@ -1198,7 +1208,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_5_static",
@@ -1206,7 +1216,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_6_static",
@@ -1214,7 +1224,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_7_static",
@@ -1222,7 +1232,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_8_static",
@@ -1230,7 +1240,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_9_static",
@@ -1238,7 +1248,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_10_static",
@@ -1246,7 +1256,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_11_static",
@@ -1254,7 +1264,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_12_static",
@@ -1262,7 +1272,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_13_static",
@@ -1270,7 +1280,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_14_static",
@@ -1278,7 +1288,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_15_static",
@@ -1286,7 +1296,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_16_static",
@@ -1294,7 +1304,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_17_static",
@@ -1302,7 +1312,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_3_cell_18_static",
@@ -1310,7 +1320,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1319,11 +1329,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Result obtained",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_4_cell_2_point_point_comm_prop_cpt_result_optain",
@@ -1684,11 +1695,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Check the multiple incoming calls",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_2_static",
@@ -1696,7 +1708,7 @@
                     "value": "Result expected",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_3_static",
@@ -1704,7 +1716,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_4_static",
@@ -1712,7 +1724,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_5_static",
@@ -1720,7 +1732,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_6_static",
@@ -1728,7 +1740,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_7_static",
@@ -1736,7 +1748,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_8_static",
@@ -1744,7 +1756,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_9_static",
@@ -1752,7 +1764,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_10_static",
@@ -1760,7 +1772,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_11_static",
@@ -1768,7 +1780,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_12_static",
@@ -1776,7 +1788,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_13_static",
@@ -1784,7 +1796,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_14_static",
@@ -1792,7 +1804,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_15_static",
@@ -1800,7 +1812,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_16_static",
@@ -1808,7 +1820,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_17_static",
@@ -1816,7 +1828,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_5_cell_18_static",
@@ -1824,7 +1836,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1833,11 +1845,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Result obtained",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_6_cell_2_multiple_incoming_calls_prop_cpt_result_optain",
@@ -2198,11 +2211,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Check the multipoint communication",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_2_static",
@@ -2210,7 +2224,7 @@
                     "value": "Result expected",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_3_static",
@@ -2218,7 +2232,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_4_static",
@@ -2226,7 +2240,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_5_static",
@@ -2234,7 +2248,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_6_static",
@@ -2242,7 +2256,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_7_static",
@@ -2250,7 +2264,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_8_static",
@@ -2258,7 +2272,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_9_static",
@@ -2266,7 +2280,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_10_static",
@@ -2274,7 +2288,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_11_static",
@@ -2282,7 +2296,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_12_static",
@@ -2290,7 +2304,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_13_static",
@@ -2298,7 +2312,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_14_static",
@@ -2306,7 +2320,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_15_static",
@@ -2314,7 +2328,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_16_static",
@@ -2322,7 +2336,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_17_static",
@@ -2330,7 +2344,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_7_cell_18_static",
@@ -2338,7 +2352,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -2347,11 +2361,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Result obtained",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_8_cell_2_multipoint_comm_prop_cpt_result_optain",
@@ -2712,11 +2727,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Check the good working of \"GENERAL Call\" communication link",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_2_static",
@@ -2724,7 +2740,7 @@
                     "value": "Result expected",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_3_static",
@@ -2732,7 +2748,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_4_static",
@@ -2740,7 +2756,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_5_static",
@@ -2748,7 +2764,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_6_static",
@@ -2756,7 +2772,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_7_static",
@@ -2764,7 +2780,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_8_static",
@@ -2772,7 +2788,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_9_static",
@@ -2780,7 +2796,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_10_static",
@@ -2788,7 +2804,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_11_static",
@@ -2796,7 +2812,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_12_static",
@@ -2804,7 +2820,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_13_static",
@@ -2812,7 +2828,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_14_static",
@@ -2820,7 +2836,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_15_static",
@@ -2828,7 +2844,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_16_static",
@@ -2836,7 +2852,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_17_static",
@@ -2844,7 +2860,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_9_cell_18_static",
@@ -2852,7 +2868,7 @@
                     "value": "Yes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -2861,11 +2877,12 @@
                 "cells": [
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Result obtained",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "width": "240px"
                   },
                   {
                     "_id": "intercom_functional_matrix_matrix_1_row_10_cell_2_general_call_prop_cpt_result_optain",

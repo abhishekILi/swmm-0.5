@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -24,20 +24,22 @@
             "label": "SHIP",
             "type": "input",
             "value": "",
-            "required": true,
+            "rows": null,
+            "required": false,
             "disabled": true,
             "placeholder": "",
-            "options": [
-              {
-                "label": "--Select--",
-                "value": ""
-              },
-              {
-                "label": "INS",
-                "value": "INS"
-              }
-            ],
-            "isDynamic": false
+            "inputType": "text",
+            "options": null,
+            "colspan": 6,
+            "rowspan": 1,
+            "align": "left",
+            "isDynamic": true,
+            "lookupKey": "context.ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name",
+            "lockAfterPrefill": false,
+            "hiddenKey": null,
+            "displayKey": null
           },
           {
             "_id": "dept",
@@ -62,7 +64,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -75,7 +79,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -99,7 +103,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SL. NO",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -166,7 +170,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -178,7 +182,7 @@
                     "value": "Initialization of MFC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_4_remarks_1",
@@ -248,7 +252,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -260,7 +264,7 @@
                     "value": "Change Role to Training",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_4_remarks_2",
@@ -330,7 +334,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -342,7 +346,7 @@
                     "value": "Change Role to Training",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_remarks_3",
@@ -412,7 +416,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -424,7 +428,7 @@
                     "value": "Change Role to combat",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_4_remarks_4",
@@ -494,7 +498,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -506,7 +510,7 @@
                     "value": "Change Role to Replay",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_4_remarks_5",
@@ -576,7 +580,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -588,7 +592,7 @@
                     "value": "Check health of MFC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_remarks_6",
@@ -671,7 +675,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -683,7 +687,7 @@
                     "value": "RPM: Functional Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_remarks_7",
@@ -753,7 +757,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -765,7 +769,7 @@
                     "value": "Start Screen Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_remarks_8",
@@ -835,7 +839,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -847,7 +851,7 @@
                     "value": "Stop Screen Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_remarks_9",
@@ -917,7 +921,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -929,7 +933,7 @@
                     "value": "Cancel Screen Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_remarks_10",
@@ -999,7 +1003,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1011,7 +1015,7 @@
                     "value": "Replay Screen Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_4_remarks_11",
@@ -1081,7 +1085,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "3.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1093,7 +1097,7 @@
                     "value": "Control Play back of Screen Recording",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_4_remarks_12",
@@ -1176,7 +1180,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1188,7 +1192,7 @@
                     "value": "Tactical Picture \u2013 PPI/Grid View",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_4_remarks_13",
@@ -1258,7 +1262,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1270,7 +1274,7 @@
                     "value": "Select PPI View",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_4_remarks_14",
@@ -1340,7 +1344,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1352,7 +1356,7 @@
                     "value": "Select Grid View",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_4_remarks_15",
@@ -1422,7 +1426,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1434,7 +1438,7 @@
                     "value": "Presentation Modes \u2013 True/Relative Motion",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_4_remarks_16",
@@ -1504,7 +1508,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1516,7 +1520,7 @@
                     "value": "View Relative Motion",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_4_remarks_17",
@@ -1586,7 +1590,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1598,7 +1602,7 @@
                     "value": "Select North Up",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_4_remarks_18",
@@ -1668,7 +1672,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1680,7 +1684,7 @@
                     "value": "Select Head Up",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_4_remarks_19",
@@ -1750,7 +1754,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2.1.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1762,7 +1766,7 @@
                     "value": "Select Course Up",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_4_remarks_20",
@@ -1832,7 +1836,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1844,7 +1848,7 @@
                     "value": "View True Motion",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_4_remarks_21",
@@ -1914,7 +1918,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1926,7 +1930,7 @@
                     "value": "Range Rings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_4_remarks_22",
@@ -1996,7 +2000,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2008,7 +2012,7 @@
                     "value": "View Range Rings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_4_remarks_23",
@@ -2078,7 +2082,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2090,7 +2094,7 @@
                     "value": "Hide Range Rings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_4_remarks_24",
@@ -2160,7 +2164,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2172,7 +2176,7 @@
                     "value": "Range Scale",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_4_remarks_25",
@@ -2242,7 +2246,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2254,7 +2258,7 @@
                     "value": "Centre and Offset Centre",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_4_remarks_26",
@@ -2324,7 +2328,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2336,7 +2340,7 @@
                     "value": "Offset Own-ship",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_4_remarks_27",
@@ -2406,7 +2410,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.5.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2418,7 +2422,7 @@
                     "value": "Centre Own-ship",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_4_remarks_28",
@@ -2488,7 +2492,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.5.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2500,7 +2504,7 @@
                     "value": "Centre system element",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_4_remarks_29",
@@ -2570,7 +2574,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2582,7 +2586,7 @@
                     "value": "Cursor Details",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_4_remarks_30",
@@ -2652,7 +2656,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2664,7 +2668,7 @@
                     "value": "Show/Hide Charts",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_4_remarks_31",
@@ -2734,7 +2738,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2746,7 +2750,7 @@
                     "value": "Show Charts",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_4_remarks_32",
@@ -2816,7 +2820,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.7.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2828,7 +2832,7 @@
                     "value": "Hide Charts",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_4_remarks_33",
@@ -2898,7 +2902,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2910,7 +2914,7 @@
                     "value": "Alarms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_4_remarks_34",
@@ -2980,7 +2984,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.8.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2992,7 +2996,7 @@
                     "value": "Activation of Alarms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_4_remarks_35",
@@ -3062,7 +3066,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.8.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3074,7 +3078,7 @@
                     "value": "Acknowledgement of Alarms",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_4_remarks_36",
@@ -3144,7 +3148,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.9",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3156,7 +3160,7 @@
                     "value": "Warning",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_40_cell_4_remarks_37",
@@ -3226,7 +3230,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.10",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3238,7 +3242,7 @@
                     "value": "Notifications",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_41_cell_4_remarks_38",
@@ -3308,7 +3312,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.11",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3320,7 +3324,7 @@
                     "value": "System Utility Tools & Widgets",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_42_cell_4_remarks_39",
@@ -3390,7 +3394,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.11.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3402,7 +3406,7 @@
                     "value": "Calculator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_43_cell_4_remarks_40",
@@ -3472,7 +3476,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_44_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.11.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3484,7 +3488,7 @@
                     "value": "Unit Converter",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_44_cell_4_remarks_41",
@@ -3554,7 +3558,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_45_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.11.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3566,7 +3570,7 @@
                     "value": "Calendar",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_45_cell_4_remarks_42",
@@ -3636,7 +3640,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_46_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.11.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3648,7 +3652,7 @@
                     "value": "Create a Reminder",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_46_cell_4_remarks_43",
@@ -3718,7 +3722,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_47_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.12",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3730,7 +3734,7 @@
                     "value": "Wind Envelope",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_47_cell_4_remarks_44",
@@ -3800,7 +3804,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_48_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.12.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3812,7 +3816,7 @@
                     "value": "Create Wind Envelope",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_48_cell_4_remarks_45",
@@ -3882,7 +3886,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_49_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.13",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3894,7 +3898,7 @@
                     "value": "Help",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_49_cell_4_remarks_46",
@@ -3964,7 +3968,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_50_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.14",
                     "colspan": 1,
                     "rowspan": 1,
@@ -3976,7 +3980,7 @@
                     "value": "Screenshot",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_50_cell_4_remarks_47",
@@ -4046,7 +4050,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_51_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.14.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4058,7 +4062,7 @@
                     "value": "Current Screen full view Screenshot",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_51_cell_4_remarks_48",
@@ -4128,7 +4132,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_52_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.14.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4140,7 +4144,7 @@
                     "value": "Custom view Screen shot",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_52_cell_4_remarks_49",
@@ -4210,7 +4214,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_53_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.14.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4222,7 +4226,7 @@
                     "value": "View Saved Screenshots",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_53_cell_4_remarks_50",
@@ -4292,7 +4296,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_54_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4304,7 +4308,7 @@
                     "value": "Geoshapes and Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_54_cell_4_remarks_51",
@@ -4374,7 +4378,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_55_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4386,7 +4390,7 @@
                     "value": "Open /Close Area Operation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_55_cell_4_remarks_52",
@@ -4456,7 +4460,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_56_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4468,7 +4472,7 @@
                     "value": "Open Area Operation window",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_56_cell_4_remarks_53",
@@ -4538,7 +4542,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_57_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4550,7 +4554,7 @@
                     "value": "Close Area Operation Window",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_57_cell_4_remarks_54",
@@ -4620,7 +4624,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_58_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4632,7 +4636,7 @@
                     "value": "Create Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_58_cell_4_remarks_55",
@@ -4702,7 +4706,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_59_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4714,7 +4718,7 @@
                     "value": "Create True Type Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_59_cell_4_remarks_56",
@@ -4784,7 +4788,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_60_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4796,7 +4800,7 @@
                     "value": "Create relative type Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_60_cell_4_remarks_57",
@@ -4866,7 +4870,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_61_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4878,7 +4882,7 @@
                     "value": "Save Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_61_cell_4_remarks_58",
@@ -4948,7 +4952,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_62_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -4960,7 +4964,7 @@
                     "value": "Create Circle under Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_62_cell_4_remarks_59",
@@ -5030,7 +5034,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_63_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5042,7 +5046,7 @@
                     "value": "Create Line under Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_63_cell_4_remarks_60",
@@ -5112,7 +5116,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_64_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5124,7 +5128,7 @@
                     "value": "Create Ellipse under an Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_64_cell_4_remarks_61",
@@ -5194,7 +5198,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_65_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5206,7 +5210,7 @@
                     "value": "Create Arc under an Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_65_cell_4_remarks_62",
@@ -5276,7 +5280,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_66_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5288,7 +5292,7 @@
                     "value": "Create Sector under an Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_66_cell_4_remarks_63",
@@ -5358,7 +5362,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_67_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.19",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5370,7 +5374,7 @@
                     "value": "Create Rectangular Shapes under an Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_67_cell_4_remarks_64",
@@ -5440,7 +5444,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_68_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.10",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5452,7 +5456,7 @@
                     "value": "Create Irregular Polygon under an Area",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_68_cell_4_remarks_65",
@@ -5522,7 +5526,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_69_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.11",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5534,7 +5538,7 @@
                     "value": "Create Text",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_69_cell_4_remarks_66",
@@ -5604,7 +5608,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_70_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.12",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5616,7 +5620,7 @@
                     "value": "Text Colour",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_70_cell_4_remarks_67",
@@ -5686,7 +5690,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_71_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.13",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5698,7 +5702,7 @@
                     "value": "Text Opacity",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_71_cell_4_remarks_68",
@@ -5768,7 +5772,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_72_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.14",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5780,7 +5784,7 @@
                     "value": "Text Size",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_72_cell_4_remarks_69",
@@ -5850,7 +5854,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_73_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.15",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5862,7 +5866,7 @@
                     "value": "Text Edit",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_73_cell_4_remarks_70",
@@ -5932,7 +5936,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_74_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.16",
                     "colspan": 1,
                     "rowspan": 1,
@@ -5944,7 +5948,7 @@
                     "value": "Text Delete",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_74_cell_4_remarks_71",
@@ -6014,7 +6018,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_75_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.17",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6026,7 +6030,7 @@
                     "value": "List tab Overview",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_75_cell_4_remarks_72",
@@ -6096,7 +6100,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_76_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.18",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6108,7 +6112,7 @@
                     "value": "List of Area and Shapes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_76_cell_4_remarks_73",
@@ -6178,7 +6182,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_77_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.19",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6190,7 +6194,7 @@
                     "value": "Anchor",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_77_cell_4_remarks_74",
@@ -6260,7 +6264,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_78_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.19.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6272,7 +6276,7 @@
                     "value": "Anchor using Track",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_78_cell_4_remarks_75",
@@ -6342,7 +6346,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_79_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.20",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6354,7 +6358,7 @@
                     "value": "Filter",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_79_cell_4_remarks_76",
@@ -6424,7 +6428,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_80_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.21",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6436,7 +6440,7 @@
                     "value": "Resize Shapes",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_80_cell_4_remarks_77",
@@ -6506,7 +6510,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_81_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.22",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6518,7 +6522,7 @@
                     "value": "Rotate Shape",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_81_cell_4_remarks_78",
@@ -6588,7 +6592,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_82_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.23",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6600,7 +6604,7 @@
                     "value": "Reposition Shape",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_82_cell_4_remarks_79",
@@ -6670,7 +6674,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_83_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.24",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6682,7 +6686,7 @@
                     "value": "Delete Shape",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_83_cell_4_remarks_80",
@@ -6752,7 +6756,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_84_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.25",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6764,7 +6768,7 @@
                     "value": "Copy/Paste",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_84_cell_4_remarks_81",
@@ -6834,7 +6838,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_85_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.26",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6846,7 +6850,7 @@
                     "value": "Add Vertex",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_85_cell_4_remarks_82",
@@ -6916,7 +6920,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_86_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.27",
                     "colspan": 1,
                     "rowspan": 1,
@@ -6928,7 +6932,7 @@
                     "value": "Remove Vertex",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_86_cell_4_remarks_83",
@@ -6998,7 +7002,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_87_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.28",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7010,7 +7014,7 @@
                     "value": "Border Styles",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_87_cell_4_remarks_84",
@@ -7080,7 +7084,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_88_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "4.15.29",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7092,7 +7096,7 @@
                     "value": "Fill Styles",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_88_cell_4_remarks_85",
@@ -7175,7 +7179,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_90_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7187,7 +7191,7 @@
                     "value": "SHHD Management",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_90_cell_4_remarks_87",
@@ -7257,7 +7261,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_91_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7269,7 +7273,7 @@
                     "value": "Manual Track Management",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_91_cell_4_remarks_88",
@@ -7339,7 +7343,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_92_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7351,7 +7355,7 @@
                     "value": "Track Operation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_92_cell_4_remarks_89",
@@ -7421,7 +7425,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_93_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7433,7 +7437,7 @@
                     "value": "Set the true or Relative and Proportional or extrapolated Parameters",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_93_cell_4_remarks_90",
@@ -7503,7 +7507,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_94_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7515,7 +7519,7 @@
                     "value": "Set the track extrapolation to on/off.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_94_cell_4_remarks_91",
@@ -7585,7 +7589,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_95_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.3.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7597,7 +7601,7 @@
                     "value": "Display track trail on Tactical Display",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_95_cell_4_remarks_92",
@@ -7667,7 +7671,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_96_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7679,7 +7683,7 @@
                     "value": "Quick View",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_96_cell_4_remarks_93",
@@ -7749,7 +7753,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_97_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7761,7 +7765,7 @@
                     "value": "Call Up System Element",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_97_cell_4_remarks_94",
@@ -7831,7 +7835,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_98_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7843,7 +7847,7 @@
                     "value": "Track Visualization (mask, symbol size and fill)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_98_cell_4_remarks_95",
@@ -7913,7 +7917,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_99_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -7925,7 +7929,7 @@
                     "value": "Create /Delete a RBL between any two tracks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_99_cell_4_remarks_96",
@@ -7995,7 +7999,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_100_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8007,7 +8011,7 @@
                     "value": "Plot Man Overboard Info for Classified Track",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_100_cell_4_remarks_97",
@@ -8077,7 +8081,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_101_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.9",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8089,7 +8093,7 @@
                     "value": "View Secondary info for classified track",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_101_cell_4_remarks_98",
@@ -8159,7 +8163,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_102_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.10",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8171,7 +8175,7 @@
                     "value": "Operate EBL/VRM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_102_cell_4_remarks_99",
@@ -8241,7 +8245,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_103_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "5.10.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8253,7 +8257,7 @@
                     "value": "Enable and Operate EBL1/VRM1 or EBL2/VRM2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_103_cell_4_remarks_100",
@@ -8336,7 +8340,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_105_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8348,7 +8352,7 @@
                     "value": "Scouting",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_105_cell_4_remarks_101",
@@ -8418,7 +8422,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_106_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8430,7 +8434,7 @@
                     "value": "General Scouting",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_106_cell_4_remarks_102",
@@ -8500,7 +8504,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_107_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8512,7 +8516,7 @@
                     "value": "General Scouting- (Case Geographic Location Selected)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_107_cell_4_remarks_103",
@@ -8582,7 +8586,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_108_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.1.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8594,7 +8598,7 @@
                     "value": "General Scouting -(Case Course /Speed Selected)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_108_cell_4_remarks_104",
@@ -8664,7 +8668,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_109_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8676,7 +8680,7 @@
                     "value": "SEARCHING",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_109_cell_4_remarks_105",
@@ -8746,7 +8750,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_110_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8758,7 +8762,7 @@
                     "value": "Rectangular Parallel Search",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_110_cell_4_remarks_106",
@@ -8828,7 +8832,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_111_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8840,7 +8844,7 @@
                     "value": "Rectangular Parallel Search",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_111_cell_4_remarks_107",
@@ -8910,7 +8914,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_112_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -8922,7 +8926,7 @@
                     "value": "Press Save or Delete or Reset button",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_112_cell_4_remarks_108",
@@ -8992,7 +8996,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_113_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9004,7 +9008,7 @@
                     "value": "Sector Search",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_113_cell_4_remarks_109",
@@ -9074,7 +9078,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_114_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9086,7 +9090,7 @@
                     "value": "Search Sector",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_114_cell_4_remarks_110",
@@ -9156,7 +9160,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_115_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9168,7 +9172,7 @@
                     "value": "Press Save or Delete or Reset button",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_115_cell_4_remarks_110",
@@ -9238,7 +9242,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_116_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9250,9 +9254,8 @@
                     "value": "ROUTING",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
-
                   {
                     "_id": "section_2_matrix_1_row_116_cell_5_remarks_112",
                     "key": "remarks_112",
@@ -9321,7 +9324,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_117_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9333,7 +9336,7 @@
                     "value": "Create Route Plan",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_117_cell_4_remarks_112",
@@ -9403,7 +9406,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_118_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9415,7 +9418,7 @@
                     "value": "Press SAVE or Delete or Reset button",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_118_cell_4_remarks_113",
@@ -9485,7 +9488,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_119_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9497,7 +9500,7 @@
                     "value": "Route Execution",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_119_cell_4_remarks_114",
@@ -9567,7 +9570,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_120_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9579,7 +9582,7 @@
                     "value": "Route Execution for Track",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_120_cell_4_remarks_115",
@@ -9636,7 +9639,7 @@
                   }
                 ]
               },
-                          {
+              {
                 "_id": "section_2_matrix_1_row_121",
                 "cells": [
                   {
@@ -9649,7 +9652,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_121_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9661,7 +9664,7 @@
                     "value": "WIND CALCULATOR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_121_cell_4_remarks_116",
@@ -9731,7 +9734,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_122_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9743,7 +9746,7 @@
                     "value": "Wind Calculator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_122_cell_4_remarks_117",
@@ -9813,7 +9816,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_123_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9825,7 +9828,7 @@
                     "value": "FLYING COURSE CALCULATOR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_123_cell_4_remarks_118",
@@ -9895,7 +9898,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_124_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9907,7 +9910,7 @@
                     "value": "Flying Course Calculator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_124_cell_4_remarks_119",
@@ -9977,7 +9980,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_125_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -9989,7 +9992,7 @@
                     "value": "CTS/Min speed to take up Assigned Station",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_125_cell_4_remarks_120",
@@ -10059,7 +10062,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_126_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10071,7 +10074,7 @@
                     "value": "Course to Steer to take up Assigned Station",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_126_cell_4_remarks_121",
@@ -10141,7 +10144,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_127_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10153,7 +10156,7 @@
                     "value": "Course to Steer to take up Assigned Station",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_127_cell_4_remarks_122",
@@ -10223,7 +10226,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_128_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10235,7 +10238,7 @@
                     "value": "Station at Minimum Speed",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_128_cell_4_remarks_123",
@@ -10305,7 +10308,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_129_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10317,7 +10320,7 @@
                     "value": "Station at Minimum Speed",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_129_cell_4_remarks_124",
@@ -10387,7 +10390,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_130_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10399,7 +10402,7 @@
                     "value": "Time for Two Tracks to be at Specific Distance Apart",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_130_cell_4_remarks_125",
@@ -10469,7 +10472,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_131_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "6.7.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10481,7 +10484,7 @@
                     "value": "Time for Two Tracks to be at Specific Distance Apart",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_131_cell_4_remarks_126",
@@ -10564,7 +10567,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_133_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10576,7 +10579,7 @@
                     "value": "CREATE/UPDATE MANUAL HE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_133_cell_4_remarks_127",
@@ -10646,7 +10649,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_134_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10658,7 +10661,7 @@
                     "value": "Create Manual HE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_134_cell_4_remarks_128",
@@ -10728,7 +10731,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_135_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10740,7 +10743,7 @@
                     "value": "Update Manual HE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_135_cell_4_remarks_129",
@@ -10810,7 +10813,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_136_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.1.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10822,7 +10825,7 @@
                     "value": "Delete MANUAL HE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_136_cell_4_remarks_130",
@@ -10892,7 +10895,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_137_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10904,7 +10907,7 @@
                     "value": "CREATE MANUAL SUB-SURFACE TRACK",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_137_cell_4_remarks_131",
@@ -10974,7 +10977,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_138_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -10986,7 +10989,7 @@
                     "value": "Create Manual Sub \u2013Surface Track using Geographical Coordinates",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_138_cell_4_remarks_132",
@@ -11056,7 +11059,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_139_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11068,7 +11071,7 @@
                     "value": "Create Manual Sub \u2013Surface Track using Bearing and Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_139_cell_4_remarks_133",
@@ -11138,7 +11141,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_140_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11150,7 +11153,7 @@
                     "value": "UPDATE MANUAL SUB \u2013 SURFACE TRACK",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_140_cell_4_remarks_134",
@@ -11220,7 +11223,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_141_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11232,7 +11235,7 @@
                     "value": "Update manual sub \u2013 surface track using Geographical Coordinates",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_141_cell_4_remarks_135",
@@ -11302,7 +11305,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_142_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11314,7 +11317,7 @@
                     "value": "Update manual sub \u2013 surface track using Bearing and Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_142_cell_4_remarks_136",
@@ -11384,7 +11387,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_143_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11396,7 +11399,7 @@
                     "value": "CREATE MANUAL SONOBUOY",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_143_cell_4_remarks_137",
@@ -11466,7 +11469,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_144_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11478,7 +11481,7 @@
                     "value": "Create manual Son buoy Using Geographical Coordinates",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_144_cell_4_remarks_138",
@@ -11548,7 +11551,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_145_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.4.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11560,7 +11563,7 @@
                     "value": "Creation Using Bearing and Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_145_cell_4_remarks_139",
@@ -11630,7 +11633,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_146_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.4.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11642,7 +11645,7 @@
                     "value": "Delete Manual Son buoy",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_146_cell_4_remarks_140",
@@ -11712,7 +11715,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_147_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11724,7 +11727,7 @@
                     "value": "DESIGNATE/ DISABLE KINGPIN",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_147_cell_4_remarks_141",
@@ -11794,7 +11797,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_148_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11806,7 +11809,7 @@
                     "value": "Designate Kingpin",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_148_cell_4_remarks_142",
@@ -11876,7 +11879,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_149_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11888,7 +11891,7 @@
                     "value": "EVASIVE STEERING \u2013 WEAVING",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_149_cell_4_remarks_143",
@@ -11958,7 +11961,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_150_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -11970,7 +11973,7 @@
                     "value": "Compute Evasive Steering Weaving",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_150_cell_4_remarks_144",
@@ -12040,7 +12043,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_151_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.6.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12052,7 +12055,7 @@
                     "value": "Hide Evasive Steering \u2013Weaving",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_151_cell_4_remarks_145",
@@ -12122,7 +12125,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_152_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.6.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12134,7 +12137,7 @@
                     "value": "Show Evasive Steering \u2013Weaving",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_152_cell_4_remarks_146",
@@ -12204,7 +12207,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_153_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.6.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12216,7 +12219,7 @@
                     "value": "Delete Evasive Steering \u2013Weaving",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_153_cell_4_remarks_147",
@@ -12286,7 +12289,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_154_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12298,7 +12301,7 @@
                     "value": "WEAPON DANGER ZONE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_154_cell_4_remarks_148",
@@ -12368,7 +12371,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_155_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12380,7 +12383,7 @@
                     "value": "Compute WDZ",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_155_cell_4_remarks_149",
@@ -12450,7 +12453,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_156_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.7.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12462,7 +12465,7 @@
                     "value": "Compute WDZ For Varunastra",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_156_cell_4_remarks_150",
@@ -12532,7 +12535,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_157_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.7.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12544,7 +12547,7 @@
                     "value": "Hide WDZ",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_157_cell_4_remarks_151",
@@ -12614,7 +12617,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_158_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "7.7.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12626,7 +12629,7 @@
                     "value": "Show WDZ",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_158_cell_4_remarks_152",
@@ -12709,7 +12712,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_160_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12721,7 +12724,7 @@
                     "value": "Create /Update Manual ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_160_cell_4_remarks_153",
@@ -12778,8 +12781,6 @@
                   }
                 ]
               },
-
-
               {
                 "_id": "section_2_matrix_1_row_161",
                 "cells": [
@@ -12793,7 +12794,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_161_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12805,7 +12806,7 @@
                     "value": "Create Manual ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_161_cell_4_remarks_154",
@@ -12875,7 +12876,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_162_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12887,7 +12888,7 @@
                     "value": "Update Manual ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_162_cell_4_remarks_155",
@@ -12957,7 +12958,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_163_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.1.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -12969,7 +12970,7 @@
                     "value": "Delete Manual ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_163_cell_4_remarks_156",
@@ -13039,7 +13040,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_164_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13051,7 +13052,7 @@
                     "value": "Preserve /Release",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_164_cell_4_remarks_157",
@@ -13121,7 +13122,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_165_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13133,7 +13134,7 @@
                     "value": "Preserve ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_165_cell_4_remarks_158",
@@ -13203,7 +13204,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_166_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.2.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13215,7 +13216,7 @@
                     "value": "Release ESM Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_166_cell_4_remarks_159",
@@ -13285,7 +13286,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_167_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13297,7 +13298,7 @@
                     "value": "Create Manual ESM Fix",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_167_cell_4_remarks_160",
@@ -13367,7 +13368,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_168_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13379,7 +13380,7 @@
                     "value": "Create Manual ESM Fix",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_168_cell_4_remarks_161",
@@ -13449,7 +13450,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_169_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13461,7 +13462,7 @@
                     "value": "Polar Frequency Bearing Display",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_169_cell_4_remarks_162",
@@ -13531,7 +13532,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_170_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "8.4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13543,7 +13544,7 @@
                     "value": "Select Polar Bearing Display by Operator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_170_cell_4_remarks_163",
@@ -13626,7 +13627,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_172_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13638,7 +13639,7 @@
                     "value": "Create Group Surface Target Manually",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_172_cell_4_remarks_164",
@@ -13708,7 +13709,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_173_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13720,7 +13721,7 @@
                     "value": "When Manual GST is Created",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_173_cell_4_remarks_165",
@@ -13790,7 +13791,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_174_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13802,7 +13803,7 @@
                     "value": "Assign Surface Target is added to GST",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_174_cell_4_remarks_166",
@@ -13872,7 +13873,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_175_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13884,7 +13885,7 @@
                     "value": "When Surface Target is added to GST",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_175_cell_4_remarks_167",
@@ -13954,7 +13955,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_176_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -13966,7 +13967,7 @@
                     "value": "Modify Group Surface Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_176_cell_4_remarks_168",
@@ -14036,7 +14037,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_177_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14048,7 +14049,7 @@
                     "value": "When GST is Deleted",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_177_cell_4_remarks_169",
@@ -14118,7 +14119,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_178_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14130,7 +14131,7 @@
                     "value": "Assigning/Editing Group Parameters",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_178_cell_4_remarks_170",
@@ -14200,7 +14201,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_179_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14212,7 +14213,7 @@
                     "value": "GST is Editing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_179_cell_4_remarks_171",
@@ -14282,7 +14283,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_180_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14294,7 +14295,7 @@
                     "value": "Assign Coastal Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_180_cell_4_remarks_172",
@@ -14364,7 +14365,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_181_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14376,7 +14377,7 @@
                     "value": "Coastal Target is Created",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_181_cell_4_remarks_173",
@@ -14446,7 +14447,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_182_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14458,7 +14459,7 @@
                     "value": "Assign Fire Reference Point",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_182_cell_4_remarks_174",
@@ -14528,7 +14529,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_183_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "9.6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14540,7 +14541,7 @@
                     "value": "FRP is Created",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_183_cell_4_remarks_175",
@@ -14623,7 +14624,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_185_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14635,7 +14636,7 @@
                     "value": "View Trajectory of Air Targets",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_185_cell_4_remarks_176",
@@ -14705,7 +14706,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_186_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14717,7 +14718,7 @@
                     "value": "View Trajectory of Air Targets for auto",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_186_cell_4_remarks_177",
@@ -14787,7 +14788,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_187_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14799,7 +14800,7 @@
                     "value": "View Trajectory of Air Targets for Manual",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_187_cell_4_remarks_178",
@@ -14869,7 +14870,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_188_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14881,7 +14882,7 @@
                     "value": "Set Degree and type of Readiness",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_188_cell_4_remarks_179",
@@ -14951,7 +14952,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_189_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -14963,7 +14964,7 @@
                     "value": "Type of Readiness selected as General Readiness and Degree of Readiness and Degree of Readiness Selected as First by the operator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_189_cell_4_remarks_180",
@@ -15033,7 +15034,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_190_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15045,7 +15046,7 @@
                     "value": "Type of Readiness selected as Anti \u2013 Air Readiness and Degree of Readiness selected as Second by the operator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_190_cell_4_remarks_181",
@@ -15115,7 +15116,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_191_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15127,7 +15128,7 @@
                     "value": "Type of Readiness selected as Anti \u2013 Submarine and Degree of Readiness selected as Second by the operator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_191_cell_4_remarks_182",
@@ -15197,7 +15198,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_192_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "10.3.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15209,7 +15210,7 @@
                     "value": "Type of Readiness selected as Anti-Ship Readiness and Degree of Readiness selected as Fourth/Fifth by the operator",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_192_cell_4_remarks_183",
@@ -15292,7 +15293,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_194_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "11.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15304,7 +15305,7 @@
                     "value": "Fire Power Umbrella (FPU)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_194_cell_4_remarks_184",
@@ -15374,7 +15375,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_195_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "11.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15386,7 +15387,7 @@
                     "value": "Display Fire Power Umbrella(FPU)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_195_cell_4_remarks_185",
@@ -15456,7 +15457,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_196_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "11.1.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15468,7 +15469,7 @@
                     "value": "Hide Fire Power Umbrella (FPU)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_196_cell_4_remarks_186",
@@ -15551,7 +15552,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_198_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15563,7 +15564,7 @@
                     "value": "Manage A4M",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_198_cell_4_remarks_187",
@@ -15633,7 +15634,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_199_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.1.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15645,7 +15646,7 @@
                     "value": "Creation of A4M Geometry",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_199_cell_4_remarks_188",
@@ -15715,7 +15716,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_200_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15727,7 +15728,7 @@
                     "value": "Variable A4M",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_200_cell_4_remarks_189",
@@ -15797,7 +15798,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_201_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.2.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15809,7 +15810,7 @@
                     "value": "Monitor Interception Tactics",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_201_cell_4_remarks_190",
@@ -15879,7 +15880,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_202_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15891,7 +15892,7 @@
                     "value": "Monitor Interception Tactics",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_202_cell_4_remarks_191",
@@ -15961,7 +15962,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_203_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -15973,7 +15974,7 @@
                     "value": "Manage GLIDE PATH",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_203_cell_4_remarks_192",
@@ -16043,7 +16044,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_204_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.4.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16055,7 +16056,7 @@
                     "value": "Creation of Glide Path Geometry",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_204_cell_4_remarks_193",
@@ -16125,7 +16126,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_205_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16137,7 +16138,7 @@
                     "value": "VECTAC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_205_cell_4_remarks_194",
@@ -16207,7 +16208,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_206_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.5.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16219,7 +16220,7 @@
                     "value": "VECTAC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_206_cell_4_remarks_195",
@@ -16289,7 +16290,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_207_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.6",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16301,7 +16302,7 @@
                     "value": "Manage Bulls Eye/Reference Point",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_207_cell_4_remarks_196",
@@ -16371,7 +16372,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_208_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16383,7 +16384,7 @@
                     "value": "Manage Bulls Eye/Reference Point",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_208_cell_4_remarks_197",
@@ -16453,7 +16454,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_209_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.7",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16465,7 +16466,7 @@
                     "value": "Bulls Eye Monitoring",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_209_cell_4_remarks_198",
@@ -16535,7 +16536,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_210_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.7.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16547,7 +16548,7 @@
                     "value": "Bulls Eye Monitoring",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_210_cell_4_remarks_199",
@@ -16617,7 +16618,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_211_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.8",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16629,7 +16630,7 @@
                     "value": "BATS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_211_cell_4_remarks_200",
@@ -16699,7 +16700,7 @@
                   },
                   {
                     "_id": "section_2_matrix_1_row_212_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "12.8.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -16711,7 +16712,7 @@
                     "value": "BATS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_212_cell_4_remarks_201",
@@ -16768,7 +16769,6 @@
                   }
                 ]
               }
-
             ],
             "showRowActions": false,
             "minRows": 1
@@ -16776,8 +16776,8 @@
         ],
         "fields_2": [
           {
-            "type":"label",
-            "value" : "Authority",
+            "type": "label",
+            "value": "Authority",
             "colSpan": 12
           },
           {
@@ -16787,6 +16787,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -16799,6 +16800,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT(V)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

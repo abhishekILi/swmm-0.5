@@ -130,21 +130,7 @@
           }
         ],
         "tables_1": [],
-        "fields_2": [
-          {
-            "_id": "ccs_mk3_reported_time",
-            "key": "ccs_mk3_reported_time",
-            "name": "ccs_mk3_reported_time",
-            "label": "Trial team reported onboard for Op Checks of CCS MK III at hrs. Checks and trials carried out IAW IHQ approved schedule and CNO 07/10 are enumerated in succeeding paragraphs:",
-            "type": "time",
-            "colSpan" : 12,
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "inputType": "time"
-          }
-        ],
+        
         "tables_2": [
           {
             "id": "checks_matrix_1",
@@ -153,7 +139,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -174,12 +160,57 @@
                   "label": "Remarks (SAT / UNSAT)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"200px"
                 }
               ]
             ],
             "columns": [],
             "rows": [
+               {
+        "_id": "ccs_mk2_reported_time_row",
+        "cells": [
+          {
+            "_id": "ccs_mk2_reported_time_ser1",
+            "type": "serial",
+            "value": "",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+          
+          {
+            "_id": "ccs_mk2_reported_time_label1",
+            "type": "label",
+            "value": "Trial team reported onboard for Op Checks of CCS MK III at",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          },
+          {
+            "_id": "ccs_mk2_reported_time1",
+            "key": "ccs_mk2_reported_time",
+            "name": "ccs_mk2_reported_time",
+            "type": "time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "time",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "center"
+          },
+          {
+            "_id": "ccs_mk2_reported_time_text1",
+            "type": "label",
+            "value": "hrs. Checks and trials carried out IAW IHQ approved schedule and CNO 07/10 are enumerated in succeeding paragraphs:",
+            "colspan": 1,
+            "rowspan": 1,
+            "align": "left"
+          }
+        ]
+      },
               {
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
@@ -193,7 +224,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "<b>PRELIMINARY CHECKS.</b>",
                     "colspan": 3,
                     "rowspan": 1,
@@ -214,7 +245,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -226,7 +257,7 @@
                     "value": "Securing of connecting cable and units of the system.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_ccs_mk3_2_2_i",
@@ -274,7 +305,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -286,7 +317,7 @@
                     "value": "Grounding and AC in the compartment.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_ccs_mk3_2_2_ii",
@@ -334,7 +365,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -346,7 +377,7 @@
                     "value": "Stabilised power supply to the system.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_ccs_mk3_2_2_iii",
@@ -394,7 +425,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "<b>VISUAL CHECKS.</b>",
                     "colspan": 3,
                     "rowspan": 1,
@@ -415,7 +446,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 7,
@@ -668,7 +699,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 3,
@@ -800,7 +831,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -812,7 +843,7 @@
                     "value": "Interconnecting from CCT to all ITUs through concentrator.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_4_ccs_mk3_2_3_iii",
@@ -860,7 +891,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -872,7 +903,7 @@
                     "value": "All indicators, switches, knobs and display in concentrator and ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_4_ccs_mk3_2_3_iv",
@@ -920,7 +951,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "<b>FUNCTIONAL CHECKS.</b>",
                     "colspan": 3,
                     "rowspan": 1,
@@ -941,7 +972,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -953,7 +984,7 @@
                     "value": "Remoting of 04 RX EK 896 to all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_4_ccs_mk3_2_6_i",
@@ -1001,7 +1032,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1013,7 +1044,7 @@
                     "value": "Remoting of 03 PAE 3060 to all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_ccs_mk3_2_6_ii",
@@ -1061,7 +1092,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1073,7 +1104,7 @@
                     "value": "Remoting of TR 2400 to all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_4_ccs_mk3_2_6_iii",
@@ -1121,7 +1152,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1133,7 +1164,7 @@
                     "value": "TX of TR 2400 from all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_ccs_mk3_2_6_iv",
@@ -1181,7 +1212,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1193,7 +1224,7 @@
                     "value": "RX of 04 RX EK 896 from all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_4_ccs_mk3_2_6_v",
@@ -1241,7 +1272,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1253,7 +1284,7 @@
                     "value": "Speaker of intercom of all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_ccs_mk3_2_6_vi",
@@ -1301,7 +1332,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1313,7 +1344,7 @@
                     "value": "Remoting of ST 1075 to all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_ccs_mk3_2_6_vii",
@@ -1361,7 +1392,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.1",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1373,7 +1404,7 @@
                     "value": "ITUs self-test.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_4_ccs_mk3_2_6_1",
@@ -1421,7 +1452,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1433,7 +1464,7 @@
                     "value": "Intercom operation of all ITUs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_ccs_mk3_2_6_2",
@@ -1481,7 +1512,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1493,7 +1524,7 @@
                     "value": "ITUs health check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_ccs_mk3_2_6_3",
@@ -1541,7 +1572,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1553,7 +1584,7 @@
                     "value": "CCT conference check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_4_ccs_mk3_2_6_4",
@@ -1601,7 +1632,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.5",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1613,7 +1644,7 @@
                     "value": "Radio silence operation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_ccs_mk3_2_6_5",
@@ -1661,7 +1692,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.6.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1673,7 +1704,7 @@
                     "value": "Group working operation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_4_ccs_mk3_2_6_6_3",
@@ -1721,7 +1752,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.6.4",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1733,7 +1764,7 @@
                     "value": "Intercom and radio operation check.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_4_ccs_mk3_2_6_6_4",
@@ -1781,7 +1812,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.7.3.2",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1793,7 +1824,7 @@
                     "value": "ITUs privilege checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_4_ccs_mk3_2_6_7_3_2",
@@ -1841,7 +1872,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "2.6.9.3",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1853,7 +1884,7 @@
                     "value": "Store and retrieve operation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_4_ccs_mk3_2_6_9_3",
@@ -1899,7 +1930,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1921,7 +1952,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -1929,13 +1960,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1955,7 +1986,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1977,7 +2008,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2014,6 +2045,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -2044,6 +2076,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

@@ -22,6 +22,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select --",
@@ -44,6 +45,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select --",
@@ -76,8 +78,9 @@
             "type": "select",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select --",
@@ -88,7 +91,9 @@
                 "value": "ECHO SOUNDER KELTRON V____"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -145,117 +150,99 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "6%"
                 },
                 {
                   "label": "Observations",
-                  "colspan": 1,
+                  "colspan": 9,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "74%"
                 },
                 {
                   "label": "Remarks",
-                  "colspan": 1,
+                  "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-                "_id": "observations_matrix_1_row_1",
+                "_id": "observations_matrix_1_row_1_intro",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
+                    "_id": "embark_time",
                     "key": "embark_time",
+                    "name": "embark_time",
                     "type": "time",
+                    "lb": "Trials team embarked onboard at",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "HH:MM",
                     "inputType": "time",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_2_embark_date",
+                    "_id": "embark_date",
                     "key": "embark_date",
+                    "name": "embark_date",
                     "type": "date",
+                    "lb": "hrs on",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
+                    "placeholder": "dd-mm-yyyy",
                     "inputType": "date",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_3_keltron_version",
+                    "_id": "keltron_version",
                     "key": "keltron_version",
+                    "name": "keltron_version",
                     "type": "input",
+                    "lb": "for SATs of Echo Sounder Keltron V",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_4_test_1_rlg1_velocity",
-                    "key": "test_1_rlg1_velocity",
+                    "_id": "approved_schedule_reference",
+                    "key": "approved_schedule_reference",
+                    "name": "approved_schedule_reference",
                     "type": "textarea",
                     "value": "",
                     "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "approved_schedule_suffix",
+                    "type": "label",
+                    "value": "as per IHQ MoD (N) approved schedule. Following observed:-",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -263,7 +250,7 @@
                 "_id": "observations_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_2_cell_1_static",
+                    "_id": "observations_row_2_serial",
                     "type": "serial",
                     "value": "1",
                     "colspan": 1,
@@ -271,23 +258,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_2_cell_2_static",
+                    "_id": "observations_row_2_description",
                     "type": "label",
                     "value": "Check 6.3.1 - Switching ON the Echo Sounder.",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_2_cell_3_check_1",
+                    "_id": "check_1",
                     "key": "check_1",
+                    "name": "check_1",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -298,16 +283,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -315,199 +293,29 @@
                 "_id": "observations_matrix_1_row_3",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_3_cell_1_static",
+                    "_id": "observations_row_3_serial",
                     "type": "serial",
                     "value": "2",
                     "colspan": 1,
-                    "rowspan": 1,
+                    "rowspan": 7,
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_2_check_2_echo_sounder",
-                    "key": "check_2_echo_sounder",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "_id": "observations_row_3_description",
+                    "type": "label",
+                    "value": "Check 6.3.2 - Depth reading checks at harbour",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_3_check_2_hand_lead",
-                    "key": "check_2_hand_lead",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_4_check_2_draught_fwd",
-                    "key": "check_2_draught_fwd",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_5_check_2_draught_aft",
-                    "key": "check_2_draught_aft",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_6_check_2_difference",
-                    "key": "check_2_difference",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_7_check_2_roll",
-                    "key": "check_2_roll",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_8_check_2_pitch",
-                    "key": "check_2_pitch",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_9_check_2_hot",
-                    "key": "check_2_hot",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_3_cell_3_check_2",
+                    "_id": "check_2",
                     "key": "check_2",
+                    "name": "check_2",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -518,16 +326,271 @@
                         "value": "UNSAT"
                       }
                     ],
+                    "colspan": 2,
+                    "rowspan": 7,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_headers",
+                "cells": [
+                  {
+                    "_id": "echo_sounder_header",
+                    "type": "label",
+                    "value": "<b>Echo Sounder</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "hand_lead_line_header",
+                    "type": "label",
+                    "value": "<b>Hand Lead Line</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "draught_header",
+                    "type": "label",
+                    "value": "<b>Draught</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "difference_header",
+                    "type": "label",
+                    "value": "<b>Difference</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_fwd",
+                "cells": [
+                  {
+                    "_id": "check_2_echo_sounder",
+                    "key": "check_2_echo_sounder",
+                    "name": "check_2_echo_sounder",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_hand_lead",
+                    "key": "check_2_hand_lead",
+                    "name": "check_2_hand_lead",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "draught_fwd_label",
+                    "type": "label",
+                    "value": "FWD:",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "right"
+                  },
+                  {
+                    "_id": "check_2_draught_fwd",
+                    "key": "check_2_draught_fwd",
+                    "name": "check_2_draught_fwd",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_difference",
+                    "key": "check_2_difference",
+                    "name": "check_2_difference",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_aft",
+                "cells": [
+                  {
+                    "_id": "draught_aft_left_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "draught_aft_label",
+                    "type": "label",
+                    "value": "AFT:",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "right"
+                  },
+                  {
+                    "_id": "check_2_draught_aft",
+                    "key": "check_2_draught_aft",
+                    "name": "check_2_draught_aft",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "draught_aft_right_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_roll",
+                "cells": [
+                  {
+                    "_id": "check_2_roll_label",
+                    "type": "label",
+                    "value": "Roll:",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_roll",
+                    "key": "check_2_roll",
+                    "name": "check_2_roll",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_roll_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_pitch",
+                "cells": [
+                  {
+                    "_id": "check_2_pitch_label",
+                    "type": "label",
+                    "value": "Pitch:",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_pitch",
+                    "key": "check_2_pitch",
+                    "name": "check_2_pitch",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_pitch_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_hot",
+                "cells": [
+                  {
+                    "_id": "check_2_hot_label",
+                    "type": "label",
+                    "value": "HOT:",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_hot",
+                    "key": "check_2_hot",
+                    "name": "check_2_hot",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_2_hot_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -535,7 +598,7 @@
                 "_id": "observations_matrix_1_row_4",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_4_cell_1_static",
+                    "_id": "observations_row_4_serial",
                     "type": "serial",
                     "value": "3",
                     "colspan": 1,
@@ -543,23 +606,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_4_cell_2_static",
+                    "_id": "observations_row_4_description",
                     "type": "label",
                     "value": "Check 6.3.3 - Check the LED / VGA repeater Unit display readings.",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_4_cell_3_check_3",
+                    "_id": "check_3",
                     "key": "check_3",
+                    "name": "check_3",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -570,16 +631,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -587,7 +641,7 @@
                 "_id": "observations_matrix_1_row_5",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_5_cell_1_static",
+                    "_id": "observations_row_5_serial",
                     "type": "serial",
                     "value": "4",
                     "colspan": 1,
@@ -595,23 +649,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_5_cell_2_static",
+                    "_id": "observations_row_5_description",
                     "type": "label",
                     "value": "Check 6.3.4 - Check the \"Mark Event\".",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_5_cell_3_check_4",
+                    "_id": "check_4",
                     "key": "check_4",
+                    "name": "check_4",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -622,16 +674,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -639,45 +684,29 @@
                 "_id": "observations_matrix_1_row_6",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_6_cell_1_static",
+                    "_id": "observations_row_6_serial",
                     "type": "serial",
                     "value": "5",
                     "colspan": 1,
-                    "rowspan": 1,
+                    "rowspan": 2,
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_6_cell_2_check_5_depth_beyond",
-                    "key": "check_5_depth_beyond",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "mtrs",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "_id": "observations_row_6_description",
+                    "type": "label",
+                    "value": "Check 6.3.5 - Depth reading checks at various depths and different speed upto 1500 mtrs.",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_6_cell_3_check_5",
+                    "_id": "check_5",
                     "key": "check_5",
+                    "name": "check_5",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -692,16 +721,44 @@
                         "value": "Not offered"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
+                    "rowspan": 2,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_6_depth",
+                "cells": [
+                  {
+                    "_id": "depth_beyond_label",
+                    "type": "label",
+                    "value": "Depth reading checks beyond",
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "check_5_depth_beyond",
+                    "key": "check_5_depth_beyond",
+                    "name": "check_5_depth_beyond",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "mtrs",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "depth_beyond_suffix",
+                    "type": "label",
+                    "value": "mtrs.",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -709,7 +766,7 @@
                 "_id": "observations_matrix_1_row_7",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_7_cell_1_static",
+                    "_id": "observations_row_7_serial",
                     "type": "serial",
                     "value": "6",
                     "colspan": 1,
@@ -717,23 +774,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_7_cell_2_static",
+                    "_id": "observations_row_7_description",
                     "type": "label",
                     "value": "Check 6.3.6 - Check the distance mark on the chart while monitoring the distance reading at the LOG speed",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_7_cell_3_check_6",
+                    "_id": "check_6",
                     "key": "check_6",
+                    "name": "check_6",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -744,16 +799,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -761,7 +809,7 @@
                 "_id": "observations_matrix_1_row_8",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_8_cell_1_static",
+                    "_id": "observations_row_8_serial",
                     "type": "serial",
                     "value": "7",
                     "colspan": 1,
@@ -769,23 +817,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_8_cell_2_static",
+                    "_id": "observations_row_8_description",
                     "type": "label",
                     "value": "Check 6.3.7 - Check the USB Printer is connected and take a print.",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_8_cell_3_check_7",
+                    "_id": "check_7",
                     "key": "check_7",
+                    "name": "check_7",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -796,16 +842,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -813,7 +852,7 @@
                 "_id": "observations_matrix_1_row_9",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_9_cell_1_static",
+                    "_id": "observations_row_9_serial",
                     "type": "serial",
                     "value": "8",
                     "colspan": 1,
@@ -821,23 +860,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_9_cell_2_static",
+                    "_id": "observations_row_9_description",
                     "type": "label",
                     "value": "Interface checks with ECDIS and other equipment (if applicable).",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_9_cell_3_check_8",
+                    "_id": "check_8",
                     "key": "check_8",
+                    "name": "check_8",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -848,16 +885,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -865,7 +895,7 @@
                 "_id": "observations_matrix_1_row_10",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_10_cell_1_static",
+                    "_id": "observations_row_10_serial",
                     "type": "serial",
                     "value": "9",
                     "colspan": 1,
@@ -873,23 +903,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_10_cell_2_static",
+                    "_id": "observations_row_10_description",
                     "type": "label",
                     "value": "Shallow water alarms may be verified at shallow waters of upto 10m depth.",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_10_cell_3_check_9",
+                    "_id": "check_9",
                     "key": "check_9",
+                    "name": "check_9",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -900,16 +928,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -917,7 +938,7 @@
                 "_id": "observations_matrix_1_row_11",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_11_cell_1_static",
+                    "_id": "observations_row_11_serial",
                     "type": "serial",
                     "value": "10",
                     "colspan": 1,
@@ -925,23 +946,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_11_cell_2_static",
+                    "_id": "observations_row_11_description",
                     "type": "label",
                     "value": "Check both Dual Channel (if applicable) and Single Channel operation in Auto Mode only.",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_11_cell_3_check_10",
+                    "_id": "check_10",
                     "key": "check_10",
+                    "name": "check_10",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -952,240 +971,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "observations_matrix_2",
-            "sectionType": "matrixTable",
-            "title": "Observations",
-            "topHeaders": [
-              [
-                {
-                  "label": "Echo Sounder",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Hand Lead Line",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Draught",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Difference",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                }
-              ]
-            ],
-            "columns": [],
-            "rows": [
-              {
-                "_id": "observations_matrix_2_row_1",
-                "cells": [
-                  {
-                    "_id": "observations_matrix_2_row_1_cell_1_check_2_echo_sounder",
-                    "key": "check_2_echo_sounder",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_1_cell_2_check_2_hand_lead",
-                    "key": "check_2_hand_lead",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_1_cell_3_check_2_draught_fwd",
-                    "key": "check_2_draught_fwd",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_1_cell_4_check_2_draught_aft",
-                    "key": "check_2_draught_aft",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_1_cell_4_check_2_difference",
-                    "key": "check_2_difference",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "observations_matrix_2_row_2",
-                "cells": [
-                  {
-                    "_id": "observations_matrix_2_row_2_cell_1_check_2_roll",
-                    "key": "check_2_roll",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_2_cell_2_check_2_pitch",
-                    "key": "check_2_pitch",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_2_row_2_cell_3_check_2_hot",
-                    "key": "check_2_hot",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               }
@@ -1196,6 +984,11 @@
         ],
         "fields_2": [
           {
+            "type": "label",
+            "value": "Sea Trials Report",
+            "colSpan": 12
+          },
+          {
             "_id": "sea_trial_ship_name",
             "key": "sea_trial_ship_name",
             "name": "sea_trial_ship_name",
@@ -1205,7 +998,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 4
           },
           {
             "_id": "sea_trial_date",
@@ -1217,7 +1011,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "date"
+            "inputType": "date",
+            "colSpan": 4
           },
           {
             "_id": "sound_velocity",
@@ -1229,7 +1024,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 4
           },
           {
             "_id": "sea_trial_draught_fwd",
@@ -1241,7 +1037,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 4
           },
           {
             "_id": "sea_trial_draught_aft",
@@ -1253,7 +1050,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 4
           },
           {
             "_id": "unit",
@@ -1265,6 +1063,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select --",
@@ -1291,7 +1090,8 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 6
           },
           {
             "_id": "sea_trial_pitch",
@@ -1303,14 +1103,15 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 6
           }
         ],
         "tables_2": [
           {
             "id": "sea_trials_report_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Sea Trials Report",
+            "title": "",
             "topHeaders": [
               [
                 {
@@ -2684,27 +2485,6 @@
         ],
         "tables_3": []
       }
-    },
-    {
-      "id": "observations",
-      "title": "Observations",
-      "sectionType": "hybrid",
-      "fields": [],
-      "tables": []
-    },
-    {
-      "id": "sea_trials_report",
-      "title": "Sea Trials Report",
-      "sectionType": "hybrid",
-      "fields": [],
-      "tables": []
-    },
-    {
-      "id": "authorities",
-      "title": "Authorities",
-      "sectionType": "fields",
-      "fields": [],
-      "tables": []
     }
   ]
 }

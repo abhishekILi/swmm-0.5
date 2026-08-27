@@ -22,7 +22,7 @@
             "key": "ship",
             "name": "ship",
             "label": "Submarine",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "gyro_date",
@@ -89,11 +91,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Observations",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -126,7 +128,7 @@
                   {
                     "_id": "section_2_matrix_1_row_1_cell_1_gyro_embark_time",
                     "key": "gyro_embark_time",
-                    "lb" : "Trials team embarked onboard at on dd-mm-yyyy for HATs of AFT PERISCOPE as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "lb" : "Trials team embarked onboard at ",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -150,6 +152,7 @@
 
                     "_id": "section_2_matrix_1_row_1_cell_2_gyro_embark_date",
                     "key": "gyro_embark_date",
+                    "lb":"on dd-mm-yyyy for HATs of AFT PERISCOPE as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
                     "type": "date",
                     "value": "",
                     "rows": null,
@@ -201,7 +204,7 @@
                     "value": "Check 1 - Switching on GYRO",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_gyro_status_1",
@@ -275,7 +278,7 @@
                     "value": "Check 2 \u2013 Repeaters check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_gyro_status_2",
@@ -349,7 +352,7 @@
                     "value": "Check 3 \u2013 Transit bearing checks carried out while leaving harbour. Transit Bearing Error",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_gyro_status_3",
@@ -423,7 +426,7 @@
                     "value": "Check 4 \u2013 Interface checks with Radar, NDDU, ECDIS, CTD, wind Computer and other users.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_gyro_status_4",
@@ -497,7 +500,7 @@
                     "value": "Check 5 \u2013 Changeover of GYRO checks. GYRO to Magnetic Compass and vice versa.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_gyro_status_5",
@@ -572,6 +575,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -584,6 +588,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colSpan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

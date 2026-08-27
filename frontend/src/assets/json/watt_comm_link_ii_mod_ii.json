@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -39,18 +39,20 @@
             "name": "equipment",
             "label": "Equipment",
             "type": "input",
-            "value": "INMARSAT 'C'",
+            "value": "LINK II MoD II",
             "required": false,
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan": 4
+             "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -115,32 +117,46 @@
               { "label": "Op Checks",            "value": "op_checks" }
             ],
             "isDynamic": false
+          }
+        ],
+        "fields_3": [
+          {
+            "_id": "vlf_hf_rx_link_prefix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">Trial team reported onboard for Ops Check of Link II MoD II at</p>",
+            "colSpan": 3
           },
           {
-            "_id": "inmarsat_c_time",
-            "key": "inmarsat_c_time",
-            "name": "inmarsat_c_time",
-            "label": "Trial team reported onboard for Ops Check of Link II MoD II at hrs. Checks and trials carried out IAW IHQ MoD (Navy)/DSR approved schedule WP/1280/LINK II dated 09 Jul 15 and CNO. 07/10 are enumerated in succeeding paragraphs :-",
+            "_id": "vlf_hf_rx_link_reported_time",
+            "key": "vlf_hf_rx_link_reported_time",
+            "name": "vlf_hf_rx_link_reported_time",
+            "label": "",
             "type": "time",
             "value": "",
-            "colSpan": 12,
-            "required": false,
+            "required": true,
             "disabled": false,
-            "placeholder": "",
-            "inputType": "time"
+            "placeholder": "HH:MM",
+            "inputType": "time",
+            "colSpan": 2
+          },
+          {
+            "_id": "vlf_hf_rx_link_suffix",
+            "type": "label",
+            "value": "<p class=\"text-xs\">hrs. Checks and trials carried out IAW IHQ MoD (Navy)/DSR approved schedule WP/1280/LINK II dated 09 Jul 15 and CNO. 07/10 are enumerated in succeeding paragraphs :-</p>",
+            "colSpan": 7
           }
         ],
         "tables_1": [
           {
             "id": "section_1_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Section 1",
+            "title": " ",
             "topHeaders": [
               [
-                { "label": "Ser",          "colspan": 1, "rowspan": 1, "align": "center" },
+                { "label": "SNo..",          "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Checks",       "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Observations", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Remarks",      "colspan": 3, "rowspan": 1, "align": "center" }
+                { "label": "Observations", "colspan": 2, "rowspan": 1, "align": "center" },
+                { "label": "Remarks",      "colspan": 2, "rowspan": 1, "align": "center" }
               ]
             ],
             "columns": [],
@@ -161,7 +177,7 @@
                     "_id": "section_1_matrix_1_row_1_cell_2_static",
                     "type": "label",
                     "value": "<b>System Configuration of Link II MOD I System</b>",
-                    "colspan": 3,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -185,7 +201,7 @@
                     "value": "Large/ Small/ Single Ship Configuration : 2200",
                     "colspan": 1,
                     "rowspan": 8,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_matrix_1_row_2_cell_3_input_1",
@@ -194,7 +210,7 @@
                     "lb": "Server System",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -209,7 +225,7 @@
                       { "label": "SAT",   "value": "sat" },
                       { "label": "UNSAT", "value": "unsat" }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 8,
                     "align": "center"
                   }
@@ -223,10 +239,10 @@
                     "_id": "section_1_matrix_1_row_2_1_input_2",
                     "key": "config_input_2",
                     "type": "input",
-                    "lb": "Client",
+                    "lb": "SADL",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -243,7 +259,7 @@
                     "lb": "Client",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -260,7 +276,7 @@
                     "lb": "1 KVA UPS",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -277,7 +293,7 @@
                     "lb": "Printers",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -294,7 +310,7 @@
                     "lb": "LAN Components : Switch 24 Ports",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -311,7 +327,7 @@
                     "lb": "Switch 8 ports",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -328,7 +344,7 @@
                     "lb": "LIU",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -350,7 +366,7 @@
                     "_id": "section_1_matrix_1_row_6_cell_2_static",
                     "type": "label",
                     "value": "<b>Technical Specifications</b>",
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -374,7 +390,7 @@
                     "value": "Server System",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "server_box_1",
@@ -383,7 +399,7 @@
                     "lb": "CPU Processor : i7, RAM 8GB, Hard Disk 500 GB, USB Buzzer, RF Modem 9.6 Kbps, RF Modems 2.4 Kbps, Serial card 4 Port",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -397,7 +413,7 @@
                       { "label": "SAT",   "value": "sat" },
                       { "label": "UNSAT", "value": "unsat" }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 2,
                     "align": "left"
                   }
@@ -413,7 +429,7 @@
                     "lb": "All sub-assemblies are fixed properly.",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -437,7 +453,7 @@
                     "value": "SADL",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "sadl_box_1",
@@ -446,7 +462,7 @@
                     "lb": "CPU Processor : i7, RAM 8GB, Hard Disk 500 GB, USB Buzzer, RF Modem 9.6 Kbps, RF Modems 2.4 Kbps, Serial card 4 Port",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -460,7 +476,7 @@
                       { "label": "SAT",   "value": "sat" },
                       { "label": "UNSAT", "value": "unsat" }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 2,
                     "align": "left"
                   }
@@ -476,7 +492,7 @@
                     "lb": "All sub-assemblies are fixed properly.",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -500,7 +516,7 @@
                     "value": "Client",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "client_box_1",
@@ -509,7 +525,7 @@
                     "lb": "CPU Processor : i7, RAM 8GB, Hard Disk 500 GB, USB Buzzer, RF Modem 9.6 Kbps, RF Modems 2.4 Kbps, Serial card 4 Port",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -523,7 +539,7 @@
                       { "label": "SAT",   "value": "sat" },
                       { "label": "UNSAT", "value": "unsat" }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 2,
                     "align": "left"
                   }
@@ -539,7 +555,7 @@
                     "lb": "All sub-assemblies are fixed properly.",
                     "value": "",
                     "inputType": "text",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -552,7 +568,7 @@
                   {
                     "_id": "section_1_matrix_1_row_15_cell_1_static",
                     "type": "serial",
-                    "value": "C",
+                    "value": "4.0",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -561,12 +577,67 @@
                     "_id": "section_1_matrix_1_row_15_cell_2_static",
                     "type": "label",
                     "value": "<b>Application Software Module Check list</b>",
-                    "colspan": 3,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
                   }
                 ]
               },
+              {
+                "_id": "section_1_matrix_1_row_20",
+                "cells": [
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_1_static",
+                    "type": "serial",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_2_static",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_3_static",
+                    "type": "label",
+                    "value": "Link",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_4_static",
+                    "type": "label",
+                    "value": "Messaging",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_5_static",
+                    "type": "label",
+                    "value": "Tactical",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_6_static",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              
+              
 
               {
   "_id": "section_1_matrix_1_row_16",
@@ -582,13 +653,21 @@
     {
       "_id": "section_1_matrix_1_row_16_cell_2_static",
       "type": "label",
-      "value": "Server System Large/ Small",
+      "value": "(i) Server System Large/ Small",
+      "colspan": 1,
+      "rowspan": 1,
+      "align": "left"
+    },
+    {
+      "_id": "section_1_matrix_1_row_16_cell_3_static",
+      "type": "label",
+      "value": "Ver",
       "colspan": 1,
       "rowspan": 1,
       "align": "center"
     },
     {
-      "_id": "section_1_matrix_1_row_16_cell_3_messaging",
+      "_id": "section_1_matrix_1_row_16_cell_4_messaging",
       "key": "c_inst_1_messaging",
       "type": "input",
       "lb": "Messaging",
@@ -599,7 +678,7 @@
       "align": "left"
     },
     {
-      "_id": "section_1_matrix_1_row_16_cell_4_tactical",
+      "_id": "section_1_matrix_1_row_16_cell_5_tactical",
       "key": "c_inst_1_tactical",
       "type": "input",
       "lb": "Tactical",
@@ -650,7 +729,15 @@
     {
       "_id": "section_1_matrix_1_row_17_cell_2_static",
       "type": "label",
-      "value": "SADL System",
+      "value": "(ii) SADL System",
+      "colspan": 1,
+      "rowspan": 1,
+      "align": "left"
+    },
+    {
+      "_id": "section_1_matrix_1_row_17_cell_3_static",
+      "type": "label",
+      "value": "Ver",
       "colspan": 1,
       "rowspan": 1,
       "align": "center"
@@ -718,7 +805,15 @@
     {
       "_id": "section_1_matrix_1_row_18_cell_2_static",
       "type": "label",
-      "value": "Client System",
+      "value": "(iii) Client System",
+      "colspan": 1,
+      "rowspan": 1,
+      "align": "left"
+    },
+    {
+      "_id": "section_1_matrix_1_row_18_cell_3_static",
+      "type": "label",
+      "value": "Ver",
       "colspan": 1,
       "rowspan": 1,
       "align": "center"
@@ -786,7 +881,15 @@
     {
       "_id": "section_1_matrix_1_row_19_cell_2_static",
       "type": "label",
-      "value": "Single System",
+      "value": "(iv) Single System",
+      "colspan": 1,
+      "rowspan": 1,
+      "align": "left"
+    },
+    {
+      "_id": "section_1_matrix_1_row_19_cell_3_static",
+      "type": "label",
+      "value": "Ver",
       "colspan": 1,
       "rowspan": 1,
       "align": "center"
@@ -839,6 +942,27 @@
     }
   ]
 },
+{
+                "_id": "section_1_matrix_1_row_15",
+                "cells": [
+                  {
+                    "_id": "section_1_matrix_1_row_20_cell_1_static",
+                    "type": "serial",
+                    "value": "5.0",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "section_1_matrix_1_row_15_cell_2_static",
+                    "type": "label",
+                    "value": "<b>Test Cases</b>",
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
 
 
 {
@@ -864,7 +988,7 @@
       "_id": "section_1_matrix_1_row_19_cell_3_messaging",
       "key": "c_inst_4_messaging",
       "type": "input",
-      "lb": "5.0 TEST CASES (i) Check Server is interfaced with V/UHF/ HF/ MSS/ Rukmani",
+      "lb": "(i) Check Server is interfaced with V/UHF/ HF/ MSS/ Rukmani",
       "value": "",
       "inputType": "text",
       "colspan": 2,
@@ -886,7 +1010,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -945,7 +1069,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1003,7 +1127,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1062,7 +1186,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1121,7 +1245,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1179,7 +1303,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1206,7 +1330,7 @@
     {
       "_id": "section_1_matrix_1_row_19_cell_2_static",
       "type": "label",
-      "value": "(i)",
+      "value": "(vii)",
       "colspan": 1,
       "rowspan": 1,
       "align": "center"
@@ -1237,7 +1361,7 @@
         { "label": "SAT",   "value": "sat" },
         { "label": "UNSAT", "value": "unsat" }
       ],
-      "colspan": 1,
+      "colspan": 2,
       "rowspan": 1,
       "align": "left",
       "isDynamic": false,
@@ -1264,7 +1388,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1274,6 +1398,7 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
+
                 },
                 {
                   "label": "SS Remarks",
@@ -1286,21 +1411,21 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
-                "type": "label",
+                "label": "SNo.",
+                "type": "serial",
                 "align": "center"
               },
               {
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1320,7 +1445,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1342,7 +1467,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1380,6 +1505,7 @@
             "label": "ND:",
             "type": "input",
             "value": "",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",
@@ -1392,6 +1518,7 @@
             "label": "STI / TI:",
             "type": "input",
             "value": "",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",
@@ -1404,6 +1531,7 @@
             "label": "STO:",
             "type": "input",
             "value": "",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

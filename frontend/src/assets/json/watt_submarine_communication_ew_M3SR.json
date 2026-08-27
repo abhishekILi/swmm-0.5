@@ -20,8 +20,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -44,13 +44,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "sno",
             "key": "sno",
             "name": "sno",
-            "label": "S. No.",
+            "label": "SNo.",
             "type": "input",
             "value": "",
             "required": false,
@@ -148,6 +150,49 @@
           }
         ],
         "tables_1": [],
+        "fields_5": [
+          {
+            "type": "label",
+            "name": "Tboard",
+            "key": "Tboard",
+            "value": "<p class='text-xs'>Trials team embarked onboard at </p>",
+            "colSpan":2
+          },
+          {
+            "type": "time",
+            "name": "Tboard_time",
+            "key": "Tboard_time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "colSpan": 2
+          },
+          {
+             "type": "label",
+            "name": "Tboard_lable",
+            "key": "Tboard_lable",
+            "colSpan":1,
+            "value": "<p class='text-xs'>on</p>"
+          },
+          {
+            "type": "date",
+            "name": "Tboard_date",
+            "key": "Tboard_date",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "DD:MM:YYYY",
+            "colSpan": 3
+          },
+          {
+             "type": "label",
+            "name": "Tboard_lable1",
+            "key": "Tboard_lable1",
+            "colSpan":4,
+            "value": "<p class='text-xs'>for Op-Checks of M3SR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-</p>"
+          }
+        ],
         "tables_2": [
           {
             "id": "checks_table_1",
@@ -156,7 +201,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -184,7 +229,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -192,58 +237,22 @@
                 "key": "observations_checks",
                 "label": "Observations / Checks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "result",
                 "label": "Result",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
-              {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
-                    "type": "time",
-                    "value": "",
-                    "lb" : "Trials team embarked onboard at on",
-                    "required": true,
-                    "disabled": false,
-                    "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-
-                  {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "date",
-                    "inputType": "date",
-                    "value": "",
-                    "lb" : "for Op-Checks of M3SR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
-                    "required": false,
-                    "disabled": false,
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-
               {
                 "_id": "checks_table_1_row_1",
                 "cells": [
@@ -625,7 +634,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -653,7 +662,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -661,19 +670,19 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "sign",
                 "label": "Sign",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -693,7 +702,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -715,7 +724,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -769,6 +778,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -799,6 +809,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

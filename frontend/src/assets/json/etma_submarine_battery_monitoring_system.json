@@ -21,6 +21,21 @@
             "colSpan": 12
           },
           {
+            "_id": "unit",
+            "key": "unit",
+            "name": "unit",
+            "label": "INS",
+            "type": "input",
+            "value": "",
+            "required": false,
+            "disabled": true,
+            "placeholder": "",
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+          },
+          {
             "_id": "date_of_trials",
             "key": "date_of_trials",
             "name": "date_of_trials",
@@ -31,41 +46,8 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "unit",
-            "key": "unit",
-            "name": "unit",
-            "label": "INS",
-            "type": "select",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "options": [
-              {
-                "label": "-- Select (Ship) --",
-                "value": ""
-              },
-              {
-                "label": "INS Alpha",
-                "value": "INS_A"
-              },
-              {
-                "label": "INS Bravo",
-                "value": "INS_B"
-              },
-              {
-                "label": "INS Charlie",
-                "value": "INS_C"
-              },
-              {
-                "label": "INS Delta",
-                "value": "INS_D"
-              }
-            ],
-            "isDynamic": false
           }
+
         ],
         "tables_1": [
           {
@@ -75,10 +57,11 @@
             "topHeaders": [
               [
                 {
-                  "label": "Trial Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "7%"
                 },
                 {
                   "label": "TEST/NOMINAL VALUE",
@@ -125,7 +108,7 @@
                     "value": "Visual Inspection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_1_cell_3_t1r1",
@@ -221,7 +204,7 @@
                     "value": "Visual Inspection, Battery room forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_2_cell_3_t1r2",
@@ -317,7 +300,7 @@
                     "value": "Visual Inspection, Interface Unit forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_3_cell_3_t1r3",
@@ -413,7 +396,7 @@
                     "value": "Visual Inspection, Measuring Converter forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_4_cell_3_t1r4",
@@ -509,7 +492,7 @@
                     "value": "Visual Inspection, Battery room forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_5_cell_3_t1r5",
@@ -605,7 +588,7 @@
                     "value": "Visual Inspection, Interface Unit forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_6_cell_3_t1r6",
@@ -701,7 +684,7 @@
                     "value": "Visual Inspection, Measuring Converter forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_7_cell_3_t1r7",
@@ -797,7 +780,7 @@
                     "value": "BMS Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_8_cell_3_t1r8",
@@ -893,7 +876,7 @@
                     "value": "Checks of Power Supply and functioning of UPS",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_9_cell_3_t1r9",
@@ -989,7 +972,7 @@
                     "value": "Checks of Power Supply of Interface Unit forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_10_cell_3_t1r10",
@@ -1085,7 +1068,7 @@
                     "value": "Checks of Power Supply of Interface Unit aft",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_11_cell_3_t1r11",
@@ -1181,7 +1164,7 @@
                     "value": "Functional Checks. BMS Panel/ Monitoring Unit",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_12_cell_3_t1r12",
@@ -1277,7 +1260,7 @@
                     "value": "Functional Checks. Measured values in battery cells",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_13_cell_3_t1r13",
@@ -1373,7 +1356,7 @@
                     "value": "Functional Checks. Mean Cell Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_14_cell_3_t1r14",
@@ -1469,7 +1452,7 @@
                     "value": "Functional Checks. Mean Cell Temperature",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_15_cell_3_t1r15",
@@ -1565,7 +1548,7 @@
                     "value": "Functional Checks. Lowest Cell Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_16_cell_3_t1r16",
@@ -1661,7 +1644,7 @@
                     "value": "Functional Checks. Group Current",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_17_cell_3_t1r17",
@@ -1757,7 +1740,7 @@
                     "value": "Functional Checks. Group Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_18_cell_3_t1r18",
@@ -1853,7 +1836,7 @@
                     "value": "Functional Checks. Insulation Resistance Measurement",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_19_cell_3_t1r19",
@@ -1949,7 +1932,7 @@
                     "value": "Functional Checks. Full Charge / Equalising Charge",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_20_cell_3_t1r20",
@@ -2045,7 +2028,7 @@
                     "value": "Functional Checks. Capacity Measurement",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_21_cell_3_t1r21",
@@ -2141,7 +2124,7 @@
                     "value": "Functional Checks. Residual Capacity",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_22_cell_3_t1r22",
@@ -2237,7 +2220,7 @@
                     "value": "Functional Checks. Simulated Residual Capacity",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "result_sheet_matrix_1_row_23_cell_3_t1r23",

@@ -14,7 +14,7 @@
         "fields_1": [
           {
             "type": "label",
-            "value" : "Basic Information",
+            "value": "Basic Information",
             "colSpan": 12
           },
           {
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -82,7 +84,7 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -93,16 +95,17 @@
             "topHeaders": [
               [
                 {
-                  "label": "SL. NO",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "TRIAL SER",
+                  "label": "TRIAL SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20px"
                 },
                 {
                   "label": "CHECK DESCRIPTION AS PER SCHEDULE",
@@ -120,7 +123,8 @@
                   "label": "PRESENTING AUTHORITY REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "450px"
                 }
               ]
             ],
@@ -134,20 +138,21 @@
               {
                 "key": "trial_ser",
                 "label": "TRIAL SER",
-                "type": "label",
+                "type": "serial",
                 "align": "left"
               },
               {
                 "key": "check_description_as_per_schedule",
                 "label": "CHECK DESCRIPTION AS PER SCHEDULE",
                 "type": "label",
-                "align": "left"
+                "align": "left",
+                "width": "250px"
               },
               {
                 "key": "result_sat_unsat",
                 "label": "RESULT (SAT/UNSAT)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "presenting_authority_remarks",
@@ -174,7 +179,7 @@
                     "value": "1.7.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_1_cell_3_static",
@@ -256,7 +261,7 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_2_cell_3_static",
@@ -338,7 +343,7 @@
                     "value": "2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_3_cell_3_static",
@@ -420,7 +425,7 @@
                     "value": "3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_4_cell_3_static",
@@ -502,7 +507,7 @@
                     "value": "4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_5_cell_3_static",
@@ -584,7 +589,7 @@
                     "value": "-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_6_cell_3_static",
@@ -666,7 +671,7 @@
                     "value": "-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_2_table_1_row_7_cell_3_static",
@@ -738,9 +743,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "presenting_authority",

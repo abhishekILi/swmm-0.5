@@ -19,7 +19,7 @@
             "key": "ship",
             "name": "ship",
             "label": "Ship",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -74,10 +74,12 @@
             "type": "input",
             "value": "ATDS",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "atds_645018_date",
@@ -136,7 +138,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "TRIAL SER",
+                  "label": "TRIAL SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -157,7 +159,8 @@
                   "label": "PRESENTING AUTHORITY REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"600px"
                 }
               ]
             ],
@@ -193,7 +196,7 @@
                     "value": "CFP Checks (Table 1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_cfp_checks_result",
@@ -231,7 +234,7 @@
                     "key": "cfp_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -267,7 +270,7 @@
                     "value": "ITU Checks (Table 2)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_itu_checks_result",
@@ -305,7 +308,7 @@
                     "key": "itu_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -341,7 +344,7 @@
                     "value": "ACH Checks (Table 3)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_ach_checks_result",
@@ -379,7 +382,7 @@
                     "key": "ach_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -415,7 +418,7 @@
                     "value": "Power Supply Checks (Table 4)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_power_supply_checks_result",
@@ -453,7 +456,7 @@
                     "key": "power_supply_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -489,7 +492,7 @@
                     "value": "Display Checks (Table 5)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_display_checks_result",
@@ -527,7 +530,7 @@
                     "key": "display_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -576,7 +579,7 @@
                     "value": "EDL Interface Checks (Table 6)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_edl_interface_checks_result",
@@ -614,7 +617,7 @@
                     "key": "edl_interface_checks_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -663,7 +666,7 @@
                     "value": "Envisaged ESI Interface (Table 11)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_envisaged_esi_interface_result",
@@ -701,7 +704,7 @@
                     "key": "envisaged_esi_interface_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -750,7 +753,7 @@
                     "value": "Target Input (Table 7)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_target_input_result",
@@ -788,7 +791,7 @@
                     "key": "target_input_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -824,7 +827,7 @@
                     "value": "TCM Output Manoeuvring (Table 8)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_tcm_output_manoeuvring_result",
@@ -862,7 +865,7 @@
                     "key": "tcm_output_manoeuvring_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -898,7 +901,7 @@
                     "value": "TCM Output Decoy Deployment (Table 9)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_tcm_output_decoy_deployment_result",
@@ -936,7 +939,7 @@
                     "key": "tcm_output_decoy_deployment_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -985,7 +988,7 @@
                     "value": "Record & Replay (Table 10)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_record_replay_result",
@@ -1023,7 +1026,7 @@
                     "key": "record_replay_remarks",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1056,7 +1059,8 @@
                   "label": "Parameter",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"250px"
                 },
                 {
                   "label": "LED Indication in Local Control Panel of EDL On=Ok, Off=Not Ok",
@@ -1104,11 +1108,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Training Angle (TA)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_2_cell_2_table6_port_training_angle_lcp",
@@ -1241,11 +1245,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Elevation Angle (EA)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_3_cell_2_table6_port_elevation_angle_lcp",
@@ -1378,11 +1382,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_4_cell_2_table6_port_decoy_sence_out_1_lcp",
@@ -1515,11 +1519,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_5_cell_2_table6_port_decoy_sence_out_2_lcp",
@@ -1652,11 +1656,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_6_cell_2_table6_port_decoy_sence_out_3_lcp",
@@ -1789,11 +1793,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_7_cell_2_table6_port_decoy_sence_out_4_lcp",
@@ -1926,11 +1930,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_8_cell_2_table6_port_decoy_sence_out_5_lcp",
@@ -2063,11 +2067,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_9_cell_2_table6_port_decoy_sence_out_6_lcp",
@@ -2200,11 +2204,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_10_cell_2_table6_port_decoy_sence_out_7_lcp",
@@ -2337,11 +2341,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_11_cell_2_table6_port_decoy_sence_out_8_lcp",
@@ -2474,11 +2478,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_12_cell_2_table6_port_decoy_sence_out_9_lcp",
@@ -2611,11 +2615,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_13_cell_2_table6_port_decoy_sence_out_10_lcp",
@@ -2748,11 +2752,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_14_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_14_cell_2_table6_port_pressure_sence_out_1_lcp",
@@ -2885,11 +2889,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_15_cell_2_table6_port_pressure_sence_out_2_lcp",
@@ -3022,11 +3026,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_16_cell_2_table6_port_pressure_sence_out_3_lcp",
@@ -3159,11 +3163,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_17_cell_2_table6_port_pressure_sence_out_4_lcp",
@@ -3296,11 +3300,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_18_cell_2_table6_port_pressure_sence_out_5_lcp",
@@ -3433,11 +3437,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_19_cell_2_table6_port_pressure_sence_out_6_lcp",
@@ -3570,11 +3574,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_20_cell_2_table6_port_pressure_sence_out_7_lcp",
@@ -3707,11 +3711,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_21_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_21_cell_2_table6_port_pressure_sence_out_8_lcp",
@@ -3844,11 +3848,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_22_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_22_cell_2_table6_port_pressure_sence_out_9_lcp",
@@ -3981,11 +3985,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_23_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_23_cell_2_table6_port_pressure_sence_out_10_lcp",
@@ -4118,11 +4122,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_24_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_24_cell_2_table6_port_umbilical_connection_1_lcp",
@@ -4255,11 +4259,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_25_cell_2_table6_port_umbilical_connection_2_lcp",
@@ -4392,11 +4396,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_26_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_26_cell_2_table6_port_umbilical_connection_3_lcp",
@@ -4529,11 +4533,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_27_cell_2_table6_port_umbilical_connection_4_lcp",
@@ -4666,11 +4670,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_28_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_28_cell_2_table6_port_umbilical_connection_5_lcp",
@@ -4803,11 +4807,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_29_cell_2_table6_port_umbilical_connection_6_lcp",
@@ -4940,11 +4944,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_30_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_30_cell_2_table6_port_umbilical_connection_7_lcp",
@@ -5077,11 +5081,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_31_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_31_cell_2_table6_port_umbilical_connection_8_lcp",
@@ -5214,11 +5218,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_32_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_32_cell_2_table6_port_umbilical_connection_9_lcp",
@@ -5351,11 +5355,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_33_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_33_cell_2_table6_port_umbilical_connection_10_lcp",
@@ -5488,7 +5492,7 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_34_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "STBD EDL",
                     "colspan": 5,
                     "rowspan": 1,
@@ -5501,11 +5505,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_35_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Training Angle (TA)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_35_cell_2_table6_stbd_training_angle_lcp",
@@ -5638,11 +5642,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_36_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Elevation Angle (EA)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_36_cell_2_table6_stbd_elevation_angle_lcp",
@@ -5775,11 +5779,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_37_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_37_cell_2_table6_stbd_decoy_sence_out_1_lcp",
@@ -5912,11 +5916,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_38_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_38_cell_2_table6_stbd_decoy_sence_out_2_lcp",
@@ -6049,11 +6053,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_39_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_39_cell_2_table6_stbd_decoy_sence_out_3_lcp",
@@ -6186,11 +6190,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_40_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_40_cell_2_table6_stbd_decoy_sence_out_4_lcp",
@@ -6323,11 +6327,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_41_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_41_cell_2_table6_stbd_decoy_sence_out_5_lcp",
@@ -6460,11 +6464,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_42_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_42_cell_2_table6_stbd_decoy_sence_out_6_lcp",
@@ -6597,11 +6601,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_43_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_43_cell_2_table6_stbd_decoy_sence_out_7_lcp",
@@ -6734,11 +6738,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_44_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_44_cell_2_table6_stbd_decoy_sence_out_8_lcp",
@@ -6871,11 +6875,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_45_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_45_cell_2_table6_stbd_decoy_sence_out_9_lcp",
@@ -7008,11 +7012,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_46_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Decoy Sence Out -10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_46_cell_2_table6_stbd_decoy_sence_out_10_lcp",
@@ -7145,11 +7149,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_47_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_47_cell_2_table6_stbd_pressure_sence_out_1_lcp",
@@ -7282,11 +7286,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_48_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_48_cell_2_table6_stbd_pressure_sence_out_2_lcp",
@@ -7419,11 +7423,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_49_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_49_cell_2_table6_stbd_pressure_sence_out_3_lcp",
@@ -7556,11 +7560,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_50_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_50_cell_2_table6_stbd_pressure_sence_out_4_lcp",
@@ -7693,11 +7697,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_51_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_51_cell_2_table6_stbd_pressure_sence_out_5_lcp",
@@ -7830,11 +7834,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_52_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_52_cell_2_table6_stbd_pressure_sence_out_6_lcp",
@@ -7967,11 +7971,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_53_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_53_cell_2_table6_stbd_pressure_sence_out_7_lcp",
@@ -8104,11 +8108,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_54_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_54_cell_2_table6_stbd_pressure_sence_out_8_lcp",
@@ -8241,11 +8245,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_55_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_55_cell_2_table6_stbd_pressure_sence_out_9_lcp",
@@ -8378,11 +8382,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_56_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Pressure Sence Out -10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_56_cell_2_table6_stbd_pressure_sence_out_10_lcp",
@@ -8515,11 +8519,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_57_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_57_cell_2_table6_stbd_umbilical_connection_1_lcp",
@@ -8652,11 +8656,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_58_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_58_cell_2_table6_stbd_umbilical_connection_2_lcp",
@@ -8789,11 +8793,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_59_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_59_cell_2_table6_stbd_umbilical_connection_3_lcp",
@@ -8926,11 +8930,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_60_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_60_cell_2_table6_stbd_umbilical_connection_4_lcp",
@@ -9063,11 +9067,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_61_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_61_cell_2_table6_stbd_umbilical_connection_5_lcp",
@@ -9200,11 +9204,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_62_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_62_cell_2_table6_stbd_umbilical_connection_6_lcp",
@@ -9337,11 +9341,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_63_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_63_cell_2_table6_stbd_umbilical_connection_7_lcp",
@@ -9474,11 +9478,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_64_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_64_cell_2_table6_stbd_umbilical_connection_8_lcp",
@@ -9611,11 +9615,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_65_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_65_cell_2_table6_stbd_umbilical_connection_9_lcp",
@@ -9748,11 +9752,11 @@
                 "cells": [
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_66_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Umbilical Connection-10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_6_status_signals_from_edl_port_stbd_at_fdu_d_rdu_and_lcp_of_launcher_matrix_1_row_66_cell_2_table6_stbd_umbilical_connection_10_lcp",
@@ -9894,13 +9898,15 @@
                   "label": "ESI Interfaces",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"350px"
                 },
                 {
                   "label": "Teg Class",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"600px"
                 },
                 {
                   "label": "Sat/Unsat",
@@ -9936,18 +9942,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_1_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "HUMSA-NG/HUMSA-UG/HUMSA",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_1_cell_2_table11_humsa_teg_class",
                     "key": "table11_humsa_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10002,18 +10008,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "ATAS/ATAS ADV",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_2_cell_2_table11_atas_teg_class",
                     "key": "table11_atas_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10068,18 +10074,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CMS/CMS MOD",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_3_cell_2_table11_cms_teg_class",
                     "key": "table11_cms_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10134,18 +10140,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "RLG/SHHD",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_4_cell_2_table11_rlg_shhd_teg_class",
                     "key": "table11_rlg_shhd_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10200,18 +10206,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "IAC MOD C/0",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_5_cell_2_table11_iac_mod_c0_teg_class",
                     "key": "table11_iac_mod_c0_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10266,18 +10272,18 @@
                 "cells": [
                   {
                     "_id": "table_11_table_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "NTR",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_11_table_1_row_6_cell_2_table11_ntr_teg_class",
                     "key": "table11_ntr_teg_class",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10338,7 +10344,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Scn no",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -10493,7 +10499,7 @@
                     "key": "table8_scn1_course_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10554,7 +10560,7 @@
                     "key": "table8_scn1_current_course_time_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10615,7 +10621,7 @@
                     "key": "table8_scn1_rec_speed_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10676,7 +10682,7 @@
                     "key": "table8_scn1_speed_time_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10737,7 +10743,7 @@
                     "key": "table8_scn1_decoys_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10798,7 +10804,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Scn no",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -10904,7 +10910,7 @@
                     "value": "Time Deployment side",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "table_9_matrix_1_row_1_cell_3_static",
@@ -10919,7 +10925,7 @@
                     "key": "table9_scn1_decoy1_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -10980,7 +10986,7 @@
                     "key": "table9_scn1_decoy2_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -11041,7 +11047,7 @@
                     "key": "table9_scn1_decoy3_obs",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -11095,10 +11101,59 @@
             "showRowActions": false,
             "minRows": 1
           }
-        ]
+        ],
+        "fields_4": [
+  {
+    "_id": "asw_atds_presenting_authority",
+    "key": "asw_atds_presenting_authority",
+    "name": "asw_atds_presenting_authority",
+    "label": "Presenting Authority",
+    "type": "select",
+    "value": "",
+    "colSpan": 12,
+    "required": true,
+    "disabled": false,
+    "placeholder": "--Select--",
+    "options": [
+      {
+        "label": "--Select--",
+        "value": ""
       },
+      {
+        "label": "Dockyard",
+        "value": "dockyard"
+      },
+      {
+        "label": "Shipstaff",
+        "value": "shipstaff"
+      },
+      {
+        "label": "OEM",
+        "value": "oem"
+      }
+    ],
+    "isDynamic": false
+  },
+  {
+    "_id": "asw_atds_watt",
+    "key": "asw_atds_watt",
+    "name": "asw_atds_watt",
+    "label": "WATT",
+    "type": "input",
+    "value": "VZG",
+    "colSpan": 12,
+    "required": false,
+    "disabled": false,
+    "placeholder": "",
+    "inputType": "text",
+    "isDynamic": false
+  }
+]
+      },
+      
+      
       "sectionTitle": "Basic Information",
-      "fields": [],
+      
       "tables": []
     }
   ]

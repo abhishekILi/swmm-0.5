@@ -16,20 +16,18 @@
             "colSpan": 12
           },
         {
-          "type": "select",
+          "type": "input",
           "name": "sdp_submarine",
           "label": "Submarine ",
           "required": true,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "value": "",
-          "options": [
-            {
-              "label": "-- Select Submarine --",
-              "value": ""
-            }
-          ],
-          "isDynamic": false
+          "options": [],
+          "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
         },
         {
           "type": "date",
@@ -49,29 +47,33 @@
           "topHeaders": [
             [
               {
-                "label": "TEST SER",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "width": "6%",
+                  "align": "center"
+                },
               {
-                "label": "TEST / NOMINAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
+                  "label": "TEST / NOMINAL VALUE",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "width": "14%",
+                  "align": "center"
+                },
               {
-                "label": "ACTUAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
+                  "label": "ACTUAL VALUE",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "width": "40%",
+                  "align": "center"
+                },
               {
-                "label": "REMARKS",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              }
+                  "label": "REMARKS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "width": "40%",
+                  "align": "center"
+                }
             ]
           ],
           "columns": [],
@@ -85,6 +87,7 @@
                   "value": "103.100",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -93,7 +96,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_1_cell_3_sdp_103_100_actual_value",
@@ -110,6 +114,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -134,6 +139,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -154,6 +160,7 @@
                   "value": "103.101",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -162,7 +169,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_2_cell_3_sdp_103_101_actual_value",
@@ -179,6 +187,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -203,6 +212,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -223,6 +233,7 @@
                   "value": "103.102",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -231,7 +242,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_3_cell_3_sdp_103_102_actual_value",
@@ -248,6 +260,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -272,6 +285,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -292,6 +306,7 @@
                   "value": "103.103",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -300,7 +315,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_4_cell_3_sdp_103_103_actual_value",
@@ -317,6 +333,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -341,6 +358,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -361,6 +379,7 @@
                   "value": "103.104",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -369,7 +388,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_5_cell_3_sdp_103_104_actual_value",
@@ -386,6 +406,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -410,6 +431,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -430,6 +452,7 @@
                   "value": "103.105",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -438,7 +461,8 @@
                   "value": "Visual inspection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_6_cell_3_sdp_103_105_actual_value",
@@ -455,6 +479,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -479,6 +504,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -499,6 +525,7 @@
                   "value": "103.106",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -507,7 +534,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_7_cell_3_sdp_103_106_actual_value",
@@ -524,6 +552,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -548,6 +577,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -568,6 +598,7 @@
                   "value": "103.107",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -576,7 +607,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_8_cell_3_sdp_103_107_actual_value",
@@ -593,6 +625,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -617,6 +650,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -637,6 +671,7 @@
                   "value": "103.108",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -645,7 +680,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_9_cell_3_sdp_103_108_actual_value",
@@ -662,6 +698,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -686,6 +723,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -706,6 +744,7 @@
                   "value": "103.109",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -714,7 +753,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_10_cell_3_sdp_103_109_actual_value",
@@ -731,6 +771,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -755,6 +796,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -775,6 +817,7 @@
                   "value": "103.110",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -783,7 +826,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_11_cell_3_sdp_103_110_actual_value",
@@ -800,6 +844,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -824,6 +869,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -844,6 +890,7 @@
                   "value": "103.111",
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "6%",
                   "align": "center"
                 },
                 {
@@ -852,7 +899,8 @@
                   "value": "Functional Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "width": "14%",
+                  "align": "left"
                 },
                 {
                   "_id": "switchboards_and_distribution_panels_matrix_1_row_12_cell_3_sdp_103_111_actual_value",
@@ -869,6 +917,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,
@@ -893,6 +942,7 @@
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
+                  "width": "40%",
                   "align": "left",
                   "isDynamic": null,
                   "lookupKey": null,

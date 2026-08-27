@@ -12,9 +12,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value": "Basic Infromation",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Trial Header Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -55,7 +55,9 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -68,7 +70,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "date",
-             "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -81,7 +83,7 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-             "colSpan" : 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -92,7 +94,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -113,22 +115,23 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "400px"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trial team embarked onboard at",
+                    "lb": "Trial team embarked onboard at",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
@@ -145,7 +148,7 @@
                     "type": "textarea",
                     "inputType": "text",
                     "value": "",
-                    "lb" : "on for SATs of SRGM as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "lb": "on for SATs of SRGM as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "required": false,
                     "disabled": false,
                     "colspan": 2,
@@ -184,7 +187,7 @@
                     "value": "Pressure of hydraulic power unit (80 to 88 Bar)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_3_cell_3_result_1",
@@ -258,7 +261,7 @@
                     "value": "Pressure of the brake system recuperator. (69 to 71 Bar)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_4_cell_3_result_2",
@@ -332,7 +335,7 @@
                     "value": "With the loading tray in the lowered position, the accumulator pressure. (55 to 59 Bar)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_5_cell_3_result_3",
@@ -406,7 +409,7 @@
                     "value": "The position of recuperator rod must be between the reference marks on the rod guard opening.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_6_cell_3_result_4",
@@ -480,7 +483,7 @@
                     "value": "With the elevating mass at 0 degree positions, connect the rod 1076-17-013 to the bushing of the equilibration cylinder and jack the gun at maximum recoil and verify that the mark on the rod fixture is within the reference notches.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_7_cell_3_result_5",
@@ -580,7 +583,7 @@
                     "value": "01 round fire at maximum elevation. In maximum rate of fire. (215mm-227mm)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_10_cell_3_result_6",
@@ -654,7 +657,7 @@
                     "value": "01 round fire at 45 degree elevations. In maximum rate of fire. (215mm-227mm)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_11_cell_3_result_7",
@@ -728,7 +731,7 @@
                     "value": "01 round fire at maximum depression. In maximum rate of fire. (215mm-227mm)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_12_cell_3_result_8",
@@ -786,43 +789,6 @@
                 ]
               },
               {
-                "_id": "checks_schedule_matrix_1_row_13",
-                "cells": [
-                  {
-                    "_id": "checks_schedule_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_schedule_matrix_1_row_13_cell_2_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_schedule_matrix_1_row_13_cell_3_static",
-                    "type": "label",
-                    "value": "SAT/UNSAT",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_schedule_matrix_1_row_13_cell_4_static",
-                    "type": "label",
-                    "value": "REMARKS",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-              {
                 "_id": "checks_schedule_matrix_1_row_14",
                 "cells": [
                   {
@@ -839,7 +805,7 @@
                     "value": "07 rounds must be fired one or two bursts at maximum rate of fire from TDs. During each burst no intermediate interruption is allowed. (114-126 round / minute)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_14_cell_3_result_9",
@@ -926,7 +892,7 @@
                     "value": "The Gun has no evident damaged",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_16_cell_3_result_10",
@@ -1000,7 +966,7 @@
                     "value": "The hydraulic system does not leak",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_17_cell_3_result_11",
@@ -1074,7 +1040,7 @@
                     "value": "The shield compartment lighting system is operating",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_18_cell_3_result_12",
@@ -1138,7 +1104,7 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority Checks",
             "colSpan": 12
           },
@@ -1152,7 +1118,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan":4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -1184,7 +1150,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           },
           {
             "_id": "srgm_watt",
@@ -1197,7 +1163,7 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           }
         ],
         "tables_2": []

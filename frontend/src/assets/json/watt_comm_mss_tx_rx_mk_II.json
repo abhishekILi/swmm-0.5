@@ -102,7 +102,7 @@
             "lookupKey": "ship_name",
             "prefill": true,
             "colSpan":4,
-            "prefillSource": "context.ship_name"
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -160,9 +160,11 @@
             "type": "textarea",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
-            "colSpan":4
+            "colSpan":4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           }
 
         ],

@@ -12,16 +12,16 @@
       "sectionGroup": {
         "fields_1": [
           {
-          "type": "select",
+          "type": "input",
           "name": "ship_name",
           "label": "SHIP",
           "required": true,
-
+            "disabled":true,
           "placeholder": "",
           "value": "",
           "options": [],
           "isDynamic": true,
-          "lookupKey": "ship_id",
+          "lookupKey": "ship_name",
           "prefill": true,
           "prefillSource": "context.ship_name",
           "tree": false
@@ -90,7 +90,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -99,7 +99,8 @@
                   "label": "Activity",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 },
                 {
                   "label": "Date",
@@ -118,7 +119,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -413,16 +414,18 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "5%"
                 },
                 {
                   "label": "Description / Document No. & Date",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "40%"
                 },
                 {
                   "label": "Document Submission Date / Certified By",
@@ -451,7 +454,7 @@
                     "value": "Manufacturer -",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_1_cell_3_dr_manufacturer",
@@ -494,7 +497,7 @@
                     "value": "Type A/B/C",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_2_cell_3_dr_type",
@@ -537,7 +540,7 @@
                     "value": "Make & Model -",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_3_cell_3_dr_make_model",
@@ -580,7 +583,7 @@
                     "value": "GRAQ-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_4_cell_3_dr_graq",
@@ -623,7 +626,7 @@
                     "value": "ATP-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_5_cell_3_dr_atp",
@@ -666,7 +669,7 @@
                     "value": "WLDs-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_6_cell_3_dr_atp",
@@ -709,7 +712,7 @@
                     "value": "Board Proceeding-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_7_cell_3_dr_board",
@@ -752,7 +755,7 @@
                     "value": "FATs Report-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_8_cell_3_dr_fats",
@@ -786,24 +789,17 @@
                     "type": "serial",
                     "value": "3.9",
                     "colspan": 1,
-                    "rowspan": 6,
+                    "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_9_cell_2_static",
                     "type": "label",
                     "value": "Certification required from OEM",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_9_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "className": "font-semibold"
                   }
                 ]
               },
@@ -813,13 +809,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_1_static",
                     "type": "serial",
-                    "value": "3.9.1 Type testing certification.",
+                    "value": "3.9.1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_2_dr_doc_3102",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_2_static",
+                    "type": "label",
+                    "value": "Type testing certification.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_10_cell_3_dr_doc_3102",
                     "key": "dr_doc_3102",
                     "type": "textarea",
                     "value": "",
@@ -848,13 +852,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_1_static",
                     "type": "serial",
-                    "value": "3.9.2 Master provide by OEM AsPEr BOM-.",
+                    "value": "3.9.2",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_2_dr_doc_3103",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_2_static",
+                    "type": "label",
+                    "value": "Master provide by OEM AsPEr BOM-.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_11_cell_3_dr_doc_3103",
                     "key": "dr_doc_3103",
                     "type": "textarea",
                     "value": "",
@@ -883,13 +895,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_1_static",
                     "type": "serial",
-                    "value": "3.9.3 certificate for noise compensated headpone and speaker by OEM",
+                    "value": "3.9.3",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_2_dr_doc_3104",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_2_static",
+                    "type": "label",
+                    "value": "certificate for noise compensated headpone and speaker by OEM",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_12_cell_3_dr_doc_3104",
                     "key": "dr_doc_3104",
                     "type": "textarea",
                     "value": "",
@@ -918,13 +938,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_1_static",
                     "type": "serial",
-                    "value": "3.9.4 Certification required for facility of having internal system/circuit to amplify the voice signals and able to transmit/recive vice signale bertween other SPTs intalles onboard",
+                    "value": "3.9.4",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_2_dr_doc_3105",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_2_static",
+                    "type": "label",
+                    "value": "Certification required for facility of having internal system/circuit to amplify the voice signals and able to transmit/recive vice signale bertween other SPTs intalles onboard",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_13_cell_3_dr_doc_3105",
                     "key": "dr_doc_3105",
                     "type": "textarea",
                     "value": "",
@@ -953,13 +981,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_1_static",
                     "type": "serial",
-                    "value": "3.9.5 MTBF should be more than 50000 hrs while MTTR less than 30 min.",
+                    "value": "3.9.5",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_2_dr_doc_3106",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_2_static",
+                    "type": "label",
+                    "value": "MTBF should be more than 50000 hrs while MTTR less than 30 min.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_14_cell_3_dr_doc_3106",
                     "key": "dr_doc_3106",
                     "type": "textarea",
                     "value": "",
@@ -996,17 +1032,17 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_17_cell_2_static",
                     "type": "label",
-                    "value": "Documentation - 3.9.1 User hand book (Technical documentation operating instruction Installation checks. 3.9.2 Servicing and Maintenance Manual. 3.9.3 Preventive Maintenance routines / repair instructions Manual drawings. 3.9.3 As fitted drawings.",
+                    "value": "Documentation - <br> 3.9.1 User hand book (Technical documentation operating instruction Installation checks. <br> 3.9.2 Servicing and Maintenance Manual. 3.9.3 Preventive Maintenance routines / repair instructions Manual drawings. <br> 3.9.3 As fitted drawings.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_17_cell_3_dr_documentation",
                     "key": "dr_documentation",
                     "type": "textarea",
                     "value": "",
-                    "rows": 5,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1033,24 +1069,17 @@
                     "type": "serial",
                     "value": "3.10",
                     "colspan": 1,
-                    "rowspan": 9,
+                    "rowspan": 1,
                     "align": "center"
                   },
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_18_cell_2_static",
                     "type": "label",
                     "value": "Documentation-",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_18_cell_3_static",
-                    "type": "label",
-                    "value": "",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "className": "font-semibold"
                   }
                 ]
               },
@@ -1060,13 +1089,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_19_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.1 Technical documentation",
+                    "value": "3.10.1",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_19_cell_2_dr_doc_3102",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_19_cell_2_static",
+                    "type": "label",
+                    "value": "Technical documentation",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_19_cell_3_dr_doc_3102",
                     "key": "dr_doc_3102",
                     "type": "textarea",
                     "value": "",
@@ -1095,13 +1132,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_20_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.2 Technical / functional description including that at PCB and component level.",
+                    "value": "3.10.2",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_20_cell_2_dr_doc_3102",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_20_cell_2_static",
+                    "type": "label",
+                    "value": "Technical / functional description including that at PCB and component level.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_20_cell_3_dr_doc_3102",
                     "key": "dr_doc_3102",
                     "type": "textarea",
                     "value": "",
@@ -1130,13 +1175,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_21_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.3 Operating Instruction Manual.",
+                    "value": "3.10.3",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_21_cell_2_dr_doc_3103",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_21_cell_2_static",
+                    "type": "label",
+                    "value": "Operating Instruction Manual.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_21_cell_3_dr_doc_3103",
                     "key": "dr_doc_3103",
                     "type": "textarea",
                     "value": "",
@@ -1165,13 +1218,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_22_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.4 Preventive maintenance routines / repair instructions Manual along with drawings.",
+                    "value": "3.10.4",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_22_cell_2_dr_doc_3104",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_22_cell_2_static",
+                    "type": "label",
+                    "value": "Preventive maintenance routines / repair instructions Manual along with drawings.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_22_cell_3_dr_doc_3104",
                     "key": "dr_doc_3104",
                     "type": "textarea",
                     "value": "",
@@ -1200,13 +1261,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_23_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.5 Installation and Test Manual.",
+                    "value": "3.10.5",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_23_cell_2_dr_doc_3105",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_23_cell_2_static",
+                    "type": "label",
+                    "value": "Installation and Test Manual.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_23_cell_3_dr_doc_3105",
                     "key": "dr_doc_3105",
                     "type": "textarea",
                     "value": "",
@@ -1235,13 +1304,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_24_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.6 Part Identification list and Tools Catalogue.",
+                    "value": "3.10.6",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_24_cell_2_dr_doc_3106",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_24_cell_2_static",
+                    "type": "label",
+                    "value": "Part Identification list and Tools Catalogue.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_24_cell_3_dr_doc_3106",
                     "key": "dr_doc_3106",
                     "type": "textarea",
                     "value": "",
@@ -1270,13 +1347,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_25_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.7 Test Procedure and Documentation.",
+                    "value": "3.10.7",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_25_cell_2_dr_doc_3107",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_25_cell_2_static",
+                    "type": "label",
+                    "value": "Test Procedure and Documentation.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_25_cell_3_dr_doc_3107",
                     "key": "dr_doc_3107",
                     "type": "textarea",
                     "value": "",
@@ -1305,13 +1390,21 @@
                   {
                     "_id": "3_design_requirements_documentation_matrix_1_row_26_cell_1_static",
                     "type": "serial",
-                    "value": "3.10.8 List of onboard and B&D spares.",
+                    "value": "3.10.8",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "3_design_requirements_documentation_matrix_1_row_26_cell_2_dr_doc_3108",
+                    "_id": "3_design_requirements_documentation_matrix_1_row_26_cell_2_static",
+                    "type": "label",
+                    "value": "List of onboard and B&D spares.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "3_design_requirements_documentation_matrix_1_row_26_cell_3_dr_doc_3108",
                     "key": "dr_doc_3108",
                     "type": "textarea",
                     "value": "",
@@ -1345,7 +1438,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1389,7 +1482,7 @@
                     "value": "Para 1(d) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_1_cell_3_static",
@@ -1397,7 +1490,7 @@
                     "value": "System should have provision for connecting ships emergency DC supply. (24V/12V).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_1_cell_4_deg_1",
@@ -1449,7 +1542,7 @@
                     "value": "Para 1(f) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_2_cell_3_static",
@@ -1457,7 +1550,7 @@
                     "value": "System should have audio and visual combined flash alarm unit.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_2_cell_4_iis_4_2",
@@ -1509,7 +1602,7 @@
                     "value": "Para 1(h) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_3_cell_3_static",
@@ -1517,7 +1610,7 @@
                     "value": "System should have plug/socket box for connecting portable SPTs and portable headsets.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_3_cell_4_iis_4_3",
@@ -1569,7 +1662,7 @@
                     "value": "Para 1(l) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_4_cell_3_static",
@@ -1577,7 +1670,7 @@
                     "value": "System should have group isolations (Armament, damage control, machinery group)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_4_cell_4_iis_4_4",
@@ -1629,7 +1722,7 @@
                     "value": "Para 1(m) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_5_cell_3_static",
@@ -1637,7 +1730,7 @@
                     "value": "System should have screened cable network for interconnections between SPTs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_5_cell_4_iis_4_5",
@@ -1689,7 +1782,7 @@
                     "value": "Para 1(n) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_6_cell_3_static",
@@ -1697,7 +1790,7 @@
                     "value": "System accessories should meet Ingress protection on locations where it is going to be fitted. Weather decks \u2013 IP 66, Underwater comp. \u2013 IP 67, Other locations \u2013 IP 55 ratings.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_6_cell_4_iis_4_6",
@@ -1749,7 +1842,7 @@
                     "value": "Para 1(p) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_7_cell_3_static",
@@ -1757,7 +1850,7 @@
                     "value": "If system is used in hazardous area, all SPTs connected to system shall meet the degree of intrinsic safety required for hazardous area.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_7_cell_4_iis_4_7",
@@ -1809,7 +1902,7 @@
                     "value": "Para 1 of Appendix C of EED 50-08",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_8_cell_3_static",
@@ -1817,7 +1910,7 @@
                     "value": "Where units are connected with ship's mains, fuse protection is to be provided.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_8_cell_4_iis_4_8",
@@ -1869,7 +1962,7 @@
                     "value": "Para 1 Appendix C of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_9_cell_3_static",
@@ -1877,7 +1970,7 @@
                     "value": "All units to be provided by earthing bolts. Where units are connected with ships main supply, fuse protection is to be provided.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_9_cell_4_iis_4_9",
@@ -1929,7 +2022,7 @@
                     "value": "Para 4 of Appendix C of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_10_cell_3_static",
@@ -1937,7 +2030,7 @@
                     "value": "Unit Tallies (for identification).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_10_cell_4_iis_4_10",
@@ -1989,7 +2082,7 @@
                     "value": "Appendix C of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_11_cell_3_static",
@@ -1997,7 +2090,7 @@
                     "value": "Cables Tallies (cable markings).",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_11_cell_4_iis_4_11",
@@ -2049,7 +2142,7 @@
                     "value": "50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_12_cell_3_static",
@@ -2057,7 +2150,7 @@
                     "value": "Metallic Block Diagram of System (should be fitted) Detailed Lay Out Diagram",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_12_cell_4_iis_4_12",
@@ -2109,7 +2202,7 @@
                     "value": "Para 5 Appendix C of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_13_cell_3_static",
@@ -2117,7 +2210,7 @@
                     "value": "Bolted type terminal and crimped socket of electrolytic copper are to be provided for all incoming and outgoing cables.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_13_cell_4_iis_4_13",
@@ -2169,7 +2262,7 @@
                     "value": "Para 6 Appendix C of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_14_cell_3_static",
@@ -2177,7 +2270,7 @@
                     "value": "The equipment should be mounted on shock mounts.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_14_cell_4_iis_4_14",
@@ -2229,7 +2322,7 @@
                     "value": "Para 1(l) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_15_cell_3_static",
@@ -2237,7 +2330,7 @@
                     "value": "The system should have audio and visual combined flash unit for machinery compartments/noisy compartments (for e.g. Flasher with Yoda light) and will be connected to individual SPTs directly or through relay box.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "4_iis_checks_matrix_1_row_15_cell_4_iis_4_15",
@@ -2283,7 +2376,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 3,
                   "align": "center"
@@ -2385,7 +2478,7 @@
                     "value": "Para 1(a) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_1_cell_3_static",
@@ -2393,7 +2486,7 @@
                     "value": "Communication Checks \u2013 System should provide loud and clear voice communication.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_1_cell_4_ops_5_1_sw",
@@ -2507,7 +2600,7 @@
                     "value": "Para 1(c) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_2_cell_3_static",
@@ -2515,7 +2608,7 @@
                     "value": "System should operate independently without ships/external power supply",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_2_cell_4_ops_5_2_sw",
@@ -2629,7 +2722,7 @@
                     "value": "Para 1(f) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_3_cell_3_static",
@@ -2637,7 +2730,7 @@
                     "value": "Audio - Visula Alarm -The and LED indiaction should be prominent till a distance of at least 10 mtrs",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_ops_checks_single_way_single_way_portable_single_way_is_matrix_1_row_3_cell_4_ops_5_3_sw",
@@ -2745,7 +2838,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 3,
                   "align": "center"
@@ -2847,7 +2940,7 @@
                     "value": "Para 1(a) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_1_cell_3_static",
@@ -2855,7 +2948,7 @@
                     "value": "Communication Checks \u2013 System should provide loud and clear voice communication.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_1_cell_4_ops_6_1_mw",
@@ -2969,7 +3062,7 @@
                     "value": "Para 1(b) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_2_cell_3_static",
@@ -2977,7 +3070,7 @@
                     "value": "System should operate independently without ships/external power supply",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_2_cell_4_ops_6_2_mw",
@@ -3091,7 +3184,7 @@
                     "value": "Para 1(f) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_3_cell_3_static",
@@ -3099,7 +3192,7 @@
                     "value": "Audio - Visula Alarm -The and LED indiaction should be prominent till a distance of at least 10 mtrs",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_3_cell_4_ops_6_3_mw",
@@ -3213,7 +3306,7 @@
                     "value": "Para 1(I) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_4_cell_3_static",
@@ -3221,7 +3314,7 @@
                     "value": "Group Isolation \u2013 System should have group isolations and one group should be able to communicate with the SPTs of other groups.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_4_cell_4_ops_6_4_mw",
@@ -3335,7 +3428,7 @@
                     "value": "Para 1(I) of EED 50-08 (R1)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_5_cell_3_static",
@@ -3343,7 +3436,7 @@
                     "value": "Call Conferencing \u2013 System should have call conferencing capabilities for up to 08 maximum SPTs.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_5_cell_4_ops_6_5_mw",
@@ -3445,19 +3538,12 @@
                 "cells": [
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
-                    "value": "Relay Unit",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_6_cell_2_static",
                     "type": "label",
-                    "value": "",
-                    "colspan": 8,
+                    "value": "Relay Unit",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left",
+                    "className": "font-semibold"
                   }
                 ]
               },
@@ -3466,7 +3552,7 @@
                 "cells": [
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Quality as per WLDs-",
                     "colspan": 3,
                     "rowspan": 1,
@@ -3487,35 +3573,19 @@
                 "cells": [
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
-                    "value": "6.6",
-                    "colspan": 1,
+                    "type": "label",
+                    "value": "Para 1(l) of EED 50-08 (R1)",
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_8_cell_2_static",
                     "type": "label",
-                    "value": "Para 1(l) of EED 50-08 (R1)",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_8_cell_3_static",
-                    "type": "label",
                     "value": "Relay Unit \u2013 Audio Visual Alarm \u2013 Visual and audio alarm indication to be working on switch command from any SPT in the system.",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "6_ops_checks_multi_way_multi_way_p_multi_way_is_spts_and_relay_unit_matrix_1_row_8_cell_4_static",
-                    "type": "label",
-                    "value": "",
                     "colspan": 6,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               }

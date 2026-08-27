@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -63,10 +63,12 @@
             "type": "input",
             "value": "AMDR 2D",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -79,7 +81,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -91,7 +93,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan" : 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -125,7 +127,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -156,75 +158,18 @@
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
                   {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
-                    "type": "time",
+                    "_id": "checks_matrix_1_row_1_cell_1_kashmir_embark_time",
+                    "key": "kashmir_embark_time",
+                    "lb": "Trials team embarked onboard at",
+                    "type": "input",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at ",
-                    "required": true,
+                    "rows": null,
+                    "required": false,
                     "disabled": false,
-                    "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-
-                  {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
+                    "placeholder": "",
                     "inputType": "text",
-                    "value": "",
-                    "lb" : "on for SATs of Kashmir FCS as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
-                    "required": false,
-                    "disabled": false,
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "input",
                     "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "input",
-                    "options": null,
-                    "colspan": 1,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -236,19 +181,27 @@
                     "displayKey": null
                   },
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of Kashmir FCS as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "_id": "checks_matrix_1_row_1_cell_2_kashmir_embark_date",
+                    "key": "kashmir_embark_date",
+                    "lb": "on dd-mm-yyyy for SATs of Kashmir FCS as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "type": "date",
+                    "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "left",
+                    "isDynamic": false,
+                    "lookupKey": null,
+                    "prefill": null,
+                    "prefillSource": null,
+                    "lockAfterPrefill": null,
+                    "hiddenKey": null,
+                    "displayKey": null
                   }
                 ]
               },
@@ -261,7 +214,7 @@
                     "value": "01",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
@@ -269,7 +222,7 @@
                     "value": "Check TD to all OE-4 devices.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_3_ch_test_1_remarks",
@@ -335,7 +288,7 @@
                     "value": "02",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
@@ -343,7 +296,7 @@
                     "value": "Check assign TV to all tracks and check target appears on TV display.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_3_ch_test_2_remarks",
@@ -409,7 +362,7 @@
                     "value": "03",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
@@ -417,7 +370,7 @@
                     "value": "Checking operation in centralized mode.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_ch_test_3_remarks",
@@ -483,7 +436,7 @@
                     "value": "04",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
@@ -491,7 +444,7 @@
                     "value": "LFNJ Checks.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_ch_test_4_remarks",
@@ -557,7 +510,7 @@
                     "value": "05",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
@@ -565,7 +518,7 @@
                     "value": "Firing checks with training missiles.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_ch_test_5_remarks",
@@ -631,7 +584,7 @@
                     "value": "06.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
@@ -639,7 +592,7 @@
                     "value": "Check multi target engagement on Kashmir FCS.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_3_ch_test_6_remarks",
@@ -703,9 +656,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Presenting Authority",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "dmr_16a_presenting_authority",
@@ -717,6 +670,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 12,
             "options": [
               {
                 "label": "--Select--",
@@ -739,6 +693,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 12,
             "inputType": "text"
           }
         ],

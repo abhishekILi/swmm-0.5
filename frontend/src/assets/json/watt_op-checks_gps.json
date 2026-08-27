@@ -25,7 +25,7 @@
             "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
             "isDynamic": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -93,7 +95,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -130,7 +132,7 @@
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -138,13 +140,13 @@
                     "name": "schedule",
                     "type": "input",
                     "inputType": "text",
-                    "lb": "hrs on",
+                    "lb": "hrs on for OP Checks of GPS as per approved schedule vide",
                     "value": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -153,12 +155,12 @@
                     "type": "input",
                     "inputType": "text",
                     "value": "",
-                    "lb": "for OP Checks of GPS as per approved schedule vide IHQ MoD (N) / DSR letter WP / 0642 dated 06 Aug 14. Following observed: -",
+                    "lb": "IHQ MoD (N) / DSR letter WP / 0642 dated 06 Aug 14. Following observed: -",
                     "required": false,
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -179,7 +181,7 @@
                     "value": "Check the antenna is fitted at a position on the ship which ensures a clear view of the satellite constellation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_3_remarks_1",
@@ -231,7 +233,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 30 min, when there is no valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_remarks_2",
@@ -283,7 +285,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 5 min, when there is valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_remarks_3",
@@ -335,7 +337,7 @@
                     "value": "Check for capability of re-acquiring position to the required accuracy, within 2 min, when subjected to a power interruption of 60 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_remarks_4",
@@ -387,7 +389,7 @@
                     "value": "Check for a minimum resolution of position, i.e latitude and longitude, of 0.001 minutes.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_remarks_5",
@@ -452,7 +454,7 @@
                     "value": "Check for warning of loss of position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_remarks_6",
@@ -504,7 +506,7 @@
                     "value": "DGPS status indication of the receipt of DGPS signals and whether DGPS corrections are being applied to the indicated ship's position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_remarks_7",
@@ -556,7 +558,7 @@
                     "value": "Check for DGPS integrity status and alarm.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_remarks_8",
@@ -608,7 +610,7 @@
                     "value": "Check for DGPS text message display.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_remarks_9",
@@ -660,7 +662,7 @@
                     "value": "Check for indication within 5 sec if the specified \"Horizontal Dilution of Precision\" (HDOP) has been exceeded or a new position has not been calculated for more than 1 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_remarks_10",
@@ -725,7 +727,7 @@
                     "value": "Interface checks with other user AIS, ECDIS, RADAR, CTD, Trigun/ MDA, Gyro, etc.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_remarks_11",

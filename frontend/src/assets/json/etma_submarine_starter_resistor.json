@@ -9,6 +9,21 @@
       "sectionType": "fields",
       "sectionGroup":{
         "fields_1": [
+        
+        {
+          "type": "input",
+          "name": "nrtp105_ins_designation",
+          "label": "INS ",
+          "required": true,
+          "disabled": true,
+          "placeholder": "",
+          "value": "",
+          "inputType": "text",
+          "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+        },
         {
           "type": "date",
           "name": "nrtp105_date_of_trials",
@@ -17,53 +32,48 @@
           "disabled": false,
           "placeholder": "",
           "value": ""
-        },
-        {
-          "type": "input",
-          "name": "nrtp105_ins_designation",
-          "label": "INS ",
-          "required": false,
-          "disabled": false,
-          "placeholder": "",
-          "value": "",
-          "inputType": "text"
         }
       ],
       "tables_1": [
         {
-          "id": "result_sheet_matrix_1_part_1",
+          "id": "result_sheet_matrix_1",
           "sectionType": "matrixTable",
-          "title": "Result Sheet - Part 1",
+          "title": "Result Sheet",
           "topHeaders": [
             [
               {
-                "label": "TEST SER",
+                "label": "SNo.",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "7%",
                 "align": "center"
               },
               {
                 "label": "TEST / NOMINAL VALUE",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "38%",
                 "align": "center"
               },
               {
                 "label": "OK AND NOT OK",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "15%",
                 "align": "center"
               },
               {
                 "label": "ACTUAL VALUE",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "20%",
                 "align": "center"
               },
               {
                 "label": "REMARKS",
                 "colspan": 1,
                 "rowspan": 1,
+                "width": "20%",
                 "align": "center"
               }
             ]
@@ -75,11 +85,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.100",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_1_cell_2_static",
@@ -87,12 +98,12 @@
                   "value": "Visual Inspection (Fuse ratings OK / Not OK)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_1_cell_3_nrtp105_result_105100",
                   "key": "nrtp105_result_105100",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -217,11 +228,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_2_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.101",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_2_cell_2_static",
@@ -229,12 +241,12 @@
                   "value": "Visual Inspection (Hand Wheels OK / Not OK)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_2_cell_3_nrtp105_result_105101",
                   "key": "nrtp105_result_105101",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -359,11 +371,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_3_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.102",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_3_cell_2_static",
@@ -371,12 +384,12 @@
                   "value": "Visual Inspection (Carbon Brushes of Field Rheostat OK / Not OK)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_3_cell_3_nrtp105_result_105102",
                   "key": "nrtp105_result_105102",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -501,11 +514,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_4_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.103",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_4_cell_2_static",
@@ -513,12 +527,12 @@
                   "value": "Visual Inspection (Carbon Brushes of 220V Resistor Unit OK / Not OK)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_4_cell_3_nrtp105_result_105103",
                   "key": "nrtp105_result_105103",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -643,11 +657,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_5_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.104",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_5_cell_2_static",
@@ -655,12 +670,12 @@
                   "value": "Flexible Pull OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_5_cell_3_nrtp105_result_105104",
                   "key": "nrtp105_result_105104",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -785,11 +800,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_6_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.105",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_6_cell_2_static",
@@ -797,12 +813,12 @@
                   "value": "Visual Inspection (Cleanliness OK / Not OK)",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_6_cell_3_nrtp105_result_105105",
                   "key": "nrtp105_result_105105",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -927,11 +943,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_7_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.106",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_7_cell_2_static",
@@ -939,12 +956,12 @@
                   "value": "Visual Inspection – Polarity of Connections OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_7_cell_3_nrtp105_result_105106",
                   "key": "nrtp105_result_105106",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -1069,11 +1086,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_8_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.107",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_8_cell_2_static",
@@ -1081,12 +1099,12 @@
                   "value": "Visual Inspection – Fitments of Knobs & Hand Wheels OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_8_cell_3_nrtp105_result_105107",
                   "key": "nrtp105_result_105107",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -1211,11 +1229,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_9_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.108",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_9_cell_2_static",
@@ -1223,12 +1242,12 @@
                   "value": "Visual Inspection – Cover Fitment OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_9_cell_3_nrtp105_result_105108",
                   "key": "nrtp105_result_105108",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -1353,11 +1372,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_10_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.109",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_10_cell_2_static",
@@ -1374,11 +1394,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_11_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "1.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_11_cell_2_static",
@@ -1386,7 +1407,7 @@
                   "value": "Fresh water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_11_cell_3_static",
@@ -1394,7 +1415,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_11_cell_4_nrtp105_actual_105109_1",
@@ -1451,11 +1472,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_12_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "2.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_12_cell_2_static",
@@ -1463,7 +1485,7 @@
                   "value": "Sea water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_12_cell_3_static",
@@ -1471,7 +1493,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_12_cell_4_nrtp105_actual_105109_2",
@@ -1528,11 +1550,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_13_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "3.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_13_cell_2_static",
@@ -1540,7 +1563,7 @@
                   "value": "Battery Room Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_13_cell_3_static",
@@ -1548,7 +1571,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_13_cell_4_nrtp105_actual_105109_3",
@@ -1605,11 +1628,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_14_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "4.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_14_cell_2_static",
@@ -1617,7 +1641,7 @@
                   "value": "Boat Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_14_cell_3_static",
@@ -1625,7 +1649,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_14_cell_4_nrtp105_actual_105109_4",
@@ -1682,11 +1706,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_15_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "5.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_15_cell_2_static",
@@ -1694,7 +1719,7 @@
                   "value": "Bilge Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_15_cell_3_static",
@@ -1702,7 +1727,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_15_cell_4_nrtp105_actual_105109_5",
@@ -1759,11 +1784,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_16_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "6.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_16_cell_2_static",
@@ -1771,7 +1797,7 @@
                   "value": "Bilge Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_16_cell_3_static",
@@ -1779,7 +1805,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_16_cell_4_nrtp105_actual_105109_6",
@@ -1836,11 +1862,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_17_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "7.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_17_cell_2_static",
@@ -1848,7 +1875,7 @@
                   "value": "Acid Circulation Compressor Motor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_17_cell_3_static",
@@ -1856,7 +1883,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_17_cell_4_nrtp105_actual_105109_7",
@@ -1913,11 +1940,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_18_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "8.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_18_cell_2_static",
@@ -1925,7 +1953,7 @@
                   "value": "Acid Circulation Compressor Motor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_18_cell_3_static",
@@ -1933,7 +1961,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_18_cell_4_nrtp105_actual_105109_8",
@@ -1990,11 +2018,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_19_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "9.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_19_cell_2_static",
@@ -2002,7 +2031,7 @@
                   "value": "Hydraulic Oil Bypass Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_19_cell_3_static",
@@ -2010,7 +2039,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_19_cell_4_nrtp105_actual_105109_9",
@@ -2067,11 +2096,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_20_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "10.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_20_cell_2_static",
@@ -2079,7 +2109,7 @@
                   "value": "Chilled Water Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_20_cell_3_static",
@@ -2087,7 +2117,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_20_cell_4_nrtp105_actual_105109_10",
@@ -2144,11 +2174,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_21_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "11.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_21_cell_2_static",
@@ -2156,7 +2187,7 @@
                   "value": "Chilled Water Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_21_cell_3_static",
@@ -2164,7 +2195,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_21_cell_4_nrtp105_actual_105109_11",
@@ -2221,11 +2252,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_22_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "12.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_22_cell_2_static",
@@ -2233,7 +2265,7 @@
                   "value": "Exciter Convertor Motor",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_22_cell_3_static",
@@ -2241,7 +2273,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_22_cell_4_nrtp105_actual_105109_12",
@@ -2298,11 +2330,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_23_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "13.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_23_cell_2_static",
@@ -2310,7 +2343,7 @@
                   "value": "Battery Cooling Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_23_cell_3_static",
@@ -2318,7 +2351,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_23_cell_4_nrtp105_actual_105109_13",
@@ -2375,11 +2408,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_24_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "14.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_24_cell_2_static",
@@ -2387,7 +2421,7 @@
                   "value": "Battery Cooling Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_24_cell_3_static",
@@ -2395,7 +2429,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_24_cell_4_nrtp105_actual_105109_14",
@@ -2452,11 +2486,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_25_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "15.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_25_cell_2_static",
@@ -2464,7 +2499,7 @@
                   "value": "HP Air Compressor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_25_cell_3_static",
@@ -2472,7 +2507,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_25_cell_4_nrtp105_actual_105109_15",
@@ -2529,11 +2564,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_26_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "16.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_26_cell_2_static",
@@ -2541,7 +2577,7 @@
                   "value": "HP Air Compressor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_26_cell_3_static",
@@ -2549,7 +2585,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_26_cell_4_nrtp105_actual_105109_16",
@@ -2606,11 +2642,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_27_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "17.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_27_cell_2_static",
@@ -2618,7 +2655,7 @@
                   "value": "Main Cooling Sea Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_27_cell_3_static",
@@ -2626,7 +2663,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_27_cell_4_nrtp105_actual_105109_17",
@@ -2683,11 +2720,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_28_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "18.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_28_cell_2_static",
@@ -2695,7 +2733,7 @@
                   "value": "Hyd. Oil Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_28_cell_3_static",
@@ -2703,7 +2741,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_28_cell_4_nrtp105_actual_105109_18",
@@ -2760,11 +2798,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_29_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "19.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_29_cell_2_static",
@@ -2772,7 +2811,7 @@
                   "value": "Hyd. Oil Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_29_cell_3_static",
@@ -2780,7 +2819,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_29_cell_4_nrtp105_actual_105109_19",
@@ -2837,11 +2876,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_30_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "20.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_30_cell_2_static",
@@ -2849,7 +2889,7 @@
                   "value": "Hyd. Oil Pump No. 3",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_30_cell_3_static",
@@ -2857,7 +2897,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_30_cell_4_nrtp105_actual_105109_20",
@@ -2914,11 +2954,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_31_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "21.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_31_cell_2_static",
@@ -2926,7 +2967,7 @@
                   "value": "Hyd. Oil Pump No. 4",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_31_cell_3_static",
@@ -2934,7 +2975,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_31_cell_4_nrtp105_actual_105109_21",
@@ -2991,11 +3032,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_32_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "22.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_32_cell_2_static",
@@ -3003,7 +3045,7 @@
                   "value": "Fresh Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_32_cell_3_static",
@@ -3011,7 +3053,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_32_cell_4_nrtp105_actual_105109_22",
@@ -3068,11 +3110,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_33_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "23.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_33_cell_2_static",
@@ -3080,7 +3123,7 @@
                   "value": "Wash Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_33_cell_3_static",
@@ -3088,7 +3131,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_33_cell_4_nrtp105_actual_105109_23",
@@ -3145,11 +3188,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_34_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "24.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_34_cell_2_static",
@@ -3157,7 +3201,7 @@
                   "value": "Insulation Resistance of Double Field Rheostat >= 0.320 MOhm",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_34_cell_3_static",
@@ -3165,36 +3209,26 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
-                  "_id": "result_sheet_matrix_1_row_34_cell_4_nrtp105_actual_105109_24_f1",
-                  "key": "nrtp105_actual_105109_24_f1",
+                  "_id": "result_sheet_matrix_1_row_34_cell_4_nrtp105_actual_105109_24",
+                  "key": "nrtp105_actual_105109_24",
                   "type": "group",
                   "value": "",
-                  "rows": null,
+                  "rows": 2,
                   "required": false,
                   "disabled": false,
                   "placeholder": " ",
                   "inputType": "text",
-                  "accept": null,
-                  "multiple": null,
-                  "options": null,
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": null,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
-                  "hiddenKey": null,
-                  "displayKey": null,
                   "subFields": [
                     {
                       "type": "input",
                       "name": "nrtp105_actual_105109_24_f1",
-                      "label": "Date of Trials ",
+                      "label": "F1",
                       "required": false,
                       "disabled": false,
                       "placeholder": " ",
@@ -3204,7 +3238,7 @@
                     {
                       "type": "input",
                       "name": "nrtp105_actual_105109_24_f2",
-                      "label": "Date of Trials ",
+                      "label": "F2",
                       "required": false,
                       "disabled": false,
                       "placeholder": " ",
@@ -3244,11 +3278,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_35_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "25.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_35_cell_2_static",
@@ -3256,7 +3291,7 @@
                   "value": "Insulation of 220V RESISTOR",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_35_cell_3_static",
@@ -3264,7 +3299,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_35_cell_4_nrtp105_actual_105109_25",
@@ -3321,19 +3356,51 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_36_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.110",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_36_cell_2_static",
                   "type": "label",
                   "value": "Function in REMOTE mode of following STARTERS OK / Not OK",
-                  "colspan": 4,
+                  "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_36_cell_3_nrtp105_result_105110",
+                  "key": "nrtp105_result_105110",
+                  "type": "radio",
+                  "value": "",
+                  "required": false,
+                  "disabled": false,
+                  "options": [
+                    { "label": "OK", "value": "OK" },
+                    { "label": "NOT OK", "value": "NOT_OK" }
+                  ],
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_36_cell_4_static",
+                  "type": "label",
+                  "value": "",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_36_cell_5_static",
+                  "type": "label",
+                  "value": "",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
                 }
               ]
             },
@@ -3342,11 +3409,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_37_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "1.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_37_cell_2_static",
@@ -3354,7 +3422,7 @@
                   "value": "Fresh water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_37_cell_3_static",
@@ -3362,7 +3430,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_37_cell_4_nrtp105_actual_105110_1",
@@ -3419,11 +3487,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_38_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "2.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_38_cell_2_static",
@@ -3431,7 +3500,7 @@
                   "value": "Sea water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_38_cell_3_static",
@@ -3439,7 +3508,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_38_cell_4_nrtp105_actual_105110_2",
@@ -3496,11 +3565,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_39_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "3.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_39_cell_2_static",
@@ -3508,7 +3578,7 @@
                   "value": "Battery Room Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_39_cell_3_static",
@@ -3516,7 +3586,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_39_cell_4_nrtp105_actual_105110_3",
@@ -3573,11 +3643,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_40_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "4.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_40_cell_2_static",
@@ -3585,7 +3656,7 @@
                   "value": "Boat Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_40_cell_3_static",
@@ -3593,7 +3664,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_40_cell_4_nrtp105_actual_105110_4",
@@ -3644,63 +3715,18 @@
                   "displayKey": null
                 }
               ]
-            }
-          ],
-          "showRowActions": false,
-          "minRows": 1
-        }
-      ],
-       "tables_2": [
-        {
-          "id": "result_sheet_matrix_1_part_2",
-          "sectionType": "matrixTable",
-          "title": "Result Sheet - Part 2",
-          "topHeaders": [
-            [
-              {
-                "label": "TEST SER",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "TEST / NOMINAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "OK AND NOT OK",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "ACTUAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "REMARKS",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              }
-            ]
-          ],
-          "columns": [],
-          "rows": [
+            },
             {
               "_id": "result_sheet_matrix_1_row_41",
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_41_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "5.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_41_cell_2_static",
@@ -3708,7 +3734,7 @@
                   "value": "Bilge Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_41_cell_3_static",
@@ -3716,7 +3742,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_41_cell_4_nrtp105_actual_105110_5",
@@ -3773,11 +3799,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_42_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "6.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_42_cell_2_static",
@@ -3785,7 +3812,7 @@
                   "value": "Bilge Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_42_cell_3_static",
@@ -3793,7 +3820,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_42_cell_4_nrtp105_actual_105110_6",
@@ -3850,11 +3877,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_43_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "7.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_43_cell_2_static",
@@ -3862,7 +3890,7 @@
                   "value": "Acid Circulation Compressor Motor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_43_cell_3_static",
@@ -3870,7 +3898,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_43_cell_4_nrtp105_actual_105110_7",
@@ -3927,11 +3955,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_44_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "8.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_44_cell_2_static",
@@ -3939,7 +3968,7 @@
                   "value": "Acid Circulation Compressor Motor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_44_cell_3_static",
@@ -3947,7 +3976,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_44_cell_4_nrtp105_actual_105110_8",
@@ -4004,11 +4033,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_45_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "9.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_45_cell_2_static",
@@ -4016,7 +4046,7 @@
                   "value": "Hydraulic Oil Bypass Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_45_cell_3_static",
@@ -4024,7 +4054,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_45_cell_4_nrtp105_actual_105110_9",
@@ -4081,11 +4111,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_46_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "10.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_46_cell_2_static",
@@ -4093,7 +4124,7 @@
                   "value": "Chilled Water Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_46_cell_3_static",
@@ -4101,7 +4132,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_46_cell_4_nrtp105_actual_105110_10",
@@ -4158,11 +4189,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_47_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "11.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_47_cell_2_static",
@@ -4170,7 +4202,7 @@
                   "value": "Chilled Water Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_47_cell_3_static",
@@ -4178,7 +4210,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_47_cell_4_nrtp105_actual_105110_1",
@@ -4235,11 +4267,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_48_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "12.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_48_cell_2_static",
@@ -4247,7 +4280,7 @@
                   "value": "Exciter Convertor Motor",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_48_cell_3_static",
@@ -4255,7 +4288,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_48_cell_4_nrtp105_actual_105110_12",
@@ -4312,11 +4345,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_49_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "13.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_49_cell_2_static",
@@ -4324,7 +4358,7 @@
                   "value": "Battery Cooling Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_49_cell_3_static",
@@ -4332,7 +4366,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_49_cell_4_nrtp105_actual_105110_13",
@@ -4389,11 +4423,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_50_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "14.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_50_cell_2_static",
@@ -4401,7 +4436,7 @@
                   "value": "Battery Cooling Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_50_cell_3_static",
@@ -4409,7 +4444,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_50_cell_4_nrtp105_actual_105110_1",
@@ -4466,11 +4501,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_51_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "15.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_51_cell_2_static",
@@ -4478,7 +4514,7 @@
                   "value": "HP Air Compressor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_51_cell_3_static",
@@ -4486,7 +4522,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_51_cell_4_nrtp105_actual_105110_15",
@@ -4543,11 +4579,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_52_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "16.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_52_cell_2_static",
@@ -4555,7 +4592,7 @@
                   "value": "HP Air Compressor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_52_cell_3_static",
@@ -4563,7 +4600,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_52_cell_4_nrtp105_actual_105110_16",
@@ -4620,11 +4657,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_53_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "17.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_53_cell_2_static",
@@ -4632,7 +4670,7 @@
                   "value": "Main Cooling Sea Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_53_cell_3_static",
@@ -4640,7 +4678,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_53_cell_4_nrtp105_actual_105110_17",
@@ -4697,11 +4735,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_54_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "18.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_54_cell_2_static",
@@ -4709,7 +4748,7 @@
                   "value": "Hyd. Oil Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_54_cell_3_static",
@@ -4717,7 +4756,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_54_cell_4_nrtp105_actual_105110_18",
@@ -4774,11 +4813,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_55_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "19.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_55_cell_2_static",
@@ -4786,7 +4826,7 @@
                   "value": "Hyd. Oil Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_55_cell_3_static",
@@ -4794,7 +4834,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_55_cell_4_nrtp105_actual_105110_19",
@@ -4851,11 +4891,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_56_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "20.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_56_cell_2_static",
@@ -4863,7 +4904,7 @@
                   "value": "Hyd. Oil Pump No. 3",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_56_cell_3_static",
@@ -4871,7 +4912,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_56_cell_4_nrtp105_actual_105110_20",
@@ -4928,11 +4969,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_57_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "21.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_57_cell_2_static",
@@ -4940,7 +4982,7 @@
                   "value": "Hyd. Oil Pump No. 4",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_57_cell_3_static",
@@ -4948,7 +4990,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_57_cell_4_nrtp105_actual_105110_21",
@@ -5005,11 +5047,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_58_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "22.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_58_cell_2_static",
@@ -5017,7 +5060,7 @@
                   "value": "Fresh Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_58_cell_3_static",
@@ -5025,7 +5068,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_58_cell_4_nrtp105_actual_105110_22",
@@ -5082,11 +5125,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_59_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "23.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_59_cell_2_static",
@@ -5094,7 +5138,7 @@
                   "value": "Wash Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_59_cell_3_static",
@@ -5102,7 +5146,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_59_cell_4_nrtp105_actual_105110_23",
@@ -5159,19 +5203,51 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_60_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.111",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_60_cell_2_static",
                   "type": "label",
                   "value": "Function in MANUAL mode of following STARTERS OK / Not OK",
-                  "colspan": 4,
+                  "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_60_cell_3_nrtp105_result_105111",
+                  "key": "nrtp105_result_105111",
+                  "type": "radio",
+                  "value": "",
+                  "required": false,
+                  "disabled": false,
+                  "options": [
+                    { "label": "OK", "value": "OK" },
+                    { "label": "NOT OK", "value": "NOT_OK" }
+                  ],
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_60_cell_4_static",
+                  "type": "label",
+                  "value": "",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "_id": "result_sheet_matrix_1_row_60_cell_5_static",
+                  "type": "label",
+                  "value": "",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
                 }
               ]
             },
@@ -5180,11 +5256,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_61_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "1.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_61_cell_2_static",
@@ -5192,7 +5269,7 @@
                   "value": "Fresh water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_61_cell_3_static",
@@ -5200,7 +5277,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_61_cell_4_nrtp105_actual_105111_1",
@@ -5257,11 +5334,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_62_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "2.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_62_cell_2_static",
@@ -5269,7 +5347,7 @@
                   "value": "Sea water Pump – Evaporator",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_62_cell_3_static",
@@ -5277,7 +5355,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_62_cell_4_nrtp105_actual_105111_2",
@@ -5334,11 +5412,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_63_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "3.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_63_cell_2_static",
@@ -5346,7 +5425,7 @@
                   "value": "Battery Room Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_63_cell_3_static",
@@ -5354,7 +5433,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_63_cell_4_nrtp105_actual_105111_3",
@@ -5411,11 +5490,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_64_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "4.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_64_cell_2_static",
@@ -5423,7 +5503,7 @@
                   "value": "Boat Fan",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_64_cell_3_static",
@@ -5431,7 +5511,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_64_cell_4_nrtp105_actual_105111_4",
@@ -5488,11 +5568,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_65_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "5.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_65_cell_2_static",
@@ -5500,7 +5581,7 @@
                   "value": "Bilge Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_65_cell_3_static",
@@ -5508,7 +5589,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_65_cell_4_nrtp105_actual_105111_5",
@@ -5565,11 +5646,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_66_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "6.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_66_cell_2_static",
@@ -5577,7 +5659,7 @@
                   "value": "Bilge Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_66_cell_3_static",
@@ -5585,7 +5667,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_66_cell_4_nrtp105_actual_105111_6",
@@ -5642,11 +5724,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_67_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "7.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_67_cell_2_static",
@@ -5654,7 +5737,7 @@
                   "value": "Acid Circulation Compressor Motor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_67_cell_3_static",
@@ -5662,7 +5745,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_67_cell_4_nrtp105_actual_105111_7",
@@ -5719,11 +5802,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_68_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "8.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_68_cell_2_static",
@@ -5731,7 +5815,7 @@
                   "value": "Acid Circulation Compressor Motor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_68_cell_3_static",
@@ -5739,7 +5823,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_68_cell_4_nrtp105_actual_105111_8",
@@ -5796,11 +5880,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_69_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "9.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_69_cell_2_static",
@@ -5808,7 +5893,7 @@
                   "value": "Hydraulic Oil Bypass Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_69_cell_3_static",
@@ -5816,7 +5901,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_69_cell_4_nrtp105_actual_105111_9",
@@ -5873,11 +5958,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_70_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "10.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_70_cell_2_static",
@@ -5885,7 +5971,7 @@
                   "value": "Chilled Water Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_70_cell_3_static",
@@ -5893,7 +5979,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_70_cell_4_nrtp105_actual_105111_10",
@@ -5950,11 +6036,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_71_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "11.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_71_cell_2_static",
@@ -5962,7 +6049,7 @@
                   "value": "Chilled Water Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_71_cell_3_static",
@@ -5970,7 +6057,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_71_cell_4_nrtp105_actual_105111_11",
@@ -6027,11 +6114,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_72_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "12.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_72_cell_2_static",
@@ -6039,7 +6127,7 @@
                   "value": "Exciter Convertor Motor",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_72_cell_3_static",
@@ -6047,7 +6135,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_72_cell_4_nrtp105_actual_105111_12",
@@ -6104,11 +6192,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_73_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "13.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_73_cell_2_static",
@@ -6116,7 +6205,7 @@
                   "value": "Battery Cooling Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_73_cell_3_static",
@@ -6124,7 +6213,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_73_cell_4_nrtp105_actual_105111_13",
@@ -6181,11 +6270,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_74_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "14.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_74_cell_2_static",
@@ -6193,7 +6283,7 @@
                   "value": "Battery Cooling Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_74_cell_3_static",
@@ -6201,7 +6291,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_74_cell_4_nrtp105_actual_105111_14",
@@ -6258,11 +6348,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_75_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "15.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_75_cell_2_static",
@@ -6270,7 +6361,7 @@
                   "value": "HP Air Compressor No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_75_cell_3_static",
@@ -6278,7 +6369,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_75_cell_4_nrtp105_actual_105111_15",
@@ -6335,11 +6426,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_76_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "16.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_76_cell_2_static",
@@ -6347,7 +6439,7 @@
                   "value": "HP Air Compressor No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_76_cell_3_static",
@@ -6355,7 +6447,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_76_cell_4_nrtp105_actual_105111_16",
@@ -6412,11 +6504,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_77_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "17.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_77_cell_2_static",
@@ -6424,7 +6517,7 @@
                   "value": "Main Cooling Sea Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_77_cell_3_static",
@@ -6432,7 +6525,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_77_cell_4_nrtp105_actual_105111_17",
@@ -6489,11 +6582,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_78_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "18.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_78_cell_2_static",
@@ -6501,7 +6595,7 @@
                   "value": "Hyd. Oil Pump No. 1",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_78_cell_3_static",
@@ -6509,7 +6603,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_78_cell_4_nrtp105_actual_105111_18",
@@ -6566,11 +6660,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_79_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "19.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_79_cell_2_static",
@@ -6578,7 +6673,7 @@
                   "value": "Hyd. Oil Pump No. 2",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_79_cell_3_static",
@@ -6586,7 +6681,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_79_cell_4_nrtp105_actual_105111_19",
@@ -6643,11 +6738,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_80_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "20.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_80_cell_2_static",
@@ -6655,7 +6751,7 @@
                   "value": "Hyd. Oil Pump No. 3",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_80_cell_3_static",
@@ -6663,7 +6759,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_80_cell_4_nrtp105_actual_105111_20",
@@ -6714,63 +6810,18 @@
                   "displayKey": null
                 }
               ]
-            }
-          ],
-          "showRowActions": false,
-          "minRows": 1
-        }
-      ],
-      "tables_3": [
-        {
-          "id": "result_sheet_matrix_1_part_3",
-          "sectionType": "matrixTable",
-          "title": "Result Sheet - Part 3",
-          "topHeaders": [
-            [
-              {
-                "label": "TEST SER",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "TEST / NOMINAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "OK AND NOT OK",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "ACTUAL VALUE",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              },
-              {
-                "label": "REMARKS",
-                "colspan": 1,
-                "rowspan": 1,
-                "align": "center"
-              }
-            ]
-          ],
-          "columns": [],
-          "rows": [
+            },
             {
               "_id": "result_sheet_matrix_1_row_81",
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_81_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "21.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_81_cell_2_static",
@@ -6778,7 +6829,7 @@
                   "value": "Hyd. Oil Pump No. 4",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_81_cell_3_static",
@@ -6786,7 +6837,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_81_cell_4_nrtp105_actual_105111_21",
@@ -6843,11 +6894,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_82_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "22.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_82_cell_2_static",
@@ -6855,7 +6907,7 @@
                   "value": "Fresh Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_82_cell_3_static",
@@ -6863,7 +6915,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_82_cell_4_nrtp105_actual_105111_22",
@@ -6920,11 +6972,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_83_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "23.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_83_cell_2_static",
@@ -6932,7 +6985,7 @@
                   "value": "Wash Water Pump",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_83_cell_3_static",
@@ -6940,7 +6993,7 @@
                   "value": "",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_83_cell_4_nrtp105_actual_105111_23",
@@ -6997,11 +7050,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_84_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.112",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_84_cell_2_static",
@@ -7009,12 +7063,12 @@
                   "value": "Function of Double Field Rheostat OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_84_cell_3_nrtp105_result_105112",
                   "key": "nrtp105_result_105112",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -7139,11 +7193,12 @@
               "cells": [
                 {
                   "_id": "result_sheet_matrix_1_row_85_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
+                  "width": "7%",
                   "value": "105.113",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_85_cell_2_static",
@@ -7151,12 +7206,12 @@
                   "value": "Function of 220V RESISTOR OK / Not OK",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "left"
                 },
                 {
                   "_id": "result_sheet_matrix_1_row_85_cell_3_nrtp105_result_105113",
                   "key": "nrtp105_result_105113",
-                  "type": "group",
+                  "type": "radio",
                   "value": "",
                   "rows": null,
                   "required": false,
@@ -7281,7 +7336,6 @@
           "minRows": 1
         }
       ]
-
       },
 
       "tables": []

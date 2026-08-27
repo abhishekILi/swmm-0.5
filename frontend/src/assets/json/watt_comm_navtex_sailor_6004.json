@@ -77,14 +77,14 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "navtex_sailor_equipment",
             "prefill": true,
              "colSpan": 4,
-            "prefillSource": "context.navtex_sailor_equipment"
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "navtex_sailor_date",
@@ -142,9 +142,11 @@
             "type": "textarea",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
-              "colSpan": 4
+              "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           }
         ],
 

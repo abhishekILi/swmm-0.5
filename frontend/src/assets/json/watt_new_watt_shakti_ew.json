@@ -13,9 +13,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
-            "value" : "Basic Information",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -83,10 +83,12 @@
             "type": "input",
             "value": "SHAKTI - EW",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "shakti_date",
@@ -111,7 +113,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan":4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -145,20 +147,21 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Basic Information",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "SI. NO",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "TRIAL SER",
+                  "label": "TRIAL SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "CHECK DESCRIPTION AS PER SCHEDULE",
@@ -207,7 +210,7 @@
                     "value": "BB Rx Interception and Parameter Measurement Test for 2.2 \u2013 18 GHz",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_1_cell_4_status_1",
@@ -289,7 +292,7 @@
                     "value": "NB Rx Interception and Parameter Measurement Test for 0.5 \u2013 18 GHz",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_2_cell_4_status_2",
@@ -371,7 +374,7 @@
                     "value": "RFPS Interception and Parameter Measurement Test for 2.2 \u2013 18 GHz",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_4_status_3",
@@ -453,7 +456,7 @@
                     "value": "Gyro Data Indication Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_4_status_4",
@@ -535,7 +538,7 @@
                     "value": "GPS Interface Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_4_status_5",
@@ -617,7 +620,7 @@
                     "value": "Own Radar Blanking Effectiveness Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_4_status_6",
@@ -699,7 +702,7 @@
                     "value": "Manual BITE Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_4_status_7",
@@ -781,7 +784,7 @@
                     "value": "FDL Interface Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_4_status_8",
@@ -863,7 +866,7 @@
                     "value": "HMI Tests",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_4_status_9",
@@ -945,7 +948,7 @@
                     "value": "Jamming Techniques Test (6 \u2013 18 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_4_status_10",
@@ -1027,7 +1030,7 @@
                     "value": "Jamming Techniques Test (6 \u2013 18 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_4_status_11",
@@ -1109,7 +1112,7 @@
                     "value": "Jamming Techniques Test (18 \u2013 40 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_4_status_12",
@@ -1191,7 +1194,7 @@
                     "value": "Jamming Techniques Test (18 \u2013 40 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_4_status_13",
@@ -1273,7 +1276,7 @@
                     "value": "Calibration Test for Jammer Radiation Measurements (6 \u2013 18 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_4_status_14",
@@ -1355,7 +1358,7 @@
                     "value": "Calibration Test for Jammer Radiation Measurements (6 \u2013 18 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_4_status_15",
@@ -1437,7 +1440,7 @@
                     "value": "Jammer Radiation Measurements Test (6 \u2013 18 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_4_status_16",
@@ -1519,7 +1522,7 @@
                     "value": "Jammer Radiation Measurements Test (6 \u2013 18 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_4_status_17",
@@ -1601,7 +1604,7 @@
                     "value": "Jammer Radiation Measurements Test (18 \u2013 40 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_4_status_18",
@@ -1683,7 +1686,7 @@
                     "value": "Jammer Radiation Measurements Test (18 \u2013 40 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_4_status_19",
@@ -1765,7 +1768,7 @@
                     "value": "Multi Threat Handling Test (6 \u2013 18 GHz Stbd)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_4_status_20",
@@ -1847,7 +1850,7 @@
                     "value": "Multi Threat Handling Test (6 \u2013 18 GHz Port)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_4_status_21",
@@ -1929,7 +1932,7 @@
                     "value": "HB Jammer Position Accuracy Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_4_status_22",
@@ -2011,7 +2014,7 @@
                     "value": "Jamming in Manual Mode Functionality Test (6 \u2013 18 GHz)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_4_status_23",
@@ -2093,7 +2096,7 @@
                     "value": "Jamming in Manual Mode Functionality Test (18 \u2013 40 GHz)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_4_status_24",
@@ -2175,7 +2178,7 @@
                     "value": "Jamming in Semi Auto Mode Functionality Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_4_status_25",
@@ -2257,7 +2260,7 @@
                     "value": "Jamming in Auto Mode Functionality Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_4_status_26",
@@ -2339,7 +2342,7 @@
                     "value": "Stabilization Platform Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_4_status_27",
@@ -2403,9 +2406,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
-            "value" :"Authority",
-            "colSpan" : 12
+            "type": "label",
+            "value": "Authority",
+            "colSpan": 12
           },
           {
             "_id": "presenting_authority",

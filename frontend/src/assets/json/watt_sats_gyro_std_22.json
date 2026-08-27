@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -88,7 +88,9 @@
                 "value": "GYRO"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -101,7 +103,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-             "colSpan": 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -113,7 +115,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-             "colSpan": 4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "-- Select --",
@@ -147,80 +149,93 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "6%"
                 },
                 {
                   "label": "Observations",
-                  "colspan": 1,
+                  "colspan": 9,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "69%"
                 },
                 {
                   "label": "Remarks",
-                  "colspan": 1,
+                  "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "25%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
+                "_id": "observations_matrix_1_intro_row",
+                "cells": [
+                  {
+                    "_id": "gyro_embarked_time",
+                    "key": "gyro_embarked_time",
+                    "name": "gyro_embarked_time",
                     "type": "time",
+                    "lb": "Trials team embarked onboard at",
                     "value": "",
-                    "lb" : "Trials team embarked onboard at hrs on",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "HH:MM",
+                    "inputType": "time",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_embarked_date",
+                    "key": "gyro_embarked_date",
+                    "name": "gyro_embarked_date",
+                    "type": "date",
+                    "lb": "hrs on",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "dd-mm-yyyy",
+                    "inputType": "date",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_sat_reference",
+                    "key": "gyro_sat_reference",
+                    "name": "gyro_sat_reference",
+                    "type": "input",
+                    "lb": "for SATs of GYRO",
+                    "value": "",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "date",
-                    "inputType": "date",
-                      "lb" : "for SATs of GYRO",
-                    "value": "",
-                    "required": false,
-                    "disabled": false,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "input",
                     "inputType": "text",
-                    "value": "",
-                    "lb" : "as per IHQ MoD (N) approved schedule. Following observed:-",
-                    "required": false,
-                    "disabled": false,
-                    "colspan": 1,
+                    "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_schedule_suffix",
+                    "type": "label",
+                    "value": "as per IHQ MoD (N) approved schedule. Following observed:-",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "observations_matrix_1_row_2",
+                "_id": "observations_matrix_1_row_1",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_2_cell_1_static",
+                    "_id": "observations_row_1_serial",
                     "type": "serial",
                     "value": "1",
                     "colspan": 1,
@@ -228,23 +243,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_2_cell_2_static",
+                    "_id": "observations_row_1_description",
                     "type": "label",
                     "value": "Check 1 - Switching on GYRO",
-                    "colspan": 1,
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_2_cell_3_check_1",
-                    "key": "check_1",
+                    "_id": "gyro_check_1_result",
+                    "key": "gyro_check_1_result",
+                    "name": "gyro_check_1_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -255,24 +268,17 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "observations_matrix_1_row_3",
+                "_id": "observations_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_3_cell_1_static",
+                    "_id": "observations_row_2_serial",
                     "type": "serial",
                     "value": "2",
                     "colspan": 1,
@@ -280,23 +286,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_2_static",
+                    "_id": "observations_row_2_description",
                     "type": "label",
-                    "value": "Check 2 \u2013 Repeaters check",
-                    "colspan": 1,
+                    "value": "Check 2 – Repeaters check",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_3_check_2",
-                    "key": "check_2",
+                    "_id": "gyro_check_2_result",
+                    "key": "gyro_check_2_result",
+                    "name": "gyro_check_2_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -307,49 +311,61 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
-
-{
-                "_id": "observations_matrix_1_row_3",
+              {
+                "_id": "observations_matrix_1_row_3_heading",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_3_cell_1_static",
+                    "_id": "observations_row_3_serial",
                     "type": "serial",
                     "value": "3",
                     "colspan": 1,
-                    "rowspan": 1,
+                    "rowspan": 3,
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_2_static",
+                    "_id": "observations_row_3_description",
                     "type": "label",
-                    "value": "Check 3 \u2013 Transit bearing checks carried out while leaving",
-                    "colspan": 1,
+                    "value": "Check 3 – Transit bearing checks carried out while leaving",
+                    "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_3_cell_3_check_2",
-                    "key": "check_2",
-                    "type": "radio",
+                    "_id": "gyro_check_3_harbour",
+                    "key": "gyro_check_3_harbour",
+                    "name": "gyro_check_3_harbour",
+                    "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": true,
+                    "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_check_3_harbour_suffix",
+                    "type": "label",
+                    "value": "harbour.",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_check_3_result",
+                    "key": "gyro_check_3_result",
+                    "name": "gyro_check_3_result",
+                    "type": "radio",
+                    "value": "",
+                    "required": true,
+                    "disabled": false,
                     "options": [
                       {
                         "label": "SAT",
@@ -360,25 +376,115 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "colspan": 2,
+                    "rowspan": 3,
+                    "align": "left"
                   }
                 ]
               },
-
               {
-                "_id": "observations_matrix_1_row_5",
+                "_id": "observations_matrix_1_row_3_headers",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_5_cell_1_static",
+                    "_id": "transit_bearing_header",
+                    "type": "label",
+                    "value": "<b>Transit Bearing</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "gyro_reading_header",
+                    "type": "label",
+                    "value": "<b>GYRO</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "gyro_error_header",
+                    "type": "label",
+                    "value": "<b>Error</b>",
+                    "isBold": true,
+                    "backgroundColor": "#e5e7eb",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "gyro_header_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_readings",
+                "cells": [
+                  {
+                    "_id": "gyro_check_3_transit_bearing",
+                    "key": "gyro_check_3_transit_bearing",
+                    "name": "gyro_check_3_transit_bearing",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_check_3_gyro_reading",
+                    "key": "gyro_check_3_gyro_reading",
+                    "name": "gyro_check_3_gyro_reading",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_check_3_error",
+                    "key": "gyro_check_3_error",
+                    "name": "gyro_check_3_error",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "gyro_reading_blank",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_4",
+                "cells": [
+                  {
+                    "_id": "observations_row_4_serial",
                     "type": "serial",
                     "value": "4",
                     "colspan": 1,
@@ -386,23 +492,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_5_cell_2_static",
+                    "_id": "observations_row_4_description",
                     "type": "label",
-                    "value": "Check 4 \u2013 Interface checks with Radar, NDDU, ECDIS, CTD, wind Computer and other users.",
-                    "colspan": 1,
+                    "value": "Check 4 – Interface checks with Radar, NDDU, ECDIS, CTD, wind Computer and other users.",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_5_cell_3_check_4",
-                    "key": "check_4",
+                    "_id": "gyro_check_4_result",
+                    "key": "gyro_check_4_result",
+                    "name": "gyro_check_4_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -413,24 +517,17 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "observations_matrix_1_row_6",
+                "_id": "observations_matrix_1_row_5",
                 "cells": [
                   {
-                    "_id": "observations_matrix_1_row_6_cell_1_static",
+                    "_id": "observations_row_5_serial",
                     "type": "serial",
                     "value": "5",
                     "colspan": 1,
@@ -438,23 +535,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "observations_matrix_1_row_6_cell_2_static",
+                    "_id": "observations_row_5_description",
                     "type": "label",
-                    "value": "Check 5 \u2013 Changeover of GYRO checks. GYRO to Magnetic Compass and vice versa.",
-                    "colspan": 1,
+                    "value": "Check 5 – Changeover of GYRO checks. GYRO to Magnetic Compass and vice versa.",
+                    "colspan": 9,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "observations_matrix_1_row_6_cell_3_check_5",
-                    "key": "check_5",
+                    "_id": "gyro_check_5_result",
+                    "key": "gyro_check_5_result",
+                    "name": "gyro_check_5_result",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": true,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -465,138 +560,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "observations_table_2",
-            "sectionType": "simpleTable",
-            "title": "Observations",
-            "topHeaders": [
-              [
-                {
-                  "label": "Transit Bearing",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "GYRO",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Error",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                }
-              ]
-            ],
-            "columns": [
-              {
-                "key": "transit_bearing",
-                "label": "Transit Bearing",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "gyro",
-                "label": "GYRO",
-                "type": "label",
-                "align": "left"
-              },
-              {
-                "key": "error",
-                "label": "Error",
-                "type": "label",
-                "align": "left"
-              }
-            ],
-            "rows": [
-              {
-                "_id": "observations_table_2_row_1",
-                "cells": [
-                  {
-                    "_id": "observations_table_2_row_1_cell_1_check_3_transit_bearing",
-                    "key": "check_3_transit_bearing",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_table_2_row_1_cell_2_check_3_gyro",
-                    "key": "check_3_gyro",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "observations_table_2_row_1_cell_3_check_3_error",
-                    "key": "check_3_error",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               }
@@ -607,9 +573,30 @@
         ],
         "fields_5": [
           {
-            "type": "label",
-            "value": "<b>Presenting Authority:</b> Ship's Staff",
-            "colSpan": 12
+            "_id": "presenting_authority",
+            "key": "presenting_authority",
+            "name": "presenting_authority",
+            "label": "Presenting Authority:",
+            "type": "input",
+            "value": "Ship's Staff",
+            "required": false,
+            "disabled": false,
+            "placeholder": "Enter presenting authority",
+            "inputType": "text",
+            "colSpan": 6
+          },
+          {
+            "_id": "inspecting_authority",
+            "key": "inspecting_authority",
+            "name": "inspecting_authority",
+            "label": "Inspecting Authority:",
+            "type": "input",
+            "value": "WATT(V/MI)",
+            "required": false,
+            "disabled": false,
+            "placeholder": "Enter inspecting authority",
+            "inputType": "text",
+            "colSpan": 6
           },
           {
             "_id": "presenting_nd",
@@ -622,26 +609,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
-          },
-          {
-            "_id": "presenting_nd",
-            "key": "presenting_nd",
-            "name": "presenting_nd",
-            "label": "C: ",
-            "type": "input",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "inputType": "text",
-            "colSpan": 6
-          },
-
-          {
-            "type": "label",
-            "value": "<b>Inspecting Authority:</b> WATT (V/MI) ",
-            "colSpan": 12
+            "colSpan": 4
           },
           {
             "_id": "inspecting_sti_ti",
@@ -654,7 +622,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "colSpan": 4
           },
           {
             "_id": "inspecting_sto",
@@ -667,10 +635,9 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "colSpan": 4
           }
-        ],
-        "tables_2": []
+        ]
       }
     }
   ]

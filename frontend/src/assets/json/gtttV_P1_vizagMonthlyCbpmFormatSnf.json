@@ -8,7 +8,8 @@
       "title": "OVERALL VIBRATION LEVELS FOR THE MONTH OF MAY 24",
       "sectionType": "hybrid",
       "fields": [],
-      "tables": [
+      "sectionGroup": {
+        "tables_1": [
         {
           "id": "section_1_table_1",
           "sectionType": "matrixTable",
@@ -34,18 +35,18 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
+                  "isDynamic": true,
+                  "lookupKey": "context.ship_name",
+                  "prefill": true,
+                  "prefillSource": "context.ship_name",
+                  "lockAfterPrefill": false,
                   "hiddenKey": null,
                   "displayKey": null
                 }
@@ -101,31 +102,31 @@
               "key": "point_no",
               "label": "Point No",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt1",
               "label": "GT1",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt2",
               "label": "GT2",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt3",
               "label": "GT3",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gt4",
               "label": "GT4",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -1060,19 +1061,19 @@
               "key": "point_no",
               "label": "Point No",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gtg_1_at_450_kw",
               "label": "GTG 1 at 450 kW",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "gtg_2_at450_kw",
               "label": "GTG 2 at450 kW",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -1553,19 +1554,19 @@
               "key": "equipment",
               "label": "Equipment",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rhs_during_the_month",
               "label": "RHs during the month",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "rhs_since_installation",
               "label": "RHs since installation",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -2163,13 +2164,13 @@
               "key": "equipment",
               "label": "Equipment",
               "type": "label",
-              "align": "left"
+              "align": "center"
             },
             {
               "key": "duration_in_hrs",
               "label": "Duration in Hrs",
               "type": "label",
-              "align": "left"
+              "align": "center"
             }
           ],
           "rows": [
@@ -2248,46 +2249,23 @@
           ],
           "showRowActions": false,
           "minRows": 1
-        },
-        {
-          "id": "section_1_table_6",
-          "sectionType": "simpleTable",
-          "title": "REMARKS",
-          "topHeaders": [],
-          "columns": [],
-          "rows": [
-            {
-              "_id": "section_1_table_6_row_1",
-              "cells": [
-                {
-                  "_id": "section_1_table_6_row_1_cell_1_snfMonthlyCbpmRemarks",
-                  "key": "snfMonthlyCbpmRemarks",
-                  "type": "textarea",
-                  "value": "",
-                  "rows": 10,
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "Leave a comment here",
-                  "inputType": null,
-                  "options": null,
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
-                  "hiddenKey": null,
-                  "displayKey": null
-                }
-              ]
-            }
-          ],
-          "showRowActions": false,
-          "minRows": 1
         }
-      ]
+      ],
+        "fields_4": [
+        {
+          "key": "snfMonthlyCbpmRemarks",
+          "name": "snfMonthlyCbpmRemarks",
+          "type": "editor",
+          "label": "REMARKS",
+          "value": "",
+          "required": false,
+          "disabled": false,
+          "placeholder": "Leave a comment here",
+          "editorHeight": 250,
+          "colSpan": 12
+        }
+        ]
+      }
     }
   ]
 }

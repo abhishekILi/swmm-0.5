@@ -21,8 +21,8 @@
             "_id": "ship",
             "key": "ship",
             "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": false,
@@ -81,13 +81,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -98,10 +98,12 @@
             "type": "input",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.serial_no"
           },
           {
             "_id": "date",
@@ -152,6 +154,51 @@
             "isDynamic": false
           }
         ],
+        "fields_3": [
+          {
+            "type": "label",
+            "name": "Cboard",
+            "key": "Cboard",
+            "value": "<p class='text-xs'>Trial team reported onboard for Op Checks of INMARSAT ‘C’ at</p>",
+            "colSpan":3
+          },
+          {
+            "type": "time",
+            "name": "Cboard_time",
+            "key": "Cboard_time",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "HH:MM",
+            "colSpan": 2
+          },
+          {
+             "type": "label",
+            "name": "Cboard_lable",
+            "key": "Cboard_lable",
+            "colSpan":2,
+            "value": "<p class='text-xs'>hrs. Checks and trials carried out</p>"
+          },
+          {
+            "type": "input",
+            "name": "Cboard_input",
+            "key": "Cboard_input",
+            "value": "",
+            "required": true,
+            "disabled": false,
+            "placeholder": "",
+            "colSpan": 2
+          },
+          {
+             "type": "label",
+            "name": "Cboard_lable1",
+            "key": "Cboard_lable1",
+            "colSpan":3,
+            "value": "<p class='text-xs'>are enumerated in succeeding paragraphs: -</p>"
+          }
+
+          
+        ],
         "tables_1": [
           {
             "id": "checks_matrix_1",
@@ -160,7 +207,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -187,29 +234,7 @@
             ],
             "columns": [],
             "rows": [
-              {
-                "_id": "checks_matrix_1_row_1_1",
-                "cells": [
-                  {
-                    "_id": "checks_matrix_1_row_1_cell_1_static",
-                    "type": "time",
-                    "lb" : "Trial team reported onboard for Op Checks of INMARSAT ‘C’ at hrs.",
-                    "value": "",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_1_cell_3_static",
-                    "type": "textarea",
-                    "lb" : "Checks and trials carried out are enumerated in succeeding paragraphs: -",
-                    "value": "",
-                    "colspan": 3,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
+              
               {
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
@@ -223,7 +248,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_1_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -233,7 +258,7 @@
                     "_id": "checks_matrix_1_row_1_cell_3_static",
                     "type": "label",
                     "value": "<b>Visual Checks</b>",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -252,7 +277,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -264,7 +289,7 @@
                     "value": "The condition of all the required interconnecting cables between units / racks of the system.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_4_visual_checks_interconnecting_cables",
@@ -312,7 +337,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -324,7 +349,7 @@
                     "value": "The condition of the power supply, earthing of the units and the overall air conditioning in the compartment.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_4_visual_checks_power_supply_earthing_ac",
@@ -372,7 +397,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -384,7 +409,7 @@
                     "value": "Stability of the power supply to the system.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_4_visual_checks_power_supply_stability",
@@ -432,7 +457,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -444,7 +469,7 @@
                     "value": "Check IMO compliance / certification for the equipment.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_4_visual_checks_imo_compliance",
@@ -492,7 +517,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -502,7 +527,7 @@
                     "_id": "checks_matrix_1_row_6_cell_3_static",
                     "type": "label",
                     "value": "<b>Visual Checks</b>",
-                    "colspan": 2,
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -521,7 +546,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -617,7 +642,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -713,7 +738,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -809,7 +834,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -821,7 +846,15 @@
                     "value": "Processor Unit",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
+                  },
+                  {
+                    "_id": "checks_matrix_1_row_10_cell_5_static",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_4_visual_checks_processor_unit",
@@ -869,7 +902,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -965,7 +998,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -977,7 +1010,7 @@
                     "value": "All sub - assemblies are fixed properly.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_4_visual_checks_sub_assemblies_fixed",
@@ -1025,7 +1058,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1037,7 +1070,7 @@
                     "value": "Securing of connecting cables.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_4_visual_checks_securing_connecting_cables",
@@ -1085,7 +1118,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(viii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1097,7 +1130,7 @@
                     "value": "Switching over from main power supply to uninterrupted power supply.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_4_visual_checks_switch_over_power_supply",
@@ -1145,7 +1178,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1174,7 +1207,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1186,7 +1219,7 @@
                     "value": "Check the mounting of all units and interconnection wiring as per installation drawing",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_4_installation_completeness_mounting_wiring",
@@ -1234,7 +1267,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1246,7 +1279,7 @@
                     "value": "Check RF grounding of all individual units",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_4_installation_completeness_rf_grounding",
@@ -1294,7 +1327,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1323,7 +1356,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1335,7 +1368,7 @@
                     "value": "Power Supply 110/ 220V Requisite AC input is available and measured within tolerance level of \u00b110 %.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_4_electrical_supply_ac_input_available",
@@ -1383,7 +1416,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1395,7 +1428,7 @@
                     "value": "The output of Power Supply Unit Measured at 24\u201328 V DC.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_4_electrical_supply_output_24_28v_dc",
@@ -1443,7 +1476,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_21_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1472,7 +1505,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1484,7 +1517,7 @@
                     "value": "Switch on main power supply and check indication and SAT C monitor (terminal).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_22_cell_4_functional_checks_main_power_indicator",
@@ -1532,7 +1565,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1544,7 +1577,7 @@
                     "value": "Check and verify key and menu function.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_23_cell_4_functional_checks_key_menu_function",
@@ -1592,7 +1625,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1604,7 +1637,7 @@
                     "value": "Check present position data available.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_24_cell_4_functional_checks_present_position_data",
@@ -1652,7 +1685,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(iv)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1664,7 +1697,7 @@
                     "value": "Check facility to disable GPS feed.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_25_cell_4_functional_checks_disable_gps_feed",
@@ -1712,7 +1745,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(v)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1724,7 +1757,7 @@
                     "value": "Check and verify system self-tests.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_26_cell_4_functional_checks_system_self_tests",
@@ -1772,7 +1805,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_27_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1784,7 +1817,7 @@
                     "value": "Check login normal.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_27_cell_4_functional_checks_login_normal",
@@ -1832,7 +1865,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_28_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(vii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1844,7 +1877,7 @@
                     "value": "Verify operation using PV test.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_28_cell_4_functional_checks_pv_test",
@@ -1892,7 +1925,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_29_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(viii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1904,7 +1937,7 @@
                     "value": "Check operation by loopback test.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_29_cell_4_functional_checks_loopback_test",
@@ -1952,7 +1985,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_30_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(ix)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1964,7 +1997,7 @@
                     "value": "Check operation with any shore address.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_30_cell_4_functional_checks_shore_address",
@@ -2012,7 +2045,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_31_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(x)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2024,7 +2057,7 @@
                     "value": "Check message printouts.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_31_cell_4_functional_checks_message_printouts",
@@ -2072,7 +2105,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_32_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(xi)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2084,7 +2117,7 @@
                     "value": "Check EGC message reception.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_32_cell_4_functional_checks_egc_message_reception",
@@ -2132,7 +2165,7 @@
                   },
                   {
                     "_id": "checks_matrix_1_row_33_cell_2_static",
-                    "type": "label",
+                    "type": "serial",
                     "value": "(xii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2144,7 +2177,7 @@
                     "value": "Check the operation in DC power.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_33_cell_4_functional_checks_dc_power_operation",
@@ -2190,7 +2223,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Sr No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2212,7 +2245,7 @@
             "columns": [
               {
                 "key": "sr_no",
-                "label": "Sr No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -2220,13 +2253,13 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ss_remarks",
                 "label": "SS Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -2246,7 +2279,7 @@
                     "key": "field_2",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2268,7 +2301,7 @@
                     "key": "field_3",
                     "type": "textarea",
                     "value": "",
-                    "rows": 2,
+                    "rows": 1,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -2300,6 +2333,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colspan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -2330,6 +2364,7 @@
             "label": "WATT",
             "type": "input",
             "value": "VZG",
+            "colspan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

@@ -22,7 +22,7 @@
             "key": "ship",
             "name": "ship",
             "label": "SHIP",
-            "type": "input",
+            "type": "select",
             "value": "",
             "required": true,
             "disabled": true,
@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "radar_koden_date",
@@ -93,7 +95,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -127,7 +129,7 @@
                     "_id": "section_2_matrix_1_row_1_cell_1_radar_koden_embark_time",
                     "key": "radar_koden_embark_time",
                     "type": "input",
-                    "lb" : "Trials team embarked onboard at on dd-mm-yyyy for OP-Checks of RADAR (KODEN) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
+                    "lb" : "Trials team embarked onboard at",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -149,6 +151,7 @@
                   {
                     "_id": "section_2_matrix_1_row_1_cell_2_radar_koden_embark_date",
                     "key": "radar_koden_embark_date",
+                    "lb":"on dd-mm-yyyy for OP-Checks of RADAR (KODEN) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -",
                     "type": "date",
                     "value": "",
                     "rows": null,
@@ -188,7 +191,7 @@
                     "value": "Functional test of KODEN MDC-2041",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_3_rk_status_i",
@@ -259,10 +262,10 @@
                   {
                     "_id": "section_2_matrix_1_row_4_cell_2_static",
                     "type": "label",
-                    "value": "Radar image",
+                    "value": "<b>Radar image</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_4_cell_3_rk_status_vii",
@@ -336,7 +339,7 @@
                     "value": "Switch \"ON\" Radar",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_3_rk_status_vii_b",
@@ -410,7 +413,7 @@
                     "value": "Operational panelTest/Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_3_rk_status_ix",
@@ -481,10 +484,10 @@
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_static",
                     "type": "label",
-                    "value": "Sofware",
+                    "value": "<b>Sofware</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_3_rk_status_x",
@@ -558,7 +561,7 @@
                     "value": "Check software Installation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_3_rk_status_xi",
@@ -632,7 +635,7 @@
                     "value": "Contrast Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_3_rk_status_xii",
@@ -703,10 +706,10 @@
                   {
                     "_id": "section_2_matrix_1_row_10_cell_2_static",
                     "type": "label",
-                    "value": "Operation Panel",
+                    "value": "<b>Operation Panel</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_10_cell_3_rk_status_xii_b",
@@ -780,7 +783,7 @@
                     "value": "Operate via Panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_3_rk_status_xiv",
@@ -854,7 +857,7 @@
                     "value": "Gain & STC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_3_rk_status_xv",
@@ -928,7 +931,7 @@
                     "value": "Ligthng & Dimming of operation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_3_rk_status_xvi",
@@ -1002,7 +1005,7 @@
                     "value": "Joy Stick",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_3_rk_status_xvii",
@@ -1076,7 +1079,7 @@
                     "value": "Operate via joy stick",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_3_rk_status_xviii",
@@ -1150,7 +1153,7 @@
                     "value": "Data interface",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_3_rk_status_xix",
@@ -1224,7 +1227,7 @@
                     "value": "Position data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_17_cell_3_rk_status_xx",
@@ -1298,7 +1301,7 @@
                     "value": "Speed data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_3_rk_status_xxi",
@@ -1372,7 +1375,7 @@
                     "value": "Check warning & alarm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_3_rk_status_xxii",
@@ -1443,10 +1446,10 @@
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_static",
                     "type": "label",
-                    "value": "Check Radar Images",
+                    "value": "<b>Check Radar Images</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_3_rk_status_xxiii",
@@ -1520,7 +1523,7 @@
                     "value": "Transmit Radar",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_3_rk_status_xxiv",
@@ -1591,10 +1594,10 @@
                   {
                     "_id": "section_2_matrix_1_row_22_cell_2_static",
                     "type": "label",
-                    "value": "Functional Test of Radar System",
+                    "value": "<b>Functional Test of Radar System</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_3_rk_status_xxv",
@@ -1665,10 +1668,10 @@
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_static",
                     "type": "label",
-                    "value": "Check images of Radar",
+                    "value": "<b>Check images of Radar</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_3_rk_status_xxvi",
@@ -1742,7 +1745,7 @@
                     "value": "Put Radar system into Transmit",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_3_rk_status_xxvii",
@@ -1816,7 +1819,7 @@
                     "value": "Check Sea clutter",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_3_rk_status_xxviii",
@@ -1890,7 +1893,7 @@
                     "value": "Check Heading line on Radar display",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_26_cell_3_rk_status_xxix",
@@ -1964,7 +1967,7 @@
                     "value": "Check EBL",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_3_rk_status_xxx",
@@ -2038,7 +2041,7 @@
                     "value": "Check VRM",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_3_rk_status_xxxi",
@@ -2112,7 +2115,7 @@
                     "value": "Acquire targets",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_3_rk_status_xxxii",
@@ -2183,10 +2186,10 @@
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_static",
                     "type": "label",
-                    "value": "Check indication of relative and true motion",
+                    "value": "<b>Check indication of relative and true motion</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_3_rk_status_xxxiii",
@@ -2260,7 +2263,7 @@
                     "value": "Evaluate display motion",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_3_rk_status_xxxiv",
@@ -2334,7 +2337,7 @@
                     "value": "Check speed data function",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_3_rk_status_xxxv",
@@ -2408,7 +2411,7 @@
                     "value": "Check display of heading data",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_3_rk_status_xxxvi",
@@ -2482,7 +2485,7 @@
                     "value": "Check function ATA",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_3_rk_status_xxxvii",
@@ -2544,7 +2547,7 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_35_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(xxxviii)",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2556,7 +2559,7 @@
                     "value": "Acquire some targets on Radar display",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_3_rk_status_xxxviii",
@@ -2630,7 +2633,7 @@
                     "value": "Check vector of acquired targets",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_3_rk_status_xxxix",
@@ -2704,7 +2707,7 @@
                     "value": "Check trails",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_3_rk_status_xl",
@@ -2774,6 +2777,7 @@
             "label": "Presenting Authority",
             "type": "input",
             "value": "Ship's Staff",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",
@@ -2786,6 +2790,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT (V)",
+            "colspan":12,
             "required": false,
             "disabled": true,
             "placeholder": "",

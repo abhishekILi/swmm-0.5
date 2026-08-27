@@ -12,9 +12,9 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Trial Header Information",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "ship",
@@ -24,7 +24,7 @@
             "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
@@ -55,7 +55,9 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -68,7 +70,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "date",
-            "colSpan" : 4
+            "colSpan": 4
           },
           {
             "_id": "nature_of_trials",
@@ -81,7 +83,7 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan": 4
           }
         ],
         "tables_1": [
@@ -92,16 +94,17 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI. NO",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "TRIAL SER",
+                  "label": "TRIAL SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "100px"
                 },
                 {
                   "label": "CHECK DESCRIPTION AS PER SCHEDULE",
@@ -119,7 +122,8 @@
                   "label": "PRESENTING AUTHORITY REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "450px"
                 }
               ]
             ],
@@ -150,7 +154,7 @@
                     "value": "Visual Checks of the Equipment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_1_cell_4_result_1",
@@ -232,7 +236,7 @@
                     "value": "Checking front Panel controls",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_2_cell_4_result_2",
@@ -327,7 +331,7 @@
                     "value": "Power Consumption checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_4_cell_4_result_3",
@@ -409,7 +413,7 @@
                     "value": "Frequency Accuracy Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_5_cell_4_result_4",
@@ -491,7 +495,7 @@
                     "value": "Power Output check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_6_cell_4_result_5",
@@ -573,7 +577,7 @@
                     "value": "Bite Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_7_cell_4_result_6",
@@ -655,7 +659,7 @@
                     "value": "Keying",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_schedule_matrix_1_row_8_cell_4_result_7",
@@ -719,9 +723,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Authority Checks",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "st1075_presenting_authority",
@@ -733,7 +737,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
-            "colSpan":4,
+            "colSpan": 4,
             "options": [
               {
                 "label": "--Select--",
@@ -765,7 +769,7 @@
             "disabled": false,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           },
           {
             "_id": "st1075_watt",
@@ -778,7 +782,7 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan":4
+            "colSpan": 4
           }
         ],
         "tables_2": []

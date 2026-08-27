@@ -13,7 +13,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
@@ -75,7 +75,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -88,7 +88,9 @@
                 "value": "MFSTAR_RADAR"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -147,7 +149,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -178,32 +180,19 @@
                 "_id": "checks_matrix_1_row_1",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_1",
+                    "_id": "embark_time",
                     "key": "embark_time",
-                    "type": "label",
-                    "value": "Trials team embarked onboard at",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "name": "embark_time",
+                    "lb": "Trials team embarked onboard at",
                     "type": "input",
+                    "inputType": "time",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "input",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -214,20 +203,20 @@
                     "hiddenKey": null,
                     "displayKey": null
                   },
-
-
                   {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
+                    "_id": "embark_date",
+                    "key": "embark_date",
+                    "name": "embark_date",
+                    "lb": "on for SATs of MFSTAR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "type": "date",
+                    "inputType": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "date",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -237,21 +226,6 @@
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
-                  },
-                  {
-                    "_id": "observations_matrix_1_row_1_cell_1_embark_time",
-                    "key": "embark_time",
-                    "type": "label",
-                    "value": "for SATs of AICS LAMA (FASC) as per approved schedule, BR 4050 and CNO 07/10. Following observed: -for SATs of MFSTAR as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
                   }
                 ]
               },
@@ -264,7 +238,7 @@
                     "value": "Check No.",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -277,7 +251,7 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_2_static",
@@ -285,7 +259,7 @@
                     "value": "Check No. 3.1 System Environment",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_3_cell_3_check_no__3_1_remarks",
@@ -351,7 +325,7 @@
                     "value": "2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
@@ -359,7 +333,7 @@
                     "value": "Check No. 4.1 General Checks",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_check_no__4_1_remarks",
@@ -425,7 +399,7 @@
                     "value": "3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
@@ -433,7 +407,7 @@
                     "value": "Check No. 4.2 Hardware Test- System level",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_check_no__4_2_remarks",
@@ -499,7 +473,7 @@
                     "value": "4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_2_static",
@@ -507,7 +481,7 @@
                     "value": "Check No. 4.3 Configuration Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_check_no__4_3_remarks",
@@ -573,7 +547,7 @@
                     "value": "5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_2_static",
@@ -581,7 +555,7 @@
                     "value": "Check No. 4.4 System Activation Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_3_check_no__4_4_remarks",
@@ -647,7 +621,7 @@
                     "value": "6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_2_static",
@@ -655,7 +629,7 @@
                     "value": "Check No. 4.5 Safety Test",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_8_cell_3_check_no__4_5_remarks",
@@ -721,7 +695,7 @@
                     "value": "7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_2_static",
@@ -729,7 +703,7 @@
                     "value": "Check No. 6 Hardware List",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_3_check_no__6_remarks",
@@ -795,7 +769,7 @@
                     "value": "8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_2_static",
@@ -803,7 +777,7 @@
                     "value": "Check No. 7.1 Test S1 MFSTAR Accuracies",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_3_check_no__7_1_remarks",
@@ -869,7 +843,7 @@
                     "value": "9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_2_static",
@@ -877,7 +851,7 @@
                     "value": "Check No. 7.2 Test S2 MFSTAR ATI Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_3_check_no__7_2_remarks",
@@ -943,7 +917,7 @@
                     "value": "10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_2_static",
@@ -951,7 +925,7 @@
                     "value": "Check No. 7.3 Test S3 MFSTAR Manoeuvring Target",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_3_check_no__7_3_remarks",
@@ -1017,7 +991,7 @@
                     "value": "11",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_2_static",
@@ -1025,7 +999,7 @@
                     "value": "Check No. 7.4 Test S4 MFSTAR Range Resolution",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_3_check_no__7_4_remarks",
@@ -1091,7 +1065,7 @@
                     "value": "12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_2_static",
@@ -1099,7 +1073,7 @@
                     "value": "Check No. 7.5 Test S5 MFSTAR Surface Target Detection Range",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_14_cell_3_check_no__7_5_remarks",
@@ -1165,7 +1139,7 @@
                     "value": "13",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_2_static",
@@ -1173,7 +1147,7 @@
                     "value": "Check No. 7.6 Test S6 MFSTAR Surface Target Range Resolution",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_3_check_no__7_6_remarks",
@@ -1239,7 +1213,7 @@
                     "value": "14",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_2_static",
@@ -1247,7 +1221,7 @@
                     "value": "Check No. 7.7 Test S7 MFSTAR False Track Initiation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_16_cell_3_check_no__7_7_remarks",
@@ -1313,7 +1287,7 @@
                     "value": "15",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_2_static",
@@ -1321,7 +1295,7 @@
                     "value": "Check No. 7.8 Test S8 MFSTAR Low Altitude Target Tracking",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_17_cell_3_check_no__7_8_remarks",
@@ -1387,7 +1361,7 @@
                     "value": "16",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_2_static",
@@ -1395,7 +1369,7 @@
                     "value": "Check No. 7.9 Test S9 Helicopter Scenario",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_18_cell_3_check_no__7_9_remarks",
@@ -1461,7 +1435,7 @@
                     "value": "17",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_2_static",
@@ -1469,7 +1443,7 @@
                     "value": "Check No. 7.10 Test S10 MFSTAR SLC",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_19_cell_3_check_no__7_10_remarks",
@@ -1535,7 +1509,7 @@
                     "value": "18",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_2_static",
@@ -1543,7 +1517,7 @@
                     "value": "Check No. 7.11 Test S11 MFSTAR TOJ",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_20_cell_3_check_no__7_11_remarks",
@@ -1607,9 +1581,9 @@
         ],
         "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Presenting Authority",
-            "colSpan" : 12
+            "colSpan": 12
           },
           {
             "_id": "mfstar_radar_presenting_authority",
@@ -1621,6 +1595,7 @@
             "required": true,
             "disabled": false,
             "placeholder": "",
+            "colSpan": 12,
             "options": [
               {
                 "label": "--Select--",
@@ -1651,7 +1626,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

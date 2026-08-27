@@ -19,7 +19,7 @@
             "key": "ship",
             "name": "ship",
             "label": "Ship",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": true,
             "disabled": false,
@@ -55,13 +55,15 @@
             "disabled": true,
             "placeholder": " ",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "Date *",
+            "label": "Date",
             "type": "date",
             "value": "",
             "required": true,
@@ -104,7 +106,7 @@
             "title": "Observations",
             "topHeaders": [
               [
-                { "label": "Ser", "colspan": 1, "rowspan": 1, "align": "center" },
+                { "label": "SNo.", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "OBSERVATIONS", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "REMARKS", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "RESULTS", "colspan": 1, "rowspan": 1, "align": "center" }
@@ -114,54 +116,54 @@
               {
                "_id": "checks_matrix_1_row_1_combined",
               "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
-                    "type": "time",
-                    "value": "",
-                    "lb" : "Trial team embarked onboard for Op checks of HF Tx/R ATRX 1000 at hrs",
-                    "required": true,
-                    "disabled": false,
-                    "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-
-                  {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
-                    "inputType": "text",
-                    "value": "",
-                    "lb" : "The trials carried out IAW IHQ MoD(N)/DNS approved schedule are enumerated in succeeding paragraphs",
-                    "required": false,
-                    "disabled": false,
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
+                {
+                  "_id": "embarked_time",
+                  "key": "embarked_at",
+                  "name": "embarked_at",
+                  "type": "input",
+                  "value": "",
+                  "lb": "Trial team embarked onboard for Op checks of HF Tx/R ATRX 1000 at hrs",
+                  "required": true,
+                  "disabled": false,
+                  "placeholder": "HH:MM",
+                  "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "left",
+                  "inputType": "text"
+                },
+                {
+                  "_id": "schedule",
+                  "key": "embarked_on",
+                  "name": "embarked_on",
+                  "type": "date",
+                  "inputType": "date",
+                  "value": "",
+                  "lb": "The trials carried out IAW IHQ MoD(N)/DNS approved schedule are enumerated in succeeding paragraphs",
+                  "required": false,
+                  "disabled": false,
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "left"
+                }
+              ]
               },
               {
                 "_id": "check_4_1",
                 "cells": [
-                  { "type": "serial", "value": "01.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "01.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Check no. – 4.1 <br> <b>MFCS Controller Functional Testing</b>\n01. Centroid mode for SRCR\n02. Confusion mode for LR\n03. Distraction mode for MR\n04. Manual mode\n05. Emergency mode", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "chk41_remarks", "type": "textarea", "value": "", "rows": 4, "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk41_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" }
+                  { "key": "chk41_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               },
               {
                 "_id": "check_4_2",
                 "cells": [
-                  { "type": "serial", "value": "02.", "colspan": 1, "rowspan": 1, "align": "center" },
+                  { "type": "serial", "value": "02.", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "type": "label", "value": "Check no. - 4.2 <br> <b>RFCS Controller Functional Testing</b>\n01. Manual mode through RFCS\n02. Normal mode through FFCS", "colspan": 1, "rowspan": 1, "align": "left" },
                   { "key": "chk42_remarks", "type": "textarea", "value": "", "rows": 3, "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk42_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "center" }
+                  { "key": "chk42_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" }
                 ]
               }
             ]
@@ -174,19 +176,265 @@
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_tube_1",
+                    "name": "sr_port_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_r1",
+                    "name": "sr_port_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_n1",
+                    "name": "sr_port_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_remarks",
+                    "name": "sr_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 5,
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_result",
+                    "name": "sr_result",
+                    "type": "select",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "--",
+                        "value": ""
+                      },
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_tube_2",
+                    "name": "sr_port_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_r2",
+                    "name": "sr_port_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_n2",
+                    "name": "sr_port_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_tube_3",
+                    "name": "sr_port_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_r3",
+                    "name": "sr_port_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_n3",
+                    "name": "sr_port_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_tube_4",
+                    "name": "sr_port_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_r4",
+                    "name": "sr_port_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_n4",
+                    "name": "sr_port_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_tube_5",
+                    "name": "sr_port_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_r5",
+                    "name": "sr_port_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_port_n5",
+                    "name": "sr_port_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           },
 
           {
@@ -197,19 +445,232 @@
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_tube_1",
+                    "name": "sr_stbd_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_r1",
+                    "name": "sr_stbd_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_n1",
+                    "name": "sr_stbd_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_tube_2",
+                    "name": "sr_stbd_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_r2",
+                    "name": "sr_stbd_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_n2",
+                    "name": "sr_stbd_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_tube_3",
+                    "name": "sr_stbd_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_r3",
+                    "name": "sr_stbd_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_n3",
+                    "name": "sr_stbd_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_tube_4",
+                    "name": "sr_stbd_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_r4",
+                    "name": "sr_stbd_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_n4",
+                    "name": "sr_stbd_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_tube_5",
+                    "name": "sr_stbd_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_r5",
+                    "name": "sr_stbd_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "sr_stbd_n5",
+                    "name": "sr_stbd_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           },
 
           {
@@ -220,19 +681,309 @@
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_1",
+                    "name": "lr_port_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r1",
+                    "name": "lr_port_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n1",
+                    "name": "lr_port_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_remarks",
+                    "name": "lr_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 6,
+                    "colspan": 1,
+                    "rowspan": 6,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_result",
+                    "name": "lr_result",
+                    "type": "select",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "--",
+                        "value": ""
+                      },
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 6,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_2",
+                    "name": "lr_port_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r2",
+                    "name": "lr_port_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n2",
+                    "name": "lr_port_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_3",
+                    "name": "lr_port_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r3",
+                    "name": "lr_port_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n3",
+                    "name": "lr_port_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_4",
+                    "name": "lr_port_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r4",
+                    "name": "lr_port_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n4",
+                    "name": "lr_port_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_5",
+                    "name": "lr_port_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r5",
+                    "name": "lr_port_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n5",
+                    "name": "lr_port_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_tube_6",
+                    "name": "lr_port_tube_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_r6",
+                    "name": "lr_port_r6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_port_n6",
+                    "name": "lr_port_n6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           },
 
           {
@@ -243,19 +994,276 @@
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_1",
+                    "name": "lr_stbd_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r1",
+                    "name": "lr_stbd_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n1",
+                    "name": "lr_stbd_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_2",
+                    "name": "lr_stbd_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r2",
+                    "name": "lr_stbd_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n2",
+                    "name": "lr_stbd_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_3",
+                    "name": "lr_stbd_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r3",
+                    "name": "lr_stbd_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n3",
+                    "name": "lr_stbd_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_4",
+                    "name": "lr_stbd_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r4",
+                    "name": "lr_stbd_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n4",
+                    "name": "lr_stbd_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_5",
+                    "name": "lr_stbd_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r5",
+                    "name": "lr_stbd_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n5",
+                    "name": "lr_stbd_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_tube_6",
+                    "name": "lr_stbd_tube_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_r6",
+                    "name": "lr_stbd_r6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "lr_stbd_n6",
+                    "name": "lr_stbd_n6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           },
 
           {
@@ -266,77 +1274,528 @@
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_tube_1",
+                    "name": "mr_port_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_r1",
+                    "name": "mr_port_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_n1",
+                    "name": "mr_port_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_remarks",
+                    "name": "mr_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 5,
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_result",
+                    "name": "mr_result",
+                    "type": "select",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "--",
+                        "value": ""
+                      },
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_tube_2",
+                    "name": "mr_port_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_r2",
+                    "name": "mr_port_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_n2",
+                    "name": "mr_port_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_tube_3",
+                    "name": "mr_port_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_r3",
+                    "name": "mr_port_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_n3",
+                    "name": "mr_port_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_tube_4",
+                    "name": "mr_port_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_r4",
+                    "name": "mr_port_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_n4",
+                    "name": "mr_port_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_tube_5",
+                    "name": "mr_port_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_r5",
+                    "name": "mr_port_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_port_n5",
+                    "name": "mr_port_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           },
 
           {
             "id": "Firing test of MR Launchers STBD",
             "sectionType": "matrixTable",
-            "title": "04. Firing test of MR Launchers STBD",
+            "title": "05. Firing test of MR Launchers STBD",
             "topHeaders": [
               [
                 { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
                 { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" },
-                { "label": "", "colspan": 2, "rowspan": 1, "align": "center" }
+                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
 
               ]
             ],
             "rows": [
-
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Centroid Salvo" }, { "key": "sr_port_tube_2" }, { "key": "sr_port_r2" }, { "key": "sr_port_n2" }, { "type": "textarea", "value": "", "rows": 5, "colspan": 1, "rowspan": 5}, { "type": "select","rows": 5, "value": "", "colspan": 1, "rowspan": 5}] },
-              { "cells": [{ "type": "label", "value": "MFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_3" }, { "key": "sr_port_r3" }, { "key": "sr_port_n3" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Normal" }, { "key": "sr_port_tube_4" }, { "key": "sr_port_r4" }, { "key": "sr_port_n4" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] },
-              { "cells": [{ "type": "label", "value": "RFCSC" }, { "type": "label", "value": "Manual" }, { "key": "sr_port_tube_5" }, { "key": "sr_port_r5" }, { "key": "sr_port_n5" }] }
-              ]
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Centroid Salvo",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_tube_1",
+                    "name": "mr_stbd_tube_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_r1",
+                    "name": "mr_stbd_r1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_n1",
+                    "name": "mr_stbd_n1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "MFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_tube_2",
+                    "name": "mr_stbd_tube_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_r2",
+                    "name": "mr_stbd_r2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_n2",
+                    "name": "mr_stbd_n2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Normal",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_tube_3",
+                    "name": "mr_stbd_tube_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_r3",
+                    "name": "mr_stbd_r3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_n3",
+                    "name": "mr_stbd_n3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_tube_4",
+                    "name": "mr_stbd_tube_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_r4",
+                    "name": "mr_stbd_r4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_n4",
+                    "name": "mr_stbd_n4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "RFCSC",
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Manual",
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_tube_5",
+                    "name": "mr_stbd_tube_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_r5",
+                    "name": "mr_stbd_r5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "mr_stbd_n5",
+                    "name": "mr_stbd_n5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              }
+            ]
           }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ],
-        "fields_2": [
+          "fields_2": [
+          {
+            "type":"label",
+            "value": "Sign Off",
+            "colSpan": 12
+          },
           {
             "_id": "presenting_authority",
             "key": "presenting_authority",
             "name": "presenting_authority",
             "label": "Presenting Authority",
-            "type": "input",
-            "value": "Ship's Staff",
-            "required": false,
+            "type": "select",
+            "value": "",
+            "required": true,
             "disabled": false,
-            "placeholder": " ",
-            "inputType": "text"
+            "placeholder": "",
+            "colSpan": 12,
+            "options": [
+              { "label": "-- Select --", "value": "" },
+              { "label": "Dockyard", "value": "Dockyard" },
+              { "label": "Shipstaff", "value": "Shipstaff" },
+              { "label": "OEM", "value": "OEM" }
+            ],
+            "isDynamic": false
           },
           {
             "_id": "inspecting_authority",
@@ -348,7 +1807,8 @@
             "required": false,
             "disabled": false,
             "placeholder": " ",
-            "inputType": "text"
+            "inputType": "text",
+            "colSpan": 12
           }
         ],
         "tables_2": []

@@ -18,23 +18,37 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
-            "required": true,
-            "disabled": true,
-            "placeholder": "",
+            "required": false,
+            "disabled": false,
+            "colSpan": 6,
             "options": [
-              { "label": "-- Select --", "value": "" },
-              { "label": "INS Alpha", "value": "INS_A" },
-              { "label": "INS Bravo", "value": "INS_B" },
-              { "label": "INS Charlie", "value": "INS_C" },
-              { "label": "INS Delta", "value": "INS_D" }
-            ],
-            "isDynamic": false
+              {
+                "label": "-- Select --",
+                "value": ""
+              },
+              {
+                "label": "INS Alpha",
+                "value": "INS Alpha"
+              },
+              {
+                "label": "INS Bravo",
+                "value": "INS Bravo"
+              },
+              {
+                "label": "INS Charlie",
+                "value": "INS Charlie"
+              },
+              {
+                "label": "INS Delta",
+                "value": "INS Delta"
+              }
+            ]
           },
           {
             "_id": "department",
@@ -63,14 +77,16 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
               { "label": "-- Select --", "value": "" },
               { "label": "AIS", "value": "AIS" }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -106,7 +122,6 @@
             "isDynamic": false
           }
         ],
-        "tables_1": [],
         "tables_2": [
           {
             "id": "checks_matrix_1",
@@ -115,7 +130,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -137,29 +152,29 @@
             "columns": [],
             "rows": [
               {
-                "_id": "checks_matrix_1_row_1_combined",
+                "_id": "checks_matrix_1_row_1",
                 "cells": [
                   {
                     "_id": "embarked_time",
                     "key": "embarked_time",
                     "name": "embarked_time",
                     "type": "input",
+                    "inputType": "time",
                     "value": "",
                     "lb": "Trials team embarked onboard at",
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
+                    "_id": "embarked_date",
+                    "key": "embarked_date",
+                    "name": "embarked_date",
                     "type": "input",
-                    "inputType": "text",
+                    "inputType": "date",
                     "lb": "hrs on",
                     "value": "",
                     "required": false,
@@ -169,18 +184,19 @@
                     "align": "center"
                   },
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
+                    "_id": "gps_checks",
+                    "key": "gps_checks",
+                    "name": "gps_checks",
                     "type": "input",
                     "inputType": "text",
                     "value": "",
-                    "lb": "for OP Checks of GPS as per approved schedule vide IHQ MoD (N) / DSR letter WP 0642 dated 06 Aug 14.",
+                    "lb": "for OP Checks of GPS as per approved schedule vide IHQ MoD (N) / DSR letter WP 0642 dated 06 Aug 14./Following observed:-",
+                    "placeholder": "",
                     "required": false,
                     "disabled": false,
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -188,10 +204,10 @@
                 "_id": "checks_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "_id": "following_observed",
+                    "type": "label",
                     "value": "PHYSICAL CHECKS",
-                    "colspan": 5,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
                   }
@@ -201,7 +217,7 @@
                 "_id": "checks_matrix_1_row_3",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_3_cell_1_static",
+                    "_id": "c1_r3",
                     "type": "serial",
                     "value": "1",
                     "colspan": 1,
@@ -209,7 +225,7 @@
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_3_cell_2_static",
+                    "_id": "c2_r3",
                     "type": "label",
                     "value": "<b>Information. Check the following information provided by the AIS:-</b>",
                     "colspan": 3,
@@ -222,10 +238,46 @@
                 "_id": "checks_matrix_1_row_4",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "_id": "c1_r4",
+                    "type": "label",
                     "value": "(a) Static.",
                     "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_1_row_5",
+                "cells": [
+                  {
+                    "_id": "c1_r5",
+                    "type": "label",
+                    "value": "(i) IMO number.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c2_r5",
+                    "key": "gen_crit_1_1",
+                    "type": "radio",
+                    "value": "",
+                    "options": [
+                      { "label": "SAT", "value": "SAT" },
+                      { "label": "UNSAT", "value": "UNSAT" }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r5",
+                    "key": "rem_1_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -235,22 +287,32 @@
                 "_id": "checks_matrix_1_row_6",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
-                    "value": "(i) IMO number.",
-                    "colspan": 2,
+                    "_id": "c1_r6",
+                    "type": "label",
+                    "value": "(ii) Call Sign and Name.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_6_cell_2_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c2_r6",
+                    "key": "gen_crit_1_2",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r6",
+                    "key": "rem_1_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -261,22 +323,32 @@
                 "_id": "checks_matrix_1_row_7",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
-                    "value": "(ii) Call Sign and Name.",
-                    "colspan": 2,
+                    "_id": "c1_r7",
+                    "type": "label",
+                    "value": "(iii) Length and beam.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_7_cell_2_gen_criterion_1_3",
-                    "key": "gen_criterion_1_3",
+                    "_id": "c2_r7",
+                    "key": "gen_crit_1_3",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r7",
+                    "key": "rem_1_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -287,22 +359,32 @@
                 "_id": "checks_matrix_1_row_8",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
-                    "value": "(iii) Length and beam.",
-                    "colspan": 2,
+                    "_id": "c1_r8",
+                    "type": "label",
+                    "value": "(iv) Type of ship.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_8_cell_2_gen_criterion_1_4",
-                    "key": "gen_criterion_1_4",
+                    "_id": "c2_r8",
+                    "key": "gen_crit_1_4",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r8",
+                    "key": "rem_1_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -313,22 +395,32 @@
                 "_id": "checks_matrix_1_row_9",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
-                    "value": "(iv) Type of ship.",
-                    "colspan": 2,
+                    "_id": "c1_r9",
+                    "type": "label",
+                    "value": "(v) Location of position-fixing antenna on the ship (aft of bow and port or starboard of centreline).",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_9_cell_2_gen_criterion_1_5",
-                    "key": "gen_criterion_1_5",
+                    "_id": "c2_r9",
+                    "key": "gen_crit_1_5",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r9",
+                    "key": "rem_1_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -339,23 +431,10 @@
                 "_id": "checks_matrix_1_row_10",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
-                    "value": "(v) Location of position-fixing antenna on the ship (aft of bow and port or starboard of centreline).",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_10_cell_2_gen_criterion_1_6",
-                    "key": "gen_criterion_1_6",
-                    "type": "radio",
-                    "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
+                    "_id": "c1_r10",
+                    "type": "label",
+                    "value": "(b) Dynamic.",
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -365,10 +444,33 @@
                 "_id": "checks_matrix_1_row_11",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
-                    "value": "(b) Dynamic.",
-                    "colspan": 3,
+                    "_id": "c1_r11",
+                    "type": "label",
+                    "value": "(i) Ship's position with accuracy indication and integrity status.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c2_r11",
+                    "key": "gen_crit_1_6",
+                    "type": "radio",
+                    "value": "",
+                    "options": [
+                      { "label": "SAT", "value": "SAT" },
+                      { "label": "UNSAT", "value": "UNSAT" }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r11",
+                    "key": "rem_1_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -378,22 +480,32 @@
                 "_id": "checks_matrix_1_row_12",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
-                    "value": "(i) Ship's position with accuracy indication and integrity status.",
-                    "colspan": 2,
+                    "_id": "c1_r12",
+                    "type": "label",
+                    "value": "(ii) Time in UTC.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_12_cell_2_gen_criterion_1_7",
-                    "key": "gen_criterion_1_7",
+                    "_id": "c2_r12",
+                    "key": "gen_crit_1_7",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r12",
+                    "key": "rem_1_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -404,22 +516,32 @@
                 "_id": "checks_matrix_1_row_13",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
-                    "value": "(ii) Time in UTC.",
-                    "colspan": 2,
+                    "_id": "c1_r13",
+                    "type": "label",
+                    "value": "(iii) Course and Speed over ground.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_13_cell_2_gen_criterion_1_8",
-                    "key": "gen_criterion_1_8",
+                    "_id": "c2_r13",
+                    "key": "gen_crit_1_8",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r13",
+                    "key": "rem_1_8",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -430,22 +552,32 @@
                 "_id": "checks_matrix_1_row_14",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_14_cell_1_static",
-                    "type": "serial",
-                    "value": "(iii) Course and Speed over ground.",
-                    "colspan": 2,
+                    "_id": "c1_r14",
+                    "type": "label",
+                    "value": "(iv) Heading.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_14_cell_2_gen_criterion_1_9",
-                    "key": "gen_criterion_1_9",
+                    "_id": "c2_r14",
+                    "key": "gen_crit_1_9",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r14",
+                    "key": "rem_1_9",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -456,22 +588,32 @@
                 "_id": "checks_matrix_1_row_15",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
-                    "value": "(iv) Heading.",
-                    "colspan": 2,
+                    "_id": "c1_r15",
+                    "type": "label",
+                    "value": "(v) Navigational status (NUC, at anchor etc through manual input).",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_15_cell_2_gen_criterion_1_10",
-                    "key": "gen_criterion_1_10",
+                    "_id": "c2_r15",
+                    "key": "gen_crit_1_10",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r15",
+                    "key": "rem_1_10",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -482,22 +624,32 @@
                 "_id": "checks_matrix_1_row_16",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
-                    "value": "(v) Navigational status (NUC, at anchor etc through manual input).",
-                    "colspan": 2,
+                    "_id": "c1_r16",
+                    "type": "label",
+                    "value": "(vi) Rate of turn.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_16_cell_2_gen_criterion_1_11",
-                    "key": "gen_criterion_1_11",
+                    "_id": "c2_r16",
+                    "key": "gen_crit_1_11",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r16",
+                    "key": "rem_1_11",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -508,23 +660,10 @@
                 "_id": "checks_matrix_1_row_17",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
-                    "value": "(vi) Rate of turn.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_17_cell_2_gen_criterion_1_12",
-                    "key": "gen_criterion_1_12",
-                    "type": "radio",
-                    "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
+                    "_id": "c1_r17",
+                    "type": "label",
+                    "value": "(c) Voyage Related",
+                    "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -534,10 +673,33 @@
                 "_id": "checks_matrix_1_row_18",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
-                    "value": "(c) Voyage Related",
-                    "colspan": 4,
+                    "_id": "c1_r18",
+                    "type": "label",
+                    "value": "(i) Ship's draught.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c2_r18",
+                    "key": "gen_crit_1_12",
+                    "type": "radio",
+                    "value": "",
+                    "options": [
+                      { "label": "SAT", "value": "SAT" },
+                      { "label": "UNSAT", "value": "UNSAT" }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r18",
+                    "key": "rem_1_12",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -547,22 +709,32 @@
                 "_id": "checks_matrix_1_row_19",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
-                    "value": "(i) Ship's draught.",
-                    "colspan": 2,
+                    "_id": "c1_r19",
+                    "type": "label",
+                    "value": "(ii) Hazardous Cargo (type).",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_19_cell_2_gen_criterion_1_13",
-                    "key": "gen_criterion_1_13",
+                    "_id": "c2_r19",
+                    "key": "gen_crit_1_13",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r19",
+                    "key": "rem_1_13",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -573,22 +745,32 @@
                 "_id": "checks_matrix_1_row_20",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
-                    "value": "(ii) Hazardous Cargo (type).",
-                    "colspan": 2,
+                    "_id": "c1_r20",
+                    "type": "label",
+                    "value": "(iii) Destination and ETA.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_20_cell_2_gen_criterion_1_14",
-                    "key": "gen_criterion_1_14",
+                    "_id": "c2_r20",
+                    "key": "gen_crit_1_14",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r20",
+                    "key": "rem_1_14",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -599,22 +781,32 @@
                 "_id": "checks_matrix_1_row_21",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_21_cell_1_static",
-                    "type": "serial",
-                    "value": "(iii) Destination and ETA.",
-                    "colspan": 2,
+                    "_id": "c1_r21",
+                    "type": "label",
+                    "value": "(iv) Route plan (waypoints).",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_21_cell_2_gen_criterion_1_15",
-                    "key": "gen_criterion_1_15",
+                    "_id": "c2_r21",
+                    "key": "gen_crit_1_15",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r21",
+                    "key": "rem_1_15",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -625,22 +817,32 @@
                 "_id": "checks_matrix_1_row_22",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_22_cell_1_static",
-                    "type": "serial",
-                    "value": "(iv) Route plan (waypoints).",
-                    "colspan": 2,
+                    "_id": "c1_r22",
+                    "type": "label",
+                    "value": "(v) Short safety related messages.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_22_cell_2_gen_criterion_1_16",
-                    "key": "gen_criterion_1_16",
+                    "_id": "c2_r22",
+                    "key": "gen_crit_1_16",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r22",
+                    "key": "rem_1_16",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -651,41 +853,15 @@
                 "_id": "checks_matrix_1_row_23",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_23_cell_1_static",
-                    "type": "serial",
-                    "value": "(v) Short safety related messages.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_23_cell_2_gen_criterion_1_17",
-                    "key": "gen_criterion_1_17",
-                    "type": "radio",
-                    "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "checks_matrix_1_row_24",
-                "cells": [
-                  {
-                    "_id": "checks_matrix_1_row_24_cell_1_static",
+                    "_id": "c1_r23",
                     "type": "serial",
                     "value": "2",
                     "colspan": 1,
-                    "rowspan": 11,
+                    "rowspan": 13,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_24_cell_2_static",
+                    "_id": "c2_r23",
                     "type": "label",
                     "value": "<b>Information Update Rates for Autonomous Mode</b> - Check validity of different information as follows:-",
                     "colspan": 3,
@@ -695,19 +871,19 @@
                 ]
               },
               {
-                "_id": "checks_matrix_1_row_25",
+                "_id": "checks_matrix_1_row_24",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
+                    "_id": "c1_r24",
+                    "type": "label",
                     "value": "(a) Static Information – Every 6 min and on request.",
-                    "colspan": 2,
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_25_cell_2_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c2_r24",
+                    "key": "gen_crit_2_1",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -717,6 +893,58 @@
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
+                  },
+                  {
+                    "_id": "c3_r24",
+                    "key": "rem_2_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_1_row_25",
+                "cells": [
+                  {
+                    "_id": "c1_r25",
+                    "type": "label",
+                    "value": "(b) Dynamic Information – Dependant on speed and course alteration according to the under mentioned table.",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "checks_matrix_1_row_26",
+                "cells": [
+                  {
+                    "_id": "c1_r26",
+                    "type": "label",
+                    "value": "<b>Type of Ship</b>",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c2_r26",
+                    "type": "label",
+                    "value": "<b>Reporting Interval</b>",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "c3_r26",
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
                   }
                 ]
               },
@@ -724,16 +952,24 @@
                 "_id": "checks_matrix_1_row_27",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
-                    "value": "(b) Dynamic Information – Dependant on speed and course alteration according to the under mentioned table.",
-                    "colspan": 2,
+                    "_id": "c1_r27",
+                    "type": "label",
+                    "value": "Ship at anchor.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_27_cell_2_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c2_r27",
+                    "type": "label",
+                    "value": "03 min",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "c3_r27",
+                    "key": "gen_crit_2_2",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -750,24 +986,24 @@
                 "_id": "checks_matrix_1_row_28",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_28_cell_1_static",
+                    "_id": "c1_r28",
                     "type": "label",
-                    "value": "<b>Type of Ship</b>",
+                    "value": "Ship 0-14 knots.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c2_r28",
+                    "type": "label",
+                    "value": "12 sec",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_29_cell_2_static",
-                    "type": "label",
-                    "value": "<b>Reporting Interval</b>",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_29_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r28",
+                    "key": "gen_crit_2_3",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -784,24 +1020,24 @@
                 "_id": "checks_matrix_1_row_29",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship at anchor.",
+                    "_id": "c1_r29",
+                    "type": "label",
+                    "value": "Ship 0-14 knots and changing course.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_29_cell_2_static",
+                    "_id": "c2_r29",
                     "type": "label",
-                    "value": "03 min",
+                    "value": "04 sec",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_29_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r29",
+                    "key": "gen_crit_2_4",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -818,24 +1054,24 @@
                 "_id": "checks_matrix_1_row_30",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_30_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship 0-14 knots.",
+                    "_id": "c1_r30",
+                    "type": "label",
+                    "value": "Ship 14-23 knots.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_30_cell_2_static",
+                    "_id": "c2_r30",
                     "type": "label",
-                    "value": "12 sec",
+                    "value": "06 sec",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_30_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r30",
+                    "key": "gen_crit_2_5",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -852,24 +1088,24 @@
                 "_id": "checks_matrix_1_row_31",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_31_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship 0-14 knots and changing course.",
+                    "_id": "c1_r31",
+                    "type": "label",
+                    "value": "Ship 14-23 knots and changing course.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_31_cell_2_static",
+                    "_id": "c2_r31",
                     "type": "label",
-                    "value": "04 sec",
+                    "value": "02 sec",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_31_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r31",
+                    "key": "gen_crit_2_6",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -886,24 +1122,24 @@
                 "_id": "checks_matrix_1_row_32",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_32_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship 14-23 knots.",
+                    "_id": "c1_r32",
+                    "type": "label",
+                    "value": "Ship >23 knots.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_32_cell_2_static",
+                    "_id": "c2_r32",
                     "type": "label",
-                    "value": "06 sec",
+                    "value": "03 sec",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_32_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r32",
+                    "key": "gen_crit_2_7",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -920,15 +1156,15 @@
                 "_id": "checks_matrix_1_row_33",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_33_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship 14-23 knots and changing course.",
+                    "_id": "c1_r33",
+                    "type": "label",
+                    "value": "Ship >23 knots and changing course.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_33_cell_2_static",
+                    "_id": "c2_r33",
                     "type": "label",
                     "value": "02 sec",
                     "colspan": 1,
@@ -936,8 +1172,8 @@
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_33_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r33",
+                    "key": "gen_crit_2_8",
                     "type": "radio",
                     "value": "",
                     "options": [
@@ -954,30 +1190,32 @@
                 "_id": "checks_matrix_1_row_34",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_34_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship >23 knots.",
+                    "_id": "c1_r34",
+                    "type": "label",
+                    "value": "(c) Voyage Related Information – Every 6 min, when data has been amended and on request.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_34_cell_2_static",
-                    "type": "label",
-                    "value": "03 sec",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_34_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c2_r34",
+                    "key": "gen_crit_2_9",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r34",
+                    "key": "rem_2_9",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -988,30 +1226,32 @@
                 "_id": "checks_matrix_1_row_35",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_35_cell_1_static",
-                    "type": "serial",
-                    "value": "Ship >23 knots and changing course.",
+                    "_id": "c1_r35",
+                    "type": "label",
+                    "value": "(d) Safety-related messages on as required basis.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_35_cell_2_static",
-                    "type": "label",
-                    "value": "02 sec",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_35_cell_3_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c2_r35",
+                    "key": "gen_crit_2_10",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c3_r35",
+                    "key": "rem_2_10",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1022,31 +1262,40 @@
                 "_id": "checks_matrix_1_row_36",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_36_cell_1_static",
+                    "_id": "c1_r36",
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "c2_r36",
                     "type": "label",
-                    "value": "",
+                    "value": "<b>Security.</b> Check security mechanism to detect disabling and to prevent unauthorised alteration of input or transmitted data.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
-
                   {
-                    "_id": "checks_matrix_1_row_36_cell_1_static",
-                    "type": "serial",
-                    "value": "(c) Voyage Related Information – Every 6 min, when data has been amended and on request.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_36_cell_2_gen_criterion_1_2",
-                    "key": "gen_criterion_1_2",
+                    "_id": "c3_r36",
+                    "key": "gen_crit_3_1",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c4_r36",
+                    "key": "rem_3_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1057,22 +1306,40 @@
                 "_id": "checks_matrix_1_row_37",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_37_cell_1_static",
+                    "_id": "c1_r37",
                     "type": "serial",
-                    "value": "(d) Safety-related messages on as required basis.",
-                    "colspan": 3,
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "c2_r37",
+                    "type": "label",
+                    "value": "<b>Permissible Initialisation Period.</b> Check for system to be operational within 02 minutes of switching on.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_37_cell_2_gen_criterion_1_3",
-                    "key": "gen_criterion_1_3",
+                    "_id": "c3_r37",
+                    "key": "gen_crit_4_1",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c4_r37",
+                    "key": "rem_4_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1083,30 +1350,40 @@
                 "_id": "checks_matrix_1_row_38",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_38_cell_1_static",
+                    "_id": "c1_r38",
                     "type": "serial",
-                    "value": "3",
+                    "value": "5",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_38_cell_2_static",
+                    "_id": "c2_r38",
                     "type": "label",
-                    "value": "<b>Security.</b> Check security mechanism to detect disabling and to prevent unauthorised alteration of input or transmitted data.",
-                    "colspan": 2,
+                    "value": "Interfaces. Check interfaces with analog and digital navigational systems and aids like GPS, Gyro, Log, Navigational Radar(s), ECDIS, Integrated Bridge System (IBS) and CTD / CAIO System Combat Management System (CMS) catering for shipboard systems of different origins / manufactures and vintages.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_38_cell_3_gen_criterion_1_9",
-                    "key": "gen_criterion_1_9",
+                    "_id": "c3_r38",
+                    "key": "gen_crit_5_1",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c4_r38",
+                    "key": "rem_5_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1117,75 +1394,7 @@
                 "_id": "checks_matrix_1_row_39",
                 "cells": [
                   {
-                    "_id": "checks_matrix_1_row_39_cell_1_static",
-                    "type": "serial",
-                    "value": "4",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_39_cell_2_static",
-                    "type": "label",
-                    "value": "<b>Permissible Initialisation Period.</B> Check for system to be operational within 02 minutes of switching on.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_39_cell_3_gen_criterion_1_10",
-                    "key": "gen_criterion_1_10",
-                    "type": "radio",
-                    "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "checks_matrix_1_row_40",
-                "cells": [
-                  {
-                    "_id": "checks_matrix_1_row_40_cell_1_static",
-                    "type": "serial",
-                    "value": "5",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_40_cell_2_static",
-                    "type": "label",
-                    "value": "Interfaces. Check interfaces with analog and digital navigational systems and aids like GPS, Gyro, Log, Navigational Radar(s), ECDIS, Integrated Bridge System (IBS) and CTD / CAIO System Combat Management System (CMS) catering for shipboard systems of different origins / manufactures and vintages.",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "checks_matrix_1_row_40_cell_3_gen_criterion_1_11",
-                    "key": "gen_criterion_1_11",
-                    "type": "radio",
-                    "value": "",
-                    "options": [
-                      { "label": "SAT", "value": "SAT" },
-                      { "label": "UNSAT", "value": "UNSAT" }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "checks_matrix_1_row_41",
-                "cells": [
-                  {
-                    "_id": "checks_matrix_1_row_41_cell_1_static",
+                    "_id": "c1_r39",
                     "type": "serial",
                     "value": "6",
                     "colspan": 1,
@@ -1193,22 +1402,32 @@
                     "align": "center"
                   },
                   {
-                    "_id": "checks_matrix_1_row_41_cell_2_static",
+                    "_id": "c2_r39",
                     "type": "label",
-                    "value": "Check AIS for Receive Only mode information when own transmission is switched off.",
-                    "colspan": 2,
+                    "value": "Check AIS for \"Receive Only\" mode information when own transmission is switched off.",
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "checks_matrix_1_row_41_cell_3_gen_criterion_1_11",
-                    "key": "gen_criterion_1_11",
+                    "_id": "c3_r39",
+                    "key": "gen_crit_6_1",
                     "type": "radio",
                     "value": "",
                     "options": [
                       { "label": "SAT", "value": "SAT" },
                       { "label": "UNSAT", "value": "UNSAT" }
                     ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "c4_r39",
+                    "key": "rem_6_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1223,8 +1442,13 @@
         "fields_2": [
           {
             "type": "label",
-            "value": "<b>Presenting Authority:</b> Ship's Staff",
-            "colSpan": 12
+            "value": "<div style='text-align: center;'><b>Presenting Authority:</b> Ship's Staff</div>",
+            "colSpan": 8
+          },
+          {
+            "type": "label",
+            "value": "<div style='text-align: center;'><b>Inspecting Authority:</b> WATT (V)</div>",
+            "colSpan": 4
           },
           {
             "_id": "presenting_nd",
@@ -1237,13 +1461,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
-          },
-
-          {
-            "type": "label",
-            "value": "<b>Inspecting Authority:</b> WATT (V)",
-            "colSpan": 12
+            "colSpan": 4
           },
           {
             "_id": "inspecting_sti_ti",
@@ -1256,7 +1474,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "colSpan": 4
           },
           {
             "_id": "inspecting_sto",
@@ -1269,7 +1487,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "colSpan": 4
           }
         ]
       }

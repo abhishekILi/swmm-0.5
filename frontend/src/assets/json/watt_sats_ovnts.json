@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "basic_information",
-      "title": "Basic Information",
+      "title": "WEAPON ACCEPTANCE TRIALS TEAM VISAKHAPATNAM — DAILY SUMMARY OF PROGRESS",
       "sectionType": "form",
       "fields": [],
       "tables": [],
@@ -13,20 +13,26 @@
       "sectionGroup": {
         "fields_1": [
           {
+            "type": "label",
+            "value": "Basic Information",
+            "colSpan": 12
+          },
+          {
             "_id": "ship",
             "key": "ship",
             "name": "ship",
             "label": "Ship",
-            "type": "select",
+            "type": "input",
             "value": "",
             "required": true,
-            "disabled": false,
+            "colSpan": "4",
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
-            "lookupKey": "ship",
+            "lookupKey": "ship_name",
             "prefill": true,
-            "prefillSource": "context.ship"
+            "prefillSource": "context.ship_name"
           },
           {
             "_id": "dept",
@@ -34,6 +40,7 @@
             "name": "dept",
             "label": "Dept",
             "type": "select",
+            "colSpan": "4",
             "value": "",
             "required": false,
             "disabled": false,
@@ -70,8 +77,9 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
+            "colSpan": "4",
             "options": [
               {
                 "label": "-- Select Equipment --",
@@ -82,7 +90,9 @@
                 "value": "OVNTS"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -94,6 +104,7 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
+            "colSpan": "4",
             "inputType": "date"
           },
           {
@@ -105,6 +116,7 @@
             "value": "",
             "required": false,
             "disabled": false,
+            "colSpan": "4",
             "placeholder": "",
             "options": [
               {
@@ -134,6 +146,7 @@
             "type": "input",
             "value": "",
             "required": false,
+            "colSpan": "4",
             "disabled": false,
             "placeholder": " ",
             "inputType": "number"
@@ -143,63 +156,129 @@
           {
             "id": "ovnts_checks_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Checks",
+            "title": "OVNTS — Checks",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "Observations",
-                  "colspan": 1,
+                  "colspan": 17,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "Remarks",
-                  "colspan": 1,
+                  "colspan": 6,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
+                "_id": "ovnts_checks_matrix_1_intro_row",
+                "cells": [
+                  {
+                    "_id": "ovnts_intro_prefix",
+                    "type": "label",
+                    "value": "Trials team embarked onboard at",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ovnts_embarked_time",
+                    "key": "ovnts_embarked_time",
+                    "name": "ovnts_embarked_time",
                     "type": "time",
                     "value": "",
-                    "lb" : "Trial team embarked onboard for Op checks of HF Tx/R ATRX 1000 at hrs",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "inputType": "time",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "ovnts_intro_time_suffix",
+                    "type": "label",
+                    "value": "hrs on",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
-
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
-                    "inputType": "text",
+                    "_id": "ovnts_trial_date",
+                    "key": "ovnts_trial_date",
+                    "name": "ovnts_trial_date",
+                    "type": "date",
                     "value": "",
-                    "lb" : "The trials carried out IAW IHQ MoD(N)/DNS approved schedule are enumerated in succeeding paragraphs",
-                    "required": false,
+                    "required": true,
                     "disabled": false,
+                    "placeholder": "dd-mm-yyyy",
+                    "inputType": "date",
                     "colspan": 2,
                     "rowspan": 1,
                     "align": "center"
+                  },
+                  {
+                    "_id": "ovnts_intro_suffix",
+                    "type": "label",
+                    "value": "for SATs of Colour Tactical Display as per IHQ MoD (navy) approved schedule. Following observations :-",
+                    "colspan": 15,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "ovnts_checks_matrix_1_row_1",
+                "cells": [
+                  {
+                    "_id": "ovnts_row_1_serial",
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ovnts_row_1_observation",
+                    "type": "label",
+                    "value": "Check 6.1.C – Display of Logo at the bottom of Display",
+                    "colspan": 17,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ovnts_row_1_remarks",
+                    "key": "ovnts_check_1_remarks",
+                    "name": "ovnts_check_1_remarks",
+                    "type": "radio",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 6,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -207,31 +286,29 @@
                 "_id": "ovnts_checks_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_2_cell_1_static",
+                    "_id": "ovnts_row_2_serial",
                     "type": "serial",
-                    "value": "1",
+                    "value": "2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_2_cell_2_static",
+                    "_id": "ovnts_row_2_observation",
                     "type": "label",
-                    "value": "Check 6.1.C \u2013 Display of Logo at the bottom of Display",
-                    "colspan": 1,
+                    "value": "Check 6.1.d – Time elapsed before 'DET HOT' disappears (<10 Min)",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_2_cell_3_s1_remarks",
-                    "key": "s1_remarks",
+                    "_id": "ovnts_row_2_remarks",
+                    "key": "ovnts_check_2_remarks",
+                    "name": "ovnts_check_2_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -242,16 +319,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -259,31 +329,29 @@
                 "_id": "ovnts_checks_matrix_1_row_3",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_3_cell_1_static",
+                    "_id": "ovnts_row_3_serial",
                     "type": "serial",
-                    "value": "2",
+                    "value": "3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_3_cell_2_static",
+                    "_id": "ovnts_row_3_observation",
                     "type": "label",
-                    "value": "Check 6.1.d \u2013 Time elapsed before 'DET HOT' disappears (<10 Min)",
-                    "colspan": 1,
+                    "value": "Check 6.2.a – Zoom controls (IN / OUT)",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_3_cell_3_s2_remarks",
-                    "key": "s2_remarks",
+                    "_id": "ovnts_row_3_remarks",
+                    "key": "ovnts_check_3_remarks",
+                    "name": "ovnts_check_3_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -294,16 +362,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -311,31 +372,29 @@
                 "_id": "ovnts_checks_matrix_1_row_4",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_4_cell_1_static",
+                    "_id": "ovnts_row_4_serial",
                     "type": "serial",
-                    "value": "3",
+                    "value": "4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_4_cell_2_static",
+                    "_id": "ovnts_row_4_observation",
                     "type": "label",
-                    "value": "Check 6.2.a \u2013 Zoom controls (IN / OUT)",
-                    "colspan": 1,
+                    "value": "Check 6.2.b – Focus controls FAR & NEAR",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_4_cell_3_s3_remarks",
-                    "key": "s3_remarks",
+                    "_id": "ovnts_row_4_remarks",
+                    "key": "ovnts_check_4_remarks",
+                    "name": "ovnts_check_4_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -346,16 +405,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -363,31 +415,29 @@
                 "_id": "ovnts_checks_matrix_1_row_5",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_5_cell_1_static",
+                    "_id": "ovnts_row_5_serial",
                     "type": "serial",
-                    "value": "4",
+                    "value": "5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_5_cell_2_static",
+                    "_id": "ovnts_row_5_observation",
                     "type": "label",
-                    "value": "Check 6.2.b \u2013 Focus controls FAR & NEAR",
-                    "colspan": 1,
+                    "value": "Check 6.2.c – Video Polarity",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_5_cell_3_s4_remarks",
-                    "key": "s4_remarks",
+                    "_id": "ovnts_row_5_remarks",
+                    "key": "ovnts_check_5_remarks",
+                    "name": "ovnts_check_5_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -398,16 +448,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -415,31 +458,29 @@
                 "_id": "ovnts_checks_matrix_1_row_6",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_6_cell_1_static",
+                    "_id": "ovnts_row_6_serial",
                     "type": "serial",
-                    "value": "5",
+                    "value": "6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_6_cell_2_static",
+                    "_id": "ovnts_row_6_observation",
                     "type": "label",
-                    "value": "Check 6.2.c \u2013 Video Polarity",
-                    "colspan": 1,
+                    "value": "Check 6.2.d – Reticule Polarity from \"BLK HOT\" to \"WHT HOT\" and vice versa",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_6_cell_3_s5_remarks",
-                    "key": "s5_remarks",
+                    "_id": "ovnts_row_6_remarks",
+                    "key": "ovnts_check_6_remarks",
+                    "name": "ovnts_check_6_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -450,16 +491,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -467,31 +501,29 @@
                 "_id": "ovnts_checks_matrix_1_row_7",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_7_cell_1_static",
+                    "_id": "ovnts_row_7_serial",
                     "type": "serial",
-                    "value": "6",
+                    "value": "7",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_7_cell_2_static",
+                    "_id": "ovnts_row_7_observation",
                     "type": "label",
-                    "value": "Check 6.2.d \u2013 Reticule Polarity from \"BLK HOT\" to \"WHT HOT\" and vice versa",
-                    "colspan": 1,
+                    "value": "Check 6.2.e – Reticule ON / OFF",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_7_cell_3_s6_remarks",
-                    "key": "s6_remarks",
+                    "_id": "ovnts_row_7_remarks",
+                    "key": "ovnts_check_7_remarks",
+                    "name": "ovnts_check_7_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -502,16 +534,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -519,31 +544,29 @@
                 "_id": "ovnts_checks_matrix_1_row_8",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_8_cell_1_static",
+                    "_id": "ovnts_row_8_serial",
                     "type": "serial",
-                    "value": "7",
+                    "value": "8",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_8_cell_2_static",
+                    "_id": "ovnts_row_8_observation",
                     "type": "label",
-                    "value": "Check 6.2.e \u2013 Reticule ON / OFF",
-                    "colspan": 1,
+                    "value": "Check 6.2.f – Video quality (not noisy)",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_8_cell_3_s7_remarks",
-                    "key": "s7_remarks",
+                    "_id": "ovnts_row_8_remarks",
+                    "key": "ovnts_check_8_remarks",
+                    "name": "ovnts_check_8_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -554,16 +577,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -571,83 +587,29 @@
                 "_id": "ovnts_checks_matrix_1_row_9",
                 "cells": [
                   {
-                    "_id": "ovnts_checks_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
-                    "value": "8",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_matrix_1_row_9_cell_2_static",
-                    "type": "label",
-                    "value": "Check 6.2.f \u2013 Video quality (not noisy) Check 6.3 – ",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_matrix_1_row_9_cell_3_s8_remarks",
-                    "key": "s8_remarks",
-                    "type": "radio",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": [
-                      {
-                        "label": "SAT",
-                        "value": "SAT"
-                      },
-                      {
-                        "label": "UNSAT",
-                        "value": "UNSAT"
-                      }
-                    ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "ovnts_checks_matrix_1_row_10",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_matrix_1_row_10_cell_1_static",
+                    "_id": "ovnts_row_9_serial",
                     "type": "serial",
                     "value": "9",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_9_cell_2_static",
+                    "_id": "ovnts_row_9_observation",
                     "type": "label",
-                    "value": "Check 6.3-",
-                    "colspan": 1,
+                    "value": "<div style='line-height:1.45;'><b>Check 6.3 – Range Checks</b><br><span style='display:inline-block;width:95px;padding-left:14px;'><b>Detection</b></span><b>Specified</b><br><span style='display:inline-block;width:95px;padding-left:14px;'>Large Ship</span>7 KM<br><span style='display:inline-block;width:95px;padding-left:14px;'>Medium Ship</span>5 KM<br><b>Recognition Checks</b><br><span style='display:inline-block;width:125px;padding-left:14px;'>Large Size Ship</span>4 KM<br><span style='display:inline-block;width:125px;padding-left:14px;'>Medium Size Ship</span>2 KM</div>",
+                    "colspan": 17,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "ovnts_checks_matrix_1_row_10_cell_2_s9_remarks",
-                    "key": "s9_remarks",
+                    "_id": "ovnts_row_9_remarks",
+                    "key": "ovnts_check_9_remarks",
+                    "name": "ovnts_check_9_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -658,164 +620,9 @@
                         "value": "UNSAT"
                       }
                     ],
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "ovnts_checks_table_2",
-            "sectionType": "simpleTable",
-            "title": "Check 6.3 \u2013 Range Checks",
-            "topHeaders": [
-              [
-                {
-                  "label": "Detection",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Specified",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                }
-              ]
-            ],
-            "columns": [
-              {
-                "key": "detection",
-                "label": "Detection",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "specified",
-                "label": "Specified",
-                "type": "label",
-                "align": "left"
-              }
-            ],
-            "rows": [
-              {
-                "_id": "ovnts_checks_table_2_row_1",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_table_2_row_1_cell_1_static",
-                    "type": "serial",
-                    "value": "Large Ship",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_table_2_row_1_cell_2_static",
-                    "type": "label",
-                    "value": "7 KM",
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
                     "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "ovnts_checks_table_2_row_2",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_table_2_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "Medium Ship",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_table_2_row_2_cell_2_static",
-                    "type": "label",
-                    "value": "5 KM",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "ovnts_checks_matrix_3",
-            "sectionType": "matrixTable",
-            "title": "Recognition Checks",
-            "topHeaders": [],
-            "columns": [],
-            "rows": [
-              {
-                "_id": "ovnts_checks_matrix_3_row_1",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_matrix_3_row_1_cell_1_static",
-                    "type": "serial",
-                    "value": "",
-                    "colspan": 2,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-              {
-                "_id": "ovnts_checks_matrix_3_row_2",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_matrix_3_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "Large Size Ship",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_matrix_3_row_2_cell_2_static",
-                    "type": "label",
-                    "value": "4 KM",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  }
-                ]
-              },
-              {
-                "_id": "ovnts_checks_matrix_3_row_3",
-                "cells": [
-                  {
-                    "_id": "ovnts_checks_matrix_3_row_3_cell_1_static",
-                    "type": "serial",
-                    "value": "Medium Size Ship",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "ovnts_checks_matrix_3_row_3_cell_2_static",
-                    "type": "label",
-                    "value": "2 KM",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
                   }
                 ]
               }

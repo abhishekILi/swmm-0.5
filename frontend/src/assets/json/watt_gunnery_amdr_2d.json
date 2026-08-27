@@ -63,10 +63,12 @@
             "type": "input",
             "value": "AMDR 2D",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan" : 4
+            "colSpan" : 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -125,7 +127,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SER",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -238,7 +240,7 @@
                   {
                     "_id": "checks_matrix_1_row_2_cell_1_static",
                     "type": "serial",
-                    "value": "CHECKS",
+                    "value": "<b>CHECKS</b>",
                     "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
@@ -296,10 +298,10 @@
                   {
                     "_id": "checks_matrix_1_row_4_cell_2_static",
                     "type": "label",
-                    "value": "<b>Test No. 2 \u2013 Tests Involving Surface Target</b> (Freight Service Vessel) \n Demonstration of AMDR surface target detection and display it on radar video (From 2.1.1 to 2.1.4) \n Note: The surface target will start closing from 30 Km up to 15 Km .",
+                    "value": "<b>Test No. 2 \u2013 Tests Involving Surface Target</b> (Freight Service Vessel) \n Demonstration of AMDR surface target detection and display it on radar video <b>(From 2.1.1 to 2.1.4)</b> \n <b>Note:</b> The surface target will start closing from <b>30 Km</b> up to <b>15 Km</b> .",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_status_5_11",
@@ -370,10 +372,10 @@
                   {
                     "_id": "checks_matrix_1_row_5_cell_2_static",
                     "type": "label",
-                    "value": "Test No. 3 \u2013 Test Involving Air Target: \n Flight Altitude: 5000 ft and 300 ft to 500 ft \n Range: from 200 Km to 10 Km \n Target Speed: 300 Knots \n Run 01 (In-Bound) \n (a) IDR - \n (b) MTR- \n Run 02 (Out-Bound) \n (a) IDR- \n (b) MTR- \n Run 03 (In-Bound) \n (a) IDR- \n (b) MTR- \n Run 04 (Out-Bound) \n (a) IDR- (b) MTR-",
+                    "value": "<b>Test No. 3 \u2013 Test Involving Air Target:</b> \n Flight Altitude: <b>5000 ft</b> and <b>300 ft to 500 ft</b> \n Range: from <b>200 Km to 10 Km</b> \n Target Speed: <b>300 Knots</b> \n <b>Run 01 (In-Bound)</b> \n (a) IDR - \n (b) MTR- \n <b>Run 02 (Out-Bound)</b> \n (a) IDR- \n (b) MTR- \n <b>Run 03 (In-Bound)</b> \n (a) IDR- \n (b) MTR- \n <b>Run 04 (Out-Bound)</b> \n (a) IDR- (b) MTR-",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_status_5_3",
@@ -435,11 +437,11 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
-                    "value": "SATs RUN DOWN.",
+                    "type": "label",
+                    "value": "<b>SATs RUN DOWN.</b>",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -448,11 +450,11 @@
                 "cells": [
                   {
                     "_id": "checks_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
-                    "value": "Note: If AMDR dropped the target indicate range..",
+                    "type": "label",
+                    "value": "<b>Note:</b> If AMDR dropped the target indicate range..",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               }
@@ -474,6 +476,7 @@
             "label": "Presenting Authority",
             "type": "select",
             "value": "",
+            "colSpan":12,
             "required": true,
             "disabled": false,
             "placeholder": "",
@@ -496,6 +499,7 @@
             "label": "Inspecting Authority",
             "type": "input",
             "value": "WATT",
+            "colSpan":12,
             "required": false,
             "disabled": false,
             "placeholder": "",

@@ -13,8 +13,8 @@
           {
             "id": "section_1_table_1",
             "sectionType": "matrixTable",
-
-
+  
+  
             "rows": [
               {
                 "_id": "section_1_table_1_row_1",
@@ -93,7 +93,8 @@
                     "value": "Equipment :",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "left",
+                    "disable":"false"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_2_static",
@@ -102,7 +103,10 @@
                     "value": "",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "left",
+                    "prefill": true,
+                    "prefillSource": "equipment.nomenclature",
+                    "disabled": true
                   }
                 ]
               }
@@ -129,7 +133,7 @@
                   "align": "center"
                 },
                 {
-                  "label": "Design value(m3/h)",
+                  "label": "Design value(m*3/h)",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -275,7 +279,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "number",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -328,7 +332,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "number",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -350,7 +354,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "number",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -496,7 +500,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "number",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -518,7 +522,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": "text",
+                    "inputType": "number",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -563,7 +567,7 @@
         ],
         "fields_1": [
                        {
-
+                
                   "_id": "section_2_observation",
                   "key": "observation",
                   "type": "editor",

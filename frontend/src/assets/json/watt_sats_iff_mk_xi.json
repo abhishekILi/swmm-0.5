@@ -13,25 +13,51 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Basic Information",
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
-            "disabled": true,
-            "placeholder": "",
-            "options": [],
-            "isDynamic": true,
-            "lookupKey": "ship_name",
-            "prefill": true,
-            "prefillSource": "context.ship_name"
+            "disabled": false,
+            "placeholder": "-- Select Ship --",
+            "colSpan": 6,
+            "options": [
+              {
+                "label": "-- Select Ship --",
+                "value": ""
+              },
+              {
+                "label": "INS Alpha",
+                "value": "INS Alpha"
+              },
+              {
+                "label": "INS Bravo",
+                "value": "INS Bravo"
+              },
+              {
+                "label": "INS Charlie",
+                "value": "INS Charlie"
+              },
+              {
+                "label": "INS Delta",
+                "value": "INS Delta"
+              },
+              {
+                "label": "INS Echo",
+                "value": "INS Echo"
+              },
+              {
+                "label": "INS Foxtrot",
+                "value": "INS Foxtrot"
+              }
+            ]
           },
           {
             "_id": "dept",
@@ -75,7 +101,7 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "colSpan": 4,
             "options": [
@@ -88,7 +114,9 @@
                 "value": "CTD"
               }
             ],
-            "isDynamic": false
+            "isDynamic": false,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "trial_date",
@@ -139,71 +167,82 @@
           {
             "id": "iff_mk_checks_matrix_1",
             "sectionType": "matrixTable",
-            "title": "IFF MK \u2014 Checks",
+            "title": "IFF MK — Checks",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "4%"
                 },
                 {
                   "label": "Observations",
-                  "colspan": 1,
+                  "colspan": 5,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "83%"
                 },
                 {
                   "label": "Remarks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "26%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                    {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
+                "_id": "iff_mk_intro_row",
+                "cells": [
+                  {
+                    "_id": "iff_mk_embarked_time",
+                    "key": "iff_mk_embarked_time",
+                    "name": "iff_mk_embarked_time",
                     "type": "time",
+                    "lb": "Trials team embarked onboard at",
                     "value": "",
-                    "lb" : "Trial team embarked onboard for Op checks of HF Tx/R ATRX 1000 at hrs",
                     "required": true,
                     "disabled": false,
                     "placeholder": "HH:MM",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "inputType": "time",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
-
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
-                    "type": "textarea",
-                    "inputType": "text",
+                    "_id": "iff_mk_embarked_date",
+                    "key": "iff_mk_embarked_date",
+                    "name": "iff_mk_embarked_date",
+                    "type": "date",
+                    "lb": "hrs on",
                     "value": "",
-                    "lb" : "The trials carried out IAW IHQ MoD(N)/DNS approved schedule are enumerated in succeeding paragraphs",
-                    "required": false,
+                    "required": true,
                     "disabled": false,
-                    "colspan": 2,
+                    "placeholder": "dd-mm-yyyy",
+                    "inputType": "date",
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_schedule_label",
+                    "type": "label",
+                    "value": "for SATs of IFF MK as per IHQ MoD(navy) approved schedule. Following observations :-",
+                    "colspan": 4,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "iff_mk_checks_matrix_1_row_2",
+                "_id": "iff_mk_consort_requirement_row",
                 "cells": [
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_2_cell_1_static",
+                    "_id": "iff_mk_serial_1",
                     "type": "serial",
                     "value": "1",
                     "colspan": 1,
@@ -211,23 +250,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_2_cell_2_static",
+                    "_id": "iff_mk_consort_requirement",
                     "type": "label",
-                    "value": "Consort Requirement \u2013 (i) One Aircraft is to be fitted with a suitable IFF Transponder viz. IFF 1410NV or IFF JAT 400NV (with appliqu\u00e9 unit) (ii) A surface consort fitted with a suitable IFF Transponder Viz. IFF 1410NV or IFF JAT 400NV (with appliqu\u00e9 unit) For Mode \u2018S\u2019 trials, MK transponder or transponder with Mode \u2018S\u2019 applique unit will be required.",
-                    "colspan": 1,
+                    "value": "<b>Consort Requirement –</b><br>(i) One Aircraft is to be fitted with a suitable IFF Transponder viz. IFF 1410NV or IFF JAT 400NV (with appliqué unit)<br>(ii) A surface consort fitted with a suitable IFF Transponder Viz. IFF 1410NV or IFF JAT 400NV (with appliqué unit)<br><b>For Mode ‘S’ trials, MK transponder or transponder with Mode ‘S’ applique unit will be required.</b>",
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_2_cell_3_s1_remarks",
-                    "key": "s1_remarks",
+                    "_id": "iff_mk_s1_remarks",
+                    "key": "iff_mk_s1_remarks",
+                    "name": "iff_mk_s1_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -240,89 +277,316 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "iff_mk_checks_matrix_1_row_3",
+                "_id": "iff_mk_range_trial_heading_row",
                 "cells": [
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_3_cell_1_static",
+                    "_id": "iff_mk_serial_2",
                     "type": "serial",
                     "value": "2",
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "iff_mk_range_trial_heading",
+                    "type": "label",
+                    "value": "<b>Check 1 – Range Trials (Note: - The range trials to be carried out with the ships opening out to at least 20 nm range)</b>",
+                    "isBold": true,
+                    "colspan": 5,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "iff_mk_s2_remarks",
+                    "key": "iff_mk_s2_remarks",
+                    "name": "iff_mk_s2_remarks",
+                    "type": "radio",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "options": [
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 5,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "iff_mk_range_trial_headers",
+                "cells": [
+                  {
+                    "_id": "aircraft_height_header",
+                    "type": "label",
+                    "value": "<b>Aircraft Height</b>",
+                    "isBold": true,
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_3_cell_2_s2_1000_min",
-                    "key": "s2_1000_min",
+                    "_id": "range_min_header",
                     "type": "label",
-                    "value": "Check 1 – Range Trials (Note: - The range trials to be carried out with the ships opening out to at least 20 nm range)",
-                    "rows": null,
+                    "value": "<b>Range Min</b>",
+                    "isBold": true,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "range_max_header",
+                    "type": "label",
+                    "value": "<b>Range Max</b>",
+                    "isBold": true,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "gaps_header",
+                    "type": "label",
+                    "value": "<b>Gaps</b>",
+                    "isBold": true,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "_id": "slr_header",
+                    "type": "label",
+                    "value": "<b>SLR</b>",
+                    "isBold": true,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "_id": "iff_mk_range_trial_1000_row",
+                "cells": [
+                  {
+                    "_id": "iff_mk_1000_height",
+                    "type": "label",
+                    "value": "1000 M",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_1000_min",
+                    "key": "s2_1000_min",
+                    "name": "s2_1000_min",
+                    "type": "input",
+                    "value": "",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
-
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_3_cell_3_s2_remarks",
-                    "key": "s2_remarks",
-                    "type": "radio",
+                    "_id": "iff_mk_s2_1000_max",
+                    "key": "s2_1000_max",
+                    "name": "s2_1000_max",
+                    "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "inputType": null,
-                    "options": [
-                      {
-                        "label": "SAT",
-                        "value": "SAT"
-                      },
-                      {
-                        "label": "UNSAT",
-                        "value": "UNSAT"
-                      }
-                    ],
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_1000_gaps",
+                    "key": "s2_1000_gaps",
+                    "name": "s2_1000_gaps",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_1000_slr",
+                    "key": "s2_1000_slr",
+                    "name": "s2_1000_slr",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "iff_mk_checks_matrix_1_row_4",
+                "_id": "iff_mk_range_trial_4000_row",
                 "cells": [
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_4_cell_1_static",
+                    "_id": "iff_mk_4000_height",
+                    "type": "label",
+                    "value": "4000 M",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_4000_min",
+                    "key": "s2_4000_min",
+                    "name": "s2_4000_min",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_4000_max",
+                    "key": "s2_4000_max",
+                    "name": "s2_4000_max",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_4000_gaps",
+                    "key": "s2_4000_gaps",
+                    "name": "s2_4000_gaps",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_4000_slr",
+                    "key": "s2_4000_slr",
+                    "name": "s2_4000_slr",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "iff_mk_range_trial_8000_row",
+                "cells": [
+                  {
+                    "_id": "iff_mk_8000_height",
+                    "type": "label",
+                    "value": "8000 M",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_8000_min",
+                    "key": "s2_8000_min",
+                    "name": "s2_8000_min",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_8000_max",
+                    "key": "s2_8000_max",
+                    "name": "s2_8000_max",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_8000_gaps",
+                    "key": "s2_8000_gaps",
+                    "name": "s2_8000_gaps",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "iff_mk_s2_8000_slr",
+                    "key": "s2_8000_slr",
+                    "name": "s2_8000_slr",
+                    "type": "input",
+                    "value": "",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
+              },
+              {
+                "_id": "iff_mk_decoding_trial_row",
+                "cells": [
+                  {
+                    "_id": "iff_mk_serial_3",
                     "type": "serial",
                     "value": "3",
                     "colspan": 1,
@@ -330,23 +594,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_4_cell_2_static",
+                    "_id": "iff_mk_decoding_trial_label",
                     "type": "label",
-                    "value": "Check 2 \u2013 MK Decoding Trials",
-                    "colspan": 1,
+                    "value": "Check 2 – MK Decoding Trials",
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_4_cell_3_s3_remarks",
-                    "key": "s3_remarks",
+                    "_id": "iff_mk_s3_remarks",
+                    "key": "iff_mk_s3_remarks",
+                    "name": "iff_mk_s3_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -359,22 +621,15 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
               {
-                "_id": "iff_mk_checks_matrix_1_row_5",
+                "_id": "iff_mk_mode_s_checking_row",
                 "cells": [
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_5_cell_1_static",
+                    "_id": "iff_mk_serial_4",
                     "type": "serial",
                     "value": "4",
                     "colspan": 1,
@@ -382,23 +637,21 @@
                     "align": "center"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_5_cell_2_static",
+                    "_id": "iff_mk_mode_s_checking_label",
                     "type": "label",
-                    "value": "Check 3 \u2013 Mode \u201cS\u201d Checking",
-                    "colspan": 1,
+                    "value": "Check 3 – Mode “S” Checking",
+                    "colspan": 5,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "iff_mk_checks_matrix_1_row_5_cell_3_s4_remarks",
-                    "key": "s4_remarks",
+                    "_id": "iff_mk_s4_remarks",
+                    "key": "iff_mk_s4_remarks",
+                    "name": "iff_mk_s4_remarks",
                     "type": "radio",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
                     "options": [
                       {
                         "label": "SAT",
@@ -411,291 +664,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "iff_mk_checks_table_2",
-            "sectionType": "simpleTable",
-            "title": "Check 1 \u2013 Range Trials (Note: - The range trials to be carried out with the ships opening out to at least 20 nm range)",
-            "topHeaders": [
-              [
-                {
-                  "label": "Aircraft Height",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Range Min",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Range Max",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Gaps",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "SLR",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                }
-              ]
-            ],
-            "columns": [
-              {
-                "key": "aircraft_height",
-                "label": "Aircraft Height",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "range_min",
-                "label": "Range Min",
-                "type": "label",
-                "align": "left"
-              },
-              {
-                "key": "range_max",
-                "label": "Range Max",
-                "type": "label",
-                "align": "left"
-              },
-              {
-                "key": "gaps",
-                "label": "Gaps",
-                "type": "label",
-                "align": "left"
-              },
-              {
-                "key": "slr",
-                "label": "SLR",
-                "type": "label",
-                "align": "left"
-              }
-            ],
-            "rows": [
-              {
-                "_id": "iff_mk_checks_table_2_row_1",
-                "cells": [
-                  {
-                    "_id": "iff_mk_checks_table_2_row_1_cell_1_static",
-                    "type": "serial",
-                    "value": "1000 M",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_1_cell_2_s2_1000_min",
-                    "key": "s2_1000_min",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_1_cell_3_s2_1000_max",
-                    "key": "s2_1000_max",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_1_cell_4_s2_1000_gaps",
-                    "key": "s2_1000_gaps",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_1_cell_5_s2_1000_slr",
-                    "key": "s2_1000_slr",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "iff_mk_checks_table_2_row_2",
-                "cells": [
-                  {
-                    "_id": "iff_mk_checks_table_2_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "4000 M",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "center"
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_2_cell_2_s2_4000_min",
-                    "key": "s2_4000_min",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_2_cell_3_s2_4000_max",
-                    "key": "s2_4000_max",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_2_cell_4_s2_4000_gaps",
-                    "key": "s2_4000_gaps",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "iff_mk_checks_table_2_row_2_cell_5_s2_4000_slr",
-                    "key": "s2_4000_slr",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               }

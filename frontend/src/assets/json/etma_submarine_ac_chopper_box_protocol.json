@@ -17,47 +17,34 @@
             "colSpan": 12
           },
           {
+            "_id": "ins_name",
+            "key": "ins_name",
+            "name": "ins_name",
+            "label": "INS",
+            "type": "input",
+            "value": "",
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name"
+            
+          },
+          {
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "DATE OF TRIALS *",
+            "label": "DATE OF TRIALS ",
             "type": "date",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
-          },
-          {
-            "_id": "ins_name",
-            "key": "ins_name",
-            "name": "ins_name",
-            "label": "INS",
-            "type": "select",
-            "value": "",
-            "required": true,
-            "disabled": false,
-            "placeholder": "",
-            "options": [
-              {
-                "label": "INS KOCHI",
-                "value": "INS KOCHI"
-              },
-              {
-                "label": "INS KOLKATA",
-                "value": "INS KOLKATA"
-              },
-              {
-                "label": "INS CHENNAI",
-                "value": "INS CHENNAI"
-              },
-              {
-                "label": "INS VIKRANT",
-                "value": "INS VIKRANT"
-              }
-            ],
-            "isDynamic": false
           }
+          
         ],
         "tables_1": [
           {
@@ -67,16 +54,18 @@
             "topHeaders": [
               [
                 {
-                  "label": "TEST SR",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"7%"
                 },
                 {
                   "label": "TEST/ NOMINAL VALUE",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width":"15%"
                 },
                 {
                   "label": "OK / NOT OK",
@@ -117,7 +106,7 @@
                     "value": "Visual Check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_1_cell_3_result_117_100",
@@ -213,7 +202,7 @@
                     "value": "Functional Tests; Control Power Supply check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_2_cell_3_result_117_101",
@@ -309,7 +298,7 @@
                     "value": "Field Supply Check;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_3_cell_3_result_117_102",
@@ -405,7 +394,7 @@
                     "value": "Water Circuit Test;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_4_cell_3_result_117_103",
@@ -522,7 +511,7 @@
                     "value": "Over Speed;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_6_cell_3_result_117_104_a",
@@ -618,7 +607,7 @@
                     "value": "Heat Sink Over Temperature;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_7_cell_3_result_117_104_b",
@@ -714,7 +703,7 @@
                     "value": "Over Temp",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_8_cell_3_result_117_104_c",
@@ -810,7 +799,7 @@
                     "value": "Over Current",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_9_cell_3_result_117_104_d",
@@ -906,7 +895,7 @@
                     "value": "Output Over Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_10_cell_3_result_117_104_e",
@@ -1002,7 +991,7 @@
                     "value": "Battery Low",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_11_cell_3_result_117_104_f",
@@ -1098,7 +1087,7 @@
                     "value": "Field Fail",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_12_cell_3_result_117_104_g",
@@ -1194,7 +1183,7 @@
                     "value": "Flow Fail",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_13_cell_3_result_117_104_h",
@@ -1290,7 +1279,7 @@
                     "value": "Mode selection",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_14_cell_3_result_117_104_j",
@@ -1407,7 +1396,7 @@
                     "value": "Manual Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_16_cell_3_result_117_105_a",
@@ -1503,7 +1492,7 @@
                     "value": "Auto Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_17_cell_3_result_117_105_b",
@@ -1599,7 +1588,7 @@
                     "value": "Silent Mode",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "test_results_protocols_matrix_1_row_18_cell_3_result_117_105_c",

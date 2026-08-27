@@ -111,10 +111,29 @@
         "fields_1": [
           {
             "type": "input",
+            "name": "ship_name",
+            "label": "Ship",
+            "colSpan": 3,
+            "required": true,
+            "disabled": true,
+            "placeholder": "",
+            "value": "",
+            "inputType": "input",
+            "options": null,
+            "isDynamic": true,
+            "lookupKey": "ship_name",
+            "prefill": true,
+            "prefillSource": "context.ship_name",
+            "lockAfterPrefill": false,
+            "hiddenKey": null,
+            "displayKey": null
+          },
+          {
+            "type": "input",
             "name": "occationOfTrial",
             "label": "OCCASION OF TRIALS",
             "colSpan": 3,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": "",
             "value": "",
@@ -133,7 +152,7 @@
             "name": "trialDate",
             "label": "TRIALS DATE - ",
             "colSpan": 3,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": "",
             "value": "",
@@ -153,7 +172,7 @@
             "name": "trialDate",
             "label": "HSR LOAD TRIAL REPORT – HSR CAT",
             "colSpan": 3,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": "",
             "value": "",
@@ -167,36 +186,18 @@
             "hiddenKey": null,
             "displayKey": null
           }
-          ,
-          {
-            "type": "input",
-            "name": "trialDate",
-            "label": "(28.5V DC)SHIP – INS",
-            "colSpan": 3,
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "value": "",
-            "inputType": "input",
-            "options": null,
-            "isDynamic": false,
-            "lookupKey": null,
-            "prefill": false,
-            "prefillSource": null,
-            "lockAfterPrefill": false,
-            "hiddenKey": null,
-            "displayKey": null
-          }
+          
+          
         ],
         "tables_1": [
-
+          
           {
             "id": "section_1_table_1",
             "sectionType": "matrixTable",
             "title": "1. Trial Details",
             "topHeaders": [],
             "columns": [
-
+             
             ],
             "rows": [
               {
@@ -204,6 +205,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
@@ -213,12 +215,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_2_static",
+                      "width": "250px",
                     "key": "presented_by",
                     "type": "label",
-                    "value": "Presented by *",
+                    "value": "<span>Presented by <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_3_presentedBy",
@@ -226,7 +229,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
@@ -249,6 +252,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
@@ -258,12 +262,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_2_static",
+                      "width": "250px",
                     "key": "trial_date",
                     "type": "label",
-                    "value": "Trial date *",
+                    "value": "<span>Trial date <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_3_trialsDate",
@@ -271,7 +276,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "date",
@@ -294,6 +299,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
@@ -303,12 +309,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_2_static",
+                      "width": "250px",
                     "key": "conducted_by",
                     "type": "label",
-                    "value": "Conducted by *",
+                    "value": "<span>Conducted by <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_3_conductedBy",
@@ -316,7 +323,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
@@ -339,6 +346,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_4_cell_1_static",
+                      "width": "70px",
                     "key": "d",
                     "type": "label",
                     "value": "(d)",
@@ -348,12 +356,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_2_static",
+                      "width": "250px",
                     "key": "occasion_of_current_trial",
                     "type": "label",
-                    "value": "Occasion of current trial *",
+                    "value": "<span>Occasion of current trial <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_3_occationOfCurrTrial",
@@ -361,7 +370,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
@@ -384,6 +393,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_5_cell_1_static",
+                      "width": "70px",
                     "key": "e",
                     "type": "label",
                     "value": "(e)",
@@ -393,12 +403,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_2_static",
+                      "width": "250px",
                     "key": "date_of_last_trial_carried_out_on",
                     "type": "label",
-                    "value": "Date of last trial carried out on *",
+                    "value": "<span>Date of last trial carried out on <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_3_lastTrialDate",
@@ -406,7 +417,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "date",
@@ -429,6 +440,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_6_cell_1_static",
+                      "width": "70px",
                     "key": "f",
                     "type": "label",
                     "value": "(f)",
@@ -438,18 +450,20 @@
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_2_static",
+                      "width": "250px",
                     "key": "proposal_reference",
                     "type": "label",
-                    "value": "Proposal reference *",
+                    "value": "<span>Proposal reference <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_3_static",
                     "key": "cell_3",
                     "type": "file",
                     "value": "⬇",
+                    "required": true,
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "center"
@@ -461,6 +475,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_7_cell_1_static",
+                      "width": "70px",
                     "key": "g",
                     "type": "label",
                     "value": "(g)",
@@ -470,12 +485,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_2_static",
+                      "width": "250px",
                     "key": "file_reference",
                     "type": "label",
-                    "value": "File reference *",
+                    "value": "<span>File reference <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_3_referanceFileID",
@@ -483,7 +499,7 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
@@ -506,6 +522,7 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_8_cell_1_static",
+                      "width": "70px",
                     "key": "h",
                     "type": "label",
                     "value": "(h)",
@@ -515,12 +532,13 @@
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_2_static",
+                      "width": "250px",
                     "key": "reference_document_for_trial",
                     "type": "label",
                     "value": "Reference document for trial",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_3_static",
@@ -529,7 +547,7 @@
                     "value": "EED-Q-267(R4)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               }
@@ -539,11 +557,17 @@
           }        ],
           "fields_2": [
                   {
+          "type": "label",
+          "value": "<span class=\"block text-sm font-semibold text-shell-text-muted\">2. Test Equipment Used <span class=\"text-red-600\">**</span></span>",
+          "colSpan": 12
+        },
+            {
           "type": "select",
           "name": "atds_645018_equipment",
-          "label": "2. Test Equipment Used **",
-          "required": false,
-          "disabled": true,
+          "label": "",
+          "colSpan": 12,
+          "required": true,
+          "disabled": false,
           "placeholder": "",
           "value": "",
           "options": [
@@ -571,10 +595,16 @@
           "isDynamic": false
         },
             {
+              "type": "label",
+              "value": "<span class=\"block text-sm font-semibold text-shell-text-muted\">Remarks <span class=\"text-red-600\">*</span></span>",
+              "colSpan": 12
+            },
+            {
               "inputType": "input",
               "name": "testEquipmentUsed",
               "type": "textarea",
               "label": "",
+              "colSpan": 12,
               "required": false,
               "disabled": true,
               "placeholder": "",
@@ -586,7 +616,7 @@
               "lockAfterPrefill": false,
               "hiddenKey": null,
               "displayKey": null,
-              "rows": 4
+              "rows": 2
             }
           ],
           "tables_2": [
@@ -600,7 +630,7 @@
                   "label": "Rectifier",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center" 
                 }
               ]
             ],
@@ -611,18 +641,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_3_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_3_row_1_cell_2_static",
+                      "width": "250px",
                     "key": "make_model_year_rating",
                     "type": "label",
-                    "value": "Make,Model(Year) & rating *",
+                    "value": "<span>Make,Model(Year) & rating <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -633,14 +665,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -656,18 +688,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_3_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_3_row_2_cell_2_static",
+                      "width": "250px",
                     "key": "equipment_serial_no",
                     "type": "label",
-                    "value": "Equipment Serial no. *",
+                    "value": "<span>Equipment Serial no. <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -678,14 +712,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -701,18 +735,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_3_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_3_row_3_cell_2_static",
+                      "width": "250px",
                     "key": "cmms_equipment_code",
                     "type": "label",
-                    "value": "CMMS Equipment Code *",
+                    "value": "<span>CMMS Equipment Code <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -723,18 +759,18 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
-                    "disabled": false,
+                    "required": true,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.sfd_code",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -746,18 +782,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_3_row_4_cell_1_static",
+                      "width": "70px",
                     "key": "d",
                     "type": "label",
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_3_row_4_cell_2_static",
+                      "width": "250px",
                     "key": "location_of_equipment",
                     "type": "label",
-                    "value": "Location of Equipment *",
+                    "value": "<span>Location of Equipment <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -768,14 +806,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -796,7 +834,7 @@
             "title": "4. Insulation Resistance (i.a.w. NES 511(Issue 2))",
             "topHeaders": [],
             "columns": [
-
+           
             ],
             "rows": [
               {
@@ -804,18 +842,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_4_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_4_row_1_cell_2_static",
+                      "width": "250px",
                     "key": "rectifier_2m",
                     "type": "label",
-                    "value": "Rectifier ( > 2MΩ) *",
+                    "value": "<span>Rectifier ( > 2MΩ) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -826,14 +866,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -849,18 +889,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_4_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_4_row_2_cell_2_static",
+                      "width": "250px",
                     "key": "contactor_box_10m",
                     "type": "label",
-                    "value": "Contactor Box (>10MΩ) *",
+                    "value": "<span>Contactor Box (>10MΩ) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -871,14 +913,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -894,18 +936,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_4_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_4_row_3_cell_2_static",
+                      "width": "250px",
                     "key": "flexible_cable_20m",
                     "type": "label",
-                    "value": "Flexible Cable (>20MΩ) *",
+                    "value": "<span>Flexible Cable (>20MΩ) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -916,14 +960,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -942,11 +986,68 @@
             "id": "section_1_table_5",
             "sectionType": "matrixTable",
             "title": "5. Protection Checks",
-            "topHeaders": [],
+            "topHeaders": [
+              [
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Protection",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "label": "Calibration Date <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Calibration Certificate Provided (Yes/No) <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Permissible limit",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "label": "Observed Value <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Status (Sat/ Unsat) <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Upload File",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -960,13 +1061,13 @@
                 "key": "calibration_date",
                 "label": "Calibration Date *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "calibration_certificate_provided_yes_no",
                 "label": "Calibration Certificate Provided (Yes/No) *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "permissible_limit",
@@ -978,25 +1079,25 @@
                 "key": "observed_value",
                 "label": "Observed Value *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "status_sat_unsat",
                 "label": "Status (Sat/ Unsat) *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "upload_file",
                 "label": "Upload File",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1005,18 +1106,19 @@
                 "cells": [
                   {
                     "_id": "section_1_table_5_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_5_row_1_cell_2_static",
                     "key": "over_voltage",
                     "type": "label",
-                    "value": "Over voltage *",
+                    "value": "<span>Over voltage <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1027,14 +1129,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1049,7 +1151,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1065,7 +1167,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1089,14 +1191,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1111,7 +1213,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1127,7 +1229,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1149,7 +1251,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1171,7 +1273,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1192,18 +1294,19 @@
                 "cells": [
                   {
                     "_id": "section_1_table_5_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_5_row_2_cell_2_static",
                     "key": "under_voltage",
                     "type": "label",
-                    "value": "Under voltage *",
+                    "value": "<span>Under voltage <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1214,14 +1317,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1236,7 +1339,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1252,7 +1355,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1276,14 +1379,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1298,7 +1401,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1314,7 +1417,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1336,7 +1439,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1358,7 +1461,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1379,18 +1482,19 @@
                 "cells": [
                   {
                     "_id": "section_1_table_5_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_5_row_3_cell_2_static",
                     "key": "overload_for_setting_at_1200a_overload_for_setting_at_1000a",
                     "type": "label",
-                    "value": "Overload for setting at 1200A Overload for setting at 1000A *",
+                    "value": "<span>Overload for setting at 1200A Overload for setting at 1000A <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1401,14 +1505,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1423,7 +1527,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1439,7 +1543,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1463,14 +1567,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1485,7 +1589,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1501,7 +1605,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1523,7 +1627,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1545,7 +1649,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1567,7 +1671,7 @@
           }
 
           ],
-
+          
         "fields_3": [
          {
   "name": "overVoltageTripNote",
@@ -1585,11 +1689,62 @@
             "id": "section_1_table_6",
             "sectionType": "matrixTable",
             "title": "6. Instrumentation",
-            "topHeaders": [],
+            "topHeaders": [
+              [
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Meter",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "left"
+                },
+                {
+                  "label": "Ops/ Non Ops <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Calibration Date <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Calibration Certificate Provided (Yes/ No) <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Status (Sat/ Unsat) <span class=\"text-red-600\">*</span>",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Remarks",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Upload File",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
+              ]
+            ],
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -1603,37 +1758,37 @@
                 "key": "ops_non_ops",
                 "label": "Ops/ Non Ops *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "calibration_date",
                 "label": "Calibration Date *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "calibration_certificate_provided_yes_no",
                 "label": "Calibration Certificate Provided (Yes/ No) *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "status_sat_unsat",
                 "label": "Status (Sat/ Unsat) *",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "remarks",
                 "label": "Remarks",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "upload_file",
                 "label": "Upload File",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -1642,12 +1797,13 @@
                 "cells": [
                   {
                     "_id": "section_1_table_6_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_6_row_1_cell_2_static",
@@ -1664,14 +1820,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1686,14 +1842,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1708,7 +1864,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1724,7 +1880,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1739,7 +1895,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1755,7 +1911,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1777,7 +1933,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1799,7 +1955,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1820,12 +1976,13 @@
                 "cells": [
                   {
                     "_id": "section_1_table_6_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_6_row_2_cell_2_static",
@@ -1842,14 +1999,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1864,14 +2021,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1886,7 +2043,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1902,7 +2059,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1917,7 +2074,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -1933,7 +2090,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1955,7 +2112,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1977,7 +2134,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -1998,12 +2155,13 @@
                 "cells": [
                   {
                     "_id": "section_1_table_6_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_6_row_3_cell_2_static",
@@ -2020,14 +2178,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2042,14 +2200,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2064,7 +2222,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2080,7 +2238,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2095,7 +2253,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2111,7 +2269,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2133,7 +2291,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2155,7 +2313,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2183,7 +2341,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "serial",
                 "align": "center"
               },
@@ -2197,13 +2355,14 @@
                 "key": "details",
                 "label": "Details",
                 "type": "label",
-                "align": "left"
+                "align": "center",
+                "width": "20%"
               },
               {
                 "key": "remarks_if_any",
                 "label": "Remarks (If any)",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -2212,18 +2371,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_1_cell_1_static",
+                      "width": "70px",
                     "key": "a",
                     "type": "label",
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_1_cell_2_static",
+                      "width": "250px",
                     "key": "dr_details",
                     "type": "label",
-                    "value": "DR details **",
+                    "value": "<span>DR details <span class=\"text-red-600\">**</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2234,14 +2395,14 @@
                     "type": "input",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2263,7 +2424,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2279,18 +2440,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_2_cell_1_static",
+                      "width": "70px",
                     "key": "b",
                     "type": "label",
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_2_cell_2_static",
+                      "width": "250px",
                     "key": "lighting_and_ventilation_of_compartment_sat_unsat",
                     "type": "label",
-                    "value": "Lighting and ventilation of compartment (Sat/ Unsat) *",
+                    "value": "<span>Lighting and ventilation of compartment (Sat/ Unsat) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2301,7 +2464,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2317,7 +2480,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2339,7 +2502,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2355,18 +2518,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_3_cell_1_static",
+                      "width": "70px",
                     "key": "c",
                     "type": "label",
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_3_cell_2_static",
+                      "width": "250px",
                     "key": "cooling_natural_air_forced_cooling",
                     "type": "label",
-                    "value": "Cooling (Natural air/ Forced cooling) *",
+                    "value": "<span>Cooling (Natural air/ Forced cooling) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2377,7 +2542,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2393,7 +2558,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2415,7 +2580,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2431,18 +2596,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_4_cell_1_static",
+                      "width": "70px",
                     "key": "d",
                     "type": "label",
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_4_cell_2_static",
+                      "width": "250px",
                     "key": "earthing_of_hsr_and_control_panel_sat_unsat",
                     "type": "label",
-                    "value": "Earthing of HSR and control panel (Sat/ Unsat) *",
+                    "value": "<span>Earthing of HSR and control panel (Sat/ Unsat) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2453,7 +2620,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2469,7 +2636,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2491,7 +2658,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2507,18 +2674,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_5_cell_1_static",
+                      "width": "70px",
                     "key": "e",
                     "type": "label",
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_5_cell_2_static",
+                      "width": "250px",
                     "key": "condition_of_cables_sat_unsat",
                     "type": "label",
-                    "value": "Condition of cables (Sat/Unsat) *",
+                    "value": "<span>Condition of cables (Sat/Unsat) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2529,7 +2698,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2545,7 +2714,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2567,7 +2736,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2583,18 +2752,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_6_cell_1_static",
+                      "width": "70px",
                     "key": "f",
                     "type": "label",
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_6_cell_2_static",
+                      "width": "250px",
                     "key": "cleanliness_sat_unsat",
                     "type": "label",
-                    "value": "Cleanliness (Sat/ Unsat)* *",
+                    "value": "<span>Cleanliness (Sat/ Unsat)<span class=\"text-red-600\">* *</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2605,7 +2776,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2621,7 +2792,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2643,7 +2814,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2659,18 +2830,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_7_cell_1_static",
+                      "width": "70px",
                     "key": "g",
                     "type": "label",
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_7_cell_2_static",
+                      "width": "250px",
                     "key": "indication_lamps_and_switches_sat_unsat",
                     "type": "label",
-                    "value": "Indication lamps and switches (Sat/ Unsat) *",
+                    "value": "<span>Indication lamps and switches (Sat/ Unsat) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2681,7 +2854,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2697,7 +2870,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2719,7 +2892,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2735,18 +2908,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_8_cell_1_static",
+                      "width": "70px",
                     "key": "h",
                     "type": "label",
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_8_cell_2_static",
+                      "width": "250px",
                     "key": "equipment_tallies",
                     "type": "label",
-                    "value": "Equipment tallies* *",
+                    "value": "<span>Equipment tallies<span class=\"text-red-600\">* *</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2757,7 +2932,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2773,7 +2948,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2795,7 +2970,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2811,18 +2986,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_9_cell_1_static",
+                      "width": "70px",
                     "key": "i",
                     "type": "label",
                     "value": "(I)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_9_cell_2_static",
+                      "width": "250px",
                     "key": "multi_setting_overload_trip_with_suitable_selection_switch_in_the_output_circuit_of_rectifier_available_not_available",
                     "type": "label",
-                    "value": "Multi setting overload trip with suitable selection switch in the output circuit of rectifier (Available/ Not Available) *",
+                    "value": "<span>Multi setting overload trip with suitable selection switch in the output circuit of rectifier (Available/ Not Available) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2833,7 +3010,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2849,7 +3026,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2871,7 +3048,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2887,18 +3064,20 @@
                 "cells": [
                   {
                     "_id": "section_1_table_7_row_10_cell_1_static",
+                      "width": "70px",
                     "key": "j",
                     "type": "label",
                     "value": "(j)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
                     "_id": "section_1_table_7_row_10_cell_2_static",
+                      "width": "250px",
                     "key": "provision_of_calibration_in_overload_trip_yes_no",
                     "type": "label",
-                    "value": "Provision of calibration in overload trip. (Yes/ No) *",
+                    "value": "<span>Provision of calibration in overload trip. (Yes/ No) <span class=\"text-red-600\">*</span></span>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2909,7 +3088,7 @@
                     "type": "radio",
                     "value": "",
                     "rows": null,
-                    "required": false,
+                    "required": true,
                     "disabled": false,
                     "placeholder": "Select an option",
                     "inputType": null,
@@ -2925,7 +3104,7 @@
                     ],
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2947,7 +3126,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -2980,9 +3159,9 @@
           {
             "type": "input",
             "name": "sstvNominalVoltage",
-            "label": "8. Steady State Test (With Resistive load) - Nominal voltage :",
+            "label": "<span class=\"text-sm font-semibold pt-glass-text-muted\">8. Steady State Test (With Resistive load) - Nominal voltage :</span>",
             "key": "sstvNominalVoltage",
-            "colSpan": 3,
+            "colSpan": 12,
             "required": false,
             "disabled": false,
             "placeholder": "",
@@ -3041,7 +3220,8 @@
         "label": "Permitted Limits",
         "colspan": 1,
         "rowspan": 1,
-        "align": "center"
+        "align": "left",
+        "width": "20%"
       }
     ]
   ],
@@ -3057,7 +3237,7 @@
           "value": "0 - 200",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_1_cell_2_sstv0x200ObsVoltCabl",
@@ -3072,7 +3252,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3103,7 +3283,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3134,7 +3314,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3143,7 +3323,7 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(num(sstv0x200ObsVoltCabl) == 0, \"\", if(num(sstv0x200ObsVoltCabl) >= 27.5 && num(sstv0x200ObsVoltCabl) <= 28.5, \"Sat\", \"Unsat\"))",
+            "expression": "if(num(sstv0x200ObsVoltCabl == 0, \"\", if(num(sstv0x200ObsVoltCabl) >= 27.5 && num(sstv0x200ObsVoltCabl) <= 28.5, \"Sat\", \"Unsat\"))",
             "decimals": 0,
             "emptyAsZero": true
           }
@@ -3160,7 +3340,7 @@
           "value": "0 - 400",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_2_cell_2_sstv0x400ObsVoltCabl",
@@ -3175,7 +3355,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3197,7 +3377,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3228,7 +3408,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3254,7 +3434,7 @@
           "value": "0 - 800",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_3_cell_2_sstv0x800ObsVoltCabl",
@@ -3269,7 +3449,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3291,7 +3471,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3322,7 +3502,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3348,7 +3528,7 @@
           "value": "0 - 1000",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_4_cell_2_sstv0x1000ObsVoltCabl",
@@ -3363,7 +3543,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3385,7 +3565,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3416,7 +3596,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3442,7 +3622,7 @@
           "value": "0 - 1200",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_5_cell_2_sstv0x1200ObsVoltCabl",
@@ -3457,7 +3637,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3479,7 +3659,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3510,7 +3690,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3536,7 +3716,7 @@
           "value": "0 - 1300",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_6_cell_2_sstv0x1300ObsVoltCabl",
@@ -3551,7 +3731,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3573,7 +3753,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3604,7 +3784,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3630,7 +3810,7 @@
           "value": "0 - 1500",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_8_row_7_cell_2_sstv0x1500ObsVoltCabl",
@@ -3645,7 +3825,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3667,7 +3847,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3698,7 +3878,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3752,25 +3932,25 @@
         "label": "Recovery Time for Restoration to Voltage Between 22-29V in 100ms",
         "colspan": 2,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Ripple (Max 1 Volt)",
         "colspan": 1,
         "rowspan": 2,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Voltage Modulation(2%)",
         "colspan": 1,
         "rowspan": 2,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Remarks (Sat/ Unsat)",
         "colspan": 1,
         "rowspan": 2,
-        "align": "left"
+        "align": "center"
       }
     ],
     [
@@ -3778,13 +3958,13 @@
         "label": "Cable End",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Cable End",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Permissible at Cable End",
@@ -3796,7 +3976,7 @@
         "label": "Recorded",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Permissible",
@@ -3808,7 +3988,7 @@
         "label": "Recorded",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Permissible",
@@ -3830,7 +4010,7 @@
           "value": "0 - 200",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_1_cell_2_trnsntst0x200TrnsntVolt",
@@ -3845,7 +4025,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3867,7 +4047,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3883,7 +4063,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_1_cell_5_trnsntst0x200RcvryVolRecd",
@@ -3898,7 +4078,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3914,7 +4094,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_1_cell_7_static",
@@ -3923,7 +4103,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_1_cell_8_static",
@@ -3932,7 +4112,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_1_cell_9_trnsntst0x200Remarks",
@@ -3947,7 +4127,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -3969,7 +4149,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4000,7 +4180,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4026,7 +4206,7 @@
           "value": "0 - 400",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_2_cell_2_trnsntst0x400TrnsntVolt",
@@ -4041,7 +4221,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4063,7 +4243,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4079,7 +4259,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_2_cell_5_trnsntst0x400RcvryVolRecd",
@@ -4094,7 +4274,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4110,7 +4290,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_2_cell_7_static",
@@ -4119,7 +4299,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_2_cell_8_static",
@@ -4128,7 +4308,7 @@
           "value": "NA",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_2_cell_9_trnsntst0x400Remarks",
@@ -4143,7 +4323,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4165,7 +4345,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4196,7 +4376,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4222,7 +4402,7 @@
           "value": "0 - 800",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_3_cell_2_trnsntst0x800TrnsntVolt",
@@ -4237,7 +4417,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4259,7 +4439,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4275,7 +4455,7 @@
           "value": "22-29V",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_3_cell_5_trnsntst0x800RcvryVolRecd",
@@ -4290,7 +4470,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4321,7 +4501,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4337,7 +4517,7 @@
           "value": "100ms",
           "colspan": 1,
           "rowspan": 1,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_3_cell_9_trnsntst0x800Remarks",
@@ -4352,7 +4532,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4374,7 +4554,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4405,7 +4585,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4414,10 +4594,10 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(trnsntst0x800FinalVolt == \"\" || trnsntst0x800RcvryVolRecd == \"\" || trnsntst0x800RcvryVolRecd2 == \"\" || trnsntst0x800Remarks == \"\" || trnsntst0x800VolModln == \"\", \"\", if(num(trnsntst0x800FinalVolt) >= 22 && num(trnsntst0x800FinalVolt) <= 29 && num(trnsntst0x800RcvryVolRecd) <= 15 && num(trnsntst0x800RcvryVolRecd2) <= 100 && num(trnsntst0x800Remarks) <= 1 && num(trnsntst0x800VolModln) <= 2, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+  "expression": "if(trnsntst0x800RcvryVolRecd == \"\" || trnsntst0x800RcvryVolRecd2 == \"\" || trnsntst0x800Remarks == \"\" || trnsntst0x800VolModln == \"\", \"\", if(num(trnsntst0x800RcvryVolRecd) <= 15 && num(trnsntst0x800RcvryVolRecd2) <= 100 && num(trnsntst0x800Remarks) <= 1 && num(trnsntst0x800VolModln) <= 2, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     },
@@ -4431,7 +4611,7 @@
           "value": "0 - 1000",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_4_cell_2_trnsntst0x1000TrnsntVolt",
@@ -4446,7 +4626,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4468,7 +4648,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4484,7 +4664,7 @@
           "value": "22-29V",
           "colspan": 1,
           "rowspan": 4,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_4_cell_5_trnsntst0x1000RcvryVolRecd",
@@ -4499,7 +4679,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4530,7 +4710,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4546,7 +4726,7 @@
           "value": "100ms",
           "colspan": 1,
           "rowspan": 4,
-          "align": "center"
+          "align": "left"
         },
         {
           "_id": "section_1_table_9_row_4_cell_9_trnsntst0x1000Remarks",
@@ -4561,7 +4741,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4583,7 +4763,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4614,7 +4794,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4623,10 +4803,10 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(trnsntst0x1000FinalVolt == \"\" || trnsntst0x1000RcvryVolRecd == \"\" || trnsntst0x1000RcvryVolRecd2 == \"\" || trnsntst0x1000Remarks == \"\" || trnsntst0x1000VolModln == \"\", \"\", if(num(trnsntst0x1000FinalVolt) >= 22 && num(trnsntst0x1000FinalVolt) <= 29 && num(trnsntst0x1000RcvryVolRecd) <= 15 && num(trnsntst0x1000RcvryVolRecd2) <= 100 && num(trnsntst0x1000Remarks) <= 1 && num(trnsntst0x1000VolModln) <= 2, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+  "expression": "if(trnsntst0x1000RcvryVolRecd == \"\" || trnsntst0x1000RcvryVolRecd2 == \"\" || trnsntst0x1000Remarks == \"\" || trnsntst0x1000VolModln == \"\", \"\", if(num(trnsntst0x1000RcvryVolRecd) <= 15 && num(trnsntst0x1000RcvryVolRecd2) <= 100 && num(trnsntst0x1000Remarks) <= 1 && num(trnsntst0x1000VolModln) <= 2, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     },
@@ -4640,7 +4820,7 @@
           "value": "0 - 1200",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_5_cell_2_trnsntst0x2000TrnsntVolt",
@@ -4655,7 +4835,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4677,7 +4857,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4699,7 +4879,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4730,7 +4910,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4752,7 +4932,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4783,7 +4963,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4791,11 +4971,11 @@
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null,
-          "formula": {
-            "expression": "if(trnsntst0x2000FinalVolt == \"\" || trnsntst0x2000RcvryVolRecd == \"\" || trnsntst0x2000Remarks == \"\" || trnsntst0x2000VolModln == \"\", \"\", if(num(trnsntst0x2000FinalVolt) >= 22 && num(trnsntst0x2000FinalVolt) <= 29 && num(trnsntst0x2000RcvryVolRecd) <= 15 && num(trnsntst0x2000Remarks) <= 1 && num(trnsntst0x2000VolModln) <= 2, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+         "formula": {
+  "expression": "if(trnsntst0x2000RcvryVolRecd == \"\" || trnsntst0x2000Remarks == \"\" || trnsntst0x2000VolModln == \"\", \"\", if(num(trnsntst0x2000RcvryVolRecd) <= 15 && num(trnsntst0x2000Remarks) <= 1 && num(trnsntst0x2000VolModln) <= 2, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     },
@@ -4809,7 +4989,7 @@
           "value": "0 - 1300",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_6_cell_2_trnsntst0x1300TrnsntVolt",
@@ -4824,7 +5004,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4846,7 +5026,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4868,7 +5048,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4899,7 +5079,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4921,7 +5101,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4952,7 +5132,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -4961,10 +5141,10 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(trnsntst0x1300FinalVolt == \"\" || trnsntst0x1300RcvryVolRecd == \"\" || trnsntst0x1300Remarks == \"\" || trnsntst0x1300VolModln == \"\", \"\", if(num(trnsntst0x1300FinalVolt) >= 22 && num(trnsntst0x1300FinalVolt) <= 29 && num(trnsntst0x1300RcvryVolRecd) <= 15 && num(trnsntst0x1300Remarks) <= 1 && num(trnsntst0x1300VolModln) <= 2, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+  "expression": "if(trnsntst0x1300RcvryVolRecd == \"\" || trnsntst0x1300Remarks == \"\" || trnsntst0x1300VolModln == \"\", \"\", if(num(trnsntst0x1300RcvryVolRecd) <= 15 && num(trnsntst0x1300Remarks) <= 1 && num(trnsntst0x1300VolModln) <= 2, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     },
@@ -4978,7 +5158,7 @@
           "value": "0 - 1500",
           "colspan": 1,
           "rowspan": 1,
-          "align": "left"
+          "align": "center"
         },
         {
           "_id": "section_1_table_9_row_7_cell_2_trnsntst0x1400TrnsntVolt",
@@ -4993,7 +5173,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5015,7 +5195,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5037,7 +5217,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5068,7 +5248,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5090,7 +5270,7 @@
           "options": null,
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5121,7 +5301,7 @@
           ],
           "colspan": 1,
           "rowspan": 1,
-          "align": "left",
+          "align": "center",
           "isDynamic": false,
           "lookupKey": null,
           "prefill": null,
@@ -5130,10 +5310,10 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(trnsntst0x1400FinalVolt == \"\" || trnsntst0x1400RcvryVolRecd == \"\" || trnsntst0x1400Remarks == \"\" || trnsntst0x1400VolModln == \"\", \"\", if(num(trnsntst0x1400FinalVolt) >= 22 && num(trnsntst0x1400FinalVolt) <= 29 && num(trnsntst0x1400RcvryVolRecd) <= 15 && num(trnsntst0x1400Remarks) <= 1 && num(trnsntst0x1400VolModln) <= 2, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+  "expression": "if(trnsntst0x1400RcvryVolRecd == \"\" || trnsntst0x1400Remarks == \"\" || trnsntst0x1400VolModln == \"\", \"\", if(num(trnsntst0x1400RcvryVolRecd) <= 15 && num(trnsntst0x1400Remarks) <= 1 && num(trnsntst0x1400VolModln) <= 2, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     }
@@ -5175,7 +5355,7 @@
             "prefill": false,
             "prefillSource": null,
             "lockAfterPrefill": false,
-            "hiddenKey": null,
+            "hiddenKey": null, 
             "displayKey":null,
             "rows":5
           },
@@ -5195,7 +5375,7 @@
             "prefill": false,
             "prefillSource": null,
             "lockAfterPrefill": false,
-            "hiddenKey": null,
+            "hiddenKey": null, 
             "displayKey":null,
             "rows":5
           },

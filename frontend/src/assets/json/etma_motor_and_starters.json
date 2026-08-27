@@ -13,7 +13,7 @@
 
         "fields_1": [
           {
-          "type": "select",
+          "type": "input",
           "name": "ship_name",
           "label": "SHIP",
           "required": true,
@@ -77,13 +77,13 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "Test Equipment Used a.",
+                  "label": "Test Equipment Used",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -93,7 +93,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -126,6 +126,7 @@
                     "_id": "1_test_equipment_used_during_trials_table_1_row_1_cell_2_field_2",
                     "key": "field_2",
                     "type": "input",
+                    "lb" : "<span class=\"text-center block text-sm font-semibold\">a.</span>",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -135,7 +136,7 @@
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
+                    "align": "center",
                     "isDynamic": false,
                     "lookupKey": null,
                     "prefill": null,
@@ -158,7 +159,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -167,7 +168,8 @@
                   "label": "Activity",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 },
                 {
                   "label": "Date",
@@ -186,7 +188,7 @@
             "columns": [
               {
                 "key": "ser",
-                "label": "Ser",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -481,7 +483,7 @@
   "topHeaders": [
     [
       {
-        "label": "Ser",
+        "label": "SNo.",
         "colspan": 1,
         "rowspan": 1,
         "align": "center"
@@ -490,7 +492,8 @@
         "label": "Description/Document NO.& Date",
         "colspan": 1,
         "rowspan": 1,
-        "align": "center"
+        "align": "center",
+        "width": "30%"
       },
       {
         "label": "Document Submission date/Certified By",
@@ -614,7 +617,7 @@
           "value": "",
           "rows": 1,
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "inputType": null,
           "options": null,
@@ -623,8 +626,8 @@
           "align": "left",
           "isDynamic": false,
           "lookupKey": null,
-          "prefill": null,
-          "prefillSource": null,
+          "prefill": true,
+          "prefillSource": "equipment.sfd_code",
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
@@ -919,20 +922,21 @@
   "topHeaders": [
     [
       {
-        "label": "Ser",
+        "label": "SNo.",
         "colspan": 1,
         "rowspan": 1,
         "align": "center"
       },
       {
         "label": "Description/Document No. & Date",
-        "colspan": 1,
+        "colspan": 2,
         "rowspan": 1,
-        "align": "center"
+        "align": "center",
+        "width": "50%"
       },
       {
         "label": "Details / Document submission date / Certified By",
-        "colspan": 4,
+        "colspan": 1,
         "rowspan": 1,
         "align": "center"
       }
@@ -941,7 +945,7 @@
   "columns": [
     {
       "key": "ser",
-      "label": "Ser",
+      "label": "SNo.",
       "type": "label",
       "align": "center"
     },
@@ -974,7 +978,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_1_cell_2_static",
           "type": "label",
           "value": "Manufacturer -",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1017,7 +1021,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_2_cell_2_static",
           "type": "label",
           "value": "Make, Model & Type -",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1060,7 +1064,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_3_cell_2_static",
           "type": "label",
           "value": "CMMS CODE -",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1071,7 +1075,7 @@
           "value": "",
           "rows": 1,
           "required": false,
-          "disabled": false,
+          "disabled": true,
           "placeholder": "",
           "inputType": null,
           "options": null,
@@ -1080,8 +1084,8 @@
           "align": "left",
           "isDynamic": false,
           "lookupKey": null,
-          "prefill": null,
-          "prefillSource": null,
+          "prefill": true,
+          "prefillSource": "equipment.sfd_code",
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
@@ -1103,7 +1107,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_4_cell_2_static",
           "type": "label",
           "value": "GRAQ -",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1146,7 +1150,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_5_cell_2_static",
           "type": "label",
           "value": "ATP -",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1182,7 +1186,7 @@
           "type": "serial",
           "value": "4.6",
           "colspan": 1,
-          "rowspan": 9,
+          "rowspan": 10,
           "align": "center"
         },
         {
@@ -1198,14 +1202,14 @@
           "key": "dr_type_test_certificate",
           "type": "textarea",
           "value": "",
-          "rows": 8,
+          "rows": 1,
           "required": false,
           "disabled": false,
           "placeholder": "",
           "inputType": null,
           "options": null,
           "colspan": 1,
-          "rowspan": 11,
+          "rowspan": 10,
           "align": "left",
           "isDynamic": false,
           "lookupKey": null,
@@ -1525,7 +1529,7 @@
           "_id": "4_design_technical_requirements_documentation_table_1_row_7_cell_2_static",
           "type": "label",
           "value": "Documentation. Documents including Technical manual, Installation specifications, As fitted drawings.",
-          "colspan": 1,
+          "colspan": 2,
           "rowspan": 1,
           "align": "left"
         },
@@ -1540,7 +1544,7 @@
           "placeholder": "",
           "inputType": null,
           "options": null,
-          "colspan": 2,
+          "colspan": 1,
           "rowspan": 1,
           "align": "left",
           "isDynamic": false,
@@ -1564,7 +1568,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1573,13 +1577,15 @@
                   "label": "Reference",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "20%"
                 },
                 {
                   "label": "Checks",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "40%"
                 },
                 {
                   "label": "Remarks",
@@ -1608,7 +1614,7 @@
                     "value": "Section V Para 0508(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_1_cell_3_static",
@@ -1616,7 +1622,7 @@
                     "value": "Cooling",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_1_cell_4_dr_documentation",
@@ -1659,15 +1665,15 @@
                     "value": "Section V Para 0508(f), 0544",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_2_cell_3_static",
                     "type": "label",
-                    "value": "Enclosure Protection 5.2.1 IP rating - IP 56 - Motors installed below deck IP 57 - Motors installed on weather deck IP 58 - Submersible motors upto 10 mtrs IP 68 - Submerged beyond 10 mtrs",
+                    "value": "Enclosure Protection<br> 5.2.1 IP rating -<br> IP 56 - Motors installed below deck <br> IP 57 - Motors installed on weather deck <br> IP 58 - Submersible motors upto 10 mtrs<br> IP 68 - Submerged beyond 10 mtrs",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_2_cell_4_dr_documentation",
@@ -1698,11 +1704,11 @@
                 "cells": [
                   {
                     "_id": "5_iis_motors_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "5.2.2 Condition of Motor terminal box.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_3_cell_2_dr_documentation",
@@ -1745,15 +1751,15 @@
                     "value": "Section V Para 0562",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_4_cell_3_static",
                     "type": "label",
-                    "value": "Earthing. Check earthing connected / Not connected.",
+                    "value": "Earthing.<br>Check earthing connected / Not connected.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_4_cell_4_dr_documentation",
@@ -1796,15 +1802,15 @@
                     "value": "Section V Para 0564",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_5_cell_3_static",
                     "type": "label",
-                    "value": "Insulation (< 2M\u03a9) For Motors - Class 'F' insulated / Class 'H' insulated.",
+                    "value": "Insulation (< 2M\u03a9) <br>For Motors - Class 'F' insulated / Class 'H' insulated.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_5_cell_4_dr_documentation",
@@ -1841,7 +1847,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -1885,7 +1891,7 @@
                     "value": "--",
                     "colspan": 1,
                     "rowspan": 4,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_1_cell_3_static",
@@ -1924,7 +1930,7 @@
                 "cells": [
                   {
                     "_id": "5_iis_motors_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "R",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1953,7 +1959,7 @@
                 "cells": [
                   {
                     "_id": "5_iis_motors_matrix_1_row_3_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Winding Inductance (Value)",
                     "colspan": 3,
                     "rowspan": 1,
@@ -1966,7 +1972,7 @@
                 "cells": [
                   {
                     "_id": "5_iis_motors_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "R\u2081-R\u2082",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2007,7 +2013,7 @@
                     "value": "Section VII Para 0725",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_5_cell_3_static",
@@ -2046,7 +2052,7 @@
                 "cells": [
                   {
                     "_id": "5_iis_motors_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "R\u2081-R\u2082",
                     "colspan": 1,
                     "rowspan": 1,
@@ -2087,7 +2093,7 @@
                     "value": "Section V Para 0554",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_7_cell_3_static",
@@ -2138,7 +2144,7 @@
                     "value": "Section V Para 0526",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_8_cell_3_static",
@@ -2189,7 +2195,7 @@
                     "value": "--",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_9_cell_3_static",
@@ -2240,7 +2246,7 @@
                     "value": "Section V Para 0563",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_10_cell_3_static",
@@ -2291,7 +2297,7 @@
                     "value": "--",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "5_iis_motors_matrix_1_row_11_cell_3_static",
@@ -2336,7 +2342,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2351,7 +2357,8 @@
                   "label": "Checks",
                   "colspan": 3,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "40%"
                 },
                 {
                   "label": "Remarks",
@@ -2436,7 +2443,7 @@
                   {
                     "_id": "6_iis_starters_matrix_1_row_2_cell_3_static",
                     "type": "label",
-                    "value": "Earthing Check earthing connected / Not connected",
+                    "value": "Earthing <br>Check earthing connected / Not connected",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
@@ -2487,7 +2494,7 @@
                   {
                     "_id": "6_iis_starters_matrix_1_row_3_cell_3_static",
                     "type": "label",
-                    "value": "Insulation & Values Insulation should be more than 2 M\u03a9",
+                    "value": "Insulation & Values <br>Insulation should be more than 2 M\u03a9",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
@@ -2580,7 +2587,7 @@
                   {
                     "_id": "6_iis_starters_matrix_1_row_6_cell_3_static",
                     "type": "label",
-                    "value": "Painting Pebble grey, RAL 7032 epoxy power coated",
+                    "value": "Painting <br>Pebble grey, RAL 7032 epoxy power coated",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "center"
@@ -2722,7 +2729,7 @@
   "topHeaders": [
     [
       {
-        "label": "Ser",
+        "label": "SNo.",
         "colspan": 1,
         "rowspan": 2,
         "align": "center"
@@ -2990,7 +2997,7 @@
         {
           "_id": "7_ops_checks_matrix_1_row_2_cell_3_static",
           "type": "label",
-          "value": "Check phase sequence/ desired direction of motor rotation.",
+          "value": "Check phase sequence/ desired direction of motor rotation. <br>7.2.1 For motors below 75 KW → starting current ≤ 7-8 times full load current.<br>7.2.2 For motors above 75 KW → starting current ≤ 4-5 times full load current.",
           "colspan": 6,
           "rowspan": 1,
           "align": "left"
@@ -3037,36 +3044,6 @@
           "colspan": 1,
           "rowspan": 3,
           "align": "left"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_3_cell_3_static",
-          "type": "label",
-          "value": "7.2.1 For motors below 75 KW → starting current ≤ 7-8 times full load current.\n7.2.2 For motors above 75 KW → starting current ≤ 4-5 times full load current.",
-          "colspan": 6,
-          "rowspan": 1,
-          "align": "left"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_3_cell_4_remarks",
-          "key": "ops_73_remarks",
-          "type": "input",
-          "value": "",
-          "rows": null,
-          "required": false,
-          "disabled": false,
-          "placeholder": "",
-          "inputType": "text",
-          "options": null,
-          "colspan": 1,
-          "rowspan": 3,
-          "align": "left",
-          "isDynamic": false,
-          "lookupKey": null,
-          "prefill": null,
-          "prefillSource": null,
-          "lockAfterPrefill": null,
-          "hiddenKey": null,
-          "displayKey": null
         }
       ]
     },
@@ -3117,6 +3094,14 @@
           "_id": "7_ops_checks_matrix_1_row_4_cell_6_static",
           "type": "label",
           "value": "B",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_4_cell_6_static",
+          "type": "label",
+          "value": "",
           "colspan": 1,
           "rowspan": 1,
           "align": "center"
@@ -3257,6 +3242,28 @@
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_5_cell_1_field",
+          "key": "ops_73_spec_r",
+          "type": "input",
+          "value": "",
+          "rows": null,
+          "required": false,
+          "disabled": false,
+          "placeholder": "",
+          "inputType": "text",
+          "options": null,
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "left",
+          "isDynamic": false,
+          "lookupKey": null,
+          "prefill": null,
+          "prefillSource": null,
+          "lockAfterPrefill": null,
+          "hiddenKey": null,
+          "displayKey": null
         }
       ]
     },
@@ -3282,48 +3289,8 @@
         {
           "_id": "7_ops_checks_matrix_1_row_6_cell_3_static",
           "type": "label",
-          "value": "R",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_6_cell_4_static",
-          "type": "label",
-          "value": "Y",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_6_cell_5_static",
-          "type": "label",
-          "value": "B",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_6_cell_6_static",
-          "type": "label",
-          "value": "R",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_6_cell_7_static",
-          "type": "label",
-          "value": "Y",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_6_cell_8_static",
-          "type": "label",
-          "value": "B",
-          "colspan": 1,
+          "value": "",
+          "colspan": 6,
           "rowspan": 1,
           "align": "center"
         },
@@ -3355,7 +3322,60 @@
       "_id": "7_ops_checks_matrix_1_row_7",
       "cells": [
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_1_field",
+          "_id": "7_ops_checks_matrix_1_row_7_cell_1_static",
+          "type": "label",
+          "value": "R",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_7_cell_2_static",
+          "type": "label",
+          "value": "Y",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_7_cell_3_static",
+          "type": "label",
+          "value": "B",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_7_cell_4_static",
+          "type": "label",
+          "value": "R",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_7_cell_5_static",
+          "type": "label",
+          "value": "Y",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        },
+        {
+          "_id": "7_ops_checks_matrix_1_row_7_cell_6_static",
+          "type": "label",
+          "value": "B",
+          "colspan": 1,
+          "rowspan": 1,
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "_id": "7_ops_checks_matrix_1_row_8",
+      "cells": [
+        {
+          "_id": "7_ops_checks_matrix_1_row_8_cell_1_field",
           "key": "ops_74_spec_r",
           "type": "input",
           "value": "",
@@ -3377,7 +3397,7 @@
           "displayKey": null
         },
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_2_field",
+          "_id": "7_ops_checks_matrix_1_row_8_cell_2_field",
           "key": "ops_74_spec_y",
           "type": "input",
           "value": "",
@@ -3399,7 +3419,7 @@
           "displayKey": null
         },
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_3_field",
+          "_id": "7_ops_checks_matrix_1_row_8_cell_3_field",
           "key": "ops_74_spec_b",
           "type": "input",
           "value": "",
@@ -3421,7 +3441,7 @@
           "displayKey": null
         },
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_4_field",
+          "_id": "7_ops_checks_matrix_1_row_8_cell_4_field",
           "key": "ops_74_obs_r",
           "type": "input",
           "value": "",
@@ -3443,7 +3463,7 @@
           "displayKey": null
         },
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_5_field",
+          "_id": "7_ops_checks_matrix_1_row_8_cell_5_field",
           "key": "ops_74_obs_y",
           "type": "input",
           "value": "",
@@ -3465,7 +3485,7 @@
           "displayKey": null
         },
         {
-          "_id": "7_ops_checks_matrix_1_row_7_cell_6_field",
+          "_id": "7_ops_checks_matrix_1_row_8_cell_6_field",
           "key": "ops_74_obs_b",
           "type": "input",
           "value": "",
@@ -3485,59 +3505,6 @@
           "lockAfterPrefill": null,
           "hiddenKey": null,
           "displayKey": null
-        }
-      ]
-    },
-    {
-      "_id": "7_ops_checks_matrix_1_row_8",
-      "cells": [
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_1_static",
-          "type": "label",
-          "value": "R",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_2_static",
-          "type": "label",
-          "value": "Y",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_3_static",
-          "type": "label",
-          "value": "B",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_4_static",
-          "type": "label",
-          "value": "R",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_5_static",
-          "type": "label",
-          "value": "Y",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
-        },
-        {
-          "_id": "7_ops_checks_matrix_1_row_8_cell_6_static",
-          "type": "label",
-          "value": "B",
-          "colspan": 1,
-          "rowspan": 1,
-          "align": "center"
         }
       ]
     },
@@ -3881,7 +3848,7 @@
           "placeholder": "",
           "inputType": "text",
           "options": null,
-          "colspan": 3,
+          "colspan": 4,
           "rowspan": 1,
           "align": "left",
           "isDynamic": false,

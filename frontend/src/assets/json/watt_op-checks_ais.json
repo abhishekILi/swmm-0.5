@@ -56,7 +56,9 @@
             "disabled": true,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 4
+            "colSpan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "date",
@@ -89,11 +91,11 @@
           {
             "id": "section_2_matrix_1",
             "sectionType": "matrixTable",
-            "title": "Basic Information",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "Ser",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -108,57 +110,71 @@
                   "label": "REMARKS",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "35%"
                 }
               ]
             ],
             "columns": [],
             "rows": [
               {
-                "_id": "checks_matrix_1_row_1_combined",
+                "_id": "section_2_matrix_1_intro_row",
                 "cells": [
                   {
-                    "_id": "embarked_time",
-                    "key": "embarked_time",
-                    "name": "embarked_time",
+                    "_id": "ais_embarked_time",
+                    "key": "ais_embarked_time",
+                    "name": "ais_embarked_time",
                     "type": "input",
+                    "inputType": "text",
                     "value": "",
                     "lb": "Trials team embarked onboard at",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
-                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
+                    "style": "max-width: 100px; min-width: 80px; width: 100%; padding: 4px;",
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
+                    "_id": "ais_embarked_date",
+                    "key": "ais_embarked_date",
+                    "name": "ais_embarked_date",
                     "type": "input",
                     "inputType": "text",
+                    "value": "",
                     "lb": "hrs on",
-                    "value": "",
                     "required": false,
                     "disabled": false,
+                    "placeholder": "",
+                    "style": "max-width: 115px; min-width: 90px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
-                    "_id": "schedule",
-                    "key": "schedule",
-                    "name": "schedule",
+                    "_id": "ais_op_check_reference",
+                    "key": "ais_op_check_reference",
+                    "name": "ais_op_check_reference",
                     "type": "input",
                     "inputType": "text",
                     "value": "",
-                    "lb": "for OP Checks of AIS as per approved schedule vide IHQ MoD (N) / DSR letter WP / 0642 dated 06 Aug 14. Following observed:-",
+                    "lb": "for OP Checks of AIS",
                     "required": false,
                     "disabled": false,
+                    "placeholder": "",
+                    "style": "max-width: 115px; min-width: 90px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
+                  },
+                  {
+                    "_id": "ais_approved_schedule_note",
+                    "type": "label",
+                    "value": "as per approved schedule vide IHQ MoD (N) / DSR letter WP / 0642 dated 06 Aug 14. Following observed:-",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -166,9 +182,9 @@
                 "_id": "section_2_matrix_1_row_2",
                 "cells": [
                   {
-                    "_id": "section_2_matrix_1_row_2_cell_1_static",
-                    "type": "serial",
-                    "value": "PHYSICAL CHECKS",
+                    "_id": "section_2_matrix_1_physical_checks_heading",
+                    "type": "label",
+                    "value": "<b>PHYSICAL CHECKS</b>",
                     "colspan": 4,
                     "rowspan": 1,
                     "align": "center"
@@ -184,7 +200,7 @@
                     "value": "1.",
                     "colspan": 1,
                     "rowspan": 20,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_3_cell_2_static",
@@ -192,7 +208,7 @@
                     "value": "<b>Information. Check the following information provided by the AIS:-</b>",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -201,11 +217,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_4_cell_1_static",
-                    "type": "serial",
-                    "value": "(a) Static.",
+                    "type": "label",
+                    "value": "<b>(a) Static.</b>",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -214,11 +230,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_5_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(i) IMO number.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_5_cell_2_remarks_1a_i",
@@ -258,11 +274,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_6_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Call Sign and Name.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_6_cell_2_remarks_1a_ii",
@@ -302,11 +318,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_7_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Length and beam.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_7_cell_2_remarks_1a_iii",
@@ -346,11 +362,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_8_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iv) Type of ship.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_8_cell_2_remarks_1a_iv",
@@ -390,11 +406,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_9_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(v) Location of position-fixing antenna on the ship (aft of bow and port or starboard of centreline).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_9_cell_2_remarks_1a_v",
@@ -434,11 +450,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_10_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "<b>(b) Dynamic.</b>",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   }
                 ]
               },
@@ -447,11 +463,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_11_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(i) Ship's position with accuracy indication and integrity status.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_11_cell_2_remarks_1b_i",
@@ -491,11 +507,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Time in UTC.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_12_cell_2_remarks_1b_ii",
@@ -535,11 +551,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_13_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Course and Speed over ground.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_13_cell_2_remarks_1b_iii",
@@ -579,11 +595,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_14_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iv) Heading.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_14_cell_2_remarks_1b_iv",
@@ -623,11 +639,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_15_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(v) Navigational status (NUC, at anchor etc through manual input).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_15_cell_2_remarks_1b_v",
@@ -667,11 +683,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_16_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(vi) Rate of turn.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_16_cell_2_remarks_1b_vi",
@@ -711,7 +727,7 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_17_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "<b>(c) Voyage Related.</b>",
                     "colspan": 3,
                     "rowspan": 1,
@@ -724,11 +740,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_18_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(i) Ship's draught.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_18_cell_2_remarks_1c_i",
@@ -768,11 +784,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_19_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(ii) Hazardous Cargo (type).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_19_cell_2_remarks_1c_ii",
@@ -812,11 +828,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_20_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iii) Destination and ETA.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_20_cell_2_remarks_1c_iii",
@@ -856,11 +872,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_21_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(iv) Route plan (waypoints).",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_21_cell_2_remarks_1c_iv",
@@ -900,11 +916,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_22_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "(v) Short safety related messages.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_22_cell_2_remarks_1c_v",
@@ -948,15 +964,15 @@
                     "value": "2.",
                     "colspan": 1,
                     "rowspan": 13,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_23_cell_2_static",
                     "type": "label",
-                    "value": "<b>Information Update Rates for Autonomous Mode</b> \u2013 Check validity of different information as follows:-",
+                    "value": "<b>Information Update Rates for Autonomous Mode – Check validity of different information as follows:-</b>",
                     "colspan": 3,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -965,11 +981,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_24_cell_1_static",
-                    "type": "serial",
-                    "value": "<b>(a) Static Information</b> \u2013 Every 6 min and on request.",
+                    "type": "label",
+                    "value": "<b>(a) Static Information – Every 6 min and on request.</b>",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_24_cell_2_remarks_2a",
@@ -1009,11 +1025,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_25_cell_1_static",
-                    "type": "serial",
-                    "value": "(b) <b>Dynamic Information</b> \u2013 Dependant on speed and course alteration according to the under mentioned table.",
+                    "type": "label",
+                    "value": "<b>(b) Dynamic Information – Dependant on speed and course alteration according to the under mentioned table.</b>",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_25_cell_2_remarks_2b",
@@ -1053,7 +1069,7 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_26_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "<b>Type of Ship</b>",
                     "colspan": 1,
                     "rowspan": 1,
@@ -1073,7 +1089,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1082,11 +1098,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_27_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship at anchor.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_27_cell_2_static",
@@ -1134,11 +1150,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_28_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship 0-14 knots.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_28_cell_2_static",
@@ -1186,11 +1202,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_29_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship 0-14 knots and changing course.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_29_cell_2_static",
@@ -1238,11 +1254,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_30_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship 14-23 knots.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_30_cell_2_static",
@@ -1290,11 +1306,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_31_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship 14-23 knots and changing course.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_31_cell_2_static",
@@ -1342,11 +1358,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_32_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship >23 knots",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_32_cell_2_static",
@@ -1394,11 +1410,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_33_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "Ship >23 knots and changing course",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_33_cell_2_static",
@@ -1446,11 +1462,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_34_cell_1_static",
-                    "type": "serial",
-                    "value": "(c)<b> Voyage Related Information</b> \u2013 Every 6 min, when data has been amended and on request.",
+                    "type": "label",
+                    "value": "<b>(c) Voyage Related Information – Every 6 min, when data has been amended and on request.</b>",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_34_cell_2_remarks_2c",
@@ -1490,11 +1506,11 @@
                 "cells": [
                   {
                     "_id": "section_2_matrix_1_row_35_cell_1_static",
-                    "type": "serial",
-                    "value": "(d) <b>Safety-related messages</b> on as required basis.",
+                    "type": "label",
+                    "value": "<b>(d) Safety-related messages on as required basis.</b>",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_35_cell_2_remarks_2d",
@@ -1538,15 +1554,15 @@
                     "value": "3.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_2_static",
                     "type": "label",
-                    "value": "Security. Check security mechanism to detect disabling and to prevent unauthorised alteration of input or transmitted data.",
+                    "value": "<b>Security.</b> Check security mechanism to detect disabling and to prevent unauthorised alteration of input or transmitted data.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_36_cell_3_remarks_3",
@@ -1590,15 +1606,15 @@
                     "value": "4.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_2_static",
                     "type": "label",
-                    "value": "<b>Permissible Initialisation Period</b>. Check for system to be operational within 02 minutes of switching on.",
+                    "value": "<b>Permissible Initialisation Period.</b> Check for system to be operational within 02 minutes of switching on.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_37_cell_3_remarks_4",
@@ -1642,7 +1658,7 @@
                     "value": "5.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_2_static",
@@ -1650,7 +1666,7 @@
                     "value": "<b>Interfaces.</b> Check interfaces with analog and digital navigational systems and aids like GPS, Gyro, Log, Navigational Radar(s), ECDIS, Integrated Bridge System (IBS) and CTD / CAIO System Combat Management System (CMS) catering for shipboard systems of different origins / manufactures and vintages.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_38_cell_3_remarks_5",
@@ -1694,15 +1710,15 @@
                     "value": "6.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_2_static",
                     "type": "label",
-                    "value": "Check AIS for \"Receive Only mode information when own transmission is switched off.",
+                    "value": "Check AIS for “Receive Only” mode information when own transmission is switched off.",
                     "colspan": 2,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_2_matrix_1_row_39_cell_3_remarks_6",
@@ -1764,7 +1780,7 @@
 
           {
             "type": "label",
-            "value": "<b>Inspecting Authority:</b> WATT (V)",
+            "value": "<b>Inspecting Authority:</b> WATT (V) ",
             "colSpan": 12
           },
           {
@@ -1793,8 +1809,7 @@
             "inputType": "text",
             "colSpan": 6
           }
-        ],
-        "tables_2": []
+        ]
       }
     }
   ]

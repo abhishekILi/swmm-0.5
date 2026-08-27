@@ -18,15 +18,16 @@
             "colSpan": 12
           },
           {
-            "_id": "ship",
-            "key": "ship",
-            "name": "ship",
-            "label": "Ship",
-            "type": "input",
+            "_id": "name_of_ship",
+            "key": "name_of_ship",
+            "name": "name_of_ship",
+            "label": "Name of Ship",
+            "type": "select",
             "value": "",
             "required": true,
-            "disabled": true,
-            "placeholder": "",
+            "disabled": false,
+            "placeholder": "-- Select --",
+            "colSpan": 6,
             "options": [
               {
                 "label": "-- Select --",
@@ -34,25 +35,21 @@
               },
               {
                 "label": "INS Alpha",
-                "value": "INS_A"
+                "value": "INS Alpha"
               },
               {
                 "label": "INS Bravo",
-                "value": "INS_B"
+                "value": "INS Bravo"
               },
               {
                 "label": "INS Charlie",
-                "value": "INS_C"
+                "value": "INS Charlie"
               },
               {
                 "label": "INS Delta",
-                "value": "INS_D"
+                "value": "INS Delta"
               }
-            ],
-            "isDynamic": true,
-            "lookupKey": "ship_name",
-            "prefill": true,
-            "prefillSource": "context.ship_name"
+            ]
           },
           {
             "_id": "department",
@@ -96,13 +93,13 @@
             "type": "select",
             "value": "",
             "required": false,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [],
             "isDynamic": true,
             "lookupKey": "equipment",
             "prefill": true,
-            "prefillSource": "context.equipment",
+            "prefillSource": "equipment.nomenclature",
             "colSpan": 4
           },
           {
@@ -164,7 +161,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "Ser No.",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -201,7 +198,7 @@
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -215,7 +212,7 @@
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "schedule",
@@ -229,7 +226,7 @@
                     "disabled": false,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -250,7 +247,7 @@
                     "value": "Check the antenna is fitted at a position on the ship which ensures a clear view of the satellite constellation.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_2_cell_3_gen_criterion_1_1",
@@ -302,7 +299,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 30 min, when there is no valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_4_cell_3_gen_criterion_1_2",
@@ -354,7 +351,7 @@
                     "value": "Check for capability of acquiring position to the required accuracy, within 5 min, when there is valid almanac data.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_5_cell_3_gen_criterion_1_3",
@@ -406,7 +403,7 @@
                     "value": "Check for capability of re-acquiring position to the required accuracy, within 2 min, when subjected to a power interruption of 60 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_6_cell_3_gen_criterion_1_4",
@@ -458,7 +455,7 @@
                     "value": "Check for a minimum resolution of position, i.e latitude and longitude, of 0.001 minutes.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_7_cell_3_gen_criterion_1_5",
@@ -523,7 +520,7 @@
                     "value": "Check for warning of loss of position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_9_cell_3_gen_criterion_1_6",
@@ -575,7 +572,7 @@
                     "value": "DGPS status indication of the receipt of DGPS signals and whether DGPS corrections are being applied to the indicated ship\u2019s position.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_10_cell_3_gen_criterion_1_7",
@@ -627,7 +624,7 @@
                     "value": "Check for DGPS integrity status and alarm.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_11_cell_3_gen_criterion_1_8",
@@ -679,7 +676,7 @@
                     "value": "Check for DGPS text message display.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_12_cell_3_gen_criterion_1_9",
@@ -731,7 +728,7 @@
                     "value": "Check for indication within 5 sec if the specified \u201cHorizontal Dilution of Precision\u201d (HDOP) has been exceeded or a new position has not been calculated for more than 1 sec.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_13_cell_3_gen_criterion_1_10",
@@ -796,7 +793,7 @@
                     "value": "Interface checks with other user AIS, ECDIS, RADAR, CTD, Trigun/MDA, Gyro, etc.",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "checks_matrix_1_row_15_cell_3_gen_criterion_1_11",
@@ -838,54 +835,76 @@
         ],
         "fields_2": [
           {
+            "_id": "presenting_authority_heading",
             "type": "label",
-            "value": "<b>Presenting Authority:</b> Ship's Staff",
-            "colSpan": 12
-          },
-          {
-            "_id": "presenting_nd",
-            "key": "presenting_nd",
-            "name": "presenting_nd",
-            "label": "ND:",
-            "type": "input",
-            "value": "",
-            "required": false,
-            "disabled": false,
-            "placeholder": "",
-            "inputType": "text",
+            "value": "<b>Presenting Authority: Ship’s Staff</b>",
             "colSpan": 6
           },
-
           {
+            "_id": "inspecting_authority_heading",
             "type": "label",
-            "value": "<b>Inspecting Authority:</b> WATT (V/MI) ",
-            "colSpan": 12
+            "value": "<b>Inspecting Authority: WATT (V)</b>",
+            "colSpan": 6
           },
           {
-            "_id": "inspecting_sti_ti",
-            "key": "inspecting_sti_ti",
-            "name": "inspecting_sti_ti",
-            "label": "STI / TI:",
+            "_id": "presenting_authority_nd_label",
+            "type": "label",
+            "value": "<b>ND:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "presenting_authority_nd",
+            "key": "presenting_authority_nd",
+            "name": "presenting_authority_nd",
+            "label": "",
             "type": "input",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "style": "margin-left: -60px; width: calc(100% + 60px);",
+            "colSpan": 3
           },
           {
-            "_id": "inspecting_sto",
-            "key": "inspecting_sto",
-            "name": "inspecting_sto",
-            "label": "STO:",
+            "_id": "presenting_authority_sti_ti_label",
+            "type": "label",
+            "value": "<b>STI / TI:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "presenting_authority_sti_ti",
+            "key": "presenting_authority_sti_ti",
+            "name": "presenting_authority_sti_ti",
+            "label": "",
             "type": "input",
             "value": "",
             "required": false,
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colSpan": 6
+            "style": "margin-left: -60px; width: calc(100% + 60px);",
+            "colSpan": 3
+          },
+          {
+            "_id": "inspecting_authority_sto_label",
+            "type": "label",
+            "value": "<b>STO:</b>",
+            "colSpan": 1
+          },
+          {
+            "_id": "inspecting_authority_sto",
+            "key": "inspecting_authority_sto",
+            "name": "inspecting_authority_sto",
+            "label": "",
+            "type": "input",
+            "value": "",
+            "required": false,
+            "disabled": false,
+            "placeholder": "",
+            "inputType": "text",
+            "style": "margin-left: -60px; width: calc(100% + 60px);",
+            "colSpan": 3
           }
         ]
       }

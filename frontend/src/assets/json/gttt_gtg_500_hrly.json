@@ -13,28 +13,35 @@
             "_id": "ship_name",
             "key": "ship_name",
             "name": "ship_name",
-            "label": "SHIP *",
-            "type": "select",
+            "label": "SHIP",
+            "type": "input",
             "value": "",
-            "required": true,
-            "disabled": false,
+            "rows": null,
+            "required": false,
+            "disabled": true,
             "placeholder": "",
-            "options": [],
+            "inputType": "text",
+            "options": null,
+            "colspan": 4,
+            "rowspan": 1,
+            "align": "left",
             "isDynamic": true,
-            "lookupKey": "ship_name",
+            "lookupKey": "context.ship_name",
             "prefill": true,
             "prefillSource": "context.ship_name",
-            "colspan": 2
+            "lockAfterPrefill": false,
+            "hiddenKey": null,
+            "displayKey": null
           },
           {
             "_id": "equipment_select",
             "key": "equipment_select",
             "name": "equipment_select",
-            "label": "Equipment *",
+            "label": "Equipment",
             "type": "select",
             "value": "",
             "required": true,
-            "disabled": false,
+            "disabled": true,
             "placeholder": "",
             "options": [
               {
@@ -47,7 +54,9 @@
               }
             ],
             "isDynamic": false,
-            "colspan": 2
+            "colspan": 4,
+            "prefill": true,
+            "prefillSource": "equipment.nomenclature"
           },
           {
             "_id": "tc_sno",
@@ -60,7 +69,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 2
+            "colspan": 4
           },
           {
             "_id": "rg_sno",
@@ -73,7 +82,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 2
+            "colspan": 4
           },
           {
             "_id": "last_routine",
@@ -86,7 +95,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 2
+            "colspan": 4
           },
           {
             "_id": "date",
@@ -99,7 +108,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "date",
-            "colspan": 2
+            "colspan": 4
           },
           {
             "_id": "running_hrs_si_tc",
@@ -112,7 +121,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 3
+            "colspan": 6
           },
           {
             "_id": "running_hrs_rg",
@@ -125,7 +134,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 3
+            "colspan": 6
           },
           {
             "_id": "last_battery_cold_start",
@@ -138,7 +147,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 3
+            "colspan": 6
           },
           {
             "_id": "last_battery_hot_start",
@@ -151,7 +160,7 @@
             "disabled": false,
             "placeholder": "",
             "inputType": "text",
-            "colspan": 3
+            "colspan": 6
           }
         ],
         "tables_1": [
@@ -162,7 +171,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -198,7 +207,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_2_static",
@@ -206,7 +215,7 @@
                     "value": "Check condition of SV mounts. Indicate bulges/cracks/tears of rubber if any",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_3_static",
@@ -214,7 +223,7 @@
                     "value": "Sat / Unsat",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_4_psc_a",
@@ -249,7 +258,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_2_static",
@@ -257,7 +266,7 @@
                     "value": "AC Oil Pump Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_3_static",
@@ -265,7 +274,7 @@
                     "value": "> 0.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_2_cell_4_psc_b",
@@ -300,7 +309,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_2_static",
@@ -308,7 +317,7 @@
                     "value": "DC Oil Pump Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_3_static",
@@ -316,7 +325,7 @@
                     "value": "> 0.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_3_cell_4_psc_c",
@@ -351,7 +360,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_2_static",
@@ -359,7 +368,7 @@
                     "value": "Oil flow to both generator bearings",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_3_static",
@@ -367,7 +376,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_4_cell_4_psc_d",
@@ -402,7 +411,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_2_static",
@@ -410,7 +419,7 @@
                     "value": "Gauge glass clean",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_3_static",
@@ -418,7 +427,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_5_cell_4_psc_e",
@@ -453,7 +462,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_2_static",
@@ -461,7 +470,7 @@
                     "value": "Last oil report (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_3_static",
@@ -469,7 +478,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_6_cell_4_psc_f",
@@ -504,7 +513,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_2_static",
@@ -512,7 +521,7 @@
                     "value": "Combustion chamber glass clean",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_3_static",
@@ -520,7 +529,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_7_cell_4_psc_g",
@@ -555,7 +564,7 @@
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_2_static",
@@ -563,7 +572,7 @@
                     "value": "<b>Last fuel flushing/steam washing (date)</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_3_static",
@@ -571,7 +580,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_8_cell_4_psc_h",
@@ -603,10 +612,10 @@
                   {
                     "_id": "section_1_table_1_row_9_cell_1_static",
                     "type": "serial",
-                    "value": "(j)",
+                    "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_9_cell_2_static",
@@ -614,7 +623,7 @@
                     "value": "Condition of 04 in no. Zinc plugs of oil cooler (date last checked)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_9_cell_3_static",
@@ -622,7 +631,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_9_cell_4_psc_j",
@@ -654,10 +663,10 @@
                   {
                     "_id": "section_1_table_1_row_10_cell_1_static",
                     "type": "serial",
-                    "value": "(k)",
+                    "value": "(j)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_10_cell_2_static",
@@ -665,7 +674,7 @@
                     "value": "Condition of 04 in no. Zinc plugs of generator air cooler (date last checked)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_10_cell_3_static",
@@ -673,7 +682,7 @@
                     "value": "50% wear down",
                     "colspan": 1,
                     "rowspan": 2,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_10_cell_4_psc_k",
@@ -705,10 +714,10 @@
                   {
                     "_id": "section_1_table_1_row_11_cell_1_static",
                     "type": "serial",
-                    "value": "(l)",
+                    "value": "(k)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_11_cell_2_static",
@@ -716,7 +725,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_11_cell_3_psc_l",
@@ -747,11 +756,11 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_12_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "FUEL SYSTEM",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -764,7 +773,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_13_cell_2_static",
@@ -772,7 +781,7 @@
                     "value": "Fuel Service tank last cleaned on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_13_cell_3_static",
@@ -780,7 +789,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_13_cell_4_fs_a",
@@ -815,7 +824,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_14_cell_2_static",
@@ -823,7 +832,7 @@
                     "value": "RU tank last cleaned on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_14_cell_3_static",
@@ -831,7 +840,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_14_cell_4_fs_b",
@@ -866,7 +875,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_15_cell_2_static",
@@ -874,7 +883,7 @@
                     "value": "CT 500 last changed on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_15_cell_3_static",
@@ -882,7 +891,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_15_cell_4_fs_c",
@@ -917,7 +926,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_16_cell_2_static",
@@ -925,7 +934,7 @@
                     "value": "CT 500 filter difference on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_16_cell_3_static",
@@ -933,7 +942,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_16_cell_4_fs_d",
@@ -968,7 +977,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_17_cell_2_static",
@@ -976,7 +985,7 @@
                     "value": "FNT last changed on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_17_cell_3_static",
@@ -984,7 +993,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_17_cell_4_fs_e",
@@ -1019,7 +1028,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_18_cell_2_static",
@@ -1027,7 +1036,7 @@
                     "value": "FNT filter difference on (date)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_18_cell_3_static",
@@ -1035,7 +1044,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_18_cell_4_fs_f",
@@ -1070,7 +1079,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_19_cell_2_static",
@@ -1078,7 +1087,7 @@
                     "value": "Fuel booster pump and CT 500/FNT filter instrumentation",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_19_cell_3_static",
@@ -1086,7 +1095,7 @@
                     "value": "SAT / UNSAT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_19_cell_4_fs_g",
@@ -1117,11 +1126,11 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_20_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "INTAKE / EXHAUST INSPECTION",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1134,7 +1143,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_21_cell_2_static",
@@ -1142,7 +1151,7 @@
                     "value": "State of perforated sheets, securing bolts and lashing wire",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_21_cell_3_static",
@@ -1150,7 +1159,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_21_cell_4_ie_a",
@@ -1185,7 +1194,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_22_cell_2_static",
@@ -1193,7 +1202,7 @@
                     "value": "Primary filter mesh clean",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_22_cell_3_static",
@@ -1201,7 +1210,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_22_cell_4_ie_b",
@@ -1236,7 +1245,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_23_cell_2_static",
@@ -1244,7 +1253,7 @@
                     "value": "Primary filter drain clear (Pour water)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_23_cell_3_static",
@@ -1252,7 +1261,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_23_cell_4_ie_c",
@@ -1287,7 +1296,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_24_cell_2_static",
@@ -1295,7 +1304,7 @@
                     "value": "Secondary filter drain clear (Pour water)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_24_cell_3_static",
@@ -1303,7 +1312,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_24_cell_4_ie_d",
@@ -1338,7 +1347,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_25_cell_2_static",
@@ -1346,7 +1355,7 @@
                     "value": "Wire mesh state (in Engine Room)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_25_cell_3_static",
@@ -1354,7 +1363,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_25_cell_4_ie_e",
@@ -1389,7 +1398,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_26_cell_2_static",
@@ -1397,7 +1406,7 @@
                     "value": "State of exhaust lagging",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_26_cell_3_static",
@@ -1405,7 +1414,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_26_cell_4_ie_f",
@@ -1440,7 +1449,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_27_cell_2_static",
@@ -1448,7 +1457,7 @@
                     "value": "State of Heat Insulation Cover",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_27_cell_3_static",
@@ -1456,7 +1465,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_27_cell_4_ie_g",
@@ -1491,7 +1500,7 @@
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_28_cell_2_static",
@@ -1499,7 +1508,7 @@
                     "value": "Water level in hydraulic seal tank",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_28_cell_3_static",
@@ -1507,7 +1516,7 @@
                     "value": "3/4",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_28_cell_4_ie_h",
@@ -1539,10 +1548,10 @@
                   {
                     "_id": "section_1_table_1_row_29_cell_1_static",
                     "type": "serial",
-                    "value": "(j)",
+                    "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_29_cell_2_static",
@@ -1550,7 +1559,7 @@
                     "value": "Gauge Glass of hydraulic seal tank clean",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_29_cell_3_static",
@@ -1558,7 +1567,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_29_cell_4_ie_j",
@@ -1590,10 +1599,10 @@
                   {
                     "_id": "section_1_table_1_row_30_cell_1_static",
                     "type": "serial",
-                    "value": "(k)",
+                    "value": "(j)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_30_cell_2_static",
@@ -1601,7 +1610,7 @@
                     "value": "Hand turn GTG (free to turn)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_30_cell_3_static",
@@ -1609,7 +1618,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_30_cell_4_ie_k",
@@ -1640,11 +1649,11 @@
                 "cells": [
                   {
                     "_id": "section_1_table_1_row_31_cell_1_static",
-                    "type": "serial",
+                    "type": "label",
                     "value": "CONTROL AND INSTRUMENTATION CHECKS",
                     "colspan": 4,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   }
                 ]
               },
@@ -1657,7 +1666,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_32_cell_2_static",
@@ -1665,7 +1674,7 @@
                     "value": "State of indicating lamp on Local panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_32_cell_3_static",
@@ -1673,7 +1682,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_32_cell_4_ci_a",
@@ -1708,7 +1717,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_33_cell_2_static",
@@ -1716,7 +1725,7 @@
                     "value": "State of indicating lamp on Remote panel",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_33_cell_3_static",
@@ -1724,7 +1733,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_33_cell_4_ci_b",
@@ -1759,7 +1768,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_34_cell_2_static",
@@ -1767,7 +1776,7 @@
                     "value": "CT-042 Group I check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_34_cell_3_static",
@@ -1775,7 +1784,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_34_cell_4_ci_c",
@@ -1810,7 +1819,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_35_cell_2_static",
@@ -1818,7 +1827,7 @@
                     "value": "CT-042 Group II check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_35_cell_3_static",
@@ -1826,7 +1835,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_35_cell_4_ci_d",
@@ -1861,7 +1870,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_36_cell_2_static",
@@ -1869,7 +1878,7 @@
                     "value": "CAKT-07 TC break check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_36_cell_3_static",
@@ -1877,7 +1886,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_36_cell_4_ci_e",
@@ -1912,7 +1921,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_37_cell_2_static",
@@ -1920,7 +1929,7 @@
                     "value": "CAKT-07 TC grounding check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_37_cell_3_static",
@@ -1928,7 +1937,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_37_cell_4_ci_f",
@@ -1963,7 +1972,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_38_cell_2_static",
@@ -1971,7 +1980,7 @@
                     "value": "Check CAKT-07 'K' value check",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_38_cell_3_static",
@@ -1979,7 +1988,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_38_cell_4_ci_g",
@@ -2021,7 +2030,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colspan":12
           }
         ],
         "tables_2": [
@@ -2032,7 +2042,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2060,7 +2070,7 @@
             "columns": [
               {
                 "key": "si_no",
-                "label": "SI No",
+                "label": "SNo.",
                 "type": "label",
                 "align": "center"
               },
@@ -2068,19 +2078,19 @@
                 "key": "check",
                 "label": "Check",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "limit",
                 "label": "Limit",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "recorded",
                 "label": "Recorded",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               }
             ],
             "rows": [
@@ -2093,7 +2103,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_1_cell_2_static",
@@ -2144,7 +2154,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_2_cell_2_static",
@@ -2195,7 +2205,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_3_cell_2_static",
@@ -2246,7 +2256,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_4_cell_2_static",
@@ -2297,7 +2307,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_5_cell_2_static",
@@ -2345,10 +2355,10 @@
                   {
                     "_id": "section_1_table_2_row_6_cell_1_static",
                     "type": "serial",
-                    "value": "(e)",
+                    "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_6_cell_2_static",
@@ -2396,10 +2406,10 @@
                   {
                     "_id": "section_1_table_2_row_7_cell_1_static",
                     "type": "serial",
-                    "value": "(e)",
+                    "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_2_row_7_cell_2_static",
@@ -2454,7 +2464,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -2490,7 +2500,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_1_cell_2_static",
@@ -2498,7 +2508,7 @@
                     "value": "Starting current",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_1_cell_3_static",
@@ -2506,7 +2516,7 @@
                     "value": "> 3000",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_1_cell_4_hs_a",
@@ -2541,7 +2551,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_2_cell_2_static",
@@ -2549,7 +2559,7 @@
                     "value": "Starting fuel time",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_2_cell_3_static",
@@ -2557,7 +2567,7 @@
                     "value": "10 - 12",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_2_cell_4_hs_b",
@@ -2592,7 +2602,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_3_cell_2_static",
@@ -2600,7 +2610,7 @@
                     "value": "Starting fuel pressure rise uniform (Y/N)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_3_cell_3_static",
@@ -2608,7 +2618,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_3_cell_4_hs_c",
@@ -2643,7 +2653,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_4_cell_2_static",
@@ -2651,7 +2661,7 @@
                     "value": "Starting fuel pressure at 3000 rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_4_cell_3_static",
@@ -2659,7 +2669,7 @@
                     "value": "4 – 5.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_4_cell_4_hs_d",
@@ -2694,7 +2704,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_5_cell_2_static",
@@ -2702,7 +2712,7 @@
                     "value": "Shut off valve closed at time",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_5_cell_3_static",
@@ -2710,7 +2720,7 @@
                     "value": "28 sec",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_5_cell_4_hs_e",
@@ -2745,7 +2755,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_6_cell_2_static",
@@ -2753,7 +2763,7 @@
                     "value": "Shut off valve closed at rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_6_cell_3_static",
@@ -2761,7 +2771,7 @@
                     "value": "2800 – 3200",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_6_cell_4_hs_f",
@@ -2796,7 +2806,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_7_cell_2_static",
@@ -2804,7 +2814,7 @@
                     "value": "Blow off valve closes at rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_7_cell_3_static",
@@ -2812,7 +2822,7 @@
                     "value": "3500 – 4500",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_7_cell_4_hs_g",
@@ -2847,7 +2857,7 @@
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_8_cell_2_static",
@@ -2855,7 +2865,7 @@
                     "value": "Spill Fuel Pressure @ 3500–4000 rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_8_cell_3_static",
@@ -2863,7 +2873,7 @@
                     "value": "4 – 6",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_8_cell_4_hs_h",
@@ -2895,10 +2905,10 @@
                   {
                     "_id": "section_1_table_3_row_9_cell_1_static",
                     "type": "serial",
-                    "value": "(j)",
+                    "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_9_cell_2_static",
@@ -2906,7 +2916,7 @@
                     "value": "Main Fuel Pressure @ 3500–4000 rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_9_cell_3_static",
@@ -2914,7 +2924,7 @@
                     "value": "7 – 10",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_9_cell_4_hs_j",
@@ -2946,10 +2956,10 @@
                   {
                     "_id": "section_1_table_3_row_10_cell_1_static",
                     "type": "serial",
-                    "value": "(k)",
+                    "value": "(j)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_10_cell_2_static",
@@ -2957,7 +2967,7 @@
                     "value": "Max Exhaust Gas Temperature LOCAL",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_10_cell_3_static",
@@ -2965,7 +2975,7 @@
                     "value": "510",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_10_cell_4_hs_k",
@@ -2997,10 +3007,10 @@
                   {
                     "_id": "section_1_table_3_row_11_cell_1_static",
                     "type": "serial",
-                    "value": "(l)",
+                    "value": "(k)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_11_cell_2_static",
@@ -3008,7 +3018,7 @@
                     "value": "Max Exhaust Gas Temperature REMOTE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_11_cell_3_static",
@@ -3016,7 +3026,7 @@
                     "value": "510",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_11_cell_4_hs_l",
@@ -3048,10 +3058,10 @@
                   {
                     "_id": "section_1_table_3_row_12_cell_1_static",
                     "type": "serial",
-                    "value": "(m)",
+                    "value": "(l)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_12_cell_2_static",
@@ -3059,7 +3069,7 @@
                     "value": "Starter Cut Off time",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_12_cell_3_static",
@@ -3067,7 +3077,7 @@
                     "value": "70 – 75",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_12_cell_4_hs_m",
@@ -3099,10 +3109,10 @@
                   {
                     "_id": "section_1_table_3_row_13_cell_1_static",
                     "type": "serial",
-                    "value": "(n)",
+                    "value": "(m)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_13_cell_2_static",
@@ -3110,7 +3120,7 @@
                     "value": "Starter Cut Off rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_13_cell_3_static",
@@ -3118,7 +3128,7 @@
                     "value": "5000 – 8000",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_13_cell_4_hs_n",
@@ -3150,10 +3160,10 @@
                   {
                     "_id": "section_1_table_3_row_14_cell_1_static",
                     "type": "serial",
-                    "value": "(p)",
+                    "value": "(n)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_14_cell_2_static",
@@ -3161,7 +3171,7 @@
                     "value": "Automatic sea water valve opens (Y/N)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_14_cell_3_static",
@@ -3169,7 +3179,7 @@
                     "value": "",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_14_cell_4_hs_p",
@@ -3201,10 +3211,10 @@
                   {
                     "_id": "section_1_table_3_row_15_cell_1_static",
                     "type": "serial",
-                    "value": "(q)",
+                    "value": "(o)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_15_cell_2_static",
@@ -3212,7 +3222,7 @@
                     "value": "Anti surge valve starts closing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_15_cell_3_static",
@@ -3220,7 +3230,7 @@
                     "value": "10,200 – 11000",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_15_cell_4_hs_q",
@@ -3252,10 +3262,10 @@
                   {
                     "_id": "section_1_table_3_row_16_cell_1_static",
                     "type": "serial",
-                    "value": "(r)",
+                    "value": "(p)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_16_cell_2_static",
@@ -3263,7 +3273,7 @@
                     "value": "Anti surge valve closed",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_16_cell_3_static",
@@ -3271,7 +3281,7 @@
                     "value": "11,850 – 12500",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_16_cell_4_hs_r",
@@ -3303,10 +3313,10 @@
                   {
                     "_id": "section_1_table_3_row_17_cell_1_static",
                     "type": "serial",
-                    "value": "(s)",
+                    "value": "(q)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_17_cell_2_static",
@@ -3314,7 +3324,7 @@
                     "value": "Time to achieve Idling",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_17_cell_3_static",
@@ -3322,7 +3332,7 @@
                     "value": "120 – 150",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_17_cell_4_hs_s",
@@ -3354,10 +3364,10 @@
                   {
                     "_id": "section_1_table_3_row_18_cell_1_static",
                     "type": "serial",
-                    "value": "(t)",
+                    "value": "(r)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_18_cell_2_static",
@@ -3365,7 +3375,7 @@
                     "value": "RPM achieved in Auto LOCAL",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_18_cell_3_static",
@@ -3373,7 +3383,7 @@
                     "value": "12500 – 12650",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_18_cell_4_hs_t",
@@ -3405,10 +3415,10 @@
                   {
                     "_id": "section_1_table_3_row_19_cell_1_static",
                     "type": "serial",
-                    "value": "(u)",
+                    "value": "(s)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_19_cell_2_static",
@@ -3416,7 +3426,7 @@
                     "value": "RPM achieved in Auto REMOTE",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_19_cell_3_static",
@@ -3424,7 +3434,7 @@
                     "value": "12500 – 12650",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_19_cell_4_hs_u",
@@ -3456,10 +3466,10 @@
                   {
                     "_id": "section_1_table_3_row_20_cell_1_static",
                     "type": "serial",
-                    "value": "(v)",
+                    "value": "(t)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_20_cell_2_static",
@@ -3467,7 +3477,7 @@
                     "value": "RDT",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_20_cell_3_static",
@@ -3475,7 +3485,7 @@
                     "value": "> 3' 30\"",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_3_row_20_cell_4_hs_v",
@@ -3540,7 +3550,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 2,
                   "align": "center"
@@ -3608,7 +3618,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_1_cell_2_static",
@@ -3616,7 +3626,7 @@
                     "value": "Load",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_1_cell_3_static",
@@ -3624,7 +3634,7 @@
                     "value": "500 kw",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_1_cell_4_param_a_idle_local",
@@ -3725,7 +3735,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_2_cell_2_static",
@@ -3733,7 +3743,7 @@
                     "value": "Frequency",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_2_cell_3_static",
@@ -3741,7 +3751,7 @@
                     "value": "50 ± 0.1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_2_cell_4_param_b_idle_local",
@@ -3842,7 +3852,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_3_cell_2_static",
@@ -3850,7 +3860,7 @@
                     "value": "Voltage",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_3_cell_3_static",
@@ -3858,7 +3868,7 @@
                     "value": "400",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_3_cell_4_param_c_idle_local",
@@ -3959,7 +3969,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_4_cell_2_static",
@@ -3967,7 +3977,7 @@
                     "value": "TC rpm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_4_cell_3_static",
@@ -3975,7 +3985,7 @@
                     "value": "12500",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_4_cell_4_param_d_idle_local",
@@ -4076,7 +4086,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_5_cell_2_static",
@@ -4084,7 +4094,7 @@
                     "value": "Exhaust Gas Temp",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_5_cell_3_static",
@@ -4092,7 +4102,7 @@
                     "value": "310 – 370",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_5_cell_4_param_e_idle_local",
@@ -4193,7 +4203,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_6_cell_2_static",
@@ -4201,7 +4211,7 @@
                     "value": "Turbine Bearing Temp",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_6_cell_3_static",
@@ -4209,7 +4219,7 @@
                     "value": "50 – 80",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_6_cell_4_param_f_idle_local",
@@ -4310,7 +4320,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_7_cell_2_static",
@@ -4318,7 +4328,7 @@
                     "value": "Compressor Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_7_cell_3_static",
@@ -4326,7 +4336,7 @@
                     "value": "40 – 65",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_7_cell_4_param_g_idle_local",
@@ -4427,7 +4437,7 @@
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_8_cell_2_static",
@@ -4435,7 +4445,7 @@
                     "value": "Lub Oil Temp. After",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_8_cell_3_static",
@@ -4443,7 +4453,7 @@
                     "value": "30 – 45",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_8_cell_4_param_h_idle_local",
@@ -4541,10 +4551,10 @@
                   {
                     "_id": "section_1_table_4_row_9_cell_1_static",
                     "type": "serial",
-                    "value": "(j)",
+                    "value": "(i)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_9_cell_2_static",
@@ -4552,7 +4562,7 @@
                     "value": "Gen Cooler Temp",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_9_cell_3_static",
@@ -4560,7 +4570,7 @@
                     "value": "< 80",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_9_cell_4_param_j_idle_local",
@@ -4658,10 +4668,10 @@
                   {
                     "_id": "section_1_table_4_row_10_cell_1_static",
                     "type": "serial",
-                    "value": "(k)",
+                    "value": "(j)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_10_cell_2_static",
@@ -4669,7 +4679,7 @@
                     "value": "Lub Oil Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_10_cell_3_static",
@@ -4677,7 +4687,7 @@
                     "value": "2.8 – 3.0",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_10_cell_4_param_k_idle_local",
@@ -4775,10 +4785,10 @@
                   {
                     "_id": "section_1_table_4_row_11_cell_1_static",
                     "type": "serial",
-                    "value": "(l)",
+                    "value": "(k)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_11_cell_2_static",
@@ -4786,7 +4796,7 @@
                     "value": "Control Oil Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_11_cell_3_static",
@@ -4794,7 +4804,7 @@
                     "value": "7.5 – 8.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_11_cell_4_param_l_idle_local",
@@ -4892,10 +4902,10 @@
                   {
                     "_id": "section_1_table_4_row_12_cell_1_static",
                     "type": "serial",
-                    "value": "(m)",
+                    "value": "(l)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_12_cell_2_static",
@@ -4903,7 +4913,7 @@
                     "value": "Main Fuel Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_12_cell_3_static",
@@ -4911,7 +4921,7 @@
                     "value": "44-55 (at ideal) / 48-62 (at 500kw)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_12_cell_4_param_m_idle_local",
@@ -5009,10 +5019,10 @@
                   {
                     "_id": "section_1_table_4_row_13_cell_1_static",
                     "type": "serial",
-                    "value": "(n)",
+                    "value": "(m)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_13_cell_2_static",
@@ -5020,7 +5030,7 @@
                     "value": "Spill Fuel Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_13_cell_3_static",
@@ -5028,7 +5038,7 @@
                     "value": "23-30 (at ideal) / 28-39 (at 500kw)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_13_cell_4_param_n_idle_local",
@@ -5126,10 +5136,10 @@
                   {
                     "_id": "section_1_table_4_row_14_cell_1_static",
                     "type": "serial",
-                    "value": "(p)",
+                    "value": "(n)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_14_cell_2_static",
@@ -5137,7 +5147,7 @@
                     "value": "Compressor pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_14_cell_3_static",
@@ -5145,7 +5155,7 @@
                     "value": "3.5-4.3 (at ideal) / 3.8-4.7 (at 500kw)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_14_cell_4_param_p_idle_local",
@@ -5243,10 +5253,10 @@
                   {
                     "_id": "section_1_table_4_row_15_cell_1_static",
                     "type": "serial",
-                    "value": "(q)",
+                    "value": "(o)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_15_cell_2_static",
@@ -5254,7 +5264,7 @@
                     "value": "Compressor Vacuum",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_15_cell_3_static",
@@ -5262,7 +5272,7 @@
                     "value": "300 mm",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_15_cell_4_param_q_idle_local",
@@ -5360,10 +5370,10 @@
                   {
                     "_id": "section_1_table_4_row_16_cell_1_static",
                     "type": "serial",
-                    "value": "(r)",
+                    "value": "(p)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_16_cell_2_static",
@@ -5371,7 +5381,7 @@
                     "value": "Sea Water Pressure",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_16_cell_3_static",
@@ -5379,7 +5389,7 @@
                     "value": "0.5 – 3.0",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_4_row_16_cell_4_param_r_idle_local",
@@ -5487,7 +5497,8 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "inputType": "text"
+            "inputType": "text",
+            "colspan":12
           }
         ],
         "tables_5": [
@@ -5498,7 +5509,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "SI No",
+                  "label": "SNo.",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
@@ -5540,7 +5551,7 @@
                     "value": "(a)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_1_cell_2_static",
@@ -5548,7 +5559,7 @@
                     "value": "Generator Fwd",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_1_cell_3_static",
@@ -5556,7 +5567,7 @@
                     "value": "< 2.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_1_cell_4_vib_a_last",
@@ -5613,7 +5624,7 @@
                     "value": "(b)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_2_cell_2_static",
@@ -5621,7 +5632,7 @@
                     "value": "Generator Aft",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_2_cell_3_static",
@@ -5629,7 +5640,7 @@
                     "value": "< 2.5",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_2_cell_4_vib_b_last",
@@ -5686,7 +5697,7 @@
                     "value": "(c)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_3_cell_2_static",
@@ -5694,7 +5705,7 @@
                     "value": "RG Forward",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_3_cell_3_static",
@@ -5702,7 +5713,7 @@
                     "value": "< 3.2",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_3_cell_4_vib_c_last",
@@ -5759,7 +5770,7 @@
                     "value": "(d)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_4_cell_2_static",
@@ -5767,7 +5778,7 @@
                     "value": "RG Aft",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_4_cell_3_static",
@@ -5775,7 +5786,7 @@
                     "value": "< 4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_4_cell_4_vib_d_last",
@@ -5832,7 +5843,7 @@
                     "value": "(e)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_5_cell_2_static",
@@ -5840,7 +5851,7 @@
                     "value": "Compressor Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_5_cell_3_static",
@@ -5848,7 +5859,7 @@
                     "value": "< 4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_5_cell_4_vib_e_last",
@@ -5905,7 +5916,7 @@
                     "value": "(f)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_6_cell_2_static",
@@ -5913,7 +5924,7 @@
                     "value": "Compressor Body (vertical)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_6_cell_3_static",
@@ -5921,7 +5932,7 @@
                     "value": "< 4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_6_cell_4_vib_f_last",
@@ -5978,7 +5989,7 @@
                     "value": "(g)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_7_cell_2_static",
@@ -5986,7 +5997,7 @@
                     "value": "Compressor Body (Axial)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_7_cell_3_static",
@@ -5994,7 +6005,7 @@
                     "value": "< 4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_7_cell_4_vib_g_last",
@@ -6051,7 +6062,7 @@
                     "value": "(h)",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_8_cell_2_static",
@@ -6059,7 +6070,7 @@
                     "value": "Turbine Bearing",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_8_cell_3_static",
@@ -6067,7 +6078,7 @@
                     "value": "< 4.3",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_5_row_8_cell_4_vib_h_last",
