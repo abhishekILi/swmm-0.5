@@ -109,6 +109,7 @@ export const Apiendpoints = {
   SHELL_EXPANSION_GA_DRAWING: 'dashboard/ship-drawing-data/',
   MASTER_STRAKES: 'master/strakes/',
   MASTER_DECKS: 'master/decks/',
+  BOAT_MASTER: 'master/boats/',
 };
 export const equipmentHtml = {
   labelKey: 'name',

@@ -2,9 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgb(0 0 0 / 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .dialog-container {
@@ -22,60 +22,61 @@
   width: 900px;
   max-width: 95vw;
   max-height: 85vh;
-  color: var(--shell-text-primary);
+  background: #111622 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff;
   transition: all 0.25s ease-in-out;
 }
 
 .dialog-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
 .dialog-title {
   margin: 0;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.3;
-  color: var(--shell-text-primary);
+  color: #ffffff !important;
 }
 
 .dialog-subtitle {
   margin: 0.25rem 0 0;
   font-size: 0.875rem;
   line-height: 1.45;
-  color: var(--shell-text-muted);
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 html[data-shell-theme='dark'] .pt-glass-dialog .dialog-title,
 html[data-shell-theme='light'] .pt-glass-dialog .dialog-title {
-  color: var(--shell-text-primary);
+  color: #ffffff !important;
 }
 
 html[data-shell-theme='dark'] .pt-glass-dialog .dialog-subtitle,
 html[data-shell-theme='light'] .pt-glass-dialog .dialog-subtitle {
-  color: var(--shell-text-muted);
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .dialog-actions {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 
 .icon-btn {
-  border: 1px solid var(--shell-table-control-border);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  background: var(--shell-table-control-bg);
-  padding: 6px 10px;
-  color: var(--shell-text-primary);
-  font-size: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: background 0.15s ease;
 }
 
 .icon-btn:hover {
-  background: var(--shell-nav-hover-bg);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
 }
 
 .dialog-body {
@@ -87,7 +88,6 @@ html[data-shell-theme='light'] .pt-glass-dialog .dialog-subtitle {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  padding: 16px 24px;
 }
 
 .dialog-card.expanded {

@@ -334,6 +334,34 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           ),
       },
       {
+        path: "master/boat-master",
+        loadComponent: () =>
+          import("./Trial-INT/master/boat-master/boat-master.component").then(
+            (m) => m.BoatMasterComponent
+          ),
+      },
+      {
+        path: "master/deck-master",
+        loadComponent: () =>
+          import("./Trial-INT/master/deck-master-view/decks-master.component").then(
+            (m) => m.DecksMasterComponent
+          ),
+      },
+      {
+        path: "master/refit-master",
+        loadComponent: () =>
+          import("./Trial-INT/master/refit-view/refit-view.component").then(
+            (m) => m.RefitViewComponent
+          ),
+      },
+      {
+        path: "master/strakes-master",
+        loadComponent: () =>
+          import("./Trial-INT/master/strakes-master-view/strakes-master.component").then(
+            (m) => m.StrakesMasterViewComponent
+          ),
+      },
+      {
         path: "dynamic-form/:formName",
         loadComponent: () =>
           import(

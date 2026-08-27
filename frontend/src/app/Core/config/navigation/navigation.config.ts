@@ -253,6 +253,10 @@ const TRIAL_INT_MASTER_CHILDREN = [
   { id: "master-parameter-refrence-value", label: "Parameter Reference Value", route: "master/parameter-refrence-value" },
   { id: "master-sfd-equipmen-mapping", label: "SFD Equipment Mapping", route: "master/sfd-equipmen-mapping" },
   { id: "master-equipmwnt-map-image", label: "Equipment Map Image", route: "master/equipmwnt-map-image" },
+  { id: "master-boat-master", label: "Boat Master", route: "master/boat-master" },
+  { id: "master-deck-master", label: "Deck Master", route: "master/deck-master" },
+  { id: "master-refit-master", label: "Refit Master", route: "master/refit-master" },
+  { id: "master-strakes-master", label: "Strakes Master", route: "master/strakes-master" },
 ];
 
 const createTrialReturnsHeader = (): HeaderConfig =>
