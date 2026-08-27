@@ -245,6 +245,14 @@ const TRIAL_INT_MASTER_CHILDREN = [
   { id: "master-sections", label: "Sections", route: "master/sections" },
   { id: "master-tools", label: "Tools", route: "master/tools" },
   { id: "master-trial-types", label: "Trial Types", route: "master/trial-types" },
+  { id: "master-system", label: "System", route: "master/system" },
+  { id: "master-subsystem", label: "Sub System", route: "master/subsystem" },
+  { id: "master-sub-sub-system", label: "Sub Sub System", route: "master/sub-sub-system" },
+  { id: "master-linkage-form", label: "Linkage Form", route: "master/linkage-form" },
+  { id: "master-parameters-value", label: "Parameters Value", route: "master/parameters-value" },
+  { id: "master-parameter-refrence-value", label: "Parameter Reference Value", route: "master/parameter-refrence-value" },
+  { id: "master-sfd-equipmen-mapping", label: "SFD Equipment Mapping", route: "master/sfd-equipmen-mapping" },
+  { id: "master-equipmwnt-map-image", label: "Equipment Map Image", route: "master/equipmwnt-map-image" },
 ];
 
 const createTrialReturnsHeader = (): HeaderConfig =>

@@ -278,6 +278,62 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           ),
       },
       {
+        path: "master/system",
+        loadComponent: () =>
+          import("./Trial-INT/master/system/system").then(
+            (m) => m.System
+          ),
+      },
+      {
+        path: "master/subsystem",
+        loadComponent: () =>
+          import("./Trial-INT/master/subsystem/subsystem").then(
+            (m) => m.Subsystem
+          ),
+      },
+      {
+        path: "master/sub-sub-system",
+        loadComponent: () =>
+          import("./Trial-INT/master/sub-sub-system/sub-sub-system").then(
+            (m) => m.SubSubSystem
+          ),
+      },
+      {
+        path: "master/linkage-form",
+        loadComponent: () =>
+          import("./Trial-INT/master/linkage-form/linkage-form").then(
+            (m) => m.LinkageForm
+          ),
+      },
+      {
+        path: "master/parameters-value",
+        loadComponent: () =>
+          import("./Trial-INT/master/parameters-value/parameters-value").then(
+            (m) => m.ParametersValue
+          ),
+      },
+      {
+        path: "master/parameter-refrence-value",
+        loadComponent: () =>
+          import("./Trial-INT/master/parameter-refrence-value/parameter-refrence-value").then(
+            (m) => m.ParameterRefrenceValue
+          ),
+      },
+      {
+        path: "master/sfd-equipmen-mapping",
+        loadComponent: () =>
+          import("./Trial-INT/master/sfd-equipmen-mapping/sfd-equipmen-mapping").then(
+            (m) => m.SFDEquipmenMapping
+          ),
+      },
+      {
+        path: "master/equipmwnt-map-image",
+        loadComponent: () =>
+          import("./Trial-INT/master/equipmwnt-map-image/equipmwnt-map-image").then(
+            (m) => m.EquipmwntMapImage
+          ),
+      },
+      {
         path: "dynamic-form/:formName",
         loadComponent: () =>
           import(
@@ -352,6 +408,62 @@ export const SHIP_RETURNS_ROUTES: Routes = [
         loadComponent: () =>
           import("./Trial-INT/master/trial-types/trial-types").then(
             (m) => m.TrialTypes
+          ),
+      },
+      {
+        path: "master/system",
+        loadComponent: () =>
+          import("./Trial-INT/master/system/system").then(
+            (m) => m.System
+          ),
+      },
+      {
+        path: "master/subsystem",
+        loadComponent: () =>
+          import("./Trial-INT/master/subsystem/subsystem").then(
+            (m) => m.Subsystem
+          ),
+      },
+      {
+        path: "master/sub-sub-system",
+        loadComponent: () =>
+          import("./Trial-INT/master/sub-sub-system/sub-sub-system").then(
+            (m) => m.SubSubSystem
+          ),
+      },
+      {
+        path: "master/linkage-form",
+        loadComponent: () =>
+          import("./Trial-INT/master/linkage-form/linkage-form").then(
+            (m) => m.LinkageForm
+          ),
+      },
+      {
+        path: "master/parameters-value",
+        loadComponent: () =>
+          import("./Trial-INT/master/parameters-value/parameters-value").then(
+            (m) => m.ParametersValue
+          ),
+      },
+      {
+        path: "master/parameter-refrence-value",
+        loadComponent: () =>
+          import("./Trial-INT/master/parameter-refrence-value/parameter-refrence-value").then(
+            (m) => m.ParameterRefrenceValue
+          ),
+      },
+      {
+        path: "master/sfd-equipmen-mapping",
+        loadComponent: () =>
+          import("./Trial-INT/master/sfd-equipmen-mapping/sfd-equipmen-mapping").then(
+            (m) => m.SFDEquipmenMapping
+          ),
+      },
+      {
+        path: "master/equipmwnt-map-image",
+        loadComponent: () =>
+          import("./Trial-INT/master/equipmwnt-map-image/equipmwnt-map-image").then(
+            (m) => m.EquipmwntMapImage
           ),
       },
       {

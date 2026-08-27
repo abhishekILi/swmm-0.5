@@ -66,12 +66,13 @@ export class Tool implements OnInit {
       },
     },
     {
-      headerName: 'Action', field: 'actions', width: 120, maxWidth: 120, sortable: false, filter: false, pinned: 'right' as const,
+      headerName: 'Action', field: 'actions', width: 140, maxWidth: 160, sortable: false, filter: false, pinned: 'right' as const,
       cellRenderer: AgActionCellComponent,
       cellRendererParams: {
         actionDisplayMode: 'float',
         onAction: (k: string, r: any) => this.onGridAction(k, r),
         actions: [
+          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200' },
           { key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200' },
           { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' }
         ]
@@ -220,8 +221,12 @@ export class Tool implements OnInit {
   }
 
   private onGridAction(k: string, r: any) {
-    if (k === 'edit') this.openEditPopup(r);
-    else if (k === 'delete') this.openDeleteDialog(r);
+    if (k === 'edit' || k === 'view') {
+      this.openEditPopup(r);
+      if (k === 'view') this.title = 'VIEW TOOL';
+    } else if (k === 'delete') {
+      this.openDeleteDialog(r);
+    }
   }
 
   openEditPopup(row: any) {

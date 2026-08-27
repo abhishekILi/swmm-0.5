@@ -8,17 +8,24 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="glass-card max-h-[90vh] overflow-hidden text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)]">
-      <header *ngIf="title" class="border-b border-white/10 px-5 py-3.5">
-        <h2 class="text-[1.05rem] font-semibold leading-snug tracking-tight text-white">{{ title }}</h2>
+    <section class="glass-card max-h-[90vh] overflow-hidden text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)] flex flex-col">
+      <header *ngIf="title || smallTitle" class="border-b border-white/10 px-5 py-3.5 flex flex-col justify-center shrink-0">
+        <h2 *ngIf="title" class="text-[1.05rem] font-semibold leading-snug tracking-tight text-white">{{ title }}</h2>
+        <p *ngIf="smallTitle" class="text-xs text-white/60 mt-0.5">{{ smallTitle }}</p>
       </header>
-      <div class="max-h-[calc(90vh-58px)] overflow-y-auto p-5 custom-scrollbar">
+      <div class="flex-1 overflow-y-auto p-5 custom-scrollbar min-h-0">
         <ng-content></ng-content>
       </div>
+      <footer class="border-t border-white/10 px-5 py-3 bg-slate-900/80 backdrop-blur-md flex items-center justify-end gap-3 shrink-0">
+        <ng-content select="[formFooter]"></ng-content>
+      </footer>
     </section>
   `,
 })
-export class FormCardComponent { @Input() title = ''; }
+export class FormCardComponent {
+  @Input() title = '';
+  @Input() smallTitle = '';
+}
 
 @Component({
   selector: 'app-reusable-delete-dialog',
@@ -87,13 +94,17 @@ export class ReusableDeleteDialogComponent {
               </select>
             </td>
             <td *ngIf="enableRowActions" class="px-4 py-2">
-              <div class="flex items-center justify-center gap-2">
-                <button type="button" (click)="addRow()" class="grid h-8 w-8 place-items-center rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 transition hover:bg-emerald-500/20" title="Add row">
-                  <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+              <div class="flex items-center justify-center gap-1.5">
+                <button type="button" (click)="addRow()" class="grid h-8 w-8 place-items-center rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 transition hover:bg-emerald-500/30" title="Add row">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
+                    <path d="M10 4v12M4 10h12"></path>
+                  </svg>
                 </button>
                 <button type="button" (click)="removeRow(rowIndex)" [disabled]="data.length === 1"
-                  class="grid h-8 w-8 place-items-center rounded-full border border-rose-400/30 bg-rose-500/10 text-rose-300 transition hover:bg-rose-500/20 disabled:cursor-not-allowed disabled:opacity-35" title="Remove row">
-                  <i class="fa-solid fa-minus text-xs" aria-hidden="true"></i>
+                  class="grid h-8 w-8 place-items-center rounded-full border border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300 transition hover:bg-rose-500/30 disabled:cursor-not-allowed disabled:opacity-35" title="Remove row">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
+                    <path d="M3.5 5.5h13M7.5 5.5V4.4A1.4 1.4 0 0 1 8.9 3h2.2a1.4 1.4 0 0 1 1.4 1.4v1.1M6.5 6.5l.7 9.1A1.5 1.5 0 0 0 8.7 17h2.6a1.5 1.5 0 0 0 1.5-1.4l.7-9.1"></path>
+                  </svg>
                 </button>
               </div>
             </td>
@@ -142,13 +153,13 @@ interface AgActionCellParams {
 }
 
 const ACTION_TONE: Record<string, string> = {
-  edit: 'border-sky-400/30 bg-sky-500/10 text-sky-300 hover:bg-sky-500/20',
-  view: 'border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20',
-  status: 'border-amber-400/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20',
-  add: 'border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20',
-  delete: 'border-rose-400/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20',
+  edit: 'border-sky-500/40 bg-sky-500/15 text-sky-600 dark:text-sky-300 hover:bg-sky-500/30',
+  view: 'border-emerald-500/40 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-500/30',
+  status: 'border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300 hover:bg-amber-500/30',
+  add: 'border-emerald-500/40 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-500/30',
+  delete: 'border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300 hover:bg-rose-500/30',
 };
-const DEFAULT_TONE = 'border-white/20 bg-white/10 text-white/80 hover:bg-white/15';
+const DEFAULT_TONE = 'border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white/80 hover:bg-slate-200 dark:hover:bg-white/15';
 
 @Component({
   selector: 'app-grid-action-cell',

@@ -190,7 +190,7 @@ export class EquipmentOilMapping implements OnInit {
     { field: 'oil_name', headerName: 'Oil Name', filter: 'agTextColumnFilter', flex: 1, minWidth: 150 },
     { field: 'full_name', headerName: 'Full Name', filter: 'agTextColumnFilter', flex: 1, minWidth: 200 },
     { field: 'typeOfOil', headerName: 'Oil Type', filter: 'agTextColumnFilter', minWidth: 120, valueGetter: (params: any) => this.getOilTypeDisplay(params.data?.typeOfOil) },
-    { headerName: 'Action', field: 'actions', minWidth: 150, sortable: false, filter: false, cellRenderer: AgActionCellComponent, cellRendererParams: { actionDisplayMode: 'float', onMainAction: (row: any) => console.log('Main action', row), onAction: (k: string, r: any) => this.triggerOilModal(k, r, 'Oil Details'), actions: [{ key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200' }, { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' }] } }
+    { headerName: 'Action', field: 'actions', minWidth: 160, sortable: false, filter: false, cellRenderer: AgActionCellComponent, cellRendererParams: { actionDisplayMode: 'float', onMainAction: (row: any) => console.log('Main action', row), onAction: (k: string, r: any) => this.triggerOilModal(k, r, 'Oil Details'), actions: [{ key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200' }, { key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200' }, { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' }] } }
   ];
   columnOilvsEquipmentMapping = [
     { headerName: 'Ser', valueGetter: (params: any) => (params.node?.rowIndex ?? 0) + 1, width: 100, minWidth: 70, pinned: 'left' },
@@ -222,10 +222,10 @@ export class EquipmentOilMapping implements OnInit {
     {
       headerName: 'Action',
       field: 'actions',
-      minWidth: 80,
-      width: 80,
+      minWidth: 120,
+      width: 120,
       pinned: 'right',
-      maxWidth: 80,
+      maxWidth: 140,
       sortable: false,
       filter: false,
       cellRenderer: AgActionCellComponent,
@@ -234,6 +234,7 @@ export class EquipmentOilMapping implements OnInit {
         onMainAction: (row: any) => console.log('Main action', row),
         onAction: (k: string, r: any) => this.triggerOilModal(k, r, 'Oil Details'),
         actions: [
+          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200' },
           { key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200' },
           { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' }
         ]
@@ -338,10 +339,10 @@ export class EquipmentOilMapping implements OnInit {
       return;
     }
 
-    if (key === 'edit' && rowData) {
-      this.isEditMode = true;
+    if ((key === 'edit' || key === 'view') && rowData) {
+      this.isEditMode = key === 'edit';
       this.editingOilId = rowData.id ?? null;
-      this.headerTitle = headerTitle || 'Edit Oil Data';
+      this.headerTitle = key === 'view' ? 'View Details' : (headerTitle || 'Edit Oil Data');
 
       // Initialize form with empty values first
       this.initOilDataRows();
@@ -593,11 +594,9 @@ export class EquipmentOilMapping implements OnInit {
           response?.message || 'Oil data saved successfully'
         );
         this.closeAllDropdowns();
-
         this.showCreateLayout = false;
         this.resetForm();
-        // this.loadData();
-
+        this.table?.refreshTable();
         this.cdr.markForCheck();
       },
       error: (error: any) => {
@@ -618,20 +617,20 @@ export class EquipmentOilMapping implements OnInit {
     };
     this.apiService.post('master/equipment-oil-mappings/', mappingData).subscribe(
       (response: any) => {
-
         console.log("=============================> test", response);
-
         this.notificationService.success(
           response?.message || 'Oil Data saved successfully'
         );
         this.closeAllDropdowns();
-        // Refresh the table data if needed
-        // this.loadOilMappingData();
+        this.showCreateLayout = false;
+        this.resetForm();
+        this.table?.refreshTable();
+        this.cdr.markForCheck();
       },
       (error: any) => {
         this.notificationService.error(
           error?.error?.message || 'Error submitting oil mapping:'
-        )
+        );
       }
     );
   }
@@ -797,19 +796,27 @@ export class EquipmentOilMapping implements OnInit {
   }
 
   deleteOilData(rowData: any): void {
-    if (confirm('Are you sure you want to delete this oil data?')) {
+    const isOilDataTab = this.activeTab.id === 'oil-data';
+    const message = isOilDataTab
+      ? 'Are you sure you want to delete this oil data?'
+      : 'Are you sure you want to delete this equipment oil mapping?';
+    const endpoint = isOilDataTab ? 'master/oil-data-properties/' : 'master/equipment-oil-mappings/';
+
+    if (confirm(message)) {
       const deleteData = {
-        id: rowData.id,  // ✅ id from rowdata
-        active: 3        // ✅ active: 3 for soft delete
+        id: rowData.id,
+        active: 3
       };
 
-      this.apiService.post('master/oil-data/', deleteData).subscribe({  // ✅ POST method to /master/oil-data-properties/
+      this.apiService.post(endpoint, deleteData).subscribe({
         next: (res: any) => {
           console.log('Deleted successfully (soft delete)', res);
-          // this.loadOilData(); // Refresh the oil data table
+          this.notificationService.success(res?.message || 'Deleted successfully');
+          this.table?.refreshTable();
         },
         error: (err) => {
-          console.error('Error deleting oil data:', err);
+          console.error('Error deleting:', err);
+          this.notificationService.error(err?.error?.message || 'Error deleting item');
         }
       });
     }

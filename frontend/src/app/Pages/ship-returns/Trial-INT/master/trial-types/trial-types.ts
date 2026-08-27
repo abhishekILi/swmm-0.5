@@ -1,13 +1,11 @@
-import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AgActionCellComponent, ReusableDeleteDialogComponent } from '../../ui/master-compat';
 import { PaginateTableComponent } from '../../ui/paginate-table/paginate-table.component';
 import { AddFormComponent } from '../../ui/add-form/add-form.component';
 import { ApiService, DropdownOption } from '../../api.service';
-import { NotificationService } from '../../../../../Core/services/notification/notification.service';
-import { AppService } from '../../../../../Core/services/app/app.service';
-import { finalize } from 'rxjs/operators';
+import { ToastService } from '../../services/toast.service';
 
 const FORM_TYPE_OPTIONS: DropdownOption<number>[] = [
   { label: 'Requisition Form', value: 1 },
@@ -80,7 +78,7 @@ export class TrialTypes implements OnInit {
       maxWidth: 100,
       sortable: false,
       filter: false,
-      pinned: 'right' as const,
+      pinned: 'right' as 'right',
       cellRenderer: AgActionCellComponent,
       cellRendererParams: {
         actionDisplayMode: 'float',
@@ -130,10 +128,11 @@ export class TrialTypes implements OnInit {
     { label: 'Description', type: 'textarea', key: 'description', colSpan: 3, rows: 2, placeholder: 'Description' },
   ];
 
-    private readonly apiService = inject(ApiService);
-    private readonly cdr = inject(ChangeDetectorRef);
-    private readonly notificationService = inject(NotificationService);
-    private readonly appService = inject(AppService);
+  constructor(
+    private readonly apiService: ApiService,
+    private readonly cdr: ChangeDetectorRef,
+    private readonly toast: ToastService,
+  ) {}
 
   ngOnInit(): void {
     this.loadTrialUnits();
@@ -206,7 +205,7 @@ export class TrialTypes implements OnInit {
         const trialTypeId = this.resolveTrialTypeId(res);
         if (!trialTypeId) {
           this.saving = false;
-          this.notificationService.error('Trial type saved but mapping could not be updated (missing id).');
+          this.toast.showError('Trial type saved but mapping could not be updated (missing id).');
           this.closeAddPopup();
           this.refreshTable();
           return;
@@ -230,7 +229,7 @@ export class TrialTypes implements OnInit {
     this.apiService.post('master/trial-type-mapping/', mappingPayload).subscribe({
       next: () => {
         this.saving = false;
-        this.notificationService.success(
+        this.toast.showSuccess(
           this.isEditMode ? 'Trial type updated successfully' : 'Trial type created successfully',
         );
         this.closeAddPopup();
@@ -327,21 +326,15 @@ export class TrialTypes implements OnInit {
   }
 
   private loadTrialUnits(): void {
-    this.appService.showLoader();
     this.apiService
       .getDropdownData<any, number>('master/trial-units/', { labelKey: 'name', valueKey: 'id' })
-      .pipe(
-        finalize(() => {
-          this.appService.hideLoader();
-        })
-      )
       .subscribe({
-        next: (opts) => {
+        next: (opts: any) => {
           this.trialUnitOptions = opts;
           this.updateFieldOptions('trial_unit', opts);
           this.cdr.detectChanges();
         },
-        error: (err) => console.error('Error loading trial units', err),
+        error: (err: any) => console.error('Error loading trial units', err),
       });
   }
 
@@ -363,13 +356,13 @@ export class TrialTypes implements OnInit {
         { trial_unit: trialUnitId },
       )
       .subscribe({
-        next: (opts) => {
+        next: (opts: any) => {
           this.satelliteUnitOptions = opts;
           this.updateFieldOptions('satellite_units', opts);
           this.cdr.detectChanges();
           onDone?.();
         },
-        error: (err) => {
+        error: (err: any) => {
           console.error('Error loading satellite units', err);
           this.satelliteUnitOptions = [];
           this.updateFieldOptions('satellite_units', []);
@@ -382,12 +375,12 @@ export class TrialTypes implements OnInit {
     this.apiService
       .getDropdownData<any, number>('master/sub-groups/', { labelKey: 'name', valueKey: 'id' })
       .subscribe({
-        next: (opts) => {
+        next: (opts: any) => {
           this.subGroupOptions = opts;
           this.updateFieldOptions('sub_groups', opts);
           this.cdr.detectChanges();
         },
-        error: (err) => console.error('Error loading sub groups', err),
+        error: (err: any) => console.error('Error loading sub groups', err),
       });
   }
 
