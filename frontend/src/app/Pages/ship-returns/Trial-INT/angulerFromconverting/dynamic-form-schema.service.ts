@@ -9,9 +9,12 @@ import { Apiendpoints, equipmentHtml } from '../ApiEndPoints';
 export class DynamicFormSchemaService {
   lastSchemaSource: 'assets' | 'api' | null = null;
 
-   private readonly apiService = inject(ApiService);
-   private readonly formApi = inject(FormApiService);
-   private readonly route = inject(ActivatedRoute);
+  constructor(
+    private apiService: ApiService,
+    private formApi: FormApiService,
+    private route: ActivatedRoute,
+    
+  ) {}
 
   private endpointMap: Record<
     string,
@@ -46,6 +49,9 @@ export class DynamicFormSchemaService {
     if (patchData && Object.keys(patchData).length > 0) {
       updated = this.patchSchema(updated, patchData);
     }
+
+    // Equipment metadata belongs to the selected tab and must win over saved form values.
+    updated = this.applyPrefill(updated, context);
 
     return updated;
   }
@@ -199,7 +205,7 @@ export class DynamicFormSchemaService {
     if (t === 'input') return { type: 'input', inputType: inputType || 'text' };
     if (t === 'tree' || t === 'tree-select') return { type: 'tree-select', inputType: 'text' };
     if (t === 'multi-select') return { type: 'multiselect', inputType: inputType || 'text' };
-    //Notes added here
+    //Notes added here 
     if (
       ['textarea', 'select', 'multiselect', 'date', 'time', 'checkbox', 'checkbox-multiple', 'radio', 'file', 'label', 'serial', 'notes', 'editor'].includes(t)
     ) {
@@ -220,14 +226,20 @@ export class DynamicFormSchemaService {
   }
 
   applyPrefill(schema: any, context: any): any {
+    const selectedEquipment = this.resolveSelectedEquipment(context);
     const apply = (node: any) => {
       if (!node) return;
 
       if (node.prefill && node.prefillSource) {
-        const key = String(node.prefillSource).replace('context.', '');
-        if (context[key] !== undefined) {
-          node.value = context[key];
-          if (node.lockAfterPrefill) node.disabled = true;
+        const source = String(node.prefillSource);
+        const isEquipmentSource = source.startsWith('equipment.');
+        const key = source.replace(/^(context|equipment)\./, '');
+        const sourceObject = isEquipmentSource ? selectedEquipment : context;
+        const value = this.resolvePathValue(sourceObject, key);
+
+        if (value !== undefined) {
+          node.value = value;
+          if (node.lockAfterPrefill || isEquipmentSource) node.disabled = true;
         }
       }
 
@@ -248,8 +260,16 @@ export class DynamicFormSchemaService {
     return schema;
   }
 
-  private getSectionBlocks(section: any): { fields: any[]; tables: any[] }[] {
-    const blocks: { fields: any[]; tables: any[] }[] = [
+  private resolveSelectedEquipment(context: any): any {
+    const equipment = this.formApi?.currentEquipmentNomenclature;
+    if (equipment && typeof equipment === 'object') return equipment;
+
+    const equipmentList = context?.equipment_details || context?.system_details;
+    return Array.isArray(equipmentList) ? equipmentList[0] || null : null;
+  }
+
+  private getSectionBlocks(section: any): Array<{ fields: any[]; tables: any[] }> {
+    const blocks: Array<{ fields: any[]; tables: any[] }> = [
       {
         fields: section?.fields || [],
         tables: section?.tables || [],
@@ -791,9 +811,9 @@ export class DynamicFormSchemaService {
 
   async loadSchemaFromAssets(formName: string): Promise<any> {
     this.lastSchemaSource = null;
-
+  
     const file = `${formName}.json`;
-
+  
     try {
       const res = await fetch(`assets/json/${file}`, {
         headers: { Accept: 'application/json' },
@@ -807,30 +827,53 @@ export class DynamicFormSchemaService {
         return json;
       }
     } catch {}
-
-    const equipmentId = this.formApi?.currentEquipmentNomenclature?.id;
+  
+    const equipment = this.formApi?.currentEquipmentNomenclature;
+    const equipmentId = equipment?.id;
     if(this.formApi?.context){
       let apiUrl = '';
+      const isParameterValuesSchema = ['358','360','362','374','376','378'].includes(
+        String(this.formApi?.context?.trial_type_id),
+      );
       if(this.formApi?.context?.trial_form_type == 5){
         apiUrl = `/master/refit-form/?ship_id=${this.formApi?.context?.ship_id}&system_name=${this.formApi?.currentEquipmentNomenclature?.name}`;
-      }else if(this.formApi?.context?.trial_unit_id === 8){
-        apiUrl = `/master/parameter-values-schema/?equipment__id=${equipmentId}`;
+      } else if (isParameterValuesSchema) {
+        apiUrl = `/master/parameter-values-schema/?equipment__id=${equipmentId}&trialtypes_id=${this.formApi?.context?.trial_type_id}`;
       }
       else if(!apiUrl) {throw new Error(`Failed to load schema: ${file} || No API URL found`); return;}
 
       const apiRes: any = await firstValueFrom(
         this.apiService.get(apiUrl)
-
+        
       );
-
+    
       if (apiRes?.data?.[0]?.schema) {
         this.lastSchemaSource = 'api';
         return apiRes.data[0].schema;
       }
+
+      if (isParameterValuesSchema) {
+        this.showParametersNotLinkedPopup(equipment);
+      }
     }
-
-
+    
+  
     throw new Error(`Failed to load schema: ${file}`);
+  }
+
+  private showParametersNotLinkedPopup(equipment: any): void {
+    const equipmentName =
+      equipment?.nomenclature || equipment?.name || equipment?.equipment_nomenclature || '';
+    const equipmentLine = equipmentName ? `\nEquipment: ${equipmentName}` : '';
+
+    // this.confirmPopup.open({
+    //   title: 'Parameters Not Linked',
+    //   message: `Parameters are not linked with this form. Please contact your unit admin for this.${equipmentLine}`,
+    //   type: 'warning',
+    //   confirmText: 'OK',
+    //   showCancel: false,
+    //   onConfirm: () => window.history.back(),
+    // });
   }
 
 }

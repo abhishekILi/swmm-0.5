@@ -118,7 +118,7 @@ export interface DynamicFieldSchema {
   template: `
   <div class="">
     <ng-container [ngSwitch]="field?.type">
-
+      
       <!-- DATE FIELD -->
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'date'">
@@ -126,7 +126,7 @@ export interface DynamicFieldSchema {
             [label]="field.label || ''"
             [required]="!!field.required"
             [disabled]="isFromEdit"
-            [readonly]="field.disabled ?? false"
+            [readonly]="!!(field.disabled || field.readonly)"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-calendar>
@@ -142,7 +142,7 @@ export interface DynamicFieldSchema {
             [placeholder]="field.placeholder || ''"
             [required]="!!field.required"
             [disabled]="isFromEdit"
-            [readonly]="field.disabled ?? false"
+            [readonly]="!!(field.disabled || field.readonly)"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-input>
@@ -158,7 +158,7 @@ export interface DynamicFieldSchema {
             [placeholder]="field.placeholder || ''"
             [required]="!!field.required"
             [disabled]="isFromEdit"
-            [readonly]="field.disabled ?? false"
+            [readonly]="!!(field.disabled || field.readonly)"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-textarea>
@@ -171,10 +171,10 @@ export interface DynamicFieldSchema {
           <app-select
             [label]="field.label || ''"
             [options]="field.options || []"
-            [searchable]="field.isDynamic ?? false"
+            [searchable]="!!field.isDynamic"
             [placeholder]="field.placeholder || '--Select--'"
             [required]="!!field.required"
-            [disabled]="isFromEdit"
+            [disabled]="isFromEdit || !!(field.disabled || field.readonly)"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-select>
@@ -191,7 +191,7 @@ export interface DynamicFieldSchema {
             [placeholder]="field.placeholder || '--Select--'"
             [required]="!!field.required"
             [disabled]="isFromEdit"
-            [readonly]="field.disabled ?? false"
+            [readonly]="!!(field.disabled || field.readonly)"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-multiselect>
@@ -217,8 +217,8 @@ export interface DynamicFieldSchema {
       <!-- LABEL FIELD -->
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'label'">
-          <p class="font-bold text-white" *ngIf="!isHtmlContent(field.value)">{{ field.value }}</p>
-          <p class="text-white" [innerHTML]="field.value" *ngIf="isHtmlContent(field.value)"></p>
+          <p class="text-bold" *ngIf="!isHtmlContent(field.value)">{{ field.value }}</p>
+          <p  [innerHTML]="field.value" *ngIf="isHtmlContent(field.value)"></p>
         </ng-container>
       </div>
 
@@ -242,7 +242,7 @@ export interface DynamicFieldSchema {
             [disabled]="isFromEdit"
             [required]="!!field.required"
             [multiple]="field.multiple ?? true"
-            [readOnly]="field.disabled ?? false"
+            [readOnly]="!!field.disabled"
             [ngModel]="field.value"
             (ngModelChange)="onValueChange($event)"
           ></app-file-upload>
@@ -253,13 +253,17 @@ export interface DynamicFieldSchema {
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'checkbox'">
           <div class="flex flex-col gap-2">
-            <label class="mb-1.5 block text-sm font-medium text-white">{{ field.label }} <span *ngIf="field.required" class="text-red-500">*</span></label>
+            <label class="custom-label">
+              <span *ngIf="isHtmlContent(field.label)" [innerHTML]="field.label"></span>
+              <ng-container *ngIf="!isHtmlContent(field.label)">{{ field.label }}</ng-container>
+              <span *ngIf="field.required && !isHtmlContent(field.label)" class="text-red-500">*</span>
+            </label>
             <input
               type="checkbox"
-              class="h-4 w-4 shrink-0 cursor-pointer accent-[#61C2FF]"
+              class="h-4 w-4"
               [checked]="!!field.value"
               [disabled]="isFromEdit"
-              [readonly]="field.disabled ?? false"
+              [readonly]="field.disabled || field.readonly"
               (change)="onValueChange(($any($event.target)).checked)"
             />
           </div>
@@ -270,8 +274,9 @@ export interface DynamicFieldSchema {
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'checkbox-multiple'">
           <div class="flex flex-col gap-2 group">
-            <label *ngIf="field.label" class="mb-1.5 block text-sm font-medium text-white">
-              {{ field.label }}
+            <label *ngIf="field.label" class="custom-label pt-glass-text-secondary">
+              <span *ngIf="isHtmlContent(field.label)" [innerHTML]="field.label"></span>
+              <ng-container *ngIf="!isHtmlContent(field.label)">{{ field.label }}</ng-container>
               <span *ngIf="field.required" class="text-red-500">*</span>
             </label>
             <div class="flex flex-wrap items-center gap-5">
@@ -281,17 +286,17 @@ export interface DynamicFieldSchema {
               >
                 <input
                   type="checkbox"
-                  class="h-4 w-4 shrink-0 cursor-pointer accent-[#61C2FF]"
+                  class="h-4 w-4"
                   [value]="option.value"
                   [checked]="isMultiCheckboxChecked(option.value)"
                   [disabled]="isFromEdit"
-                  [readonly]="field.disabled ?? false"
+                  [readonly]="field.disabled || field.readonly"
                   (change)="onMultiCheckboxChange(option.value, ($any($event.target)).checked)"
                 />
-                <span class="text-sm text-white/90">{{ option.label }}</span>
+                <span class="custom-label">{{ option.label }}</span>
                 <span
-                  *ngIf="option?.isTrigger"
-                  class="ml-2 rounded-full border border-amber-400/40 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold text-amber-300"
+                  *ngIf="option.isTrigger"
+                  class="ml-2 px-2 py-0.5 rounded bg-yellow-200 text-xs font-semibold text-yellow-900"
                 >
                   Trigger
                 </span>
@@ -305,9 +310,10 @@ export interface DynamicFieldSchema {
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'radio'">
           <div class="flex flex-col gap-2 group">
-            <label class="mb-1.5 block text-sm font-medium text-white">
-
-              {{ field.label }} <span *ngIf="field.required" class="text-red-500">*</span>
+            <label class="custom-label">
+              <span *ngIf="isHtmlContent(field.label)" [innerHTML]="field.label"></span>
+              <ng-container *ngIf="!isHtmlContent(field.label)">{{ field.label }}</ng-container>
+              <span *ngIf="field.required && !isHtmlContent(field.label)" class="text-red-500">*</span>
             </label>
             <div class="flex flex-wrap items-center gap-5">
               <label
@@ -317,13 +323,13 @@ export interface DynamicFieldSchema {
                 <input
                   type="radio"
                   [name]="field.name"
-                  class="h-4 w-4 shrink-0 cursor-pointer accent-[#61C2FF]"
+                  class="w-4 h-4"
                   [value]="option.value"
                   [checked]="isOptionSelected(field.value, option)"
                   [disabled]="isFromEdit || isFormulaField(field)"
                   (change)="onValueChange(option.value)"
                 />
-                <span class="text-sm text-white/90">{{ option.label }}</span>
+                <span class="custom-label">{{ option.label }}</span>
               </label>
             </div>
           </div>
@@ -333,8 +339,8 @@ export interface DynamicFieldSchema {
       <!-- EDITOR FIELD -->
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'editor'">
-          <label class="mb-1.5 block text-sm font-medium text-white" [innerHTML]="field.label"></label>
-          <div class="overflow-hidden rounded-md border border-white/20 bg-white/10 [&_.tox-tinymce]:min-h-[150px]">
+          <label class="custom-label pt-glass-text-secondary" [innerHTML]="field.label"></label>
+          <div class="pt-glass-table__control overflow-hidden rounded-md [&_.tox-tinymce]:min-h-[150px]">
             <editor
               [disabled]="isFromEdit"
               [init]="editorConfig"
@@ -348,43 +354,43 @@ export interface DynamicFieldSchema {
       <!-- NOTES FIELD -->
       <div *ngIf="isFieldVisible(field)" class="w-full">
         <ng-container *ngSwitchCase="'notes'">
-           <div class="mb-4 rounded-lg border border-white/15 bg-[#0d2438] p-4" [class]="field.notesClass">
-            <div *ngIf="field.notesHeading"
-                 class="mb-3 border-b border-white/15 pb-2 head3"
+          <div class="pt-glass-form-panel mb-4 p-4" [class]="field.notesClass">
+            <div *ngIf="field.notesHeading" 
+                 class="mb-3 border-b border-[var(--shell-divider-soft)] pb-2 text-base font-semibold pt-glass-text-secondary header-poppins"
                  [class]="field.notesHeadingClass">
               <span [innerHTML]="field.notesHeading"></span>
             </div>
-            <div *ngIf="field.notesDescription"
-                  class="mb-3 rounded-lg border border-white/15 bg-black/10 p-2 text-sm text-white/80"
+            <div *ngIf="field.notesDescription" 
+                 class="mb-3 rounded-lg border border-[var(--shell-divider-soft)] bg-[var(--shell-table-section-bg)] p-2 text-sm pt-glass-text-secondary"
                  [innerHTML]="field.notesDescription">
             </div>
             <div *ngIf="field.notesItems && field.notesItems.length > 0">
               <div *ngIf="field.notesListType === 'ordered'" class="space-y-2">
-                <div *ngFor="let item of field.notesItems; let i = index"
-                      class="flex items-start gap-2 text-sm text-white/80">
-                   <span class="min-w-6 font-semibold text-white">{{ i + 1 }}.</span>
+                <div *ngFor="let item of field.notesItems; let i = index" 
+                     class="flex items-start gap-2 text-sm pt-glass-text-secondary">
+                  <span class="min-w-6 font-semibold pt-glass-text-primary">{{ i + 1 }}.</span>
                   <span class="flex-1" [innerHTML]="getItemText(item)"></span>
                 </div>
               </div>
               <div *ngIf="field.notesListType !== 'ordered'" class="space-y-2">
-                <div *ngFor="let item of field.notesItems"
-                      class="flex items-start gap-2 text-sm text-white/80">
-                   <span class="min-w-5 text-white">•</span>
+                <div *ngFor="let item of field.notesItems" 
+                     class="flex items-start gap-2 text-sm pt-glass-text-secondary">
+                  <span class="min-w-5 pt-glass-text-primary">•</span>
                   <span class="flex-1" [innerHTML]="getItemText(item)"></span>
                 </div>
               </div>
             </div>
-
+           
           </div>
         </ng-container>
       </div>
-
+      
     </ng-container>
   </div>
   `,
 })
 export class DynamicFieldRendererComponent implements OnInit, AfterViewInit, OnChanges {
-  private readonly visibilityService = inject(DynamicTableConfigService);
+  constructor(private visibilityService: DynamicTableConfigService) {}
 
   @Input() isFromEdit = false;
   @Input() field!: DynamicFieldSchema;
@@ -393,14 +399,8 @@ export class DynamicFieldRendererComponent implements OnInit, AfterViewInit, OnC
   @Output() fieldChange = new EventEmitter<DynamicFieldSchema>();
   editorConfig: Record<string, any> = {};
   ngOnInit() {
-    // TinyMCE assets are served from /tinymce by the Angular asset configuration.
-    this.editorConfig = {
-      ...init,
-      height: this.field?.['height'] ?? 150,
-      menubar: false,
-      base_url: '/tinymce',
-      suffix: '.min',
-    };
+    // console.log(`[DynamicFieldRenderer] Field '${this.field?.name}' has type: '${this.field?.type}'`);
+    this.editorConfig = { ...init, height: this.field?.['height'] ?? 150, skin: 'oxide', menubar: false };
     this.applyFormulaValue();
     if (this.field?.type === 'notes') {
       // console.log('[DynamicFieldRenderer][NOTES] ✅ USING NOTES TEMPLATE');
@@ -518,7 +518,7 @@ export class DynamicFieldRendererComponent implements OnInit, AfterViewInit, OnC
   }
   isHtmlContent(value: unknown): boolean {
     if (typeof value !== 'string') return false;
-
+  
     return /<\/?[a-z][\s\S]*>/i.test(value);
   }
 }
