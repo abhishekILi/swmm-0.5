@@ -17,27 +17,38 @@
   (previousReport)="openPreviousReport()"
 >
 
-<button
+<div
   previewHeader
-  *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
-  type="button"
-  (click)="setActiveTab(tab)"
-  class="pt-glass-form-tab relative min-w-[220px] max-w-[240px] shrink-0 overflow-hidden rounded-[20px] px-6 text-center"
-  [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
-  [title]="
-    (tab?.equipment_name || tab?.name || 'Equipment') +
-    ' - ' +
-    (tab?.nomenclature || tab?.equipment_nomenclature || '-') +
-    ' - ' +
-    (tab?.serial_no || tab?.serial_number || '-')
-  "
+  class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
 >
-  <span class="relative block max-w-[195px] overflow-hidden text-ellipsis whitespace-nowrap pt-2 text-[15px] font-bold tracking-wide">
-    {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }}
-  </span>
+  <button
+    *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
+    type="button"
+    (click)="setActiveTab(tab)"
+    class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+    [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)"
+    [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)"
+    [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
+    [title]="
+      (tab?.equipment_name || tab?.name || 'Equipment') +
+      ' - ' +
+      (tab?.nomenclature || tab?.equipment_nomenclature || '-') +
+      ' - ' +
+      (tab?.serial_no || tab?.serial_number || '-')
+    "
+  >
+    <span class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
+      {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
+    </span>
 
- 
-</button>
+    <span
+      class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
+      [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
+    >
+      {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-' }}
+    </span>
+  </button>
+</div>
 
   <form [formGroup]="form" class="min-w-0 max-w-full p-0 py-4 pb-8 [&_table>thead]:!bg-transparent [&_table_thead>tr]:!bg-transparent [&_table_thead_th]:!text-[var(--text-primary)] [&_table_tbody_td]:!text-left [&_table_tbody_td_.flex]:!justify-start">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
@@ -47,7 +58,7 @@
     </div>
 
     <!-- Header meta row -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">Report details</legend>
 
       <div class="grid grid-cols-4 gap-3">
@@ -93,7 +104,7 @@
     </fieldset>
 
     <!-- 1. Trial Details -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">1. Trial Details</legend>
 
       <div class="grid grid-cols-3 gap-3">
@@ -149,7 +160,7 @@
     </fieldset>
 
     <!-- 2. Test Equipment Used -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">2. Test Equipment Used</legend>
 
       <div class="grid grid-cols-1 gap-3">
@@ -238,7 +249,7 @@
     </app-etma-proforma-table>
 
 <!-- 9. Speed Control Test -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">9. Speed Control Test</legend>
 
       <div class="mb-4 max-w-xs">
@@ -559,7 +570,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">10. Voltage Control Test</legend>
 
       <div class="mb-4 max-w-xs">
@@ -779,13 +790,13 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] px-3 py-2 rounded-md mb-3">(e) Voltage Waveform Harmonic Content</p>
-      <div class="flex flex-wrap items-center gap-3 rounded-md border border-violet-200 px-3 py-3 mb-6 text-xs !text-[var(--text-primary)] dark:!border-slate-600">
+      <div class="flex flex-wrap items-center gap-3 rounded-md border border-[var(--border-primary)] px-3 py-3 mb-6 text-xs !text-[var(--text-primary)]">
         <span class="flex-1">Maximum total harmonic content of waveform at no load (not to exceed 2% of the amplitude of fundamental)</span>
-        <app-input class="w-40 [&_input]:!bg-white [&_input]:!text-[var(--text-primary)] dark:[&_input]:!bg-slate-800" formControlName="harmonic_content" [type]="'number'" [min]="0" placeholder="Enter value"></app-input>
+        <app-input class="w-40 [&_input]:!bg-[var(--bg-input)] [&_input]:!text-[var(--text-primary)]" formControlName="harmonic_content" [type]="'number'" [min]="0" placeholder="Enter value"></app-input>
       </div>
     </fieldset>
 
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">11. Paralleling Trial</legend>
       <ul >
         <li>Attended Paralleling. Test to be carried out for machines not designed for unattended parallel operation. For machines designed for unattended paralleling, this test should be conducted in Non-APMS mode/ switching off modules facilitating continuous parallel operation.</li>
@@ -793,15 +804,15 @@
       </ul>
       <p class="text-sm font-semibold mb-2">Paralleling Trial:</p>
       <div class="flex gap-3 mb-4">
-        <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-[var(--text-primary)] font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="addParallelingTrialRow()">YES</button>
-        <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-[var(--text-primary)] font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
+        <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="addParallelingTrialRow()">YES</button>
+        <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
       </div>
 
       <div formArrayName="dynamic_paralleling_trial_rows" *ngIf="showParallelingSection && dynamicParallelingTrialRows.length">
         <div
           *ngFor="let row of dynamicParallelingTrialRows.controls; let i = index"
           [formGroupName]="i"
-          class="border border-slate-300 rounded-md p-4 mb-4"
+          class="border border-[var(--border-primary)] rounded-md p-4 mb-4"
         >
           <h4 class="text-center font-semibold underline mb-4">Unattended Paralleling Trial Between</h4>
 
@@ -901,15 +912,15 @@
           <div class="flex items-center justify-between mt-2">
             <p class="text-sm font-semibold">Select another combination</p>
             <div class="flex gap-3">
-              <button type="button" class="px-4 py-2 rounded-md bg-emerald-600 text-[var(--text-primary)] text-sm font-semibold" (click)="addParallelingTrialRow()">YES</button>
-              <button type="button" class="px-4 py-2 rounded-md bg-red-600 text-[var(--text-primary)] text-sm font-semibold" (click)="removeParallelingTrialRow(i)">NO</button>
+              <button type="button" class="px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-semibold" (click)="addParallelingTrialRow()">YES</button>
+              <button type="button" class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-semibold" (click)="removeParallelingTrialRow(i)">NO</button>
             </div>
           </div>
         </div>
       </div>
     </fieldset>
 
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">12. Recommendations</legend>
       <div class="grid grid-cols-2 gap-3 mb-4">
         <app-textarea label="Trial Team Member" formControlName="gen_r_ship_engineer_officer" [rows]="3"></app-textarea>
@@ -929,33 +940,32 @@
   </form>
   
 
-  <div formFooter class="flex items-center justify-end gap-1.5">
-    <button
+  <div formFooter class="flex gap-3 justify-end py-2">
+    <app-loading-button
       *ngIf="canShowSaveDraft"
-      type="button"
-      class="form-card-footer-btn pt-glass-table__control inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="draft"
+      label="Save Draft"
+      [loading]="draftLoading"
       [disabled]="draftLoading"
-      (click)="handleSave('draft')"
-    >
-      Save Draft
-    </button>
-    <button
+      (clicked)="handleSave('draft')"
+    ></app-loading-button>
+
+    <app-loading-button
       *ngIf="canEditForm"
-      type="button"
-      class="form-card-footer-btn pt-glass-table__control inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="save"
+      label="Save"
+      [loading]="saveLoading"
       [disabled]="saveLoading"
-      (click)="handleSave('save')"
-    >
-      Save
-    </button>
-    <button
+      (clicked)="handleSave('save')"
+    ></app-loading-button>
+
+    <app-loading-button
       *ngIf="canEditForm"
-      type="button"
-      class="form-card-footer-btn pt-glass-btn-primary inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide shadow-lg transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="submit"
+      label="Submit"
+      [loading]="submitLoading"
       [disabled]="submitLoading"
-      (click)="handleSave('submit')"
-    >
-      Submit
-    </button>
+      (clicked)="handleSave('submit')"
+    ></app-loading-button>
   </div>
 </app-form-card>

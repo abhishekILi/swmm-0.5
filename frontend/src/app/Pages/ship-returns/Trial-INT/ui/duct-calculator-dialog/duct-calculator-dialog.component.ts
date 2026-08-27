@@ -23,7 +23,6 @@ import { FormCardDialogComponent } from '../form-card-dialog/form-card-dialog.co
 import { InputComponent } from '../input.component';
 
 import { SelectComponent } from '../select.component';
-import { ToastComponent } from '../toast/toast.component';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
@@ -35,8 +34,7 @@ import { ToastService } from '../../services/toast.service';
     ReactiveFormsModule,
     FormCardDialogComponent,
     InputComponent,
-    SelectComponent,
-    ToastComponent
+    SelectComponent
   ],
 })
 export class DuctCalculatorDialogComponent

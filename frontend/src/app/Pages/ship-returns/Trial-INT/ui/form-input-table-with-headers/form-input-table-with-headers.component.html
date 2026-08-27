@@ -1,5 +1,5 @@
-<div class="w-full relative overflow-x-auto rounded-lg border border-white/15 bg-[#0d2438]">
-  <table class="w-full table-fixed border-collapse text-sm text-white/90">
+<div class="w-full relative overflow-x-auto rounded-lg border border-[var(--border-primary)] bg-[var(--bg-card)]">
+  <table class="w-full table-fixed border-collapse text-sm text-[var(--ag-cell-color)]">
     <!-- ===================================================== -->
     <!-- HEADER -->
     <!-- ===================================================== -->
@@ -10,7 +10,7 @@
         <tr *ngFor="let headerRow of headerRows; let rowIndex = index">
           <th
             *ngFor="let col of headerRow"
-            class="border border-white/15 bg-white/[0.06] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70"
+            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
             [attr.colspan]="col.colspan || null"
             [attr.rowspan]="col.rowspan || null"
             [style.width]="col.width || 'auto'"
@@ -29,7 +29,7 @@
           <th
             *ngIf="enableRowActions && rowIndex === 0"
             [attr.rowspan]="headerRows.length"
-            class="sticky right-0 z-10 border border-white/15 bg-[#0d2438] px-3 py-2 text-center align-middle text-xs font-bold uppercase tracking-wide text-white/70"
+            class="sticky right-0 z-10 border border-[var(--border-primary)] bg-[var(--bg-card)] px-3 py-2 text-center align-middle text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
             style="min-width: 140px"
           >
             Actions
@@ -42,7 +42,7 @@
         <tr>
           <th
             *ngFor="let col of visibleColumns"
-            class="border border-white/15 bg-white/[0.06] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70"
+            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
             [style.width]="col.width || 'auto'"
             [style.minWidth]="col.width || 'auto'"
             [style.maxWidth]="col.width || 'auto'"
@@ -60,7 +60,7 @@
 
           <th
             *ngIf="enableRowActions"
-            class="sticky right-0 z-10 border border-white/15 bg-[#0d2438] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-white/70"
+            class="sticky right-0 z-10 border border-[var(--border-primary)] bg-[var(--bg-card)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
             style="min-width: 140px"
           >
             Actions
@@ -74,11 +74,11 @@
     <!-- ===================================================== -->
 
     <tbody>
-      <tr *ngFor="let row of data; let i = index" class="even:bg-white/[0.03]">
+      <tr *ngFor="let row of data; let i = index" class="even:bg-[var(--nav-hover-bg)]">
         <!-- COLUMNS -->
         <td
           *ngFor="let col of visibleColumns"
-          class="border border-white/10 px-2 py-2 align-middle"
+          class="border border-[var(--border-primary)] px-2 py-2 align-middle"
           [style.width]="isFixedWidthColumn(col) ? col.width || 'auto' : null"
           [style.minWidth]="col.width || 'auto'"
           [style.maxWidth]="
@@ -98,7 +98,7 @@
 
               <div
                 *ngSwitchCase="'serial'"
-                class="text-center font-semibold text-white/90"
+                class="text-center font-semibold text-[var(--ag-cell-color)]"
               >
                 {{ row[col.field] }}
               </div>
@@ -110,7 +110,7 @@
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
                 (ngModelChange)="emitValueChange(i, col.field, $event)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               />
 
               <!-- NUMBER -->
@@ -122,7 +122,7 @@
                 [step]="col.step || '1'"
                 (input)="handleDecimalInput($event, col, row)"
                 (ngModelChange)="emitValueChange(i, col.field, $event)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               />
 
               <!-- DATE -->
@@ -131,7 +131,7 @@
                 type="date"
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               />
 
               <!-- TIME -->
@@ -140,7 +140,7 @@
                 type="time"
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               />
 
               <!-- TEXTAREA -->
@@ -149,7 +149,7 @@
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
                 rows="1"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               ></textarea>
 
               <!-- DROP DOWN -->
@@ -158,7 +158,7 @@
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
                 (ngModelChange)="emitValueChange(i, col.field, $event)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               >
                 <option [ngValue]="null" disabled>Please select</option>
 
@@ -173,7 +173,7 @@
                 [(ngModel)]="row[col.field]"
                 [disabled]="isFieldDisabled(col, row)"
                 (ngModelChange)="emitValueChange(i, col.field, $event)"
-                class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
               >
                 <option *ngFor="let opt of col.options" [ngValue]="opt.value">
                   {{ opt.label }}
@@ -184,7 +184,7 @@
               <div *ngSwitchCase="'checkbox'" class="flex flex-wrap gap-2">
                 <label
                   *ngFor="let opt of col.options"
-                  class="flex items-center gap-1 text-sm text-white/80"
+                  class="flex items-center gap-1 text-sm text-[var(--text-primary)]"
                 >
                   <input
                     type="checkbox"
@@ -211,7 +211,7 @@
                         [(ngModel)]="row[sub.field]"
                         [placeholder]="sub.placeholder || ''"
                         [style.width]="sub.width || '100%'"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                         (ngModelChange)="emitValueChange(i, sub.field, $event)"
                       />
 
@@ -226,7 +226,7 @@
                         (input)="
                           handleDecimalInput($event, sub, row, sub.field)
                         "
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                         (ngModelChange)="emitValueChange(i, sub.field, $event)"
                       />
 
@@ -236,7 +236,7 @@
                         type="date"
                         [(ngModel)]="row[sub.field]"
                         [style.width]="sub.width || '100%'"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                         (ngModelChange)="emitValueChange(i, sub.field, $event)"
                       />
 
@@ -246,7 +246,7 @@
                         type="time"
                         [(ngModel)]="row[sub.field]"
                         [style.width]="sub.width || '100%'"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                         (ngModelChange)="emitValueChange(i, sub.field, $event)"
                       />
 
@@ -257,7 +257,7 @@
                         [placeholder]="sub.placeholder || ''"
                         [style.width]="sub.width || '100%'"
                         rows="2"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                         (ngModelChange)="emitValueChange(i, sub.field, $event)"
                       ></textarea>
 
@@ -266,7 +266,7 @@
                         *ngIf="sub.fieldType === 'drop-down'"
                         [(ngModel)]="row[sub.field]"
                         [style.width]="sub.width || '100%'"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                       >
                         <option [ngValue]="null" disabled>--Select--</option>
 
@@ -283,7 +283,7 @@
                         *ngIf="sub.fieldType === 'select'"
                         [(ngModel)]="row[sub.field]"
                         [style.width]="sub.width || '100%'"
-                        class="w-full rounded-md border border-white/20 bg-white/[0.08] px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-[#61C2FF] disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:dark]"
+                        class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] placeholder:text-[var(--text-muted-2)] outline-none transition focus:border-accent-light disabled:cursor-not-allowed disabled:opacity-50 [color-scheme:var(--native-color-scheme)]"
                       >
                         <option
                           *ngFor="let opt of sub.options"
@@ -322,7 +322,7 @@
         <!-- ACTIONS -->
         <td
           *ngIf="enableRowActions"
-          class="sticky right-0 z-10 border border-white/10 bg-[#0d2438] align-middle"
+          class="sticky right-0 z-10 border border-[var(--border-primary)] bg-[var(--bg-card)] align-middle"
           style="min-width: 140px"
         >
           <div class="flex items-center justify-center gap-2">
@@ -332,7 +332,7 @@
               type="button"
               (click)="addRow()"
               [disabled]="data.length >= maxRows || !isRowValid(row)"
-              class="w-8 h-8 rounded-full bg-green-500/15 text-green-300 hover:bg-green-500/30 transition-colors disabled:bg-white/5 disabled:text-white/25 disabled:cursor-not-allowed"
+              class="w-8 h-8 rounded-full bg-green-500/15 text-green-300 hover:bg-green-500/30 transition-colors disabled:bg-[var(--bg-input-disabled)] disabled:text-[var(--text-muted-2)] disabled:cursor-not-allowed"
             >
               +
             </button>
@@ -342,7 +342,7 @@
               type="button"
               (click)="deleteRow(i)"
               [disabled]="data.length === 1"
-              class="w-8 h-8 rounded-full bg-red-500/15 text-red-300 hover:bg-red-500/30 transition-colors disabled:bg-white/5 disabled:text-white/25 disabled:cursor-not-allowed"
+              class="w-8 h-8 rounded-full bg-red-500/15 text-red-300 hover:bg-red-500/30 transition-colors disabled:bg-[var(--bg-input-disabled)] disabled:text-[var(--text-muted-2)] disabled:cursor-not-allowed"
             >
               -
             </button>
@@ -353,7 +353,7 @@
                 *ngIf="checkButtonVisibility(btn, row, i)"
                 type="button"
                 (click)="onAction(btn.type, row, i)"
-                class="w-8 h-8 rounded-full bg-[#61C2FF]/15 text-[#61C2FF] hover:bg-[#61C2FF]/30 flex items-center justify-center transition-colors"
+                class="w-8 h-8 rounded-full bg-accent-light/15 text-accent-light hover:bg-accent-light/30 flex items-center justify-center transition-colors"
               >
                 <span class="text-xs font-bold" aria-hidden="true">+</span>
               </button>

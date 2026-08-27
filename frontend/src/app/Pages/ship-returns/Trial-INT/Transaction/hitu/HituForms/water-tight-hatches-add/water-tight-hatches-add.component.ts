@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { OnInit, ChangeDetectorRef, Component } from "@angular/core";
+import { OnInit, ChangeDetectorRef, Component, inject } from "@angular/core";
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 // import { Component } from "ag-grid-community";
@@ -7,7 +7,6 @@ import { FormApiService } from "../../../../angulerFromconverting/form-api.servi
 import { ApiService } from "../../../../api.service";
 import { Apiendpoints } from "../../../../ApiEndPoints";
 import { FileUrlUtil } from "../../../../file-url-util";
-import { ToastService } from "../../../../services/toast.service";
 import { resolveTrialQueryParam, trialRowFromGetFormResponse } from "../../../../trial-route-prefill";
 import { ApprovalWorkFlow } from "../../../../ui/approval-work-flow/approval-work-flow";
 import { CalenderComponent } from "../../../../ui/calender.component";
@@ -22,8 +21,8 @@ import { ParameterCardComponent } from "../../../../ui/parameter-card/parameter-
 import { ReusableDeleteDialogDynamicContent } from "../../../../ui/reusable-delete-dialog-dynamic-content/reusable-delete-dialog-dynamic-content";
 import { SelectWithSearchComponent } from "../../../../ui/select-with-search/select-with-search-box.component";
 import { SelectComponent } from "../../../../ui/select.component";
-import { ToastComponent } from "../../../../ui/toast/toast.component";
 import { UploadedFileItem } from "../anchor-capstan-add/anchor-capstan-add.component";
+import { NotificationService } from "../../../../../../../Core/services/notification/notification.service";
 
 @Component({
   selector: 'app-water-tight-hatches-add',
@@ -33,7 +32,6 @@ import { UploadedFileItem } from "../anchor-capstan-add/anchor-capstan-add.compo
     ReactiveFormsModule,
     FormCardComponent,
     LoadingButtonComponent,
-    ToastComponent,
     SelectComponent,
     ReusableInputTableComponent,
     CalenderComponent,
@@ -128,11 +126,11 @@ export class WaterTightHatchesAdd implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private apiService: ApiService,
-    private toastService: ToastService,
     public formApiService: FormApiService,
-    private toast: ToastService,
     private route: ActivatedRoute,
   ) {}
+
+  private readonly notification = inject(NotificationService);
 
   ngOnInit(): void {
     this.buildForm();
@@ -693,7 +691,7 @@ export class WaterTightHatchesAdd implements OnInit {
         'Failed to load Water Tight Hatches data for selected equipment',
         error,
       );
-      this.toastService.showError('Failed to load selected equipment data.');
+      this.notification.error('Failed to load selected equipment data.');
     }
   }
 
@@ -833,7 +831,7 @@ export class WaterTightHatchesAdd implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching BER certificate data:', err);
-        this.toastService.showError('Failed to load BER certificate details.');
+        this.notification.error('Failed to load BER certificate details.');
       },
     });
   }
@@ -841,7 +839,7 @@ export class WaterTightHatchesAdd implements OnInit {
   validateForm(): boolean {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      this.toastService.showError('Please fill all required fields correctly.');
+      this.notification.error('Please fill all required fields correctly.');
       return false;
     }
     return true;
@@ -912,7 +910,7 @@ export class WaterTightHatchesAdd implements OnInit {
   handleSave(type: 'clear' | 'draft' | 'save' | 'submit') {
     if (type === 'clear') {
       this.form.reset();
-      this.toast.showSuccess('Form cleared successfully');
+      this.notification.success('Form cleared successfully');
       return;
     }
     const payload = this.buildPayload();
@@ -930,8 +928,8 @@ export class WaterTightHatchesAdd implements OnInit {
     this.formApiService
       .saveDraft(payload, resolveTrialQueryParam(this.route, this.router) || '')
       .subscribe({
-        next: () => this.toast.showSuccess('Draft saved successfully.'),
-        error: () => this.toast.showError('Failed to save draft.'),
+        next: () => this.notification.success('Draft saved successfully.'),
+        error: () => this.notification.error('Failed to save draft.'),
         complete: () => {
           this.draftLoading = false;
         },
@@ -953,20 +951,20 @@ export class WaterTightHatchesAdd implements OnInit {
       .subscribe({
         next: () => {
           if (type === 'submit') {
-            this.toast.showSuccess('Forms Submitted successfully.');
+            this.notification.success('Forms Submitted successfully.');
             this.isSubmitTime = true;
             this.showApprovalWorkflowPopup = true;
           } else {
-            this.toast.showSuccess('Forms Saved successfully.');
+            this.notification.success('Forms Saved successfully.');
             this.router.navigate(['/afterAuth/ship-returns/transactions/trial']);
           }
           this.cdr.detectChanges();
         },
         error: () => {
           if (type === 'submit') {
-            this.toast.showError('Failed to submit form.');
+            this.notification.error('Failed to submit form.');
           } else {
-            this.toast.showSuccess('Failed to save form.');
+            this.notification.success('Failed to save form.');
           }
 
           if (type === 'save') {

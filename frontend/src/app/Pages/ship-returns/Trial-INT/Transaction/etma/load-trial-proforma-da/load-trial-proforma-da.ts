@@ -14,6 +14,7 @@ import { Subscription, merge, firstValueFrom } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { FormApiService } from '../../../angulerFromconverting/form-api.service';
 import { FormCardComponent } from '../../../ui/form-card/form-card.component';
+import { LoadingButtonComponent } from '../../../ui/loading-button.component';
 import { ToastService } from '../../../services/toast.service';
 import { ApiService } from '../../../api.service';
 import {
@@ -98,6 +99,7 @@ import {
     FileUploadComponent,
     TextareaComponent,
     EtmaProformaTableComponent,
+    LoadingButtonComponent,
   ],
   styleUrl: './load-trial-proforma-da.css',
 })

@@ -1,9 +1,9 @@
-<div class="w-full overflow-x-auto rounded-xl border border-white/15">
-  <div *ngIf="!columns.length" class="px-4 py-6 text-center text-sm text-white/60">
+<div class="w-full overflow-x-auto rounded-xl border border-[var(--border-primary)]">
+  <div *ngIf="!columns.length" class="px-4 py-6 text-center text-sm text-[var(--text-muted)]">
     No columns configured for this table.
   </div>
 
-  <table *ngIf="columns.length" class="w-full min-w-[640px] border-collapse text-sm text-white">
+  <table *ngIf="columns.length" class="w-full min-w-[640px] border-collapse text-sm text-[var(--ag-cell-color)]">
 
     <!-- ================================================================
          THEAD
@@ -12,25 +12,25 @@
 
       <!-- ── Multi-level header ── -->
       <ng-container *ngIf="enableChildHeaders">
-        <tr class="bg-white/[0.06]">
+        <tr class="bg-[var(--ag-header-bg)]">
           <ng-container *ngFor="let th of topHeader">
             <th [attr.colspan]="th.colspan || 1" [attr.rowspan]="th.rowspan || 1"
-              class="border-b border-white/15 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-white/70"
+              class="border-b border-[var(--border-primary)] px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--ag-header-cell-color)]"
               [style.text-align]="th.align || 'center'">
               {{ th.label }}
             </th>
           </ng-container>
 
           <th *ngIf="enableRowActions" rowspan="2"
-            class="sticky right-0 z-10 border-b border-white/15 bg-[#0d2438] text-center text-[11px] font-bold uppercase tracking-wider text-white/70"
+            class="sticky right-0 z-10 border-b border-[var(--border-primary)] bg-[var(--bg-card)] text-center text-[11px] font-bold uppercase tracking-wider text-[var(--ag-header-cell-color)]"
             style="width: 80px; white-space: nowrap;">
             Action
           </th>
         </tr>
 
-        <tr class="bg-white/[0.04]">
+        <tr class="bg-[var(--bg-input)]">
           <ng-container *ngFor="let col of childColumns">
-            <th class="border-b border-white/15 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/60"
+            <th class="border-b border-[var(--border-primary)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-muted)]"
               [style.text-align]="col.align || 'center'" [style.minWidth]="col.width || '0px'">
               {{ col.header }}
             </th>
@@ -39,11 +39,11 @@
       </ng-container>
 
       <!-- ── Single-row header ── -->
-      <tr *ngIf="!enableChildHeaders" class="bg-white/[0.06]">
+      <tr *ngIf="!enableChildHeaders" class="bg-[var(--ag-header-bg)]">
         <ng-container *ngFor="let col of columns">
           <th [ngClass]="[
-              'border-b border-white/15 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-white/70',
-              isStickyRight(col.header) ? 'sticky right-0 z-10 bg-[#0d2438]' : ''
+              'border-b border-[var(--border-primary)] px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--ag-header-cell-color)]',
+              isStickyRight(col.header) ? 'sticky right-0 z-10 bg-[var(--bg-card)]' : ''
             ]"
             [style.width]="isFixedWidthColumn(col) ? (col.width || 'auto') : null" [style.minWidth]="col.width || '0px'"
             [style.maxWidth]="isFixedWidthColumn(col) ? (col.width || 'none') : null"
@@ -64,7 +64,7 @@
         </ng-container>
 
         <th *ngIf="enableRowActions"
-          class="sticky right-0 z-10 border-b border-white/15 bg-[#0d2438] text-center text-[11px] font-bold uppercase tracking-wider text-white/70"
+          class="sticky right-0 z-10 border-b border-[var(--border-primary)] bg-[var(--bg-card)] text-center text-[11px] font-bold uppercase tracking-wider text-[var(--ag-header-cell-color)]"
           style="width: 80px; white-space: nowrap;">
           Action
         </th>
@@ -75,12 +75,12 @@
          TBODY
     ================================================================ -->
     <tbody>
-      <tr *ngFor="let row of data; let i = index" class="border-t border-white/10 hover:bg-white/[0.03]">
+      <tr *ngFor="let row of data; let i = index" class="border-t border-[var(--border-primary)] hover:bg-[var(--nav-hover-bg)]">
 
         <ng-container *ngFor="let col of columns">
           <td [ngClass]="[
               'align-middle px-3 py-2',
-              col.sticky === 'right' ? 'sticky right-0 z-10 bg-[#0d2438]' : ''
+              col.sticky === 'right' ? 'sticky right-0 z-10 bg-[var(--bg-card)]' : ''
             ]"
             [style.width]="isFixedWidthColumn(col) ? (col.width || 'auto') : null" [style.minWidth]="col.width || '0px'"
             [style.maxWidth]="isFixedWidthColumn(col) ? (col.width || 'none') : null">
@@ -91,7 +91,7 @@
                 <ng-container [ngSwitch]="col.fieldType">
 
                   <!-- SER -->
-                  <div *ngSwitchCase="'ser'" class="text-center font-semibold text-white/80">
+                  <div *ngSwitchCase="'ser'" class="text-center font-semibold text-[var(--text-primary)]">
                     {{ i + 1 || ''}}
                   </div>
 
@@ -193,7 +193,7 @@
                   <!-- CHECKBOX -->
                   <div *ngSwitchCase="'checkbox'" class="flex flex-wrap gap-2">
                     <label *ngFor="let opt of col.options"
-                      class="flex items-center gap-1 text-sm text-white/80">
+                      class="flex items-center gap-1 text-sm text-[var(--text-primary)]">
                       <input type="checkbox" [value]="opt.value" [checked]="row[col.field]?.includes(opt.value)"
                         (change)="onCheckboxChange($event, row, col.field, opt.value)" />
                       {{ opt.label }}
@@ -306,7 +306,7 @@
                   </ng-container>
 
                   <!-- DEFAULT (read-only) -->
-                  <span *ngSwitchDefault class="text-white/80">{{ row[col.field] }}</span>
+                  <span *ngSwitchDefault class="text-[var(--text-primary)]">{{ row[col.field] }}</span>
 
                 </ng-container>
               </ng-container>
@@ -323,7 +323,7 @@
         </ng-container>
 
         <!-- ── Action column ── -->
-        <td *ngIf="enableRowActions" class="sticky right-0 z-10 bg-[#0d2438] align-middle text-center whitespace-nowrap px-2 py-1"
+        <td *ngIf="enableRowActions" class="sticky right-0 z-10 bg-[var(--bg-card)] align-middle text-center whitespace-nowrap px-2 py-1"
           style="width: 1%; white-space: nowrap;">
           <div class="flex items-center justify-center gap-1">
             <button *ngIf="i === data.length - 1" type="button" (click)="addRow()"
