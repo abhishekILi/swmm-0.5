@@ -1,19 +1,21 @@
-<label *ngIf="label" class="mb-1.5 block text-[11px] text-white/65">{{ label }} <span *ngIf="required" class="text-red-500">*</span></label>
-<div class="flex min-h-[45px] w-full flex-col justify-center gap-2 rounded-[10px] border border-white/40 bg-white/[0.08] p-1">
+<div class="group relative flex min-h-[45px] w-full flex-col justify-center gap-1 rounded-[10px] border border-white/40 bg-white/[0.08] px-3 py-1.5 transition">
+  <label *ngIf="label" class="block text-[11px] font-medium text-white/65">
+    {{ label }} <span *ngIf="required" class="text-red-500">*</span>
+  </label>
 
-<input
-  #fileInput
-  type="file"
-  hidden
-  [attr.multiple]="multiple ? '' : null"
-  [attr.accept]="accept || null"
-  [required]="required"
-  [disabled]="disabled || isUploading"
-  (change)="onFileChange($event)"
-/>
+  <input
+    #fileInput
+    type="file"
+    hidden
+    [attr.multiple]="multiple ? '' : null"
+    [attr.accept]="accept || null"
+    [required]="required"
+    [disabled]="disabled || isUploading"
+    (change)="onFileChange($event)"
+  />
 
   <!-- ===== MAIN INPUT ROW ===== -->
-  <div class="w-full flex flex-wrap items-center gap-1 p-1">
+  <div class="w-full flex flex-wrap items-center gap-1">
 
     <!-- UPLOADED FILES (shown inside input with green tick) -->
     <ng-container *ngIf="uploadedFiles.length">

@@ -25,3 +25,7 @@ export const resolvePhase2ApiUrl = (): string => {
   // Phase 2 API always points to the fixed external service
   return 'https://itttm-phase2-api.ilizien-projects-cdf.in/';
 };
+
+export const resolveHullApiUrl = (): string => {
+  return 'https://hull-insights-api.ilizien-projects-cdf.in:8443/';
+};

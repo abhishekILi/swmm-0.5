@@ -39,8 +39,12 @@ export const authInterceptor: HttpInterceptorFn = (
   const token = landingService.accessToken();
   const token2 = user ? JSON.parse(user)?.access : null;
 
-  const isPhase2Api = req.url.includes(environment.API_URL);
-  const bearerToken = isPhase2Api ? token2 : token;
+  const hullApiUrl = (environment as any).HULL_API_URL || 'hull-insights-api';
+  const isPhase2Api =
+    req.url.includes(environment.API_URL) ||
+    req.url.includes(hullApiUrl) ||
+    req.url.includes('hull-insights-api');
+  const bearerToken = isPhase2Api ? (token2 || token) : token;
 
   req = req.clone({
     withCredentials: true,

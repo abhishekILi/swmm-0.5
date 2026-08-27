@@ -34,6 +34,8 @@ export class FileUploadComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() maxFiles: number | null = null;
   @Input() accept = '';
+  @Input() allowedFileTypes: string[] = [];
+  @Input() formOrMasterName = '';
   @Input() readOnly = false;
   @Output() fileSelected = new EventEmitter<File | null>();
   @Output() filesUploaded = new EventEmitter<UploadedFileItem[]>();

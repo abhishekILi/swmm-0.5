@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-month-year-calendar',
+  selector: 'app-month-year-calendar, app-year-picker',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -48,8 +48,8 @@ export class MonthYearCalendarComponent implements ControlValueAccessor {
   @Input() label = '';
   @Input() placeholder = '';
   @Input() disabled = false;
-  @Input() min?: string; // format: YYYY-MM
-  @Input() max?: string; // format: YYYY-MM
+  @Input() min?: string | number; // format: YYYY-MM or YYYY
+  @Input() max?: string | number; // format: YYYY-MM or YYYY
   @Input() required = false;
   value = '';        // internal value (YYYY-MM)
   displayValue = ''; // formatted value (MM/YYYY)

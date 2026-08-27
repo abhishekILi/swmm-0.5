@@ -38,6 +38,7 @@ export class ApprovalWorkFlow implements OnInit {
   @Input() showUserPopuphead = false;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() context: any = {};
+  @Input() rowData: any;
   @Input() isSubmitTime = false;
   @Input() workflowTrialId = '';
   @Input() type: 'returns' | 'trial' = 'trial';

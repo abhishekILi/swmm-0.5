@@ -1,0 +1,116 @@
+.parameters-value-page {
+  color: var(--shell-text-primary);
+}
+
+.parameters-value-modal__backdrop {
+  background: rgb(0 0 0 / 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.parameters-value-section {
+  border: 1px solid var(--shell-table-control-border);
+  border-radius: 12px;
+  background: var(--shell-table-section-bg);
+  box-shadow: var(--shell-glass-inset);
+}
+
+.parameters-value-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--shell-divider-soft);
+  padding: 0.75rem 1rem;
+}
+
+.parameters-value-section__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--shell-text-secondary);
+}
+
+.parameters-value-section__accent {
+  width: 4px;
+  height: 1.5rem;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--shell-brand-start), var(--shell-brand-end));
+}
+
+.parameters-value-section__body {
+  padding: 1rem;
+}
+
+.parameters-value-table-card {
+  border: 1px solid var(--shell-glass-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--shell-glass-bg) 88%, transparent);
+  padding: 1rem;
+}
+
+.parameters-value-table-card + .parameters-value-table-card {
+  margin-top: 1rem;
+}
+
+.parameters-value-table-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--shell-accent) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--shell-accent) 40%, transparent);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--shell-text-primary);
+}
+
+.parameters-value-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px dashed var(--shell-table-control-border);
+  border-radius: 12px;
+  background: var(--shell-table-section-bg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.parameters-value-empty__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: var(--shell-table-control-bg);
+  border: 1px solid var(--shell-table-control-border);
+  color: var(--shell-text-muted);
+  font-size: 1.125rem;
+}
+
+.parameters-value-empty__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--shell-text-secondary);
+}
+
+.parameters-value-empty__hint {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--shell-text-muted);
+}

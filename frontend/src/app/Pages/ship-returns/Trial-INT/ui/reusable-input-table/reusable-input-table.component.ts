@@ -136,6 +136,8 @@ export class ReusableInputTableComponent
 
   @Input() maxRows = 99;
 
+  @Input() isReadonly = false;
+
   get childColumns(): ReusableTableColumn[] {
     return this.columns.filter((column) => column.group);
   }

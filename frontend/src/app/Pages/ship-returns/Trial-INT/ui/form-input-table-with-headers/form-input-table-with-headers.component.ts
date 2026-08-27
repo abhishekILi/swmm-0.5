@@ -69,7 +69,7 @@ export interface ReusableTableColumnWithHeaders {
     | 'textarea'
     | 'drop-down'
     | 'checkbox'
-    | 'composite'| 'serial';
+    | 'composite'| 'serial' | 'ser' | string;
 
   options?: {
     label: string;
@@ -596,3 +596,4 @@ isHeaderRequired(field?: string, headerCell?: ReusableHeaderCell): boolean {
     );
   }
 }
+export { FormInputTableWithHeaders as FormInputTableWithHeadersComponent };

@@ -325,18 +325,22 @@
         <!-- ── Action column ── -->
         <td *ngIf="enableRowActions" class="sticky right-0 z-10 bg-[var(--bg-card)] align-middle text-center whitespace-nowrap px-2 py-1"
           style="width: 1%; white-space: nowrap;">
-          <div class="flex items-center justify-center gap-1">
+          <div class="flex items-center justify-center gap-1.5">
             <button *ngIf="i === data.length - 1" type="button" (click)="addRow()"
               [disabled]="data.length >= maxRows || !isRowValid(row)"
-              class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/90 text-base font-bold text-white shadow-sm transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-40"
+              class="grid h-8 w-8 place-items-center rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 transition hover:bg-emerald-500/30 disabled:cursor-not-allowed disabled:opacity-40"
               title="Add row" aria-label="Add row">
-              +
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
+                <path d="M10 4v12M4 10h12"></path>
+              </svg>
             </button>
 
             <button type="button" (click)="requestDeleteRow(i)" [disabled]="data.length === 1"
-              class="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-rose-400/40 bg-rose-500/15 text-base font-bold text-rose-400 transition hover:bg-rose-500/25 hover:text-rose-300 disabled:cursor-not-allowed disabled:opacity-40"
+              class="grid h-8 w-8 place-items-center rounded-full border border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300 transition hover:bg-rose-500/30 disabled:cursor-not-allowed disabled:opacity-40"
               title="Delete row" aria-label="Delete row">
-              −
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
+                <path d="M3.5 5.5h13M7.5 5.5V4.4A1.4 1.4 0 0 1 8.9 3h2.2a1.4 1.4 0 0 1 1.4 1.4v1.1M6.5 6.5l.7 9.1A1.5 1.5 0 0 0 8.7 17h2.6a1.5 1.5 0 0 0 1.5-1.4l.7-9.1"></path>
+              </svg>
             </button>
           </div>
         </td>
