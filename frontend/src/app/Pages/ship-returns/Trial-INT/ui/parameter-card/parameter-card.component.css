@@ -1,16 +1,13 @@
 .parameter-card {
   position: relative;
   overflow: hidden;
-  border-radius: var(--shell-glass-radius, 15px);
+  border-radius: 15px;
   padding: 16px 18px 20px;
   margin-top: 20px;
-  border: 1px solid var(--shell-glass-border, rgba(255, 255, 255, 0.2));
-  background: var(--sfd-reflective-glass-bg, var(--shell-glass-bg, rgba(255, 255, 255, 0.05)));
-  color: var(--shell-text-primary, #fff);
-  backdrop-filter: blur(var(--shell-glass-blur, 10px));
-  -webkit-backdrop-filter: blur(var(--shell-glass-blur, 10px));
-  box-shadow: var(--sfd-glass-shadow, var(--shell-glass-inset, inset 0 1px 0 rgba(255, 255, 255, 0.1)), var(--shell-glass-shadow, none));
-  outline: 1px solid var(--shell-glass-outline, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--border-primary);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
 }
 
 .card-header {
@@ -27,12 +24,12 @@
   min-width: 38px;
   height: 38px;
   padding: 0 10px;
-  border: 1px solid color-mix(in srgb, var(--shell-accent, #7fb3e0) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--icon-accent) 24%, transparent);
   border-radius: 10px;
-  background: color-mix(in srgb, var(--shell-accent, #7fb3e0) 14%, transparent);
+  background: color-mix(in srgb, var(--icon-accent) 14%, transparent);
   font-weight: 700;
   font-size: 13px;
-  color: var(--shell-accent, #7fb3e0);
+  color: var(--icon-accent);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -41,7 +38,7 @@
   font-size: 15px;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--shell-text-secondary, #fff);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -60,11 +57,10 @@
 select,
 textarea {
   padding: 9px 11px;
-  border-radius: var(--shell-field-radius, 10px);
-  border: 1px solid var(--shell-control-border, rgba(255, 255, 255, 0.16));
-  background: var(--shell-field-bg, rgba(255, 255, 255, 0.05));
-  color: var(--shell-text-primary, #fff);
-  box-shadow: var(--shell-glass-inset, inset 0 1px 0 rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  border: 1px solid var(--border-input);
+  background: var(--bg-input);
+  color: var(--text-primary);
   font-size: 14px;
   font-family: 'Inter', system-ui, sans-serif;
   outline: none;
@@ -72,13 +68,11 @@ textarea {
 
 select:focus,
 textarea:focus {
-  border-color: color-mix(in srgb, var(--shell-accent, #7fb3e0) 55%, transparent);
-  box-shadow:
-    var(--shell-glass-inset, inset 0 1px 0 rgba(255, 255, 255, 0.1)),
-    0 0 0 3px color-mix(in srgb, var(--shell-accent, #7fb3e0) 20%, transparent);
+  border-color: color-mix(in srgb, var(--icon-accent) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--icon-accent) 20%, transparent);
 }
 
 .status {
   font-weight: 600;
-  color: var(--shell-success, #16a34a);
+  color: var(--icon-success);
 }

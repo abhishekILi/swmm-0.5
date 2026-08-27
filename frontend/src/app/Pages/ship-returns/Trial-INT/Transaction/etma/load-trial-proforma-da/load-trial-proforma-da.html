@@ -16,29 +16,40 @@
   (lastPage)="goToLastPage()"
   (previousReport)="openPreviousReport()"
 >
-<button
+<div
   previewHeader
-  *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
-  type="button"
-  (click)="setActiveTab(tab)"
-  class="pt-glass-form-tab relative  min-w-[220px] max-w-[240px] shrink-0 overflow-hidden rounded-[20px] px-6 text-center"
-  [class.pt-glass-form-tab--active]="isSameEquipment(activeHeaderEquipment, tab)"
-  [title]="
-    (tab?.equipment_name || tab?.name || 'Equipment') +
-    ' - ' +
-    (tab?.nomenclature || tab?.equipment_nomenclature || '-') +
-    ' - ' +
-    (tab?.serial_no || tab?.serial_number || '-')
-  "
+  class="flex items-center gap-2 overflow-x-auto flex-nowrap max-w-[420px]"
 >
-  <span class="relative block max-w-[195px] overflow-hidden text-ellipsis whitespace-nowrap pt-2 text-[15px] font-bold tracking-wide">
-    {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }}
-  </span>
+  <button
+    *ngFor="let tab of headerEquipmentTabs; trackBy: trackByEquipment"
+    type="button"
+    (click)="setActiveTab(tab)"
+    class="border border-white/15 bg-white/5 text-white/75 transition hover:border-white/30 relative min-h-[46px] min-w-[130px] max-w-[160px] shrink-0 overflow-hidden rounded-[14px] px-2 text-center"
+    [class.border-[#61C2FF]]="isSameEquipment(activeHeaderEquipment, tab)"
+    [class.bg-[#1069AB]]="isSameEquipment(activeHeaderEquipment, tab)"
+    [class.text-white]="isSameEquipment(activeHeaderEquipment, tab)"
+    [title]="
+      (tab?.equipment_name || tab?.name || 'Equipment') +
+      ' - ' +
+      (tab?.nomenclature || tab?.equipment_nomenclature || '-') +
+      ' - ' +
+      (tab?.serial_no || tab?.serial_number || '-')
+    "
+  >
+    <span class="relative block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap pt-1 text-[11px] font-bold tracking-wide">
+      {{ tab?.equipment_name || tab?.name || tab?.nomenclature || 'Equipment' }}
+    </span>
 
+    <span
+      class="relative mt-0.5 block max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap text-[9px] font-semibold"
+      [ngClass]="isSameEquipment(activeHeaderEquipment, tab) ? 'text-white' : 'text-white/50'"
+    >
+      {{ tab?.nomenclature || tab?.equipment_nomenclature || '-' }} - {{ tab?.serial_no || tab?.serial_number || '-' }}
+    </span>
+  </button>
+</div>
 
-</button>
-
-  <form [formGroup]="form" class="min-w-0 max-w-full p-0 py-4 pb-8 [&_table>thead]:!bg-transparent [&_table_thead>tr]:!bg-transparent [&_table_thead_th]:!bg-[#eaf1fb] dark:[&_table_thead_th]:!bg-[#1f2f3a] [&_table_thead_th]:!text-sm [&_table_thead_th]:!font-semibold [&_table_thead_th]:!text-[var(--text-primary)] [&_table_tbody_input]:!text-[var(--text-primary)] [&_table_tbody_textarea]:!text-[var(--text-primary)] [&_table_tbody_select]:!text-[var(--text-primary)] dark:[&_table_tbody_tr]:!bg-[#1d2a32] dark:[&_table_tbody_td]:!bg-[#1d2a32] dark:[&_table_tbody_input]:!border-[#59636a] dark:[&_table_tbody_input]:!bg-[#374249] dark:[&_table_tbody_textarea]:!border-[#59636a] dark:[&_table_tbody_textarea]:!bg-[#374249] dark:[&_table_tbody_select]:!border-[#59636a] dark:[&_table_tbody_select]:!bg-[#374249] [&_table_tbody_td]:!text-left [&_table_tbody_td_.flex]:!justify-start">
+  <form [formGroup]="form" class="min-w-0 max-w-full p-0 py-4 pb-8 [&_table>thead]:!bg-transparent [&_table_thead>tr]:!bg-transparent [&_table_thead_th]:!bg-[var(--ag-header-bg)] [&_table_thead_th]:!text-sm [&_table_thead_th]:!font-semibold [&_table_thead_th]:!text-[var(--text-primary)] [&_table_tbody_input]:!text-[var(--text-primary)] [&_table_tbody_textarea]:!text-[var(--text-primary)] [&_table_tbody_select]:!text-[var(--text-primary)] [&_table_tbody_input]:!border-[var(--border-primary)] [&_table_tbody_textarea]:!border-[var(--border-primary)] [&_table_tbody_select]:!border-[var(--border-primary)] dark:[&_table_tbody_tr]:!bg-[#1d2a32] dark:[&_table_tbody_td]:!bg-[#1d2a32] dark:[&_table_tbody_input]:!bg-[#374249] dark:[&_table_tbody_textarea]:!bg-[#374249] dark:[&_table_tbody_select]:!bg-[#374249] [&_table_tbody_td]:!text-left [&_table_tbody_td_.flex]:!justify-start">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
       <p class="text-sm text-[var(--text-muted)] italic">
         All fields marked with <span class="text-red-500">*</span> are mandatory
@@ -47,7 +58,7 @@
 
     <ng-container *ngIf="currentPage === 1">
     <!-- Header meta row -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
   <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">
     Report details
   </legend>
@@ -97,7 +108,7 @@
 </fieldset>
 
     <!-- 1. Trial Details -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">1. Trial Details</legend>
 
       <div class="grid grid-cols-3 gap-3">
@@ -153,7 +164,7 @@
     </fieldset>
 
     <!-- 2. Test Equipment Used -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">2. Test Equipment Used</legend>
 
       <div class="grid grid-cols-1 gap-3">
@@ -242,26 +253,26 @@
 </app-etma-proforma-table>
 
     <!-- 9. Speed Control Test -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">9. Speed Control Test</legend>
 
       <div class="flex gap-2 mb-4">
         <button
           type="button"
-          class="px-4 py-1.5 rounded-md text-sm font-semibold border"
-          [class.bg-blue-700]="activeGovernorTab === 'governor1'"
+          class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]"
+          [class.bg-[var(--icon-accent)]]="activeGovernorTab === 'governor1'"
           [class.text-white]="activeGovernorTab === 'governor1'"
-          [class.bg-slate-100]="activeGovernorTab !== 'governor1'"
+          [class.border-[var(--icon-accent)]]="activeGovernorTab === 'governor1'"
           (click)="setGovernorTab('governor1')"
         >
           Governor-1
         </button>
         <button
           type="button"
-          class="px-4 py-1.5 rounded-md text-sm font-semibold border"
-          [class.bg-blue-700]="activeGovernorTab === 'governor2'"
+          class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]"
+          [class.bg-[var(--icon-accent)]]="activeGovernorTab === 'governor2'"
           [class.text-white]="activeGovernorTab === 'governor2'"
-          [class.bg-slate-100]="activeGovernorTab !== 'governor2'"
+          [class.border-[var(--icon-accent)]]="activeGovernorTab === 'governor2'"
           (click)="setGovernorTab('governor2')"
         >
           Governor-2
@@ -284,12 +295,12 @@
       </p>
 
       <div
-        class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto"
+        class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto"
         [class.governor-table-transition]="isGovernorTableTransitioning"
       >
         <table class="w-full border-collapse min-w-[1100px] text-xs">
           <thead>
-            <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+            <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
               <th class="px-2 py-2 font-semibold">Load (% of Rated Capacity)</th>
               <th class="px-2 py-2 font-semibold">Initial Speed(Hz)</th>
               <th class="px-2 py-2 font-semibold">Final Speed(Hz)</th>
@@ -378,24 +389,24 @@
 
     <ng-container *ngIf="currentPage === 2">
     <!-- 9. Speed Control Test – (b) Transient Tests -->
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <div class="flex gap-2 mb-4">
         <button
           type="button"
-          class="px-4 py-1.5 rounded-md text-sm font-semibold border"
-          [class.bg-blue-700]="activeGovernorTab === 'governor1'"
+          class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]"
+          [class.bg-[var(--icon-accent)]]="activeGovernorTab === 'governor1'"
           [class.text-white]="activeGovernorTab === 'governor1'"
-          [class.bg-slate-100]="activeGovernorTab !== 'governor1'"
+          [class.border-[var(--icon-accent)]]="activeGovernorTab === 'governor1'"
           (click)="setGovernorTab('governor1')"
         >
           Governor-1
         </button>
         <button
           type="button"
-          class="px-4 py-1.5 rounded-md text-sm font-semibold border"
-          [class.bg-blue-700]="activeGovernorTab === 'governor2'"
+          class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]"
+          [class.bg-[var(--icon-accent)]]="activeGovernorTab === 'governor2'"
           [class.text-white]="activeGovernorTab === 'governor2'"
-          [class.bg-slate-100]="activeGovernorTab !== 'governor2'"
+          [class.border-[var(--icon-accent)]]="activeGovernorTab === 'governor2'"
           (click)="setGovernorTab('governor2')"
         >
           Governor-2
@@ -407,12 +418,12 @@
       </p>
 
       <div
-        class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto"
+        class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto"
         [class.governor-table-transition]="isGovernorTableTransitioning"
       >
         <table class="w-full border-collapse min-w-[1200px] text-xs">
           <thead>
-            <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+            <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
               <th class="px-2 py-2 font-semibold text-center" colspan="2">Load %</th>
               <th class="px-2 py-2 font-semibold text-center" rowspan="2">Initial Speed(Hz)</th>
               <th class="px-2 py-2 font-semibold text-center" rowspan="2">Momentary Speed(Hz)</th>
@@ -423,7 +434,7 @@
               </th>
               <th class="px-2 py-2 font-semibold text-center" rowspan="2">Remarks</th>
             </tr>
-            <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+            <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
               <th class="px-2 py-2 font-semibold text-center">Initial</th>
               <th class="px-2 py-2 font-semibold text-center">TO</th>
               <th class="px-2 py-2 font-semibold text-center">Observed</th>
@@ -432,7 +443,7 @@
               <th class="px-2 py-2 font-semibold text-center">Final Value</th>
               <th class="px-2 py-2 font-semibold text-center">Permissible Limits(Sec)</th>
             </tr>
-            <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+            <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
               <th class="px-2 py-2 font-semibold text-center text-[var(--text-primary)]" colspan="11">
                 For All Alternators (Turbo/ Diesel Including Turbo-Charged Machines)
               </th>
@@ -505,12 +516,12 @@
           <ng-container *ngFor="let governorTable of activeGovernorTransientTables">
             <tbody>
               <tr *ngIf="governorTable.categoryTitle">
-                <td colspan="11" class="!bg-slate-100 dark:!bg-slate-800 !text-[var(--text-primary)] text-center py-2 font-semibold print:[print-color-adjust:exact]">
+                <td colspan="11" class="!bg-[var(--ag-header-bg)] !text-[var(--text-primary)] text-center py-2 font-semibold print:[print-color-adjust:exact]">
                   {{ governorTable.categoryTitle }}
                 </td>
               </tr>
               <tr>
-                <td colspan="11" class="bg-slate-100 text-[var(--text-primary)] py-1.5 font-semibold px-2 text-center print:[print-color-adjust:exact]">
+                <td colspan="11" class="bg-[var(--ag-header-bg)] text-[var(--text-primary)] py-1.5 font-semibold px-2 text-center print:[print-color-adjust:exact]">
                   {{ governorTable.subsection.title }}
                 </td>
               </tr>
@@ -520,8 +531,8 @@
                   [formGroup]="activeGovernorTransientRow(governorTable.subsection.key, i)"
 
                 >
-                  <td class="px-2 py-2 font-semibold text-center bg-violet-50">{{ row.loadInitial }}</td>
-                  <td class="px-2 py-2 font-semibold text-center bg-violet-50">{{ row.loadTo }}</td>
+                  <td class="px-2 py-2 font-semibold text-center bg-[var(--icon-accent)]/10">{{ row.loadInitial }}</td>
+                  <td class="px-2 py-2 font-semibold text-center bg-[var(--icon-accent)]/10">{{ row.loadTo }}</td>
                   <td class="px-2 py-2">
                     <app-input formControlName="initial_speed_hz" [type]="'number'" [min]="0" placeholder="Enter initial speed (Hz)"></app-input>
                   </td>
@@ -607,10 +618,10 @@
 
     <section class="mb-6 min-w-0 max-w-full overflow-x-auto">
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(c) Governor Range</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto mb-6">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
           <table class="w-full border-collapse min-w-[600px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">Load %</th>
                 <th class="px-2 py-2 font-semibold">Measured Frequency (Hz)</th>
                 <th class="px-2 py-2 font-semibold">Permissible Limit (Hz)</th>
@@ -642,16 +653,16 @@
         </div>
 
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(d) Rate Affected by Governor Motor</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto">
           <table class="w-full border-collapse min-w-[900px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold" rowspan="2">Load %</th>
                 <th class="px-2 py-2 font-semibold text-center" colspan="2">Rate (Hz/ Sec)</th>
                 <th class="w-[22%] px-2 py-2 font-semibold" rowspan="2">Permissible Limits</th>
                 <th class="w-[12%] px-2 py-2 font-semibold" rowspan="2">Remarks</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">Up</th>
                 <th class="px-2 py-2 font-semibold">Down</th>
               </tr>
@@ -682,20 +693,20 @@
         </div>
     </section>
 
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">10. Voltage Control Test</legend>
         <div class="flex gap-2 mb-4">
-          <button type="button" class="px-4 py-1.5 rounded-md text-sm font-semibold border" [class.bg-blue-700]="activeAvrTab === 'avr1'" [class.text-white]="activeAvrTab === 'avr1'" [class.bg-slate-100]="activeAvrTab !== 'avr1'" (click)="setAvrTab('avr1')">AVR-1</button>
-          <button type="button" class="px-4 py-1.5 rounded-md text-sm font-semibold border" [class.bg-blue-700]="activeAvrTab === 'avr2'" [class.text-white]="activeAvrTab === 'avr2'" [class.bg-slate-100]="activeAvrTab !== 'avr2'" (click)="setAvrTab('avr2')">AVR-2</button>
+          <button type="button" class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]" [class.bg-[var(--icon-accent)]]="activeAvrTab === 'avr1'" [class.text-white]="activeAvrTab === 'avr1'" [class.border-[var(--icon-accent)]]="activeAvrTab === 'avr1'" (click)="setAvrTab('avr1')">AVR-1</button>
+          <button type="button" class="px-4 py-1.5 rounded-md text-sm font-semibold border border-[var(--border-primary)] bg-[var(--bg-input)] text-[var(--text-primary)]" [class.bg-[var(--icon-accent)]]="activeAvrTab === 'avr2'" [class.text-white]="activeAvrTab === 'avr2'" [class.border-[var(--icon-accent)]]="activeAvrTab === 'avr2'" (click)="setAvrTab('avr2')">AVR-2</button>
         </div>
         <div class="mb-4 max-w-xs">
           <app-input label="Nominal Voltage" [formControl]="activeNominalVoltageFormControl" [type]="'number'" [min]="0" placeholder="Auto-calculated from no-load and full-load voltages" [required]="true"></app-input>
         </div>
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(a) Steady State Test</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto">
           <table class="w-full border-collapse min-w-[1300px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold" rowspan="3">Load%</th>
                 <th class="px-2 py-2 font-semibold" rowspan="3">KW</th>
                 <th class="px-2 py-2 font-semibold text-center" colspan="3">Volts</th>
@@ -704,13 +715,13 @@
                 <th class="px-2 py-2 font-semibold" rowspan="3">Voltage Modulation(Less Than 2% of Rated Voltage)</th>
                 <th class="px-2 py-2 font-semibold" rowspan="3">Remarks</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold text-center" colspan="2">Observed</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Permissible Limit</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Rated(Amps)</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Observed(Amps)</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">Max</th>
                 <th class="px-2 py-2 font-semibold">Min</th>
               </tr>
@@ -757,10 +768,10 @@
           </ul>
         </div>
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(b) Transient Test</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto">
           <table class="w-full border-collapse min-w-[1200px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold text-center" colspan="2">Load %</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Initial Voltage (V)</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Momentary Voltage(V)</th>
@@ -770,7 +781,7 @@
                 <th class="px-2 py-2 font-semibold text-center" colspan="2">Time of Recovery to Within Â±1% of Final Value</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Remarks</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">Initial</th>
                 <th class="px-2 py-2 font-semibold">To</th>
                 <th class="px-2 py-2 font-semibold">Observed</th>
@@ -811,17 +822,17 @@
           </ul>
         </div>
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(c) Voltage Balance</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto mb-6">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
           <table class="w-full border-collapse min-w-[1000px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold" rowspan="2">Load</th>
                 <th class="px-2 py-2 font-semibold text-center" colspan="3">Line Voltages</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Difference (Between Max &amp; Min of Three Values)</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Permissible Limit (1% of the Average of Three Line Voltages)</th>
                 <th class="w-[11%] px-2 py-2 font-semibold" rowspan="2">Remarks</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">R-Y</th>
                 <th class="px-2 py-2 font-semibold">Y-B</th>
                 <th class="px-2 py-2 font-semibold">B-R</th>
@@ -846,17 +857,17 @@
           </table>
         </div>
         <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(d) Voltage Range</p>
-        <div class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto">
+        <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto">
           <table class="w-full border-collapse min-w-[900px] text-xs">
             <thead>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold" rowspan="2"></th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Load</th>
                 <th class="px-2 py-2 font-semibold text-center" colspan="2">Voltage Measured on Switchboard (Volts)</th>
                 <th class="px-2 py-2 font-semibold" rowspan="2">Permissible Limit (5% of Rated Voltage)</th>
                 <th class="w-[11%] px-2 py-2 font-semibold" rowspan="2">Remarks</th>
               </tr>
-              <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
+              <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
                 <th class="px-2 py-2 font-semibold">At Lowest Limit of Trimmer</th>
                 <th class="px-2 py-2 font-semibold">At Highest Limit of Trimmer</th>
               </tr>
@@ -893,13 +904,13 @@
         </div>
 
         <p class="mt-6 mb-2 text-sm font-semibold !text-[var(--text-primary)]">(e) Voltage Waveform Harmonic Content</p>
-        <div class="mb-6 grid grid-cols-1 items-center gap-4 rounded-md border !border-slate-300 p-4 text-xs !text-[var(--text-primary)] md:grid-cols-[1fr_14rem] dark:!border-[#59636a]">
+        <div class="mb-6 grid grid-cols-1 items-center gap-4 rounded-md border !border-[var(--border-primary)] p-4 text-xs !text-[var(--text-primary)] md:grid-cols-[1fr_14rem]">
           <span class="flex-1 !text-[var(--text-primary)]">Maximum total harmonic content of waveform at no load (not to exceed 2% of the amplitude of fundamental)</span>
-          <app-input class="w-full [&_input]:!border-slate-300 [&_input]:!bg-white [&_input]:!text-[var(--text-primary)] dark:[&_input]:!border-[#59636a] dark:[&_input]:!bg-[#374249]" [formControl]="activeHarmonicContentFormControl" [type]="'number'" [min]="0" placeholder="Enter value"></app-input>
+          <app-input class="w-full [&_input]:!border-[var(--border-primary)] [&_input]:!bg-[var(--bg-input)] [&_input]:!text-[var(--text-primary)]" [formControl]="activeHarmonicContentFormControl" [type]="'number'" [min]="0" placeholder="Enter value"></app-input>
         </div>
     </fieldset>
 
-    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-slate-300 rounded-md p-4 mb-6">
+    <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
         <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">11. Paralleling Trial</legend>
         <ul class="list-disc pl-5 text-xs text-[var(--text-primary)] space-y-2 mb-4">
           <li>Attended Paralleling. Test to be carried out for machines not designed for unattended parallel operation. For machines designed for unattended paralleling, this test should be conducted in Non-APMS mode/ switching off modules facilitating continuous parallel operation.</li>
@@ -907,15 +918,15 @@
         </ul>
         <p class="text-sm font-semibold mb-2">Paralleling Trial:</p>
         <div class="flex gap-3">
-          <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-[var(--text-primary)] font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="setParallelingTrial('yes')">YES</button>
-          <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-[var(--text-primary)] font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
+          <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="setParallelingTrial('yes')">YES</button>
+          <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
         </div>
 
         <div *ngIf="parallelingTrial === 'yes'" formArrayName="paralleling_combinations" class="mt-6 space-y-6">
           <section
             *ngFor="let combinationControl of parallelingCombinations.controls; let combinationIndex = index"
             [formGroupName]="combinationIndex"
-            class="min-w-0 max-w-full border border-slate-300 dark:border-slate-600 rounded-md p-4 mb-4"
+            class="min-w-0 max-w-full border border-[var(--border-primary)] rounded-md p-4 mb-4"
           >
             <div class="mb-4">
               <h3 class="text-center font-semibold !text-[var(--text-primary)] underline mb-1">
@@ -927,7 +938,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div class="rounded-md border border-slate-300 dark:border-slate-600 p-3">
+              <div class="rounded-md border border-[var(--border-primary)] p-3">
                 <p class="mb-3 text-sm font-bold !text-[var(--text-primary)]">DG 1</p>
                 <app-select
                   label="Select Equipment"
@@ -939,16 +950,16 @@
                 <div class="mt-3 grid grid-cols-2 gap-3">
                   <label class="text-xs font-semibold !text-[var(--text-primary)]">
                     Rated/D-Rated
-                    <input type="number" min="0" formControlName="rated_dg1" class="mt-1 w-full rounded-md border !border-slate-300 !bg-white px-3 py-2 text-sm !text-[var(--text-primary)] dark:!border-[#59636a] dark:!bg-[#374249] outline-none focus:!border-sky-400" />
+                    <input type="number" min="0" formControlName="rated_dg1" class="mt-1 w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-3 py-2 text-sm !text-[var(--text-primary)] outline-none focus:!border-accent-light" />
                   </label>
                   <label class="text-xs font-semibold !text-[var(--text-primary)]">
                     Amps
-                    <input type="number" min="0" formControlName="amps_dg1" class="mt-1 w-full rounded-md border !border-slate-300 !bg-white px-3 py-2 text-sm !text-[var(--text-primary)] dark:!border-[#59636a] dark:!bg-[#374249] outline-none focus:!border-sky-400" />
+                    <input type="number" min="0" formControlName="amps_dg1" class="mt-1 w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-3 py-2 text-sm !text-[var(--text-primary)] outline-none focus:!border-accent-light" />
                   </label>
                 </div>
               </div>
 
-              <div class="rounded-md border border-slate-300 dark:border-slate-600 p-3">
+              <div class="rounded-md border border-[var(--border-primary)] p-3">
                 <p class="mb-3 text-sm font-bold !text-[var(--text-primary)]">DG 2</p>
                 <app-select
                   label="Select Equipment"
@@ -960,18 +971,18 @@
                 <div class="mt-3 grid grid-cols-2 gap-3">
                   <label class="text-xs font-semibold !text-[var(--text-primary)]">
                     Rated/D-Rated
-                    <input type="number" min="0" formControlName="rated_dg2" class="mt-1 w-full rounded-md border !border-slate-300 !bg-white px-3 py-2 text-sm !text-[var(--text-primary)] dark:!border-[#59636a] dark:!bg-[#374249] outline-none focus:!border-sky-400" />
+                    <input type="number" min="0" formControlName="rated_dg2" class="mt-1 w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-3 py-2 text-sm !text-[var(--text-primary)] outline-none focus:!border-accent-light" />
                   </label>
                   <label class="text-xs font-semibold !text-[var(--text-primary)]">
                     Amps
-                    <input type="number" min="0" formControlName="amps_dg2" class="mt-1 w-full rounded-md border !border-slate-300 !bg-white px-3 py-2 text-sm !text-[var(--text-primary)] dark:!border-[#59636a] dark:!bg-[#374249] outline-none focus:!border-sky-400" />
+                    <input type="number" min="0" formControlName="amps_dg2" class="mt-1 w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-3 py-2 text-sm !text-[var(--text-primary)] outline-none focus:!border-accent-light" />
                   </label>
                 </div>
               </div>
             </div>
 
-            <div *ngFor="let table of parallelingSharingTables" class="etma-table-wrap border border-slate-300 dark:border-slate-600 rounded-md overflow-x-auto mb-4">
-              <table class="paralleling-sharing-table w-full border-collapse min-w-[1200px] text-xs !text-[var(--text-primary)] [&_tbody_td]:!border-slate-300 dark:[&_tbody_td]:!border-slate-400">
+            <div *ngFor="let table of parallelingSharingTables" class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
+              <table class="paralleling-sharing-table w-full border-collapse min-w-[1200px] text-xs !text-[var(--text-primary)] [&_tbody_td]:!border-[var(--border-primary)]">
                 <colgroup>
                   <col class="w-[7%]" />
                   <col class="w-[4.5%]" />
@@ -985,23 +996,23 @@
                   <col class="w-[11.5%]" />
                 </colgroup>
                 <thead>
-                  <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
-                    <th colspan="10" class="border border-slate-300 px-3 py-2 text-center text-sm font-bold">{{ table.title }}</th>
+                  <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
+                    <th colspan="10" class="border border-[var(--border-primary)] px-3 py-2 text-center text-sm font-bold">{{ table.title }}</th>
                   </tr>
-                  <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
-                    <th colspan="2" class="border border-slate-300 px-2 py-2">Load Range</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Combined Load {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} X% of combined rated value</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Proportionate Share of Machine A {{ table.kind === 'kw' ? 'kW' : 'KVAr' }}<br />Pa=X% × rated capacity of Machine A</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Proportionate Share of Machine B {{ table.kind === 'kw' ? 'kW' : 'KVAr' }}<br />Pb=X% × rated capacity of Machine B</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Actual Load on Machine A {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} (A1)</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Actual Load on Machine B {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} (B1)</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Difference W = max(|Pa−A1|, |Pb−B1|)</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Tolerance Band Z = 10% of mean rated generator capacities</th>
-                    <th rowspan="2" class="border border-slate-300 px-2 py-2">Remarks (SAT/UNSAT)<br />Acceptance W &lt; Z</th>
+                  <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
+                    <th colspan="2" class="border border-[var(--border-primary)] px-2 py-2">Load Range</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Combined Load {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} X% of combined rated value</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Proportionate Share of Machine A {{ table.kind === 'kw' ? 'kW' : 'KVAr' }}<br />Pa=X% × rated capacity of Machine A</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Proportionate Share of Machine B {{ table.kind === 'kw' ? 'kW' : 'KVAr' }}<br />Pb=X% × rated capacity of Machine B</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Actual Load on Machine A {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} (A1)</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Actual Load on Machine B {{ table.kind === 'kw' ? 'kW' : 'KVAr' }} (B1)</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Difference W = max(|Pa−A1|, |Pb−B1|)</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Tolerance Band Z = 10% of mean rated generator capacities</th>
+                    <th rowspan="2" class="border border-[var(--border-primary)] px-2 py-2">Remarks (SAT/UNSAT)<br />Acceptance W &lt; Z</th>
                   </tr>
-                  <tr class="!bg-transparent [&_th]:!bg-[#eaf1fb] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] dark:[&_th]:!bg-[#1f2f3a] print:[print-color-adjust:exact]">
-                    <th class="border border-slate-300 px-2 py-2">Direction</th>
-                    <th class="border border-slate-300 px-2 py-2">X%</th>
+                  <tr class="!bg-transparent [&_th]:!bg-[var(--ag-header-bg)] [&_th]:!text-sm [&_th]:!font-semibold [&_th]:!text-[var(--text-primary)] print:[print-color-adjust:exact]">
+                    <th class="border border-[var(--border-primary)] px-2 py-2">Direction</th>
+                    <th class="border border-[var(--border-primary)] px-2 py-2">X%</th>
                   </tr>
                 </thead>
                 <tbody [formArrayName]="table.kind + '_rows'">
@@ -1010,20 +1021,20 @@
                     [formGroupName]="rowIndex"
 
                   >
-                    <td *ngIf="parallelingLoadRows[rowIndex].directionStart" rowspan="5" class="border !border-slate-300 !bg-transparent px-2 py-2 text-left font-semibold !text-[var(--text-primary)] dark:!border-slate-400">
+                    <td *ngIf="parallelingLoadRows[rowIndex].directionStart" rowspan="5" class="border !border-[var(--border-primary)] !bg-transparent px-2 py-2 text-left font-semibold !text-[var(--text-primary)]">
                       {{ parallelingLoadRows[rowIndex].directionLabel }}
                     </td>
-                    <td class="border !border-slate-300 !bg-transparent px-2 py-2 text-left font-semibold !text-[var(--text-primary)] dark:!border-slate-400">{{ parallelingLoadRows[rowIndex].percent }}</td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" formControlName="combined_load" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" formControlName="proportionate_a" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" formControlName="proportionate_b" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" min="0" formControlName="actual_a" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" min="0" formControlName="actual_b" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td class="border !border-slate-300 !bg-transparent p-2 dark:!border-slate-400"><input type="number" formControlName="difference" class="w-full rounded-md border !border-slate-300 !bg-slate-100 px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-sky-400 dark:!border-slate-500 dark:!bg-[#374249]" /></td>
-                    <td *ngIf="rowIndex === 0" rowspan="10" class="border !border-slate-300 px-3 py-2 text-center font-bold !text-[var(--text-primary)] dark:!border-slate-400">
+                    <td class="border !border-[var(--border-primary)] !bg-transparent px-2 py-2 text-left font-semibold !text-[var(--text-primary)]">{{ parallelingLoadRows[rowIndex].percent }}</td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" formControlName="combined_load" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" formControlName="proportionate_a" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" formControlName="proportionate_b" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" min="0" formControlName="actual_a" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" min="0" formControlName="actual_b" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td class="border !border-[var(--border-primary)] !bg-transparent p-2"><input type="number" formControlName="difference" class="w-full rounded-md border !border-[var(--border-primary)] !bg-[var(--bg-input)] px-2 py-2 text-left !text-[var(--text-primary)] outline-none focus:!border-accent-light" /></td>
+                    <td *ngIf="rowIndex === 0" rowspan="10" class="border !border-[var(--border-primary)] px-3 py-2 text-center font-bold !text-[var(--text-primary)]">
                       {{ combinationControl.get(table.kind + '_tolerance')?.value || '—' }}
                     </td>
-                    <td class="border !border-slate-300 !bg-transparent px-2 py-2 text-center dark:!border-slate-400">
+                    <td class="border !border-[var(--border-primary)] !bg-transparent px-2 py-2 text-center">
                       <div class="flex !justify-start gap-3 whitespace-nowrap">
                         <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Sat'" class="transient-status-radio" /> Sat</label>
                         <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Unsat'" class="transient-status-radio" /> Unsat</label>
@@ -1038,14 +1049,14 @@
               <span class="mr-auto text-sm font-semibold !text-[var(--text-primary)]">Select another combination</span>
               <button
                 type="button"
-                class="rounded-md bg-emerald-600 px-5 py-2 text-sm font-semibold text-[var(--text-primary)]"
+                class="rounded-md bg-emerald-600 px-5 py-2 text-sm font-semibold text-white"
                 [class.ring-2]="combinationIndex < parallelingCombinations.length - 1"
                 [class.ring-offset-2]="combinationIndex < parallelingCombinations.length - 1"
                 (click)="setAnotherParallelingCombination(combinationIndex, 'yes')"
               >YES</button>
               <button
                 type="button"
-                class="rounded-md bg-red-600 px-5 py-2 text-sm font-semibold text-[var(--text-primary)]"
+                class="rounded-md bg-red-600 px-5 py-2 text-sm font-semibold text-white"
                 [class.ring-2]="combinationIndex === parallelingCombinations.length - 1"
                 [class.ring-offset-2]="combinationIndex === parallelingCombinations.length - 1"
                 (click)="setAnotherParallelingCombination(combinationIndex, 'no')"
@@ -1058,33 +1069,32 @@
 
   </form>
 
-  <div formFooter class="flex items-center justify-end gap-1.5">
-    <button
+  <div formFooter class="flex gap-3 justify-end py-2">
+    <app-loading-button
       *ngIf="canShowSaveDraft"
-      type="button"
-      class="form-card-footer-btn pt-glass-table__control inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="draft"
+      label="Save Draft"
+      [loading]="draftLoading"
       [disabled]="draftLoading"
-      (click)="handleSave('draft')"
-    >
-      Save Draft
-    </button>
-    <button
+      (clicked)="handleSave('draft')"
+    ></app-loading-button>
+
+    <app-loading-button
       *ngIf="canEditForm"
-      type="button"
-      class="form-card-footer-btn pt-glass-table__control inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="save"
+      label="Save"
+      [loading]="saveLoading"
       [disabled]="saveLoading"
-      (click)="handleSave('save')"
-    >
-      Save
-    </button>
-    <button
+      (clicked)="handleSave('save')"
+    ></app-loading-button>
+
+    <app-loading-button
       *ngIf="canEditForm"
-      type="button"
-      class="form-card-footer-btn pt-glass-btn-primary inline-flex items-center justify-center rounded-full font-semibold uppercase tracking-wide shadow-lg transition disabled:cursor-not-allowed disabled:opacity-50"
+      color="submit"
+      label="Submit"
+      [loading]="submitLoading"
       [disabled]="submitLoading"
-      (click)="handleSave('submit')"
-    >
-      Submit
-    </button>
+      (clicked)="handleSave('submit')"
+    ></app-loading-button>
   </div>
 </app-form-card>

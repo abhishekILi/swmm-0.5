@@ -9,8 +9,16 @@ export class NotificationService {
     this.show('success', title, message);
   }
 
+  showSuccess(message: string, title = 'Success'): void {
+    this.success(message, title);
+  }
+
   error(message: string, title = 'Error'): void {
     this.show('error', title, message);
+  }
+
+  showError(message: string, title = 'Error'): void {
+    this.error(message, title);
   }
 
   warning(message: string, title = 'Warning'): void {
