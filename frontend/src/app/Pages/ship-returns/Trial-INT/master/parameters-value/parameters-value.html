@@ -28,7 +28,7 @@
   class="parameters-value-modal__backdrop fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
   (click)="onBackdropClick()"
 >
-  <div class="w-full max-w-7xl" (click)="$event.stopPropagation()">
+  <div class="parameters-value-modal__panel w-full max-w-7xl" (click)="$event.stopPropagation()">
     <app-form-card
       class="block max-h-[calc(100dvh-1.5rem)] overflow-hidden"
       [title]="isEditMode ? 'Edit Parameter Value' : 'Add Parameter Value'"
