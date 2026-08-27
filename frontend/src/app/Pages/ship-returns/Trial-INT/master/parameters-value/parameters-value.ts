@@ -10,6 +10,7 @@ import { forkJoin } from 'rxjs';
 import { DA_LOAD, DA_RH_EXT, DA_SAFETY, makeSimpleMatrixTableObject, ME_LOAD, ME_RH_EXT, ME_SAFETY, tables_1} from './JSOM_MAP';
 import { InputComponent } from '../../ui/input.component';
 import { equipmentHtml } from '../../ApiEndPoints';
+import { NotificationService } from '../../../../../Core/services/notification';
 @Component({
   selector: 'app-parameters-value',
   imports: [
@@ -98,7 +99,8 @@ export class ParametersValue {
   constructor(
     private apiService: ApiService,
     private toastService: ToastService,
-    public cdr: ChangeDetectorRef
+    public cdr: ChangeDetectorRef,
+    private notificationService: NotificationService
   ) {}  
 
   ngOnInit(): void {
@@ -152,7 +154,7 @@ export class ParametersValue {
       this.parameterTableColumns = [];
       this.parameterTables = [];
       this.unmappedTrialTypeLabel = label;
-      this.toastService.showWarning(
+      this.notificationService.warning(
         `No parameter table template exists for "${label}". Supported types: ${this.supportedTrialTypesText}.`,
       );
       this.cdr.detectChanges();

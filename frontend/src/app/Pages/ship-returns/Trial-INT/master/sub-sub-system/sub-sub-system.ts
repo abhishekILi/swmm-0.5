@@ -9,7 +9,7 @@ import { ApiService, DropdownOption } from '../../api.service';
 @Component({
   selector: 'app-sub-sub-system',
   standalone: true,
-  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ToastComponent, ReusableDeleteDialogComponent],
+  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ReusableDeleteDialogComponent],
   templateUrl: './sub-sub-system.html',
 })
 export class SubSubSystem implements OnInit {

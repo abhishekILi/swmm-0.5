@@ -25,7 +25,6 @@ interface FormField {
     CommonModule,
     FormsModule,
     PaginateTableComponent,
-    TimelineComponent,
     AddFormComponent,
     SelectWithSearchComponent,
   ],

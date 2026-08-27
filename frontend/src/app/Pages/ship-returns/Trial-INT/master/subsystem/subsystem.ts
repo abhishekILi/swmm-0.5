@@ -10,7 +10,7 @@ import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-subsystem',
   standalone: true,
-  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ToastComponent, ReusableDeleteDialogComponent],
+  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ReusableDeleteDialogComponent],
   templateUrl: './subsystem.html',
 })
 export class Subsystem implements OnInit {
