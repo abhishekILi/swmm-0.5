@@ -52,7 +52,7 @@
   <form [formGroup]="form" class="min-w-0 max-w-full p-0 py-4 pb-8 [&_table>thead]:!bg-transparent [&_table_thead>tr]:!bg-transparent [&_table_thead_th]:!bg-[var(--ag-header-bg)] [&_table_thead_th]:!text-sm [&_table_thead_th]:!font-semibold [&_table_thead_th]:!text-[var(--text-primary)] [&_table_tbody_input]:!text-[var(--text-primary)] [&_table_tbody_textarea]:!text-[var(--text-primary)] [&_table_tbody_select]:!text-[var(--text-primary)] [&_table_tbody_input]:!border-[var(--border-primary)] [&_table_tbody_textarea]:!border-[var(--border-primary)] [&_table_tbody_select]:!border-[var(--border-primary)] dark:[&_table_tbody_tr]:!bg-[#1d2a32] dark:[&_table_tbody_td]:!bg-[#1d2a32] dark:[&_table_tbody_input]:!bg-[#374249] dark:[&_table_tbody_textarea]:!bg-[#374249] dark:[&_table_tbody_select]:!bg-[#374249] [&_table_tbody_td]:!text-left [&_table_tbody_td_.flex]:!justify-start">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
       <p class="text-sm text-[var(--text-muted)] italic">
-        All fields marked with <span class="text-red-500">*</span> are mandatory
+        All fields marked with <span class="text-[var(--icon-danger)]">*</span> are mandatory
       </p>
     </div>
 
@@ -245,9 +245,9 @@
     <p class="font-semibold mb-1">Note:</p>
     <p>For Para 1 to 8, following to be followed while filling the details mentioned in sub serials:-</p>
     <ul class="list-disc pl-5 mt-1 space-y-0.5">
-      <li><span class="text-red-500">*</span> - To be provided by SS.</li>
-      <li><span class="text-red-500">**</span> - To be checked/ provided by Yard.</li>
-      <li><span class="text-red-500">*****</span> - To be checked by ETMA.</li>
+      <li><span class="text-[var(--icon-danger)]">*</span> - To be provided by SS.</li>
+      <li><span class="text-[var(--icon-danger)]">**</span> - To be checked/ provided by Yard.</li>
+      <li><span class="text-[var(--icon-danger)]">*****</span> - To be checked by ETMA.</li>
     </ul>
   </div>
 </app-etma-proforma-table>
@@ -351,8 +351,8 @@
               </td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 !justify-start">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -506,8 +506,8 @@
               <td class="px-2 py-2 text-left text-[var(--text-muted)] font-semibold whitespace-nowrap">2 Sec</td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 !justify-start">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="transient-status-radio" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="transient-status-radio" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -580,8 +580,8 @@
                   </td>
                   <td class="px-2 py-2">
                     <div class="flex gap-3 !justify-start">
-                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                     </div>
                   </td>
                 </tr>
@@ -635,8 +635,8 @@
                 <td class="px-2 py-2 text-center font-semibold text-[var(--text-muted)]">{{ governorRangePermissibleLimit }}</td>
                 <td class="w-[12%] px-2 py-2">
                   <div class="flex gap-3 !justify-center">
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                   </div>
                 </td>
               </tr>
@@ -675,8 +675,8 @@
                 <td *ngIf="i === 0" class="w-[22%] px-2 py-2 text-[var(--text-muted)] align-middle" [attr.rowspan]="governorRateLoadRows.length">{{ governorRatePermissibleLimit }}</td>
                 <td class="w-[12%] px-2 py-2">
                   <div class="flex gap-3 !justify-center">
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                   </div>
                 </td>
               </tr>
@@ -744,8 +744,8 @@
                 <td class="px-2 py-2"><app-input formControlName="voltage_modulation" [type]="'number'" [min]="0" [disabled]="true" placeholder="Calculated"></app-input></td>
                 <td class="px-2 py-2">
                   <div class="flex gap-3 !justify-start">
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                   </div>
                 </td>
               </tr>
@@ -805,8 +805,8 @@
                 <td *ngIf="i === 0" class="px-2 py-2 text-left font-semibold align-middle" [attr.rowspan]="voltageTransientLoadRows.length">1</td>
                 <td class="px-2 py-2">
                   <div class="flex gap-3 !justify-start">
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                   </div>
                 </td>
               </tr>
@@ -848,8 +848,8 @@
                 <td class="px-2 py-2"><app-input formControlName="permissible_limit" [type]="'number'" [min]="0"></app-input></td>
                 <td class="w-[11%] px-2 py-2">
                   <div class="flex gap-3 !justify-start">
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                    <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                   </div>
                 </td>
               </tr>
@@ -888,8 +888,8 @@
                     </td>
                     <td class="w-[11%] px-2 py-2">
                       <div class="flex gap-3 !justify-start">
-                        <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                        <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                        <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                        <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                       </div>
                     </td>
                   </tr>
@@ -911,15 +911,15 @@
     </fieldset>
 
     <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
-        <legend class="px-2 text-sm font-semibold !text-[var(--text-primary)]">11. Paralleling Trial</legend>
+        <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">11. Paralleling Trial</legend>
         <ul class="list-disc pl-5 text-xs text-[var(--text-primary)] space-y-2 mb-4">
           <li>Attended Paralleling. Test to be carried out for machines not designed for unattended parallel operation. For machines designed for unattended paralleling, this test should be conducted in Non-APMS mode/ switching off modules facilitating continuous parallel operation.</li>
           <li>Unattended Paralleling. Using M-loads and Ship's loads in combination (as required) should be carried out only for machines designed for running in unattended paralleling mode through Automatic Power Management System or through any other system facilitating running of alternators in parallel for continuous durations. Results to be recorded as per table at Appendix 'A'.</li>
         </ul>
-        <p class="text-sm font-semibold mb-2">Paralleling Trial:</p>
+        <p class="text-sm font-semibold text-[var(--text-primary)] mb-2">Paralleling Trial:</p>
         <div class="flex gap-3">
-          <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="setParallelingTrial('yes')">YES</button>
-          <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
+          <button type="button" class="px-5 py-2 rounded-md bg-[var(--icon-success)] text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="setParallelingTrial('yes')">YES</button>
+          <button type="button" class="px-5 py-2 rounded-md bg-[var(--icon-danger)] text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
         </div>
 
         <div *ngIf="parallelingTrial === 'yes'" formArrayName="paralleling_combinations" class="mt-6 space-y-6">
@@ -1036,8 +1036,8 @@
                     </td>
                     <td class="border !border-[var(--border-primary)] !bg-transparent px-2 py-2 text-center">
                       <div class="flex !justify-start gap-3 whitespace-nowrap">
-                        <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Sat'" class="transient-status-radio" /> Sat</label>
-                        <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Unsat'" class="transient-status-radio" /> Unsat</label>
+                        <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Sat'" class="accent-[var(--icon-accent)]" /> Sat</label>
+                        <label class="flex items-center gap-1"><input type="radio" disabled [checked]="rowControl.get('status')?.value === 'Unsat'" class="accent-[var(--icon-accent)]" /> Unsat</label>
                       </div>
                     </td>
                   </tr>
@@ -1049,14 +1049,14 @@
               <span class="mr-auto text-sm font-semibold !text-[var(--text-primary)]">Select another combination</span>
               <button
                 type="button"
-                class="rounded-md bg-emerald-600 px-5 py-2 text-sm font-semibold text-white"
+                class="rounded-md bg-[var(--icon-success)] px-5 py-2 text-sm font-semibold text-white"
                 [class.ring-2]="combinationIndex < parallelingCombinations.length - 1"
                 [class.ring-offset-2]="combinationIndex < parallelingCombinations.length - 1"
                 (click)="setAnotherParallelingCombination(combinationIndex, 'yes')"
               >YES</button>
               <button
                 type="button"
-                class="rounded-md bg-red-600 px-5 py-2 text-sm font-semibold text-white"
+                class="rounded-md bg-[var(--icon-danger)] px-5 py-2 text-sm font-semibold text-white"
                 [class.ring-2]="combinationIndex === parallelingCombinations.length - 1"
                 [class.ring-offset-2]="combinationIndex === parallelingCombinations.length - 1"
                 (click)="setAnotherParallelingCombination(combinationIndex, 'no')"

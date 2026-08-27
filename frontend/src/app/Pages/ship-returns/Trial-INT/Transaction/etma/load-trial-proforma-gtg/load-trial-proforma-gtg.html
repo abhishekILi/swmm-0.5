@@ -53,7 +53,7 @@
   <form [formGroup]="form" class="min-w-0 max-w-full p-0 py-4 pb-8 [&_table>thead]:!bg-transparent [&_table_thead>tr]:!bg-transparent [&_table_thead_th]:!text-[var(--text-primary)] [&_table_tbody_td]:!text-left [&_table_tbody_td_.flex]:!justify-start">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
       <p class="text-sm text-[var(--text-muted)] italic">
-        All fields marked with <span class="text-red-500">*</span> are mandatory
+        All fields marked with <span class="text-[var(--icon-danger)]">*</span> are mandatory
       </p>
     </div>
 
@@ -241,9 +241,9 @@
         <p class="font-semibold mb-1">Note:</p>
         <p>For Para 1 to 8, following to be followed while filling the details mentioned in sub serials:-</p>
         <ul class="list-disc pl-5 mt-1 space-y-0.5">
-          <li><span class="text-red-500">**</span> - To be checked/filled/measured by ETMA trial member.</li>
-          <li><span class="text-red-500">***</span> - To be provided by SS.</li>
-          <li><span class="text-red-500">****</span> - To be checked/provided by Yard.</li>
+          <li><span class="text-[var(--icon-danger)]">**</span> - To be checked/filled/measured by ETMA trial member.</li>
+          <li><span class="text-[var(--icon-danger)]">***</span> - To be provided by SS.</li>
+          <li><span class="text-[var(--icon-danger)]">****</span> - To be checked/provided by Yard.</li>
         </ul>
       </div>
     </app-etma-proforma-table>
@@ -267,7 +267,7 @@
       <p class="text-sm font-semibold text-[var(--text-primary)] mb-2">(a) Steady State Test</p>
       <p class="text-sm font-semibold text-[var(--text-muted)] mb-2">WITH PHM (RCHM) 'ON'</p>
 
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-6">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
         <table class="w-full border-collapse min-w-[1000px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -295,8 +295,8 @@
               <td class="px-2 py-2"><app-input formControlName="frequency_modulation" [type]="'number'" [min]="0" [readonly]="true"></app-input></td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -304,7 +304,7 @@
         </table>
       </div>
 
-      <div class="etma-table-wrap border rounded-md overflow-x-auto">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto">
         <table class="w-full border-collapse min-w-[1100px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -348,8 +348,8 @@
               </td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -379,7 +379,7 @@
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(b) Transient Test</p>
 
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-6">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
         <table class="w-full border-collapse min-w-[1200px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -422,8 +422,8 @@
               <td *ngIf="row.recoveryPermissibleLimit" class="px-2 py-2 text-left text-[var(--text-muted)] font-semibold align-middle" [attr.rowspan]="row.recoveryLimitRowspan || 1">{{ row.recoveryPermissibleLimit }}</td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -431,7 +431,7 @@
         </table>
       </div>
 
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-6">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
         <table class="w-full border-collapse min-w-[1200px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -474,8 +474,8 @@
               <td *ngIf="row.recoveryPermissibleLimit" class="px-2 py-2 text-left text-[var(--text-muted)] font-semibold align-middle" [attr.rowspan]="row.recoveryLimitRowspan || 1">{{ row.recoveryPermissibleLimit }}</td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -497,7 +497,7 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(c) Governor Range</p>
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-6">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
         <table class="w-full border-collapse min-w-[600px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -512,8 +512,8 @@
               <td class="px-2 py-2"><app-input formControlName="measured_frequency_hz" [type]="'number'" [min]="0" placeholder="Enter numbers only"></app-input></td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -530,7 +530,7 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(d) Rate Affected by Governor Motor</p>
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-4">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
         <table class="w-full border-collapse min-w-[900px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -552,8 +552,8 @@
               <td *ngIf="i === 0" class="px-2 py-2 text-[var(--text-muted)] align-middle" [attr.rowspan]="governorRateLoadRows.length">{{ governorRatePermissibleLimit }}</td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -586,7 +586,7 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(a) Steady State Test</p>
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-4">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
         <table class="w-full border-collapse min-w-[1300px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -623,8 +623,8 @@
               <td class="px-2 py-2"><app-input formControlName="voltage_modulation" [type]="'number'" [min]="0" [readonly]="true" placeholder="Calculated"></app-input></td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -647,7 +647,7 @@
         <span class="pb-2 text-xs text-[var(--text-muted)] font-semibold">Amps</span>
       </div>
 
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-4">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
         <table class="w-full border-collapse min-w-[1200px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -687,8 +687,8 @@
               <td *ngIf="row.recoveryPermissibleLimit" class="px-2 py-2 text-left text-[var(--text-muted)] font-semibold align-middle" [attr.rowspan]="row.recoveryLimitRowspan || 1">{{ row.recoveryPermissibleLimit }}</td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -704,7 +704,7 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(c) Voltage Balance</p>
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-6">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-6">
         <table class="w-full border-collapse min-w-[1000px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -732,8 +732,8 @@
               <td class="px-2 py-2"><app-input formControlName="permissible_limit" [type]="'number'" [min]="0" [readonly]="true"></app-input></td>
               <td class="px-2 py-2">
                 <div class="flex gap-3 justify-center">
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                  <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                 </div>
               </td>
             </tr>
@@ -742,7 +742,7 @@
       </div>
 
       <p class="text-sm font-semibold !text-[var(--text-primary)] mb-2">(d) Voltage Range</p>
-      <div class="etma-table-wrap border rounded-md overflow-x-auto mb-4">
+      <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
         <table class="w-full border-collapse min-w-[900px] text-xs">
           <thead>
             <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -773,8 +773,8 @@
                   </td>
                   <td class="px-2 py-2">
                     <div class="flex gap-3 justify-center">
-                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                      <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                     </div>
                   </td>
                 </tr>
@@ -798,14 +798,14 @@
 
     <fieldset class="min-w-0 max-w-full overflow-x-auto border border-[var(--border-primary)] rounded-md p-4 mb-6">
       <legend class="px-2 text-sm font-semibold text-[var(--text-primary)]">11. Paralleling Trial</legend>
-      <ul >
+      <ul class="list-disc pl-5 text-xs text-[var(--text-primary)] space-y-2 mb-4">
         <li>Attended Paralleling. Test to be carried out for machines not designed for unattended parallel operation. For machines designed for unattended paralleling, this test should be conducted in Non-APMS mode/ switching off modules facilitating continuous parallel operation.</li>
         <li>Unattended Paralleling. Using M-loads and Ship's loads in combination (as required) should be carried out only for machines designed for running in unattended paralleling mode through Automatic Power Management System or through any other system facilitating running of alternators in parallel for continuous durations. Results to be recorded as per table at Appendix 'A'.</li>
       </ul>
-      <p class="text-sm font-semibold mb-2">Paralleling Trial:</p>
+      <p class="text-sm font-semibold text-[var(--text-primary)] mb-2">Paralleling Trial:</p>
       <div class="flex gap-3 mb-4">
-        <button type="button" class="px-5 py-2 rounded-md bg-emerald-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="addParallelingTrialRow()">YES</button>
-        <button type="button" class="px-5 py-2 rounded-md bg-red-600 text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
+        <button type="button" class="px-5 py-2 rounded-md bg-[var(--icon-success)] text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'yes'" [class.ring-offset-2]="parallelingTrial === 'yes'" (click)="addParallelingTrialRow()">YES</button>
+        <button type="button" class="px-5 py-2 rounded-md bg-[var(--icon-danger)] text-white font-semibold text-sm" [class.ring-2]="parallelingTrial === 'no'" [class.ring-offset-2]="parallelingTrial === 'no'" (click)="setParallelingTrial('no')">NO</button>
       </div>
 
       <div formArrayName="dynamic_paralleling_trial_rows" *ngIf="showParallelingSection && dynamicParallelingTrialRows.length">
@@ -814,11 +814,11 @@
           [formGroupName]="i"
           class="border border-[var(--border-primary)] rounded-md p-4 mb-4"
         >
-          <h4 class="text-center font-semibold underline mb-4">Unattended Paralleling Trial Between</h4>
+          <h4 class="text-center font-semibold underline mb-4 text-[var(--text-primary)]">Unattended Paralleling Trial Between</h4>
 
           <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <p class="font-semibold mb-2">DG 1</p>
+              <p class="font-semibold mb-2 text-[var(--text-primary)]">DG 1</p>
               <app-select
                 label="Select Equipment"
                 [required]="true"
@@ -832,7 +832,7 @@
               </div>
             </div>
             <div>
-              <p class="font-semibold mb-2">DG 2</p>
+              <p class="font-semibold mb-2 text-[var(--text-primary)]">DG 2</p>
               <app-select
                 label="Select Equipment"
                 [required]="true"
@@ -848,7 +848,7 @@
           </div>
 
           <ng-container *ngFor="let unit of ['kw', 'kva']">
-            <div class="etma-table-wrap border rounded-md overflow-x-auto mb-4">
+            <div class="etma-table-wrap border border-[var(--border-primary)] rounded-md overflow-x-auto mb-4">
               <table class="w-full border-collapse min-w-[1200px] text-xs">
                 <thead>
                   <tr class="!bg-transparent !text-[var(--text-primary)] print:[print-color-adjust:exact]">
@@ -880,8 +880,8 @@
                       <td *ngIf="incIndex === 0" class="px-2 py-2 align-middle" rowspan="10"><app-input formControlName="tolerance_band" [readonly]="true"></app-input></td>
                       <td class="px-2 py-2">
                         <div class="flex gap-3 justify-center">
-                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                         </div>
                       </td>
                     </tr>
@@ -898,8 +898,8 @@
                       <td class="px-2 py-2"><app-input formControlName="difference" [readonly]="true"></app-input></td>
                       <td class="px-2 py-2">
                         <div class="flex gap-3 justify-center">
-                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-blue-500" /><span>Sat</span></label>
-                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" /><span>Unsat</span></label>
+                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" /><span>Sat</span></label>
+                          <label class="inline-flex items-center gap-1"><input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" /><span>Unsat</span></label>
                         </div>
                       </td>
                     </tr>
@@ -910,10 +910,10 @@
           </ng-container>
 
           <div class="flex items-center justify-between mt-2">
-            <p class="text-sm font-semibold">Select another combination</p>
+            <p class="text-sm font-semibold text-[var(--text-primary)]">Select another combination</p>
             <div class="flex gap-3">
-              <button type="button" class="px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-semibold" (click)="addParallelingTrialRow()">YES</button>
-              <button type="button" class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-semibold" (click)="removeParallelingTrialRow(i)">NO</button>
+              <button type="button" class="px-4 py-2 rounded-md bg-[var(--icon-success)] text-white text-sm font-semibold" (click)="addParallelingTrialRow()">YES</button>
+              <button type="button" class="px-4 py-2 rounded-md bg-[var(--icon-danger)] text-white text-sm font-semibold" (click)="removeParallelingTrialRow(i)">NO</button>
             </div>
           </div>
         </div>
@@ -928,11 +928,11 @@
       </div>
       <app-textarea label="13. Recommendations / Summary" formControlName="recommendations" [rows]="5"></app-textarea>
       <div class="mt-4">
-        <p class="text-sm font-semibold mb-2">Final Status</p>
-        <div class="flex flex-wrap gap-4">
-          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="1" class="accent-blue-500" /><span>Cleared for Normal Exploitation</span></label>
-          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="2" class="accent-blue-500" /><span>Cleared for stand alone mode; re-offer paralleling trials</span></label>
-          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="3" class="accent-blue-500" /><span>UNSAT</span></label>
+        <p class="text-sm font-semibold text-[var(--text-primary)] mb-2">Final Status</p>
+        <div class="flex flex-wrap gap-4 text-[var(--text-primary)]">
+          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="1" class="accent-[var(--icon-accent)]" /><span>Cleared for Normal Exploitation</span></label>
+          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="2" class="accent-[var(--icon-accent)]" /><span>Cleared for stand alone mode; re-offer paralleling trials</span></label>
+          <label class="inline-flex items-center gap-2"><input type="radio" formControlName="final_status" value="3" class="accent-[var(--icon-accent)]" /><span>UNSAT</span></label>
         </div>
       </div>
     </fieldset>

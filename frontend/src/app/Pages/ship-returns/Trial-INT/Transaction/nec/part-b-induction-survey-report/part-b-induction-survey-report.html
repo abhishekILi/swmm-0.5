@@ -1,11 +1,11 @@
 <app-form-card #formCard [title]="'POST REFIT EMI/EMC CHECKS REPORT'" [smallTitle]="'PART B – INDUCTION SURVEY REPORT'"
   [showBackButton]="true" [showPreviousReport]="true" [showPaginator]="true" [previewMode]="true" [pageScroll]="false">
-  <div previewHeader class="min-w-0">
+  <div previewHeader class="flex items-center gap-2 overflow-x-auto flex-nowrap min-w-0">
     <button *ngFor="
         let tab of headerEquipmentTabs;
         trackBy: trackByEquipment
       " type="button" (click)="setActiveTab(tab)"
-      class="pt-glass-form-tab relative shrink-0 overflow-hidden rounded-[10px] px-2 text-center"
+      class="pt-glass-form-tab relative shrink-0 overflow-hidden  px-2 text-center"
       [class.pt-glass-form-tab--active]="
         isSameEquipment(activeHeaderEquipment, tab)
       " [attr.title]="
@@ -29,7 +29,7 @@
   </div>
   <form [formGroup]="form" class="p-0">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
-      <h1 class="text-sm text-[#94a3b8] ">Part B – Induction Survey Report</h1>
+      <h1 class="text-sm text-[var(--text-muted)] ">Part B – Induction Survey Report</h1>
     </div>
     <div class="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
       <app-input class="w-full" label="Ship" formControlName="shipDisplay" placeholder="Enter Ship Name"

@@ -23,7 +23,7 @@
               class="px-3 py-2 text-xs font-semibold text-[var(--text-primary)]"
               [ngClass]="group.labelWidth || 'w-40'"
             >
-              {{ row.label }}<span *ngIf="row.required" class="text-red-500"> *</span>
+              {{ row.label }}<span *ngIf="row.required" class="text-[var(--icon-danger)]"> *</span>
             </td>
             <td class="px-3 py-2">
               <ng-container *ngIf="row.controlType === 'radio'; else keyValueInput">
@@ -36,7 +36,7 @@
                       type="radio"
                       [formControlName]="row.formControlName"
                       [value]="opt.value"
-                      class="accent-blue-500"
+                      class="accent-[var(--icon-accent)]"
                     />
                     <span class="text-sm">{{ opt.label }}</span>
                   </label>
@@ -71,7 +71,7 @@
           [class.border-[var(--border-primary)]]="i < serialRows.length - 1"
         >
           <td class="w-16 px-3 py-2 text-xs font-semibold text-[var(--text-primary)]">{{ row.ser }}</td>
-          <td class="w-72 px-3 py-2 text-xs font-semibold text-[var(--text-primary)]">{{ row.label }}<span *ngIf="row.required" class="text-red-500"> *</span></td>
+          <td class="w-72 px-3 py-2 text-xs font-semibold text-[var(--text-primary)]">{{ row.label }}<span *ngIf="row.required" class="text-[var(--icon-danger)]"> *</span></td>
           <td class="px-3 py-2">
             <app-input
               [formControlName]="row.formControlName"
@@ -96,7 +96,7 @@
         <tr class="bg-[var(--ag-header-bg)] text-[var(--ag-header-cell-color)] [&>th]:!text-[var(--ag-header-cell-color)] print:[print-color-adjust:exact]">
           <th *ngFor="let col of columns" class="px-2 py-2 font-semibold">
             {{ col.header }}
-            <span *ngIf="col.required" class="text-red-400">*</span>
+            <span *ngIf="col.required" class="text-[var(--icon-danger)]">*</span>
           </th>
         </tr>
       </thead>
@@ -122,10 +122,10 @@
 
               <span *ngSwitchCase="'static-observation'">
                 {{ getStaticCellValue(row, col) }}
-                <span *ngIf="asObservationRow(row).mark === 1" class="text-red-500"> *</span>
-                <span *ngIf="asObservationRow(row).mark === 2" class="text-red-500"> **</span>
-                <span *ngIf="asObservationRow(row).mark === 3" class="text-red-500"> ***</span>
-                <span *ngIf="!asObservationRow(row).mark" class="text-red-500"> *</span>
+                <span *ngIf="asObservationRow(row).mark === 1" class="text-[var(--icon-danger)]"> *</span>
+                <span *ngIf="asObservationRow(row).mark === 2" class="text-[var(--icon-danger)]"> **</span>
+                <span *ngIf="asObservationRow(row).mark === 3" class="text-[var(--icon-danger)]"> ***</span>
+                <span *ngIf="!asObservationRow(row).mark" class="text-[var(--icon-danger)]"> *</span>
               </span>
 
               <app-calendar
@@ -136,33 +136,33 @@
 
               <div *ngSwitchCase="'radio-yes-no'" class="flex gap-3">
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="Yes" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="Yes" class="accent-[var(--icon-accent)]" />
                   <span>Yes</span>
                 </label>
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="No" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="No" class="accent-[var(--icon-accent)]" />
                   <span>No</span>
                 </label>
               </div>
 
               <div *ngSwitchCase="'radio-sat-unsat'" class="flex gap-3">
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="Sat" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="Sat" class="accent-[var(--icon-accent)]" />
                   <span>Sat</span>
                 </label>
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="Unsat" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="Unsat" class="accent-[var(--icon-accent)]" />
                   <span>Unsat</span>
                 </label>
               </div>
 
               <div *ngSwitchCase="'radio-ops-non-ops'" class="flex gap-3">
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="Ops" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="Ops" class="accent-[var(--icon-accent)]" />
                   <span>Ops</span>
                 </label>
                 <label class="inline-flex items-center gap-1">
-                  <input type="radio" [formControlName]="col.formControl!" value="Non Ops" class="accent-blue-500" />
+                  <input type="radio" [formControlName]="col.formControl!" value="Non Ops" class="accent-[var(--icon-accent)]" />
                   <span>Non Ops</span>
                 </label>
               </div>
@@ -187,22 +187,22 @@
               <ng-container *ngSwitchCase="'dynamic-status'">
                 <div *ngIf="asObservationRow(row).detailsType === 'yes_no'; else satUnsatStatus" class="flex gap-3">
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Yes" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Yes" class="accent-[var(--icon-accent)]" />
                     <span>Yes</span>
                   </label>
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="No" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="No" class="accent-[var(--icon-accent)]" />
                     <span>No</span>
                   </label>
                 </div>
                 <ng-template #satUnsatStatus>
                   <div class="flex gap-3">
                     <label class="inline-flex items-center gap-1">
-                      <input type="radio" formControlName="status" value="Sat" class="accent-blue-500" />
+                      <input type="radio" formControlName="status" value="Sat" class="accent-[var(--icon-accent)]" />
                       <span>Sat</span>
                     </label>
                     <label class="inline-flex items-center gap-1">
-                      <input type="radio" formControlName="status" value="Unsat" class="accent-blue-500" />
+                      <input type="radio" formControlName="status" value="Unsat" class="accent-[var(--icon-accent)]" />
                       <span>Unsat</span>
                     </label>
                   </div>
@@ -224,41 +224,41 @@
 
                 <div *ngIf="asMiscRow(row).detailsType === 'sat_unsat'" class="flex gap-3">
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Sat" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Sat" class="accent-[var(--icon-accent)]" />
                     <span>Sat</span>
                   </label>
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Unsat" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Unsat" class="accent-[var(--icon-accent)]" />
                     <span>Unsat</span>
                   </label>
                 </div>
                 <div *ngIf="asMiscRow(row).detailsType === 'yes_no'" class="flex gap-3">
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Yes" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Yes" class="accent-[var(--icon-accent)]" />
                     <span>Yes</span>
                   </label>
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="No" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="No" class="accent-[var(--icon-accent)]" />
                     <span>No</span>
                   </label>
                 </div>
                 <div *ngIf="asMiscRow(row).detailsType === 'avl_na'" class="flex gap-3">
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Available" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Available" class="accent-[var(--icon-accent)]" />
                     <span>Available</span>
                   </label>
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Not Available" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Not Available" class="accent-[var(--icon-accent)]" />
                     <span>Not Available</span>
                   </label>
                 </div>
                 <div *ngIf="asMiscRow(row).detailsType === 'ops_non_ops'" class="flex gap-3">
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Ops" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Ops" class="accent-[var(--icon-accent)]" />
                     <span>Ops</span>
                   </label>
                   <label class="inline-flex items-center gap-1">
-                    <input type="radio" formControlName="details" value="Non Ops" class="accent-blue-500" />
+                    <input type="radio" formControlName="details" value="Non Ops" class="accent-[var(--icon-accent)]" />
                     <span>Non Ops</span>
                   </label>
                 </div>

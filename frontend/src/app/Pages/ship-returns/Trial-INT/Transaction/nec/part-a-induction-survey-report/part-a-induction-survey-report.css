@@ -288,3 +288,55 @@
   margin: 0;
   cursor: pointer;
 }
+
+/* ── Header equipment tabs (previewHeader) ───────────────────────── */
+.pt-glass-form-tab {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 46px;
+  min-width: 130px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-input);
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.pt-glass-form-tab:hover {
+  border-color: var(--icon-accent);
+}
+
+.pt-glass-form-tab--active {
+  border-color: var(--icon-accent);
+  background: var(--icon-accent);
+  color: #fff;
+}
+
+/* ── Footer buttons (formFooter) ─────────────────────────────────── */
+.form-card-footer-btn {
+  padding: 0.55rem 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.pt-glass-table__control {
+  border: 1px solid var(--border-primary);
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.pt-glass-table__control:hover:not(:disabled) {
+  background: var(--bg-input-disabled);
+}
+
+.pt-glass-btn-primary {
+  border: 1px solid var(--icon-accent);
+  background: var(--icon-accent);
+  color: #fff;
+}
+
+.pt-glass-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}

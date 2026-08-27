@@ -313,6 +313,13 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           ),
       },
       {
+        path: "transactions/requisition",
+        loadComponent: () =>
+          import("./Trial-INT/Transaction/requisition-form/requisition-form").then(
+            (m) => m.RequisitionFormComponent
+          ),
+      },
+      {
         path: "master/equipments",
         loadComponent: () =>
           import("./Trial-INT/master/equipments/equipments").then(
@@ -362,7 +369,7 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           ).then((m) => m.DynamicFormHostComponent),
       },
       {
-        path: "etma/load-trial-proforma-da",
+        path: "etma/load-trial-proforma-Da",
         loadComponent: () =>
           import(
             "./Trial-INT/Transaction/etma/load-trial-proforma-da/load-trial-proforma-da"
