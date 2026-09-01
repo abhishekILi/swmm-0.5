@@ -278,6 +278,13 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           ),
       },
       {
+        path: "master/form-permission",
+        loadComponent: () =>
+          import("./Trial-INT/master/form-permission/form-permission").then(
+            (m) => m.FormPermission
+          ),
+      },
+      {
         path: "master/system",
         loadComponent: () =>
           import("./Trial-INT/master/system/system").then(
@@ -443,6 +450,13 @@ export const SHIP_RETURNS_ROUTES: Routes = [
         loadComponent: () =>
           import("./Trial-INT/master/trial-types/trial-types").then(
             (m) => m.TrialTypes
+          ),
+      },
+      {
+        path: "master/form-permission",
+        loadComponent: () =>
+          import("./Trial-INT/master/form-permission/form-permission").then(
+            (m) => m.FormPermission
           ),
       },
       {
@@ -634,8 +648,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "ship-weight-management",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "ship-weight-management-view" },
           },
@@ -667,8 +681,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "ber-certificate",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "ber-certificate-view" },
           },
@@ -700,8 +714,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "in-378-part1",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "in-378-part1-view" },
           },
@@ -733,8 +747,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "in-378-part2",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "in-378-part2-view" },
           },
@@ -766,8 +780,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "boat-history-sheet",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "boat-history-sheet-view" },
           },
@@ -797,8 +811,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "in-305",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "in-305-view" },
           },
@@ -830,8 +844,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "quarterly-hull-potential-with-sacrifical-anodes",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "quarterly-hull-potential-with-sacrifical-anodes-view" },
           },
@@ -863,8 +877,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "load-test-certificate",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "load-test-certificate-view" },
           },
@@ -896,8 +910,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "quarterly-hull-potential-with-conventional-iccp-system",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "quarterly-hull-potential-with-conventional-iccp-system-view" },
           },
@@ -929,8 +943,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "quarterly-hull-potential-with-modular-iccp-system",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "quarterly-hull-potential-with-modular-iccp-system-view" },
           },
@@ -962,8 +976,8 @@ export const SHIP_RETURNS_ROUTES: Routes = [
           {
             path: "ship-staff-hull-inspection-report",
             loadComponent: () =>
-              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
-                (m) => m.ShipModuleReportsTransactionTableView
+              import("./Trial-INT/Transaction/hull/ship-module-transaction-table-view/ship-transaction-table-view").then(
+                (m) => m.ShipModuleTransactionTableView
               ),
             data: { key: "ship-staff-hull-inspection-report-view" },
           },
@@ -981,6 +995,208 @@ export const SHIP_RETURNS_ROUTES: Routes = [
                 (m) => m.HullInspectionReportComponent
               ),
             data: { mode: "edit" },
+          },
+          {
+            path: "ship-staff-hull-inspection-report/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/hull-inspection-report/hull-inspection-report.component").then(
+                (m) => m.HullInspectionReportComponent
+              ),
+            data: { mode: "view" },
+          },
+        ],
+      },
+      {
+        path: "reports",
+        children: [
+          // --------------------------- SHIP WEIGHT MANAGEMENT -------------------------------
+          {
+            path: "ship-weight-management",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "ship-weight-management-report" },
+          },
+          {
+            path: "ship-weight-management/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/ship-weight-management-add/ship-weight-management-add.component").then(
+                (m) => m.ShipWeightManagementAddComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- BER CERTIFICATE -------------------------------
+          {
+            path: "ber-certificate",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "ber-certificate-report" },
+          },
+          {
+            path: "ber-certificate/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/ber-certificate-add/ber-certificate-add.component").then(
+                (m) => m.BerCertificateAddComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- IN-378 PART 1 -------------------------------
+          {
+            path: "in-378-part1",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "in-378-part1-report" },
+          },
+          {
+            path: "in-378-part1/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/in378part-i-add/in378part-i-add.component").then(
+                (m) => m.In378partIAddComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- IN-378 PART 2 -------------------------------
+          {
+            path: "in-378-part2",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "in-378-part2-report" },
+          },
+          {
+            path: "in-378-part2/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/in378part-ii-add/in378part-ii-add.component").then(
+                (m) => m.In378partIIAddComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- BOAT HISTORY SHEET (BHS) -------------------------------
+          {
+            path: "boat-history-sheet",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "boat-history-sheet-report" },
+          },
+          {
+            path: "boat-history-sheet/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/bhs-add-form/bhs-add-form").then(
+                (m) => m.BhsAddFormComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- IN 305 -------------------------------
+          {
+            path: "in-305",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "in-305-report" },
+          },
+          {
+            path: "in-305/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/in-305-new-add/in-305-new-add.component").then(
+                (m) => m.In305NewAdd
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- QUARTERLY HULL POTENTIAL WITH SACRIFICIAL ANODES -------------------------------
+          {
+            path: "quarterly-hull-potential-with-sacrifical-anodes",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "quarterly-hull-potential-with-sacrifical-anodes-report" },
+          },
+          {
+            path: "quarterly-hull-potential-with-sacrifical-anodes/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/quartely-hull/quartely-hull.component").then(
+                (m) => m.QuartelyHullSacrificalAnodesComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- LOAD TEST CERTIFICATE -------------------------------
+          {
+            path: "load-test-certificate",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "load-test-certificate-report" },
+          },
+          {
+            path: "load-test-certificate/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/load-test-certificate-add/load-test-certificate-add.component").then(
+                (m) => m.LoadTestCertificateAddComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- QUARTERLY HULL POTENTIAL CONVENTIONAL ICCP SYSTEM -------------------------------
+          {
+            path: "quarterly-hull-potential-with-conventional-iccp-system",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "quarterly-hull-potential-with-conventional-iccp-system-report" },
+          },
+          {
+            path: "quarterly-hull-potential-with-conventional-iccp-system/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/quartely-hull-iccp-system-form-add/quartely-hull-iccp-sys-add.component").then(
+                (m) => m.QuartelyHullIccpSystemComponent
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- QUARTERLY HULL POTENTIAL MODULAR ICCP SYSTEM -------------------------------
+          {
+            path: "quarterly-hull-potential-with-modular-iccp-system",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "quarterly-hull-potential-with-modular-iccp-system-report" },
+          },
+          {
+            path: "quarterly-hull-potential-with-modular-iccp-system/:id/view-details",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/SHIP-FORMS/quarterly-hull-modular-iccp-system/quarterly-hull-modular-iccp-system.component").then(
+                (m) => m.QuarterlyHullModularIccpSystem
+              ),
+            data: { mode: "view" },
+          },
+
+          // --------------------------- SHIP STAFF HULL INSPECTION REPORT -------------------------------
+          {
+            path: "ship-staff-hull-inspection-report",
+            loadComponent: () =>
+              import("./Trial-INT/Transaction/hull/ship-module-reports-transaction-table-view/shipmodule-reports-transaction-table-view").then(
+                (m) => m.ShipModuleReportsTransactionTableView
+              ),
+            data: { key: "ship-staff-hull-inspection-report-report" },
           },
           {
             path: "ship-staff-hull-inspection-report/:id/view-details",
@@ -1033,6 +1249,13 @@ export const SHIP_RETURNS_ROUTES: Routes = [
         loadComponent: () =>
           import("./Trial-INT/master/trial-types/trial-types").then(
             (m) => m.TrialTypes
+          ),
+      },
+      {
+        path: "master/form-permission",
+        loadComponent: () =>
+          import("./Trial-INT/master/form-permission/form-permission").then(
+            (m) => m.FormPermission
           ),
       },
     ],

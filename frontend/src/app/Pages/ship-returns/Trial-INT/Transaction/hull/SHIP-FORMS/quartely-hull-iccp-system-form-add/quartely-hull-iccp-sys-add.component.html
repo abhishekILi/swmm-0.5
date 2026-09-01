@@ -26,11 +26,9 @@
               formControlName="complete_anti_corrosive_last_renewed_date"></app-calendar>
           </div>
 
-
-          <app-select label="Type of Reference Electrode Used" formControlName="type_reference_electrode_used"
-            [options]="referenceElectrodeOptions" placeholder="--Select--" class="w-full">
+          <app-select label="Type of Reference Electrode Used" formControlName="type_reference_electrode_used" [options]="referenceElectrodeOptions"
+            placeholder="--Select--" class="w-full col-span-2">
           </app-select>
-
 
           <div class="col-span-2">
             <app-input label="Hull material" formControlName="hull_material">
@@ -40,9 +38,8 @@
             <app-input label="ICCP Anode Material " formControlName="iccp_anode_material">
             </app-input>
           </div>
-
-          <app-select label="Quarter ending" formControlName="quarter_ending" [options]="quarterEndingOptions"
-            placeholder="--Select--" class="w-full">
+          <app-select label="Quarter ending" formControlName="quarter_ending" [options]="quarterEndingOptions" placeholder="--Select--"
+            class="w-full col-span-2">
           </app-select>
 
           <div class="col-span-2">
@@ -67,11 +64,11 @@
       <div class="my-5">
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="mb-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-white">
+          <label class="form-section-header text-sm font-medium text-gray-700">
             Enter Total Number of Rows:
           </label>
-          <input type="number" min="1" max="99" class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition" [value]="iccp_system_rows"
-            (input)="onIccpSystemRowChange($event)" (change)="onIccpSystemRowChange($event)" />
+          <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-1 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="iccp_system_rows"
+            (input)="onIccpSystemRowChange($event)" (change)="onIccpSystemRowChange($event)" (keyup)="onIccpSystemRowChange($event)" />
         </div>
 
         <!-- Anodes Table -->
@@ -82,7 +79,7 @@
               {{ index + 1 }}
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
-              <input class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition" [value]="row[field]" (input)="
+              <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
                   handleIccpSystemTableChange(
                     index,
                     field,
@@ -113,11 +110,11 @@
       <div class="mb-5">
         <div class="form-section-header mb-3">SACRIFICIAL ANODE</div>
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-white">
+          <label class=" form-section-header text-sm font-medium text-gray-700">
             Enter Total Number of Rows:
           </label>
-          <input type="number" min="1" max="99" class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition" [value]="sacrificialAnodeRows"
-            (input)="onSacrificialAnodeRowsChange($event)" (change)="onSacrificialAnodeRowsChange($event)" />
+          <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="sacrificialAnodeRows"
+            (input)="onSacrificialAnodeRowsChange($event)" (change)="onSacrificialAnodeRowsChange($event)" (keyup)="onSacrificialAnodeRowsChange($event)" />
         </div>
         <!-- sacrificialAnodeColumns -->
         <div class="overflow-x-auto w-full">
@@ -127,7 +124,7 @@
               {{ index + 1 }}
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
-              <input class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition" [value]="row[field]" (input)="
+              <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
                   handleSacrificialAnodeTableChange(
                     index,
                     field,
@@ -174,11 +171,11 @@
 
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-white">
+          <label class="form-section-header text-sm font-medium text-gray-700">
             Enter Total Number of Rows:
           </label>
-          <input type="number" min="1" max="99" class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition" [value]="potentialRows"
-            (input)="onPotentialRowChange($event)" (change)="onPotentialRowChange($event)" />
+          <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="potentialRows"
+            (input)="onPotentialRowChange($event)" (change)="onPotentialRowChange($event)" (keyup)="onPotentialRowChange($event)" />
         </div>
 
         <div class="overflow-x-auto w-full">
@@ -188,7 +185,7 @@
               {{ index + 1 }}
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
-              <input class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition" [value]="row[field]" (input)="
+              <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
                   handlePotentialTableChange(
                     index,
                     field,
@@ -220,11 +217,11 @@
 
         <!-- ROW COUNT INPUT -->
         <div *ngIf="!viewMode" class="my-4 flex items-center space-x-4">
-          <label class="text-sm font-medium text-white">
+          <label class="form-section-header text-sm font-medium text-gray-700">
             Enter Total Number of Rows:
           </label>
-          <input type="number" min="1" max="99" class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition" [value]="forthTableRows"
-            (input)="onForthTableRowChange($event)" (change)="onForthTableRowChange($event)" />
+          <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="forthTableRows"
+            (input)="onForthTableRowChange($event)" (change)="onForthTableRowChange($event)" (keyup)="onForthTableRowChange($event)" />
         </div>
 
         <div class="overflow-x-auto w-full">
@@ -234,7 +231,7 @@
               {{ index + 1 }}
             </ng-template>
             <ng-template #inputTpl let-row let-index="index" let-field="field">
-              <input class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition" [value]="row[field]" (input)="
+              <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
                   handleForthTableChange(
                     index,
                     field,
@@ -276,72 +273,74 @@
 
       <div class="form-section-header">INSPECTION REPORT</div>
       <div class="mb-8 mt-4">
-        <div class="overflow-x-auto border border-white/15 rounded-xl bg-[#0d2438]">
-          <table class="w-full border-collapse text-sm text-white/90">
+        <div class="w-full relative overflow-x-auto rounded-lg border border-[var(--border-primary)] bg-[var(--bg-card)]">
+          <table class="w-full min-w-max border-collapse text-sm text-[var(--ag-cell-color)]">
             <thead>
-              <tr class="border-b border-white/15 bg-white/[0.06]">
-                <th class="px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15 w-16">Sr No.</th>
-                <th class="px-4 py-2.5 text-left text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15">Header</th>
-                <th class="px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white/70 border-r border-white/15 w-56">Observation</th>
-                <th class="px-4 py-2.5 text-left text-xs font-bold uppercase tracking-wider text-white/70">Remarks</th>
+              <tr>
+                <th class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)] w-16">Sr No.</th>
+                <th class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]">Header</th>
+                <th class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]">Observation</th>
+                <th class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]">Remarks</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-white/10">
-              <tr class="even:bg-white/[0.03]">
-                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+            <tbody class="divide-y divide-[var(--border-primary)] bg-[var(--bg-card)]">
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-center text-sm font-medium text-[var(--ag-cell-color)]">
                   (a)
                 </td>
-                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-sm text-[var(--ag-cell-color)]">
                   Cables
                 </td>
-                <td class="px-2 py-2 border-r border-white/10">
-                  <select formControlName="cables_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
-                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
-                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                <td class="border border-[var(--border-primary)] p-2">
+                  <select formControlName="cables_observation" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light">
+                    <option value="">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value">
                       {{ option.label }}
                     </option>
                   </select>
                 </td>
-                <td class="px-2 py-2">
-                  <input formControlName="cables_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
+                <td class="border border-[var(--border-primary)] p-2">
+                  <input formControlName="cables_remarks" type="text" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" />
                 </td>
               </tr>
-              <tr class="even:bg-white/[0.03]">
-                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-center text-sm font-medium text-[var(--ag-cell-color)]">
                   (b)
                 </td>
-                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-sm text-[var(--ag-cell-color)]">
                   Conduits
                 </td>
-                <td class="px-2 py-2 border-r border-white/10">
-                  <select formControlName="conduits_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
-                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
-                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                <td class="border border-[var(--border-primary)] p-2">
+                  <select formControlName="conduits_observation" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light">
+                    <option value="">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value">
                       {{ option.label }}
                     </option>
                   </select>
                 </td>
-                <td class="px-2 py-2">
-                  <input formControlName="conduits_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
+                <td class="border border-[var(--border-primary)] p-2">
+                  <input formControlName="conduits_remarks" type="text" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" />
                 </td>
               </tr>
-              <tr class="even:bg-white/[0.03]">
-                <td class="px-4 py-2.5 text-center text-sm font-semibold text-white/90 border-r border-white/10">
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-center text-sm font-medium text-[var(--ag-cell-color)]">
                   (c)
                 </td>
-                <td class="px-4 py-2.5 text-sm font-medium text-white/90 border-r border-white/10">
-                  Cofferdams (In case cofferdams are located in the bilges the same to be offered for inspection to HITU's at every opportunity of internal underwater inspections)
+                <td class="border border-[var(--border-primary)] px-4 py-3 text-sm text-[var(--ag-cell-color)] max-w-xs">
+                  Cofferdams (In case cofferdams are located in the bilges the
+                  same to be offered for inspection to HITU's at every
+                  opportunity of internal underwater inspections)
                 </td>
-                <td class="px-2 py-2 border-r border-white/10">
-                  <select formControlName="cofferdams_observation" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white outline-none transition focus:border-white/50 [color-scheme:dark]">
-                    <option value="" disabled selected class="bg-[#0d2438] text-white">--Select--</option>
-                    <option *ngFor="let option of satUnsatOptions" [value]="option.value" class="bg-[#0d2438] text-white">
+                <td class="border border-[var(--border-primary)] p-2">
+                  <select formControlName="cofferdams_observation" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light">
+                    <option value="">--Select--</option>
+                    <option *ngFor="let option of satUnsatOptions" [value]="option.value">
                       {{ option.label }}
                     </option>
                   </select>
                 </td>
-                <td class="px-2 py-2">
-                  <input formControlName="cofferdams_remarks" type="text" class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 outline-none transition focus:border-white/50" />
+                <td class="border border-[var(--border-primary)] p-2">
+                  <input formControlName="cofferdams_remarks" type="text" class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" />
                 </td>
               </tr>
             </tbody>

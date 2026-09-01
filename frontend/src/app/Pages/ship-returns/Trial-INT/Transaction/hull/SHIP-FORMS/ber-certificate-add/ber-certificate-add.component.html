@@ -32,7 +32,7 @@
 
       <app-select
         label="Initiated By"
-        formControlName="initiated_by"
+        formControlName="initiatedBy"
         [options]="InitiatedByOptions"
       >
       </app-select>
@@ -56,51 +56,45 @@
         >
         </app-input>
       </div>
-
+      <!------------------------------------------ BER For -->
       <app-select
         label="BER For"
+        [required]="true"
         formControlName="ber_for"
         [options]="berForOptions"
-        [required]="true"
       >
       </app-select>
 
       <!------------------------------------------ Hull (Conditional) -->
-      <div *ngIf="form.value.ber_for === 'HULL'">
-        <app-select
-          label="Hull"
-          formControlName="ber_hull"
-          [options]="hullOptions"
-        >
-        </app-select>
-      </div>
-
-      <!------------------------------------------ Engine (Conditional) -->
-      <div *ngIf="form.value.ber_for === 'ENGINE'">
-        <app-select
-          label="Engine"
-          formControlName="ber_engine"
-          [options]="engineOptions"
-        >
-        </app-select>
-      </div>
-
-      <app-select label="DG" formControlName="dg" [options]="dgOptions">
+      <app-select
+        *ngIf="form.value.ber_for === 'HULL'"
+        label="Hull"
+        [required]="true"
+        formControlName="ber_hull"
+        [options]="hullOptions"
+      >
       </app-select>
 
-      <!-- <app-file-upload
-        [label]="'Reference authority'"
-        formControlName="ref_auth"
-        [allowedFileTypes]="['pdf']"
-        [fileFieldName]="'auth_ref'"
-        [formOrMasterName]="'ber_certficate'"
+      <!------------------------------------------ Engine (Conditional) -->
+      <app-select
+        *ngIf="form.value.ber_for === 'ENGINE'"
+        label="Engine"
+        [required]="true"
+        formControlName="ber_engine"
+        [options]="engineOptions"
       >
-      </app-file-upload> -->
-    </div>
+      </app-select>
 
-    <!------------------------------------------ Remarks ------------------------->
-    <div class="mt-4 flex flex-row gap-4">
-      <div class="flex-1">
+      <!------------------------------------------ DG -->
+      <app-select
+        label="DG"
+        [required]="true"
+        formControlName="dg"
+        [options]="dgOptions"
+      >
+      </app-select>
+      <!------------------------------------------ File Upload -->
+      <div class="file-upload-field gap-1">
         <app-file-upload
           [label]="'Reference authority'"
           formControlName="ref_auth"
@@ -110,33 +104,22 @@
         >
         </app-file-upload>
       </div>
-
-      <div class="flex-1">
-        <app-input
-          label="Remarks"
-          placeholder="Enter Remarks"
-          formControlName="remarks"
-        >
-        </app-input>
-      </div>
     </div>
 
-    <!----------------------------------- Add Digital Sign Button --------------------------------->
-    <!-- <div class="flex justify-end mt-5" *ngIf="isApprover && !signatureData">
-
-            <button type="button" (click)="addSignature()" class="flex items-center gap-2 px-4 py-2 rounded-md
-           bg-gradient-to-r from-blue-500 to-blue-600 text-white cursor-pointer
-           shadow-lg hover:brightness-110">
-
-                <lucide-icon [img]="PenIcon" class="w-4 h-4"></lucide-icon>
-                <span>Add Digital Sign</span>
-            </button>
-        </div> -->
+    <!------------------------------------------ Remarks ------------------------->
+    <div class="mt-4 flex flex-col gap-1">
+      <app-input
+        label="Remarks"
+        placeholder="Enter Remarks"
+        formControlName="remarks"
+      >
+      </app-input>
+    </div>
 
     <!-- --------------------------------- Signature Preview -- --------------------------------->
     <div *ngIf="signatureData" class="mt-4 flex justify-end">
       <div
-        class="flex items-center gap-2 bg-blue-50 p-2 border border-blue-300 rounded-md max-w-md"
+        class="flex items-center gap-2 bg-blue-50 p-2 border border-blue-300 rounded-md max-w-md text-gray-800"
       >
         <!-- QR Code -->
         <div class="w-[70px] shrink-0">

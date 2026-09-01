@@ -1,17 +1,15 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ReusableDeleteDialogComponent, TransactionTableTabs, ToastComponent, AgActionCellComponent } from '../../../ui/master-compat';
+import { TransactionTableTabs, ToastComponent, AgActionCellComponent } from '../../../ui/master-compat';
 import { PaginateTableComponent } from '../../../ui/paginate-table/paginate-table.component';
 import { ApiService } from '../../../api.service';
 import { ToastService } from '../../../services/toast.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SHIP_REPORT_TRANSACTION_VIEW_CONFIG } from './ship-module-reports-transaction-table-data';
-// import { TabStateService } from '../../../services/tab-state.service';
 
 @Component({
   selector: 'app-ship-module-reports-transaction-table-view',
   templateUrl: './ship-module-reports-transaction-table-view.component.html',
   imports: [
-    ReusableDeleteDialogComponent,
     PaginateTableComponent,
     TransactionTableTabs,
     ToastComponent,
@@ -34,9 +32,7 @@ export class ShipModuleReportsTransactionTableView implements OnInit {
   rowData: any[] = [];
   columnDefs: any[] = [];
 
-  addButtons = [
-    { label: 'Add New Record', key: 'add', show: true, cls: 'bg-[#1069AB] text-white font-semibold' },
-  ];
+  addButtons: any[] = [];
 
   get currentTableUrl(): string {
     if (!this.config?.apiEndpoint) return '';

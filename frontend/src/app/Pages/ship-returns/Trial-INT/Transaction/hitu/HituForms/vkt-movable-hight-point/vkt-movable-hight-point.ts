@@ -35,11 +35,9 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     ToastComponent,
     SelectComponent,
     CalenderComponent,
-    ParameterCardComponent,
     MonthYearCalendarComponent,
     InputComponent,
-    ApprovalWorkFlow,
-    FileUploadComponent
+    ApprovalWorkFlow
   ],
   templateUrl: './vkt-movable-hight-point.html',
   styleUrl: './vkt-movable-hight-point.css',

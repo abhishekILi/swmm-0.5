@@ -17,9 +17,9 @@ import {
   Trash,
 } from '../../../../ui/lucide-compat';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
-import { ToastComponent, ReusableButtonComponent } from '../../../../ui/master-compat';
+import { ToastComponent } from '../../../../ui/master-compat';
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
-// import { MasterService } from '../../../../services/master.service';
+import { MasterService } from '../../../../services/master.service';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { Apiendpoints } from '../../../../ApiEndPoints';
@@ -27,7 +27,7 @@ import {
   ReusableInputTableComponent,
   ReusableTableColumn,
 } from '../../../../ui/reusable-input-table/reusable-input-table.component';
-import { CalenderComponent as YearCalendarComponent } from '../../../../ui/calender.component';
+import { ReusableButtonComponent } from '../../../../ui/master-compat';
 import { InputComponent } from '../../../../ui/input.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
 import { finalize } from 'rxjs';
@@ -47,7 +47,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     NewSelectComponent,
     ReusableInputTableComponent,
     ReusableButtonComponent,
-    YearCalendarComponent,
     InputComponent,
     CalenderComponent,
     YearPickerComponent,
@@ -56,31 +55,15 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
   templateUrl: './load-test-certificate-add.component.html',
 })
 export class LoadTestCertificateAddComponent implements OnInit {
-  form!: FormGroup;
   editMode = false;
   viewMode = false;
   rowId: string | null = null;
-  isSubmitting = false;
-  showApprovalWorkflowPopup = false;
   editDataDetails: any = null;
-
-  shipOptions: any[] = [];
-  totalRows = 1;
+  showApprovalWorkflowPopup = false;
 
   readonly draftIcon = Save;
   readonly saveIcon = SaveAllIcon;
   readonly restartIcon = RotateCcw;
-  reportData: any[] = [];
-
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    // private masterService: MasterService,
-    private apiService: ApiService,
-    private toastService: ToastService,
-    private cdr: ChangeDetectorRef,
-  ) {}
   readonly deleteIcon = Trash;
   saveLoading = false;
   draftLoading = false;
@@ -88,47 +71,32 @@ export class LoadTestCertificateAddComponent implements OnInit {
   selectedRow: any = null;
   selectedRowIndex: number | null = null;
   tableRowDeleteDialogOpen = false;
+
+  form!: FormGroup;
   loading = false;
 
+  shipOptions: any[] = [];
   equipmentOptions: any[] = [];
   equipmentStatus: any[] = [
     { label: 'OPS', value: 'ops' },
     { label: 'NON-OPS', value: 'non_ops' },
   ];
 
+  totalRows = 1;
   initialRowsCountInEditMode = 1;
 
-  onApprovalPopupChange(open: boolean): void {
-    this.showApprovalWorkflowPopup = open;
-    this.cdr.detectChanges();
-  }
+  reportData: any[] = [];
 
-  openApprovalWorkflow(): void {
-    this.showApprovalWorkflowPopup = true;
-    this.cdr.detectChanges();
-  }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private masterService: MasterService,
+    private apiService: ApiService,
+    private toastService: ToastService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
-  ngOnInit(): void {
-    this.loadShips();
-    this.buildForm();
-    this.updateReportTableRows(this.totalRows);
-    this.loadEquipment();
-    this.rowId = this.route.snapshot.paramMap.get('id');
-    const mode = this.route.snapshot.data['mode'];
-    if (this.rowId) {
-      this.getEditDataByRowId(this.rowId);
-    }
-    if (this.rowId && mode === 'view') {
-      this.viewMode = true;
-      this.form.disable();
-      this.totalRows = this.initialRowsCountInEditMode;
-    } else {
-      this.editMode = true;
-    }
-    if (this.viewMode) {
-      this.form.disable();
-    }
-  }
   getUser(): any {
     try {
       const userStr = localStorage.getItem('user');
@@ -143,25 +111,70 @@ export class LoadTestCertificateAddComponent implements OnInit {
     if (user.process_name === 'Ship') return true;
     if (Array.isArray(user.role_center) && user.role_center.length > 0) {
       const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
         return true;
       }
     }
     return false;
   }
 
+  onApprovalPopupChange(open: boolean): void {
+    this.showApprovalWorkflowPopup = open;
+    this.cdr.detectChanges();
+  }
+
+  openApprovalWorkflow(): void {
+    this.showApprovalWorkflowPopup = true;
+    this.cdr.detectChanges();
+  }
+
+  ngOnInit(): void {
+    this.buildForm();
+    this.loadShips();
+    this.updateReportTableRows(this.totalRows);
+    this.loadEquipment();
+
+    this.rowId = this.route.snapshot.paramMap.get('id');
+    const mode = this.route.snapshot.data['mode'];
+
+    if (this.rowId) {
+      this.getEditDataByRowId(this.rowId);
+    }
+    if (this.rowId && mode === 'view') {
+      this.viewMode = true;
+      this.form.disable();
+      this.totalRows = this.initialRowsCountInEditMode;
+    } else if (mode === 'edit') {
+      this.editMode = true;
+    }
+
+    if (this.viewMode) {
+      this.form.disable();
+    }
+  }
+
   loadShips() {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
         }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || `Ship ${user.ship_id}`, value: user.ship_id });
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
+          this.shipOptions.unshift({
+            label: user.ship_name || `Ship ${user.ship_id}`,
+            value: user.ship_id,
+          });
         }
 
         if (this.isShipUser(user) && user?.ship_id) {
@@ -174,29 +187,32 @@ export class LoadTestCertificateAddComponent implements OnInit {
             ship_id: this.shipOptions[0].value,
           });
         }
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
           this.form.patchValue({ ship_id: user.ship_id });
           if (this.isShipUser(user)) {
             this.form.get('ship_id')?.disable();
           }
         }
-      }
+        this.toastService.showError('Failed to load ships.');
+        this.cdr.detectChanges();
+      },
     });
   }
 
   loadEquipment() {
-    this.apiService.get(Apiendpoints.MASTER_EQUIPMENT).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.equipmentOptions = dataList.map((item: any) => ({
+    this.masterService.getEquipment().subscribe((res: any) => {
+      this.equipmentOptions = (res?.data || []).map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
-      this.cdr.detectChanges();
     });
   }
 
@@ -207,30 +223,17 @@ export class LoadTestCertificateAddComponent implements OnInit {
       header: 'Repair Description',
       fieldType: 'text',
     },
-    //  {
-    //   field: 'action',
-    //   header: 'Action',
-    //   template: 'calActionTemplate',
-    //   hidden: false,
-    //   width: '120px',
-    //   sticky: 'right',
-    // },
   ];
 
   onReportRowChanges(event: Event) {
     const input = event.target as HTMLInputElement;
     let value = +input.value;
-    if (!value || value < 1) {
-      value = 1;
-    }
-    // Prevent decreasing below existing rows
     if (this.editMode && value < this.initialRowsCountInEditMode) {
       value = this.initialRowsCountInEditMode;
       input.value = value.toString();
     }
     this.totalRows = value;
     this.updateReportTableRows(value);
-    this.cdr.detectChanges();
   }
 
   updateReportTableRows(count: number) {
@@ -247,16 +250,14 @@ export class LoadTestCertificateAddComponent implements OnInit {
     if (count < currentLength) {
       this.reportData.splice(count);
     }
-
     this.reportData = [...this.reportData];
+    this.cdr.detectChanges();
   }
 
   handleTableChange(index: number, field: string, value: string) {
-    // Update the reportData array so the reusable table stays in sync
     if (this.reportData[index]) {
       this.reportData[index][field] = value;
     }
-    // Also update the FormArray if the row exists
     const rowGroup = this.repairsUndertaken.at(index) as FormGroup;
     if (rowGroup && rowGroup.get(field)) {
       rowGroup.get(field)?.setValue(value);
@@ -270,21 +271,12 @@ export class LoadTestCertificateAddComponent implements OnInit {
         table: event.table,
       };
       this.tableRowDeleteDialogOpen = true;
-
       this.selectedRowIndex = event.index;
-
-      console.log(
-        'this.tableRowDeleteDialogOpen',
-        this.tableRowDeleteDialogOpen,
-      );
     }
   }
-  // ------------------------------------ REFIT TABLE DATA --------------------------------------------
 
-  /* -------------------------------- FORM SETUP ------------------------------- */
   buildForm() {
     this.form = this.fb.group({
-      // command: ['', Validators.required],
       ship_id: ['', Validators.required],
       year: ['', Validators.required],
       equipment: ['', Validators.required],
@@ -307,26 +299,26 @@ export class LoadTestCertificateAddComponent implements OnInit {
   }
 
   backButton() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/load-test-certificate']);
+    this.router.navigate(['/ship/returns/load-test-certificate']);
   }
 
-  /* ----------------------------- EDIT MODE ----------------------------------- */
-
-  getEditDataByRowId(rowId: string) {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false) {
     this.apiService
       .get(`${Apiendpoints.LOAD_TEST_CERTIFICATE}${rowId}`)
       .subscribe({
         next: (res: any) => {
           if (res?.data) {
-            console.log('res.data', res.data);
             this.editDataDetails = res.data;
             this.patchFormData(res.data);
+            if (openWorkflow) {
+              this.openApprovalWorkflow();
+            }
           }
         },
         error: (err) => {
           console.error('Error fetching load test certificate data:', err);
           this.toastService.showError(
-            'Failed to load test certificate certificate details.',
+            'Failed to load test certificate details.',
           );
         },
       });
@@ -334,7 +326,7 @@ export class LoadTestCertificateAddComponent implements OnInit {
 
   patchFormData(data: any): void {
     this.form.patchValue({
-      ship_id: data?.ship?.id || '',
+      ship_id: data?.ship?.id || data?.ship || '',
       year: data?.year || '',
       equipment: data?.equipment || '',
       patt_no: data?.patt_no || '',
@@ -354,7 +346,6 @@ export class LoadTestCertificateAddComponent implements OnInit {
       proof: data?.proof || '',
     });
 
-    // ------------------ TABLE DATA (repairs_undertaken) ------------------
     if (data?.repairs_undertaken?.length) {
       this.reportData = data.repairs_undertaken.map(
         (item: any, index: number) => ({
@@ -373,8 +364,9 @@ export class LoadTestCertificateAddComponent implements OnInit {
   }
 
   handleBack() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/load-test-certificate']);
+    this.router.navigate(['/ship/returns/load-test-certificate']);
   }
+
   validateForm(): boolean {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -383,11 +375,11 @@ export class LoadTestCertificateAddComponent implements OnInit {
     }
     return true;
   }
-  /* ------------------------------- SAVE --------------------------------------- */
 
   clear() {
     this.form.reset();
   }
+
   async handleSave(draftStatus: 'draft' | 'save') {
     if (draftStatus === 'save' && !this.validateForm()) {
       return;
@@ -405,17 +397,18 @@ export class LoadTestCertificateAddComponent implements OnInit {
         repairs_description: item.repairs_description,
       }));
 
-    const payload = {
-      ...this.form.getRawValue(),
-      // draft_status: draftStatus,
-      draft_status: 'approved',
+    const formValues = this.form.getRawValue();
 
+    const payload = {
+      ...formValues,
+      draft_status: draftStatus === 'save' ? 'approved' : 'draft',
       repairs_undertaken: repairsTableData,
     };
 
     if (this.editMode) {
       payload.id = this.rowId;
     }
+
     this.apiService
       .post(Apiendpoints.LOAD_TEST_CERTIFICATE, payload)
       .pipe(
@@ -448,7 +441,7 @@ export class LoadTestCertificateAddComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -456,7 +449,7 @@ export class LoadTestCertificateAddComponent implements OnInit {
             }
           } else {
             setTimeout(() => {
-              this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/load-test-certificate']);
+              this.router.navigate(['/ship/returns/load-test-certificate']);
             }, 1000);
           }
         },
@@ -468,3 +461,4 @@ export class LoadTestCertificateAddComponent implements OnInit {
       });
   }
 }
+

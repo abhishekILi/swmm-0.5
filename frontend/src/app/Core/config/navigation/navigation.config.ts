@@ -257,6 +257,7 @@ const TRIAL_INT_MASTER_CHILDREN = [
   { id: "master-deck-master", label: "Deck Master", route: "master/deck-master" },
   { id: "master-refit-master", label: "Refit Master", route: "master/refit-master" },
   { id: "master-strakes-master", label: "Strakes Master", route: "master/strakes-master" },
+  { id: "master-form-permission", label: "Form Permission", route: "master/form-permission" },
 ];
 
 const createTrialReturnsHeader = (): HeaderConfig =>
@@ -322,30 +323,48 @@ const createTagInOutHeader = (): HeaderConfig =>
     configuration: { enabled: false, route: null },
   });
 
-const HULL_RETURNS_MASTER_CHILDREN = [
-  { id: "ship-weight-management", label: "Ship Weight Management", route: "returns/ship-weight-management" },
-  { id: "ber-certificate", label: "BER Certificate", route: "returns/ber-certificate" },
-  { id: "in-378-part1", label: "IN-378 Part 1", route: "returns/in-378-part1" },
-  { id: "in-378-part2", label: "IN-378 Part 2", route: "returns/in-378-part2" },
-  { id: "boat-history-sheet", label: "Boat History Sheet", route: "returns/boat-history-sheet" },
-  { id: "in-305", label: "IN-305", route: "returns/in-305" },
-  { id: "quarterly-hull-sacrificial", label: "Quarterly Hull (Sacrificial Anodes)", route: "returns/quarterly-hull-potential-with-sacrifical-anodes" },
-  { id: "load-test-certificate", label: "Load Test Certificate", route: "returns/load-test-certificate" },
-  { id: "quarterly-hull-conventional-iccp", label: "Quarterly Hull (Conventional ICCP)", route: "returns/quarterly-hull-potential-with-conventional-iccp-system" },
-  { id: "quarterly-hull-modular-iccp", label: "Quarterly Hull (Modular ICCP)", route: "returns/quarterly-hull-potential-with-modular-iccp-system" },
-  { id: "ship-staff-hull-inspection-report", label: "Ship Staff Report of Hull Inspection", route: "returns/ship-staff-hull-inspection-report" },
+const HULL_RETURNS_TRANSACTION_CHILDREN = [
+  { id: "ship-weight-management-tx", label: "Ship Weight Management", route: "returns/ship-weight-management" },
+  { id: "ber-certificate-tx", label: "BER Certificate", route: "returns/ber-certificate" },
+  { id: "in-378-part1-tx", label: "IN-378 Part 1", route: "returns/in-378-part1" },
+  { id: "in-378-part2-tx", label: "IN-378 Part 2", route: "returns/in-378-part2" },
+  { id: "boat-history-sheet-tx", label: "Boat History Sheet", route: "returns/boat-history-sheet" },
+  { id: "in-305-tx", label: "IN-305", route: "returns/in-305" },
+  { id: "quarterly-hull-sacrificial-tx", label: "Quarterly Hull (Sacrificial Anodes)", route: "returns/quarterly-hull-potential-with-sacrifical-anodes" },
+  { id: "load-test-certificate-tx", label: "Load Test Certificate", route: "returns/load-test-certificate" },
+  { id: "quarterly-hull-conventional-iccp-tx", label: "Quarterly Hull (Conventional ICCP)", route: "returns/quarterly-hull-potential-with-conventional-iccp-system" },
+  { id: "quarterly-hull-modular-iccp-tx", label: "Quarterly Hull (Modular ICCP)", route: "returns/quarterly-hull-potential-with-modular-iccp-system" },
+  { id: "ship-staff-hull-inspection-report-tx", label: "Ship Staff Report of Hull Inspection", route: "returns/ship-staff-hull-inspection-report" },
+];
+
+const HULL_RETURNS_REPORT_CHILDREN = [
+  { id: "ship-weight-management-rpt", label: "Ship Weight Management", route: "reports/ship-weight-management" },
+  { id: "ber-certificate-rpt", label: "BER Certificate", route: "reports/ber-certificate" },
+  { id: "in-378-part1-rpt", label: "IN-378 Part 1", route: "reports/in-378-part1" },
+  { id: "in-378-part2-rpt", label: "IN-378 Part 2", route: "reports/in-378-part2" },
+  { id: "boat-history-sheet-rpt", label: "Boat History Sheet", route: "reports/boat-history-sheet" },
+  { id: "in-305-rpt", label: "IN-305", route: "reports/in-305" },
+  { id: "quarterly-hull-sacrificial-rpt", label: "Quarterly Hull (Sacrificial Anodes)", route: "reports/quarterly-hull-potential-with-sacrifical-anodes" },
+  { id: "load-test-certificate-rpt", label: "Load Test Certificate", route: "reports/load-test-certificate" },
+  { id: "quarterly-hull-conventional-iccp-rpt", label: "Quarterly Hull (Conventional ICCP)", route: "reports/quarterly-hull-potential-with-conventional-iccp-system" },
+  { id: "quarterly-hull-modular-iccp-rpt", label: "Quarterly Hull (Modular ICCP)", route: "reports/quarterly-hull-potential-with-modular-iccp-system" },
+  { id: "ship-staff-hull-inspection-report-rpt", label: "Ship Staff Report of Hull Inspection", route: "reports/ship-staff-hull-inspection-report" },
 ];
 
 const createHullReturnsHeader = (): HeaderConfig =>
   createHeader({
     overview: { enabled: false, route: null },
-    actions: { enabled: false, route: null },
-    configuration: {
+    actions: {
       label: "Transactions",
       route: "returns/ship-weight-management",
-      children: HULL_RETURNS_MASTER_CHILDREN,
+      children: HULL_RETURNS_TRANSACTION_CHILDREN,
     },
-    reports: { enabled: false, route: null },
+    reports: {
+      label: "Reports",
+      route: "reports/ship-weight-management",
+      children: HULL_RETURNS_REPORT_CHILDREN,
+    },
+    configuration: { enabled: false, route: null },
     dlGeneration: { enabled: false, route: null },
     insights: { enabled: false, route: null },
   });

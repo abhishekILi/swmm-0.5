@@ -26,13 +26,14 @@ import {
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
 import { InputComponent } from '../../../../ui/input.component';
-// import { MasterService } from '../../../../services/master.service';
-import { ReusableDeleteDialogDynamicContentComponent as ReusableDeleteDialogDynamicContent, ReusableButtonComponent } from '../../../../ui/master-compat';
+import { MasterService } from '../../../../services/master.service';
+import { ReusableDeleteDialogDynamicContentComponent as ReusableDeleteDialogDynamicContent } from '../../../../ui/master-compat';
 import {
   FormInputTableWithHeadersComponent as FormInputTableWithHeaders,
   ReusableHeaderCell,
 } from '../../../../ui/form-input-table-with-headers/form-input-table-with-headers.component';
 import { Apiendpoints } from '../../../../ApiEndPoints';
+import { ReusableButtonComponent } from '../../../../ui/master-compat';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 import { MonthYearCalendarComponent as YearPickerComponent } from '../../../../ui/month-year-calendar.component';
 import { finalize } from 'rxjs';
@@ -41,7 +42,6 @@ import { finalize } from 'rxjs';
   selector: 'app-quartely-hull',
   standalone: true,
   imports: [
-    ReusableInputTableComponent,
     CommonModule,
     ReactiveFormsModule,
     FormCardComponent,
@@ -60,45 +60,21 @@ import { finalize } from 'rxjs';
   templateUrl: './quartely-hull-iccp-sys-add.component.html',
 })
 export class QuartelyHullIccpSystemComponent implements OnInit {
-  isViewMode = false;
-  isEditMode = false;
-  currentId: string | null = null;
-  form!: FormGroup;
-
-  get viewMode(): boolean { return this.isViewMode; }
-  set viewMode(val: boolean) { this.isViewMode = val; }
-
-  get editMode(): boolean { return this.isEditMode; }
-  set editMode(val: boolean) { this.isEditMode = val; }
-
-  get rowId(): string | null { return this.currentId; }
-  set rowId(val: string | null) { this.currentId = val; }
-
-  shipOptions: any[] = [];
-  referenceElectrodeOptions: any[] = [];
-  isSubmitting = false;
-
-  showApprovalWorkflowPopup = false;
+  editMode = false;
+  viewMode = false;
+  rowId: string | null = null;
   editDataDetails: any = null;
+  showApprovalWorkflowPopup = false;
 
   readonly draftIcon = Save;
   readonly saveIcon = SaveAllIcon;
   readonly restartIcon = RotateCcw;
-
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private apiService: ApiService,
-    private toastService: ToastService,
-    @Inject(DOCUMENT) public document: Document,
-    // private masterService: MasterService,
-    private cdr: ChangeDetectorRef,
-  ) {};
   readonly deleteIcon = Trash;
 
   draftLoading = false;
   saveLoading = false;
+
+  form!: FormGroup;
 
   selectedRow: any = null;
   selectedRowIndex: number | null = null;
@@ -126,6 +102,20 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     { label: 'Port', value: 'port' },
     { label: 'STBD', value: 'stbd' },
   ];
+
+  shipOptions: any[] = [];
+  referenceElectrodeOptions: any[] = [];
+
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private apiService: ApiService,
+    private toastService: ToastService,
+    @Inject(DOCUMENT) public document: Document,
+    private masterService: MasterService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   onApprovalPopupChange(open: boolean): void {
     this.showApprovalWorkflowPopup = open;
@@ -170,7 +160,6 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     this.form = this.fb.group({
       ship_id: ['', [Validators.required]],
       year: ['', [Validators.required]],
-      date_of_return: ['', [Validators.required]],
       ship_last_undocked_date: ['', [Validators.required]],
       brief_paint_details_during_last_docking: ['', [Validators.required]],
       complete_anti_corrosive_last_renewed_date: ['', [Validators.required]],
@@ -194,76 +183,29 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     });
   }
 
-  getUser(): any {
-    try {
-      const userStr = localStorage.getItem('user');
-      return userStr ? JSON.parse(userStr) : null;
-    } catch {
-      return null;
-    }
-  }
-
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
-  }
-
   // Load ships from API
   loadShips() {
-    const user = this.getUser();
-    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
-      next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
-          label: item.name,
-          value: item.id,
-        }));
+    this.masterService.getVessels().subscribe((res) => {
+      this.shipOptions = res.data.map((item: any) => ({
+        label: item.name,
+        value: item.id,
+      }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({
-            label: user.ship_name || `Ship ${user.ship_id}`,
-            value: user.ship_id,
-          });
-        }
-
-        if (this.isShipUser(user) && user?.ship_id) {
-          this.form.patchValue({ ship_id: user.ship_id });
-          this.form.get('ship_id')?.disable();
-        } else if (user?.ship_id && !this.rowId) {
-          this.form.patchValue({ ship_id: user.ship_id });
-        } else if (this.shipOptions.length === 1 && !this.rowId) {
-          this.form.patchValue({ ship_id: this.shipOptions[0].value });
-        }
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('Error loading ships:', err);
-        if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
-          this.form.patchValue({ ship_id: user.ship_id });
-          if (this.isShipUser(user)) {
-            this.form.get('ship_id')?.disable();
-          }
-        }
+      // ✅ AUTO SELECT if only one ship
+      if (this.shipOptions.length === 1) {
+        this.form.patchValue({
+          ship_id: this.shipOptions[0].value,
+        });
       }
     });
   }
 
   loadReferenceElectrodes() {
-    this.apiService.get(Apiendpoints.MASTER_REFERENCE_ELECTRODES).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.referenceElectrodeOptions = dataList.map((item: any) => ({
+    this.masterService.getReferenceElectrodes().subscribe((res) => {
+      this.referenceElectrodeOptions = res.data.map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
-      this.cdr.detectChanges();
     });
   }
   // getReferenceElectrodes
@@ -930,7 +872,7 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     this.updateForthTableRows(this.forthTableRows);
   }
 
-  getEditDataByRowId(rowId: string): void {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false): void {
     this.apiService
       .get(
         `${Apiendpoints.QUARTERLY_HULL_POTENTIAL_DATA_OF_SHIPS_FITTED_WITH_CONVENTIIONAL_ICCP_SYSTEM}${rowId}/`,
@@ -945,7 +887,6 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
           this.form.patchValue({
             ship_id: data.ship?.id || '',
             year: data?.year,
-            date_of_return: data?.date_of_return,
             ship_last_undocked_date: data.ship_last_undocked_date,
             brief_paint_details_during_last_docking:
               data.brief_paint_details_during_last_docking,
@@ -1059,6 +1000,12 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
           if (this.viewMode) {
             this.form.disable();
           }
+
+          if (openWorkflow) {
+            this.openApprovalWorkflow();
+          }
+
+          this.cdr.detectChanges();
         },
         error: (err) => {
           console.error('Error fetching data:', err);
@@ -1094,7 +1041,7 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
 
   handleBack() {
     this.router.navigate([
-      '/afterAuth/ship-returns/hull-returns/returns/quarterly-hull-potential-with-conventional-iccp-system',
+      '/ship/returns/quarterly-hull-potential-with-conventional-iccp-system',
     ]);
   }
 
@@ -1172,8 +1119,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     }
 
     const firstTableFormattedData = this.iccp_system_data
-      .filter((item: any) => !this.iccpSystemTableRemoveEmptyRows(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.iccpSystemTableRemoveEmptyRows(item))
+      .map((item, index) => ({
         id: item?.id || null,
         s_no: index + 1,
         iccp_date: item?.date,
@@ -1192,8 +1139,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
       }));
 
     const secondTableFormattedData = this.sacrificialAnodeData
-      .filter((item: any) => !this.sacrificialAnodesTableRemoveEmptyRows(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.sacrificialAnodesTableRemoveEmptyRows(item))
+      .map((item, index) => ({
         id: item?.id || null,
         s_no: index + 1,
         type_of_anode: item?.type_of_anode,
@@ -1205,8 +1152,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
       }));
 
     const ThirdTableFormattedData = this.potentialData
-      .filter((item: any) => !this.hullPotentialTableRemoveEmptyRows(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.hullPotentialTableRemoveEmptyRows(item))
+      .map((item, index) => ({
         id: item?.id || null,
         s_no: index + 1,
         date: item?.date,
@@ -1223,8 +1170,8 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
       }));
 
     const ForthTableFormattedData = this.forthTableData
-      .filter((item: any) => !this.forthTableRemoveEmptyRows(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.forthTableRemoveEmptyRows(item))
+      .map((item, index) => ({
         id: item?.id || null,
         s_no: index + 1,
         date: item?.ac_date,
@@ -1239,8 +1186,7 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
         aft_stbd: item?.ac_aft_stbd,
         remarks: item?.ac_remarks,
       }));
-
-    const payload: any = {
+    const payload = {
       ...this.form.getRawValue(),
       draft_status: draftStatus,
       iccp_measurements: firstTableFormattedData,
@@ -1252,6 +1198,38 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
     if (this.editMode) {
       payload.id = this.rowId;
     }
+
+    this.apiService
+      .post(
+        Apiendpoints.QUARTERLY_HULL_POTENTIAL_DATA_OF_SHIPS_FITTED_WITH_CONVENTIIONAL_ICCP_SYSTEM,
+        payload,
+      )
+      .subscribe({
+        next: (res: any) => {
+          this.toastService.showSuccess(
+            res?.message ||
+              'Quarterly Hull potential conventional iccp system data filled successfully',
+          );
+
+          setTimeout(() => {
+            this.router.navigate([
+              '/ship/returns/quarterly-hull-potential-with-conventional-iccp-system',
+            ]);
+          }, 1000);
+        },
+        error: (err) => {
+          this.toastService.showError(
+            'Error in filling Quarterly Hull potential conventional iccp system data',
+          );
+        },
+        complete: () => {
+          if (draftStatus === 'save') {
+            this.saveLoading = false; // ✅ FIXED
+          } else {
+            this.draftLoading = false; // ✅ FIXED
+          }
+        },
+      });
 
     this.apiService
       .post(
@@ -1289,7 +1267,7 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -1298,7 +1276,7 @@ export class QuartelyHullIccpSystemComponent implements OnInit {
           } else {
             setTimeout(() => {
               this.router.navigate([
-                '/afterAuth/ship-returns/hull-returns/returns/quarterly-hull-potential-with-conventional-iccp-system',
+                '/ship/returns/quarterly-hull-potential-with-conventional-iccp-system',
               ]);
             }, 1000);
           }

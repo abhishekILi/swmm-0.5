@@ -48,6 +48,45 @@ export const SHIP_REPORT_TRANSACTION_VIEW_CONFIG: any = {
   },
 
   // BER CERTIFICATE
+  'ber-certificate-report': {
+    baseRoute: 'ship/reports/ber-certificate',
+    title: 'BER CERTIFICATE',
+    description: 'Manage ship BER certificate records',
+    apiEndpoint: Apiendpoints.BER_CERTIFICATE,
+    addRoute: 'ship/ber-certificate-add',
+    columns: [
+      { field: 'id', headerName: 'Id', width: 90 },
+      {
+        headerName: 'Created on',
+        field: 'created_on',
+        valueGetter: (params: any) => formatDate(params.data?.created_on || params.data?.created_at),
+      },
+      {
+        headerName: 'Ship Name',
+        valueGetter: (params: any) => params.data?.ship?.name || params.data?.ship_name || (typeof params.data?.ship === 'string' ? params.data?.ship : '-'),
+      },
+      {
+        headerName: 'Initiated by',
+        valueGetter: (params: any) => params.data?.initiated_by_name || params.data?.initiatedBy?.name || params.data?.initiatedBy || params.data?.initiated_by || '-',
+      },
+      {
+        headerName: 'Command',
+        valueGetter: (params: any) => params.data?.command?.name || params.data?.ship?.command?.name || params.data?.command || '-',
+      },
+      {
+        headerName: 'Boat type',
+        valueGetter: (params: any) => params.data?.type_of_boat || params.data?.typeOfBoat || '-',
+      },
+      {
+        headerName: 'Regst No.',
+        valueGetter: (params: any) => params.data?.registration_no || params.data?.boatRegistrationNo || '-',
+      },
+      {
+        headerName: 'BER For',
+        valueGetter: (params: any) => params.data?.ber_for || params.data?.berFor || '-',
+      },
+    ],
+  },
   'ber-certificate-view': {
     baseRoute: 'ship/reports/ber-certificate',
     title: 'BER CERTIFICATE',
@@ -55,34 +94,35 @@ export const SHIP_REPORT_TRANSACTION_VIEW_CONFIG: any = {
     apiEndpoint: Apiendpoints.BER_CERTIFICATE,
     addRoute: 'ship/ber-certificate-add',
     columns: [
-      { field: 'id', headerName: 'Id' },
+      { field: 'id', headerName: 'Id', width: 90 },
       {
         headerName: 'Created on',
         field: 'created_on',
-        cellRenderer: (params: any) => {
-          const dateOnly = formatDate(params.value);
-          return `<p font-weight: 600;">${dateOnly}</p>`;
-        },
+        valueGetter: (params: any) => formatDate(params.data?.created_on || params.data?.created_at),
+      },
+      {
+        headerName: 'Ship Name',
+        valueGetter: (params: any) => params.data?.ship?.name || params.data?.ship_name || (typeof params.data?.ship === 'string' ? params.data?.ship : '-'),
       },
       {
         headerName: 'Initiated by',
-        valueGetter: (params: any) => params.data?.command?.name || '-',
+        valueGetter: (params: any) => params.data?.initiated_by_name || params.data?.initiatedBy?.name || params.data?.initiatedBy || params.data?.initiated_by || '-',
       },
       {
         headerName: 'Command',
-        valueGetter: (params: any) => params.data?.command?.name || '-',
-      },
-      {
-        headerName: 'Unit',
-        valueGetter: (params: any) => params.data?.unit?.name || '-',
+        valueGetter: (params: any) => params.data?.command?.name || params.data?.ship?.command?.name || params.data?.command || '-',
       },
       {
         headerName: 'Boat type',
-        field: 'type_of_boat',
+        valueGetter: (params: any) => params.data?.type_of_boat || params.data?.typeOfBoat || '-',
       },
       {
         headerName: 'Regst No.',
-        field: 'registration_no',
+        valueGetter: (params: any) => params.data?.registration_no || params.data?.boatRegistrationNo || '-',
+      },
+      {
+        headerName: 'BER For',
+        valueGetter: (params: any) => params.data?.ber_for || params.data?.berFor || '-',
       },
     ],
   },
@@ -355,7 +395,7 @@ export const SHIP_REPORT_TRANSACTION_VIEW_CONFIG: any = {
   },
 };
 
-// Aliases so both -view and -report keys work from routes
+// Aliases so all -view, -report, and -report-report keys work from routes
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-weight-management-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-weight-management-report'];
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['in-378-part1-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['in-378-part1-report'];
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['in-378-part2-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['in-378-part2-report'];
@@ -365,4 +405,8 @@ SHIP_REPORT_TRANSACTION_VIEW_CONFIG['quarterly-hull-potential-with-sacrifical-an
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['quarterly-hull-potential-with-conventional-iccp-system-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['quarterly-hull-potential-with-conventional-iccp-system-report'];
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['quarterly-hull-potential-with-modular-iccp-system-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['quarterly-hull-potential-with-modular-iccp-system-report'];
 SHIP_REPORT_TRANSACTION_VIEW_CONFIG['load-test-certificate-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['load-test-certificate-report'];
+
+SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report-report'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report-view'];
+SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report-view'];
+SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report-view'] = SHIP_REPORT_TRANSACTION_VIEW_CONFIG['ship-staff-hull-inspection-report-view'];
 

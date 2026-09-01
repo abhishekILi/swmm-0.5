@@ -47,7 +47,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     ReusableInputTableComponent,
     ReusableButtonComponent,
     CalenderComponent,
-    RadioGroupComponent,
     InputComponent,
     YearPickerComponent,
     ApprovalWorkFlow,
@@ -55,7 +54,7 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
   templateUrl: './in378part-i-add.component.html',
 })
 export class In378partIAddComponent implements OnInit {
-  rowId!: string | null;
+  rowId: string | null = null;
   editDataDetails: any = null;
   showApprovalWorkflowPopup = false;
   editMode = false;
@@ -72,6 +71,7 @@ export class In378partIAddComponent implements OnInit {
   loading = false;
 
   commandOptions: any[] = [];
+  shipOptions: any[] = [];
 
   totalRows = 1;
   initialTotalRows = 1;
@@ -79,56 +79,15 @@ export class In378partIAddComponent implements OnInit {
   reportData: any[] = [];
   compartmentOptions: any[] = [];
 
-  user: any = null;
-  LoggedInUser = '';
-
-// import { MasterService } from '../../../../services/master.service';
-
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private masterService: MasterService,
+    private masterService: MasterService,
     private apiService: ApiService,
     private toastService: ToastService,
     private cdr: ChangeDetectorRef,
-    // private storageService: StorageService,
   ) {}
-
-  ngOnInit(): void {
-    this.rowId = this.route.snapshot.paramMap.get('id');
-    const mode = this.route.snapshot.data['mode'];
-    this.buildForm();
-    this.loadShips();
-    this.loadCompartment();
-
-    this.updateReportTableRows(this.totalRows);
-
-    this.user = null; // this.storageService.getUser();
-    this.LoggedInUser = this.user?.user_roles?.[0]?.process_name || '';
-
-    if (this.LoggedInUser === 'Ship Staff') {
-      const shipId = this.user?.ship_id || this.user?.user_roles?.[0]?.ship_id;
-
-      if (shipId) {
-        this.form.patchValue({
-          ship_id: shipId,
-        });
-      }
-    }
-
-    // ✅ SET MODE FIRST
-    if (mode === 'view') {
-      this.viewMode = true;
-    } else if (mode === 'edit') {
-      this.editMode = true;
-    }
-
-    // ✅ THEN call API
-    if (this.rowId) {
-      this.getEditDataByRowId(this.rowId);
-    }
-  }
 
   getUser(): any {
     try {
@@ -144,27 +103,56 @@ export class In378partIAddComponent implements OnInit {
     if (user.process_name === 'Ship') return true;
     if (Array.isArray(user.role_center) && user.role_center.length > 0) {
       const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
         return true;
       }
     }
     return false;
   }
 
-  shipOptions: any[] = [];
+  ngOnInit(): void {
+    this.rowId = this.route.snapshot.paramMap.get('id');
+    const mode = this.route.snapshot.data['mode'];
+    this.buildForm();
+
+    this.loadShips();
+    this.loadCompartment();
+
+    this.updateReportTableRows(this.totalRows);
+
+    if (mode === 'view') {
+      this.viewMode = true;
+    } else if (mode === 'edit') {
+      this.editMode = true;
+    }
+
+    if (this.rowId) {
+      this.getEditDataByRowId(this.rowId);
+    }
+  }
 
   loadShips() {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
         }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || `Ship ${user.ship_id}`, value: user.ship_id });
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
+          this.shipOptions.unshift({
+            label: user.ship_name || `Ship ${user.ship_id}`,
+            value: user.ship_id,
+          });
         }
 
         if (this.isShipUser(user) && user?.ship_id) {
@@ -177,30 +165,33 @@ export class In378partIAddComponent implements OnInit {
             ship_id: this.shipOptions[0].value,
           });
         }
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
           this.form.patchValue({ ship_id: user.ship_id });
           if (this.isShipUser(user)) {
             this.form.get('ship_id')?.disable();
           }
         }
-      }
+        this.toastService.showError('Failed to load ships.');
+        this.cdr.detectChanges();
+      },
     });
   }
 
   loadCompartment() {
-    this.apiService.get(Apiendpoints.MASTER_COMPARTMENT).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.compartmentOptions = dataList.map((item: any) => ({
+    this.masterService.getCompartments().subscribe((res: any) => {
+      this.compartmentOptions = (res?.data || []).map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
 
-      // ✅ IMPORTANT: update column options dynamically
       this.reportColumns = this.reportColumns.map((col) => {
         if (col.field === 'compartment') {
           return {
@@ -210,7 +201,6 @@ export class In378partIAddComponent implements OnInit {
         }
         return col;
       });
-      this.cdr.detectChanges();
     });
   }
 
@@ -276,17 +266,12 @@ export class In378partIAddComponent implements OnInit {
   onReportRowChanges(event: Event) {
     let value = +(event.target as HTMLInputElement).value;
 
-    if (!value || value < 1) {
-      value = 1;
-    }
-
     if (this.editMode && value < this.initialTotalRows) {
       value = this.initialTotalRows;
     }
 
     this.totalRows = value;
     this.updateReportTableRows(value);
-    this.cdr.detectChanges();
   }
 
   updateReportTableRows(count: number) {
@@ -298,7 +283,6 @@ export class In378partIAddComponent implements OnInit {
           door_status: '',
           type_of_door: '',
           compartment: '',
-          // date_of_initiation: '',
           type_of_test_undertaken: '',
           date_of_chalk_test: '',
           defect_discovered: '',
@@ -310,17 +294,15 @@ export class In378partIAddComponent implements OnInit {
     if (count < currentLength) {
       this.reportData.splice(count);
     }
-
     this.reportData = [...this.reportData];
+    this.cdr.detectChanges();
   }
 
   handleTableChange(index: number, field: string, value: string) {
     if (this.viewMode) return;
     this.reportData[index][field] = value;
   }
-  // ------------------------------------ REFIT TABLE DATA --------------------------------------------
 
-  /* -------------------------------- FORM SETUP ------------------------------- */
   buildForm() {
     this.form = this.fb.group({
       ship_id: ['', Validators.required],
@@ -342,25 +324,21 @@ export class In378partIAddComponent implements OnInit {
   }
 
   handleBack() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/in-378-part1']);
+    window.history.back();
   }
 
   clear() {
     this.form.reset();
   }
 
-  /* ----------------------------- EDIT MODE ----------------------------------- */
-
-  getEditDataByRowId(rowId: string) {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false) {
     this.apiService.get(`${Apiendpoints.IN_378}${rowId}/`).subscribe({
       next: (res: any) => {
         if (!res?.data) return;
 
         const data = res.data;
-        console.log('data', data);
         this.editDataDetails = data;
 
-        // ------------------- TABLE PATCH -------------------
         const tableArray = data.in378_render_part1_table || data?.table;
 
         if (Array.isArray(tableArray) && tableArray.length > 0) {
@@ -371,17 +349,14 @@ export class In378partIAddComponent implements OnInit {
           this.totalRows = this.reportData.length;
           this.initialTotalRows = this.reportData.length;
         } else {
-          this.updateReportTableRows(1); // fallback row
+          this.updateReportTableRows(1);
         }
 
-        // ------------------- FORM PATCH -------------------
-        // ⚠️ Handle ship null/object safely
         const shipValue =
           typeof data.ship === 'object' && data.ship !== null
             ? data.ship.id
             : data.ship || '';
 
-        // ⚠️ IMPORTANT: match your form control name (ship_id)
         this.form.patchValue({
           ship_id: shipValue,
           year: data.year || '',
@@ -394,7 +369,11 @@ export class In378partIAddComponent implements OnInit {
           this.form.disable();
         }
 
-        console.log('Form + Table patched successfully');
+        if (openWorkflow) {
+          this.openApprovalWorkflow();
+        }
+
+        this.cdr.detectChanges();
       },
 
       error: (err) => {
@@ -405,13 +384,11 @@ export class In378partIAddComponent implements OnInit {
   }
 
   validateReportTable(): boolean {
-    console.log('Validating report table...');
     const requiredColumns = this.reportColumns.filter((col) => col.required);
 
     for (let rowIndex = 0; rowIndex < this.reportData.length; rowIndex++) {
       const row = this.reportData[rowIndex];
 
-      // Skip completely empty rows if desired
       if (this.isRefitRowEmpty(row)) {
         continue;
       }
@@ -432,7 +409,6 @@ export class In378partIAddComponent implements OnInit {
   }
 
   validateForm(): boolean {
-    console.log('Validating form...');
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.toastService.showError(
@@ -453,7 +429,6 @@ export class In378partIAddComponent implements OnInit {
       item?.door_status ||
       item?.type_of_door ||
       item?.compartment ||
-      // item?.date_of_initiation ||
       item?.type_of_test_undertaken ||
       item?.date_of_chalk_test ||
       item?.defect_discovered ||
@@ -461,14 +436,11 @@ export class In378partIAddComponent implements OnInit {
     );
   }
 
-  /* ------------------------------- SAVE --------------------------------------- */
-
   async handleSave(draftStatus: 'draft' | 'save') {
     if (draftStatus === 'save' && !this.validateForm()) {
       return;
     }
 
-    // ✅ Loader ON
     this.saveLoading = draftStatus === 'save';
     this.draftLoading = draftStatus !== 'save';
 
@@ -487,7 +459,6 @@ export class In378partIAddComponent implements OnInit {
         door_status: item?.door_status,
         type_of_door: item?.type_of_door,
         compartment: item?.compartment,
-        // date_of_initiation: item?.date_of_initiation,
         type_of_test_undertaken: item?.type_of_test_undertaken,
         date_of_chalk_test: item?.date_of_chalk_test,
         defect_discovered: item?.defect_discovered,
@@ -528,7 +499,7 @@ export class In378partIAddComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               console.error('In-378 part-I ID not found in API response:', res);
               this.toastService.showError(
@@ -537,7 +508,7 @@ export class In378partIAddComponent implements OnInit {
             }
           } else {
             setTimeout(() => {
-              this.router.navigateByUrl('/afterAuth/ship-returns/hull-returns/returns/in-378-part1');
+              this.router.navigateByUrl('/ship/returns/in-378-part1');
             }, 1000);
           }
         },

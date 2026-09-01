@@ -16,19 +16,22 @@ import {
   Trash,
 } from '../../../../ui/lucide-compat';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
-import { ReusableButtonComponent, ToastComponent } from '../../../../ui/master-compat';
+import { ToastComponent } from '../../../../ui/master-compat';
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
-// import { MasterService } from '../../../../services/master.service';
+import { MasterService } from '../../../../services/master.service';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { Apiendpoints } from '../../../../ApiEndPoints';
-import { ReusableInputTableComponent } from '../../../../ui/reusable-input-table/reusable-input-table.component';
+import {
+  ReusableInputTableComponent,
+  ReusableTableColumn,
+} from '../../../../ui/reusable-input-table/reusable-input-table.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
-// import { ReusableButtonComponent } from '../../../../ui/master-compat';
+import { ReusableButtonComponent } from '../../../../ui/master-compat';
 import { finalize } from 'rxjs';
 import { FileUploadComponent } from '../../../../ui/file-upload/file-upload.component';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
-// import { TabStateService } from '../../../../services/tab-state.service';
+
 @Component({
   selector: 'app-ship-weight-management-add',
   standalone: true,
@@ -52,7 +55,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
   editMode = false;
   viewMode = false;
 
-  rowId!: string | null;
+  rowId: string | null = null;
   editDataDetails: any = null;
   addButtonText = 'Add new record';
   showApprovalWorkflowPopup = false;
@@ -61,6 +64,8 @@ export class ShipWeightManagementAddComponent implements OnInit {
   readonly saveIcon = SaveAllIcon;
   readonly restartIcon = RotateCcw;
   readonly deleteIcon = Trash;
+
+  LoggedInUser = '';
 
   form!: FormGroup;
 
@@ -72,7 +77,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
   shipOptions: any[] = [];
   refitStatusOptions: any[] = [];
 
-  selectedFile!: File | null;
+  selectedFile: File | null = null;
   activeTab = 'draft';
 
   totalRowsOps = 1;
@@ -89,301 +94,61 @@ export class ShipWeightManagementAddComponent implements OnInit {
     { label: 'REFIT', value: 'refit' },
   ];
 
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    // private masterService: MasterService,
-    private apiService: ApiService,
-    private toastService: ToastService,
-    private cdr: ChangeDetectorRef,
-    // private storageService: StorageService,
-    // private tabStateService: TabStateService,
-  ) {}
-  user: any = null;
-  LoggedInUser = '';
-
-  getUser(): any {
-    try {
-      const userStr = localStorage.getItem('user');
-      return userStr ? JSON.parse(userStr) : null;
-    } catch {
-      return null;
-    }
-  }
-
-  ngOnInit(): void {
-    this.buildForm();
-    this.user = this.getUser();
-    this.LoggedInUser = this.user?.process_name || this.user?.user_roles?.[0]?.process_name || '';
-
-    if (this.LoggedInUser === 'Ship Staff') {
-      this.loadShips();
-
-      const shipId = this.user?.ship_id || this.user?.user_roles?.[0]?.ship_id;
-
-      if (shipId) {
-        this.form.patchValue({
-          ship: shipId,
-        });
-      }
-    } else {
-      this.loadCommands();
-      this.loadClasses();
-      this.listenToCommandAndClassChanges();
-    }
-    // this.tabStateService.activeTab$.subscribe((tab) => {
-    //   this.activeTab = tab;
-    // });
-
-    this.cdr.detectChanges();
-
-    const mode = this.route.snapshot.data['mode'];
-
-    this.editMode = mode === 'edit';
-    this.viewMode = mode === 'view';
-    this.rowId = this.route.snapshot.paramMap.get('id');
-
-    if (this.rowId) {
-      this.getFormDetailsByRowId(this.rowId);
-    }
-
-    this.handleDependentDropdowns();
-    this.updateOpsTableRows(this.totalRowsOps);
-    this.updateRefitTableRows(this.totalRowsRefit);
-
-    if (this.viewMode) {
-      this.form.disable();
-    }
-  }
-  onApprovalPopupChange(open: boolean): void {
-    this.showApprovalWorkflowPopup = open;
-    this.cdr.detectChanges();
-  }
-  openApprovalWorkflow(): void {
-    this.showApprovalWorkflowPopup = true;
-    this.workflowTrialId = this.rowId || this.form.get('id')?.value || '';
-    this.cdr.detectChanges();
-  }
-
-  loadCommands() {
-    this.apiService.get(Apiendpoints.MASTER_COMMANDS).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.commandOptions = dataList.map((item: any) => ({
-        label: item.name,
-        value: item.id,
-      }));
-      this.cdr.detectChanges();
-    });
-  }
-
-  loadClasses() {
-    this.apiService.get(Apiendpoints.MASTER_CLASS).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.classOfShipOptions = dataList.map((item: any) => ({
-        label: item.name,
-        value: item.id,
-      }));
-      this.cdr.detectChanges();
-    });
-  }
-
-  loadRefits() {
-    this.apiService.get(Apiendpoints.MASTER_REFITS).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.refitStatusOptions = dataList.map((item: any) => ({
-        label: item.name,
-        value: item.id,
-      }));
-      this.cdr.detectChanges();
-    });
-  }
-
-  listenToCommandAndClassChanges() {
-    this.form.get('class_of_ship')?.valueChanges.subscribe((classId: any) => {
-      if (classId) {
-        this.loadShipsByClass(classId);
-        this.form.get('ship')?.reset();
-      } else {
-        this.shipOptions = [];
-        this.form.get('ship')?.reset();
-      }
-    });
-  }
-
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  loadShipsByClass(classId: number) {
-    this.apiService.get(`${Apiendpoints.MASTER_SHIP}?classofship=${classId}`).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.shipOptions = dataList.map((item: any) => ({
-        label: item.name,
-        value: item.id,
-      }));
-      this.cdr.detectChanges();
-    });
-  }
-// ship dropdown for ship staff
-  loadShips(shipId?: number) {
-    const user = this.getUser();
-    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
-      next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
-          label: item.name,
-          value: item.id,
-        }));
-
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || 'INS KOLKATA', value: user.ship_id });
-        }
-
-        const sid = shipId || user?.ship_id;
-        if (sid) {
-          this.form.patchValue({ ship: sid });
-          if (this.isShipUser(user)) {
-            this.form.get('ship')?.disable();
-          }
-        }
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('Error loading ships:', err);
-        if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
-          this.form.patchValue({ ship: user.ship_id });
-          if (this.isShipUser(user)) {
-            this.form.get('ship')?.disable();
-          }
-        }
-      }
-    });
-  }
-
-  backButton() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/ship-weight-management']);
-  }
-
-  OPSColumns = [
+  OPSColumns: ReusableTableColumn[] = [
     { field: 's_no', header: 'Ser', width: '70px', align: 'center' as const },
     {
       field: 'lightship_displacement',
-      header: 'Lightship Disp (A)',
+      header: 'Lightship Disp as Per Inclining Exp/ Stability Booklet',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'ref_load_condition',
-      header: 'Reference Loading Condition During Audit(B)',
+      header: 'Reference Load Condition (Deep / Light / Lightship)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'disp_c',
-      header: 'Disp in Reference as per Booklet (C)',
+      header: 'Disp (C)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'disp_d',
-      header: 'Disp as read from drafts during Audit (D)',
+      header: 'Disp (D)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'net_diff',
-      header: 'Net Difference in variable loads (E)',
+      header: 'Net Diff in Liquid & Stores (C-D)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'corrected_disp',
-      header: 'Corrected Disp (F)',
+      header: 'Corrected Disp (E-C)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'net_increase',
-      header: 'Net Increase in Disp(G)',
+      header: 'Net Increase in Disp (E-A)',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'percentage_increase',
-      header: '% Increase (H)',
+      header: '% Increase in Disp',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'net_weight_add',
       header: 'Net Weight Addition',
       template: 'inputTpl',
-      width: '200px',
     },
     {
       field: 'net_kg_add',
-      header: 'Net KG of Weight Addition',
+      header: 'Net KG Addition',
       template: 'inputTpl',
-      width: '200px',
     },
   ];
 
-  onOpsRowCountChange(event: Event) {
-    let value = +(event.target as HTMLInputElement).value;
-    if (!value || value < 1) value = 1;
-    if (this.editMode) {
-      value = Math.max(value, this.totalRowsOpsInEditMode);
-    }
-
-    this.totalRowsOps = value;
-    this.updateOpsTableRows(value);
-    this.cdr.detectChanges();
-  }
-  updateOpsTableRows(count: number) {
-    const currentLength = this.opsTableData.length;
-    if (count > currentLength) {
-      for (let i = currentLength; i < count; i++) {
-        this.opsTableData.push({
-          s_no: i + 1,
-          lightship_displacement: '',
-          ref_load_condition: '',
-          disp_c: '',
-          disp_d: '',
-          net_diff: '',
-          corrected_disp: '',
-          net_increase: '',
-          percentage_increase: '',
-          net_weight_add: '',
-          net_kg_add: '',
-        });
-      }
-    }
-
-    if (count < currentLength) {
-      this.opsTableData.splice(count);
-    }
-
-    this.opsTableData = [...this.opsTableData];
-  }
-
-  handleOpsTableChange(index: number, field: string, value: string) {
-    if (this.viewMode) return;
-    this.opsTableData[index][field] = value;
-  }
-
-  // ------------------------------------ REFIT TABLE DATA --------------------------------------------
-
-  RefitColumns = [
+  RefitColumns: ReusableTableColumn[] = [
     { field: 's_no', header: 'Ser', width: '70px', align: 'center' as const },
     {
       field: 'lightship_displacement',
@@ -407,18 +172,223 @@ export class ShipWeightManagementAddComponent implements OnInit {
     },
   ];
 
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private masterService: MasterService,
+    private apiService: ApiService,
+    private toastService: ToastService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  getUser(): any {
+    try {
+      const userStr = localStorage.getItem('user');
+      return userStr ? JSON.parse(userStr) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  onApprovalPopupChange(open: boolean): void {
+    this.showApprovalWorkflowPopup = open;
+    this.cdr.detectChanges();
+  }
+
+  openApprovalWorkflow(): void {
+    this.showApprovalWorkflowPopup = true;
+    this.cdr.detectChanges();
+  }
+
+  ngOnInit(): void {
+    const user = this.getUser();
+    if (user && this.isShipUser(user)) {
+      this.LoggedInUser = 'Ship Staff';
+    }
+
+    this.buildForm();
+    this.loadShips();
+    this.loadCommands();
+    this.loadClasses();
+    this.listenToCommandAndClassChanges();
+    this.handleDependentDropdowns();
+
+    this.updateOpsTableRows(this.totalRowsOps);
+    this.updateRefitTableRows(this.totalRowsRefit);
+
+    const mode = this.route.snapshot.data['mode'];
+
+    this.editMode = mode === 'edit';
+    this.viewMode = mode === 'view';
+    this.rowId = this.route.snapshot.paramMap.get('id');
+
+    if (this.rowId) {
+      this.getFormDetailsByRowId(this.rowId);
+    }
+
+    if (this.viewMode) {
+      this.form.disable();
+    }
+  }
+
+  loadShips() {
+    const user = this.getUser();
+    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
+      next: (res: any) => {
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
+          label: item.name,
+          value: item.id,
+        }));
+
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
+          this.shipOptions.unshift({
+            label: user.ship_name || `Ship ${user.ship_id}`,
+            value: user.ship_id,
+          });
+        }
+
+        if (this.isShipUser(user) && user?.ship_id) {
+          this.form.patchValue({ ship: user.ship_id });
+          this.form.get('ship')?.disable();
+        } else if (user?.ship_id && !this.rowId) {
+          this.form.patchValue({ ship: user.ship_id });
+        } else if (this.shipOptions.length === 1 && !this.rowId) {
+          this.form.patchValue({
+            ship: this.shipOptions[0].value,
+          });
+        }
+
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error loading ships:', err);
+        if (user?.ship_id) {
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
+          this.form.patchValue({ ship: user.ship_id });
+          if (this.isShipUser(user)) {
+            this.form.get('ship')?.disable();
+          }
+        }
+        this.toastService.showError('Failed to load ships.');
+        this.cdr.detectChanges();
+      },
+    });
+  }
+
+  loadCommands() {
+    this.masterService.getCommands().subscribe((res: any) => {
+      this.commandOptions = (res?.data || []).map((item: any) => ({
+        label: item.name,
+        value: item.id,
+      }));
+    });
+  }
+
+  loadClasses() {
+    this.masterService.getClasses().subscribe((res: any) => {
+      this.classOfShipOptions = (res?.data || []).map((item: any) => ({
+        label: item.name,
+        value: item.id,
+      }));
+    });
+  }
+
+  listenToCommandAndClassChanges() {
+    this.form.get('command')!.valueChanges.subscribe((cmdId) => {
+      if (!cmdId) return;
+      this.masterService.getShipsByCommand(cmdId).subscribe((res: any) => {
+        this.shipOptions = (res?.data || []).map((item: any) => ({
+          label: item.name,
+          value: item.id,
+        }));
+      });
+    });
+
+    this.form.get('class_of_ship')!.valueChanges.subscribe((classId) => {
+      if (!classId) return;
+      this.masterService.getShipsByClass(classId).subscribe((res: any) => {
+        this.shipOptions = (res?.data || []).map((item: any) => ({
+          label: item.name,
+          value: item.id,
+        }));
+      });
+    });
+  }
+
+  updateOpsTableRows(count: number) {
+    const currentLength = this.opsTableData.length;
+    if (count > currentLength) {
+      for (let i = currentLength; i < count; i++) {
+        this.opsTableData.push({
+          s_no: i + 1,
+          lightship_displacement: '',
+          ref_load_condition: '',
+          disp_c: '',
+          disp_d: '',
+          net_diff: '',
+          corrected_disp: '',
+          net_increase: '',
+          percentage_increase: '',
+          net_weight_add: '',
+          net_kg_add: '',
+        });
+      }
+    }
+    if (count < currentLength) {
+      this.opsTableData.splice(count);
+    }
+    this.opsTableData = [...this.opsTableData];
+    this.cdr.detectChanges();
+  }
+
+  handleOpsTableChange(index: number, field: string, value: string) {
+    if (this.viewMode) return;
+    this.opsTableData[index][field] = value;
+  }
+
+  onOpsRowCountChange(event: Event) {
+    let value = +(event.target as HTMLInputElement).value;
+    if (isNaN(value) || value < 1) return;
+    if (this.editMode) {
+      value = Math.max(value, this.totalRowsOpsInEditMode);
+    }
+    this.totalRowsOps = Math.min(99, value);
+    this.updateOpsTableRows(this.totalRowsOps);
+  }
+
   onRefitRowCountChange(event: Event) {
     let value = +(event.target as HTMLInputElement).value;
-    if (!value || value < 1) value = 1;
-
-    // ✅ enforce minimum in edit mode
+    if (isNaN(value) || value < 1) return;
     if (this.editMode) {
       value = Math.max(value, this.totalRowsRefitInEditMode);
     }
-    this.totalRowsRefit = value;
-    this.updateRefitTableRows(value);
-    this.cdr.detectChanges();
+    this.totalRowsRefit = Math.min(99, value);
+    this.updateRefitTableRows(this.totalRowsRefit);
   }
+
   updateRefitTableRows(count: number) {
     const currentLength = this.refitTableData.length;
     if (count > currentLength) {
@@ -436,13 +406,14 @@ export class ShipWeightManagementAddComponent implements OnInit {
       this.refitTableData.splice(count);
     }
     this.refitTableData = [...this.refitTableData];
+    this.cdr.detectChanges();
   }
+
   handleRefitTableChange(index: number, field: string, value: string) {
     if (this.viewMode) return;
     this.refitTableData[index][field] = value;
   }
 
-  /* -------------------------------- FORM SETUP ------------------------------- */
   buildForm() {
     this.form = this.fb.group({
       command: [''],
@@ -456,7 +427,14 @@ export class ShipWeightManagementAddComponent implements OnInit {
     });
   }
 
-  /* ----------------------------- API CALLS ----------------------------------- */
+  loadRefits() {
+    this.masterService.getRefits().subscribe((res: any) => {
+      this.refitStatusOptions = (res?.data || []).map((item: any) => ({
+        label: item.name,
+        value: item.id,
+      }));
+    });
+  }
 
   onFileChange(file: File) {
     this.selectedFile = file;
@@ -466,7 +444,6 @@ export class ShipWeightManagementAddComponent implements OnInit {
     this.form.reset();
     this.selectedFile = null;
   }
-  /* ------------------------ DEPENDENT DROPDOWNS ------------------------------- */
 
   handleDependentDropdowns() {
     this.form.get('ship_status')!.valueChanges.subscribe((status) => {
@@ -483,9 +460,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
     });
   }
 
-  /* ----------------------------- EDIT MODE ----------------------------------- */
-
-  getFormDetailsByRowId(rowId: string) {
+  getFormDetailsByRowId(rowId: string, openWorkflow: boolean = false) {
     this.apiService
       .get(`${Apiendpoints.SHIP_WEIGHT_MANAGEMENT}${rowId}/`)
       .subscribe({
@@ -496,7 +471,6 @@ export class ShipWeightManagementAddComponent implements OnInit {
             const classId = this.editDataDetails?.ship?.classofship?.id;
             const shipId = this.editDataDetails?.ship?.id;
 
-            // ✅ Patch WITHOUT triggering valueChanges
             this.form.patchValue(
               {
                 command: this.editDataDetails?.ship?.command?.id,
@@ -505,28 +479,26 @@ export class ShipWeightManagementAddComponent implements OnInit {
               { emitEvent: false },
             );
 
-            // this.masterService.getShipsByClass(classId).subscribe((res: any) => {
-            //   this.shipOptions = res.data.map((item: any) => ({
-            //     label: item.name,
-            //     value: item.id,
-            //   }));
-            // });
+            this.masterService.getShipsByClass(classId).subscribe((res: any) => {
+              this.shipOptions = (res?.data || []).map((item: any) => ({
+                label: item.name,
+                value: item.id,
+              }));
 
-            this.form.patchValue({
-              ship: shipId,
-              ship_status:
-                this.editDataDetails?.ship_status === 'refit'
-                  ? 'refit'
-                  : this.editDataDetails?.ship_status === 'ops'
-                    ? 'ops'
-                    : '',
-              refit_status: this.editDataDetails?.refit?.id,
-              refit_date: this.editDataDetails?.refit_recommencement_date
-                ? new Date(this.editDataDetails.refit_recommencement_date)
-                : null,
-            });
+              this.form.patchValue({
+                ship: shipId,
+                ship_status:
+                  this.editDataDetails?.ship_status === 'refit'
+                    ? 'refit'
+                    : this.editDataDetails?.ship_status === 'ops'
+                      ? 'ops'
+                      : '',
+                refit_status: this.editDataDetails?.refit?.id,
+                refit_date: this.editDataDetails?.refit_recommencement_date
+                  ? new Date(this.editDataDetails.refit_recommencement_date)
+                  : null,
+              });
 
-              // ✅ Ops table
               if (this.editDataDetails.ship_weight_management_ops) {
                 const opsData = this.editDataDetails.ship_weight_management_ops;
 
@@ -545,15 +517,11 @@ export class ShipWeightManagementAddComponent implements OnInit {
                   net_kg_add: item.net_kg_add || '',
                 }));
 
-                // ✅ IMPORTANT: sync row count
                 this.totalRowsOps = this.opsTableData.length || 1;
                 this.totalRowsOpsInEditMode = this.totalRowsOps;
-
-                // ✅ Ensure table respects count
                 this.updateOpsTableRows(this.totalRowsOps);
               }
 
-              // ✅ Refit table
               if (this.editDataDetails.ship_weight_management_refit) {
                 const refitData =
                   this.editDataDetails.ship_weight_management_refit;
@@ -569,15 +537,16 @@ export class ShipWeightManagementAddComponent implements OnInit {
                   }),
                 );
 
-                // ✅ IMPORTANT: sync row count
                 this.totalRowsRefit = this.refitTableData.length || 1;
                 this.totalRowsRefitInEditMode = this.totalRowsRefit;
-
-                // ✅ Ensure table respects count
                 this.updateRefitTableRows(this.totalRowsRefit);
               }
 
+              if (openWorkflow) {
+                this.openApprovalWorkflow();
+              }
               this.cdr.detectChanges();
+            });
           }
         },
         error: (err) => {
@@ -585,6 +554,14 @@ export class ShipWeightManagementAddComponent implements OnInit {
           this.toastService.showError('Failed to load data.');
         },
       });
+  }
+
+  handleBack() {
+    window.history.back();
+  }
+
+  backButton() {
+    this.handleBack();
   }
 
   validateForm(): boolean {
@@ -598,7 +575,26 @@ export class ShipWeightManagementAddComponent implements OnInit {
     return true;
   }
 
-  // -------------------------------- HELPER FUNCTION TO CHECK WHETHER THE ROW DATA ARE EMPTY OR NOT ---------------------------------
+  private validateDraftForm(): boolean {
+    const requiredFields = ['ship', 'ship_status'];
+    let isValid = true;
+
+    requiredFields.forEach((field) => {
+      const control = this.form.get(field);
+      if (!control || !control.value) {
+        control?.markAsTouched();
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      this.toastService.showError(
+        'Please select Ship Name and Ship Status before saving draft.',
+      );
+    }
+    return isValid;
+  }
+
   isOPSRowsEmpty(item: any): boolean {
     return !(
       item?.lightship_displacement ||
@@ -625,46 +621,14 @@ export class ShipWeightManagementAddComponent implements OnInit {
 
   uploadReferenceDocument(file: File, recordId: string) {
     const formData = new FormData();
-
-    formData.append('resource', 'ship-weight-management');
+    formData.append('file_type', 'ref_auth');
+    formData.append('form_master_name', 'ship_weight_management');
     formData.append('record_id', recordId);
-    formData.append('field_name', 'ref_auth');
     formData.append('file', file);
 
     return this.apiService.post(Apiendpoints.DOCUMENT_UPLOAD, formData);
   }
 
-  private validateDraftForm(): boolean {
-    const requiredFields = ['ship'];
-
-    const fieldLabels: Record<string, string> = {
-      ship: 'Ship',
-      command: 'Command',
-      class_of_ship: 'Class of Ship',
-    };
-
-    const missingFields: string[] = [];
-
-    requiredFields.forEach((field) => {
-      const control = this.form.get(field);
-
-      if (!control?.value) {
-        control?.markAsTouched();
-        control?.setErrors({ required: true });
-        missingFields.push(fieldLabels[field] || field);
-      }
-    });
-
-    if (missingFields.length > 0) {
-      this.toastService.showError(
-        `Please fill at least the following field(s) to save as draft: ${missingFields.join(', ')}`,
-      );
-      return false;
-    }
-
-    return true;
-  }
-  /* ------------------------------- SAVE --------------------------------------- */
   async handleSave(draftStatus: 'draft' | 'save') {
     if (draftStatus === 'save' && !this.validateForm()) {
       return;
@@ -679,15 +643,15 @@ export class ShipWeightManagementAddComponent implements OnInit {
     }
 
     const formatOPSTableData = this.opsTableData
-      .filter((item: any) => !this.isOPSRowsEmpty(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.isOPSRowsEmpty(item))
+      .map((item, index) => ({
         ...item,
         id: item?.id || null,
         s_no: index + 1,
       }));
     const formatRefitTableData = this.refitTableData
-      .filter((item: any) => !this.isRefitRowEmpty(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.isRefitRowEmpty(item))
+      .map((item, index) => ({
         ...item,
         id: item?.id || null,
         s_no: index + 1,
@@ -705,10 +669,10 @@ export class ShipWeightManagementAddComponent implements OnInit {
       payload.refit_recommencement_date = formValues.refit_date
         ? new Date(formValues.refit_date).toISOString().split('T')[0]
         : null;
-      payload.ref_auth = formValues?.ref_auth?.id;
+      payload.ref_auth = formValues?.ref_auth?.id || formValues?.ref_auth;
     }
 
-    if (this.editMode && this.editDataDetails) {
+    if (this.editMode) {
       payload.id = this.editDataDetails.id;
     }
 
@@ -744,7 +708,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getFormDetailsByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -752,7 +716,7 @@ export class ShipWeightManagementAddComponent implements OnInit {
             }
           } else {
             setTimeout(() => {
-              this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/ship-weight-management']);
+              this.router.navigate(['/ship/returns/ship-weight-management']);
             }, 1000);
           }
         },
