@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { AgActionCellComponent, ReusableDeleteDialogComponent, ToastComponent } from '../../ui/master-compat';
+import { AgActionCellComponent, ReusableDeleteDialogComponent } from '../../ui/master-compat';
 import { CommonModule } from '@angular/common';
 import { PaginateTableComponent } from '../../ui/paginate-table/paginate-table.component';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { equipmentHtml } from '../../ApiEndPoints';
 @Component({
   selector: 'app-equipmwnt-map-image',
   standalone: true,
-  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ToastComponent, ReusableDeleteDialogComponent],
+  imports: [CommonModule, FormsModule, PaginateTableComponent, AddFormComponent, ReusableDeleteDialogComponent],
   templateUrl: './equipmwnt-map-image.html',
 })
 export class EquipmwntMapImage implements OnInit {

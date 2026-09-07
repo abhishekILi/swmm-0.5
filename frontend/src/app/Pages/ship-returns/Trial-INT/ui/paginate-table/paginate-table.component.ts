@@ -123,10 +123,11 @@ export class PaginateTableComponent implements OnInit, OnChanges, OnDestroy {
 };
 
   popupParent: HTMLElement | null = null;
-  currentPage = 1;
-  currentPageSize = 10;
-  totalCount = 0;
-  totalPages = 1;
+  @Input() currentPage = 1;
+  @Input() currentPageSize = 10;
+  @Input() totalCount = 0;
+  @Input() totalPages = 1;
+  @Output() pageChange = new EventEmitter<{ page: number }>();
   nextPageUrl: string | null = null;
   previousPageUrl: string | null = null;
   private autosizeNormalizeTimer: ReturnType<typeof setTimeout> | null = null;
@@ -450,18 +451,21 @@ export class PaginateTableComponent implements OnInit, OnChanges, OnDestroy {
     if (page < 1 || page > this.totalPages || page === this.currentPage)
       return;
     this.currentPage = page;
+    this.pageChange.emit({ page: this.currentPage });
     this.loadData();
   }
 
   goToPreviousPage(): void {
     if (!this.canGoPrevious) return;
     this.currentPage = Math.max(1, this.currentPage - 1);
+    this.pageChange.emit({ page: this.currentPage });
     this.loadData(false, this.previousPageUrl || undefined);
   }
 
   goToNextPage(): void {
     if (!this.canGoNext) return;
     this.currentPage = Math.min(this.totalPages, this.currentPage + 1);
+    this.pageChange.emit({ page: this.currentPage });
     this.loadData(false, this.nextPageUrl || undefined);
   }
 

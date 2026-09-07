@@ -4,31 +4,36 @@
   <form [formGroup]="form" class="p-0">
     <!-- ----------ALL THE BELOW FEILDS ARE FILLED UP AUTO MATICALLY WHEN USER SELECT REGIS. NUMBER --------------------------- -->
     <div class="grid grid-cols-3 gap-3 mt-3">
-      <app-select label="Ship" formControlName="ship_id" [options]="shipOptions" placeholder="--Select--"
-        class="w-full">
+      <app-select label="Select Ship" [required]="true" formControlName="ship_id" [options]="shipOptions" placeholder="--Select--" class="w-full">
       </app-select>
 
-      <app-select label="Boat OEM & Registration Number" formControlName="bhs_reg_no"
-        [options]="boatRegistrationOptions">
+      <app-select label="Boat OEM & Registration Number" [required]="true" formControlName="bhs_reg_no" [options]="boatRegistrationOptions">
       </app-select>
-
-      <app-input label="Type of Boat" formControlName="bhs_type_of_boat">
-      </app-input>
-
-      <app-input label="Engine OEM (Make of Engine)" formControlName="bhs_engine_oem">
-      </app-input>
-
-      <app-input label="Boat builder" formControlName="bhs_boat_builder">
-      </app-input>
-
-      <app-input label="Built year" formControlName="bhs_built_year">
-      </app-input>
-
-      <app-calendar label="Original Date of supply" formControlName="bhs_date_of_supply"></app-calendar>
-
-      <app-input label="Unit" formControlName="bhs_unit"> </app-input>
-
-      <app-calendar label="Date of Re-Appropriation" formControlName="bhs_date_reappropriation"></app-calendar>
+      <div class="flex flex-col gap-1">
+        <app-input label="Type of Boat" formControlName="bhs_type_of_boat">
+        </app-input>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-input label="Engine OEM (Make of Engine)" formControlName="bhs_engine_oem">
+        </app-input>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-input label="Boat builder" formControlName="bhs_boat_builder">
+        </app-input>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-input label="Built year" formControlName="bhs_built_year">
+        </app-input>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-calendar label="Original Date of supply" formControlName="bhs_date_of_supply"></app-calendar>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-input label="Unit" formControlName="bhs_unit"> </app-input>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-calendar label="Date of Re-Appropriation" formControlName="bhs_date_reappropriation"></app-calendar>
+      </div>
 
       <app-input label="Serial No. PORT" formControlName="bhs_sn_port">
       </app-input>
@@ -43,20 +48,17 @@
 
       <app-select label="BER/ ABER" formControlName="bhs_ber_aber" [options]="BerAberOptions">
       </app-select>
-
       <app-radio-group label="Occasion of Rendering" formControlName="bhs_occ_of_rendering" [options]="[
-          { label: 'Annually', value: 'annually' },
-          { label: 'Initially', value: 'initially' },
-        ]">
+                    { label: 'Annually', value: 'annually' },
+                    { label: 'Initially', value: 'initially' }
+                ]">
       </app-radio-group>
     </div>
     <div class="grid grid-cols-2 gap-3 mt-3">
       <app-select label="Condition of hull" formControlName="bhs_cond_of_hull" [options]="satUnsatOptions">
       </app-select>
-
       <app-select label="Condition of fittings" formControlName="bhs_cond_of_fittings" [options]="satUnsatOptions">
       </app-select>
-
       <app-input label="Condition of Lifting arrangement fitted on Boat" formControlName="bhs_cond_of_davit_lifting">
       </app-input>
       <app-input label="Status of Integrated Navigation Suit for Boat(if fitted)"
@@ -67,27 +69,23 @@
     <div class="col-span-2 mt-2">
       <!-- ROW COUNT INPUT -->
       <div class="mb-4 flex items-center space-x-4">
-        <label class="text-sm font-medium text-white">
+        <label class="form-section-header text-sm font-medium text-gray-700">
           Enter Total Number of Rows:
         </label>
-        <input type="number" min="1" max="99"
-          class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
-          [value]="tableRows" (input)="onTableDetailsRowChanges($event)" (change)="onTableDetailsRowChanges($event)" />
+        <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="tableRows"
+          (input)="onTableDetailsRowChanges($event)" (change)="onTableDetailsRowChanges($event)" (keyup)="onTableDetailsRowChanges($event)" />
       </div>
       <div class="overflow-x-auto w-full">
         <app-reusable-input-table [data]="tableDetailsData" [columns]="tableColumns">
           <ng-template #inputTpl let-row let-index="index" let-field="field">
-            <input
-              class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
-              [value]="row[field]" (input)="
-                handleOpsTableChange(index, field, $any($event.target).value)
-              " />
+            <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
+                  handleOpsTableChange(index, field, $any($event.target).value)
+                " />
           </ng-template>
           <ng-template #ActionTemplate let-row let-index="index">
             <div class="flex gap-2">
-              <lucide-icon [img]="deleteIcon" class="w-6 h-6 text-red-600 cursor-pointer" (click)="
-                  handleTableAction({ type: 'delete', row, index, table: 'ac' })
-                ">
+              <lucide-icon [img]="deleteIcon" class="w-6 h-6 text-red-600 cursor-pointer"
+                (click)="handleTableAction({ type: 'delete', row, index, table: 'ac' })">
               </lucide-icon>
             </div>
           </ng-template>
@@ -96,7 +94,7 @@
     </div>
 
     <!-- ====================================================================== -->
-    <div class="form-section-header mt-3">SPEED TRIALS</div>
+    <div class="form-section-header">SPEED TRIALS</div>
     <div class="grid grid-cols-2 gap-3 mt-3">
       <app-input label="Max. Speed Achieved During Current Trials" formControlName="max_speed_during_current_trails">
       </app-input><app-input label="Max. RPM Achieved During Current Trials"
@@ -111,7 +109,7 @@
       </app-input>
     </div>
 
-    <div class="form-section-header mt-3">WEIGHING OF BOAT</div>
+    <div class="form-section-header">WEIGHING OF BOAT</div>
     <div class="grid grid-cols-2 gap-3 mt-3">
       <app-input label="Weighing Undertaken on" formControlName="weighing_undertaken_on">
       </app-input>
@@ -154,17 +152,18 @@
     </div>
 
     <!-- ---------------------------------------------------------------------------------- -->
-    <div class="form-section-header mt-3">AUTHORITY SIGNATURES</div>
+    <div class="form-section-header">AUTHORITY SIGNATURES</div>
     <div class="grid grid-cols-4 gap-3 mt-2">
-
-      <app-file-upload label="AUTHORITY SIGNATURES" (fileSelected)="onFileChange($event!, 'boardFormationAuthority')">
-      </app-file-upload>
-      <app-file-upload label="Board Member 1 " (fileSelected)="onFileChange($event!, 'boardMember1')">
-      </app-file-upload>
-      <app-file-upload label="Board Member 2" (fileSelected)="onFileChange($event!, 'boardMember2')">
+      <app-file-upload label="Board Formation Authority" formControlName="boardFormationAuthority">
       </app-file-upload>
 
-      <app-file-upload label="Board President" (fileSelected)="onFileChange($event!, 'boardPresident')">
+      <app-file-upload label="Board Member 1" formControlName="boardMember1">
+      </app-file-upload>
+
+      <app-file-upload label="Board Member 2" formControlName="boardMember2">
+      </app-file-upload>
+
+      <app-file-upload label="Board President" formControlName="boardPresident">
       </app-file-upload>
     </div>
   </form>

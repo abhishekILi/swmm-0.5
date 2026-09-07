@@ -31,4 +31,5 @@ export class MasterService {
   getClusters(): Observable<any> { return this.api.get('master/clusters/'); }
   getReferenceElectrodes(): Observable<any> { return this.api.get('master/reference-electrodes/'); }
   getRefits(): Observable<any> { return this.api.get('master/refits/'); }
+  getUnits(): Observable<any> { return this.api.get('master/units/'); }
 }

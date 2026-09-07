@@ -15,22 +15,19 @@
 
     <!-- ROW COUNT INPUT -->
     <div *ngIf="!viewMode" class="mt-4 flex items-center space-x-4">
-      <label class="text-sm font-medium text-white">
+      <label class="form-section-header text-sm font-medium text-gray-700">
         Enter Total Number of Rows:
       </label>
 
-      <input type="number" min="1" max="99"
-        class="w-20 px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white focus:border-white/50 focus:outline-none transition"
-        [value]="totalRows" (input)="onOpsRowCountChange($event)" (change)="onOpsRowCountChange($event)" />
+      <input type="number" min="1" max="99" class="w-20 rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none focus:border-accent-light" [value]="totalRows"
+        (input)="onOpsRowCountChange($event)" (change)="onOpsRowCountChange($event)" (keyup)="onOpsRowCountChange($event)" />
     </div>
 
     <!-- TABLE -->
     <div class="overflow-x-auto mt-5" [class.overflow-y-auto]="totalRows > 5" [class.max-h-96]="totalRows > 5">
       <app-reusable-input-table [data]="tableData" [columns]="tableColumns" [isReadonly]="viewMode">
         <ng-template #inputTpl let-row let-index="index" let-field="field">
-          <input
-            class="w-full px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none transition"
-            [value]="row[field]" (input)="
+          <input class="w-full rounded-md border border-[var(--border-input)] bg-[var(--bg-input)] px-3 py-2 text-sm text-[var(--ag-cell-color)] outline-none transition focus:border-accent-light" [value]="row[field]" (input)="
                   handleOpsTableChange(index, field, $any($event.target).value)
                 " />
         </ng-template>
@@ -38,16 +35,16 @@
     </div>
 
     <div class="grid grid-cols-3 gap-3 mt-5">
-      <app-input label="Forward To" formControlName="forward_to"> </app-input>
+      <div class="flex flex-col gap-1">
+        <app-input label="Forward To" formControlName="forward_to"> </app-input>
+      </div>
       <!------------------------------------------ File Upload -->
 
       <app-file-upload [label]="'Signature of Ship Staff'" (fileSelected)="onFileChange($event!, 'shipStaff')">
       </app-file-upload>
 
-
       <app-file-upload label="Signature of HOD" (fileSelected)="onFileChange($event!, 'hod')">
       </app-file-upload>
-
     </div>
   </form>
 

@@ -1,5 +1,5 @@
 <div class="w-full relative overflow-x-auto rounded-lg border border-[var(--border-primary)] bg-[var(--bg-card)]">
-  <table class="w-full table-fixed border-collapse text-sm text-[var(--ag-cell-color)]">
+  <table class="w-full min-w-max border-collapse text-sm text-[var(--ag-cell-color)]">
     <!-- ===================================================== -->
     <!-- HEADER -->
     <!-- ===================================================== -->
@@ -10,7 +10,7 @@
         <tr *ngFor="let headerRow of headerRows; let rowIndex = index">
           <th
             *ngFor="let col of headerRow"
-            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
+            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)] whitespace-normal break-words align-middle"
             [attr.colspan]="col.colspan || null"
             [attr.rowspan]="col.rowspan || null"
             [style.width]="col.width || 'auto'"
@@ -43,7 +43,7 @@
         <tr>
           <th
             *ngFor="let col of visibleColumns"
-            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)]"
+            class="border border-[var(--border-primary)] bg-[var(--ag-header-bg)] px-3 py-2 text-center text-xs font-bold uppercase tracking-wide text-[var(--ag-header-cell-color)] whitespace-normal break-words align-middle"
             [style.width]="col.width || 'auto'"
             [style.minWidth]="col.width || 'auto'"
             [style.maxWidth]="col.width || 'auto'"

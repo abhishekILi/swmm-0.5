@@ -9,12 +9,11 @@ import {
   ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoadingButtonComponent } from '../loading-button.component';
 
 @Component({
   selector: 'app-form-card-dialog',
   standalone: true,
-  imports: [CommonModule, LoadingButtonComponent],
+  imports: [CommonModule],
   templateUrl: './form-card-dialog.component.html',
   styleUrl: './form-card-dialog.component.css',
 })

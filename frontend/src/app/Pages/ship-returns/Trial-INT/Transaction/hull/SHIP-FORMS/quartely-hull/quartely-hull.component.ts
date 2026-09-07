@@ -26,7 +26,7 @@ import {
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
 import { CalenderComponent } from '../../../../ui/calender.component';
 import { InputComponent } from '../../../../ui/input.component';
-// import { MasterService } from '../../../../services/master.service';
+import { MasterService } from '../../../../services/master.service';
 import { ReusableDeleteDialogDynamicContentComponent as ReusableDeleteDialogDynamicContent } from '../../../../ui/master-compat';
 import {
   FormInputTableWithHeadersComponent as FormInputTableWithHeaders,
@@ -41,7 +41,6 @@ import { finalize } from 'rxjs';
   selector: 'app-quartely-hull',
   standalone: true,
   imports: [
-    ReusableInputTableComponent,
     CommonModule,
     ReactiveFormsModule,
     FormCardComponent,
@@ -272,10 +271,9 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     private apiService: ApiService,
     private toastService: ToastService,
     @Inject(DOCUMENT) public document: Document,
-    // private masterService: MasterService,
+    private masterService: MasterService,
     private cdr: ChangeDetectorRef,
-    // private storageService: StorageService,
-  ) {}
+  ) { }
 
   onApprovalPopupChange(open: boolean): void {
     this.showApprovalWorkflowPopup = open;
@@ -296,22 +294,31 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     }
   }
 
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   ngOnInit(): void {
-    this.loadShips();
     this.buildForm();
+    this.loadShips();
     this.initializeTableData();
 
-    this.user = this.getUser();
-    this.LoggedInUser = this.user?.process_name || this.user?.role_center?.[0]?.process_name || '';
-
-    if (this.LoggedInUser === 'Ship Staff') {
-      const shipId = this.user?.ship_id || this.user?.role_center?.[0]?.ship_id;
-
-      if (shipId) {
-        this.form.patchValue({
-          ship: shipId,
-        });
-      }
+    const user = this.getUser();
+    if (user && this.isShipUser(user)) {
+      this.LoggedInUser = 'Ship Staff';
     }
 
     this.route.paramMap.subscribe((params) => {
@@ -338,31 +345,24 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     });
   }
 
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
-  }
-
   // Load ships from API
   loadShips() {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
         }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || `Ship ${user.ship_id}`, value: user.ship_id });
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
+          this.shipOptions.unshift({
+            label: user.ship_name || `Ship ${user.ship_id}`,
+            value: user.ship_id,
+          });
         }
 
         if (this.isShipUser(user) && user?.ship_id) {
@@ -375,18 +375,23 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
             ship_id: this.shipOptions[0].value,
           });
         }
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
           this.form.patchValue({ ship_id: user.ship_id });
           if (this.isShipUser(user)) {
             this.form.get('ship_id')?.disable();
           }
         }
-      }
+        this.toastService.showError('Failed to load ships.');
+        this.cdr.detectChanges();
+      },
     });
   }
 
@@ -511,10 +516,10 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
     this.updatePotentialRows(this.potentialRows);
   }
 
-  getEditDataByRowId(rowId: string): void {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false): void {
     this.apiService
       .get(
-        `shipmodule/iccp-returns-quarterly-hull-potential/sacrificial-anodes/quarterly-hull-potential/${rowId}`,
+        `${Apiendpoints.QUARTERLY_HULL_POTENTIAL_FITTED_WITH_SACRIFICIAL_ANODES}${rowId}/`,
       )
       .subscribe({
         next: (res: any) => {
@@ -523,6 +528,10 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
           if (responseData) {
             this.editDataDetails = responseData;
             this.patchFormData(responseData);
+            if (openWorkflow) {
+              this.openApprovalWorkflow();
+            }
+            this.cdr.detectChanges();
           }
         },
         error: (err) => {
@@ -605,7 +614,7 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
 
   handleBack() {
     this.router.navigate([
-      '/afterAuth/ship-returns/hull-returns/returns/quarterly-hull-potential-with-sacrifical-anodes',
+      '/ship/returns/quarterly-hull-potential-with-sacrifical-anodes',
     ]);
   }
 
@@ -711,7 +720,7 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
         next: (res: any) => {
           this.toastService.showSuccess(
             res?.message ||
-              'Quarterly Hull sacrificial anodes system data record saved successfully',
+            'Quarterly Hull sacrificial anodes system data record saved successfully',
           );
 
           if (draftStatus === 'save') {
@@ -728,7 +737,7 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -737,7 +746,7 @@ export class QuartelyHullSacrificalAnodesComponent implements OnInit {
           } else {
             setTimeout(() => {
               this.router.navigate([
-                '/afterAuth/ship-returns/hull-returns/returns/quarterly-hull-potential-with-sacrifical-anodes',
+                '/ship/returns/quarterly-hull-potential-with-sacrifical-anodes',
               ]);
             }, 1000);
           }
