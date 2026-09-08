@@ -39,7 +39,7 @@ export interface SteadyStateLoadRow {
 export const BREAKER_PROTECTION_ROWS: ProtectionCheckRow[] = [
   { ser: '(a)', protection: 'Over voltage', trippingValue: '110% of rated voltage', group: 'Breaker Protection' },
   { ser: '(b)', protection: 'Under voltage', trippingValue: '85% of rated voltage', group: 'Breaker Protection' },
-  { ser: '(c)', protection: 'Over load', trippingValue: 'NA', group: 'Breaker Protection' },
+  { ser: '(c)', protection: 'Over load', trippingValue: '125% of rated voltage', group: 'Breaker Protection' },
 ];
 
 export const GENERATOR_SWITCHBOARD_PROTECTION_ROWS: ProtectionCheckRow[] = [

@@ -106,7 +106,7 @@ export const TURBO_CHARGED_TRANSIENT_CATEGORY: SpeedTransientCategory = {
         { loadInitial: '0', loadTo: '70' },
         { loadInitial: '50', loadTo: '0' },
       ],
-      peakLimitLabel: '5%',
+      peakLimitLabel: '10%',
       recoveryPermissibleLimit: '5 Sec',
     },
     {
@@ -152,7 +152,7 @@ export const NON_TURBO_CHARGED_TRANSIENT_CATEGORY: SpeedTransientCategory = {
         { loadInitial: '0', loadTo: '100' },
         { loadInitial: '50', loadTo: '0' },
       ],
-      peakLimitLabel: '5%',
+      peakLimitLabel: '10%',
       recoveryPermissibleLimit: '2 Sec',
     },
     {

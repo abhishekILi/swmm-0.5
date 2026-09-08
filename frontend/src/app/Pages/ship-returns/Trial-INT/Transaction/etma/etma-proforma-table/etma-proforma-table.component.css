@@ -2,7 +2,7 @@
   overflow-x: auto;
 } */
 
- fieldset {
+fieldset {
   min-width: 0;
 }
 
@@ -16,6 +16,31 @@
 
 .etma-table-wrap table th,
 .etma-table-wrap table td {
-  border: 1px solid var(--border-primary);
+  border: 1px solid #e2e8f0;
+}
+
+:host-context(.dark) legend {
+  color: #f8fafc !important;
+}
+
+
+
+:host-context(.dark) td,
+:host-context(.dark) th,
+:host-context(.dark) label,
+:host-context(.dark) span:not(.text-red-400):not(.text-red-500) {
+  color: #f8fafc !important;
+}
+
+/* Preserve Note box original background & text color */
+.bg-amber-50,
+.bg-amber-50 *,
+:host-context(.dark) .bg-amber-50,
+:host-context(.dark) .bg-amber-50 *,
+:host ::ng-deep .bg-amber-50,
+:host ::ng-deep .bg-amber-50 * {
+  background-color: #fef3c7 !important;
+  color: #1e293b !important;
+  border-color: #fde68a !important;
 }
 

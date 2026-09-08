@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 
 @Component({
@@ -23,8 +23,34 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
   `,
 })
 export class FormCardComponent {
+  // Old definition:
+  // @Input() title = '';
+  // @Input() smallTitle = '';
   @Input() title = '';
   @Input() smallTitle = '';
+  @Input() previewMode = false;
+  @Input() showPreviousReport = false;
+  @Input() showTopBar = true;
+  @Input() showFormFooter = true;
+  @Input() previousReportLabel = 'Previous Report';
+  @Input() showSecondaryAction = false;
+  @Input() secondaryActionLabel = 'Trial Pass';
+  @Input() showBackButton = false;
+  @Input() backLabel = 'Back';
+  @Input() pageScroll = true;
+  @Input() showPaginator = false;
+  @Input() currentPage = 1;
+  @Input() totalPages = 1;
+
+  @Output() previousReport = new EventEmitter<void>();
+  @Output() action = new EventEmitter<void>();
+  @Output() secondaryAction = new EventEmitter<void>();
+  @Output() back = new EventEmitter<void>();
+  @Output() paginator = new EventEmitter<number>();
+  @Output() firstPage = new EventEmitter<void>();
+  @Output() prevPage = new EventEmitter<void>();
+  @Output() nextPage = new EventEmitter<void>();
+  @Output() lastPage = new EventEmitter<void>();
 }
 
 @Component({
@@ -243,6 +269,30 @@ export class AgActionCellComponent implements ICellRendererAngularComp {
       p.deleteCallback(data);
     }
   }
+}
+
+@Component({
+  selector: 'app-ag-select-cell',
+  standalone: true,
+  imports: [CommonModule],
+  template: `<span>{{ params?.value }}</span>`,
+})
+export class AgSelectCellComponent implements ICellRendererAngularComp {
+  params: any;
+  agInit(params: any): void { this.params = params; }
+  refresh(params: any): boolean { this.params = params; return true; }
+}
+
+@Component({
+  selector: 'app-add-form',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  template: `<div><ng-content></ng-content></div>`,
+})
+export class AddFormComponent {
+  @Input() form: any;
+  @Input() config: any;
+  @Input() formData: any;
 }
 
 @Component({

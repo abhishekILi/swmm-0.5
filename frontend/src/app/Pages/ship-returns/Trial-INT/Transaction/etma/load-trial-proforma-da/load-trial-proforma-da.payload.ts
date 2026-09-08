@@ -132,6 +132,7 @@ export function buildLoadTrialProformaDaPayload(
     equipment_KW: val(raw.kw),
     shipID: val(raw.ship),
     da_ta: val(raw.da_ta),
+    trial_report_no: val(raw.trial_report_no),
 
     trial_presented_by_da_load: val(raw.presented_by),
     trials_date: val(raw.trials_date),
@@ -294,6 +295,9 @@ function mapGovernorSteadyState(
   const nominal = form.get(`${governor}_nominal_frequency`)?.value;
   const nominalKey = isGov2 ? 'steadyStateNominalFriq_gov2' : 'steadyStateNominalFriq';
   payload[nominalKey] = val(nominal);
+  if (!isGov2) {
+    payload['transientTableNominalFriq'] = val(nominal);
+  }
 
   rows?.controls.forEach((row, index) => {
     const legacyRow = DA_STEADY_STATE_LEGACY_ROWS[index];
@@ -323,6 +327,9 @@ function mapGovernorTransient(
   const peakLimit = form.get(`${governor}_peak_permissible_limit`)?.value;
   const peakKey = isGov2 ? 'peak_permissible_limit_gov_2' : 'peak_permissible_limit';
   payload[peakKey] = val(peakLimit);
+  if (!isGov2) {
+    payload['trnsntTstAlt_0x25_peak_limit'] = val(peakLimit);
+  }
 
   rows?.controls.forEach((row, index) => {
     const meta = TRANSIENT_TEST_LOAD_ROWS[index];
@@ -337,6 +344,26 @@ function mapGovernorTransient(
     payload[`${prefix}_recov_Obs`] = val(v.recovery_observed);
     payload[`${prefix}_final_value`] = val(v.recovery_final_value);
     payload[`${prefix}_remark`] = val(v.status);
+
+    if (!isGov2) {
+      const altPrefix = `trnsntTstAlt_${key}`;
+      payload[`${altPrefix}_init_speed`] = val(v.initial_speed_hz);
+      payload[`${altPrefix}_mtry_speed`] = val(v.momentary_speed_hz);
+      payload[`${altPrefix}_final_speed`] = val(v.final_speed_hz);
+      payload[`${altPrefix}_peak_obs`] = val(v.peak_observed);
+      payload[`${altPrefix}_final_val_obs`] = val(v.recovery_observed);
+      payload[`${altPrefix}_final_val_obs_2`] = val(v.recovery_final_value);
+      payload[`${altPrefix}_remarks`] = val(v.status);
+      if (key === '50x75') {
+        payload['test8_init_speed'] = val(v.initial_speed_hz);
+        payload['test8_mtry_speed'] = val(v.momentary_speed_hz);
+        payload['test8_final_speed'] = val(v.final_speed_hz);
+        payload['test8_peak_obs'] = val(v.peak_observed);
+        payload['test8_final_val_obs'] = val(v.recovery_observed);
+        payload['test8_final_val_obs_2'] = val(v.recovery_final_value);
+        payload['test8_remarks'] = val(v.status);
+      }
+    }
   });
 }
 
@@ -546,6 +573,7 @@ export function legacyPayloadToDaFormFill(payload: unknown): DaFormFillResult {
   const formPatch: Record<string, unknown> = {
     trials_date: pick(legacy, 'trials_date'),
     da_ta: pick(legacy, 'da_ta'),
+    trial_report_no: pick(legacy, 'trial_report_no'),
     kw: pick(legacy, 'equipment_KW'),
     ship: pick(legacy, 'shipID'),
     presented_by: pick(legacy, 'trial_presented_by_da_load') ?? pick(legacy, 'Presented_by'),
@@ -587,9 +615,11 @@ export function legacyPayloadToDaFormFill(payload: unknown): DaFormFillResult {
     insulation_generator_to_switchboard_cable:
       pick(legacy, 'ir_swtchbrd_cbl') ?? pick(legacy, 'ir_gnrtr_cbl'),
     insulation_breaker: pick(legacy, 'ir_insltn_brkr'),
-    governor1_nominal_frequency: pick(legacy, 'steadyStateNominalFriq'),
+    governor1_nominal_frequency:
+      pick(legacy, 'steadyStateNominalFriq') ?? pick(legacy, 'transientTableNominalFriq'),
     governor2_nominal_frequency: pick(legacy, 'steadyStateNominalFriq_gov2'),
-    governor1_peak_permissible_limit: pick(legacy, 'peak_permissible_limit'),
+    governor1_peak_permissible_limit:
+      pick(legacy, 'trnsntTstAlt_0x25_peak_limit') ?? pick(legacy, 'peak_permissible_limit'),
     governor2_peak_permissible_limit: pick(legacy, 'peak_permissible_limit_gov_2'),
     avr1_nominal_voltage: pick(legacy, 'steadyStateNominalVoltage'),
     avr2_nominal_voltage: pick(legacy, 'steadyStateNominalVoltage_avr_2'),
@@ -759,15 +789,49 @@ function fillGovernorTransientRows(
   formPatch[arrayKey] = TRANSIENT_TEST_LOAD_ROWS.map((meta) => {
     const key = `${meta.loadInitial}x${meta.loadTo}`;
     const prefix = isGov2 ? `trnsntTst_${key}_gov_2` : `trnsntTst_${key}`;
+    if (isGov2) {
+      return {
+        initial_speed_hz: pick(legacy, `${prefix}_init_speed`),
+        momentary_speed_hz: pick(legacy, `${prefix}_mtry_speed`),
+        final_speed_hz: pick(legacy, `${prefix}_final_speed`),
+        peak_observed: pick(legacy, `${prefix}_peak_obs`),
+        recovery_observed: pick(legacy, `${prefix}_recov_Obs`),
+        recovery_final_value: pick(legacy, `${prefix}_final_value`),
+        status: pick(legacy, `${prefix}_remark`),
+      };
+    }
 
+    const altPrefix = `trnsntTstAlt_${key}`;
+    const test8 = key === '50x75';
     return {
-      initial_speed_hz: pick(legacy, `${prefix}_init_speed`),
-      momentary_speed_hz: pick(legacy, `${prefix}_mtry_speed`),
-      final_speed_hz: pick(legacy, `${prefix}_final_speed`),
-      peak_observed: pick(legacy, `${prefix}_peak_obs`),
-      recovery_observed: pick(legacy, `${prefix}_recov_Obs`),
-      recovery_final_value: pick(legacy, `${prefix}_final_value`),
-      status: pick(legacy, `${prefix}_remark`),
+      initial_speed_hz:
+        pick(legacy, `${altPrefix}_init_speed`) ??
+        (test8 ? pick(legacy, 'test8_init_speed') : undefined) ??
+        pick(legacy, `${prefix}_init_speed`),
+      momentary_speed_hz:
+        pick(legacy, `${altPrefix}_mtry_speed`) ??
+        (test8 ? pick(legacy, 'test8_mtry_speed') : undefined) ??
+        pick(legacy, `${prefix}_mtry_speed`),
+      final_speed_hz:
+        pick(legacy, `${altPrefix}_final_speed`) ??
+        (test8 ? pick(legacy, 'test8_final_speed') : undefined) ??
+        pick(legacy, `${prefix}_final_speed`),
+      peak_observed:
+        pick(legacy, `${altPrefix}_peak_obs`) ??
+        (test8 ? pick(legacy, 'test8_peak_obs') : undefined) ??
+        pick(legacy, `${prefix}_peak_obs`),
+      recovery_observed:
+        pick(legacy, `${altPrefix}_final_val_obs`) ??
+        (test8 ? pick(legacy, 'test8_final_val_obs') : undefined) ??
+        pick(legacy, `${prefix}_recov_Obs`),
+      recovery_final_value:
+        pick(legacy, `${altPrefix}_final_val_obs_2`) ??
+        (test8 ? pick(legacy, 'test8_final_val_obs_2') : undefined) ??
+        pick(legacy, `${prefix}_final_value`),
+      status:
+        pick(legacy, `${altPrefix}_remarks`) ??
+        (test8 ? pick(legacy, 'test8_remarks') : undefined) ??
+        pick(legacy, `${prefix}_remark`),
     };
   });
 }

@@ -1,5 +1,5 @@
-﻿import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -17,6 +17,7 @@ import { FormCardComponent } from '../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../ui/loading-button.component';
 import { ToastService } from '../../../services/toast.service';
 import { ApiService } from '../../../api.service';
+
 import {
   resolveTrialQueryParam,
   trialRowFromGetFormResponse,
@@ -34,7 +35,6 @@ import {
 } from './load-trial-proforma-da.data';
 import {
   GOVERNOR_RANGE_LOAD_ROWS,
-  GOVERNOR_RANGE_PERMISSIBLE_LIMIT,
   GOVERNOR_RATE_LOAD_ROWS,
   GOVERNOR_RATE_PERMISSIBLE_LIMIT,
   ALL_SPEED_TRANSIENT_SUBSECTIONS,
@@ -63,30 +63,49 @@ import {
   STEADY_STATE_ROW_INDEX,
   calculateFrequencyModulation,
   calculateGovernorDroop,
-  calculateNominalFrequency,
+  calculateGovernorRangeLimits,
+  calculateParallelingSharing,
   calculatePeakPercent,
   calculateRecoveryFinalValue,
+  calculateVoltageBalanceDifference,
+  calculateVoltageBalancePermissibleLimit,
   calculateVoltageModulation,
+  calculateVoltageRangeBounds,
+  calculateVoltageRecoveryFinalValue,
   evaluateFrequencyModulationStatus,
   evaluateGovernorDroopStatus,
-  evaluateTransientTestStatus,
-  governorRecoveryTolerancePercent,
+  evaluateGovernorRangeStatus,
+  evaluateGovernorRateStatus,
+  evaluateParallelingSharingStatus,
+  evaluateSpeedTransient25PercentStatus,
+  evaluateSpeedTransientSubsectionStatus,
+  evaluateVoltageBalanceStatus,
+  evaluateVoltageModulationStatus,
+  evaluateVoltageRangeStatus,
+  evaluateVoltageTransientStatus,
+  formatGovernorRangePermissibleLimit,
+  formatVoltageRangeDisplayedLimits,
+  governorMotorRateBand,
+  isElectronicGovernor,
+  isFilledNonZeroFrequency,
+  isVoltageMotorStartRow,
   parseFrequency,
   parsePercentLabel,
-  parseRecoveryLimitSeconds,
   roundFrequencyCalculation,
-  VOLTAGE_MODULATION_SAT_LIMIT_PERCENT,
+  speedTransientPeakLimitPercent,
+  ELECTRONIC_SPEED_TRANSIENT_PEAK_LIMIT_PERCENT,
 } from './load-trial-proforma-da.calculations';
 import {
   buildLoadTrialProformaDaPayload,
   legacyPayloadToDaFormFill,
 } from './load-trial-proforma-da.payload';
+import { getUserSatelliteUnitId } from '../../../../../../utils/user-satellite-unit';
 
 @Component({
   selector: 'app-load-trial-proforma-da',
   standalone: true,
   host: {
-    class: 'flex h-full min-h-0 flex-1 flex-col overflow-hidden',
+    class: 'flex min-h-0 min-w-0 flex-1 flex-col self-stretch',
   },
   templateUrl: './load-trial-proforma-da.html',
   imports: [
@@ -99,11 +118,10 @@ import {
     FileUploadComponent,
     TextareaComponent,
     EtmaProformaTableComponent,
-    LoadingButtonComponent,
   ],
   styleUrl: './load-trial-proforma-da.css',
 })
-export class LoadTrialProformaDa implements OnInit, OnDestroy {
+export class LoadTrialProformaDa implements OnInit, AfterViewInit, OnDestroy {
 
 
   form: FormGroup;
@@ -193,7 +211,7 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   ] as const;
   readonly parallelingSharingTables = [
     { kind: 'kw' as const, title: 'kW sharing' },
-    { kind: 'kvar' as const, title: 'KVAr sharing' },
+    { kind: 'kvar' as const, title: 'kVA sharing' },
   ];
 
   readonly equipmentDetailsGroups = EQUIPMENT_DETAILS_GROUPS;
@@ -209,7 +227,6 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   readonly steadyStateLoadRows = STEADY_STATE_LOAD_ROWS;
   readonly transientTestLoadRows = TRANSIENT_TEST_LOAD_ROWS;
   readonly governorRangeLoadRows = GOVERNOR_RANGE_LOAD_ROWS;
-  readonly governorRangePermissibleLimit = GOVERNOR_RANGE_PERMISSIBLE_LIMIT;
   readonly governorRateLoadRows = GOVERNOR_RATE_LOAD_ROWS;
   readonly governorRatePermissibleLimit = GOVERNOR_RATE_PERMISSIBLE_LIMIT;
   readonly voltageSteadyStateLoadRows = VOLTAGE_STEADY_STATE_LOAD_ROWS;
@@ -225,6 +242,7 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   constructor(
     private readonly fb: FormBuilder,
     private readonly cdr: ChangeDetectorRef,
+    private readonly hostEl: ElementRef<HTMLElement>,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
     private readonly toastService: ToastService,
@@ -234,8 +252,9 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
     this.form = this.fb.group({
       trials_date: [null, Validators.required],
       da_ta: ['', Validators.required],
-      kw: [''],
+      kw: ['', Validators.required],
       ship: [{value:'',disabled:true}],
+      trial_report_no: [''],
 
       presented_by: ['', Validators.required],
       trial_date: [null, Validators.required],
@@ -248,7 +267,7 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
         { value: 'Def Stan 08-142, EED-Q-242(R2) and BR 6500', disabled: true },
       ],
 
-      test_equipment_used: [''],
+      test_equipment_used: ['', Validators.required],
       test_equipment_remarks: [''],
 
       engine_make: ['', Validators.required],
@@ -385,6 +404,8 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
     this.setupTransientTestCalculations('governor2');
     this.setupSpeedTransientSubsectionCalculations('governor1');
     this.setupSpeedTransientSubsectionCalculations('governor2');
+    this.setupGovernorAuxCalculations('governor1');
+    this.setupGovernorAuxCalculations('governor2');
     this.setupVoltageControlCalculations('avr1');
     this.setupVoltageControlCalculations('avr2');
     this.transientTestSubscriptions.push(
@@ -402,8 +423,13 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadParallelingEquipmentOptions();
+    this.loadTestEquipmentOptions();
     void this.loadTrialPrefillFromQuery();
     this.refreshCalculatedFields();
+  }
+
+  ngAfterViewInit(): void {
+    this.scheduleLayoutRefresh();
   }
 
   private loadParallelingEquipmentOptions(): void {
@@ -427,7 +453,24 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
       });
   }
 
-  private loadTestEquipmentOptions(satelliteUnitId: number): void {
+  private resolveSatelliteUnitId(source?: Record<string, any> | null): number | null {
+    const context = this.formApiService?.context || {};
+    const raw =
+      source?.['satellite_unit_id'] ??
+      source?.['satellite_unit'] ??
+      context?.['satellite_unit_id'] ??
+      context?.['satellite_unit'] ??
+      getUserSatelliteUnitId();
+    const id = Number(raw);
+    return Number.isFinite(id) && id > 0 ? id : null;
+  }
+
+  private loadTestEquipmentOptions(satelliteUnitId?: number | null): void {
+    const params: Record<string, any> = {};
+    const resolvedSatelliteUnitId = satelliteUnitId ?? this.resolveSatelliteUnitId();
+    if (resolvedSatelliteUnitId != null) {
+      params['satellite_unit'] = resolvedSatelliteUnitId;
+    }
     this.apiService
       .getDropdownData<Record<string, any>>(
         'master/tools/',
@@ -435,9 +478,7 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
           labelKey: 'name',
           valueKey: 'id',
         },
-        {
-          satellite_unit: satelliteUnitId,
-        },
+        params,
       )
       .subscribe({
         next: (options) => {
@@ -458,45 +499,51 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   }
 
   private async loadTrialPrefillFromQuery(): Promise<void> {
-    
     const trialId = resolveTrialQueryParam(this.route, this.router);
-    if (!trialId) return;
+    if (!trialId) {
+      this.scheduleLayoutRefresh();
+      return;
+    }
     this.workflowTrialId = trialId;
-    
-   try {
-  const response = await this.formApiService.getForm(trialId);
 
-  console.log('Response:', response);
-  console.log('FormApiService:', this.formApiService);
-  console.log('Context:', this.formApiService?.context);
+    try {
+      const response = await this.formApiService.getForm(trialId);
+      const trialRow = trialRowFromGetFormResponse(this.formApiService, response);
 
-  const trialRow = trialRowFromGetFormResponse(this.formApiService, response);
-  console.log('trialRow:', trialRow);
+      this.eqpList = Array.isArray(trialRow?.equipment_details) ? trialRow.equipment_details : [];
+      this.activeTab = this.formApiService.currentEquipmentNomenclature || this.eqpList[0] || null;
+      if (this.activeTab) {
+        this.formApiService.setCurrentEquipmentNomenclature(this.activeTab);
+      }
 
-  this.eqpList = Array.isArray(trialRow?.equipment_details) ? trialRow.equipment_details : [];
-  this.activeTab = this.formApiService.currentEquipmentNomenclature || this.eqpList[0] || null;
-  if (this.activeTab) {
-    this.formApiService.setCurrentEquipmentNomenclature(this.activeTab);
+      this.loadTestEquipmentOptions(
+        this.resolveSatelliteUnitId(trialRow ?? (response as Record<string, any>)),
+      );
+
+      const equipmentPayload = this.extractEquipmentPayload(response);
+      if (equipmentPayload) {
+        this.fillData(equipmentPayload);
+      } else if (response) {
+        this.fillData(response);
+      }
+      this.scheduleLayoutRefresh();
+    } catch (e) {
+      console.error('Trial prefill failed (load trial proforma DA)', e);
+      this.scheduleLayoutRefresh();
+    }
   }
 
-  if (!trialRow) return;
-
-  const satelliteUnitId = Number(trialRow?.satellite_unit_id);
-  if (Number.isFinite(satelliteUnitId) && satelliteUnitId > 0) {
-    this.loadTestEquipmentOptions(satelliteUnitId);
-  }
-
-  
-
-  this.cdr.detectChanges();
-   const equipmentPayload = this.extractEquipmentPayload(response);
-   if (equipmentPayload) {
-     this.fillData(equipmentPayload);
-   }
-
-} catch (e) {
-  console.error('Trial prefill failed (load trial proforma DA)', e);
-}
+  /** Flex/percent height can stay at 0 until a window resize; force a layout pass after paint. */
+  private scheduleLayoutRefresh(): void {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const host = this.hostEl?.nativeElement;
+        if (host) {
+          void host.offsetHeight;
+        }
+        this.cdr.markForCheck();
+      });
+    });
   }
 
   ngOnDestroy(): void {
@@ -552,8 +599,12 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
     return this.form.get('paralleling_combinations') as FormArray;
   }
 
-  parallelingSharingRows(combination: AbstractControl, kind: 'kw' | 'kvar'): FormArray {
-    return combination.get(`${kind}_rows`) as FormArray;
+  // Old code:
+  // parallelingSharingRows(combination: FormGroup, kind: 'kw' | 'kvar'): FormArray {
+  //   return combination.get(`${kind}_rows`) as FormArray;
+  // }
+  parallelingSharingRows(combination: AbstractControl | FormGroup | any, kind: 'kw' | 'kvar'): FormArray {
+    return (combination as FormGroup).get(`${kind}_rows`) as FormArray;
   }
 
   get activeNominalFrequencyFormControl(): FormControl {
@@ -605,6 +656,34 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   get activeGovernorTransientTables() {
     return getGovernorTransientCategoryTables(
       normalizeGovernorEquipmentType(this.form.get('governor_type')?.value),
+    );
+  }
+
+  get governorRangePermissibleLimit(): string {
+    return formatGovernorRangePermissibleLimit(
+      calculateGovernorRangeLimits(
+        this.form.get('governor_type')?.value,
+        parseFrequency(this.form.get('alternator_rated_frequency')?.value),
+      ),
+    );
+  }
+
+  get voltageRangeDisplayedLimits(): string {
+    return formatVoltageRangeDisplayedLimits(
+      parseFrequency(this.form.get('alternator_rated_voltage')?.value),
+    );
+  }
+
+  get isPeakLimitAutomatic(): boolean {
+    return speedTransientPeakLimitPercent(
+      String(this.form.get('governor_type')?.value ?? ''),
+      this.currentShipName(),
+    ) !== null;
+  }
+
+  private currentShipName(): string {
+    return String(
+      this.form.get('ship')?.value || this.formApiService?.context?.ship_name || '',
     );
   }
 
@@ -791,36 +870,41 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   private refreshParallelingCalculations(): void {
     this.parallelingCombinations.controls.forEach((control) => {
       const combination = control as FormGroup;
-      const ratedA = this.optionalParallelNumber(combination.get('rated_dg1')?.value);
-      const ratedB = this.optionalParallelNumber(combination.get('rated_dg2')?.value);
-      const ratingsValid = ratedA !== null && ratedB !== null && ratedA >= 0 && ratedB >= 0;
-      const validRatedA = ratedA ?? 0;
-      const validRatedB = ratedB ?? 0;
-      const tolerance = ratingsValid ? ((validRatedA + validRatedB) / 2) * 0.1 : null;
+      const ratedKwA = this.optionalParallelNumber(combination.get('rated_dg1')?.value);
+      const ratedKwB = this.optionalParallelNumber(combination.get('rated_dg2')?.value);
+      const ratedAmpsA = this.optionalParallelNumber(combination.get('amps_dg1')?.value);
+      const ratedAmpsB = this.optionalParallelNumber(combination.get('amps_dg2')?.value);
 
-      combination.get('kw_tolerance')?.setValue(this.parallelCalculatedValue(tolerance), { emitEvent: false });
-      combination.get('kvar_tolerance')?.setValue(this.parallelCalculatedValue(tolerance), { emitEvent: false });
+      const kwSample = calculateParallelingSharing(20, ratedKwA, ratedKwB, null, null);
+      const kvaSample = calculateParallelingSharing(20, ratedAmpsA, ratedAmpsB, null, null);
+      combination.get('kw_tolerance')?.setValue(
+        this.parallelCalculatedValue(kwSample.toleranceBand),
+        { emitEvent: false },
+      );
+      combination.get('kvar_tolerance')?.setValue(
+        this.parallelCalculatedValue(kvaSample.toleranceBand),
+        { emitEvent: false },
+      );
 
       (['kw', 'kvar'] as const).forEach((kind) => {
+        const ratedA = kind === 'kw' ? ratedKwA : ratedAmpsA;
+        const ratedB = kind === 'kw' ? ratedKwB : ratedAmpsB;
         this.parallelingSharingRows(combination, kind).controls.forEach((rowControl, index) => {
           const row = rowControl as FormGroup;
           const percent = this.parallelingLoadRows[index].percent;
-          const proportionateA = ratingsValid ? validRatedA * percent / 100 : null;
-          const proportionateB = ratingsValid ? validRatedB * percent / 100 : null;
-          const combined = ratingsValid ? (validRatedA + validRatedB) * percent / 100 : null;
-          const actualA = this.optionalParallelNumber(row.get('actual_a')?.value);
-          const actualB = this.optionalParallelNumber(row.get('actual_b')?.value);
-          const difference = actualA !== null && actualB !== null && proportionateA !== null && proportionateB !== null
-            ? Math.max(Math.abs(proportionateA - actualA), Math.abs(proportionateB - actualB))
-            : null;
-          const status = difference === null || tolerance === null ? '' : difference < tolerance ? 'Sat' : 'Unsat';
-
+          const calculated = calculateParallelingSharing(
+            percent,
+            ratedA,
+            ratedB,
+            this.optionalParallelNumber(row.get('actual_a')?.value),
+            this.optionalParallelNumber(row.get('actual_b')?.value),
+          );
           row.patchValue({
-            combined_load: this.parallelCalculatedValue(combined),
-            proportionate_a: this.parallelCalculatedValue(proportionateA),
-            proportionate_b: this.parallelCalculatedValue(proportionateB),
-            difference: this.parallelCalculatedValue(difference),
-            status,
+            combined_load: this.parallelCalculatedValue(calculated.combinedVal),
+            proportionate_a: this.parallelCalculatedValue(calculated.proportionateA),
+            proportionate_b: this.parallelCalculatedValue(calculated.proportionateB),
+            difference: this.parallelCalculatedValue(calculated.difference),
+            status: evaluateParallelingSharingStatus(calculated.difference, calculated.toleranceBand),
           }, { emitEvent: false });
         });
       });
@@ -834,7 +918,7 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
   }
 
   private parallelCalculatedValue(value: number | null): number | '' {
-    return value === null ? '' : Math.round(value * 10000) / 10000;
+    return value === null ? '' : roundFrequencyCalculation(value);
   }
 
   goToPage(page: number): void {
@@ -880,21 +964,18 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
       if (equipmentPayload) {
         this.fillData(equipmentPayload);
       }
-      this.cdr.detectChanges();
+      this.scheduleLayoutRefresh();
     } catch (error) {
       console.error('Failed to load DA load trial data for selected equipment', error);
       this.toastService.showError('Failed to load selected equipment data.');
+      this.scheduleLayoutRefresh();
     }
   }
 
   private extractEquipmentPayload(response: any): any {
     if (!response) return null;
 
-    if (response?.data && typeof response.data === 'object' && !Array.isArray(response.data)) {
-      if (response.data.formGroupKey || response.data.loadTrialPerformaDA) {
-        return response.data;
-      }
-    }
+    if (response?.data && typeof response.data === 'object') return response.data;
     if (response?.loadTrialPerformaDA) return response.loadTrialPerformaDA;
 
     let jsonData = response?.json_data ?? response?.jsonData ?? response?.formData ?? null;
@@ -912,7 +993,10 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
 
     if (jsonData && typeof jsonData === 'object') {
       const nomenclature = this.formApiService?.currentEquipmentNomenclature;
-      const resolved = this.formApiService.resolveNomenclature(nomenclature);
+      const resolved =
+        typeof nomenclature === 'string'
+          ? nomenclature
+          : this.formApiService.resolveNomenclature(nomenclature);
       if (resolved && jsonData[resolved]) {
         return jsonData[resolved];
       }
@@ -983,11 +1067,11 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
 
     this.refreshCalculatedFields();
 
-    // if (type === 'save' && this.form.invalid) {
-    //   this.form.markAllAsTouched();
-    //   this.toastService.showError('Please fill all required fields correctly.');
-    //   return;
-    // }
+    if ((type === 'save' || type === 'submit') && this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.toastService.showError('Please fill all required fields correctly.');
+      return;
+    }
 
     const payload = buildLoadTrialProformaDaPayload(this.form, this.parallelingTrial);
 
@@ -1026,24 +1110,21 @@ export class LoadTrialProformaDa implements OnInit, OnDestroy {
 //   this.cdr.detectChanges();
 // }
   fillData(payload: unknown): void {
-  if (!payload) return;
+    if (!payload) return;
 
-  const { formPatch, parallelingTrial, parallelingCombinations } = legacyPayloadToDaFormFill(payload);
+    const { formPatch, parallelingTrial, parallelingCombinations } = legacyPayloadToDaFormFill(payload);
 
-  this.form.patchValue(formPatch, { emitEvent: false });
-  this.parallelingCombinations.clear({ emitEvent: false });
-  parallelingCombinations.forEach((combination) => this.addParallelingCombination(combination));
-  this.parallelingTrial = parallelingCombinations.length > 0 ? 'yes' : parallelingTrial;
-  this.updateSpeedTransientValidators();
-this.form.patchValue({
-    ship: this.formApiService?.context?.ship_name,
-  });
-  this.refreshCalculatedFields();
-
-  setTimeout(() => {
-    this.cdr.detectChanges();
-  });
-}
+    this.form.patchValue(formPatch, { emitEvent: false });
+    this.parallelingCombinations.clear({ emitEvent: false });
+    parallelingCombinations.forEach((combination) => this.addParallelingCombination(combination));
+    this.parallelingTrial = parallelingCombinations.length > 0 ? 'yes' : parallelingTrial;
+    this.updateSpeedTransientValidators();
+    this.form.patchValue({
+      ship: this.formApiService?.context?.ship_name,
+    });
+    this.refreshCalculatedFields();
+    this.scheduleLayoutRefresh();
+  }
 
   closeSubmitDecisionPopup(): void {
     this.showDecisionPopup = false;
@@ -1065,6 +1146,8 @@ this.form.patchValue({
     this.updateTransientTestCalculations('governor2');
     this.updateSpeedTransientSubsectionCalculations('governor1');
     this.updateSpeedTransientSubsectionCalculations('governor2');
+    this.updateGovernorAuxCalculations('governor1');
+    this.updateGovernorAuxCalculations('governor2');
     this.updateVoltageControlCalculations('avr1');
     this.updateVoltageControlCalculations('avr2');
     this.refreshParallelingCalculations();
@@ -1104,7 +1187,6 @@ this.form.patchValue({
             'momentary_speed_hz',
             'final_speed_hz',
             'recovery_observed',
-            'recovery_final_value',
           ]) {
             const control = row.get(key);
             control?.setValidators(active ? [Validators.required, Validators.min(0)] : []);
@@ -1173,7 +1255,7 @@ this.form.patchValue({
       final_speed_hz: ['', [Validators.required, Validators.min(0)]],
       peak_observed: [{ value: '', disabled: true }],
       recovery_observed: ['', [Validators.required, Validators.min(0)]],
-      recovery_final_value: ['', [Validators.required, Validators.min(0)]],
+      recovery_final_value: [{ value: '', disabled: true }],
       status: [{ value: '', disabled: true }],
     });
   }
@@ -1212,7 +1294,7 @@ this.form.patchValue({
       momentary_voltage: ['', [Validators.required, Validators.min(0)]],
       final_voltage: ['', [Validators.required, Validators.min(0)]],
       peak_observed: [{ value: '', disabled: true }],
-      final_value: ['', [Validators.required, Validators.min(0)]],
+      final_value: [{ value: '', disabled: true }],
       recovery_observed: ['', [Validators.required, Validators.min(0)]],
       status: ['', Validators.required],
     });
@@ -1253,12 +1335,14 @@ this.form.patchValue({
     const steadyState = this.form.get(`${governor}_steady_state`) as FormArray;
     const nominalControl = this.form.get(`${governor}_nominal_frequency`);
     const governorTypeControl = this.form.get('governor_type');
+    const shipControl = this.form.get('ship');
     if (!steadyState || !nominalControl) return;
 
     const subscription = merge(
       nominalControl.valueChanges,
       steadyState.valueChanges,
       ...(governorTypeControl ? [governorTypeControl.valueChanges] : []),
+      ...(shipControl ? [shipControl.valueChanges] : []),
     )
       .pipe(debounceTime(100))
       .subscribe(() => this.updateSpeedControlCalculations(governor));
@@ -1271,46 +1355,25 @@ this.form.patchValue({
     const nominalControl = this.form.get(`${governor}_nominal_frequency`);
     if (!steadyState || !nominalControl) return;
 
-    const fullLoadFrequency = this.getSteadyStateFrequency(
-      steadyState,
-      STEADY_STATE_ROW_INDEX.FULL_LOAD,
-    );
-    const noLoadFrequency = this.getSteadyStateFrequency(
-      steadyState,
-      STEADY_STATE_ROW_INDEX.NO_LOAD,
-    );
-
-    const calculatedNominal = calculateNominalFrequency(noLoadFrequency, fullLoadFrequency);
-    if (calculatedNominal !== null) {
-      nominalControl.patchValue(roundFrequencyCalculation(calculatedNominal), {
-        emitEvent: false,
-      });
-    }
-
-    const nominalFrequency =
-      parseFrequency(nominalControl.value) ?? calculatedNominal ?? null;
-
+    const nominalFrequency = parseFrequency(nominalControl.value);
+    const droopRow = steadyState.at(STEADY_STATE_ROW_INDEX.GOVERNOR_DROOP);
     const governorDroop = calculateGovernorDroop(
-      noLoadFrequency,
-      fullLoadFrequency,
+      parseFrequency(droopRow.get('initial_speed_hz')?.value),
+      parseFrequency(droopRow.get('final_speed_hz')?.value),
       nominalFrequency,
     );
-    const droopRow = steadyState.at(STEADY_STATE_ROW_INDEX.GOVERNOR_DROOP);
-    if (governorDroop !== null) {
-      droopRow
-        .get('governor_droop')
-        ?.patchValue(roundFrequencyCalculation(governorDroop), { emitEvent: false });
-    } else {
-      droopRow.get('governor_droop')?.patchValue('', { emitEvent: false });
-    }
-
-    const droopStatus = evaluateGovernorDroopStatus(
-      governorDroop,
-      String(this.form.get('governor_type')?.value ?? ''),
+    this.patchCalculatedControl(
+      droopRow.get('governor_droop'),
+      governorDroop !== null ? roundFrequencyCalculation(governorDroop) : '',
     );
-    if (droopStatus !== null) {
-      droopRow.get('status')?.patchValue(droopStatus, { emitEvent: false });
-    }
+    this.patchCalculatedControl(
+      droopRow.get('status'),
+      evaluateGovernorDroopStatus(
+        governorDroop,
+        String(this.form.get('governor_type')?.value ?? ''),
+        this.currentShipName(),
+      ),
+    );
 
     steadyState.controls.forEach((rowGroup, index) => {
       const rowMeta = STEADY_STATE_LOAD_ROWS[index];
@@ -1321,18 +1384,14 @@ this.form.patchValue({
         parseFrequency(rowGroup.get('final_speed_hz')?.value),
         nominalFrequency,
       );
-
-      if (modulation !== null) {
-        rowGroup
-          .get('frequency_modulation')
-          ?.patchValue(roundFrequencyCalculation(modulation), { emitEvent: false });
-      } else {
-        rowGroup.get('frequency_modulation')?.patchValue('', { emitEvent: false });
-      }
-
-      rowGroup
-        .get('status')
-        ?.patchValue(evaluateFrequencyModulationStatus(modulation), { emitEvent: false });
+      this.patchCalculatedControl(
+        rowGroup.get('frequency_modulation'),
+        modulation !== null ? roundFrequencyCalculation(modulation) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateFrequencyModulationStatus(modulation),
+      );
     });
   }
 
@@ -1341,6 +1400,7 @@ this.form.patchValue({
     const peakLimitControl = this.form.get(`${governor}_peak_permissible_limit`);
     const nominalControl = this.form.get(`${governor}_nominal_frequency`);
     const governorTypeControl = this.form.get('governor_type');
+    const shipControl = this.form.get('ship');
     if (!transient || !peakLimitControl || !nominalControl) return;
 
     const subscription = merge(
@@ -1348,6 +1408,7 @@ this.form.patchValue({
       nominalControl.valueChanges,
       transient.valueChanges,
       ...(governorTypeControl ? [governorTypeControl.valueChanges] : []),
+      ...(shipControl ? [shipControl.valueChanges] : []),
     )
       .pipe(debounceTime(100))
       .subscribe(() => this.updateTransientTestCalculations(governor));
@@ -1362,56 +1423,54 @@ this.form.patchValue({
     if (!transient || !peakLimitControl || !nominalControl) return;
 
     const nominalFrequency = parseFrequency(nominalControl.value);
-    const peakPermissibleLimit = parseFrequency(peakLimitControl.value);
-    const finalValueTolerance = governorRecoveryTolerancePercent(
-      String(this.form.get('governor_type')?.value ?? ''),
-    );
+    const governorType = String(this.form.get('governor_type')?.value ?? '');
+    const autoPeakLimit = speedTransientPeakLimitPercent(governorType, this.currentShipName());
+    if (autoPeakLimit !== null) {
+      this.patchCalculatedControl(peakLimitControl, autoPeakLimit);
+    }
+    const peakPermissibleLimit = isElectronicGovernor(governorType)
+      ? ELECTRONIC_SPEED_TRANSIENT_PEAK_LIMIT_PERCENT
+      : parseFrequency(peakLimitControl.value) ?? autoPeakLimit;
 
     transient.controls.forEach((rowGroup, index) => {
       const rowMeta = TRANSIENT_TEST_LOAD_ROWS[index];
-      const peakObserved = calculatePeakPercent(
-        parseFrequency(rowGroup.get('initial_speed_hz')?.value),
-        parseFrequency(rowGroup.get('momentary_speed_hz')?.value),
-        nominalFrequency,
-      );
-
-      if (peakObserved !== null) {
-        rowGroup
-          .get('peak_observed')
-          ?.patchValue(roundFrequencyCalculation(peakObserved), { emitEvent: false });
-      } else {
-        rowGroup.get('peak_observed')?.patchValue('', { emitEvent: false });
-      }
+      const initialRaw = rowGroup.get('initial_speed_hz')?.value;
+      const momentaryRaw = rowGroup.get('momentary_speed_hz')?.value;
+      const bothSpeedsFilled =
+        isFilledNonZeroFrequency(initialRaw) && isFilledNonZeroFrequency(momentaryRaw);
+      const peakObserved = bothSpeedsFilled
+        ? calculatePeakPercent(
+            parseFrequency(initialRaw),
+            parseFrequency(momentaryRaw),
+            nominalFrequency,
+          )
+        : null;
+      const roundedPeak = peakObserved !== null ? roundFrequencyCalculation(peakObserved) : null;
+      this.patchCalculatedControl(rowGroup.get('peak_observed'), roundedPeak ?? '');
 
       const recoveryFinalValue = rowMeta
         ? calculateRecoveryFinalValue(
             parseFrequency(rowGroup.get('final_speed_hz')?.value),
             rowMeta.loadInitial,
             rowMeta.loadTo,
-            finalValueTolerance,
           )
         : null;
-      this.patchCalculatedRecoveryFinalValue(
-        rowGroup as FormGroup,
-        recoveryFinalValue,
-        finalValueTolerance !== null,
+      this.patchCalculatedControl(
+        rowGroup.get('recovery_final_value'),
+        recoveryFinalValue !== null ? roundFrequencyCalculation(recoveryFinalValue) : '',
       );
-
-      rowGroup
-        .get('status')
-        ?.patchValue(
-          evaluateTransientTestStatus(
-            peakObserved,
-            peakPermissibleLimit,
-            parseFrequency(rowGroup.get('recovery_observed')?.value),
-            2,
-            parseFrequency(rowGroup.get('final_speed_hz')?.value),
-            parseFrequency(rowGroup.get('recovery_final_value')?.value),
-            finalValueTolerance,
-          ),
-          { emitEvent: false },
-        );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        bothSpeedsFilled
+          ? evaluateSpeedTransient25PercentStatus(
+              roundedPeak,
+              peakPermissibleLimit,
+              parseFrequency(rowGroup.get('recovery_observed')?.value),
+            )
+          : '',
+      );
     });
+    this.cdr.detectChanges();
   }
 
   private setupSpeedTransientSubsectionCalculations(governor: 'governor1' | 'governor2'): void {
@@ -1454,62 +1513,50 @@ this.form.patchValue({
     const peakPermissibleLimit = subsection.peakLimitInput
       ? parseFrequency(this.form.get(`${governor}_${subsection.key}_peak_limit`)?.value)
       : parsePercentLabel(subsection.peakLimitLabel);
-    const recoveryPermissibleLimit = parseRecoveryLimitSeconds(
-      subsection.recoveryPermissibleLimit,
-    );
-    const finalValueTolerance = governorRecoveryTolerancePercent(
-      this.governorTypeForTransientSubsection(subsection),
-    );
 
     transient.controls.forEach((rowGroup, index) => {
       const rowMeta = subsection.rows[index];
-      const peakObserved = calculatePeakPercent(
-        parseFrequency(rowGroup.get('initial_speed_hz')?.value),
-        parseFrequency(rowGroup.get('momentary_speed_hz')?.value),
-        nominalFrequency,
-      );
-      if (peakObserved !== null) {
-        rowGroup
-          .get('peak_observed')
-          ?.patchValue(roundFrequencyCalculation(peakObserved), { emitEvent: false });
-      } else {
-        rowGroup.get('peak_observed')?.patchValue('', { emitEvent: false });
-      }
+      const initialRaw = rowGroup.get('initial_speed_hz')?.value;
+      const momentaryRaw = rowGroup.get('momentary_speed_hz')?.value;
+      const bothSpeedsFilled =
+        isFilledNonZeroFrequency(initialRaw) && isFilledNonZeroFrequency(momentaryRaw);
+      const peakObserved = bothSpeedsFilled
+        ? calculatePeakPercent(
+            parseFrequency(initialRaw),
+            parseFrequency(momentaryRaw),
+            nominalFrequency,
+          )
+        : null;
+      const roundedPeak = peakObserved !== null ? roundFrequencyCalculation(peakObserved) : null;
+      this.patchCalculatedControl(rowGroup.get('peak_observed'), roundedPeak ?? '');
       const recoveryFinalValue = rowMeta
         ? calculateRecoveryFinalValue(
             parseFrequency(rowGroup.get('final_speed_hz')?.value),
             rowMeta.loadInitial,
             rowMeta.loadTo,
-            finalValueTolerance,
           )
         : null;
-      this.patchCalculatedRecoveryFinalValue(
-        rowGroup as FormGroup,
-        recoveryFinalValue,
-        finalValueTolerance !== null,
+      this.patchCalculatedControl(
+        rowGroup.get('recovery_final_value'),
+        recoveryFinalValue !== null ? roundFrequencyCalculation(recoveryFinalValue) : '',
       );
-
-      rowGroup
-        .get('status')
-        ?.patchValue(
-          evaluateTransientTestStatus(
-            peakObserved,
-            peakPermissibleLimit,
-            parseFrequency(rowGroup.get('recovery_observed')?.value),
-            recoveryPermissibleLimit,
-            parseFrequency(rowGroup.get('final_speed_hz')?.value),
-            parseFrequency(rowGroup.get('recovery_final_value')?.value),
-            finalValueTolerance,
-          ),
-          { emitEvent: false },
-        );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        bothSpeedsFilled
+          ? evaluateSpeedTransientSubsectionStatus(
+              subsection.key,
+              roundedPeak,
+              peakPermissibleLimit,
+              parseFrequency(rowGroup.get('recovery_observed')?.value),
+            )
+          : '',
+      );
     });
+    this.cdr.markForCheck();
   }
 
-  isAutomaticRecoveryFinalValue(governorType?: string): boolean {
-    return governorRecoveryTolerancePercent(
-      governorType ?? String(this.form.get('governor_type')?.value ?? ''),
-    ) !== null;
+  isAutomaticRecoveryFinalValue(_governorType?: string): boolean {
+    return true;
   }
 
   governorTypeForTransientSubsection(subsection: SpeedTransientSubsection): string {
@@ -1520,17 +1567,55 @@ this.form.patchValue({
     return '';
   }
 
-  private patchCalculatedRecoveryFinalValue(
-    rowGroup: FormGroup,
-    calculatedValue: number | null,
-    isAutomatic: boolean,
-  ): void {
-    if (!isAutomatic) return;
-    rowGroup
-      .get('recovery_final_value')
-      ?.patchValue(calculatedValue === null ? '' : calculatedValue.toFixed(2), {
-        emitEvent: false,
-      });
+  private setupGovernorAuxCalculations(governor: 'governor1' | 'governor2'): void {
+    const range = this.form.get(`${governor}_governor_range`) as FormArray;
+    const rate = this.form.get(`${governor}_governor_rate`) as FormArray;
+    const governorType = this.form.get('governor_type');
+    const ratedFrequency = this.form.get('alternator_rated_frequency');
+    if (!range || !rate) return;
+
+    const subscription = merge(
+      range.valueChanges,
+      rate.valueChanges,
+      ...(governorType ? [governorType.valueChanges] : []),
+      ...(ratedFrequency ? [ratedFrequency.valueChanges] : []),
+    )
+      .pipe(debounceTime(100))
+      .subscribe(() => this.updateGovernorAuxCalculations(governor));
+
+    this.speedControlSubscriptions.push(subscription);
+  }
+
+  private updateGovernorAuxCalculations(governor: 'governor1' | 'governor2'): void {
+    const governorType = this.form.get('governor_type')?.value;
+    const rangeLimits = calculateGovernorRangeLimits(
+      governorType,
+      parseFrequency(this.form.get('alternator_rated_frequency')?.value),
+    );
+
+    const range = this.form.get(`${governor}_governor_range`) as FormArray;
+    range?.controls.forEach((rowGroup) => {
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateGovernorRangeStatus(
+          parseFrequency(rowGroup.get('measured_frequency_hz')?.value),
+          rangeLimits,
+        ),
+      );
+    });
+
+    const rate = this.form.get(`${governor}_governor_rate`) as FormArray;
+    rate?.controls.forEach((rowGroup, index) => {
+      const load = this.governorRateLoadRows[index];
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateGovernorRateStatus(
+          parseFrequency(rowGroup.get('rate_up')?.value),
+          parseFrequency(rowGroup.get('rate_down')?.value),
+          governorMotorRateBand(load, governorType),
+        ),
+      );
+    });
   }
 
   private setupVoltageControlCalculations(avr: 'avr1' | 'avr2'): void {
@@ -1538,6 +1623,9 @@ this.form.patchValue({
     const nominalControl = this.form.get(`${avr}_nominal_voltage`);
     const transient = this.form.get(`${avr}_voltage_transient`) as FormArray;
     const voltageBalance = this.form.get(`${avr}_voltage_balance`) as FormArray;
+    const voltageRangeAvr = this.form.get(`${avr}_voltage_range_avr`) as FormArray;
+    const voltageRangeHand = this.form.get(`${avr}_voltage_range_hand`) as FormArray;
+    const ratedVoltageControl = this.form.get('alternator_rated_voltage');
     if (!steadyState || !nominalControl || !transient || !voltageBalance) return;
 
     const subscription = merge(
@@ -1545,6 +1633,9 @@ this.form.patchValue({
       steadyState.valueChanges,
       transient.valueChanges,
       voltageBalance.valueChanges,
+      ...(voltageRangeAvr ? [voltageRangeAvr.valueChanges] : []),
+      ...(voltageRangeHand ? [voltageRangeHand.valueChanges] : []),
+      ...(ratedVoltageControl ? [ratedVoltageControl.valueChanges] : []),
     )
       .pipe(debounceTime(100))
       .subscribe(() => this.updateVoltageControlCalculations(avr));
@@ -1558,13 +1649,12 @@ this.form.patchValue({
     const voltageBalance = this.form.get(`${avr}_voltage_balance`) as FormArray;
     if (!steadyState || !nominalControl || !transient || !voltageBalance) return;
 
-    const fullLoadVolts = this.getVoltageSteadyStateAverage(steadyState, 0);
-    const noLoadVolts = this.getVoltageSteadyStateAverage(steadyState, 4);
-    const calculatedNominal = calculateNominalFrequency(noLoadVolts, fullLoadVolts);
-    if (calculatedNominal !== null) {
-      nominalControl.patchValue(roundFrequencyCalculation(calculatedNominal), { emitEvent: false });
+    const ratedVoltage = parseFrequency(this.form.get('alternator_rated_voltage')?.value);
+    const typedNominal = parseFrequency(nominalControl.value);
+    if (typedNominal === null && ratedVoltage !== null) {
+      this.patchCalculatedControl(nominalControl, roundFrequencyCalculation(ratedVoltage));
     }
-    const nominalVoltage = parseFrequency(nominalControl.value) ?? calculatedNominal ?? null;
+    const nominalVoltage = parseFrequency(nominalControl.value) ?? ratedVoltage;
 
     steadyState.controls.forEach((rowGroup) => {
       const modulation = calculateVoltageModulation(
@@ -1572,17 +1662,14 @@ this.form.patchValue({
         parseFrequency(rowGroup.get('volts_min')?.value),
         nominalVoltage,
       );
-      if (modulation !== null) {
-        rowGroup
-          .get('voltage_modulation')
-          ?.patchValue(roundFrequencyCalculation(modulation), { emitEvent: false });
-      } else {
-        rowGroup.get('voltage_modulation')?.patchValue('', { emitEvent: false });
-      }
-      const status = modulation === null
-        ? ''
-        : modulation <= VOLTAGE_MODULATION_SAT_LIMIT_PERCENT ? 'Sat' : 'Unsat';
-      rowGroup.get('status')?.patchValue(status, { emitEvent: false });
+      this.patchCalculatedControl(
+        rowGroup.get('voltage_modulation'),
+        modulation !== null ? roundFrequencyCalculation(modulation) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateVoltageModulationStatus(modulation),
+      );
     });
 
     transient.controls.forEach((rowGroup, index) => {
@@ -1592,70 +1679,82 @@ this.form.patchValue({
         parseFrequency(rowGroup.get('momentary_voltage')?.value),
         nominalVoltage,
       );
-      if (peakObserved !== null) {
-        rowGroup
-          .get('peak_observed')
-          ?.patchValue(roundFrequencyCalculation(peakObserved), { emitEvent: false });
-      } else {
-        rowGroup.get('peak_observed')?.patchValue('', { emitEvent: false });
-      }
-      rowGroup
-        .get('status')
-        ?.patchValue(
-          evaluateTransientTestStatus(
-            peakObserved,
-            parsePercentLabel(rowMeta.peakPermissibleLimit),
-            parseFrequency(rowGroup.get('recovery_observed')?.value),
-            parseRecoveryLimitSeconds(rowMeta.recoveryPermissibleLimit),
-            parseFrequency(rowGroup.get('final_voltage')?.value),
-            parseFrequency(rowGroup.get('final_value')?.value),
-            1,
-          ),
-          { emitEvent: false },
-        );
+      const recoveryFinalValue = calculateVoltageRecoveryFinalValue(
+        parseFrequency(rowGroup.get('final_voltage')?.value),
+        rowMeta.loadInitial,
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('peak_observed'),
+        peakObserved !== null ? roundFrequencyCalculation(peakObserved) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('final_value'),
+        recoveryFinalValue !== null ? roundFrequencyCalculation(recoveryFinalValue) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateVoltageTransientStatus(
+          peakObserved,
+          parseFrequency(rowGroup.get('recovery_observed')?.value),
+          isVoltageMotorStartRow(rowMeta.loadInitial),
+        ),
+      );
     });
 
     voltageBalance.controls.forEach((rowGroup) => {
-      const values = [
-        parseFrequency(rowGroup.get('line_voltage_ry')?.value),
-        parseFrequency(rowGroup.get('line_voltage_yb')?.value),
-        parseFrequency(rowGroup.get('line_voltage_br')?.value),
-      ];
-      if (values.some((value) => value === null)) {
-        rowGroup.patchValue(
-          { difference: '', permissible_limit: '', status: '' },
-          { emitEvent: false },
-        );
-        return;
-      }
-      const voltages = values as number[];
-      const difference = Math.max(...voltages) - Math.min(...voltages);
-      const permissibleLimit = voltages.reduce((sum, value) => sum + value, 0) / 3 * 0.01;
-      rowGroup.patchValue(
-        {
-          difference: roundFrequencyCalculation(difference),
-          permissible_limit: roundFrequencyCalculation(permissibleLimit),
-          status: difference <= permissibleLimit ? 'Sat' : 'Unsat',
-        },
-        { emitEvent: false },
+      const ry = parseFrequency(rowGroup.get('line_voltage_ry')?.value);
+      const yb = parseFrequency(rowGroup.get('line_voltage_yb')?.value);
+      const br = parseFrequency(rowGroup.get('line_voltage_br')?.value);
+      const difference = calculateVoltageBalanceDifference(ry, yb, br);
+      const permissibleLimit = calculateVoltageBalancePermissibleLimit(ry, yb, br);
+      this.patchCalculatedControl(
+        rowGroup.get('difference'),
+        difference !== null ? roundFrequencyCalculation(difference) : '',
       );
+      this.patchCalculatedControl(
+        rowGroup.get('permissible_limit'),
+        permissibleLimit !== null ? roundFrequencyCalculation(permissibleLimit) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateVoltageBalanceStatus(difference, permissibleLimit),
+      );
+    });
+
+    const rangeBounds = calculateVoltageRangeBounds(ratedVoltage ?? nominalVoltage, 5);
+    this.patchCalculatedControl(
+      this.form.get(`${avr}_voltage_range_permissible_limit`),
+      5,
+    );
+
+    (['avr', 'hand'] as const).forEach((groupKey) => {
+      const rangeRows = this.form.get(`${avr}_voltage_range_${groupKey}`) as FormArray;
+      rangeRows?.controls.forEach((rowGroup) => {
+        this.patchCalculatedControl(
+          rowGroup.get('status'),
+          evaluateVoltageRangeStatus(
+            parseFrequency(rowGroup.get('voltage_lowest')?.value),
+            parseFrequency(rowGroup.get('voltage_highest')?.value),
+            rangeBounds,
+          ),
+        );
+      });
     });
   }
 
-  private getVoltageSteadyStateAverage(steadyState: FormArray, index: number): number | null {
-    const row = steadyState.at(index);
-    const max = parseFrequency(row.get('volts_max')?.value);
-    const min = parseFrequency(row.get('volts_min')?.value);
-    if (max !== null && min !== null) return (max + min) / 2;
-    return max ?? min;
-  }
-
-  /** Steady-state frequency: final speed after stabilisation, else initial speed. */
-  private getSteadyStateFrequency(steadyState: FormArray, index: number): number | null {
-    const row = steadyState.at(index);
-    return (
-      parseFrequency(row.get('final_speed_hz')?.value) ??
-      parseFrequency(row.get('initial_speed_hz')?.value)
-    );
+  /** Angular skips patchValue on disabled controls; briefly enable to update calculated fields. */
+  private patchCalculatedControl(
+    control: AbstractControl | null | undefined,
+    value: unknown,
+  ): void {
+    if (!control) return;
+    const wasDisabled = control.disabled;
+    if (wasDisabled) {
+      control.enable({ emitEvent: false });
+    }
+    control.patchValue(value, { emitEvent: false });
+    if (wasDisabled) {
+      control.disable({ emitEvent: false });
+    }
   }
 }
