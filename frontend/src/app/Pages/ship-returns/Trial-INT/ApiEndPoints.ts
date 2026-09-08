@@ -96,6 +96,8 @@ export const Apiendpoints = {
   SEG_SHIP_WORKING_STATUS: 'api/data-cap-analysis/seg/ship-working-status/',
 
   DOCUMENT_UPLOAD: 'shipmodule/record-file-upload/',
+  FORM_IMPORTS: 'shipmodule/form-imports/',
+  IN_378_PART_I: 'shipmodule/in378/render-part1/',
   IN_378_PART_II: 'shipmodule/in378/render-part2/',
   IN_305: 'shipmodule/in305/',
   QUARTERLY_HULL_POTENTIAL_FITTED_WITH_SACRIFICIAL_ANODES:
@@ -109,6 +111,7 @@ export const Apiendpoints = {
   SHELL_EXPANSION_GA_DRAWING: 'dashboard/ship-drawing-data/',
   MASTER_STRAKES: 'master/strakes/',
   MASTER_DECKS: 'master/decks/',
+  BOAT_MASTER: 'master/boats/',
 };
 export const equipmentHtml = {
   labelKey: 'name',

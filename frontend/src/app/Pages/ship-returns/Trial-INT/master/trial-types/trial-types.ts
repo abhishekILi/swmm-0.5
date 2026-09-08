@@ -212,7 +212,7 @@ export class TrialTypes implements OnInit {
         }
         this.saveTrialTypeMapping(trialTypeId, formData);
       },
-      error: (err) => {
+      error: (err: any) => {
         this.saving = false;
         console.error('Error saving trial type', err);
       },
@@ -235,7 +235,7 @@ export class TrialTypes implements OnInit {
         this.closeAddPopup();
         this.refreshTable();
       },
-      error: (err) => {
+      error: (err: any) => {
         this.saving = false;
         console.error('Error saving trial type mapping', err);
       },
@@ -313,7 +313,7 @@ export class TrialTypes implements OnInit {
           this.closeDeleteDialog();
           this.refreshTable();
         },
-        error: (err) => {
+        error: (err: any) => {
           this.deleteLoading = false;
           console.error('Error deleting trial type', err);
         },

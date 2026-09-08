@@ -8,6 +8,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
+import { MasterService } from '../../../../services/master.service';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { Apiendpoints } from '../../../../ApiEndPoints';
@@ -18,9 +19,8 @@ import {
   Save,
   SaveAllIcon,
 } from '../../../../ui/lucide-compat';
-const QRCode = {
-  toDataURL: (text: string, _options?: any) => Promise.resolve('data:image/svg+xml;utf8,<svg></svg>'),
-};
+// @ts-ignore
+import QRCode from 'qrcode';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/master-compat';
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
@@ -29,6 +29,8 @@ import { FileUploadComponent } from '../../../../ui/file-upload/file-upload.comp
 import { ReusableButtonComponent } from '../../../../ui/master-compat';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 import { finalize } from 'rxjs';
+import { TabStateService } from '../../../../services/tab-state.service';
+import { StorageService } from '../../../../services/storage.service';
 
 interface CurrentUser {
   first_name: string;
@@ -98,13 +100,13 @@ export class BerCertificateAddComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private masterService: MasterService,
+    private masterService: MasterService,
     private apiService: ApiService,
     private toastService: ToastService,
     private cdr: ChangeDetectorRef,
-    // private tabStateService: TabStateService,
-    // private storageService: StorageService,
-  ) {}
+    private tabStateService: TabStateService,
+  ) { }
+
 
   getUser(): any {
     try {
@@ -169,14 +171,15 @@ export class BerCertificateAddComponent implements OnInit {
     const mode = this.route.snapshot.data['mode'];
 
     this.buildForm();
+    this.loadCommands();
 
     this.user = this.getUser();
-    this.LoggedInUser = this.user?.process_name || this.user?.role_center?.[0]?.process_name || '';
+    this.LoggedInUser = this.user?.user_roles?.[0]?.process_name || '';
 
     if (this.LoggedInUser === 'Ship Staff') {
       this.loadShips();
 
-      const shipId = this.user?.ship_id || this.user?.role_center?.[0]?.ship_id;
+      const shipId = this.user?.ship_id || this.user?.user_roles?.[0]?.ship_id;
 
       if (shipId) {
         this.form.patchValue({
@@ -197,11 +200,15 @@ export class BerCertificateAddComponent implements OnInit {
     if (this.rowId) {
       this.getEditDataByRowId(this.rowId);
     }
+
+    this.tabStateService.activeTab$.subscribe((tab) => {
+      this.activeTab = tab;
+    });
   }
 
   buildForm() {
     this.form = this.fb.group({
-      command: ['', Validators.required],
+      command: [''],
       ship_id: ['', Validators.required],
       initiatedBy: ['', Validators.required],
       type_of_boat: ['', Validators.required],
@@ -214,8 +221,9 @@ export class BerCertificateAddComponent implements OnInit {
       ref_auth: null,
     });
   }
+
   // ---------------------- IF THE ROW ID IS THERE THEN THE DATA WILL BE SET
-  getEditDataByRowId(rowId: string) {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false) {
     this.apiService.get(`${Apiendpoints.BER_CERTIFICATE}${rowId}/`).subscribe({
       next: (res: any) => {
         if (!res?.data) return;
@@ -224,7 +232,8 @@ export class BerCertificateAddComponent implements OnInit {
 
         const patchForm = () => {
           this.form.patchValue({
-            command: this.editDataDetails?.command?.id || '',
+            command: this.editDataDetails?.command?.id || this.editDataDetails?.command || '',
+            ship_id: this.editDataDetails?.ship?.id || this.editDataDetails?.ship_id || this.editDataDetails?.ship || '',
             type_of_boat: this.editDataDetails?.type_of_boat || '',
             registration_no: this.editDataDetails?.registration_no || '',
             ber_for: this.editDataDetails?.ber_for || '',
@@ -232,7 +241,7 @@ export class BerCertificateAddComponent implements OnInit {
             ber_engine: this.editDataDetails?.ber_engine || '',
             dg: this.editDataDetails?.dg || '',
             remarks: this.editDataDetails?.remarks || '',
-            initiatedBy: this.editDataDetails?.initiatedBy || '',
+            initiatedBy: this.editDataDetails?.initiatedBy || this.editDataDetails?.initiated_by || '',
           });
 
           // ✅ IMPORTANT: Disable AFTER patch
@@ -243,9 +252,8 @@ export class BerCertificateAddComponent implements OnInit {
           console.log('Form patched successfully (view/edit)');
         };
 
-        // ✅ Wait for dropdowns (same pattern as before)
         const interval = setInterval(() => {
-          if (this.commandOptions.length > 0) {
+          if (this.commandOptions.length > 0 || this.shipOptions.length > 0) {
             patchForm();
             clearInterval(interval);
           }
@@ -255,6 +263,11 @@ export class BerCertificateAddComponent implements OnInit {
         if (res.data.signatureData) {
           this.signatureData = res.data.signatureData;
         }
+
+        if (openWorkflow) {
+          this.openApprovalWorkflow();
+        }
+        this.cdr.detectChanges();
       },
 
       error: (err) => {
@@ -263,12 +276,12 @@ export class BerCertificateAddComponent implements OnInit {
       },
     });
   }
+
   // --------------- FETCH AND SET DATA OF COMMANDS AND UNITS ---------------------
 
   loadCommands() {
-    this.apiService.get(Apiendpoints.MASTER_COMMANDS).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.commandOptions = dataList.map((item: any) => ({
+    this.masterService.getCommands().subscribe((res: any) => {
+      this.commandOptions = (res?.data || []).map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
@@ -276,11 +289,10 @@ export class BerCertificateAddComponent implements OnInit {
     });
   }
 
-  //
   listenToCommandChanges() {
-    this.form.get('command')?.valueChanges.subscribe((commandId) => {
-      if (commandId) {
-        this.loadShipsByCommand(commandId);
+    this.form.get('command')?.valueChanges.subscribe((cmdId) => {
+      if (cmdId) {
+        this.loadShipsByCommand(cmdId);
         this.form.get('ship_id')?.reset();
       } else {
         this.shipOptions = [];
@@ -289,62 +301,29 @@ export class BerCertificateAddComponent implements OnInit {
     });
   }
 
-  loadShipsByCommand(commandId: number) {
-    this.apiService.get(`${Apiendpoints.MASTER_SHIP}?command=${commandId}`).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.shipOptions = dataList.map((item: any) => ({
+  loadShipsByCommand(cmdId: number) {
+    this.masterService.getShipsByCommand(cmdId).subscribe((res: any) => {
+      this.shipOptions = (res?.data || []).map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
-      this.cdr.detectChanges();
     });
   }
 
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
-  }
-
   loadShips(shipId?: number) {
-    const user = this.getUser();
-    this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
-      next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
-          label: item.name,
-          value: item.id,
-        }));
+    this.masterService.getVessels().subscribe((res: any) => {
+      this.shipOptions = (res?.data || []).map((item: any) => ({
+        label: item.name,
+        value: item.id,
+      }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || 'INS KOLKATA', value: user.ship_id });
-        }
-
-        const sid = shipId || user?.ship_id;
-        if (sid) {
-          this.form.patchValue({ ship_id: sid });
-          if (this.isShipUser(user)) {
-            this.form.get('ship_id')?.disable();
-          }
-        }
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('Error loading ships:', err);
-        if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
-          this.form.patchValue({ ship_id: user.ship_id });
-          if (this.isShipUser(user)) {
-            this.form.get('ship_id')?.disable();
-          }
-        }
+      if (shipId) {
+        this.form.patchValue({
+          ship_id: shipId,
+        });
       }
+
+      this.cdr.detectChanges();
     });
   }
 
@@ -355,8 +334,8 @@ export class BerCertificateAddComponent implements OnInit {
       width: 200,
       margin: 1,
       color: {
-        dark: '#000000', // black QR code
-        light: '#FFFFFF', // white background
+        dark: '#000000',
+        light: '#FFFFFF',
       },
     });
   }
@@ -365,6 +344,7 @@ export class BerCertificateAddComponent implements OnInit {
     console.log('file', file);
     this.selectedFile = file;
   }
+
   validateForm(): boolean {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -380,7 +360,7 @@ export class BerCertificateAddComponent implements OnInit {
   }
 
   handleBack() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/ber-certificate']);
+    window.history.back();
   }
 
   uploadReferenceDocument(file: File, recordId: string) {
@@ -391,6 +371,7 @@ export class BerCertificateAddComponent implements OnInit {
     formData.append('file', file);
     return this.apiService.post(Apiendpoints.DOCUMENT_UPLOAD, formData);
   }
+
   // -------------------------------------- HANDLE SUBMIT METHOD ------------------------
   handleSave(draftStatus: 'draft' | 'save') {
     if (draftStatus === 'save' && !this.validateForm()) {
@@ -403,7 +384,7 @@ export class BerCertificateAddComponent implements OnInit {
       this.draftLoading = true;
     }
 
-    const formValues = this.form.getRawValue();
+    const formValues = this.form.value;
 
     const payload: any = {
       draft_status: draftStatus,
@@ -436,7 +417,6 @@ export class BerCertificateAddComponent implements OnInit {
           );
 
           if (draftStatus === 'save') {
-            // Get the ID returned by the save API
             const savedId =
               res?.data?.id ??
               res?.data?.rowId ??
@@ -450,7 +430,7 @@ export class BerCertificateAddComponent implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Certificate saved, but approval workflow could not be opened.',
@@ -458,14 +438,13 @@ export class BerCertificateAddComponent implements OnInit {
             }
           } else {
             setTimeout(() => {
-              this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/ber-certificate']);
+              window.history.back();
             }, 1000);
           }
         },
 
         error: (err) => {
           console.error('BER Certificate save error:', err);
-
           this.toastService.showError('Failed to save Ber Certificate data.');
         },
       });

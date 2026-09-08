@@ -195,19 +195,53 @@ const DEFAULT_TONE = 'border-slate-300 dark:border-white/20 bg-slate-100 dark:bg
   `,
 })
 export class AgActionCellComponent implements ICellRendererAngularComp {
-  params!: AgActionCellParams;
+  params!: any;
 
-  agInit(params: AgActionCellParams): void { this.params = params; }
-  refresh(): boolean { return false; }
-
-  get visibleActions(): AgActionCellAction[] {
-    return (this.params?.actions || []).filter(action => !action.hidden?.(this.params.data));
+  agInit(params: any): void {
+    this.params = params;
+  }
+  refresh(): boolean {
+    return false;
   }
 
-  tone(key: string): string { return ACTION_TONE[key] || DEFAULT_TONE; }
+  get visibleActions(): AgActionCellAction[] {
+    if (this.params?.actions) {
+      return (this.params.actions || []).filter(
+        (action: any) => !action.hidden?.(this.params.data),
+      );
+    }
+    const actions: AgActionCellAction[] = [];
+    const p = this.params || {};
+    const data = p.data;
+
+    if (p.editCallback && (p.showEdit === undefined || p.showEdit === true || (typeof p.showEdit === 'function' && p.showEdit(data)))) {
+      actions.push({ key: 'edit', label: 'Edit' });
+    }
+    if (p.viewCallback && (p.showView === undefined || p.showView === true || (typeof p.showView === 'function' && p.showView(data)))) {
+      actions.push({ key: 'view', label: 'View Details' });
+    }
+    if (p.deleteCallback && (p.showDelete === undefined || p.showDelete === true || (typeof p.showDelete === 'function' && p.showDelete(data)))) {
+      actions.push({ key: 'delete', label: 'Delete' });
+    }
+    return actions;
+  }
+
+  tone(key: string): string {
+    return ACTION_TONE[key] || DEFAULT_TONE;
+  }
 
   run(action: AgActionCellAction): void {
-    this.params.onAction?.(action.key, this.params.data);
+    const p = this.params || {};
+    const data = p.data;
+    if (p.onAction) {
+      p.onAction(action.key, data);
+    } else if (action.key === 'edit' && p.editCallback) {
+      p.editCallback(data);
+    } else if (action.key === 'view' && p.viewCallback) {
+      p.viewCallback(data);
+    } else if (action.key === 'delete' && p.deleteCallback) {
+      p.deleteCallback(data);
+    }
   }
 }
 
@@ -288,5 +322,124 @@ export class ReusableButtonComponent {
   @Input() icon: any;
   @Input() customClass = 'border border-white/20 bg-white/10 text-white hover:bg-white/15';
   @Output() clicked = new EventEmitter<Event>();
+}
+
+export { PaginateTableComponent } from './paginate-table/paginate-table.component';
+
+@Component({
+  selector: 'app-import-export-dialog',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
+    <div *ngIf="open" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
+      <div class="glass-card relative w-full max-w-lg rounded-2xl border border-white/20 bg-[#0f172a]/95 p-6 text-white shadow-2xl">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+          <h3 class="text-base font-semibold tracking-wide text-white">
+            {{ config?.title || 'Import Records' }}
+          </h3>
+          <button type="button" class="text-white/60 hover:text-white transition text-xl font-bold px-2 py-0.5 rounded-lg hover:bg-white/10" (click)="onClose()">
+            &times;
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div class="space-y-4">
+          <!-- File Download Template if available -->
+          <div *ngIf="getTemplateFile()" class="p-3 rounded-xl border border-white/15 bg-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-file-excel text-[#61C2FF] text-lg"></i>
+              <span class="text-xs font-medium text-white/90">Sample Template File</span>
+            </div>
+            <a [href]="getTemplateFile()" download class="text-xs font-semibold text-[#61C2FF] hover:underline flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#61C2FF]/10 hover:bg-[#61C2FF]/20 transition">
+              <i class="fas fa-download"></i> Download Template
+            </a>
+          </div>
+
+          <!-- File Upload Input -->
+          <div>
+            <label class="block text-xs font-medium text-white/80 mb-2">Select Excel/CSV File to Upload</label>
+            <div class="border-2 border-dashed border-white/20 hover:border-[#61C2FF]/50 rounded-xl p-4 text-center bg-white/5 transition">
+              <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls, .csv" class="w-full text-xs text-white/80 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#1069AB] file:text-white hover:file:bg-[#195d95] cursor-pointer" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="mt-6 flex items-center justify-end gap-3 border-t border-white/10 pt-4">
+          <button type="button" class="rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-white hover:bg-white/15 transition" (click)="onClose()">
+            Cancel
+          </button>
+          <button type="button" [disabled]="loading || !selectedFile" class="rounded-xl bg-[#1069AB] px-5 py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#195d95] disabled:opacity-50 transition flex items-center gap-2" (click)="onUpload()">
+            <span *ngIf="loading" class="animate-spin rounded-full h-3.5 w-3.5 border-2 border-white border-t-transparent"></span>
+            <span>{{ loading ? 'Uploading...' : 'Import Data' }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `,
+})
+export class ImportExportDialogComponent {
+  @Input() open = false;
+  @Input() loading = false;
+  @Input() config: any;
+  @Output() import = new EventEmitter<FormData>();
+  @Output() close = new EventEmitter<void>();
+
+  selectedFile: File | null = null;
+
+  getTemplateFile(): string | null {
+    if (!this.config?.workflow) return null;
+    for (const item of this.config.workflow) {
+      if (item.type === 'download' && item.file) return item.file;
+      if (item.files) {
+        const firstKey = Object.keys(item.files)[0];
+        if (firstKey && item.files[firstKey]?.file) return item.files[firstKey].file;
+      }
+    }
+    return null;
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files?.[0];
+    if (file) {
+      this.selectedFile = file;
+    }
+  }
+
+  onClose() {
+    this.selectedFile = null;
+    this.close.emit();
+  }
+
+  onUpload() {
+    if (!this.selectedFile) return;
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+    if (this.config?.formName) {
+      formData.append('form_name', this.config.formName);
+    }
+    this.import.emit(formData);
+  }
+}
+
+export function formatDate(val: any): string {
+  if (!val) return '-';
+  try {
+    const d = new Date(val);
+    if (isNaN(d.getTime())) return String(val);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  } catch {
+    return String(val);
+  }
+}
+
+export function formatPeriod(val: any): string {
+  if (!val) return '-';
+  if (typeof val === 'string') return val.toUpperCase();
+  return String(val);
 }
 

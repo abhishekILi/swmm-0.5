@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -12,18 +13,17 @@ import {
   Save,
   SaveAllIcon,
 } from '../../../../ui/lucide-compat';
-// import { MasterService } from '../../../../services/master.service';
+import { MasterService } from '../../../../services/master.service';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { Apiendpoints } from '../../../../ApiEndPoints';
-import { CommonModule } from '@angular/common';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/master-compat';
 import { SelectComponent as NewSelectComponent } from '../../../../ui/select.component';
 import { InputComponent } from '../../../../ui/input.component';
 import { FileUploadComponent } from '../../../../ui/file-upload/file-upload.component';
-
+import { ReusableButtonComponent } from '../../../../ui/master-compat';
 import { finalize } from 'rxjs';
 import {
   ReusableInputTableComponent,
@@ -31,10 +31,10 @@ import {
 } from '../../../../ui/reusable-input-table/reusable-input-table.component';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 import { CalenderComponent } from '../../../../ui/calender.component';
-import { ReusableButtonComponent } from '../../../../ui/master-compat';
 
 @Component({
   selector: 'app-in-305-new-add',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -59,12 +59,10 @@ export class In305NewAdd implements OnInit {
 
   editMode = false;
   viewMode = false;
-  rowId!: string | null;
+  rowId: string | null = null;
   editDataDetails: any = null;
   showApprovalWorkflowPopup = false;
   addButtonText = 'Add new record';
-  user: any = null;
-  LoggedInUser = '';
 
   form!: FormGroup;
   saveLoading = false;
@@ -84,11 +82,10 @@ export class In305NewAdd implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private masterService: MasterService,
+    private masterService: MasterService,
     private apiService: ApiService,
     private toastService: ToastService,
     private cdr: ChangeDetectorRef,
-    // private storageService: StorageService,
   ) {}
 
   getUser(): any {
@@ -100,27 +97,34 @@ export class In305NewAdd implements OnInit {
     }
   }
 
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   ngOnInit(): void {
     this.buildForm();
     const mode = this.route.snapshot.data['mode'];
+    this.rowId = this.route.snapshot.paramMap.get('id');
     this.updateOpsTableRows(this.totalRows);
 
     this.editMode = mode === 'edit';
     this.viewMode = mode === 'view';
-    this.rowId = this.route.snapshot.paramMap.get('id');
-
-    this.user = this.getUser();
-    this.LoggedInUser = this.user?.process_name || this.user?.role_center?.[0]?.process_name || '';
 
     this.loadShips();
     this.loadDockyard();
-
-    const shipId = this.user?.ship_id || this.user?.role_center?.[0]?.ship_id;
-    if (shipId && !this.rowId) {
-      this.form.patchValue({
-        ship_id: shipId,
-      });
-    }
 
     if (this.rowId) {
       this.getFormDetailsByRowId(this.rowId);
@@ -129,33 +133,33 @@ export class In305NewAdd implements OnInit {
     if (this.viewMode) {
       this.form.disable();
     }
-    console.log('dockYardOptions', this.dockYardOptions);
   }
 
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
+  buildForm() {
+    this.form = this.fb.group({
+      ship_id: ['', Validators.required],
+      date_of_return: ['', Validators.required],
+      forward_to: ['', Validators.required],
+    });
   }
 
   loadShips() {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
         }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
-          this.shipOptions.unshift({ label: user.ship_name || `Ship ${user.ship_id}`, value: user.ship_id });
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
+          this.shipOptions.unshift({
+            label: user.ship_name || `Ship ${user.ship_id}`,
+            value: user.ship_id,
+          });
         }
 
         if (this.isShipUser(user) && user?.ship_id) {
@@ -168,18 +172,23 @@ export class In305NewAdd implements OnInit {
             ship_id: this.shipOptions[0].value,
           });
         }
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id }];
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
           this.form.patchValue({ ship_id: user.ship_id });
           if (this.isShipUser(user)) {
             this.form.get('ship_id')?.disable();
           }
         }
-      }
+        this.toastService.showError('Failed to load ships.');
+        this.cdr.detectChanges();
+      },
     });
   }
 
@@ -188,26 +197,23 @@ export class In305NewAdd implements OnInit {
   }
 
   loadDockyard() {
-    this.apiService.get(Apiendpoints.MASTER_DOCKYARD).subscribe((res: any) => {
-      const dataList = res?.results || res?.data || [];
-      this.dockYardOptions = dataList.map((item: any) => ({
+    this.masterService.getDockYards().subscribe((res: any) => {
+      this.dockYardOptions = (res?.data || []).map((item: any) => ({
         label: item.name,
         value: item.id,
       }));
+
       this.tableColumns = this.tableColumns.map((col) => {
         if (col.field === 'dockyard') {
-          return { ...col, options: this.dockYardOptions };
+          return {
+            ...col,
+            options: this.dockYardOptions,
+          };
         }
         return col;
       });
+
       this.cdr.detectChanges();
-    });
-  }
-  buildForm() {
-    this.form = this.fb.group({
-      ship_id: ['', Validators.required],
-      date_of_return: ['', Validators.required],
-      forward_to: ['', Validators.required],
     });
   }
 
@@ -218,7 +224,7 @@ export class In305NewAdd implements OnInit {
       this.selectedHodFile = file;
     }
   }
-  // ------------------------- FORM TABLE CONFIGURATIONS ----------------------
+
   tableColumns: ReusableTableColumn[] = [
     { field: 's_no', header: 'Ser', width: '70px', align: 'center' as const },
     {
@@ -279,12 +285,11 @@ export class In305NewAdd implements OnInit {
   ];
 
   onOpsRowCountChange(event: Event) {
-    let value = +(event.target as HTMLInputElement).value;
-    if (!value || value < 1) value = 1;
+    const value = +(event.target as HTMLInputElement).value;
     this.totalRows = value;
     this.updateOpsTableRows(value);
-    this.cdr.detectChanges();
   }
+
   updateOpsTableRows(count: number) {
     const currentLength = this.tableData.length;
     if (count > currentLength) {
@@ -307,6 +312,7 @@ export class In305NewAdd implements OnInit {
       this.tableData.splice(count);
     }
     this.tableData = [...this.tableData];
+    this.cdr.detectChanges();
   }
 
   handleOpsTableChange(index: number, field: string, value: string) {
@@ -325,10 +331,10 @@ export class In305NewAdd implements OnInit {
   }
 
   handleBack() {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/in-305']);
+    this.router.navigate(['/ship/returns/in-305']);
   }
+
   validateForm(): boolean {
-    // Check main form
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.toastService.showError('Please fill all required fields correctly.');
@@ -337,7 +343,7 @@ export class In305NewAdd implements OnInit {
     return true;
   }
 
-  getFormDetailsByRowId(rowId: string) {
+  getFormDetailsByRowId(rowId: string, openWorkflow: boolean = false) {
     this.apiService.get(`${Apiendpoints.IN_305}${rowId}/`).subscribe({
       next: (res: any) => {
         if (!res?.data) return;
@@ -345,13 +351,12 @@ export class In305NewAdd implements OnInit {
         const data = res.data;
         this.editDataDetails = data;
 
-        // ✅ ---------------- FORM PATCH ----------------
         this.form.patchValue({
-          ship_id: data.ship?.id || '',
+          ship_id: data.ship?.id || data.ship || data.ship_id || '',
           forward_to: data.forward_to || '',
+          date_of_return: data.date_of_return || '',
         });
 
-        // ✅ ---------------- TABLE DATA ----------------
         this.tableData = (data.chain_data || []).map(
           (item: any, index: number) => ({
             id: item.id,
@@ -368,11 +373,14 @@ export class In305NewAdd implements OnInit {
           }),
         );
 
-        // ✅ Ensure at least 1 row exists
         this.totalRows = this.tableData.length || 1;
 
         if (this.tableData.length === 0) {
           this.updateOpsTableRows(1);
+        }
+
+        if (openWorkflow) {
+          this.openApprovalWorkflow();
         }
 
         this.cdr.detectChanges();
@@ -383,8 +391,6 @@ export class In305NewAdd implements OnInit {
       },
     });
   }
-
-  /* ----------------------------- CHECKING AND REMOVING EMPTY ROWS ----------------------------------- */
 
   isTableRowEmpty(item: any): boolean {
     return !(
@@ -412,8 +418,8 @@ export class In305NewAdd implements OnInit {
     }
 
     const formattableData = this.tableData
-      .filter((item: any) => !this.isTableRowEmpty(item))
-      .map((item: any, index: number) => ({
+      .filter((item) => !this.isTableRowEmpty(item))
+      .map((item, index) => ({
         ...item,
         id: item?.id || null,
         s_no: index + 1,
@@ -421,13 +427,16 @@ export class In305NewAdd implements OnInit {
 
     const formValues = this.form.getRawValue();
 
-    const payload: any = { draft_status: draftStatus, ...formValues };
-    payload.chain_data = formattableData;
+    const payload: any = {
+      draft_status: draftStatus,
+      ...formValues,
+      chain_data: formattableData,
+    };
+
     if (this.editMode) {
       payload.id = this.editDataDetails.id;
     }
 
-    // ----------- NEEDED 305 API ENDPOINT
     this.apiService
       .post(Apiendpoints.IN_305, payload)
       .pipe(
@@ -459,7 +468,7 @@ export class In305NewAdd implements OnInit {
               } else if (this.editDataDetails) {
                 this.editDataDetails.id = savedId;
               }
-              this.openApprovalWorkflow();
+              this.getFormDetailsByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -467,7 +476,7 @@ export class In305NewAdd implements OnInit {
             }
           } else {
             setTimeout(() => {
-              this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/in-305']);
+              this.router.navigate(['/ship/returns/in-305']);
             }, 1000);
           }
         },
@@ -477,3 +486,4 @@ export class In305NewAdd implements OnInit {
       });
   }
 }
+

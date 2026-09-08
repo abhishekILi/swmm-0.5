@@ -1,5 +1,3 @@
-// hull-inspection-report.component.ts
-
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
@@ -20,7 +18,6 @@ import {
   FileText,
   Trash,
 } from '../../../../ui/lucide-compat';
-import { ShellExpensionGaDrawingDialogViewer } from '../../../../ui/master-compat';
 
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
 import { ToastComponent } from '../../../../ui/master-compat';
@@ -50,6 +47,8 @@ import { Apiendpoints } from '../../../../ApiEndPoints';
 
 import { finalize, firstValueFrom } from 'rxjs';
 
+import { ShellExpensionGaDrawingDialogViewer } from '../../../../ui/master-compat';
+
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
 
 @Component({
@@ -62,14 +61,11 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     LucideAngularModule,
     LoadingButtonComponent,
     ToastComponent,
-    ReusableInputTableComponent,
     NewSelectComponent,
-    InputComponent,
     YearPickerComponent,
     CalenderComponent,
     FormInputTableWithHeaders,
     ReusableButtonComponent,
-    ShellExpensionGaDrawingDialogViewer,
     ApprovalWorkFlow,
   ],
   templateUrl: './hull-inspection-report.component.html',
@@ -114,12 +110,6 @@ export class HullInspectionReportComponent implements OnInit {
 
   /**
    * Compartments are loaded dynamically based on selected ship.
-   *
-   * Example:
-   * [
-   *   { label: 'Engine Room', value: 1 },
-   *   { label: 'Cargo Hold', value: 2 }
-   * ]
    */
   compartmentOptions: any[] = [];
 
@@ -174,17 +164,45 @@ export class HullInspectionReportComponent implements OnInit {
   // CONSTRUCTOR
   // ---------------------------------------------------------------------------
 
-// import { MasterService } from '../../../../services/master.service';
-
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
     private toastService: ToastService,
-    // private masterService: MasterService,
+    private masterService: MasterService,
     private cdr: ChangeDetectorRef,
   ) {}
+
+  // ===========================================================================
+  // USER HELPERS
+  // ===========================================================================
+
+  getUser(): any {
+    try {
+      const userStr = localStorage.getItem('user');
+      return userStr ? JSON.parse(userStr) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  isShipUser(user: any): boolean {
+    if (!user) return false;
+    if (user.process_name === 'Ship') return true;
+    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
+      const rc = user.role_center[0];
+      if (
+        rc?.process_name === 'Ship' ||
+        rc?.process_details?.name === 'Ship' ||
+        rc?.process_name === 'ship' ||
+        rc?.process_details?.name === 'ship'
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   // ===========================================================================
   // LIFECYCLE
@@ -201,14 +219,6 @@ export class HullInspectionReportComponent implements OnInit {
     this.editMode = mode === 'edit';
     this.viewMode = mode === 'view';
 
-    /**
-     * Ship change listener.
-     *
-     * Whenever ship changes:
-     * 1. Load drawing.
-     * 2. Load strakes based on ship class.
-     * 3. Load compartments based on ship ID.
-     */
     this.form.get('ship_id')?.valueChanges.subscribe(async (shipId) => {
       if (!shipId) {
         this.clearShipDependentData();
@@ -218,12 +228,6 @@ export class HullInspectionReportComponent implements OnInit {
       await this.handleShipChange(shipId);
     });
 
-    /**
-     * Load ships first.
-     *
-     * If we are editing/viewing an existing record, the existing data
-     * is loaded after the ship master data has been loaded.
-     */
     this.loadShips();
   }
 
@@ -244,65 +248,35 @@ export class HullInspectionReportComponent implements OnInit {
   // SHIP
   // ===========================================================================
 
-  getUser(): any {
-    try {
-      const userStr = localStorage.getItem('user');
-      return userStr ? JSON.parse(userStr) : null;
-    } catch {
-      return null;
-    }
-  }
-
-  isShipUser(user: any): boolean {
-    if (!user) return false;
-    if (user.process_name === 'Ship') return true;
-    if (Array.isArray(user.role_center) && user.role_center.length > 0) {
-      const rc = user.role_center[0];
-      if (rc?.process_name === 'Ship' || rc?.process_details?.name === 'Ship' || rc?.process_name === 'ship' || rc?.process_details?.name === 'ship') {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
-   * Load ships from API.
-   */
   loadShips(): void {
     const user = this.getUser();
     this.apiService.get(Apiendpoints.MASTER_SHIP).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.shipOptions = dataList.map((item: any) => ({
+        this.shipOptions = (res?.results || res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
           classOfShip: item.classofship,
         }));
 
-        if (user?.ship_id && !this.shipOptions.some((s: any) => s.value === user.ship_id)) {
+        if (
+          user?.ship_id &&
+          !this.shipOptions.some((s: any) => s.value === user.ship_id)
+        ) {
           this.shipOptions.unshift({
             label: user.ship_name || `Ship ${user.ship_id}`,
             value: user.ship_id,
-            classOfShip: null,
           });
         }
 
         if (this.isShipUser(user) && user?.ship_id) {
-          this.form.patchValue({
-            ship_id: user.ship_id,
-          });
+          this.form.patchValue({ ship_id: user.ship_id });
           this.form.get('ship_id')?.disable();
-          this.handleShipChange(user.ship_id);
         } else if (user?.ship_id && !this.rowId) {
-          this.form.patchValue({
-            ship_id: user.ship_id,
-          });
-          this.handleShipChange(user.ship_id);
+          this.form.patchValue({ ship_id: user.ship_id });
         } else if (this.shipOptions.length === 1 && !this.rowId) {
           this.form.patchValue({
             ship_id: this.shipOptions[0].value,
           });
-          this.handleShipChange(this.shipOptions[0].value);
         }
 
         if (this.rowId) {
@@ -312,20 +286,21 @@ export class HullInspectionReportComponent implements OnInit {
         this.cdr.detectChanges();
       },
 
-      error: (err: any) => {
+      error: (err) => {
         console.error('Error loading ships:', err);
         if (user?.ship_id) {
-          this.shipOptions = [{ label: user.ship_name || 'INS KOLKATA', value: user.ship_id, classOfShip: null }];
+          this.shipOptions = [
+            { label: user.ship_name || 'INS KOLKATA', value: user.ship_id },
+          ];
           this.form.patchValue({ ship_id: user.ship_id });
           if (this.isShipUser(user)) {
             this.form.get('ship_id')?.disable();
           }
-          this.handleShipChange(user.ship_id);
-        } else {
-          this.shipOptions = [];
-          this.toastService.showError('Failed to load ships.');
         }
-
+        if (this.rowId) {
+          this.getEditDataByRowId(this.rowId);
+        }
+        this.toastService.showError('Failed to load ships.');
         this.cdr.detectChanges();
       },
     });
@@ -412,6 +387,21 @@ export class HullInspectionReportComponent implements OnInit {
   // COMPARTMENTS
   // ===========================================================================
 
+  /**
+   * Load compartments for the selected ship.
+   *
+   * IMPORTANT:
+   * The compartment API is ship-specific.
+   *
+   * The result is converted into:
+   *
+   * {
+   *   label: item.name,
+   *   value: item.id
+   * }
+   *
+   * and then assigned to the "compartment_name" table column.
+   */
   loadCompartment(shipId: number | string, selectedIds: number[] = []): void {
     if (!shipId) {
       this.compartmentOptions = [];
@@ -419,20 +409,41 @@ export class HullInspectionReportComponent implements OnInit {
       return;
     }
 
-    this.apiService.get(`${Apiendpoints.MASTER_COMPARTMENT}?ship_id=${shipId}`).subscribe({
+    this.masterService.getCompartments(shipId).subscribe({
       next: (res: any) => {
-        const dataList = res?.results || res?.data || [];
-        this.compartmentOptions = dataList.map((item: any) => ({
+        this.compartmentOptions = (res?.data || []).map((item: any) => ({
           label: item.name,
           value: item.id,
         }));
+
+        /**
+         * Update the table dropdown options.
+         */
         this.updateCompartmentColumnOptions();
+
+        /**
+         * This is useful if you later add a form-level
+         * compartment_ids control.
+         *
+         * Currently the inspection table stores compartment_name,
+         * so this will normally not be used.
+         */
+        if (selectedIds.length && this.form.get('compartment_ids')) {
+          this.form.get('compartment_ids')?.setValue(selectedIds);
+        }
+
         this.cdr.detectChanges();
       },
-      error: (err: any) => {
+
+      error: (err) => {
         console.error('Error loading compartments:', err);
+
         this.compartmentOptions = [];
+
         this.updateCompartmentColumnOptions();
+
+        this.toastService.showError('Failed to load compartments.');
+
         this.cdr.detectChanges();
       },
     });
@@ -1121,16 +1132,14 @@ export class HullInspectionReportComponent implements OnInit {
       this.inspectionData.splice(count);
     }
     this.inspectionData = [...this.inspectionData];
+    this.cdr.detectChanges();
   }
 
   onInspectionRowChange(event: Event): void {
-    let value = +(event.target as HTMLInputElement).value;
-    if (!value || value < 1) value = 1;
-
-    this.inspectionRows = Math.max(1, Math.min(99, value));
-
+    const value = +(event.target as HTMLInputElement).value;
+    if (isNaN(value) || value < 1) return;
+    this.inspectionRows = Math.min(99, value);
     this.updateInspectionRows(this.inspectionRows);
-    this.cdr.detectChanges();
   }
 
   // ===========================================================================
@@ -1211,7 +1220,7 @@ export class HullInspectionReportComponent implements OnInit {
   // EDIT / VIEW DATA
   // ===========================================================================
 
-  getEditDataByRowId(rowId: string): void {
+  getEditDataByRowId(rowId: string, openWorkflow: boolean = false): void {
     this.apiService
       .get(`${Apiendpoints.SHIP_STAFF_REPORT_ON_HULL_INSPECTION}${rowId}/`)
       .subscribe({
@@ -1332,6 +1341,10 @@ export class HullInspectionReportComponent implements OnInit {
             if (classId) {
               this.fetchStrakes(classId);
             }
+          }
+
+          if (openWorkflow) {
+            this.openApprovalWorkflow();
           }
 
           this.cdr.detectChanges();
@@ -1582,7 +1595,7 @@ export class HullInspectionReportComponent implements OnInit {
                 this.editDataDetails.id = savedId;
               }
 
-              this.openApprovalWorkflow();
+              this.getEditDataByRowId(this.rowId, true);
             } else {
               this.toastService.showError(
                 'Record saved, but approval workflow could not be opened.',
@@ -1658,6 +1671,6 @@ export class HullInspectionReportComponent implements OnInit {
   // ===========================================================================
 
   handleBack(): void {
-    this.router.navigate(['/afterAuth/ship-returns/hull-returns/returns/ship-staff-hull-inspection-report']);
+    this.router.navigate(['/ship/returns/ship-staff-hull-inspection-report']);
   }
 }
