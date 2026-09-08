@@ -81,8 +81,8 @@ export class ApprovalWorkFlow implements OnInit {
     this.userList?.length > 0 ? '' : this.getUser();
     //to auto open the history --> TANISHK
     if (this.autoOpenHistory) {
-    this.getWorkflowHistory();
-  }
+      this.getWorkflowHistory();
+    }
   }
 
   private resolveWorkflowType(): string {
@@ -98,7 +98,7 @@ export class ApprovalWorkFlow implements OnInit {
 
   getTimelineData(): void {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.apiService.get(`/api/workflow/${this.trialId}/timeline`, { type:this.triaalType } ).subscribe((data: any) => {
+    this.apiService.get(`/api/workflow/${this.trialId}/timeline`, { type: this.triaalType }).subscribe((data: any) => {
       this.workflowData = data.timeline || [];
 
       this.cdr.markForCheck();
@@ -227,8 +227,8 @@ export class ApprovalWorkFlow implements OnInit {
       this.notificationService.success('Assignment successful');
       if (this.context?.workflow_rights?.can_approve_reject) {
         this.submitDecision();
-      }else{
-        // if(this.activeTab === 'external') this.goToGenrateReport();
+      } else {
+        if (this.activeTab === 'external') this.goToGenrateReport();
 
       }
 
@@ -274,9 +274,47 @@ export class ApprovalWorkFlow implements OnInit {
   }
 
   goToGenrateReport(): void {
-    this.router.navigate([this.context?.report_url], {
-      queryParams: { trial: this.trialId, autoSaveVersion: true },
+    const context = this.context ?? this.fromApi?.context;
+
+    const reportUrl = String(context?.report_url ?? '').trim();
+
+    // Agar pehle se report_url available hai
+    // if (reportUrl) {
+    //   const queryParams: Record<string, string | boolean> = {
+    //     trial: this.trialId,
+    //     autoSaveVersion: true,
+    //   };
+
+    //   if (this.isShipSessionUser()) {
+    //     queryParams['version'] = 'ship_report';
+    //   }
+
+    //   this.router.navigate([reportUrl], { queryParams });
+    //   return;
+    // }
+
+    // report_url nahi hai to Generate Report API call karo
+    const payload = {
+      trial_id: this.trialId || context?.uuid,
+      form_name: this.getFormName(context?.report_url),
+      trial_number: context?.trial_number,
+      version_name: 'ship',
+      report_type: 'ship',
+      readonly: 0,
+      auto_save_version: true
+    };
+
+    console.log('Generate Report Payload:', payload);
+
+    this.apiService.post('/api/reports/trial-reports/generate/', payload).subscribe(res => {
+      this.notificationService.success('Report generated successfully');
     });
+  }
+  private getFormName(url: string): string {
+    if (!url) return '';
+    const cleanUrl = url.split(/[?#]/)[0];
+    const segments = cleanUrl.replace(/\/+$/, '').split('/');
+    return segments.pop() || '';
   }
 
   showHistoryPopup = false;
@@ -286,7 +324,7 @@ export class ApprovalWorkFlow implements OnInit {
     const type = this.triaalType;
     const params = { type };
 
-    this.apiService.get('api/workflow/status/history/?trial_id=' +this.trialId, params).subscribe((res: any) => {
+    this.apiService.get('api/workflow/status/history/?trial_id=' + this.trialId, params).subscribe((res: any) => {
       if (res && res.data) {
         this.workflowHistoryItems = res.data
         this.showHistoryPopup = true;
@@ -299,11 +337,11 @@ export class ApprovalWorkFlow implements OnInit {
   }
   //To close that --> Tanishk
   closeHistoryPopup(): void {
-  this.showHistoryPopup = false;
-  if (this.autoOpenHistory) {
-    this.showUserPopupChange.emit(false);
+    this.showHistoryPopup = false;
+    if (this.autoOpenHistory) {
+      this.showUserPopupChange.emit(false);
+    }
   }
-}
 
   // QR Code generate karne ka helper function
   getQRData(signature: any): string {
@@ -315,54 +353,55 @@ export class ApprovalWorkFlow implements OnInit {
   }
 
   timedDifferenceOfTwoDates(date1: string, date2: string): string {
-  const d1 = new Date(date1);
-  const d2 = new Date(date2);
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
 
-  const diffMs = Math.abs(d2.getTime() - d1.getTime());
+    const diffMs = Math.abs(d2.getTime() - d1.getTime());
 
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  const diffHours = Math.floor(
-    (diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const diffMinutes = Math.floor(
-    (diffMs % (1000 * 60 * 60)) / (1000 * 60)
-  );
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffHours = Math.floor(
+      (diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const diffMinutes = Math.floor(
+      (diffMs % (1000 * 60 * 60)) / (1000 * 60)
+    );
 
-  return `${diffDays} day(s)`;
-}
+    return `${diffDays} day(s)`;
+  }
 
-showSignatureToast() {
-  this.notificationService.warning('Add signature first before submitting');
-}
+  showSignatureToast() {
+    this.notificationService.warning('Add signature first before submitting');
+  }
 
-settlementLiteId= JSON.parse(localStorage.getItem('user') || '{}')?.satellite_unit_id || '';
-finalApproval(): void {
-  this.confirmPopupService.open({
-    title: 'Final Approval',
-    message: 'Are you sure you want to submit final approval?',
-    type: 'warning',
-    confirmText: 'Yes, Approve',
-    confirmClass: 'border-[#4f8fd5] bg-[#1069AB] text-white hover:bg-[#195d95]',
-    onConfirm: () => this.submitFinalApproval(),
-  });
-}
+  settlementLiteId = JSON.parse(localStorage.getItem('user') || '{}')?.satellite_unit_id || '';
+  finalApproval(): void {
+    this.confirmPopupService.open({
+      title: 'Final Approval',
+      message: 'Are you sure you want to submit final approval?',
+      type: 'warning',
+      confirmText: 'Yes, Approve',
+      confirmClass: 'border-[#4f8fd5] bg-[#1069AB] text-white hover:bg-[#195d95]',
+      onConfirm: () => this.submitFinalApproval(),
+    });
+  }
 
-private submitFinalApproval(): void {
-  this.apiService.post('api/workflow/editor/approve/', {
-    remarks: this.remarks || '',
-    editor_turn: this.context?.workflow_rights?.editor_turn || 0,
-    final_approval: 1,
-  }).subscribe({
-    next: () =>{ this.notificationService.success('Final approval successful'); this.getTimelineData(); this.closePopup();
-    //yha bss seg redirection logic add krrha hu
-    const unitId = Number(
-      JSON.parse(localStorage.getItem('user')|| '{}')?.unit_id);
-      if(unitId === 27){
-        this.router.navigate(['/transactions/request-review']);
-      }
+  private submitFinalApproval(): void {
+    this.apiService.post('api/workflow/editor/approve/', {
+      remarks: this.remarks || '',
+      editor_turn: this.context?.workflow_rights?.editor_turn || 0,
+      final_approval: 1,
+    }).subscribe({
+      next: () => {
+        this.notificationService.success('Final approval successful'); this.getTimelineData(); this.closePopup();
+        //yha bss seg redirection logic add krrha hu
+        const unitId = Number(
+          JSON.parse(localStorage.getItem('user') || '{}')?.unit_id);
+        if (unitId === 27) {
+          this.router.navigate(['/transactions/request-review']);
+        }
 
-    },
-    error: () => this.confirmPopupService.error('Final approval failed'),
-  });
-}
+      },
+      error: () => this.confirmPopupService.error('Final approval failed'),
+    });
+  }
 }

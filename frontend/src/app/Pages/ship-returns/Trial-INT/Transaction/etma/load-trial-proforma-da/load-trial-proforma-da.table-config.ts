@@ -21,15 +21,17 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     title: 'Engine',
     labelWidth: 'w-40',
     rows: [
-      { label: '(a) Make', formControlName: 'engine_make', placeholder: 'Enter engine make' },
+      { label: '(a) Make', formControlName: 'engine_make', placeholder: 'Enter engine make', required: true },
       {
         label: '(b) Model & serial no.',
         formControlName: 'engine_model_serial_no',
+        required: true,
         placeholder: 'Enter engine model & serial no.',
       },
       {
         label: '(c) RPM',
         formControlName: 'engine_rpm',
+        required: true,
         inputType: 'number',
         min: 0,
         step: 1,
@@ -41,15 +43,17 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     title: 'Governor',
     labelWidth: 'w-40',
     rows: [
-      { label: '(a) Make', formControlName: 'governor_make', placeholder: 'Enter governor make' },
+      { label: '(a) Make', formControlName: 'governor_make', placeholder: 'Enter governor make', required: true },
       {
         label: '(b) Model & serial no.',
         formControlName: 'governor_model_serial_no',
+        required: true,
         placeholder: 'Enter governor model & serial no.',
       },
       {
         label: '(c) Type',
         formControlName: 'governor_type',
+        required: true,
         controlType: 'radio',
         radioOptions: [
           { label: 'Electronic Governor', value: 'Electronic Governor' },
@@ -93,7 +97,7 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
         placeholder: 'Enter rated frequency',
       },
       {
-        label: '(e) Rated kVA kW',
+        label: '(e) Rated kVA/kW',
         formControlName: 'alternator_rated_kva_kw',
         inputType: 'number',
         required: true,
@@ -238,7 +242,7 @@ export const PROTECTION_CHECK_SECTIONS: EtmaMatrixSection<ProtectionCheckRow>[] 
 export const INSTRUMENTATION_COLUMNS: EtmaMatrixColumn[] = [
   { id: 'ser', header: 'SNo.', cellType: 'static-ser' },
   { id: 'meter', header: 'Meter', cellType: 'static-meter' },
-  { id: 'ops_non_ops', header: 'Ops/ Non Ops', cellType: 'radio-ops-non-ops', formControl: 'ops_non_ops' },
+  { id: 'ops_non_ops', header: 'Ops/ Non Ops', required: true, cellType: 'radio-ops-non-ops', formControl: 'ops_non_ops' },
   { id: 'calibration_date', header: 'Calibration Date', required: true, cellType: 'calendar', formControl: 'calibration_date' },
   {
     id: 'calibration_cert_provided',
@@ -259,7 +263,7 @@ export const INSTRUMENTATION_SECTIONS: EtmaMatrixSection<InstrumentationRow>[] =
 export const DA_PANEL_COLUMNS: EtmaMatrixColumn[] = [
   { id: 'ser', header: 'SNo.', cellType: 'static-ser' },
   { id: 'observation', header: 'Observations', cellType: 'static-observation' },
-  { id: 'status', header: 'Status(Sat/Unsat)', required: true, cellType: 'dynamic-status' },
+  { id: 'status', header: 'Status(Sat/Unsat)', cellType: 'dynamic-status' },
   { id: 'remarks', header: 'Remarks', cellType: 'input-text', formControl: 'remarks', placeholder: 'Enter remarks' },
 ];
 

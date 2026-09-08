@@ -15,15 +15,12 @@ import { FormApiService } from '../../../angulerFromconverting/form-api.service'
 import { FormCardComponent } from '../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../ui/loading-button.component';
 import { ToastService } from '../../../services/toast.service';
+import { ApiService } from '../../../api.service';
+
 import {
   resolveTrialQueryParam,
   trialRowFromGetFormResponse,
 } from '../../../trial-route-prefill';
-import { CalenderComponent } from '../../../ui/calender.component';
-import { FileUploadComponent } from '../../../ui/file-upload/file-upload.component';
-import { InputComponent } from '../../../ui/input.component';
-import { SelectComponent, SelectOption } from '../../../ui/select.component';
-import { TextareaComponent } from '../../../ui/textarea';
 import { EtmaProformaTableComponent } from '../etma-proforma-table/etma-proforma-table.component';
 import {
   GTG_PHM_TRANSIENT_OFF_ROWS,
@@ -58,24 +55,29 @@ import {
 import {
   calculateFrequencyModulation,
   calculateGovernorDroop,
+  calculateGovernorRangeLimits,
   calculateNominalFrequency,
   calculateParallelingSharing,
   calculatePeakPercent,
+  calculateTransientRecoveryFinalValue,
   calculateVoltageBalanceDifference,
   calculateVoltageBalancePermissibleLimit,
   calculateVoltageModulation,
-  calculateVoltageRangePermissibleLimit,
+  calculateVoltageRangeBounds,
   evaluateFrequencyModulationStatus,
   evaluateGovernorDroopStatus,
+  evaluateGovernorRangeStatus,
+  evaluateGovernorRateStatus,
   evaluateParallelingSharingStatus,
   evaluatePeakStatus,
-  evaluateRecoveryTimeStatus,
   evaluateTransientRowStatus,
   evaluateVoltageBalanceStatus,
+  evaluateVoltageModulationStatus,
+  evaluateVoltageRangeStatus,
+  formatVoltageRangePermissibleLimit,
   parseFrequency,
   parsePercentLabel,
   roundFrequencyCalculation,
-  VOLTAGE_MODULATION_SAT_LIMIT_PERCENT,
 } from './load-trial-proforma-gtg.calculations';
 import {
   buildLoadTrialProformaGtgPayload,
@@ -86,9 +88,13 @@ import {
   PARALLELING_SHARING_ROWS,
   ParallelingSharingRowConfig,
 } from './load-trial-proforma-gtg.paralleling.data';
-
 import { equipmentHtml } from '../../../ApiEndPoints';
-import { ApiService } from '../../../api.service';
+import { InputComponent } from '../../../ui/input.component';
+import { SelectComponent, SelectOption } from '../../../ui/select.component';
+import { CalenderComponent } from '../../../ui/calender.component';
+import { FileUploadComponent } from '../../../ui/file-upload/file-upload.component';
+import { TextareaComponent } from '../../../ui/textarea';
+
 
 @Component({
   selector: 'app-load-trial-proforma-gtg',
@@ -107,7 +113,6 @@ import { ApiService } from '../../../api.service';
     FileUploadComponent,
     TextareaComponent,
     EtmaProformaTableComponent,
-    LoadingButtonComponent,
   ],
   styleUrl: './load-trial-proforma-gtg.css',
 })
@@ -141,6 +146,7 @@ export class LoadTrialProformaGtg implements OnInit, OnDestroy {
   private readonly transientTestSubscriptions: Subscription[] = [];
   private readonly voltageControlSubscriptions: Subscription[] = [];
   private readonly parallelingSubscriptions: Subscription[] = [];
+  private readonly governorAuxSubscriptions: Subscription[] = [];
 
   readonly parallelingSharingRows = PARALLELING_SHARING_ROWS;
   readonly parallelingIncreasingRows = PARALLELING_SHARING_ROWS.filter((r) => r.direction === 'incrs');
@@ -195,7 +201,7 @@ export class LoadTrialProformaGtg implements OnInit, OnDestroy {
     this.form = this.fb.group({
       trials_date: [null, Validators.required],
       gtg: ['', Validators.required],
-      kw: [''],
+      kw: ['', Validators.required],
       // ship: ['', Validators.required],
       ship: [{value:'',disabled:true, },Validators.required],
       ship_id: [''],
@@ -213,7 +219,7 @@ export class LoadTrialProformaGtg implements OnInit, OnDestroy {
       ],
 
       test_equipment_used: ['', Validators.required],
-      test_equipment_remarks: [{ value: '', disabled: true }],
+      test_equipment_remarks: [''],
 
       engine_make: ['', Validators.required],
       engine_model_serial_no: ['', Validators.required],
@@ -322,6 +328,7 @@ export class LoadTrialProformaGtg implements OnInit, OnDestroy {
     this.setupGtgSpeedControlCalculations();
     this.setupGtgTransientCalculations('phm_on_transient');
     this.setupGtgTransientCalculations('phm_off_transient');
+    this.setupGovernorAuxCalculations();
     this.setupVoltageControlCalculations();
     this.setupParallelingCalculations();
   }
@@ -331,6 +338,7 @@ export class LoadTrialProformaGtg implements OnInit, OnDestroy {
     this.updateGtgSpeedControlCalculations();
     this.updateGtgTransientCalculations('phm_on_transient', GTG_PHM_TRANSIENT_ON_ROWS);
     this.updateGtgTransientCalculations('phm_off_transient', GTG_PHM_TRANSIENT_OFF_ROWS);
+    this.updateGovernorAuxCalculations();
     this.updateVoltageControlCalculations();
     this.updateParallelingCalculations();
     this.shipSubscription = this.form.get('ship_id')!.valueChanges.subscribe((shipId: string) => {
@@ -415,7 +423,7 @@ if (this.activeTab) {
 }
 // for equipment header end here
 
-   const equipmentPayload = this.extractEquipmentPayload(response);
+    const equipmentPayload = this.extractEquipmentPayload(response);
     console.log('typeof response.json_data:', typeof response?.json_data);
 console.log('response keys:', response ? Object.keys(response) : null);
 console.log('equipmentPayload:', equipmentPayload);
@@ -465,7 +473,8 @@ const shipName = context?.ship_name ?? trialRow?.ship_name ?? response?.ship_nam
     this.form.get('ship')?.setValue(shipValue, { emitEvent: false });
     this.form.get('ship')?.updateValueAndValidity({ emitEvent: false });
     this.form.get('ship_id')?.setValue(shipId, { emitEvent: false });
-    if (shipId) this.loadEquipmentOptions(shipId); 
+    if (shipId) this.loadEquipmentOptions(shipId);
+    this.applyGtgFromActiveEquipment(); 
 
     this.cdr.detectChanges();
   } catch (e) {
@@ -477,11 +486,7 @@ private extractEquipmentPayload(response: any): any {
   if (!response) return null;
 
   // Shape A: response.data seedha bhara ho
-   if (response?.data && typeof response.data === 'object' && !Array.isArray(response.data)) {
-     if (response.data.formGroupKey || response.data.loadTrialPerformaGTG) {
-       return response.data;
-     }
-   }
+  if (response?.data && typeof response.data === 'object') return response.data;
   if (response?.loadTrialPerformaDA) return response.loadTrialPerformaDA;
 
   // Shape B: response.json_data wrapper (string ya object)
@@ -499,10 +504,9 @@ private extractEquipmentPayload(response: any): any {
   }
 
   if (jsonData && typeof jsonData === 'object') {
-     const nomenclature = this.formApiService?.currentEquipmentNomenclature;
-     const resolved = this.formApiService.resolveNomenclature(nomenclature);
-     if (resolved && jsonData[resolved]) {
-       return jsonData[resolved];
+    const nomenclature = this.formApiService?.currentEquipmentNomenclature;
+    if (nomenclature && jsonData[nomenclature]) {
+      return jsonData[nomenclature];
     }
     const firstKey = Object.keys(jsonData)[0];
     if (firstKey && jsonData[firstKey] && typeof jsonData[firstKey] === 'object') {
@@ -554,6 +558,7 @@ private resetFormData(): void {
     },
     { emitEvent: false },
   );
+  this.applyGtgFromActiveEquipment(true);
 
   this.dynamicParallelingTrialRows.clear();
   this.parallelingTrial = '';
@@ -574,6 +579,7 @@ private looksLikeEquipmentMap(obj: any): boolean {
     this.transientTestSubscriptions.forEach((sub) => sub.unsubscribe());
     this.voltageControlSubscriptions.forEach((sub) => sub.unsubscribe());
     this.parallelingSubscriptions.forEach((sub) => sub.unsubscribe());
+    this.governorAuxSubscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   get dynamicParallelingTrialRows(): FormArray {
@@ -633,9 +639,12 @@ private looksLikeEquipmentMap(obj: any): boolean {
     }
   }
 
-  parallelingSharingControlName(config: ParallelingSharingRowConfig, unit: string): string {
-    const normalizedUnit = unit === 'kva' ? 'kva' : 'kw';
-    return `${config.direction}_${config.loadPercent}_${normalizedUnit}`;
+  // Old code:
+  // parallelingSharingControlName(config: ParallelingSharingRowConfig, unit: 'kw' | 'kva'): string {
+  //   return `${config.direction}_${config.loadPercent}_${unit}`;
+  // }
+  parallelingSharingControlName(config: ParallelingSharingRowConfig, unit: 'kw' | 'kva' | string): string {
+    return `${config.direction}_${config.loadPercent}_${unit}`;
   }
 
   goToPage(page: number): void {
@@ -685,6 +694,13 @@ private looksLikeEquipmentMap(obj: any): boolean {
     }
 
     this.refreshCalculatedFields();
+
+    if ((type === 'save' || type === 'submit') && this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.toastService.showError('Please fill all required fields correctly.');
+      return;
+    }
+
     const payload = buildLoadTrialProformaGtgPayload(this.form, this.parallelingTrial);
 
     try {
@@ -734,7 +750,18 @@ private looksLikeEquipmentMap(obj: any): boolean {
       this.showParallelingSection = false;
     }
     this.refreshCalculatedFields();
+    this.applyGtgFromActiveEquipment();
     this.cdr.detectChanges();
+  }
+
+  private applyGtgFromActiveEquipment(overwrite = false): void {
+    const tab = this.activeHeaderEquipment;
+    const gtgName = tab?.equipment_name || tab?.name || tab?.nomenclature || '';
+    if (!gtgName) return;
+    const control = this.form.get('gtg');
+    if (overwrite || !control?.value) {
+      control?.setValue(gtgName, { emitEvent: false });
+    }
   }
 
   closeSubmitDecisionPopup(): void {
@@ -754,6 +781,7 @@ private looksLikeEquipmentMap(obj: any): boolean {
     this.updateGtgSpeedControlCalculations();
     this.updateGtgTransientCalculations('phm_on_transient', GTG_PHM_TRANSIENT_ON_ROWS);
     this.updateGtgTransientCalculations('phm_off_transient', GTG_PHM_TRANSIENT_OFF_ROWS);
+    this.updateGovernorAuxCalculations();
     this.updateVoltageControlCalculations();
     this.updateParallelingCalculations();
   }
@@ -934,12 +962,9 @@ private looksLikeEquipmentMap(obj: any): boolean {
     if (!offSteady) return;
 
     const droopRow = offSteady.at(GTG_GOVERNOR_DROOP_ROW_INDEX);
-    const { noLoadFrequency, fullLoadFrequency } =
-      this.getGovernorDroopInputFrequencies(offSteady);
     const governorDroop = calculateGovernorDroop(
-      noLoadFrequency,
-      fullLoadFrequency,
-      nominalFrequency,
+      parseFrequency(droopRow.get('initial_speed_hz')?.value),
+      parseFrequency(droopRow.get('final_speed_hz')?.value),
     );
     droopRow
       .get('governor_droop')
@@ -1002,14 +1027,15 @@ private looksLikeEquipmentMap(obj: any): boolean {
       return names.map((name) => row.get(name)?.valueChanges).filter(Boolean);
     });
 
-    const subscription = merge(nominalControl.valueChanges, ...fieldChanges)
+    const subscription = merge(
+      transient.valueChanges,
+      nominalControl.valueChanges,
+      ...fieldChanges,
+    )
       .pipe(debounceTime(100))
       .subscribe(() => {
-        const rows =
-          arrayName === 'phm_on_transient'
-            ? GTG_PHM_TRANSIENT_ON_ROWS
-            : GTG_PHM_TRANSIENT_OFF_ROWS;
-        this.updateGtgTransientCalculations(arrayName, rows);
+        this.updateGtgTransientCalculations('phm_on_transient', GTG_PHM_TRANSIENT_ON_ROWS);
+        this.updateGtgTransientCalculations('phm_off_transient', GTG_PHM_TRANSIENT_OFF_ROWS);
       });
 
     this.transientTestSubscriptions.push(subscription);
@@ -1025,38 +1051,104 @@ private looksLikeEquipmentMap(obj: any): boolean {
 
     transient.controls.forEach((rowGroup, index) => {
       const meta = rowMeta[index];
+      if (!meta) return;
       const peakObserved = calculatePeakPercent(
         parseFrequency(rowGroup.get('initial_speed_hz')?.value),
         parseFrequency(rowGroup.get('momentary_speed_hz')?.value),
         nominalFrequency,
       );
 
-      const finalSpeed = parseFrequency(rowGroup.get('final_speed_hz')?.value);
-      const recoveryFinalValue = nominalFrequency ?? finalSpeed;
-
-      rowGroup
-        .get('peak_observed')
-        ?.setValue(peakObserved !== null ? roundFrequencyCalculation(peakObserved) : '', {
-          emitEvent: false,
-        });
-      rowGroup
-        .get('recovery_final_value')
-        ?.setValue(
-          recoveryFinalValue !== null ? roundFrequencyCalculation(recoveryFinalValue) : '',
-          { emitEvent: false },
-        );
-
-      const peakStatus = evaluatePeakStatus(
-        peakObserved,
-        parsePercentLabel(meta.peakPermissibleLimit),
+      const sourceFinalSpeed =
+        arrayName === 'phm_off_transient'
+          ? this.getMatchingOnFinalSpeed(meta.loadInitial, meta.loadTo)
+          : parseFrequency(rowGroup.get('final_speed_hz')?.value);
+      const recoveryFinalValue = calculateTransientRecoveryFinalValue(
+        sourceFinalSpeed,
+        meta.loadInitial,
+        meta.loadTo,
       );
-      const recoveryStatus = evaluateRecoveryTimeStatus(
-        parseFrequency(rowGroup.get('recovery_observed')?.value),
-        parsePercentLabel(meta.recoveryPermissibleLimit),
+
+      this.patchCalculatedControl(
+        rowGroup.get('peak_observed'),
+        peakObserved !== null ? roundFrequencyCalculation(peakObserved) : '',
       );
-      rowGroup
-        .get('status')
-        ?.setValue(evaluateTransientRowStatus(peakStatus, recoveryStatus), { emitEvent: false });
+      this.patchCalculatedControl(
+        rowGroup.get('recovery_final_value'),
+        recoveryFinalValue !== null ? roundFrequencyCalculation(recoveryFinalValue) : '',
+      );
+
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateTransientRowStatus(
+          arrayName === 'phm_on_transient' ? 'on' : 'off',
+          meta.loadInitial,
+          meta.loadTo,
+          peakObserved,
+          parseFrequency(rowGroup.get('recovery_observed')?.value),
+        ),
+      );
+    });
+  }
+
+  private getMatchingOnFinalSpeed(loadInitial: string, loadTo: string): number | null {
+    const onRows = this.form.get('phm_on_transient') as FormArray;
+    const index = GTG_PHM_TRANSIENT_ON_ROWS.findIndex(
+      (row) => row.loadInitial === loadInitial && row.loadTo === loadTo,
+    );
+    if (index < 0 || !onRows) return null;
+    return parseFrequency(onRows.at(index)?.get('final_speed_hz')?.value);
+  }
+
+  private setupGovernorAuxCalculations(): void {
+    const range = this.form.get('governor_range') as FormArray;
+    const rate = this.form.get('governor_rate') as FormArray;
+    const governorType = this.form.get('governor_type');
+    const ratedFrequency = this.form.get('alternator_rated_frequency');
+    const nominalFrequency = this.form.get('nominal_frequency');
+    if (!range || !rate) return;
+
+    const subscription = merge(
+      range.valueChanges,
+      rate.valueChanges,
+      governorType?.valueChanges ?? range.valueChanges,
+      ratedFrequency?.valueChanges ?? range.valueChanges,
+      nominalFrequency?.valueChanges ?? range.valueChanges,
+    )
+      .pipe(debounceTime(100))
+      .subscribe(() => this.updateGovernorAuxCalculations());
+
+    this.governorAuxSubscriptions.push(subscription);
+  }
+
+  private updateGovernorAuxCalculations(): void {
+    const ratedFrequency =
+      parseFrequency(this.form.get('alternator_rated_frequency')?.value) ??
+      parseFrequency(this.form.get('nominal_frequency')?.value);
+    const rangeLimits = calculateGovernorRangeLimits(
+      this.form.get('governor_type')?.value,
+      ratedFrequency,
+    );
+
+    const range = this.form.get('governor_range') as FormArray;
+    range?.controls.forEach((rowGroup) => {
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateGovernorRangeStatus(
+          parseFrequency(rowGroup.get('measured_frequency_hz')?.value),
+          rangeLimits,
+        ),
+      );
+    });
+
+    const rate = this.form.get('governor_rate') as FormArray;
+    rate?.controls.forEach((rowGroup) => {
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateGovernorRateStatus(
+          parseFrequency(rowGroup.get('rate_up')?.value),
+          parseFrequency(rowGroup.get('rate_down')?.value),
+        ),
+      );
     });
   }
 
@@ -1065,6 +1157,8 @@ private looksLikeEquipmentMap(obj: any): boolean {
     const nominalControl = this.form.get('nominal_voltage');
     const transient = this.form.get('voltage_transient') as FormArray;
     const voltageBalance = this.form.get('voltage_balance') as FormArray;
+    const voltageRangeAvr = this.form.get('voltage_range_avr') as FormArray;
+    const voltageRangeHand = this.form.get('voltage_range_hand') as FormArray;
     const ratedVoltageControl = this.form.get('alternator_rated_voltage');
     if (!steadyState || !nominalControl || !transient) return;
 
@@ -1073,6 +1167,8 @@ private looksLikeEquipmentMap(obj: any): boolean {
       steadyState.valueChanges,
       transient.valueChanges,
       voltageBalance.valueChanges,
+      voltageRangeAvr?.valueChanges ?? nominalControl.valueChanges,
+      voltageRangeHand?.valueChanges ?? nominalControl.valueChanges,
       ratedVoltageControl?.valueChanges ?? nominalControl.valueChanges,
     )
       .pipe(debounceTime(100))
@@ -1101,17 +1197,14 @@ private looksLikeEquipmentMap(obj: any): boolean {
         parseFrequency(rowGroup.get('volts_min')?.value),
         nominalVoltage,
       );
-      if (modulation !== null) {
-        this.patchCalculatedControl(
-          rowGroup.get('voltage_modulation'),
-          roundFrequencyCalculation(modulation),
-        );
-        const status =
-          modulation < VOLTAGE_MODULATION_SAT_LIMIT_PERCENT ? 'Sat' : 'Unsat';
-        this.patchCalculatedControl(rowGroup.get('status'), status);
-      } else {
-        this.patchCalculatedControl(rowGroup.get('voltage_modulation'), '');
-      }
+      this.patchCalculatedControl(
+        rowGroup.get('voltage_modulation'),
+        modulation !== null ? roundFrequencyCalculation(modulation) : '',
+      );
+      this.patchCalculatedControl(
+        rowGroup.get('status'),
+        evaluateVoltageModulationStatus(modulation),
+      );
     });
 
     transient.controls.forEach((rowGroup, index) => {
@@ -1156,11 +1249,25 @@ private looksLikeEquipmentMap(obj: any): boolean {
 
     const ratedVoltage =
       parseFrequency(this.form.get('alternator_rated_voltage')?.value) ?? nominalVoltage;
-    const rangeLimit = calculateVoltageRangePermissibleLimit(ratedVoltage);
+    const rangeBounds = calculateVoltageRangeBounds(ratedVoltage);
     this.patchCalculatedControl(
       this.form.get('voltage_range_permissible_limit'),
-      rangeLimit !== null ? roundFrequencyCalculation(rangeLimit) : '',
+      formatVoltageRangePermissibleLimit(rangeBounds),
     );
+
+    ['voltage_range_avr', 'voltage_range_hand'].forEach((arrayName) => {
+      const rangeRows = this.form.get(arrayName) as FormArray;
+      rangeRows?.controls.forEach((rowGroup) => {
+        this.patchCalculatedControl(
+          rowGroup.get('status'),
+          evaluateVoltageRangeStatus(
+            parseFrequency(rowGroup.get('voltage_lowest')?.value),
+            parseFrequency(rowGroup.get('voltage_highest')?.value),
+            rangeBounds,
+          ),
+        );
+      });
+    });
   }
 
   private createParallelingSharingRowGroup(): FormGroup {
@@ -1188,8 +1295,8 @@ private looksLikeEquipmentMap(obj: any): boolean {
     return this.fb.group({
       paralleling_trial_machine_1: ['', Validators.required],
       paralleling_trial_machine_2: ['', Validators.required],
-      parallel_rated_dg1: ['', [Validators.required, Validators.min(0)]],
-      parallel_rated_dg2: ['', [Validators.required, Validators.min(0)]],
+      parallel_rated_dg1: ['', [Validators.min(0)]],
+      parallel_rated_dg2: ['', [Validators.min(0)]],
       parallel_amps_dg1: ['', [Validators.min(0)]],
       parallel_amps_dg2: ['', [Validators.min(0)]],
       ...sharingControls,
@@ -1271,40 +1378,4 @@ private looksLikeEquipmentMap(obj: any): boolean {
     return max ?? min;
   }
 
-  /** Steady-state frequency: final speed after stabilisation, else initial speed. */
-  private getSteadyStateFrequency(steadyState: FormArray, index: number): number | null {
-    const row = steadyState.at(index);
-    return (
-      parseFrequency(row.get('final_speed_hz')?.value) ??
-      parseFrequency(row.get('initial_speed_hz')?.value)
-    );
-  }
-
-  /**
-   * Governor droop uses (no load − full load) × 100 / nominal.
-   * Prefer 0% and 110% load rows; otherwise the 100–0 row (Final = 0%, Initial = 100%).
-   */
-  private getGovernorDroopInputFrequencies(offSteady: FormArray): {
-    noLoadFrequency: number | null;
-    fullLoadFrequency: number | null;
-  } {
-    const at0Percent = this.getSteadyStateFrequency(offSteady, 0);
-    const at110Percent = this.getSteadyStateFrequency(offSteady, 4);
-    const droopRow = offSteady.at(GTG_GOVERNOR_DROOP_ROW_INDEX);
-    const droopInitial = parseFrequency(droopRow.get('initial_speed_hz')?.value);
-    const droopFinal = parseFrequency(droopRow.get('final_speed_hz')?.value);
-
-    if (at0Percent !== null && at110Percent !== null) {
-      return { noLoadFrequency: at0Percent, fullLoadFrequency: at110Percent };
-    }
-
-    if (droopInitial !== null && droopFinal !== null) {
-      return { noLoadFrequency: droopFinal, fullLoadFrequency: droopInitial };
-    }
-
-    return {
-      noLoadFrequency: at0Percent ?? droopFinal,
-      fullLoadFrequency: at110Percent ?? droopInitial,
-    };
-  }
 }

@@ -21,6 +21,7 @@ export const SaveAllIcon: any = 'SaveAllIcon';
 export const Trash: any = 'Trash';
 export const PenIcon: any = 'PenIcon';
 export const FileText: any = 'FileText';
+export const Star: any = 'Star';
 
 @NgModule({
   imports: [CommonModule, LucideIconComponent],

@@ -21,16 +21,18 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     title: 'Engine',
     labelWidth: 'w-40',
     rows: [
-      { label: '(a) Make', formControlName: 'engine_make', placeholder: 'Enter engine make' },
+      { label: '(a) Make', formControlName: 'engine_make', required: true, placeholder: 'Enter engine make' },
       {
         label: '(b) Model & serial no.',
         formControlName: 'engine_model_serial_no',
+        required: true,
         placeholder: 'Enter engine model & serial no.',
       },
       {
         label: '(c) RPM',
         formControlName: 'engine_rpm',
         inputType: 'number',
+        required: true,
         min: 0,
         step: 1,
         placeholder: 'Enter RPM',
@@ -41,15 +43,17 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     title: 'Governor',
     labelWidth: 'w-40',
     rows: [
-      { label: '(a) Make', formControlName: 'governor_make', placeholder: 'Enter governor make' },
+      { label: '(a) Make', formControlName: 'governor_make', required: true, placeholder: 'Enter governor make' },
       {
         label: '(b) Model & serial no.',
         formControlName: 'governor_model_serial_no',
+        required: true,
         placeholder: 'Enter governor model & serial no.',
       },
       {
         label: '(c) Type',
         formControlName: 'governor_type',
+        required: true,
         controlType: 'radio',
         radioOptions: [
           { label: 'Electronic Governor', value: 'Electronic Governor' },
@@ -64,19 +68,19 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     labelWidth: 'w-56',
     rows: [
       {
-        label: '(a) Make and rating *',
+        label: '(a) Make and rating',
         formControlName: 'alternator_make_and_rating',
         required: true,
         placeholder: 'Enter make and rating',
       },
       {
-        label: '(b) Model & serial no. *',
+        label: '(b) Model & serial no.',
         formControlName: 'alternator_model_serial_no',
         required: true,
         placeholder: 'Enter model & serial no.',
       },
       {
-        label: '(c) Rated voltage *',
+        label: '(c) Rated voltage',
         formControlName: 'alternator_rated_voltage',
         inputType: 'number',
         required: true,
@@ -84,7 +88,7 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
         placeholder: 'Enter rated voltage',
       },
       {
-        label: '(d) Rated frequency *',
+        label: '(d) Rated frequency',
         formControlName: 'alternator_rated_frequency',
         inputType: 'number',
         required: true,
@@ -92,7 +96,7 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
         placeholder: 'Enter rated frequency',
       },
       {
-        label: '(e) Rated kVA kW *',
+        label: '(e) Rated kVA kW',
         formControlName: 'alternator_rated_kva_kw',
         inputType: 'number',
         required: true,
@@ -100,7 +104,7 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
         placeholder: 'Enter rated kVA/kW',
       },
       {
-        label: '(f) Rated current *',
+        label: '(f) Rated current',
         formControlName: 'alternator_rated_current',
         inputType: 'number',
         required: true,
@@ -108,7 +112,7 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
         placeholder: 'Enter rated current',
       },
       {
-        label: '(g) Bearing number *',
+        label: '(g) Bearing number',
         formControlName: 'alternator_bearing_number',
         required: true,
         placeholder: 'Enter bearing number',
@@ -120,13 +124,13 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     labelWidth: 'w-56',
     rows: [
       {
-        label: '(a) Make and type *',
+        label: '(a) Make and type',
         formControlName: 'avr_make_and_type',
         required: true,
         placeholder: 'Enter make and type',
       },
       {
-        label: '(b) Model & serial no. *',
+        label: '(b) Model & serial no.',
         formControlName: 'avr_model_serial_no',
         required: true,
         placeholder: 'Enter model & serial no.',
@@ -138,19 +142,19 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
     labelWidth: 'w-56',
     rows: [
       {
-        label: '(a) Make *',
+        label: '(a) Make',
         formControlName: 'supply_breaker_make',
         required: true,
         placeholder: 'Enter supply breaker make',
       },
       {
-        label: '(b) Model & serial no. *',
+        label: '(b) Model & serial no.',
         formControlName: 'supply_breaker_model_serial_no',
         required: true,
         placeholder: 'Enter supply breaker model & serial no.',
       },
       {
-        label: '(c) Rated capacity (Amps) *',
+        label: '(c) Rated capacity (Amps)',
         formControlName: 'supply_breaker_rated_capacity_amps',
         inputType: 'number',
         required: true,
@@ -164,32 +168,37 @@ export const EQUIPMENT_DETAILS_GROUPS: EtmaKeyValueGroup[] = [
 export const INSULATION_RESISTANCE_ROWS: EtmaSerialKeyValueRow[] = [
   {
     ser: '(a)',
-    label: 'Generator hot (>1MΩ) *',
+    label: 'Generator hot (>1MΩ)',
     formControlName: 'insulation_generator_hot',
+    required: true,
     placeholder: 'Enter generator hot (MΩ)',
   },
   {
     ser: '(b)',
-    label: 'Generator cold (>1MΩ) *',
+    label: 'Generator cold (>1MΩ)',
     formControlName: 'insulation_generator_cold',
+    required: true,
     placeholder: 'Enter generator cold (MΩ)',
   },
   {
     ser: '(c)',
-    label: 'Switchboard (>2MΩ) *',
+    label: 'Switchboard (>2MΩ)',
     formControlName: 'insulation_switchboard',
+    required: true,
     placeholder: 'Enter switchboard (MΩ)',
   },
   {
     ser: '(d)',
-    label: 'Generator to switchboard cable (>20MΩ) *',
+    label: 'Generator to switchboard cable (>20MΩ)',
     formControlName: 'insulation_generator_to_switchboard_cable',
+    required: true,
     placeholder: 'Enter generator to switchboard cable (MΩ)',
   },
   {
     ser: '(e)',
-    label: 'Insulation of breaker (>10MΩ) *',
+    label: 'Insulation of breaker (>10MΩ)',
     formControlName: 'insulation_breaker',
+    required: true,
     placeholder: 'Enter insulation of breaker (MΩ)',
   },
 ];
@@ -232,7 +241,7 @@ export const PROTECTION_CHECK_SECTIONS: EtmaMatrixSection<ProtectionCheckRow>[] 
 export const INSTRUMENTATION_COLUMNS: EtmaMatrixColumn[] = [
   { id: 'ser', header: 'SNo.', cellType: 'static-ser' },
   { id: 'meter', header: 'Meter', cellType: 'static-meter' },
-  { id: 'ops_non_ops', header: 'Ops/ Non Ops', cellType: 'radio-ops-non-ops', formControl: 'ops_non_ops' },
+  { id: 'ops_non_ops', header: 'Ops/ Non Ops', required: true, cellType: 'radio-ops-non-ops', formControl: 'ops_non_ops' },
   { id: 'calibration_date', header: 'Calibration Date', required: true, cellType: 'calendar', formControl: 'calibration_date' },
   {
     id: 'calibration_cert_provided',

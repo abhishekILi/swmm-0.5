@@ -5,9 +5,6 @@ import {
   FormGroupDirective,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CalenderComponent } from '../../../ui/calender.component';
-import { FileUploadComponent } from '../../../ui/file-upload/file-upload.component';
-import { InputComponent } from '../../../ui/input.component';
 import {
   EtmaKeyValueGroup,
   EtmaMatrixColumn,
@@ -17,6 +14,9 @@ import {
   EtmaSerialKeyValueRow,
   EtmaTableVariant,
 } from './etma-proforma-table.types';
+import { InputComponent } from '../../../ui/input.component';
+import { CalenderComponent } from '../../../ui/calender.component';
+import { FileUploadComponent } from '../../../ui/file-upload/file-upload.component';
 
 @Component({
   selector: 'app-etma-proforma-table',

@@ -42,7 +42,7 @@ export const BREAKER_PROTECTION_ROWS: ProtectionCheckRow[] = [
   {
     ser: '(c)',
     protection: 'Over load',
-    trippingValue: '125% of rated current',
+    trippingValue: 'NA',
     group: 'Breaker Protection',
   },
 ];
@@ -148,7 +148,7 @@ export const STEADY_STATE_LOAD_ROWS: SteadyStateLoadRow[] = [
     loadPercent: '100 - 0 (Governor Droop)',
     calculatedDroop: true,
     permissibleLimit:
-      '- Between 0.75% to 1% (For Electronic Governors)\n- Between 3.5% to 4% (for Mechanical Governors)\n- Upto 3% onboard Tejas and Talwar class ships.\n(No load freq-full load freq /100)Nominal freq',
+      '- Between 0.87% to 1% (For Electronic Governors)\n- Between 3.5% to 4% (for Mechanical Governors)\n- Upto 3% onboard Tejas and Talwar class ships.\n(Final Speed − Initial Speed) × 100 / Nominal Frequency',
     frequencyModulationNA: true,
   },
 ];
