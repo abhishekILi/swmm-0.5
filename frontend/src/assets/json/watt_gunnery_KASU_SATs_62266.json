@@ -42,7 +42,7 @@
             "value": "",
             "required": false,
             "disabled": false,
-            "placeholder": " ",
+            "placeholder": "",
             "inputType": "text",
             "colSpan": 4
           },
@@ -55,7 +55,7 @@
             "value": "KASU",
             "required": false,
             "disabled": true,
-            "placeholder": " ",
+            "placeholder": "",
             "inputType": "text",
             "colSpan": 4,
             "prefill": true,
@@ -65,7 +65,7 @@
             "_id": "trial_date",
             "key": "trial_date",
             "name": "trial_date",
-            "label": "Date *",
+            "label": "Date",
             "type": "date",
             "value": "",
             "required": true,
@@ -83,7 +83,7 @@
             "value": "SATs",
             "required": false,
             "disabled": false,
-            "placeholder": " ",
+            "placeholder": "",
             "inputType": "text",
             "colSpan": 4
           },
@@ -110,24 +110,28 @@
               [
                 {
                   "label": "SNo.",
+                  "width": "60px",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "OBSERVATIONS",
+                  "width": "calc(100% - 350px)",
                   "colspan": 5,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "REMARKS",
+                  "width": "110px",
                   "colspan": 2,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
                   "label": "RESULTS",
+                  "width": "180px",
                   "colspan": 2,
                   "rowspan": 1,
                   "align": "center"
@@ -151,7 +155,7 @@
                     "disabled": false,
                     "placeholder": "",
                     "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                    "colspan": 2,
+                    "colspan": 6,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -165,7 +169,7 @@
                     "lb": "on dd-mm-yyyy for SATs of KASU as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
                     "required": false,
                     "disabled": false,
-                    "colspan": 8,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -292,7 +296,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "The target parameters are as follows:- {% for i in '1234567'|make_list %} {% endfor %}",
+                    "value": "The target parameters are as follows:-",
                     "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
@@ -312,7 +316,7 @@
                 ]
               },
               {
-                "_id": "observations_matrix_1_row_3_4",
+                "_id": "observations_matrix_1_row_3_4_header",
                 "cells": [
                   {
                     "type": "label",
@@ -322,37 +326,31 @@
                   },
                   {
                     "type": "label",
-                    "value": "<b>Tgt no.</b><br>{{i}}",
+                    "value": "<b>Tgt no.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
-                    "key": "ssti_range_{{ i }}",
-                    "name": "ssti_range_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Range</b>",
+                    "type": "label",
+                    "value": "<b>Range</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "ssti_bearing_{{ i }}",
-                    "name": "ssti_bearing_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Bearing</b>",
+                    "type": "label",
+                    "value": "<b>Bearing</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "ssti_course_{{ i }}",
-                    "name": "ssti_course_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Course</b>",
+                    "type": "label",
+                    "value": "<b>Course</b>",
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
                     "key": "ssti_result",
@@ -374,7 +372,7 @@
                       }
                     ],
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 8
                   },
                   {
                     "key": "ssti_remarks",
@@ -382,6 +380,342 @@
                     "type": "textarea",
                     "value": "",
                     "rows": 3,
+                    "colspan": 2,
+                    "rowspan": 8
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_1",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_1",
+                    "name": "ssti_range_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_1",
+                    "name": "ssti_bearing_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_1",
+                    "name": "ssti_course_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_2",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_2",
+                    "name": "ssti_range_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_2",
+                    "name": "ssti_bearing_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_2",
+                    "name": "ssti_course_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_3",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_3",
+                    "name": "ssti_range_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_3",
+                    "name": "ssti_bearing_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_3",
+                    "name": "ssti_course_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_4",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_4",
+                    "name": "ssti_range_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_4",
+                    "name": "ssti_bearing_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_4",
+                    "name": "ssti_course_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_5",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_5",
+                    "name": "ssti_range_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_5",
+                    "name": "ssti_bearing_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_5",
+                    "name": "ssti_course_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_6",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_6",
+                    "name": "ssti_range_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_6",
+                    "name": "ssti_bearing_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_6",
+                    "name": "ssti_course_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_4_target_7",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "ssti_range_7",
+                    "name": "ssti_range_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_bearing_7",
+                    "name": "ssti_bearing_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "ssti_course_7",
+                    "name": "ssti_course_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   }
@@ -409,7 +743,7 @@
                     "name": "ssti_plp_sec",
                     "type": "input",
                     "inputType": "text",
-                    "placeholder": "sec",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -426,7 +760,7 @@
                     "name": "ssti_fired",
                     "type": "input",
                     "inputType": "text",
-                    "placeholder": "fired",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -477,7 +811,7 @@
                     "name": "rt_rb_plp_sec",
                     "type": "input",
                     "inputType": "text",
-                    "placeholder": "sec",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -494,7 +828,7 @@
                     "name": "rt_rb_fired",
                     "type": "input",
                     "inputType": "text",
-                    "placeholder": "missiles",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   }
@@ -511,7 +845,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "missiles. Target parameters as follows:- {% for i in '123'|make_list %} {% endfor %}",
+                    "value": "missiles. Target parameters as follows:-",
                     "colspan": 9,
                     "rowspan": 1,
                     "align": "left"
@@ -519,7 +853,7 @@
                 ]
               },
               {
-                "_id": "observations_matrix_1_row_3_8",
+                "_id": "observations_matrix_1_row_3_8_header",
                 "cells": [
                   {
                     "type": "label",
@@ -529,37 +863,31 @@
                   },
                   {
                     "type": "label",
-                    "value": "<b>Tgt No.</b><br>{{i}}",
+                    "value": "<b>Tgt No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
-                    "key": "rt_rb_range_{{ i }}",
-                    "name": "rt_rb_range_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Range</b>",
+                    "type": "label",
+                    "value": "<b>Range</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "rt_rb_bearing_{{ i }}",
-                    "name": "rt_rb_bearing_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Bearing</b>",
+                    "type": "label",
+                    "value": "<b>Bearing</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "rt_rb_course_{{ i }}",
-                    "name": "rt_rb_course_{{ i }}",
-                    "type": "input",
-                    "inputType": "text",
-                    "lb": "<b>Course</b>",
+                    "type": "label",
+                    "value": "<b>Course</b>",
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
                     "key": "rt_rb_result",
@@ -581,7 +909,7 @@
                       }
                     ],
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 4
                   },
                   {
                     "key": "rt_rb_remarks",
@@ -589,6 +917,150 @@
                     "type": "textarea",
                     "value": "",
                     "rows": 3,
+                    "colspan": 2,
+                    "rowspan": 4
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_8_target_1",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rt_rb_range_1",
+                    "name": "rt_rb_range_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_bearing_1",
+                    "name": "rt_rb_bearing_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_course_1",
+                    "name": "rt_rb_course_1",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_8_target_2",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rt_rb_range_2",
+                    "name": "rt_rb_range_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_bearing_2",
+                    "name": "rt_rb_bearing_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_course_2",
+                    "name": "rt_rb_course_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_3_8_target_3",
+                "cells": [
+                  {
+                    "type": "label",
+                    "value": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rt_rb_range_3",
+                    "name": "rt_rb_range_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_bearing_3",
+                    "name": "rt_rb_bearing_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rt_rb_course_3",
+                    "name": "rt_rb_course_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   }
@@ -616,7 +1088,7 @@
                     "name": "rt_ll_plp_sec",
                     "type": "input",
                     "inputType": "text",
-                    "placeholder": "sec",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   },
@@ -660,7 +1132,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Lat</b>",
-                    "placeholder": "Lat",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -668,7 +1140,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Long</b>",
-                    "placeholder": "Long",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   },
@@ -676,7 +1148,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Speed</b>",
-                    "placeholder": "Speed",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -684,7 +1156,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Range</b>",
-                    "placeholder": "Range",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   },
@@ -692,8 +1164,8 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Bearing</b>",
-                    "placeholder": "Bearing",
-                    "colspan": 2,
+                    "placeholder": "",
+                    "colspan": 3,
                     "rowspan": 1
                   }
                 ]
@@ -729,7 +1201,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Lat</b>",
-                    "placeholder": "Lat",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -737,7 +1209,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Long</b>",
-                    "placeholder": "Long",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -745,7 +1217,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Speed</b>",
-                    "placeholder": "Speed",
+                    "placeholder": "",
                     "colspan": 1,
                     "rowspan": 1
                   },
@@ -753,7 +1225,7 @@
                     "type": "input",
                     "inputType": "text",
                     "lb": "<b>Course</b>",
-                    "placeholder": "Course",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   },
@@ -828,7 +1300,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Targets parameters as follows: {% for i in '12'|make_list %} {% endfor %}",
+                    "value": "Targets parameters as follows:",
                     "colspan": 8,
                     "rowspan": 1,
                     "align": "left"
@@ -842,41 +1314,44 @@
                     "type": "label",
                     "value": "",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 13
                   },
                   {
                     "type": "label",
-                    "value": "<b>Tgt No.</b><br>{{i}}",
+                    "value": "<b>Tgt No.</b>",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left"
+                    "align": "center"
                   },
                   {
-                    "key": "rp_course_{{ i }}",
-                    "name": "rp_course_{{ i }}",
-                    "type": "input",
+                    "key": "rp_course_1",
+                    "name": "rp_course_1",
+                    "type": "label",
+                    "value": "<b>Course</b>",
                     "inputType": "text",
-                    "lb": "<b>Course</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "rp_range_{{ i }}",
-                    "name": "rp_range_{{ i }}",
-                    "type": "input",
+                    "key": "rp_range_1",
+                    "name": "rp_range_1",
+                    "type": "label",
                     "inputType": "text",
-                    "lb": "<b>Range</b>",
+                    "value": "<b>Range</b>",
                     "colspan": 1,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
-                    "key": "rp_bearing_{{ i }}",
-                    "name": "rp_bearing_{{ i }}",
-                    "type": "input",
+                    "key": "rp_bearing_1",
+                    "name": "rp_bearing_1",
+                    "type": "label",
                     "inputType": "text",
-                    "lb": "<b>Bearing</b>",
+                    "value": "<b>Bearing</b>",
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 1,
+                    "align": "center"
                   },
                   {
                     "key": "rp_result",
@@ -898,7 +1373,7 @@
                       }
                     ],
                     "colspan": 2,
-                    "rowspan": 1
+                    "rowspan": 13
                   },
                   {
                     "key": "rp_remarks",
@@ -906,6 +1381,510 @@
                     "type": "textarea",
                     "value": "",
                     "rows": 3,
+                    "colspan": 2,
+                    "rowspan": 13
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_2",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "1",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_2",
+                    "name": "rp_course_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_2",
+                    "name": "rp_range_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_2",
+                    "name": "rp_bearing_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_2",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "2",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_2",
+                    "name": "rp_course_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_2",
+                    "name": "rp_range_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_2",
+                    "name": "rp_bearing_2",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_3",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "3",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_3",
+                    "name": "rp_course_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_3",
+                    "name": "rp_range_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_3",
+                    "name": "rp_bearing_3",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_4",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "4",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_4",
+                    "name": "rp_course_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_4",
+                    "name": "rp_range_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_4",
+                    "name": "rp_bearing_4",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_5",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "5",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_5",
+                    "name": "rp_course_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_5",
+                    "name": "rp_range_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_5",
+                    "name": "rp_bearing_5",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_6",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "6",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_6",
+                    "name": "rp_course_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_6",
+                    "name": "rp_range_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_6",
+                    "name": "rp_bearing_6",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_7",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "7",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_7",
+                    "name": "rp_course_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_7",
+                    "name": "rp_range_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_7",
+                    "name": "rp_bearing_7",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_8",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "8",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_8",
+                    "name": "rp_course_8",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_8",
+                    "name": "rp_range_8",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_8",
+                    "name": "rp_bearing_8",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_9",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "9",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_9",
+                    "name": "rp_course_9",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_9",
+                    "name": "rp_range_9",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_9",
+                    "name": "rp_bearing_9",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_10",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "10",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_10",
+                    "name": "rp_course_10",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_10",
+                    "name": "rp_range_10",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_10",
+                    "name": "rp_bearing_10",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_11",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "11",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_11",
+                    "name": "rp_course_11",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_11",
+                    "name": "rp_range_11",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_11",
+                    "name": "rp_bearing_11",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 2,
+                    "rowspan": 1
+                  }
+                ]
+              },
+              {
+                "_id": "observations_matrix_1_row_rp_loop_fields_12",
+                "cells": [
+                  {
+                    "type": "serial",
+                    "value": "12",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "center"
+                  },
+                  {
+                    "key": "rp_course_12",
+                    "name": "rp_course_12",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_range_12",
+                    "name": "rp_range_12",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
+                    "colspan": 1,
+                    "rowspan": 1
+                  },
+                  {
+                    "key": "rp_bearing_12",
+                    "name": "rp_bearing_12",
+                    "type": "input",
+                    "inputType": "text",
+                    "value": "",
+                    "placeholder": "",
                     "colspan": 2,
                     "rowspan": 1
                   }
@@ -976,14 +1955,14 @@
               {
                 "_id": "observations_matrix_1_row_sats_rundown_input",
                 "cells": [
-                 
+      
                   {
                     "key": "sats_rundown",
                     "name": "sats_rundown",
                     "type": "textarea",
                     "value": "",
                     "rows": 4,
-                    "placeholder": "Enter SATs run down summary...",
+                    "placeholder": "",
                     "colspan": 12,
                     "rowspan": 1
                   }

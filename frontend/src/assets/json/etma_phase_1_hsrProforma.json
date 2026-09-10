@@ -998,7 +998,7 @@
                   "label": "Protection",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Calibration Date <span class=\"text-red-600\">*</span>",
@@ -1016,7 +1016,7 @@
                   "label": "Permissible limit",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Observed Value <span class=\"text-red-600\">*</span>",
@@ -1055,7 +1055,7 @@
                 "key": "protection",
                 "label": "Protection",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "calibration_date",
@@ -1073,7 +1073,7 @@
                 "key": "permissible_limit",
                 "label": "Permissible limit",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "observed_value",
@@ -1701,7 +1701,7 @@
                   "label": "Meter",
                   "colspan": 1,
                   "rowspan": 1,
-                  "align": "left"
+                  "align": "center"
                 },
                 {
                   "label": "Ops/ Non Ops <span class=\"text-red-600\">*</span>",
@@ -1752,7 +1752,7 @@
                 "key": "meter",
                 "label": "Meter",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "ops_non_ops",
@@ -2349,7 +2349,7 @@
                 "key": "observations",
                 "label": "Observations",
                 "type": "label",
-                "align": "left"
+                "align": "center"
               },
               {
                 "key": "details",
@@ -3323,10 +3323,10 @@
           "hiddenKey": null,
           "displayKey": null,
           "formula": {
-            "expression": "if(num(sstv0x200ObsVoltCabl == 0, \"\", if(num(sstv0x200ObsVoltCabl) >= 27.5 && num(sstv0x200ObsVoltCabl) <= 28.5, \"Sat\", \"Unsat\"))",
-            "decimals": 0,
-            "emptyAsZero": true
-          }
+  "expression": "if(sstv0x200ObsVoltCabl == \"\", \"\", if(num(sstv0x200ObsVoltCabl) >= 27.5 && num(sstv0x200ObsVoltCabl) <= 28.5, \"Sat\", \"Unsat\"))",
+  "decimals": 0,
+  "emptyAsZero": false
+}
         }
       ]
     },
@@ -3970,7 +3970,7 @@
         "label": "Permissible at Cable End",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Recorded",
@@ -3982,7 +3982,7 @@
         "label": "Permissible",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       },
       {
         "label": "Recorded",
@@ -3994,7 +3994,7 @@
         "label": "Permissible",
         "colspan": 1,
         "rowspan": 1,
-        "align": "left"
+        "align": "center"
       }
     ]
   ],
@@ -5335,7 +5335,12 @@
     "(c) The trials are to be undertaken on Dynamic Load Banks (2000 A) only. Although the starting current envelopes differ for different helicopters, the starting rectifier will be tested using the following helicopter starting current envelope:",
     "Peak Starting Current: 1200 A for 5 seconds.",
     "1st Stage Starting Current: 850 A for 10 seconds.",
-    "2nd Stage Starting Current: 300 A for 15 seconds."
+    "2nd Stage Starting Current: 300 A for 15 seconds.",
+    "3rd stage starting current : 200 amps for 30 Sec.",
+    "Total starting period/cut off period: 25 to 60 seconds.",
+    "Till such time dynamic load banks are not available, load trials of HSR be progressed using static load bank i.a.w. IHQ/MoD(N) policy letter EE/03/5181 dated 09 Jul 19",
+    "All the new induction HSRs are to be compliant to Category ‘A’ and till such time upgradation of HSRs is completed, guidelines mentioned vide IHQ/MoD(N) policy letter EE/03/5181/ Policy/ L-107 dated 11 Sep 17 for Cat ‘B’, ‘C’ & ‘D’ HSRs may be adhered for undertaking load trials.",
+    "Trials to be undertaken with 20 M cable only."
   ]
 },
 
@@ -5362,7 +5367,7 @@
           {
             "type":"editor",
             "name":"remarks",
-            "label":"10.Recommendations Following recommended:- Electrical officer INS KOLKATA",
+            "label":"Electrical officer INS KOLKATA",
             "colSpan":6,
             "required":false,
             "disabled":false,

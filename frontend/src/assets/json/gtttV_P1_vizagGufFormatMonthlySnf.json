@@ -5,14 +5,14 @@
   "sections": [
     {
       "id": "section_1",
-      "title": "GTG UTILISATION FACTOR",
+      "title": "<h4  class='text-center'>GTG UTILISATION FACTOR </h4><p class='text-center'>Refer to HQEF/FEO letter FEG/300/50/02 dated 08 Sep 20.<br>GUF for the month of May 24 is tabulated below.</p>",
       "sectionType": "mixed",
       "sectionGroup": {
         "tables_1": [
         {
           "id": "section_1_table_1",
           "sectionType": "simpleTable",
-          "title": "GTG UTILISATION FACTOR Refer to HQEF/FEO letter FEG/300/50/02 dated 08 Sep 20. GUF for the month of May 24 is tabulated below.",
+          "title": "",
           "topHeaders": [],
           "columns": [],
           "rows": [
@@ -21,7 +21,7 @@
               "cells": [
                 {
                   "_id": "section_1_table_1_row_1_cell_1_static",
-                  "type": "serial",
+                  "type": "label",
                   "value": "DATE",
                   "colspan": 1,
                   "rowspan": 1,
@@ -62,23 +62,23 @@
                   "_id": "section_1_table_1_row_1_cell_4_ship",
                   "key": "ship",
                   "type": "input",
-                  "value": "",
-                  "rows": null,
-                  "required": false,
-                  "disabled": false,
-                  "placeholder": "",
-                  "inputType": "text",
-                  "options": null,
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "left",
-                  "isDynamic": false,
-                  "lookupKey": null,
-                  "prefill": null,
-                  "prefillSource": null,
-                  "lockAfterPrefill": null,
-                  "hiddenKey": null,
-                  "displayKey": null
+                    "value": "",
+                    "rows": null,
+                    "required": false,
+                    "disabled": true,
+                    "placeholder": "",
+                    "inputType": "text",
+                    "options": null,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isDynamic": true,
+                    "lookupKey": "context.ship_name",
+                    "prefill": true,
+                    "prefillSource": "context.ship_name",
+                    "lockAfterPrefill": false,
+                    "hiddenKey": null,
+                    "displayKey": null
                 }
               ]
             }
@@ -239,9 +239,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_2\", 1, \"snfGufSeaHrsunderway\")) == 0, \"\", (num(table(\"section_1_table_2\", 1, \"snfGufSeaGTG1\")) + num(table(\"section_1_table_2\", 1, \"snfGufSeaGTG2\"))) / num(table(\"section_1_table_2\", 1, \"snfGufSeaHrsunderway\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -359,9 +363,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_2\", 2, \"snfGufHarborHrsunderway\")) == 0, \"\", (num(table(\"section_1_table_2\", 2, \"snfGufHarborGTG1\")) + num(table(\"section_1_table_2\", 2, \"snfGufHarborGTG2\"))) / num(table(\"section_1_table_2\", 2, \"snfGufHarborHrsunderway\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -395,9 +403,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_2\", 1, \"snfGufSeaMeasuredValue\")) == 0 || num(table(\"section_1_table_2\", 2, \"snfGufHarborMeasuredValue\")) == 0, \"\", num(table(\"section_1_table_2\", 1, \"snfGufSeaMeasuredValue\")) + num(table(\"section_1_table_2\", 2, \"snfGufHarborMeasuredValue\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,

@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "section_1",
-      "title": "GTG UTILISATION FACTOR <br><br>1.   Refer to HQEF/FEO letter FEG/300/50/02 dated 08 Sep 20.<br>2.   GUF for the month of May 24 is tabulated below.",
+      "title": "<u><h4 class='text-center'>GTG UTILISATION FACTOR<h4></u> <br><br>1.   Refer to HQEF/FEO letter FEG/300/50/02 dated 08 Sep 20.<br>2.   GUF for the month of May 24 is tabulated below.",
       "sectionType": "hybrid",
       "fields": [],
       "tables": [
@@ -298,6 +298,10 @@
                   "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(p15GufSeaHrsunderway) == 0, \"\", (num(p15GufSeaJ1) + num(p15GufSeaJ3) + num(p15GufSeaM2) + num(p15GufSeaM4)) / num(p15GufSeaHrsunderway))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -462,6 +466,10 @@
                   "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(p15GufHarborHrsunderway) == 0, \"\", (num(p15GufHarborJ1) + num(p15GufHarborJ3) + num(p15GufHarborM2) + num(p15GufHarborM4)) / num(p15GufHarborHrsunderway))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -498,6 +506,10 @@
                   "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(table(\"section_1_table_2\", 1, \"p15GufSeaMeasuredValue\") == \"\" || table(\"section_1_table_2\", 2, \"p15GufHarborMeasuredValue\") == \"\", \"\", num(table(\"section_1_table_2\", 1, \"p15GufSeaMeasuredValue\")) + num(table(\"section_1_table_2\", 2, \"p15GufHarborMeasuredValue\")))",
+                    "emptyAsZero": false
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,

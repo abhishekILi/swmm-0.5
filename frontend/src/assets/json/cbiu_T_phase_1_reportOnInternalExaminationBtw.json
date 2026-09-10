@@ -10,8 +10,8 @@
       "sectionGroup": {
         "fields_1": [
           {
-           "type": "input",
-            "label": "SHIP",
+            "type": "input",
+            "label": "Ship Name:",
             "value": "",
             "rows": null,
             "required": false,
@@ -33,7 +33,7 @@
           {
             "type": "input",
             "name": "reportRefNo",
-            "label": "REPORT REF No.",
+            "label": "REPORT REF No:",
             "colSpan": 4,
             "required": false,
             "disabled": false,
@@ -52,7 +52,7 @@
           {
             "type": "date",
             "name": "reportDate",
-            "label": "DATE",
+            "label": "Date:",
             "colSpan": 4,
             "required": false,
             "disabled": false,
@@ -70,27 +70,34 @@
           {
             "type": "input",
             "name": "reportOnExternalExaminationOfBoilerNo",
-            "label": "REPORT ON EXTERNAL EXAMINATION OF BOILER No.",
+            "label": "REPORT ON EXTERNAL EXAMINATION OF BOILER ",
             "colSpan": 12,
             "required": false,
             "disabled": false,
             "placeholder": "",
             "value": "",
-            "inputType": "number"
+            "inputType": "text"
           }
         ],
         "tables_2": [
           {
             "id": "sectionone_table_2",
             "sectionType": "matrixTable",
-            "title": "<small class='text-sm font-bold'> (Examination to be undertaken in accordance with Article 1250, BR 3000 and Article 0307, BR 2000 (25) (1). Routine internal examination is to be undertaken at 12 monthly interval from the date of first raising steam, following last retubing/internal cleaning/ internal examination, as applicable. Report is to be rendered, in quadruplicate to CBIU(MB) soon after completion of the examination).<small>  <br>  <h1 class='text-center text-xl font-bold'>PART - I</h1>",
-            
+            "title": "(Examination to be undertaken in accordance with Article 1250, BR 3000 and Article 0307, BR 2000 (25) (1). Routine internal examination is to be undertaken at 12 monthly interval from the date of first raising steam, following last retubing/internal cleaning/ internal examination, as applicable. Report is to be rendered, in quadruplicate to CBIU(MB) soon after completion of the examination).<br><h1 class='text-center text-xl font-bold'>PART - I</h1>",
             "columns": [],
             "rows": [
               {
                 "_id": "sectionone_table_2_row_1",
                 "cells": [
-                  { "_id": "sectionone_table_2_row_1_cell_serial_label", "key": "sno", "type": "serial", "value": "1.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_2_row_1_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "1.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_2_row_1_cell_1_static",
                     "key": "1_date_of_opening_and_closing_of_boiler_for_present_internal_examination",
@@ -105,6 +112,7 @@
                     "key": "internalDateOfOpening2",
                     "type": "date",
                     "value": "",
+                    "lb": "(a) Date Opened:",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -128,6 +136,7 @@
                     "type": "date",
                     "value": "",
                     "rows": null,
+                    "lb": "(b) Date Closed:",
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -149,7 +158,15 @@
               {
                 "_id": "sectionone_table_2_row_2",
                 "cells": [
-                  { "_id": "sectionone_table_2_row_2_cell_serial_label", "key": "sno", "type": "serial", "value": "2.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_2_row_2_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "2.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_2_row_2_cell_1_static",
                     "key": "2_routine_12_24_36_48_monthly_after_use_of_contaminated_feed_water_before_steaming_of_boiler_remaining_idle_for_more_than_03_months_post_refit_sea_trials_special_examination_if_any_with_brief_reason",
@@ -164,7 +181,7 @@
                     "key": "internalOccPresentRemarksShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -186,12 +203,20 @@
               {
                 "_id": "sectionone_table_2_row_2b",
                 "cells": [
-                  { "_id": "sectionone_table_2_row_3_cell_serial_label", "key": "sno", "type": "serial", "value": "3.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_2_row_3_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "3.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_2_row_2b_cell_1_static",
                     "key": "b_last_examined",
                     "type": "label",
-                    "value": "Date of first raising steam on the boiler following the last:",
+                    "value": "<b>Date of first raising steam on the boiler following the last:</b>",
                     "colspan": 7,
                     "rowspan": 1,
                     "align": "left"
@@ -322,7 +347,7 @@
                     "_id": "sectionone_table_2_row_4_cell_heading_label",
                     "key": "running_hours_heading",
                     "type": "label",
-                    "value": "Running Hours",
+                    "value": "<b>Running Hours</b>",
                     "colspan": 7,
                     "rowspan": 1,
                     "align": "left"
@@ -336,7 +361,7 @@
                     "_id": "sectionone_table_2_row_6_cell_1_static",
                     "key": "particular",
                     "type": "label",
-                    "value": "Particular",
+                    "value": "<b>Particular</b>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -345,7 +370,7 @@
                     "_id": "sectionone_table_2_row_6_cell_2_static",
                     "key": "date",
                     "type": "label",
-                    "value": "Date",
+                    "value": "<b>Date</b>",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -354,7 +379,7 @@
                     "_id": "sectionone_table_2_row_6_cell_3_static",
                     "key": "hours_in_use_since",
                     "type": "label",
-                    "value": "Hours in use since",
+                    "value": "<b>Hours in use since</b>",
                     "colspan": 3,
                     "rowspan": 1,
                     "align": "left"
@@ -783,7 +808,7 @@
                     "_id": "sectionone_table_2_row_5_cell_heading_label",
                     "key": "examination_details_heading",
                     "type": "label",
-                    "value": "Details/Occasion of Examination:",
+                    "value": "<b>Details/Occasion of Examination:</b>",
                     "colspan": 7,
                     "rowspan": 1,
                     "align": "left"
@@ -973,7 +998,15 @@
               {
                 "_id": "sectionone_table_2_row_18",
                 "cells": [
-                  { "_id": "sectionone_table_2_row_18_cell_serial_label", "key": "sno", "type": "serial", "value": "6.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_2_row_18_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "6.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_2_row_18_cell_1_static",
                     "key": "6_authority_for_deferment_of_present_internal_examination_if_applicable",
@@ -1018,7 +1051,7 @@
             "topHeaders": [
               [
                 {
-                  "label": "7. Boiler Water Test Results since Last Internal Examination. (Indicate in the table below, details of all occurrences of boiler water alkalinity (NaOH) values of less than 04 Mg/Ltr boiler in W/WW state as well as Chlorine content values of more than 10 Mg/Ltr and phosphate content below 10 Mg/Ltr on all occasions. If given space is inadequate, the details on separate sheet be attached with this report).",
+                  "label": "<b>7. Boiler Water Test Results since Last Internal Examination.</b>(Indicate in the table below, details of all occurrences of boiler water alkalinity (NaOH) values of less than 04 Mg/Ltr boiler in W/WW state as well as Chlorine content values of more than 10 Mg/Ltr and phosphate content below 10 Mg/Ltr on all occasions. If given space is inadequate, the details on separate sheet be attached with this report).",
                   "colspan": 8,
                   "rowspan": 1,
                   "align": "left"
@@ -1026,7 +1059,7 @@
               ],
               [
                 {
-                  "label": "(A) ALKALINITY (NaOH)",
+                  "label": "<b>(A) ALKALINITY (NaOH)</b>",
                   "colspan": 8,
                   "rowspan": 1,
                   "align": "center"
@@ -1204,12 +1237,10 @@
           {
             "id": "sectionone_table_3b",
             "sectionType": "matrixTable",
-            
             "topHeaders": [
-              
               [
                 {
-                  "label": "(B) SALINITY",
+                  "label": "<b>(B) SALINITY</b>",
                   "colspan": 8,
                   "rowspan": 1,
                   "align": "center"
@@ -1387,9 +1418,7 @@
           {
             "id": "sectionone_table_4",
             "sectionType": "matrixTable",
-            
-           "topHeaders": [
-              
+            "topHeaders": [
               [
                 {
                   "label": "8. Average feed water consumption.",
@@ -1399,7 +1428,6 @@
                 }
               ]
             ],
-            
             "rows": [
               {
                 "_id": "sectionone_table_4_row_1",
@@ -1418,6 +1446,7 @@
                     "key": "interBtwAuxilliarySteaming",
                     "type": "input",
                     "value": "",
+                    "lb": "tons/hr",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -1454,6 +1483,7 @@
                     "key": "interBtwMainSteaming",
                     "type": "input",
                     "value": "",
+                    "lb": "tons/hr",
                     "rows": null,
                     "required": false,
                     "disabled": false,
@@ -1480,14 +1510,20 @@
           {
             "id": "sectionone_table_5",
             "sectionType": "matrixTable",
-            
-            
             "columns": [],
             "rows": [
               {
                 "_id": "sectionone_table_5_row_1",
                 "cells": [
-                  { "_id": "sectionone_table_5_row_1_cell_serial_label", "key": "sno", "type": "serial", "value": "9.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_5_row_1_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "9.9",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_5_row_1_cell_1_static",
                     "key": "9_9_details_of_hand_hole_doors_of_water_wall_superheater_economiser_headers_and_internal_fittings_removed_to_facilitate_present_internal_examination_different_hand_hole_doors_should_be_removed_at_successive_examinations_should_the_internal_condition_be_found_unsatisfactory_or_any_tube_defect_is_noticed_the_remainder_internal_fittings_must_also_be_removed_and_all_tubes_inspected",
@@ -1524,12 +1560,20 @@
               {
                 "_id": "sectionone_table_5_row_2",
                 "cells": [
-                  { "_id": "sectionone_table_5_row_2_cell_serial_label", "key": "sno", "type": "serial", "value": "10.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_5_row_2_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "10.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_5_row_2_cell_1_static",
                     "key": "a_if_any_internal_cleaning_of_boiler_other_than_wash_down_by_feed_water_was_undertaken_before_present_examination_state",
                     "type": "label",
-                    "value": "If any internal cleaning of boiler other than wash down by feed water was undertaken before present examination, state:-",
+                    "value": "<b>If any internal cleaning of boiler other than wash down by feed water was undertaken before present examination, state:-</b>",
                     "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
@@ -1647,12 +1691,20 @@
               {
                 "_id": "sectionone_table_5_row_5",
                 "cells": [
-                  { "_id": "sectionone_table_5_row_5_cell_serial_label", "key": "sno", "type": "serial", "value": "11.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_5_row_5_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "<b>11.</b>",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_5_row_5_cell_1_static",
                     "key": "11_boiler_water_test_kit_highlight_defects_deficiency_if_any_and_indicate_briefly_since_when_reason_holdups_and_remedial_actions_taken",
                     "type": "label",
-                    "value": "Boiler water test kit (Highlight defects/ deficiency, if any and indicate briefly since when, reason/holdups and remedial actions taken ).",
+                    "value": "<b>Boiler water test kit</b> (Highlight defects/ deficiency, if any and indicate briefly since when, reason/holdups and remedial actions taken ).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1684,12 +1736,20 @@
               {
                 "_id": "sectionone_table_5_row_6",
                 "cells": [
-                  { "_id": "sectionone_table_5_row_6_cell_serial_label", "key": "sno", "type": "serial", "value": "12.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_5_row_6_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "<b>12.</b>",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_5_row_6_cell_1_static",
                     "key": "12_boiler_tube_internal_cleaning_equipment_highlight_deficiency_as_per_authorized_range_and_scale_if_any_and_indicate_briefly_since_when_reason_holdups_and_remedial_actions_taken",
                     "type": "label",
-                    "value": "Boiler tube internal cleaning equipment. (Highlight deficiency as per authorized range and scale, if any and indicate briefly since when, reason/holdups and remedial actions taken).",
+                    "value": "<b>Boiler tube internal cleaning equipment.</b> (Highlight deficiency as per authorized range and scale, if any and indicate briefly since when, reason/holdups and remedial actions taken).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1725,19 +1785,26 @@
           {
             "id": "sectionone_table_6",
             "sectionType": "matrixTable",
-            "title": "<h3 class='text-center text-xl font-bold'>PART - II</h3> <br> <small class='text-sm font-bold'>(Brief details of observations made during present internal examination and repairs/remedial actions taken be highlighted in this part. Observations to include nature (soft/hard, tenacious, colour and layer/mounds/scabs etc.) and extent (thin/thick, spread in isolated areas/pockets, scattered all over /uniformly all over etc.) of deposits/ corrosion/scale. Any significant changes since last examination if the boiler was not cleaned in the interim period be highlighted. Presence of traces of boiler compound, oil or grease, foreign body/obstruction besides evidence of overheating, damage and abnormality observed , if any be also highlighted).</small>",
-            
+            "title": "<h3 class='text-center text-xl font-bold'>PART - II</h3> <br>(Brief details of observations made during present internal examination and repairs/remedial actions taken be highlighted in this part. Observations to include nature (soft/hard, tenacious, colour and layer/mounds/scabs etc.) and extent (thin/thick, spread in isolated areas/pockets, scattered all over /uniformly all over etc.) of deposits/ corrosion/scale. Any significant changes since last examination if the boiler was not cleaned in the interim period be highlighted. Presence of traces of boiler compound, oil or grease, foreign body/obstruction besides evidence of overheating, damage and abnormality observed , if any be also highlighted).</small>",
             "columns": [],
             "rows": [
               {
                 "_id": "sectionone_table_6_row_1",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_1_cell_serial_label", "key": "sno", "type": "serial", "value": "13.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_1_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "13.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_1_cell_1_static",
                     "key": "13_steam_drum_both_below_and_above_water_line_w_including_joint_faces_of_manhole_door_s_for_scoring_pitting_and_damage",
                     "type": "label",
-                    "value": "Steam Drum. (both below and above water line (W) including joint faces of manhole door(s) for scoring, pitting and damage).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Steam Drum.</div><div>(both below and above water line (W) including joint faces of manhole door(s) for scoring, pitting and damage).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1762,19 +1829,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_2",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_2_cell_serial_label", "key": "sno", "type": "serial", "value": "14.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_2_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "14.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_2_cell_1_static",
                     "key": "14_water_drum_including_joint_faces_of_manhole_door_s",
                     "type": "label",
-                    "value": "Water Drum. (Including joint faces of manhole door(s) ).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Water Drum.</div><div>(Including joint faces of manhole door(s)).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1799,19 +1875,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_3",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_3_cell_serial_label", "key": "sno", "type": "serial", "value": "15.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_3_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "15.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_3_cell_1_static",
                     "key": "15_water_wall_headers_including_joint_faces_of_handhole_door_s_for_scoring_pitting_and_damage",
                     "type": "label",
-                    "value": "Water Wall Headers. (Including joint faces of handhole door(s) for scoring, pitting and damage).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Water Wall Headers.</div><div>(Including joint faces of handhole door(s) for scoring, pitting and damage).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1836,19 +1921,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_4",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_4_cell_serial_label", "key": "sno", "type": "serial", "value": "16.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_4_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "16.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_4_cell_1_static",
                     "key": "a_16_generator_water_wall_and_floor_tubes_from_both_ends",
                     "type": "label",
-                    "value": "(a) Generator, Water Wall and floor tubes. (from both ends)",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(a) Generator, Water Wall and Floor Tubes.</div><div>(from both ends)</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1873,7 +1967,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -1884,7 +1979,7 @@
                     "_id": "sectionone_table_6_row_5_cell_1_static",
                     "key": "b_tube_ends_tube_belings_additionally_for_damage_cracks",
                     "type": "label",
-                    "value": "(b) Tube ends (tube belings). (additionally for damage/cracks).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(b) Tube ends (tube belings).</div><div>(additionally for damage/cracks).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1909,19 +2004,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_6",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_6_cell_serial_label", "key": "sno", "type": "serial", "value": "17.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_6_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "17.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_6_cell_1_static",
                     "key": "17_downcomer_and_uprisers_including_their_ends",
                     "type": "label",
-                    "value": "Downcomer and Uprisers. (including their ends)",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Downcomer and Upriser.</div><div>(including their ends)</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1946,19 +2050,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_7",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_7_cell_serial_label", "key": "sno", "type": "serial", "value": "18.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_7_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "18.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_7_cell_1_static",
                     "key": "18_a_superheater_tubes_includng_their_end",
                     "type": "label",
-                    "value": "(a) SuperHeater Tubes. (includng their end)",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(a) Superheater Tubes.</div><div>(including their end)</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1983,7 +2096,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -1994,7 +2108,7 @@
                     "_id": "sectionone_table_6_row_8_cell_1_static",
                     "key": "b_super_heater_headers_including_joint_faces_of_manhole_doors_for_scoring_pitting_and_damage",
                     "type": "label",
-                    "value": "(b) Super Heater Headers. (Including joint faces of manhole doors for scoring, pitting and damage).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(b) Super Heater Headers.</div><div>(Including joint faces of manhole doors for scoring, pitting and damage).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2019,19 +2133,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_9",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_9_cell_serial_label", "key": "sno", "type": "serial", "value": "19.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_9_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "19.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_9_cell_1_static",
                     "key": "19_a_economiser_tube_elements_includng_tube_end",
                     "type": "label",
-                    "value": "(a) Economiser tube elements. (includng tube end)",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(a) Economiser tube elements.</div><div>(including tube end)</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2056,7 +2179,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -2067,7 +2191,7 @@
                     "_id": "sectionone_table_6_row_10_cell_1_static",
                     "key": "b_economiser_headers",
                     "type": "label",
-                    "value": "(b) Economiser Headers.",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold\">(b) Economiser Headers.</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2092,19 +2216,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_11",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_11_cell_serial_label", "key": "sno", "type": "serial", "value": "20.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_11_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "20.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_11_cell_1_static",
                     "key": "20_various_orifices_stub_pipes_and_nozzles_of_steam_water_drums_and_all_headers",
                     "type": "label",
-                    "value": "Various orifices/stub pipes and nozzles. (of steam/water drums and all headers).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Various orifices/stub pipes and nozzles.</div><div>(of steam/water drums and all headers).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2129,19 +2262,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_12",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_12_cell_serial_label", "key": "sno", "type": "serial", "value": "21.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_12_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "21.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_12_cell_1_static",
                     "key": "21_a_internal_gear_including_attemperator_and_desuperheater_coils_as_applicable",
                     "type": "label",
-                    "value": "(a)Internal gear including attemperator and desuperheater coils, as applicable.",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">(a) Internal gear</div><div>including attemperator and desuperheater coils, as applicable.</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2166,7 +2308,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -2177,7 +2320,7 @@
                     "_id": "sectionone_table_6_row_13_cell_1_static",
                     "key": "b_fit_of_joint_faces_of_baffle_and_splash_plates_cyclone_separator_and_internal_steam_water_pipes_below_water_level_w_as_far_as_accessibility_permits",
                     "type": "label",
-                    "value": "(b) Fit of joint faces of baffle and splash plates, cyclone separator and internal steam/water pipes below water level (W) as far as accessibility permits.",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold\">(b) Fit of joint faces of baffle and splash plates, cyclone separator and internal steam/water pipes below water level (W) as far as accessibility permits.</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2202,7 +2345,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -2213,7 +2357,7 @@
                     "_id": "sectionone_table_6_row_14_cell_1_static",
                     "key": "c_steam_drum_internal_dry_steam_pipe_joints_above_water_level_w_for_leakage_by_undertaking_reverse_pressure_test",
                     "type": "label",
-                    "value": "(c) Steam drum internal dry steam pipe joints above water level (W) (for leakage by undertaking reverse pressure test).",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold\">(c) Steam drum internal dry steam pipe joints above water level (W) (for leakage by undertaking reverse pressure test).</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2238,7 +2382,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -2249,7 +2394,7 @@
                     "_id": "sectionone_table_6_row_15_cell_1_static",
                     "key": "d_security_of_joints_fastenings_and_locking_arrangement",
                     "type": "label",
-                    "value": "(d) Security of joints, fastenings and locking arrangement.",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold\">(d) Security of joints, fastenings and locking arrangement.</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2274,19 +2419,28 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
               {
                 "_id": "sectionone_table_6_row_16",
                 "cells": [
-                  { "_id": "sectionone_table_6_row_16_cell_serial_label", "key": "sno", "type": "serial", "value": "22.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_6_row_16_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "22.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "_id": "sectionone_table_6_row_16_cell_1_static",
                     "key": "22_direct_reading_water_level_indicator_test_for_satisfactory_operation_of_the_isolating_steam_water_and_drain_cocks_valves_and_serviceability_of_assembly",
                     "type": "label",
-                    "value": "Direct Reading Water Level Indicator Test (for satisfactory operation of the isolating steam, water and drain cocks/valves and serviceability of assembly)",
+                    "value": "<div class=\"text-left\"><div class=\"font-bold mb-1\">Direct Reading Water Level Indicator Test</div><div>(for satisfactory operation of the isolating steam, water and drain cocks/valves and serviceability of assembly)</div></div>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -2311,23 +2465,22 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               }
-             
             ],
             "showRowActions": false,
             "minRows": 1
           }
         ],
         "fields_2": [
-
           {
             "name": "summaryNotes",
             "type": "notes",
             "colSpan": 12,
-            "notesHeading": "<b>Notes:</b>",
+            "notesHeading": "<b>Note:</b>",
             "notesDescription": "",
             "notesListType": "ordered",
             "notesItems": [
@@ -2338,34 +2491,11 @@
           {
             "name": "generalDate",
             "type": "date",
-            "label": "23. CERTIFICATE I certify that all tubes and mounting orifices including those of water level indicators were free from obstruction and that no foreign body including wooden plugs (fitted temporarily during the examination) were left inside the boiler and that the internal fittings were correctly fitted when the boiler was finally closed after the present internal examination on",
-            "colSpan": 12,
-            "inputType": "date"
-            
-          },
-          {
-            "_id": "sectionone_select_1",
-            "key": "recommendationStatus",
-            "type": "select",
-            "label": "Engineer Officer",
-            "value": "",
+            "label": "𝟐𝟑. 𝐂𝐄𝐑𝐓𝐈𝐅𝐈𝐂𝐀𝐓𝐄 — I certify that all tubes and mounting orifices including those of water level indicators were free from obstruction and that no foreign body including wooden plugs (fitted temporarily during the examination) were left inside the boiler and that the internal gear was correctly fitted when the boiler was finally closed after the present internal examination on",
+            "inputType": "date",
             "required": false,
-            "disabled": false,
-            "placeholder": "-- Select Recommendation --",
-            "options": [
-              {
-                "label": "Recommended",
-                "value": "recommended"
-              },
-              {
-                "label": "Not Recommended",
-                "value": "not_recommended"
-              }
-            ],
-            "colspan": 12,
-            "rowspan": 1
+            "colSpan": "12"
           },
-          
           {
             "_id": "sectionone_editor_1",
             "key": "generalRemarksByShip",
@@ -2381,7 +2511,6 @@
             "colspan": 12,
             "rowspan": 1
           },
-          
           {
             "_id": "sectionone_editor_1",
             "key": "remarksByCBIU",
@@ -2422,6 +2551,5 @@
         ]
       }
     }
-    
   ]
 }

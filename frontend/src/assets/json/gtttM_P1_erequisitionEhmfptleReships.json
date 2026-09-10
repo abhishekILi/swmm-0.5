@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "section_1",
-      "title": "REQUISTION FOR Trials",
+      "title": "REQUISITION FOR Trials",
       "sectionType": "mixed",
       "sectionGroup": {
         "fields_1": [
@@ -42,14 +42,6 @@
               {
                 "label": "Pre Refit Trial",
                 "value": "Pre Refit Trial"
-              },
-              {
-                "label": "Post Refit Trials",
-                "value": "Post Refit Trials"
-              },
-              {
-                "label": "Performance Trials",
-                "value": "Performance Trials"
               }
             ],
             "isDynamic": false,
@@ -58,7 +50,9 @@
             "prefillSource": null,
             "lockAfterPrefill": false,
             "hiddenKey": null,
-            "displayKey": null
+            "displayKey": null,
+            "prefixText": "REQUISITION FOR",
+            "suffixText": "Trials"
           }
         ],
         "tables_1": [
@@ -108,7 +102,8 @@
                     "isDynamic": true,
                     "lookupKey": "ship_name",
                     "prefill": true,
-                    "prefillSource": "context.ship_name"
+                    "prefillSource": "context.ship_name",
+                    "width": "50%"
                   }
                 ]
               },
@@ -137,10 +132,10 @@
                     "_id": "section_1_table_1_row_2_cell_3_reqEHMMachineryEquipment",
                     "key": "reqEHMMachineryEquipment",
                     "type": "input",
-                    "value": "",
+                    "value": "GAS TURBINE GENERATOR PRIME MOVER  (GTG-1250-2E) SERVESTAL",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -149,11 +144,12 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.nomenclature",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -198,7 +194,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -226,13 +223,13 @@
                   {
                     "_id": "section_1_table_1_row_4_cell_3_reqEHMProposedDateHarbour",
                     "key": "reqEHMProposedDateHarbour",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
+                    "placeholder": "DD/MM/YYYY",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -243,7 +240,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               },
@@ -271,13 +269,13 @@
                   {
                     "_id": "section_1_table_1_row_5_cell_3_reqEHMProposedDateSea",
                     "key": "reqEHMProposedDateSea",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
+                    "placeholder": "DD/MM/YYYY",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -288,7 +286,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "50%"
                   }
                 ]
               }
@@ -1133,13 +1132,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_2_reqEHMDateLastTrialPCGT",
                     "key": "reqEHMDateLastTrialPCGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1155,13 +1154,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_3_reqEHMDateLastTrialPCRG",
                     "key": "reqEHMDateLastTrialPCRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1177,13 +1176,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_4_reqEHMDateLastTrialSCGT",
                     "key": "reqEHMDateLastTrialSCGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1199,13 +1198,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_5_reqEHMDateLastTrialSCRG",
                     "key": "reqEHMDateLastTrialSCRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1221,13 +1220,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_6_reqEHMDateLastTrialPBGT",
                     "key": "reqEHMDateLastTrialPBGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1243,13 +1242,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_7_reqEHMDateLastTrialPBRG",
                     "key": "reqEHMDateLastTrialPBRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1265,13 +1264,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_8_reqEHMDateLastTrialSBGT",
                     "key": "reqEHMDateLastTrialSBGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -1287,13 +1286,13 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_9_reqEHMDateLastTrialSBRG",
                     "key": "reqEHMDateLastTrialSBRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
                     "disabled": false,
                     "placeholder": "DD/MM/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -2455,7 +2454,7 @@
         ],
         "fields_2": [
           {
-            "type": "textarea",
+            "type": "editor",
             "name": "remarksInfo",
             "label": "7. Any other relevant information",
             "colSpan": 12,
@@ -2472,7 +2471,12 @@
             "lockAfterPrefill": false,
             "hiddenKey": null,
             "displayKey": null,
-            "rows": 5
+            "rows": 5,
+            "_id": "section_1_editor_1",
+            "key": "remarksInfo",
+            "height": 200,
+            "colspan": 12,
+            "rowspan": 1
           }
         ]
       }

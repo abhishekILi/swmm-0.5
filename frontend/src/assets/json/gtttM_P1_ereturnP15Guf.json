@@ -259,6 +259,10 @@
                     "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
+                    "formula": {
+                      "expression": "if(table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthJ1\") == \"\" || table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthJ3\") == \"\" || table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthM3\") == \"\" || table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthM4\") == \"\", \"\", num(table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthJ1\")) + num(table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthJ3\")) + num(table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthM3\")) + num(table(\"section_1_table_1\", 1, \"totaRunningHrsInTheMonthM4\")))",
+                      "emptyAsZero": true
+                    },
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -349,6 +353,10 @@
                     "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
+                    "formula": {
+                      "expression": "if(table(\"section_1_table_2\", 1, \"totalGTGRunningHours\") == \"\" || table(\"section_1_table_2\", 2, \"noOfHoursGTGRunAtSea\") == \"\", \"\", num(table(\"section_1_table_2\", 1, \"totalGTGRunningHours\")) - num(table(\"section_1_table_2\", 2, \"noOfHoursGTGRunAtSea\")))",
+                      "emptyAsZero": false
+                    },
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -492,9 +500,9 @@
                     "hiddenKey": null,
                     "displayKey": null,
                     "isDynamic": true,
-                    "lookupKey": "ship_name",
-                    "prefill": true,
-                    "prefillSource": "context.ship_name"
+                    "lookupKey": "",
+                    "prefill": false,
+                    "prefillSource": ""
                   }
                 ]
               },
@@ -754,6 +762,10 @@
                     "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
+                    "formula": {
+                      "expression": "if(num(table(\"section_1_table_2\", 4, \"hoursUnderway\")) == 0, \"\", num(table(\"section_1_table_2\", 2, \"noOfHoursGTGRunAtSea\")) / num(table(\"section_1_table_2\", 4, \"hoursUnderway\")))",
+                      "emptyAsZero": true
+                    },
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
@@ -799,6 +811,10 @@
                     "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
+                    "formula": {
+                      "expression": "if((num(table(\"section_1_table_2\", 5, \"hoursAtAnchorage\")) + num(table(\"section_1_table_2\", 6, \"noOfHoursOfShipInHarbour\"))) == 0, \"\", num(table(\"section_1_table_2\", 3, \"noOfHoursGTGRunInHarbour\")) / (num(table(\"section_1_table_2\", 5, \"hoursAtAnchorage\")) + num(table(\"section_1_table_2\", 6, \"noOfHoursOfShipInHarbour\"))))",
+                      "emptyAsZero": true
+                    },
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,

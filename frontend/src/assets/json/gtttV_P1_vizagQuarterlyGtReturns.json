@@ -5,14 +5,14 @@
   "sections": [
     {
       "id": "section_1",
-      "title": "QUARTERLY GT RETURNS<br>LUB OIL QUARTERLY RETURNS (ADVANCED/SOAP) FOR QE",
+      "title": "<u><p class='text-center'>QUARTERLY GT RETURNS<br>LUB OIL QUARTERLY RETURNS (ADVANCED/SOAP) FOR QE<br>SOAP Analysis:- Atomic Method(Particle Quantity in PPM)</p></u>",
       "sectionType": "hybrid",
       "fields": [],
       "tables": [
         {
           "id": "section_1_table_1",
           "sectionType": "matrixTable",
-          "title": "SOAP Analysis:- Atomic Method(Particle Quantity in PPM)",
+          "title": "",
           "topHeaders": [
             [
               {
@@ -630,7 +630,7 @@
         {
           "id": "section_1_table_2",
           "sectionType": "matrixTable",
-          "title": "PART - I: GENERAL",
+          "title": "<u><p class='text-center'>PART - I: GENERAL</p></u>",
           "topHeaders": [],
           "columns": [],
           "rows": [
@@ -1488,7 +1488,7 @@
         {
           "id": "section_1_table_4",
           "sectionType": "matrixTable",
-          "title": "PART-II GAS TURBINE EXPLOITATION<br>(a) GT RH Table:-",
+          "title": "<u><p class='text-center'>PART-II GAS TURBINE EXPLOITATION</p></u><br>(a) GT RH Table:-",
           "topHeaders": [
             [
               {
@@ -4186,7 +4186,7 @@
         {
           "id": "section_1_table_5",
           "sectionType": "simpleTable",
-          "title": "(b) ENGINE EXPLOITATION FACTOR (EEF)",
+          "title": "<u><p class='text-center'>(b) ENGINE EXPLOITATION FACTOR (EEF)</p></u>",
           "topHeaders": [],
           "columns": [
             {
@@ -4297,9 +4297,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_5\", 1, \"p17EEFTotalHrsB1\")) == 0, \"\", num(table(\"section_1_table_5\", 1, \"p17EEFCumuHrsA1\")) / num(table(\"section_1_table_5\", 1, \"p17EEFTotalHrsB1\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -4412,9 +4416,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_5\", 2, \"p17EEFTotalHrsB2\")) == 0, \"\", num(table(\"section_1_table_5\", 2, \"p17EEFCumuHrsA2\")) / num(table(\"section_1_table_5\", 2, \"p17EEFTotalHrsB2\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -4527,9 +4535,13 @@
                   "value": "",
                   "rows": null,
                   "required": false,
-                  "disabled": false,
+                  "disabled": true,
                   "placeholder": "",
                   "inputType": "text",
+                  "formula": {
+                    "expression": "if(num(table(\"section_1_table_5\", 3, \"p17EEFTotalHrsB3\")) == 0, \"\", num(table(\"section_1_table_5\", 3, \"p17EEFCumuHrsA3\")) / num(table(\"section_1_table_5\", 3, \"p17EEFTotalHrsB3\")))",
+                    "emptyAsZero": true
+                  },
                   "options": null,
                   "colspan": 1,
                   "rowspan": 1,
@@ -4573,7 +4585,7 @@
         {
           "id": "section_1_table_6",
           "sectionType": "matrixTable",
-          "title": "PART-III DETAILS OF MAINTENANCE/ROUTINES/TRIAL/INSPECTIONS",
+          "title": "<u><p class='text-center'>PART-III <br>DETAILS OF MAINTENANCE/ROUTINES/TRIAL/INSPECTIONS</p></u>",
           "topHeaders": [
             [
               {
@@ -6849,7 +6861,7 @@
           {
             "id": "section_2_table_4",
             "sectionType": "matrixTable",
-            "title": "PART-IV: DEFECTS",
+            "title": "<u><p class='text-center'>PART-IV: DEFECTS</p></u>",
             "topHeaders": [
               [
                 {
@@ -7213,7 +7225,7 @@
           {
             "id": "section_2_table_6",
             "sectionType": "matrixTable",
-            "title": "PART-V: PARAMETERS",
+            "title": "<u><p class='text-center'>PART-V: PARAMETERS</p></u>",
             "topHeaders": [],
             "columns": [],
             "rows": [
@@ -7299,7 +7311,7 @@
           {
             "id": "section_2_table_7",
             "sectionType": "matrixTable",
-            "title": "PART-V: PARAMETERS",
+            "title": "",
             "topHeaders": [],
             "columns": [
               {

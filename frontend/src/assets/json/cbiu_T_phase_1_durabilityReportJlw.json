@@ -5,7 +5,7 @@
   "sections": [
     {
       "id": "sectionone",
-      "title": "DURABILITY INSPECTION REPORT",
+      "title": "<h4 class=\"text-base font-semibold text-slate-800 text-center block mb-1\">DURABILITY INSPECTION REPORT</h4>",
       "sectionType": "hybrid",
       "sectionGroup": {
         "fields_1": [
@@ -71,59 +71,85 @@
         "tables_1": [
           {
             "id": "sectionone_table_2",
-            "sectionType": "simpleTable",
-            "title": "<h3 class='text-center text-xl font-bold'>PART – I</h3> <p class=' font-bold'>1. Tube chart</p>",
-            "topHeaders": [],
-            "columns": [
-              {
-                "key": "sl_no",
-                "label": "SNo.",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "tube_type",
-                "label": "Tube Type",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "no_of_accessible_tube_for_utg_total_no_of_tubes",
-                "label": "No of accessible tube for UTG/ Total no of tubes",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "tube_thickness_tube_original_mm_tube_min_measured_mm",
-                "label": "Tube Thickness Tube Original (mm)",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "tube_thickness_tube_original_mm_tube_min_measured_mm",
-                "label": "Tube Min measured (mm)",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "degradation_of_wall_thickness_of_tubes",
-                "label": "% degradation of wall thickness of tubes",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "life_estimated_as_per_lem_chart",
-                "label": "Estimated Life as per LEM Chart",
-                "type": "label",
-                "align": "center"
-              },
-              {
-                "key": "remark_with_tube_last_renewal",
-                "label": "Remark with tube last renewal",
-                "type": "label",
-                "align": "center"
-              }
+            "sectionType": "matrixTable",
+            "title": "<h3 class='text-center text-base font-bold underline mb-2'>Part I</h3><p class='text-left text-sm font-normal underline mb-2'>1.Tube chart</p>",
+            "topHeaders": [
+              [
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "3.5%"
+                },
+                {
+                  "label": "Tube Type",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "No of accessible tube for UTG/ Total no of tubes",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "Tube Thickness",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "26%"
+                },
+                {
+                  "label": "% degradation of wall thickness of tubes",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "Life Estimated as Per LEM Chart",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "Remark with tube last renewal",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "13%"
+                }
+              ],
+              [
+                {
+                  "label": "Tube Original (mm)",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "Tube Min measured (mm)",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "13%"
+                }
+              ]
             ],
+            "columns": [],
             "rows": [
               {
                 "_id": "sectionone_table_2_row_1",
@@ -134,7 +160,8 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "width": "3.5%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_2_tubeType",
@@ -155,7 +182,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_3_tubeNomen",
@@ -176,7 +204,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_4_tubeOriginalThickness",
@@ -197,7 +226,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_5_tubeMinimumMeasuredThickness",
@@ -218,7 +248,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_6_tubeDegradation",
@@ -239,7 +270,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_7_tubeLifeEstimated",
@@ -260,7 +292,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_2_row_1_cell_8_tubeRemarks",
@@ -281,7 +314,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   }
                 ]
               }
@@ -298,53 +332,77 @@
               [
                 {
                   "label": "Pit Depth of tubes",
-                  "colspan": 9,
+                  "colspan": 7,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "94.5%"
+                },
+                {
+                  "label": "",
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": ""
                 }
               ],
               [
                 {
                   "label": "SNo.",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "3.5%"
                 },
                 {
                   "label": "Tube Type",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
                 },
                 {
                   "label": "row/ tube no",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
                 },
                 {
-                  "label": "Tube Original Thickness (mm)",
-                  "colspan": 1,
+                  "label": "Tube Thickness",
+                  "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "26%"
                 },
                 {
-                  "label": "Tube Maximum Pit Depth Measured (mm)",
+                  "label": "Location of the Pit (Along with length)",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
-                },
-                {
-                  "label": "Location of the Pit (Along with Length)",
-                  "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "13%"
                 },
                 {
                   "label": "Remarks",
                   "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "26%"
+                }
+              ],
+              [
+                {
+                  "label": "Tube Original (mm)",
+                  "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "13%"
+                },
+                {
+                  "label": "Tube Max pit depth measured (mm)",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "13%"
                 }
               ]
             ],
@@ -359,7 +417,8 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "width": "3.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_2_tubechartPitDepthType",
@@ -380,7 +439,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_3_tubechartPitDepthNomenclature",
@@ -401,7 +461,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_4_tubechartPitDepthThicknessOrig",
@@ -422,7 +483,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_5_tubechartPitDepthThicknessMaxPitDepth",
@@ -443,7 +505,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_6_tubechartPitDepthThicknessDegradation",
@@ -464,7 +527,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "13%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_7_tubechartPitDepthThicknessRemarks",
@@ -485,7 +549,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "26%"
                   }
                 ]
               }
@@ -495,40 +560,68 @@
             "rowsBinding": "dynamic_Tubechart_Pit_Depth_rows"
           },
           {
-            "id": "sectionone_table_3",
+            "id": "sectionone_table_4",
             "sectionType": "matrixTable",
-            "title": "2. Drums/Headers.",
+            "title": "<p class='text-left text-sm font-normal underline mb-2'>2.Drums/ Headers.</p>",
             "topHeaders": [
               [
                 {
                   "label": "SNo.",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "4.5%"
                 },
                 {
-                  "label": "Name of the Drum/Header",
+                  "label": "Name of the Drum/ Header",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "17.5%"
                 },
                 {
                   "label": "Location",
                   "colspan": 1,
-                  "rowspan": 1,
-                  "align": "center"
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "17.5%"
                 },
                 {
-                  "label": "Thickness Original (mm) Min measured(mm)",
+                  "label": "Thickness",
                   "colspan": 2,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": "35%"
                 },
                 {
                   "label": "Remarks",
                   "colspan": 1,
+                  "rowspan": 2,
+                  "align": "center",
+                  "width": "20%"
+                },
+                {
+                  "label": "",
+                  "colspan": 1,
                   "rowspan": 1,
-                  "align": "center"
+                  "align": "center",
+                  "width": ""
+                }
+              ],
+              [
+                {
+                  "label": "Original (mm)",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "17.5%"
+                },
+                {
+                  "label": "Min measured(mm)",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center",
+                  "width": "17.5%"
                 }
               ]
             ],
@@ -543,7 +636,8 @@
                     "value": "1",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "center"
+                    "align": "center",
+                    "width": "4.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_2_drumsHeadersName",
@@ -564,7 +658,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "17.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_3_drumsHeadersLocation",
@@ -585,7 +680,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "17.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_4_drumsHeadersThicknessMinMeasured",
@@ -606,7 +702,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "17.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_5_drumsHeadersThicknessOriginal",
@@ -627,7 +724,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "17.5%"
                   },
                   {
                     "_id": "sectionone_table_3_row_1_cell_6_drumsHeadersThicknessRemarks",
@@ -648,7 +746,8 @@
                     "prefillSource": null,
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
-                    "displayKey": null
+                    "displayKey": null,
+                    "width": "20%"
                   }
                 ]
               }

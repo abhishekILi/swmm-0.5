@@ -17,12 +17,12 @@
             "required": false,
             "disabled": false,
             "placeholder": "",
-            "value": "",
+            "value": "EHM",
             "inputType": null,
             "options": [
               {
                 "label": "EHM",
-                "value": "default"
+                "value": "EHM"
               },
               {
                 "label": "FPT",
@@ -63,15 +63,12 @@
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_2_static",
-                    "key": "name_of_ship",
+                     "key": "name_of_ship",
                     "type": "label",
                     "value": "Name of Ship",
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "lookupKey": "ship_name",
-                    "prefill": true,
-                    "prefillSource": "context.ship_name"
+                    "align": "left"
                   },
                   {
                     "_id": "section_1_table_1_row_1_cell_3_reqEHMFPTLENameShip",
@@ -80,20 +77,20 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null,
                     "isDynamic": true,
-                    "lookupKey": "ship_name",
+                    "lookupKey": "context.ship_name",
                     "prefill": true,
-                    "prefillSource": "context.ship_name"
+                    "prefillSource": "context.ship_name",
+                    "lockAfterPrefill": false,
+                    "hiddenKey": null,
+                    "displayKey": null
                   }
                 ]
               },
@@ -124,7 +121,7 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
@@ -133,8 +130,8 @@
                     "align": "left",
                     "isDynamic": false,
                     "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
+                    "prefill": true,
+                    "prefillSource": "equipment.nomenclature",
                     "lockAfterPrefill": null,
                     "hiddenKey": null,
                     "displayKey": null
@@ -208,7 +205,7 @@
                   {
                     "_id": "section_1_table_1_row_4_cell_3_reqEHMFPTLEProposedDateHarbourTrial",
                     "key": "reqEHMFPTLEProposedDateHarbourTrial",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -252,7 +249,7 @@
                   {
                     "_id": "section_1_table_1_row_5_cell_3_reqEHMFPTLEProposedDateSeaTrial",
                     "key": "reqEHMFPTLEProposedDateSeaTrial",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -738,7 +735,7 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_2_reqEHMFPTLEDateLastTrialPCGT",
                     "key": "reqEHMFPTLEDateLastTrialPCGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -760,7 +757,7 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_3_reqEHMFPTLEDateLastTrialPCRG",
                     "key": "reqEHMFPTLEDateLastTrialPCRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -782,7 +779,7 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_4_reqEHMFPTLEDateLastTrialSCGT",
                     "key": "reqEHMFPTLEDateLastTrialSCGT",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -804,7 +801,7 @@
                   {
                     "_id": "section_1_table_2_row_5_cell_5_reqEHMFPTLEDateLastTrialSCRG",
                     "key": "reqEHMFPTLEDateLastTrialSCRG",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,
@@ -2208,7 +2205,7 @@
                   {
                     "_id": "section_1_table_3_row_1_cell_4_reqEHMFPTLEDate",
                     "key": "reqEHMFPTLEDate",
-                    "type": "input",
+                    "type": "date",
                     "value": "",
                     "rows": null,
                     "required": false,

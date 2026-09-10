@@ -20,30 +20,12 @@
             "value": "",
             "inputType": null,
             "options": [
-              {
-                "label": "EHM Extension",
-                "value": "EHM"
-              },
-              {
-                "label": "FPT",
-                "value": "FPT"
-              },
-              {
-                "label": "RHE",
-                "value": "RHE"
-              },
-              {
-                "label": "Life Extensions",
-                "value": "LE"
-              },
-              {
-                "label": "ACCEPTANCE",
-                "value": "ACCEPTANCE"
-              },
-              {
-                "label": "PRT",
-                "value": "PRT"
-              }
+              { "label": "EHM Extension", "value": "EHM" },
+              { "label": "FPT", "value": "FPT" },
+              { "label": "RHE", "value": "RHE" },
+              { "label": "Life Extensions", "value": "LE" },
+              { "label": "ACCEPTANCE", "value": "ACCEPTANCE" },
+              { "label": "PRT", "value": "PRT" }
             ],
             "isDynamic": false,
             "lookupKey": null,
@@ -79,7 +61,7 @@
                     "key": "name_of_ship",
                     "type": "label",
                     "value": "Name of Ship",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -90,11 +72,11 @@
                     "value": "",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "lockAfterPrefill": null,
@@ -124,7 +106,7 @@
                     "key": "machinery_equipment",
                     "type": "label",
                     "value": "Machinery / Equipment",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -132,14 +114,14 @@
                     "_id": "section_1_table_1_row_2_cell_3_p15ABAccMechinEquip",
                     "key": "p15ABAccMechinEquip",
                     "type": "input",
-                    "value": "",
+                    "value": "GAS TURBINE GENERATOR PRIME MOVER  (GTG-1250-2E) SERVESTAL",
                     "rows": null,
                     "required": false,
-                    "disabled": false,
+                    "disabled": true,
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -169,7 +151,7 @@
                     "key": "reason_for_trial",
                     "type": "label",
                     "value": "Reason for trial",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -184,7 +166,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -214,7 +196,7 @@
                     "key": "proposed_date_for_harbour_trial",
                     "type": "label",
                     "value": "Proposed Date for harbour trial",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -227,7 +209,7 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
                     "colspan": 4,
                     "rowspan": 1,
@@ -259,7 +241,7 @@
                     "key": "proposed_date_for_sea_trial",
                     "type": "label",
                     "value": "Proposed Date for Sea trial",
-                    "colspan": 1,
+                    "colspan": 5,
                     "rowspan": 1,
                     "align": "left"
                   },
@@ -272,9 +254,9 @@
                     "required": false,
                     "disabled": false,
                     "placeholder": "MM/DD/YYYY",
-                    "inputType": "text",
+                    "inputType": "date",
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 4,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -294,24 +276,48 @@
           {
             "id": "section_1_table_2",
             "sectionType": "matrixTable",
-            "title": "6. State of Machinery",
+            "title": "",
             "topHeaders": [
               [
                 {
-                  "label": "",
+                  "label": "Type",
+                  "colspan": 2,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "GT No.1",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "M4",
+                  "label": "GT No.2",
                   "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 },
                 {
-                  "label": "M4 RG",
-                  "colspan": 3,
+                  "label": "GT No.3",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "GT No.4",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "RG1",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "RG2",
+                  "colspan": 1,
                   "rowspan": 1,
                   "align": "center"
                 }
@@ -323,57 +329,73 @@
                 "_id": "section_1_table_2_row_1",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_1_cell_1_static",
-                    "key": "a_s_no_of_gtg_only_one_gtg_at_a_time",
+                    "_id": "section_1_table_2_row_1_label",
+                    "key": "serial_no_of_gtas",
                     "type": "label",
-                    "value": "(a) S.No of GTG(Only one GTG at a time)",
+                    "value": "6.   S.No of GTAs",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_1_gt1",
+                    "key": "p15ABAccSNoGTA1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_1_cell_2_p15ABAccStOfMachSnOfGtgM4",
-                    "key": "p15ABAccStOfMachSnOfGtgM4",
+                    "_id": "section_1_table_2_row_1_gt2",
+                    "key": "p15ABAccSNoGTA2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_1_cell_3_p15ABAccStOfMachSnOfGtgM4Rg",
-                    "key": "p15ABAccStOfMachSnOfGtgM4Rg",
+                    "_id": "section_1_table_2_row_1_gt3",
+                    "key": "p15ABAccSNoGTA3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_1_gt4",
+                    "key": "p15ABAccSNoGTA4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_1_rg1",
+                    "key": "p15ABAccSNoRG1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_1_rg2",
+                    "key": "p15ABAccSNoRG2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -381,57 +403,73 @@
                 "_id": "section_1_table_2_row_2",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_2_cell_1_static",
-                    "key": "b_running_hours_since_installation",
+                    "_id": "section_1_table_2_row_2_label",
+                    "key": "running_hours_since_installation",
                     "type": "label",
-                    "value": "(b) Running Hours Since Installation",
+                    "value": "7.   Running Hours Since Installation",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_2_gt1",
+                    "key": "p15ABAccRHSIGT1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_2_cell_2_p15ABAccRHSIM4",
-                    "key": "p15ABAccRHSIM4",
+                    "_id": "section_1_table_2_row_2_gt2",
+                    "key": "p15ABAccRHSIGT2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_2_cell_3_p15ABAccRHSIM4Rg",
-                    "key": "p15ABAccRHSIM4Rg",
+                    "_id": "section_1_table_2_row_2_gt3",
+                    "key": "p15ABAccRHSIGT3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_2_gt4",
+                    "key": "p15ABAccRHSIGT4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_2_rg1",
+                    "key": "p15ABAccRHSIRG1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_2_rg2",
+                    "key": "p15ABAccRHSIRG2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -439,57 +477,73 @@
                 "_id": "section_1_table_2_row_3",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_3_cell_1_static",
-                    "key": "c_running_hours_since_new",
+                    "_id": "section_1_table_2_row_3_label",
+                    "key": "running_hours_since_new",
                     "type": "label",
-                    "value": "(c) Running Hours Since New",
+                    "value": "8.   Running Hours Since New",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_3_gt1",
+                    "key": "p15ABAccRHSNGT1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_3_cell_2_p15ABAccRHSNM4",
-                    "key": "p15ABAccRHSNM4",
+                    "_id": "section_1_table_2_row_3_gt2",
+                    "key": "p15ABAccRHSNGT2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_3_cell_3_p15ABAccRHSNM4Rg",
-                    "key": "p15ABAccRHSNM4Rg",
+                    "_id": "section_1_table_2_row_3_gt3",
+                    "key": "p15ABAccRHSNGT3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_3_gt4",
+                    "key": "p15ABAccRHSNGT4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_3_rg1",
+                    "key": "p15ABAccRHSNRG1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_3_rg2",
+                    "key": "p15ABAccRHSNRG2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -497,57 +551,73 @@
                 "_id": "section_1_table_2_row_4",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_4_cell_1_static",
-                    "key": "d_hours_run_since_last_trials",
+                    "_id": "section_1_table_2_row_4_label",
+                    "key": "hours_run_since_last_trials",
                     "type": "label",
-                    "value": "(d) Hours run since last trials",
+                    "value": "9.   Hrs run since last trials",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_4_gt1",
+                    "key": "p15ABAccHRSLTGT1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_4_cell_2_p15ABAccHRSLTM4",
-                    "key": "p15ABAccHRSLTM4",
+                    "_id": "section_1_table_2_row_4_gt2",
+                    "key": "p15ABAccHRSLTGT2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
                     "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_4_cell_3_p15ABAccHRSLTM4Rg",
-                    "key": "p15ABAccHRSLTM4Rg",
+                    "_id": "section_1_table_2_row_4_gt3",
+                    "key": "p15ABAccHRSLTGT3",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_4_gt4",
+                    "key": "p15ABAccHRSLTGT4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_4_rg1",
+                    "key": "p15ABAccHRSLTRG1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_4_rg2",
+                    "key": "p15ABAccHRSLTRG2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -555,57 +625,45 @@
                 "_id": "section_1_table_2_row_5",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_5_cell_1_static",
-                    "key": "e_hours_run_since_last_7k_14k",
+                    "_id": "section_1_table_2_row_5_label",
+                    "key": "date_of_last_trial",
                     "type": "label",
-                    "value": "(e) Hours run since last 7K/14K",
-                    "colspan": 1,
+                    "value": "10.   Date of last Trial",
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_5_cell_2_p15ABAccHRSL714KM4",
-                    "key": "p15ABAccHRSL714KM4",
+                    "_id": "section_1_table_2_row_5_date",
+                    "key": "p15ABAccDOLT",
                     "type": "input",
                     "value": "",
-                    "rows": null,
                     "required": false,
                     "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
+                    "placeholder": "MM/DD/YYYY",
+                    "inputType": "date",
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_5_cell_3_p15ABAccHRSL714KM4Rg",
-                    "key": "p15ABAccHRSL714KM4Rg",
+                    "_id": "section_1_table_2_row_5_major_label",
+                    "key": "last_major_routine_carried_out",
+                    "type": "label",
+                    "value": "11.   Last Major Routine Carried Out",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_5_major",
+                    "key": "p15ABAccLMRCO",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
+                    "colspan": 2,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
                   }
                 ]
               },
@@ -613,35 +671,73 @@
                 "_id": "section_1_table_2_row_6",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_6_cell_1_static",
-                    "key": "f_date_of_last_trial",
+                    "_id": "section_1_table_2_row_6_label",
+                    "key": "hours_run_since_last_major_routine",
                     "type": "label",
-                    "value": "(f) Date of last Trial",
+                    "value": "12.   Hours run Since Last Major Routine",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_6_gt1",
+                    "key": "p15ABAccHRSLMRGT1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_6_cell_2_p15ABAccDOLT",
-                    "key": "p15ABAccDOLT",
+                    "_id": "section_1_table_2_row_6_gt2",
+                    "key": "p15ABAccHRSLMRGT2",
                     "type": "input",
                     "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "MM/DD/YYYY",
                     "inputType": "text",
-                    "options": null,
-                    "colspan": 4,
+                    "colspan": 1,
                     "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_6_gt3",
+                    "key": "p15ABAccHRSLMRGT3",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_6_gt4",
+                    "key": "p15ABAccHRSLMRGT4",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_6_rg1",
+                    "key": "p15ABAccHRSLMRRG1",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "section_1_table_2_row_6_rg2",
+                    "key": "p15ABAccHRSLMRRG2",
+                    "type": "input",
+                    "value": "",
+                    "inputType": "text",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
                   }
                 ]
               },
@@ -649,422 +745,27 @@
                 "_id": "section_1_table_2_row_7",
                 "cells": [
                   {
-                    "_id": "section_1_table_2_row_7_cell_1_static",
-                    "key": "g_last_major_routine_carried_out",
+                    "_id": "section_1_table_2_row_7_label",
+                    "key": "details_of_replacement_of_major_equipment",
                     "type": "label",
-                    "value": "(g) Last Major Routine Carried Out",
-                    "colspan": 1,
+                    "value": "13.   Details of replacement of Major Equipment",
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "section_1_table_2_row_7_cell_2_p15ABAccLMRCO",
-                    "key": "p15ABAccLMRCO",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_8",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_8_cell_1_static",
-                    "key": "h_hours_run_since_last_major_routine",
-                    "type": "label",
-                    "value": "(h) Hours run Since Last Major Routine",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_8_cell_2_p15ABAccHRSLMRM4",
-                    "key": "p15ABAccHRSLMRM4",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "section_1_table_2_row_8_cell_3_p15ABAccHRSLMRM4Rg",
-                    "key": "p15ABAccHRSLMRM4Rg",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_9",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_9_cell_1_static",
-                    "key": "i_details_of_replacement_of_major_components_sub_assemblies",
-                    "type": "label",
-                    "value": "(i) Details of replacement of Major Components/Sub-assemblies",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_9_cell_2_p15ABAccDetOfRepOfComp",
+                    "_id": "section_1_table_2_row_7_details",
                     "key": "p15ABAccDetOfRepOfComp",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
                     "inputType": null,
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_10",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_10_cell_1_static",
-                    "key": "j_major_defect_encountered_since_last_routine",
-                    "type": "label",
-                    "value": "(j) Major Defect encountered Since last routine",
-                    "colspan": 1,
+                    "colspan": 6,
                     "rowspan": 1,
                     "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_10_cell_2_p15ABAccMDEncSLR",
-                    "key": "p15ABAccMDEncSLR",
-                    "type": "textarea",
-                    "value": "",
-                    "rows": 1,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": null,
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_11",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_11_cell_1_static",
-                    "key": "k_outstanding_defects_routine",
-                    "type": "label",
-                    "value": "(k) Outstanding defects/routine",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_11_cell_2_p15ABAccOutsDefRou",
-                    "key": "p15ABAccOutsDefRou",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_12",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_12_cell_1_static",
-                    "key": "l_next_routine_falling_due",
-                    "type": "label",
-                    "value": "(l) Next Routine Falling Due",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_12_cell_2_p15ABAccNextRouFallDue",
-                    "key": "p15ABAccNextRouFallDue",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 4,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_13",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_13_cell_1_static",
-                    "key": "m_details_of_replacement_of_major_component",
-                    "type": "label",
-                    "value": "(m) Details of replacement of Major Component",
-                    "colspan": 1,
-                    "rowspan": 4,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_2_row_13_cell_2_p15ABAccDetOfRepOfMajCompM41",
-                    "key": "p15ABAccDetOfRepOfMajCompM41",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "section_1_table_2_row_13_cell_3_p15ABAccDetOfRepOfMajCompRg1",
-                    "key": "p15ABAccDetOfRepOfMajCompRg1",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              },
-              {
-                "_id": "section_1_table_2_row_14",
-                "cells": [
-                  {
-                    "_id": "section_1_table_2_row_14_cell_1_p15ABAccDetOfRepOfMajCompM42",
-                    "key": "p15ABAccDetOfRepOfMajCompM42",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "section_1_table_2_row_14_cell_2_p15ABAccDetOfRepOfMajCompRg2",
-                    "key": "p15ABAccDetOfRepOfMajCompRg2",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 3,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  }
-                ]
-              }
-            ],
-            "showRowActions": false,
-            "minRows": 1
-          },
-          {
-            "id": "section_1_table_3",
-            "sectionType": "simpleTable",
-            "title": "7. Any other relevant information",
-            "topHeaders": [],
-            "columns": [],
-            "rows": [
-              {
-                "_id": "section_1_table_3_row_1",
-                "cells": [
-                  {
-                    "_id": "section_1_table_3_row_1_cell_1_static",
-                    "key": "file_no",
-                    "type": "label",
-                    "value": "File No :",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_3_row_1_cell_2_p15ABAccFileNo",
-                    "key": "p15ABAccFileNo",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
-                  },
-                  {
-                    "_id": "section_1_table_3_row_1_cell_3_static",
-                    "key": "date",
-                    "type": "label",
-                    "value": "Date :",
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "section_1_table_3_row_1_cell_4_p15ABAccDate",
-                    "key": "p15ABAccDate",
-                    "type": "input",
-                    "value": "",
-                    "rows": null,
-                    "required": false,
-                    "disabled": false,
-                    "placeholder": "MM/DD/YYYY",
-                    "inputType": "text",
-                    "options": null,
-                    "colspan": 1,
-                    "rowspan": 1,
-                    "align": "left",
-                    "isDynamic": false,
-                    "lookupKey": null,
-                    "prefill": null,
-                    "prefillSource": null,
-                    "lockAfterPrefill": null,
-                    "hiddenKey": null,
-                    "displayKey": null
                   }
                 ]
               }
@@ -1084,7 +785,7 @@
             "placeholder": "Leave a comment here",
             "value": "",
             "colSpan": 12,
-            "editorHeight": 250
+            "editorHeight": 100
           }
         ]
       }

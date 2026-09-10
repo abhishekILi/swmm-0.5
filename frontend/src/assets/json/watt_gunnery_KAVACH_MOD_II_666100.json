@@ -10,7 +10,7 @@
       "sectionGroup": {
         "fields_1": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Trial Header",
             "colSpan": 12
           },
@@ -21,15 +21,22 @@
             "label": "Ship",
             "type": "input",
             "value": "",
-            "required": true,
-            "disabled": false,
+            "rows": null,
+            "required": false,
+            "disabled": true,
             "placeholder": "",
-            "options": [],
+            "inputType": "text",
+            "options": null,
+            "colspan": 4,
+            "rowspan": 1,
+            "align": "left",
             "isDynamic": true,
-            "lookupKey": "ship",
+            "lookupKey": "context.ship_name",
             "prefill": true,
-            "prefillSource": "context.ship",
-            "colSpan":4
+            "prefillSource": "context.ship_name",
+            "lockAfterPrefill": false,
+            "hiddenKey": null,
+            "displayKey": null
           },
           {
             "_id": "dept",
@@ -106,64 +113,166 @@
             "title": "Observations",
             "topHeaders": [
               [
-                { "label": "SNo.", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "OBSERVATIONS", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "REMARKS", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "RESULTS", "colspan": 1, "rowspan": 1, "align": "center" }
+                {
+                  "label": "SNo.",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "OBSERVATIONS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "REMARKS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "RESULTS",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
               {
-               "_id": "checks_matrix_1_row_1_combined",
-              "cells": [
-                {
-                  "_id": "embarked_time",
-                  "key": "embarked_at",
-                  "name": "embarked_at",
-                  "type": "input",
-                  "value": "",
-                  "lb": "Trial team embarked onboard for Op checks of HF Tx/R ATRX 1000 at hrs",
-                  "required": true,
-                  "disabled": false,
-                  "placeholder": "HH:MM",
-                  "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
-                  "colspan": 2,
-                  "rowspan": 1,
-                  "align": "left",
-                  "inputType": "text"
-                },
-                {
-                  "_id": "schedule",
-                  "key": "embarked_on",
-                  "name": "embarked_on",
-                  "type": "date",
-                  "inputType": "date",
-                  "value": "",
-                  "lb": "The trials carried out IAW IHQ MoD(N)/DNS approved schedule are enumerated in succeeding paragraphs",
-                  "required": false,
-                  "disabled": false,
-                  "colspan": 2,
-                  "rowspan": 1,
-                  "align": "left"
-                }
-              ]
+                "_id": "checks_matrix_1_row_1_combined",
+                "cells": [
+                  {
+                    "_id": "embarked_time",
+                    "key": "embarked_at",
+                    "name": "embarked_at",
+                    "type": "input",
+                    "value": "",
+                    "lb": "Trials team embarked onboard at",
+                    "required": false,
+                    "disabled": false,
+                    "placeholder": "",
+                    "style": "max-width: 90px; min-width: 80px; width: 100%; padding: 4px;",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left",
+                    "inputType": "text"
+                  },
+                  {
+                    "_id": "schedule",
+                    "key": "embarked_on",
+                    "name": "embarked_on",
+                    "type": "date",
+                    "inputType": "date",
+                    "value": "",
+                    "lb": "on for SATs of 𝐊𝐀𝐕𝐀𝐂𝐇 𝐌𝐎𝐃 𝐈𝐈 as per approved schedule, BR 4050 and CNO 07/10. Following observed:-",
+                    "required": false,
+                    "disabled": false,
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
+                ]
               },
               {
                 "_id": "check_4_1",
                 "cells": [
-                  { "type": "serial", "value": "01.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "type": "label", "value": "Check no. – 4.1 <br> <b>MFCS Controller Functional Testing</b>\n01. Centroid mode for SRCR\n02. Confusion mode for LR\n03. Distraction mode for MR\n04. Manual mode\n05. Emergency mode", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk41_remarks", "type": "textarea", "value": "", "rows": 4, "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk41_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" }
+                  {
+                    "type": "serial",
+                    "value": "01.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Check no. – 4.1 <br> <b>MFCS Controller Functional Testing</b>\n 1. 01. Centroid mode for SRCR\n 2. 02. Confusion mode for LR\n 3. 03. Distraction mode for MR\n 4. 04. Manual mode\n 5. 05. Emergency mode",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "chk41_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 4,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "chk41_result",
+                    "type": "select",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "--",
+                        "value": ""
+                      },
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
                 ]
               },
               {
                 "_id": "check_4_2",
                 "cells": [
-                  { "type": "serial", "value": "02.", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "type": "label", "value": "Check no. - 4.2 <br> <b>RFCS Controller Functional Testing</b>\n01. Manual mode through RFCS\n02. Normal mode through FFCS", "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk42_remarks", "type": "textarea", "value": "", "rows": 3, "colspan": 1, "rowspan": 1, "align": "left" },
-                  { "key": "chk42_result", "type": "select", "value": "", "options": [{ "label": "--", "value": "" }, { "label": "SAT", "value": "SAT" }, { "label": "UNSAT", "value": "UNSAT" }], "colspan": 1, "rowspan": 1, "align": "left" }
+                  {
+                    "type": "serial",
+                    "value": "02.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "type": "label",
+                    "value": "Check no. - 4.2 <br> <b>RFCS Controller Functional Testing</b>\n 1. 01. Manual mode through RFCS\n 2. 02. Normal mode through FFCS",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "chk42_remarks",
+                    "type": "textarea",
+                    "value": "",
+                    "rows": 3,
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "key": "chk42_result",
+                    "type": "select",
+                    "value": "",
+                    "options": [
+                      {
+                        "label": "--",
+                        "value": ""
+                      },
+                      {
+                        "label": "SAT",
+                        "value": "SAT"
+                      },
+                      {
+                        "label": "UNSAT",
+                        "value": "UNSAT"
+                      }
+                    ],
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  }
                 ]
               }
             ]
@@ -174,10 +283,24 @@
             "title": "Firing test of SR Launchers PORT",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 5,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -190,7 +313,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Centroid",
                     "align": "left"
                   },
                   {
@@ -267,7 +390,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Centroid Salvo",
                     "align": "left"
                   },
                   {
@@ -306,12 +429,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Manual",
                     "align": "left"
                   },
                   {
@@ -355,7 +478,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -436,17 +559,30 @@
               }
             ]
           },
-
           {
             "id": "Firing test of SR Launchers STBD",
             "sectionType": "matrixTable",
             "title": "03. Firing test of SR Launchers STBD",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 3,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -459,7 +595,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Centroid",
                     "align": "left"
                   },
                   {
@@ -503,7 +639,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Centroid Salvo",
                     "align": "left"
                   },
                   {
@@ -542,12 +678,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Manual",
                     "align": "left"
                   },
                   {
@@ -591,7 +727,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -672,17 +808,30 @@
               }
             ]
           },
-
           {
             "id": "Firing test of LR Launchers PORT",
             "sectionType": "matrixTable",
             "title": "Firing test of LR Launchers PORT",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 5,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -695,7 +844,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Confusion",
                     "align": "left"
                   },
                   {
@@ -772,7 +921,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Confusion Salvo",
                     "align": "left"
                   },
                   {
@@ -811,12 +960,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Emergency",
                     "align": "left"
                   },
                   {
@@ -855,7 +1004,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
@@ -904,7 +1053,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -985,17 +1134,30 @@
               }
             ]
           },
-
           {
             "id": "Firing test of LR Launchers STBD",
             "sectionType": "matrixTable",
             "title": "04. Firing test of LR Launchers STBD",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 3,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -1008,7 +1170,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Centroid",
                     "align": "left"
                   },
                   {
@@ -1052,7 +1214,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Centroid Salvo",
                     "align": "left"
                   },
                   {
@@ -1091,12 +1253,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Emergency",
                     "align": "left"
                   },
                   {
@@ -1135,7 +1297,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
@@ -1184,7 +1346,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -1265,17 +1427,30 @@
               }
             ]
           },
-
           {
             "id": "Firing test of MR Launchers PORT",
             "sectionType": "matrixTable",
             "title": "Firing test of MR Launchers PORT",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 5, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 5,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -1288,7 +1463,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Distraction Salvo",
                     "align": "left"
                   },
                   {
@@ -1365,7 +1540,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Emergency",
                     "align": "left"
                   },
                   {
@@ -1404,12 +1579,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Manual",
                     "align": "left"
                   },
                   {
@@ -1453,7 +1628,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -1534,17 +1709,30 @@
               }
             ]
           },
-
           {
             "id": "Firing test of MR Launchers STBD",
             "sectionType": "matrixTable",
             "title": "05. Firing test of MR Launchers STBD",
             "topHeaders": [
               [
-                { "label": "Firing from", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Mode", "colspan": 1, "rowspan": 1, "align": "center" },
-                { "label": "Tube no.", "colspan": 3, "rowspan": 1, "align": "center" }
-
+                {
+                  "label": "Firing from",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Mode",
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "align": "center"
+                },
+                {
+                  "label": "Tube no.",
+                  "colspan": 3,
+                  "rowspan": 1,
+                  "align": "center"
+                }
               ]
             ],
             "rows": [
@@ -1557,7 +1745,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Centroid Salvo",
+                    "value": "Distraction Salvo",
                     "align": "left"
                   },
                   {
@@ -1601,7 +1789,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Emergency",
                     "align": "left"
                   },
                   {
@@ -1640,12 +1828,12 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "RFCSC",
+                    "value": "MFCSC",
                     "align": "left"
                   },
                   {
                     "type": "label",
-                    "value": "Normal",
+                    "value": "Manual",
                     "align": "left"
                   },
                   {
@@ -1689,7 +1877,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Manual",
+                    "value": "Normal",
                     "align": "left"
                   },
                   {
@@ -1770,11 +1958,10 @@
               }
             ]
           }
-
         ],
-          "fields_2": [
+        "fields_2": [
           {
-            "type":"label",
+            "type": "label",
             "value": "Sign Off",
             "colSpan": 12
           },
@@ -1783,18 +1970,13 @@
             "key": "presenting_authority",
             "name": "presenting_authority",
             "label": "Presenting Authority",
-            "type": "select",
-            "value": "",
-            "required": true,
+            "type": "input",
+            "value": "Ship's Staff",
+            "required": false,
             "disabled": false,
             "placeholder": "",
             "colSpan": 12,
-            "options": [
-              { "label": "-- Select --", "value": "" },
-              { "label": "Dockyard", "value": "Dockyard" },
-              { "label": "Shipstaff", "value": "Shipstaff" },
-              { "label": "OEM", "value": "OEM" }
-            ],
+            "options": [],
             "isDynamic": false
           },
           {

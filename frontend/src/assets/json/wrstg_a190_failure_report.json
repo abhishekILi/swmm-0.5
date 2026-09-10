@@ -131,7 +131,7 @@
             "label": "System ",
             "type": "select",
             "value": "",
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": "",
             "colSpan" : 4,
@@ -164,23 +164,23 @@
             "key": "sub_system",
             "name": "sub_system",
             "label": "Sub System ",
-            "type": "select",
+            "type": "radio",
             "value": "",
             "required": true,
             "disabled": false,
             "placeholder": "",
             "colSpan":4,
-            "options": [],
-            "isDynamic": true,
-            "api": {
-              "endpoint": "master/subsystems/",
-              "dependsOn": "system",
-              "params": {
-                "system": "{{form.system}}"
+            "options": [
+              {
+                "label": "Sub System 1",
+                "value": "sub_system_1"
               },
-              "labelKey": "name",
-              "valueKey": "id"
-            }
+              {
+                "label": "Sub System 2",
+                "value": "sub_system_2"
+              }
+            ],
+            "isDynamic": false
           },
           {
             "_id": "severity",
@@ -256,7 +256,7 @@
             "label": "Failure Message ",
             "type": "textarea",
             "value": "",
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " ",
             "colSpan":4
@@ -268,7 +268,7 @@
             "label": "Failure Description ",
             "type": "textarea",
             "value": "",
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " "
           },
@@ -279,7 +279,7 @@
             "label": "Brief Repair Action ",
             "type": "textarea",
             "value": "",
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " "
           },
@@ -308,7 +308,7 @@
                           "value": "ships_staff"
                         }
                       ],
-            "required": true,
+            "required": false,
             "disabled": false,
             "placeholder": "",
             "checked": false
@@ -320,7 +320,7 @@
             "label": "Date Resolved (For Rectified/Managed)",
             "type": "date",
             "value": "",
-            "required": true,
+            "required": false,
             "disabled": false,
             "placeholder": "",
             "inputType": "date"
@@ -380,7 +380,7 @@
             "type": "textarea",
             "value": "",
             "colSpan": 4,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " "
           },
@@ -414,7 +414,7 @@
             "type": "textarea",
             "value": "",
             "colSpan": 4,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " "
           },
@@ -448,7 +448,7 @@
             "type": "textarea",
             "value": "",
             "colSpan": 10,
-            "required": false,
+            "required": true,
             "disabled": false,
             "placeholder": " "
           },

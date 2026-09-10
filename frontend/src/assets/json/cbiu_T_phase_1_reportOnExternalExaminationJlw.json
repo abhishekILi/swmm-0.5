@@ -5,13 +5,13 @@
   "sections": [
     {
       "id": "sectionone",
-      "title": "<p class=' text-xs font-bold'>I.N.-586(a)(i) </p><p class=' text-xs font-bold'>S – 353 D</p>",
+      "title": "<p class=' text-xs font-bold'>I.N.-586(a) </p><p class=' text-xs font-bold'>S – 353 D</p>",
       "sectionType": "mixed",
       "sectionGroup": {
         "fields_1": [
           {
             "type": "input",
-            "label": "SHIP",
+            "label": "Ship Name:",
             "value": "",
             "rows": null,
             "required": false,
@@ -33,7 +33,7 @@
           {
             "type": "input",
             "name": "reportRefNo",
-            "label": "REPORT REF No.",
+            "label": "REPORT REF No:",
             "colSpan": 4,
             "required": false,
             "disabled": false,
@@ -52,7 +52,7 @@
           {
             "type": "date",
             "name": "reportDate",
-            "label": "DATE",
+            "label": "Date:",
             "colSpan": 4,
             "required": false,
             "disabled": false,
@@ -76,54 +76,50 @@
             "disabled": false,
             "placeholder": "",
             "value": "",
-            "inputType": "number"
+            "inputType": "text"
           }
         ],
         "tables_2": [
           {
             "id": "sectionone_table_2",
             "sectionType": "matrixTable",
-            "title": "<small class='text-sm font-bold'>(Examination to be undertaken in accordance with Article 1252, INBR 3000 and Article 0304 of BR 2000 (25) (1). Report is to be rendered, in quadruplicate to CBIU soon after completion of post-external cleaning examination).</small> <h1 class='text-center text-xl font-bold'>PART - I</h1>",
+            "title": "(Examination to be undertaken in accordance with Chapter 221 of NSTM S9086-GY-STM-010, Article 1250, BR 3000 and Article 0307, BR 2000 (25) (1). Routine internal examination is to be undertaken at 12 monthly interval from the date of first raising steam, following last retubing/internal cleaning/ internal examination, as applicable. Report is to be rendered, in quadruplicate to CBIU(MB) soon after completion of the examination).<h1 class='text-center text-xl font-bold'>PART - I</h1>",
             "columns": [],
             "rows": [
               {
-                "_id": "sectionone_table_2_row_1_completion_date_of_last_external_cleaning",
+                "_id": "sectionone_table_2_row_1a_last_cleaned",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_1_completion_date_of_last_external_cleaning_cell_serial_label",
+                    "_id": "sectionone_table_2_row_1_cell_serial",
                     "key": "sno",
                     "type": "serial",
                     "value": "1.",
                     "colspan": 1,
-                    "rowspan": 3,
+                    "rowspan": 2,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_1_completion_date_of_last_external_cleaning_cell_label",
+                    "_id": "sectionone_table_2_row_1_cell_label",
                     "key": "1_completion_date_of_last_external_cleaning_examination_and_number_of_hours_steamed_since",
                     "type": "label",
-                    "value": "Completion date of last external cleaning/ examination and number of hours steamed since last external examination.",
+                    "value": "<b>Completion date of last external cleaning/ examination and number of hours steamed since last external examination.</b>",
                     "colspan": 1,
-                    "rowspan": 3,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "sectionone_table_2_row_1a_last_cleared",
-                "cells": [
+                    "rowspan": 2,
+                    "align": "left",
+                    "isBold": true
+                  },
                   {
-                    "_id": "sectionone_table_2_row_1a_last_cleared_cell_label",
+                    "_id": "sectionone_table_2_row_1a_cell_label",
                     "key": "a_last_cleaned",
                     "type": "label",
-                    "value": "(a) Last cleared",
+                    "value": "(a) Last cleaned",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_1a_last_cleared_cell_input",
-                    "key": "last_cleared",
+                    "_id": "sectionone_table_2_row_1a_cell_input",
+                    "key": "last_cleaned",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -132,27 +128,27 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
                 ]
               },
               {
-                "_id": "sectionone_table_2_row_1b_last_examined",
+                "_id": "sectionone_table_2_row_1b_steaming_hours_since_last_external_examination",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_1b_last_examined_cell_label",
-                    "key": "b_last_examined",
+                    "_id": "sectionone_table_2_row_1b_cell_label",
+                    "key": "b_steaming_hours_since_last_external_examination",
                     "type": "label",
-                    "value": "(b) Last examined",
+                    "value": "(b) Steaming hours since last external examination",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_1b_last_examined_cell_input",
-                    "key": "last_examined",
+                    "_id": "sectionone_table_2_row_1b_cell_input",
+                    "key": "steaming_hours_since_last_external_examination",
                     "type": "input",
                     "value": "",
                     "rows": null,
@@ -161,40 +157,36 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
                 ]
               },
               {
-                "_id": "sectionone_table_2_row_2_completion_date_of_present_external_cleaning",
+                "_id": "sectionone_table_2_row_2_present_examined",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_2_completion_date_of_present_external_cleaning_cell_serial_label",
+                    "_id": "sectionone_table_2_row_2_cell_serial",
                     "key": "sno",
                     "type": "serial",
                     "value": "2.",
                     "colspan": 1,
-                    "rowspan": 2,
+                    "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_2_completion_date_of_present_external_cleaning_cell_label",
+                    "_id": "sectionone_table_2_row_2_cell_label",
                     "key": "2_completion_date_of_present_external_cleaning_drying_out_examination",
                     "type": "label",
-                    "value": "Completion date of present external cleaning/ drying out/ examination.",
+                    "value": "<b>Completion date of present external cleaning/ drying out/ examination.</b>",
                     "colspan": 1,
-                    "rowspan": 2,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "sectionone_table_2_row_2a_last_cleared",
-                "cells": [
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  },
                   {
-                    "_id": "sectionone_table_2_row_2a_last_cleared_cell_label",
+                    "_id": "sectionone_table_2_row_2a_cell_label",
                     "key": "a_present_examined",
                     "type": "label",
                     "value": "(a) Present examined",
@@ -203,7 +195,7 @@
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_2a_last_cleared_cell_input",
+                    "_id": "sectionone_table_2_row_2a_cell_input",
                     "key": "present_examined",
                     "type": "input",
                     "value": "",
@@ -213,7 +205,7 @@
                     "placeholder": "",
                     "inputType": "text",
                     "options": null,
-                    "colspan": 2,
+                    "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   }
@@ -223,7 +215,7 @@
                 "_id": "sectionone_table_2_row_3_authority_for_deferment_present_ext_cleaning",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_3_authority_for_deferment_present_ext_cleaning_cell_serial_label",
+                    "_id": "sectionone_table_2_row_3_cell_serial",
                     "key": "sno",
                     "type": "serial",
                     "value": "3.",
@@ -232,7 +224,7 @@
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_3_authority_for_deferment_present_ext_cleaning_cell_label",
+                    "_id": "sectionone_table_2_row_3_cell_label",
                     "key": "3_authority_for_deferment_of_present_external_cleaning_examination_if_applicable",
                     "type": "label",
                     "value": "Authority for deferment of present external cleaning/examination, if applicable.",
@@ -241,7 +233,7 @@
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_3_authority_for_deferment_present_ext_cleaning_cell_textarea",
+                    "_id": "sectionone_table_2_row_3_cell_textarea",
                     "key": "authPresentExternalByShip",
                     "type": "textarea",
                     "value": "",
@@ -268,39 +260,40 @@
                 "_id": "sectionone_table_2_row_4_nature_and_extent_of_deposits_observed",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_4_nature_and_extent_of_deposits_observed_cell_serial_label",
+                    "_id": "sectionone_table_2_row_4_cell_serial",
                     "key": "sno",
                     "type": "serial",
                     "value": "4.",
-                    "colspan": 1,
-                    "rowspan": 5,
-                    "align": "left"
-                  },
-                  {
-                    "_id": "sectionone_table_2_row_4_nature_and_extent_of_deposits_observed_cell_label",
-                    "key": "1_completion_date_of_last_external_cleaning_examination_and_number_of_hours_steamed_since",
-                    "type": "label",
-                    "value": "Nature and extent of deposits observed on following before present cleaning :-",
-                    "colspan": 1,
-                    "rowspan": 5,
-                    "align": "left"
-                  }
-                ]
-              },
-              {
-                "_id": "sectionone_table_2_row_7",
-                "cells": [
-                  {
-                    "_id": "sectionone_table_2_row_7_cell_1_static",
-                    "key": "a_combustion_equipments",
-                    "type": "label",
-                    "value": "(a) Combustion equipments.",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_7_cell_2_combustionEquipByShip",
+                    "_id": "sectionone_table_2_row_4_cell_label",
+                    "key": "4_nature_and_extent_of_deposits_observed_before_present_cleaning",
+                    "type": "label",
+                    "value": "<b>Nature and extent of deposits observed on following before present cleaning :-</b>",
+                    "colspan": 3,
+                    "rowspan": 1,
+                    "align": "left",
+                    "isBold": true
+                  }
+                ]
+              },
+              {
+                "_id": "sectionone_table_2_row_4a_combustionEquipByShip",
+                "cells": [
+                  {
+                    "_id": "sectionone_table_2_row_4a_cell_label",
+                    "key": "a_combustionEquipByShip",
+                    "type": "label",
+                    "value": "(a) Combustion equipments.",
+                    "colspan": 2,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
+                  {
+                    "_id": "sectionone_table_2_row_4a_cell_textarea",
                     "key": "combustionEquipByShip",
                     "type": "textarea",
                     "value": "",
@@ -310,7 +303,7 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -324,19 +317,19 @@
                 ]
               },
               {
-                "_id": "sectionone_table_2_row_8",
+                "_id": "sectionone_table_2_row_4b_tubeIncSuperHeaterTubeByShip",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_8_cell_1_static",
-                    "key": "b_tubes_including_super_heater_tubes",
+                    "_id": "sectionone_table_2_row_4b_cell_label",
+                    "key": "b_tubeIncSuperHeaterTubeByShip",
                     "type": "label",
                     "value": "(b) Tubes including super heater tubes.",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_8_cell_2_tubeIncSuperHeaterTubeByShip",
+                    "_id": "sectionone_table_2_row_4b_cell_textarea",
                     "key": "tubeIncSuperHeaterTubeByShip",
                     "type": "textarea",
                     "value": "",
@@ -346,7 +339,7 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -360,19 +353,19 @@
                 ]
               },
               {
-                "_id": "sectionone_table_2_row_9",
+                "_id": "sectionone_table_2_row_4c_economiserTubeBendsByShip",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_9_cell_1_static",
-                    "key": "c_economiser_tube_elements_including_tube_bends",
+                    "_id": "sectionone_table_2_row_4c_cell_label",
+                    "key": "c_economiserTubeBendsByShip",
                     "type": "label",
                     "value": "(c) Economiser tube elements including tube bends.",
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_9_cell_2_economiserTubeBendsByShip",
+                    "_id": "sectionone_table_2_row_4c_cell_textarea",
                     "key": "economiserTubeBendsByShip",
                     "type": "textarea",
                     "value": "",
@@ -382,7 +375,7 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -396,20 +389,20 @@
                 ]
               },
               {
-                "_id": "sectionone_table_2_row_10",
+                "_id": "sectionone_table_2_row_4d_uptakeAndFunnelByShip",
                 "cells": [
                   {
-                    "_id": "sectionone_table_2_row_10_cell_1_static",
-                    "key": "d_super_heater_header",
+                    "_id": "sectionone_table_2_row_4d_cell_label",
+                    "key": "d_uptakeAndFunnelByShip",
                     "type": "label",
-                    "value": "(d) Super Heater Header",
-                    "colspan": 1,
+                    "value": "(d) Uptake and funnel",
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left"
                   },
                   {
-                    "_id": "sectionone_table_2_row_10_cell_2_externalSuperHeaterHeader",
-                    "key": "externalSuperHeaterHeader",
+                    "_id": "sectionone_table_2_row_4d_cell_textarea",
+                    "key": "uptakeAndFunnelByShip",
                     "type": "textarea",
                     "value": "",
                     "rows": 1,
@@ -418,7 +411,7 @@
                     "placeholder": "",
                     "inputType": null,
                     "options": null,
-                    "colspan": 1,
+                    "colspan": 2,
                     "rowspan": 1,
                     "align": "left",
                     "isDynamic": false,
@@ -438,8 +431,29 @@
           {
             "id": "sectionone_table_3",
             "sectionType": "matrixTable",
-            "title": "<h1 class='text-center text-xl font-bold'>PART - II</h1> <small class='text-sm font-bold'>(Brief details of observations made during post-external cleaning examination and repairs/remedial actions taken be highlighted against each serial in this part. Defects/deficiencies remaining outstanding since last examination be also indicated against relevant serials).</small>",
-            "columns": [],
+            "title": "<div class='text-center'><h1 class='text-base font-bold underline'>PART - II</h1></div><div class='text-xs font-normal text-left'>(Brief details of observations made during post-external cleaning examination and repairs/remedial actions taken be highlighted against each serial in this part. Defects/deficiencies remaining outstanding since last examination be also indicated against relevant serials).</div>",
+            "topHeaders": [],
+            "columns": [
+              {
+                "key": "serial",
+                "label": "",
+                "width": "3%",
+                "align": "left"
+              },
+              {
+                "key": "description",
+                "label": "",
+                "width": "47%",
+                "align": "left"
+              },
+              {
+                "key": "observation",
+                "label": "",
+                "width": "50%",
+                "align": "left"
+              }
+            ],
+            "columnWidths": ["3%", "47%", "50%"],
             "rows": [
               {
                 "_id": "sectionone_table_3_row_1",
@@ -455,7 +469,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Steam/Water Drums, Super Heaters/ Economiser Headers Including Inside and Outside Gas Casing. (for deposits, traces of boiler compound around man hole doors, wastage, burning, preservation, and external corrosion, particularly at the interface of water drum and gas casing).",
+                    "value": "<b>Steam/Water Drums, Super Heaters/ Economiser Headers Including Inside and Outside Gas Casing.</b>(for deposits, traces of boiler compound around man hole doors, wastage, burning, preservation, and external corrosion, particularly at the interface of water drum and gas casing).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -466,7 +480,7 @@
                     "key": "steamWaterByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -499,7 +513,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "All Accessible Tubes Including Super Heater Tubes throughout their Lengths. (for evidence of deposits, corrosion, overheating, deformation, fouling and indentation/dent marks)",
+                    "value": "<b>All Accessible Tubes Including Super Heater Tubes throughout their Lengths.</b>(for evidence of deposits, corrosion, overheating, deformation, fouling and indentation/dent marks)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -510,7 +524,7 @@
                     "key": "tubesLengthsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -543,7 +557,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Tube Roots including those of Super Heater Tubes. (for nature and extent of deposits, signs of any leakage and external corrosion / wastage).",
+                    "value": "<b>Tube Roots including those of Super Heater Tubes.</b>(for nature and extent of deposits, signs of any leakage and external corrosion / wastage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -554,7 +568,7 @@
                     "key": "tubesSuperHeaterByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -587,7 +601,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Accessible superheater tube supports and clamps (for damage, wear/ tear. Securing of fastening and adequacy of support to tubes)",
+                    "value": "<b>Accessible superheater tube supports and clamps</b>(for damage, wear/ tear. Securing of fastening and adequacy of support to tubes)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -598,7 +612,7 @@
                     "key": "externalClampsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -631,7 +645,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "Economiser Elements. (for corrosion, fire damage, wear/tear and accumulation of deposits, particularly at tube bends).",
+                    "value": "<b>Economiser Elements.</b>(for corrosion, fire damage, wear/tear and accumulation of deposits, particularly at tube bends).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -642,7 +656,7 @@
                     "key": "economiserElementsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -675,7 +689,7 @@
                   },
                   {
                     "type": "label",
-                    "value": "(a) Boiler Mountings. (for soundness of accessible fasteners and ease of operation from local/remote positions, as applicable).",
+                    "value": "(a) <b>Boiler Mountings.</b>(for soundness of accessible fasteners and ease of operation from local/remote positions, as applicable).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -686,7 +700,7 @@
                     "key": "boilerMountingsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -710,7 +724,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Direct Reading Water Level Indicators.",
+                    "value": "(b) <b>Direct Reading Water Level Indicators.</b>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -721,7 +735,7 @@
                     "key": "externalDirectReading",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -745,7 +759,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(c) Safety Valves. (for completeness of hand easing gear, drain pipes, locking arrangement, seals and tally).",
+                    "value": "(c) <b>Safety Valves.</b>(for completeness of hand easing gear, drain pipes, locking arrangement, seals and tally).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -756,7 +770,7 @@
                     "key": "externalSafetyValves",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -778,10 +792,18 @@
               {
                 "_id": "sectionone_table_3_row_9",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_9_cell_serial_label", "key": "sno", "type": "serial", "value": "11.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_9_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "11.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Blow Down Valves/ cocks (for correctness of operating key interlocks and ease of operation).",
+                    "value": "(a) <b>Blow Down Valves/ cocks</b>(for correctness of operating key interlocks and ease of operation).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -792,7 +814,7 @@
                     "key": "safetyValvesByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -816,7 +838,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Blow Down and Super Heater Drain System Pipes. (for corrosion, preservation and state of insulation).",
+                    "value": "(b) <b>Blow Down and Super Heater Drain System Pipes.</b>(for corrosion, preservation and state of insulation).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -827,7 +849,7 @@
                     "key": "surfaceBottomBlowByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -849,10 +871,18 @@
               {
                 "_id": "sectionone_table_3_row_11",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_11_cell_serial_label", "key": "sno", "type": "serial", "value": "12.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_11_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "12.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Combustion Registers. (for cleanliness of air, fuel and atomising steam handling components including sighting ports, damages, loose fit, ease of operation and alignment).",
+                    "value": "(a) <b>Combustion Registers.</b>(for cleanliness of air, fuel and atomising steam handling components including sighting ports, damages, loose fit, ease of operation and alignment).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -863,7 +893,7 @@
                     "key": "combustionRegByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -887,7 +917,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Alignment of burner/ atomiser swirler/ quarl (final alignment readings recorded after correction of misalignment, if any be attached with this report).",
+                    "value": "(b) <b>Alignment of burner/ atomiser swirler/ quarl</b>(final alignment readings recorded after correction of misalignment, if any be attached with this report).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -898,7 +928,7 @@
                     "key": "blowSuperHeaterByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -920,10 +950,18 @@
               {
                 "_id": "sectionone_table_3_row_13",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_13_cell_serial_label", "key": "sno", "type": "serial", "value": "13.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_13_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "13.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Soot Blowers. (for ease of operation, greasing, serviceability of air purging arrangement/ rod gearing, direction of rotation, wear/ tear security of fasteners and completeness).",
+                    "value": "(a) <b>Soot Blowers.</b>(for ease of operation, greasing, serviceability of air purging arrangement/ rod gearing, direction of rotation, wear/ tear security of fasteners and completeness).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -934,7 +972,7 @@
                     "key": "burnerAssemByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -958,7 +996,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Soot blower nozzle pipe elements ( for securing of pipe coupling and ball joint/ supporting brackts/ apertures in centre division wall, fouling and wear/ tear)",
+                    "value": "(b) <b>Soot blower nozzle pipe elements</b>( for securing of pipe coupling and ball joint/ supporting brackts/ apertures in centre division wall, fouling and wear/ tear)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -969,7 +1007,7 @@
                     "key": "externalSootNozzle",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -993,7 +1031,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(c) Alignment of nozzles (jets) of pipe elements and pointer fitted on soot blower valve assembly.",
+                    "value": "(c) <b>Alignment of nozzles (jets) of pipe elements and pointer fitted on soot blower valve assembly.</b>",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1004,7 +1042,7 @@
                     "key": "externalAlignmentNozzle",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1028,7 +1066,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(d) Correctness of blowing arc (sweep angle) (final blowing arc reading recorded after necessary adjustments be attached with this report).",
+                    "value": "(d) <b>Correctness of blowing arc (sweep angle)</b>(final blowing arc reading recorded after necessary adjustments be attached with this report).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1039,7 +1077,7 @@
                     "key": "externalCorrectnessOfBlowingArc",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1061,10 +1099,18 @@
               {
                 "_id": "sectionone_table_3_row_17",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_17_cell_serial_label", "key": "sno", "type": "serial", "value": "14.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_17_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "14.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Water Drum and side water wall header supporting stools and sliding feet (for security, expansion clearances, serviceability of expansion indicators/ greasing arrangement and corrosion/ damage/ preservation).",
+                    "value": "<b>Water Drum and side water wall header supporting stools and sliding feet</b>(for security, expansion clearances, serviceability of expansion indicators/ greasing arrangement and corrosion/ damage/ preservation).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1075,7 +1121,7 @@
                     "key": "waterDrumByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1097,10 +1143,18 @@
               {
                 "_id": "sectionone_table_3_row_18",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_18_cell_serial_label", "key": "sno", "type": "serial", "value": "15.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_18_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "15.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) FD fan inlet gratings and trunking/air space. (for security, obstruction and serviceability of drainage arrangement).",
+                    "value": "(a) <b>FD fan inlet gratings and trunking/air space.</b>(for security, obstruction and serviceability of drainage arrangement).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1111,7 +1165,7 @@
                     "key": "tbuInletByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1135,7 +1189,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Combustion air supply trunking .(for leakage, lagging, wear/tear, security of supports and obstruction).",
+                    "value": "(b) <b>Combustion air supply trunking .</b>(for leakage, lagging, wear/tear, security of supports and obstruction).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1146,7 +1200,7 @@
                     "key": "externalCombustionAirTrunking",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1170,7 +1224,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(c) Self-closing shutters. (for cleanliness: and ease of operation from both local and remote positions).",
+                    "value": "(c) <b>Self-closing shutters.</b>(for cleanliness: and ease of operation from both local and remote positions).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1181,7 +1235,7 @@
                     "key": "externalSelfClosing",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1205,7 +1259,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(d) Lighting up fan flap and Livers of boiler room ventilation air supply trunking. (for wear/tear and serviceability).",
+                    "value": "(d) <b>Lighting up fan flap and Livers of boiler room ventilation air supply trunking.</b>(for wear/tear and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1216,7 +1270,7 @@
                     "key": "externalLightningUpFane",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1238,10 +1292,18 @@
               {
                 "_id": "sectionone_table_3_row_22",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_22_cell_serial_label", "key": "sno", "type": "serial", "value": "16.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_22_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "16.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Air and Gas Casings. (for corrosion, signs of overheating, distortion, crack, preservation, leakage, serviceability of jointing, security of tie bars/ stiffeners and possible accumulation of deposits, oil and water).",
+                    "value": "(a) <b>Air and Gas Casings & Joints.</b>(for corrosion, signs of overheating, distortion, crack, preservation, leakage, serviceability of jointing, security of tie bars/ stiffeners and possible accumulation of deposits, oil and water).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1252,7 +1314,7 @@
                     "key": "airGCasingsJointsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1276,7 +1338,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Pumping out arrangement of boiler air casing space. .(for wear/tear and serviceability).",
+                    "value": "(b) <b>Pumping out arrangement of boiler air casing space.</b>(for wear/tear and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left",
@@ -1287,7 +1349,7 @@
                     "key": "externalPumpingOut",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1311,7 +1373,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(c) Boiler air casing space firefighting arrangements. (for wear/tear and serviceability).",
+                    "value": "(c) <b>Boiler air casing space firefighting arrangements.</b>(for wear/tear and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1321,7 +1383,7 @@
                     "key": "externalBoilerAirChasing",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1345,7 +1407,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(d) Brick pan underside. (for corrosion, overheating, deformation, security of tie bars/ stiffeners and preservation).",
+                    "value": "(d) <b>Brick pan underside.</b>(for corrosion, overheating, deformation, security of tie bars/ stiffeners and preservation).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1355,7 +1417,7 @@
                     "key": "externalBrickPan",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1377,10 +1439,18 @@
               {
                 "_id": "sectionone_table_3_row_26",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_26_cell_serial_label", "key": "sno", "type": "serial", "value": "17.", "colspan": 1, "rowspan": 2, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_26_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "17.",
+                    "colspan": 1,
+                    "rowspan": 2,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Uptake and Inner/Outer Funnel Plating, Gratings, Ladders and Access Doors. (for deterioration, damage, deposits, preservation and signs of high temperatures).",
+                    "value": "(a) <b>Uptake and Inner/Outer Funnel Plating, Gratings, Ladders and Access Doors.</b>(for deterioration, damage, deposits, preservation and signs of high temperatures).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1390,7 +1460,7 @@
                     "key": "funnelPlatingGratingsLaddersByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1414,7 +1484,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Expansion joints . (for freedom of movement and gas tightness)",
+                    "value": "(b) <b>Expansion joints.</b>(for freedom of movement and gas tightness)",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1424,7 +1494,7 @@
                     "key": "externalExpansionJoints",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1446,10 +1516,18 @@
               {
                 "_id": "sectionone_table_3_row_28",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_28_cell_serial_label", "key": "sno", "type": "serial", "value": "18.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_28_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "18.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Rain Catchment Troughs, Pipe System and Strainers. (for wear/tear and freedom from chokage).",
+                    "value": "<b>Rain Catchment Troughs, Pipe System and Strainers.</b>(for wear/tear and freedom from chokage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1459,7 +1537,7 @@
                     "key": "rainCatchmentByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1481,10 +1559,18 @@
               {
                 "_id": "sectionone_table_3_row_29",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_29_cell_serial_label", "key": "sno", "type": "serial", "value": "19.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_29_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "19.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Funnel Cover. (for condition and serviceability of securing arrangement).",
+                    "value": "<b>Funnel Cover.</b>(for condition and serviceability of securing arrangement).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1494,7 +1580,7 @@
                     "key": "funnelCoverByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1516,10 +1602,18 @@
               {
                 "_id": "sectionone_table_3_row_30",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_30_cell_serial_label", "key": "sno", "type": "serial", "value": "20.", "colspan": 1, "rowspan": 4, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_30_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "20.",
+                    "colspan": 1,
+                    "rowspan": 4,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Furnace brickwork, refractory, plastic chrome ore walls, upper and lower screens, superheater support protection screen, header cappings, corner fillets, register quarls etc. (for deterioration, damage, crack, spalling and lagging).",
+                    "value": "<b>(a) Furnace brickwork, refractory, plastic chrome ore walls, upper and lower screens, superheater support protection screen, header cappings, corner fillets, register quarls etc.</b>(for deterioration, damage, crack, spalling and lagging).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1529,7 +1623,7 @@
                     "key": "furnaceAccDoorByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1553,7 +1647,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(b) Front and rear insulating cladding panels. (for wear/tear and damage).",
+                    "value": "<b>(b) Front and rear insulating cladding panels.</b>(for wear/tear and damage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1563,7 +1657,7 @@
                     "key": "externalFrontRear",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1587,7 +1681,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(c) Economiser cladding panels . (for wear/tear and damage).",
+                    "value": "<b>(c) Economiser cladding panels.</b>(for wear/tear and damage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1597,7 +1691,7 @@
                     "key": "externalEconomiserCladding",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1621,7 +1715,7 @@
                 "cells": [
                   {
                     "type": "label",
-                    "value": "(d) Downcomers and uprisers (for state of insulation).",
+                    "value": "<b>(d) Downcomers and uprisers</b>(for state of insulation).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1631,7 +1725,7 @@
                     "key": "externalDowncomers",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1653,10 +1747,18 @@
               {
                 "_id": "sectionone_table_3_row_34",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_34_cell_serial_label", "key": "sno", "type": "serial", "value": "21.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_34_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "21.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Furnace Floor Drain System. (for wear/ tear and freedom from chokage).",
+                    "value": "<b>Furnace Floor Drain System.</b>(for wear/ tear and freedom from chokage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1666,7 +1768,7 @@
                     "key": "furnaceFloorDrainSysByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1688,10 +1790,18 @@
               {
                 "_id": "sectionone_table_3_row_35",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_35_cell_serial_label", "key": "sno", "type": "serial", "value": "22.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_35_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "22.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Furnace Observation Windows and Operating Mechanism. (for ease of operation, cleanliness of glasses and leakage).",
+                    "value": "<b>Furnace Observation Windows and Operating Mechanism.</b>(for ease of operation, cleanliness of glasses and leakage).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1701,7 +1811,7 @@
                     "key": "furnaceObsWindowsByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1723,10 +1833,18 @@
               {
                 "_id": "sectionone_table_3_row_36",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_36_cell_serial_label", "key": "sno", "type": "serial", "value": "23.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_36_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "23.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Boiler Water Sampling System. (for corrosion, preservation and serviceability).",
+                    "value": "<b>Boiler Water Sampling System.</b>(for corrosion, preservation and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1736,7 +1854,7 @@
                     "key": "boilerSamplingSysByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1758,10 +1876,18 @@
               {
                 "_id": "sectionone_table_3_row_37",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_37_cell_serial_label", "key": "sno", "type": "serial", "value": "24.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_37_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "24.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Boiler Dosing System. (for corrosion, preservation and serviceability).",
+                    "value": "<b>Boiler Dosing System.</b>(for corrosion, preservation and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1771,7 +1897,7 @@
                     "key": "boilerDosingSysByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1793,10 +1919,18 @@
               {
                 "_id": "sectionone_table_3_row_38",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_38_cell_serial_label", "key": "sno", "type": "serial", "value": "25.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_38_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "25.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "(a) Smoke observation periscope ( for cleanliness of glass/ port and serviceability).",
+                    "value": "<b>(a) Smoke observation periscope</b>( for cleanliness of glass/ port and serviceability).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1806,7 +1940,7 @@
                     "key": "radiovisorFunnelByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1828,10 +1962,18 @@
               {
                 "_id": "sectionone_table_3_row_39",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_39_cell_serial_label", "key": "sno", "type": "serial", "value": "26.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_39_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "26.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Torch Igniters. (for cleanliness of connector and serviceability /stowage arrangement).",
+                    "value": "<b>Torch Igniters.</b>(for cleanliness of connector and serviceability /stowage arrangement).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1841,7 +1983,7 @@
                     "key": "torchIgnitersByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1863,10 +2005,18 @@
               {
                 "_id": "sectionone_table_3_row_40",
                 "cells": [
-                  { "_id": "sectionone_table_3_row_40_cell_serial_label", "key": "sno", "type": "serial", "value": "27.", "colspan": 1, "rowspan": 1, "align": "left" },
+                  {
+                    "_id": "sectionone_table_3_row_40_cell_serial_label",
+                    "key": "sno",
+                    "type": "serial",
+                    "value": "27.",
+                    "colspan": 1,
+                    "rowspan": 1,
+                    "align": "left"
+                  },
                   {
                     "type": "label",
-                    "value": "Boiler Instrumentation. (Pressure/ temperature gauges and manometers, fitted on/near boiler front and on boiler control panels for completeness and serviceability. Attach details on separate sheet, if available space is inadequate).",
+                    "value": "<b>Boiler Instrumentation.</b>(Pressure/ temperature gauges and manometers, fitted on/near boiler front and on boiler control panels for completeness and serviceability. Attach details on separate sheet, if available space is inadequate).",
                     "colspan": 1,
                     "rowspan": 1,
                     "align": "left"
@@ -1876,7 +2026,7 @@
                     "key": "boilerInstrumentationByShip",
                     "type": "textarea",
                     "value": "",
-                    "rows": 1,
+                    "rows": 3,
                     "required": false,
                     "disabled": false,
                     "placeholder": "",
@@ -1905,11 +2055,8 @@
             "name": "summaryNotes",
             "type": "notes",
             "colSpan": 12,
-            "notesHeading": "<b>Notes:</b>",
-            "notesDescription": "",
-            "notesItems": [
-              "Note:- Reasons are to be state against relevant serials, if any part of the boiler is not examined."
-            ]
+            "notesHeading": "",
+            "notesDescription": "<b>Note:- Reasons are to be state against relevant serials, if any part of the boiler is not examined.</b>"
           },
           {
             "_id": "sectionone_editor_1",
