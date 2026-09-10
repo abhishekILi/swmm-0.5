@@ -197,16 +197,17 @@ export class TransactionTrail implements OnInit, OnDestroy {
             label: 'Edit',
             iconClass: 'fa fa-edit',
             btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200',
-            visible: (row: any) => row?.workflow_rights?.can_edit === true,
+            hidden: (row: any) => row?.workflow_rights?.can_edit !== true,
           },
-          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-green-100 text-green-600 hover:bg-green-200' },
-          { key: 'status', label: 'Status', iconClass: 'fa fa-info-circle', btnClass: 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200' },
+          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-green-100 text-green-600 hover:bg-green-200', hidden: (row: any) => row?.workflow_rights?.can_edit === true },
+          { key: 'status', label: 'Status', iconClass: 'fa fa-info-circle', btnClass: 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200', hidden: (row: any) => row?.workflow_rights?.can_edit !== true },
           { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' },
-          // {
-          //   key: 'report', label: 'Report',
-          //   iconClass: 'fa fa-file-alt',
-          //   btnClass: 'bg-purple-100 text-purple-600 hover:bg-purple-200',
-          // },
+          {
+            key: 'report', label: 'Report',
+            iconClass: 'fa-solid fa-file-lines',
+            btnClass: 'bg-purple-100 text-purple-600 hover:bg-purple-200',
+            
+          },
         ]
       }
     }
@@ -456,9 +457,13 @@ export class TransactionTrail implements OnInit, OnDestroy {
       this.openDeleteDialog(rowData);
     }
     if (action === 'report') {
-      const rawUrl = (rowData?.report_url || '').toString().trim() || '/etma/load-trial-proformaDa-report';
       const trialUuid = rowData?.uuid || rowData?.trial_uuid || '';
-      this.router.navigate([rawUrl], { queryParams: { trial: trialUuid } });
+      this.router.navigate(['/afterAuth/ship-returns/report-view'], {
+        queryParams: {
+          trial: trialUuid,
+          type: 'trials',
+        },
+      });
     }
   }
 

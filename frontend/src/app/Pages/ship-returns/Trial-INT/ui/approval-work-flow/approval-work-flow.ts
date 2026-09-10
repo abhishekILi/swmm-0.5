@@ -225,11 +225,11 @@ export class ApprovalWorkFlow implements OnInit {
     }
     this.apiService.post(url, payload).subscribe((response) => {
       this.notificationService.success('Assignment successful');
+      if (this.activeTab === 'external') {
+        this.goToGenrateReport();
+      }
       if (this.context?.workflow_rights?.can_approve_reject) {
         this.submitDecision();
-      } else {
-        if (this.activeTab === 'external') this.goToGenrateReport();
-
       }
 
       this.closePopup();

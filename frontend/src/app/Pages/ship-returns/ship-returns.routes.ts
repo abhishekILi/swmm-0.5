@@ -107,6 +107,13 @@ export const SHIP_RETURNS_ROUTES: Routes = [
       ),
   },
   {
+    path: "report-view",
+    loadComponent: () =>
+      import("./Trial-INT/report-view").then(
+        (m) => m.ReportComponent
+      ),
+  },
+  {
     path: "srar",
     loadComponent: () =>
       import("./srar/srar.component").then((m) => m.SrarComponent),

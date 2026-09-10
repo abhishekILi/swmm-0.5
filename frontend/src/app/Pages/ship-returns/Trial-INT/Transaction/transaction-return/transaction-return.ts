@@ -184,11 +184,11 @@ export class TransactionReturn implements OnInit, OnDestroy {
         // onMainAction: (row: any) => console.log('Main action', row),
         onAction: (k: string, r: any) => this.triggerOilModal(k, r),
         actions: [
-          { key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200' },
-          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-green-100 text-green-600 hover:bg-green-200' },
-          { key: 'status', label: 'Status', iconClass: 'fa fa-info-circle', btnClass: 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200' },
-          { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200' },
-          // { key: 'report', label: 'Report', iconClass: 'fa fa-file-alt', btnClass: 'bg-purple-100 text-purple-600 hover:bg-purple-200' }
+          { key: 'edit', label: 'Edit', iconClass: 'fa fa-edit', btnClass: 'bg-blue-100 text-blue-600 hover:bg-blue-200', hidden: (row: any) => row?.workflow_rights?.can_edit !== true },
+          { key: 'view', label: 'View', iconClass: 'fa fa-eye', btnClass: 'bg-green-100 text-green-600 hover:bg-green-200', hidden: (row: any) => row?.workflow_rights?.can_edit === true },
+          { key: 'status', label: 'Status', iconClass: 'fa fa-info-circle', btnClass: 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'},
+          { key: 'delete', label: 'Delete', iconClass: 'fa fa-trash', btnClass: 'bg-red-100 text-red-600 hover:bg-red-200'},
+          { key: 'report', label: 'Report', iconClass: 'fa-solid fa-file-lines', btnClass: 'bg-purple-100 text-purple-600 hover:bg-purple-200'}
         ]
       }
     }
@@ -423,9 +423,7 @@ export class TransactionReturn implements OnInit, OnDestroy {
 
     }
     else if (action === 'report') {
-      const reportUrl = rowData?.report_url || '/mtu/e-pol-reports';
-
-      this.router.navigate([reportUrl], {
+      this.router.navigate(['/afterAuth/ship-returns/report-view'], {
         queryParams: {
           trial: rowData?.uuid,
           type: 'returns',
