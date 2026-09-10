@@ -10,7 +10,6 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormCardComponent } from '../../../../ui/form-card/form-card.component';
 import { LoadingButtonComponent } from '../../../../ui/loading-button.component';
-import { ToastComponent } from '../../../../ui/toast/toast.component';
 import { SelectComponent } from '../../../../ui/select.component';
 import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
@@ -32,7 +31,6 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     ReactiveFormsModule,
     FormCardComponent,
     LoadingButtonComponent,
-    ToastComponent,
     SelectComponent,
     CalenderComponent,
     MonthYearCalendarComponent,

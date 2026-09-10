@@ -63,6 +63,10 @@ type ActionDisplayMode = 'float' | 'wrap';
             <circle cx="10" cy="10" r="7"></circle>
             <path d="M10 9v4M10 6.5h.01"></path>
           </svg>
+          <svg *ngSwitchCase="'report'" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
+            <path d="M5 2h7l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"></path>
+            <path d="M12 2v4h4M7 9h6M7 12h6M7 15h4"></path>
+          </svg>
           <i *ngSwitchDefault [class]="action.iconClass"></i>
         </ng-container>
       </button>

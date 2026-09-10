@@ -40,7 +40,6 @@ import {
 } from './seg-hardware-popup-form.shared';
 import { FormCardComponent } from '../../../ui/master-compat';
 import { LucideAngularModule, Save, SaveAllIcon } from '../../../ui/lucide-compat';
-import { LoadingButtonComponent } from '../../../ui/loading-button.component';
 import { SelectComponent } from '../../../ui/select.component';
 import { InputComponent } from '../../../ui/input.component';
 import { TextareaComponent } from '../../../ui/textarea';
@@ -78,7 +77,6 @@ export interface HardwarePopupPrefillContext {
     ReactiveFormsModule,
     FormCardComponent,
     LucideAngularModule,
-    LoadingButtonComponent,
     SelectComponent,
     InputComponent,
     TextareaComponent,

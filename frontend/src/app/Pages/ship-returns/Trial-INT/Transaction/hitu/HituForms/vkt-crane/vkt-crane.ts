@@ -16,10 +16,9 @@ import { ApiService } from '../../../../api.service';
 import { ToastService } from '../../../../services/toast.service';
 import { Apiendpoints } from '../../../../ApiEndPoints';
 import { CalenderComponent } from '../../../../ui/calender.component';
-import { ParameterCardComponent } from '../../../../ui/parameter-card/parameter-card.component';
 import { MonthYearCalendarComponent } from '../../../../ui/month-year-calendar.component';
 import { InputComponent } from '../../../../ui/input.component';
-import { FileUploadComponent, UploadedFileItem } from '../../../../ui/file-upload/file-upload.component';
+import { UploadedFileItem } from '../../../../ui/file-upload/file-upload.component';
 import { FormApiService } from '../../../../angulerFromconverting/form-api.service';
 import { resolveTrialQueryParam,trialRowFromGetFormResponse  } from '../../../../trial-route-prefill';
 import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-work-flow';
@@ -36,11 +35,9 @@ import { ApprovalWorkFlow } from '../../../../ui/approval-work-flow/approval-wor
     ToastComponent,
     SelectComponent,
     CalenderComponent,
-    ParameterCardComponent,
     MonthYearCalendarComponent,
     InputComponent,
-    ApprovalWorkFlow,
-    FileUploadComponent
+    ApprovalWorkFlow
   ],
   templateUrl: './vkt-crane.html',
   styleUrl: './vkt-crane.css',

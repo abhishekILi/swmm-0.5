@@ -168,6 +168,7 @@ interface AgActionCellAction {
   key: string;
   label?: string;
   iconClass?: string;
+  btnClass?: string;
   hidden?: (row: any) => boolean;
 }
 
@@ -184,6 +185,7 @@ const ACTION_TONE: Record<string, string> = {
   status: 'border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300 hover:bg-amber-500/30',
   add: 'border-emerald-500/40 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-500/30',
   delete: 'border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300 hover:bg-rose-500/30',
+  report: 'border-purple-500/40 bg-purple-500/15 text-purple-600 dark:text-purple-300 hover:bg-purple-500/30',
 };
 const DEFAULT_TONE = 'border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white/80 hover:bg-slate-200 dark:hover:bg-white/15';
 
@@ -194,7 +196,7 @@ const DEFAULT_TONE = 'border-slate-300 dark:border-white/20 bg-slate-100 dark:bg
   template: `
     <div class="flex h-full items-center justify-center gap-2">
       <button *ngFor="let action of visibleActions" type="button" (click)="run(action)"
-        [class]="'grid h-8 w-8 place-items-center rounded-full border transition ' + (tone(action.key))"
+        [class]="'grid h-8 w-8 place-items-center rounded-full border transition ' + (action.btnClass || tone(action.key))"
         [title]="action.label || action.key">
         <ng-container [ngSwitch]="action.key.toLowerCase()">
           <svg *ngSwitchCase="'edit'" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
@@ -213,6 +215,10 @@ const DEFAULT_TONE = 'border-slate-300 dark:border-white/20 bg-slate-100 dark:bg
           <svg *ngSwitchCase="'status'" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
             <circle cx="10" cy="10" r="7"></circle>
             <path d="M10 9v4M10 6.5h.01"></path>
+          </svg>
+          <svg *ngSwitchCase="'report'" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
+            <path d="M5 2h7l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"></path>
+            <path d="M12 2v4h4M7 9h6M7 12h6M7 15h4"></path>
           </svg>
           <i *ngSwitchDefault [class]="(action.iconClass || 'fa-solid fa-circle') + ' text-xs'" aria-hidden="true"></i>
         </ng-container>
