@@ -11,10 +11,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None,
 
   template: `
-    <div class="report-container min-h-screen bg-slate-900/90 p-4 md:p-8">
+    <div class="report-container min-h-screen md:p-8">
 
       <!-- Top Toolbar (Print / Back) -->
-      <div class="no-print max-w-[1400px] mx-auto mb-4 flex items-center justify-between bg-slate-800/90 p-3 rounded-lg border border-slate-700/60 shadow-md">
+      <!-- <div class="no-print max-w-[1400px] mx-auto mb-4 flex items-center justify-between bg-slate-800/90 p-3 rounded-lg border border-slate-700/60 shadow-md">
         <button (click)="goBack()" type="button" class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-medium transition-colors cursor-pointer">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
             <path d="M12.5 15L7.5 10L12.5 5"></path>
@@ -28,7 +28,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
           </svg>
           Print / Save PDF
         </button>
-      </div>
+      </div> -->
 
       <!-- Loading State -->
       <div *ngIf="isLoading" class="max-w-[1400px] mx-auto bg-slate-800/50 rounded-xl p-12 text-center border border-slate-700/50 text-slate-300">
@@ -53,132 +53,52 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   `,
 
   styles: [`
-    .report-container {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    /* Force default text color to black inside report paper card */
-    .report-paper-card,
-    .report-content,
-    .report-content p,
-    .report-content span,
-    .report-content div,
-    .report-content h1,
-    .report-content h2,
-    .report-content h3,
-    .report-content h4,
-    .report-content h5,
-    .report-content h6,
-    .report-content table,
-    .report-content th,
-    .report-content td,
-    .report-content tr,
-    .report-content article,
-    .report-content section,
-    .report-content label {
-      color: #000000 !important;
-    }
-
-    /* Preserve white text on dark badge containers (like blue banners) */
-    .report-content .text-white,
-    .report-content [class*="text-white"],
-    .report-content [class*="bg-[#2874c6]"],
-    .report-content [class*="bg-[#2874c6]"] *,
-    .report-content [class*="bg-blue"],
-    .report-content [class*="bg-blue"] * {
-      color: #ffffff !important;
-    }
-
-    /* Preserve red alert text */
-    .report-content .text-red-700,
-    .report-content [class*="text-red-700"] {
-      color: #b91c1c !important;
-    }
-
-    .report-content .text-slate-700,
-    .report-content [class*="text-slate-700"] {
-      color: #334155 !important;
-    }
-
-    .report-content .text-slate-800,
-    .report-content [class*="text-slate-800"] {
-      color: #1e293b !important;
-    }
-
+   
     /* Force all report logos/images to be properly sized and constrained at the top */
-    .report-content img {
-      max-height: 68px !important;
-      max-width: 68px !important;
-      width: 68px !important;
-      height: 68px !important;
-      object-fit: contain !important;
-      display: inline-block !important;
-      vertical-align: middle !important;
-    }
+     .report-content img {
+       max-height: 68px !important;
+       max-width: 68px !important;
+       width: 68px !important;
+       height: 68px !important;
+       object-fit: contain !important;
+       display: inline-block !important;
+       vertical-align: middle !important;
+     }
 
-    /* Ensure dynamic HTML flex wrappers position logos side-by-side with header text */
-    .report-content .flex,
-    .report-content [class*="flex"] {
-      display: flex !important;
-    }
+     /* Report HTML is loaded dynamically, so Tailwind may not generate this utility. */
+     .report-content [class~="!justify-between"],
+     .report-content [class~="justify-between"] {
+       justify-content: space-between !important;
+     }
 
-    .report-content .justify-between,
-    .report-content [class*="justify-between"] {
-      justify-content: space-between !important;
-    }
+     /* Apply colors to the dynamically loaded report header and equipment label. */
+     .report-content [class*="bg-[#dcefd2]"] {
+       background-color: #dcefd2 !important;
+       padding: 5px;
+       border: 3px solid #82919a ;
+     }
 
-    .report-content .items-center,
-    .report-content [class*="items-center"] {
-      align-items: center !important;
-    }
+     .report-content [class*="bg-[#2874c6]"] {
+       background-color: #2874c6 !important;
+       padding: 4px;
+       border-radius: 3px;
+       color: #ffffff !important;
+     }
 
-    /* Fix un-decoded text blocks */
-    .report-content .block,
-    .report-content [class*="block"] {
-      display: block !important;
-    }
+     .report-content h1 {
+       font-size: 1.5rem !important;
+       font-weight: 800 !important;
+       line-height: 1.2 !important;
+     }
 
-    .report-content .text-center,
-    .report-content [class*="text-center"] {
-      text-align: center !important;
-    }
+     .report-content h3 {
+       font-size: 1rem !important;
+       font-weight: 700 !important;
+       line-height: 1.25 !important;
+     }
 
-    /* Table styling for report data */
-    .report-content table {
-      width: 100% !important;
-      border-collapse: collapse !important;
-      margin-top: 12px !important;
-      margin-bottom: 12px !important;
-    }
-
-    .report-content th,
-    .report-content td {
-      padding: 6px 8px !important;
-      border: 1px solid #cbd5e1 !important;
-    }
-
-    .report-content th {
-      background-color: #f1f5f9 !important;
-      font-weight: 600 !important;
-    }
-
-    /* Print styles */
-    @media print {
-      .no-print {
-        display: none !important;
-      }
-      body, .report-container {
-        background: #ffffff !important;
-        padding: 0 !important;
-      }
-      .report-paper-card {
-        box-shadow: none !important;
-        border: none !important;
-        padding: 0 !important;
-        max-width: 100% !important;
-      }
-    }
-  `]
+     
+   `]
 })
 export class ReportComponent implements OnInit {
 
